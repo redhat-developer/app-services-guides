@@ -14,7 +14,7 @@ rhmas login --token=<token-from-token-page>
 rhmas kafka create --name=<your-cluster-name>
 ```
 > NOTE: `your-cluster-name` is the name of your cluster
-> NOTE: the token currently need to come from stagging environment:
+> NOTE: The token currently need to come from stagging environment:
 https://qaprodauth.cloud.redhat.com/openshift/token
 
 Wait a couple of seconds for cluster to provision.
@@ -33,14 +33,14 @@ The rest of the commands assumes that you are logged in to the staging environme
 
 > NOTE: Certificates retrieval part will be automated by the CLI (We'll need some work on the API front).
 
-private certificate
+Retrieve certificates. 
 ```bash
-kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.p12}' | base64 -d > ca.p12
+kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.p12}' | base64 -d > /tmp/ca.p12
 ```
 
-certificate password
+Certificate password
 ```bash
-kubectl get secret <cluster-name>-cluster-ca-cert-o jsonpath='{.data.ca\.password}' | base64 -d > ca.password
+kubectl get secret <cluster-name>-cluster-ca-cert-o jsonpath='{.data.ca\.password}' | base64 -d > /tmp/ca.password
 ```
 
 kafka properties configuration file.
@@ -52,9 +52,10 @@ ssl.truststore.password=<password-from-ca-password-file>
 ssl.truststore.type=PKCS12
 ```
 
-> NOTE: Edit the `<password-from-ca-password-file>` so that it matches the password from `ca.password`. Save the configs to `config.properties` file.
+> NOTE: Edit the `<password-from-ca-password-file>` so that it matches the password from `/tmp/ca.password`file. 
+> Save the configs to `config.properties` file.
 
-## Bootstrap URL
+## Retrieve Bootstrap URL
 
 ```bash
 BOOTSTRAP_URL=$(kubectl get routes | awk 'END{print $2}')
@@ -77,16 +78,15 @@ On another terminal start the consumer
 
 Open your favourate editor and update the [application.properties](src/main/resources/application.properties) with the following content
 
-
 ```properties
-%prod.kafka.bootstrap.servers=<kafka-bootstrap-server>:443
-%prod.kafka.security.protocol=SSL
-%prod.kafka.ssl.truststore.location=ca.p12
-%prod.kafka.ssl.truststore.password=<password-from-ca-password-file>
-%prod.kafka.ssl.truststore.type=PKCS12
+kafka.bootstrap.servers=<kafka-bootstrap-server>:443
+kafka.security.protocol=SSL
+kafka.ssl.truststore.location=/tmp/ca.p12
+kafka.ssl.truststore.password=<password-from-ca-password-file>
+kafka.ssl.truststore.type=PKCS12
 ```
 
-> NOTE: Change `<password-from-ca-password-file>` to match the content `ca.password` file. 
+> NOTE: Change `<password-from-ca-password-file>` to match the content of `/tmp/ca.password` file. 
 
 > NOTE: `<kafka-bootstrap-server>` is the bootstrap server url. See [Bootstrap URL section](#bootstrap-url)
 
@@ -94,12 +94,11 @@ Save, now you are ready to start the application.
 
 ## Start the application
 
-
-The application can be started using: 
+Run the application in dev mode with.
 
 ```bash
 ./mvnw quarkus:dev
-```  
+```
 
 Then, open your browser to `http://localhost:8080/prices.html`, and you should see a fluctuating price.
 
@@ -113,7 +112,7 @@ The result is sent to an in-memory stream of data
 * `PriceResource`  - the `PriceResource` retrieves the in-memory stream of data in which the converted prices are sent and send these prices to the browser using Server-Sent Events.
 
 The interaction with Kafka is managed by MicroProfile Reactive Messaging.
-The configuration is located in the application configuration.
+The configuration is located in the [application configuration](src/main/resources/application.properties).
 
 ## Running in JVM mode
 
@@ -135,7 +134,6 @@ You can compile the application into a native binary using:
 ```bash
 ./mvnw clean install -Pnative
 ```
-
 
 and run with:
 ```bash
