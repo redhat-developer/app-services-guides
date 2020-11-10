@@ -73,7 +73,7 @@ On another terminal start the consumer
 ./bin/kafka-console-consumer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL:443" --consumer.config config.properties
 ```
 
-## Update application.properties
+## Update Quarkus Configuration File
 
 Open your favourate editor and update the [application.properties](src/main/resources/application.properties) with the following content
 
@@ -87,6 +87,7 @@ Open your favourate editor and update the [application.properties](src/main/reso
 ```
 
 > NOTE: Change `<password-from-ca-password-file>` to match the content `ca.password` file. 
+
 > NOTE: `<kafka-bootstrap-server>` is the bootstrap server url. See [Bootstrap URL section](#bootstrap-url)
 
 Save, now you are ready to start the application.
@@ -97,7 +98,7 @@ Save, now you are ready to start the application.
 The application can be started using: 
 
 ```bash
-mvn quarkus:dev
+./mvnw quarkus:dev
 ```  
 
 Then, open your browser to `http://localhost:8080/prices.html`, and you should see a fluctuating price.
@@ -114,11 +115,25 @@ The result is sent to an in-memory stream of data
 The interaction with Kafka is managed by MicroProfile Reactive Messaging.
 The configuration is located in the application configuration.
 
+## Running in JVM mode
+
+Package the application with
+
+```bash
+./mvnw clean package
+```
+
+and run with
+
+```bash
+java -jar target/mas-kafka-1.0-SNAPSHOT-runner.jar
+```
+
 ## Running in native
 
 You can compile the application into a native binary using:
 ```bash
-mvn clean install -Pnative
+./mvnw clean install -Pnative
 ```
 
 
