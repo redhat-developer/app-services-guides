@@ -7,15 +7,15 @@ This project illustrates how you can interact with a Managed Kafka using Quarkus
 
 First you need a Kafka cluster. You can follow the instructions to create one.
 
-Using the [RHMAS CLI](https://github.com/bf2fc6cc711aee1a0c2a/cli/releases), login and create a new cluster with below commands.
-
+Using the [RHMAS CLI](https://github.com/bf2fc6cc711aee1a0c2a/cli/releases), login and create a new cluster:
 
 ```bash
-rhmas login --url=staging --token=<your-token>
-rhmas kafka create --name=cluster-name
+rhmas login --token=<token-from-token-page>
+rhmas kafka create --name=<your-cluster-name>
 ```
-> NOTE: cluster-name is the name of your cluster
-> NOTE: the token comes from https://qaprodauth.cloud.redhat.com/openshift/token
+> NOTE: `your-cluster-name` is the name of your cluster
+> NOTE: the token currently need to come from stagging environment:
+https://qaprodauth.cloud.redhat.com/openshift/token
 
 Wait a couple of seconds for cluster to provision.
 
@@ -24,7 +24,7 @@ You can use the:
 rhmas kafka list
 ``` 
 
-to see the status of the provisioned Kafka command. 
+to check the status of the provisioned Kafka. 
 
 At the moment we are missing the certificates, since this is not returned by the API. 
 To retrieve them, we'll need `kubectl` and access to the staging environment.
@@ -65,7 +65,7 @@ BOOTSTRAP_URL=$(kubectl get routes | awk 'END{print $2}')
 ./bin/kafka-console-producer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL:443" --producer.config config.properties
 ```
 
-Enter a couple messages followed by enter.
+Enter messages followed by enter.
 
 On another terminal start the consumer
 
