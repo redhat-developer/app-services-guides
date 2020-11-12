@@ -1,4 +1,4 @@
-Using Kafkacat with Managed Kafka Quickstart
+Using Bin Scripts with Managed Kafka Quickstart
 ============================================
 
 This project illustrates how you can interact with a Managed Kafka using Kafka Bin Scripts.
