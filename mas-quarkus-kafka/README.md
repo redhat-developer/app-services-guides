@@ -3,6 +3,11 @@ Quarkus Kafka Quickstart
 
 This project illustrates how you can interact with a Managed Kafka using Quarkus.
 
+## Prequisite
+
+- [rhmas cli](https://github.com/bf2fc6cc711aee1a0c2a/cli/releases)
+- [kubectl](https://kubernetes.io/fr/docs/reference/kubectl/overview/). This is temporary required
+
 ## Spinning a Managed Kafka cluster
 
 First you need a Kafka cluster. You can follow the instructions to create one.
@@ -59,19 +64,6 @@ ssl.truststore.type=PKCS12
 
 ```bash
 BOOTSTRAP_URL=$(kubectl get routes | awk 'END{print $2}')
-```
-
-## BinScripts Producer/Consumer to test if cluster was up.
-```bash
-./bin/kafka-console-producer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL:443" --producer.config config.properties
-```
-
-Enter messages followed by enter.
-
-On another terminal start the consumer
-
-```bash
-./bin/kafka-console-consumer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL:443" --consumer.config config.properties
 ```
 
 ## Update Quarkus Configuration File
