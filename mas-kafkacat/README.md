@@ -49,8 +49,11 @@ kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.cert}'
 ## Retrieve Bootstrap URL
 
 ```bash
-BOOTSTRAP_URL=$(kubectl get routes | awk 'END{print $2}')
+CLUSTER_ID=$(rhmas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
+BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq '.bootstrapServerHost')
 ```
+
+Where `<your-cluster-name>` is the name of the cluster.
 
 ## Produce a message.
 ```bash

@@ -64,8 +64,11 @@ ssl.truststore.type=PKCS12
 ## Retrieve Bootstrap URL
 
 ```bash
-BOOTSTRAP_URL=$(kubectl get routes | awk 'END{print $2}')
+CLUSTER_ID=$(rhmas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
+BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq '.bootstrapServerHost')
 ```
+
+Where `<your-cluster-name>` is the name of the cluster.
 
 ## Produce messages.
 

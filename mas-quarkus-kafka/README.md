@@ -63,8 +63,11 @@ ssl.truststore.type=PKCS12
 ## Retrieve Bootstrap URL
 
 ```bash
-BOOTSTRAP_URL=$(kubectl get routes | awk 'END{print $2}')
+CLUSTER_ID=$(rhmas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
+BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq '.bootstrapServerHost')
 ```
+
+Where `<your-cluster-name>` is the name of the cluster.
 
 ## Update Quarkus Configuration File
 
@@ -80,7 +83,7 @@ kafka.ssl.truststore.type=PKCS12
 
 > NOTE: Change `<password-from-ca-password-file>` to match the content of `/tmp/ca.password` file. 
 
-> NOTE: `<kafka-bootstrap-server>` is the bootstrap server url. See [Bootstrap URL section](#bootstrap-url)
+> NOTE: `<kafka-bootstrap-server>` is the bootstrap server url. See [Bootstrap URL section](#retrieve-bootstrap-url)
 
 Save, now you are ready to start the application.
 
