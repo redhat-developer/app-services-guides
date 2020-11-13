@@ -44,7 +44,7 @@ The rest of the commands assumes that you are logged in to the staging environme
 
 Retrieve certificates. 
 ```bash
-kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.cert}' | base64 -d > /tmp/ca.cert
+kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.crt}' | base64 -d > /tmp/ca.cert
 ```
 
 ## Retrieve Bootstrap URL
