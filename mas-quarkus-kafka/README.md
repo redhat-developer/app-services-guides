@@ -6,6 +6,7 @@ This project illustrates how you can interact with a Managed Kafka using Quarkus
 ## Prequisite
 
 - [rhmas cli](https://github.com/bf2fc6cc711aee1a0c2a/cli/releases)
+- [jq](https://stedolan.github.io/jq/)
 - [kubectl](https://kubernetes.io/fr/docs/reference/kubectl/overview/). This is temporary required
 
 ## Spinning a Managed Kafka cluster
@@ -64,7 +65,7 @@ ssl.truststore.type=PKCS12
 
 ```bash
 CLUSTER_ID=$(rhmas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
-BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq '.bootstrapServerHost')
+BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq -r '.bootstrapServerHost')
 ```
 
 Where `<your-cluster-name>` is the name of the cluster.

@@ -7,6 +7,7 @@ This project illustrates how you can interact with a Managed Kafka using [Kafkac
 ## Prequisite
 
 - [Kafkacat](https://github.com/edenhill/kafkacat)
+- [jq](https://stedolan.github.io/jq/)
 - [rhmas cli](https://github.com/bf2fc6cc711aee1a0c2a/cli/releases)
 - [kubectl](https://kubernetes.io/fr/docs/reference/kubectl/overview/). This is temporary required
 
@@ -50,7 +51,7 @@ kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.cert}'
 
 ```bash
 CLUSTER_ID=$(rhmas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
-BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq '.bootstrapServerHost')
+BOOTSTRAP_URL=$(rhmas kafka get $CLUSTER_ID | jq -r '.bootstrapServerHost')
 ```
 
 Where `<your-cluster-name>` is the name of the cluster.
