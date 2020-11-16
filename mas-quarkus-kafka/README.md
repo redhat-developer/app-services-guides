@@ -46,20 +46,8 @@ kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.p12}' 
 
 Certificate password
 ```bash
-kubectl get secret <cluster-name>-cluster-ca-cert-o jsonpath='{.data.ca\.password}' | base64 -d > /tmp/ca.password
+kubectl get secret <cluster-name>-cluster-ca-cert -o jsonpath='{.data.ca\.password}' | base64 -d > /tmp/ca.password
 ```
-
-kafka properties configuration file.
-
-```properties
-security.protocol=SSL
-ssl.truststore.location=ca.p12
-ssl.truststore.password=<password-from-ca-password-file>
-ssl.truststore.type=PKCS12
-```
-
-> NOTE: Edit the `<password-from-ca-password-file>` so that it matches the password from `/tmp/ca.password`file. 
-> Save the configs to `config.properties` file.
 
 ## Retrieve Bootstrap URL
 
