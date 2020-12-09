@@ -2,7 +2,7 @@
 
 Quickstarts and examples for the Managed Services 
 
-## ROSAK Guides (Managed Kafka)
+## RHOSAK Guides (Managed Kafka)
 
 - [Quarkus with Managed Kafka](./mas-quarkus-kafka)
 - [Kafkacat with Managed Kafka](./mas-kafkacat)
