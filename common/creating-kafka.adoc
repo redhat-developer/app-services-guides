@@ -1,56 +1,52 @@
-== Creating Managed Kafka Using CLI
+== Creating Managed Kafka Using rhoas CLI
 
-This project illustrates how you can create and generate connection 
-details for your Managed Kafka cluster
+This guide illustrates how you can create and generate connection 
+details for your Managed Kafka cluster.
 
-NOTE: This guide uses rhoas cli, however users can also execute the same steps in cloud.redhat.com website
+NOTE: This guide uses `rhoas` CLI, however users can also execute the same steps in cloud.redhat.com website.
 
 
-=== Prequisite
+=== Prequisites
 
+* You must have the https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/guides/getting-started.adoc[rhoas CLI installed]
 * Valid account in cloud.redhat.com
-* https://github.com/bf2fc6cc711aee1a0c2a/cli/releases[rhoas cli]
+
+=== Logging in
+
+You can follow https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/guides/logging-in.adoc[this guide] to log in to the CLI.
 
 === Creating a Managed Kafka cluster
 
 First you need a Kafka cluster. You can follow the instructions to
 create one.
 
-Using the https://github.com/bf2fc6cc711aee1a0c2a/cli/releases[RHOAS
-CLI], login and create a new cluster:
-
 [source,bash]
 ----
-rhoas login
 rhoas kafka create --name=<your-cluster-name>
 ----
 
-Wait a couple of seconds for cluster to provision.
-
-You can use the:
-
-[source,bash]
-----
-rhoas kafka list
-----
+Wait a couple of seconds for the cluster to provision.
 
 === Retrieve Bootstrap URL
 
 [source,bash]
 ----
-CLUSTER_ID=$(rhoas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
-BOOTSTRAP_URL=$(rhoas kafka get $CLUSTER_ID | jq -r '.bootstrapServerHost')
+CLUSTER_ID=$(rhoas kafka describe | jq .id -r)
+BOOTSTRAP_URL=$(rhoas kafka describe | jq .bootstrapServerHost -r)
 ----
 
-Where `<your-cluster-name>` is the name of the cluster.
+NOTE: See https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/guides/using-the-cli.adoc[Using the CLI] for more Kafka related commands.
 
 === Create credentials that will be used to connect to cluster
 
+[source,bash]
 ----
-rhoas serviceaccount create --name=<yourname> -o=env
+rhoas serviceaccount create --name=<your-svc-account-name> -o=env
 ----
 
-This will generate .env file with content that should look as follows:
+This will generate a `.env` file with content that should look as follows:
+
+[source,env]
 ----
 USER=srvc-acct-fdsfdsf
 PASSWORD=323fsdf23-fgdsgdffsadsa
