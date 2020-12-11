@@ -6,7 +6,8 @@ https://github.com/edenhill/kafkacat[Kafkacat].
 === Prequisite
 
 * https://github.com/edenhill/kafkacat[Kafkacat]
-* https://stedolan.github.io/jq/[jq]
+* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
+
 
 === Creating Kafka
 

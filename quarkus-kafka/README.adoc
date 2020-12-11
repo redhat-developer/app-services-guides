@@ -5,9 +5,8 @@ Quarkus.
 
 === Prequisite
 
-* https://stedolan.github.io/jq/[jq]
-* https://kubernetes.io/fr/docs/reference/kubectl/overview/[kubectl].
-This is temporary required
+* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
+* mvn installed
 
 === Creating Kafka
 

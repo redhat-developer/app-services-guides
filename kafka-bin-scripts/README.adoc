@@ -7,7 +7,7 @@ Kafka Bin Scripts.
 
 * https://www.apache.org/dyn/closer.cgi?path=/kafka/2.6.0/kafka_2.13-2.6.0.tgz[Kafka
 Bin Scripts]
-* https://stedolan.github.io/jq/[jq]
+* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
 
 === Creating Kafka
 

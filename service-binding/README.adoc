@@ -1,4 +1,9 @@
 == Service Binding
 
-
+This guide illustrates how you can interact with a Managed Kafka to mount it into your 
+project.
  
+ === Creating Kafka
+
+This guide assumes that you already have Kafka and credentials to connect.
+Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
