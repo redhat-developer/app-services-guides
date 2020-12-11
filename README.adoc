@@ -13,3 +13,6 @@ Quickstarts and examples for the Red Hat Managed Services
 > NOTE: Guides were done based on current state of the backend services.
 Our authentication and authorization mechanisms constantly changing. 
 If you happen to see any issues please log issue
+
+> NOTE: Some of the links in the repository reference to the other repositories.
+See migrated folder for copied content from other repositories

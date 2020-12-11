@@ -1,0 +1,43 @@
+== Installation of Operator
+
+> NOTE: Operator is currently in Alpha state and not available on operator hub
+
+=== Installing Operator
+
+==== Prerequisites
+
+- OpenShift (kubernetes cluster)
+- OperatorHub/OLM installed
+
+==== Instruction
+
+Operator can be installed by adding Catalog Source
+
+1. Create catalog source
+----
+kubectl apply -f - << EOD
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+    name: managed-kafka-operator-deployment
+    namespace: openshift-marketplace
+spec:
+    sourceType: grpc
+    image: quay.io/wtrocki/cdd59c7-index:latest
+    displayName: Mananaged Kafka Operator deployment
+    updateStrategy:
+      registryPoll:
+        interval: 20m
+EOD
+----
+2. Once catalog source is added we need to wait around 
+5 minutes for it appear in our catalog. 
+
+3. Go to your OpenShift operator hub (you will need to be admin to be able to perform operator installation)
+
+2. In filter type rhoas
+
+3. Install operator
+
+4. Operator should be installed and functional

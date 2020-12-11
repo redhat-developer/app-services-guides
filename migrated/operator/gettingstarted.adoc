@@ -1,0 +1,121 @@
+== How operator works
+
+=== Supported resources 
+
+- ManagedKafkaConnection
+
+=== ManagedKafkaConnection
+
+ManagedKafkaConnection is an resource that holds information about ManagedKafka like credentials
+and connection urls. When creating ManagedKafkaConnection we will be able to reference it and 
+bind this information inside your own applications.
+
+> NOTE: Operator currently deploys redundant pod/deployment to workaround limitations of the OpenShift topology screen.
+
+=== Operator can be used in two modes
+
+- Using CLI cluster command (recommended)
+- Direcly by manually creating Secret and ManagedKafkaConnection resource
+
+=== CLI 
+
+==== Process of using Operator with CLI
+
+1. Service Binding Operator and Managed Services Operator needs to be installed
+2. Operator registers ManagedKafkaConnection
+3. CLI connect command connects to current kubernetes cluster (or it can skip that)
+4. CLI contacts MAS API to fetch current credentials (or uses one already created)
+5. CLI contacts openshift API to create secret
+6. CLI contacts openshift API to create CR
+7. Manual (Service binding needs to be created on a cluster that has service binding operator and registered Managed Kafka CR)
+
+==== Instruction
+
+1. Follow the CLI guide for installation and setup of the CLI
+2. Make sure that your account has services (ManagedKafka etc.) that we can connect to our cluster
+3. Make sure that you have logged into cluster and namespace that you want to connect with (using oc or kubectl) 
+2. Get familliar with the CLI cluster command section
+
+https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/commands/rhoas_cluster.adoc
+
+It consist of `connect` and `info` commands.
+3. Execute info command to verify all requirements
+----
+rhoas cluster info
+
+Namespace: kafka-binding
+Managed Application Services Operator: Installed 
+----
+
+4. Execute connect command to create new service account for your services and bind them to the cluster
+----
+ rhoas cluster connect
+----
+
+5. Go to toplogy screen in your openshift console. 
+You should be able to bind ManagedKafka with your own service
+
+6. Upon binding environment variables will be injected inside your application pod.
+You can inspect them by executing
+
+
+=== Creating Resources manually
+
+This usage is recomended only for testing operator as it involves 
+creating all resources manually and it __doesn't reference valid credentials__
+
+==== Instruction
+
+1. Create secret that will be referenced in the ManagedKafkaConnection CR
+----
+kubectl apply -f - << EOD
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: kafka-managed-credentials
+data:
+  clientID: YnR0ZzBqbjE3MGhw
+  clientSecret: OTAwNTU5Mjc2MzI4Mjk2MQ==
+type: Opaque
+EOD
+----
+2. Create ManagedKafkaConnection resource
+----
+kubectl apply -f - << EOD
+---
+apiVersion: rhoas.redhat.com/v1
+kind: ManagedKafkaConnection
+metadata:
+  name: kafka-managed
+  namespace: your-namespace
+spec:
+  bootstrapServer:
+    host: 'myhost.apps.openshift.com'
+  credentials:
+    type: ClientCredentialsSecret
+    secretName: kafka-managed-credentials
+EOD
+----
+3. Create service binding
+
+----
+apiVersion: operators.coreos.com/v1alpha1
+kind: ServiceBinding
+metadata:
+  name: managed-kafka-binding-request
+spec:
+  application:
+    group: apps
+    name: nodejs-app
+    resource: deployments
+    version: v1
+  detectBindingResources: true
+  
+  services:
+  - group: rhoas.redhat.com
+    version: v1
+    kind: ManagedKafkaConnection
+    name: managedkafkaconnection-sample
+----
+
