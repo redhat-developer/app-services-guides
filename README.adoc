@@ -9,3 +9,7 @@ Quickstarts and examples for the Red Hat Managed Services
 * link:./kafkacat/README.adoc[Kafkacat with Managed Kafka]
 * link:./kafka-bin-scripts/README.adoc[Kafka Bin Scripts with Managed Kafka]
 * link:./service-binding/README.adoc[Service Binding Kafka for your own cluster]
+
+> NOTE: Guides were done based on current state of the backend services.
+Our authentication and authorization mechanisms constantly changing. 
+If you happen to see any issues please log issue
