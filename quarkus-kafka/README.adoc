@@ -3,6 +3,8 @@
 This project illustrates how you can interact with a Managed Kafka using
 Quarkus.
 
+NOTE: This guide uses rhoas cli, however users can also execute the same steps in cloud.redhat.com website
+
 === Prequisite
 
 * https://github.com/bf2fc6cc711aee1a0c2a/cli/releases[rhoas cli]

@@ -5,10 +5,11 @@ Quickstarts and examples for the Red Hat Managed Services
 === General Guides
 
 * link:./service-binding[Automatically obtain service details applications running on your kubernetes cluster]
+* link:./service-binding[Automatically obtain service details applications running on your kubernetes cluster]
+
+
 
 === Managed Kafka Guides (RHOSAK)
-
-Quickstarts and examples for the SDK’s
 
 * link:./quarkus-kafka[Quarkus Application with Managed Kafka]
 * link:./kafkacat[Kafkacat with Managed Kafka]
