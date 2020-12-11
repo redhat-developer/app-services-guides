@@ -3,60 +3,15 @@
 This project illustrates how you can interact with a Managed Kafka using
 https://github.com/edenhill/kafkacat[Kafkacat].
 
-NOTE: This guide uses rhoas cli, however users can also execute the same steps in cloud.redhat.com website
-
 === Prequisite
 
 * https://github.com/edenhill/kafkacat[Kafkacat]
 * https://stedolan.github.io/jq/[jq]
-* https://github.com/bf2fc6cc711aee1a0c2a/cli/releases[rhoas cli]
-* https://kubernetes.io/fr/docs/reference/kubectl/overview/[kubectl].
-This is temporary required
 
-=== Creating a Managed Kafka cluster
+=== Creating Kafka
 
-First you need a Kafka cluster. You can follow the instructions to
-create one.
-
-Using the https://github.com/bf2fc6cc711aee1a0c2a/cli/releases[RHMAS
-CLI], login and create a new cluster:
-
-[source,bash]
-----
-rhoas login
-rhoas kafka create --name=<your-cluster-name>
-----
-
-Wait a couple of seconds for cluster to provision.
-
-You can use the:
-
-[source,bash]
-----
-rhoas kafka list
-----
-
-=== Retrieve Bootstrap URL
-
-[source,bash]
-----
-CLUSTER_ID=$(rhoas kafka list | grep '<your-cluster-name>' | awk '{print $1}')
-BOOTSTRAP_URL=$(rhoas kafka get $CLUSTER_ID | jq -r '.bootstrapServerHost')
-----
-
-Where `<your-cluster-name>` is the name of the cluster.
-
-=== Create credentials that will be used to connect to cluster
-
-----
-rhoas serviceaccount create --name=<yourname> -o=env
-----
-
-This will generate .env file with content that should look as follows:
-----
-USER=srvc-acct-fdsfdsf
-PASSWORD=323fsdf23-fgdsgdffsadsa
-----
+This guide assumes that you already have Kafka and credentials to connect.
+Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
 
 === Produce a message.
 
