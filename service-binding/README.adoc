@@ -3,8 +3,8 @@
 This guide illustrates how you can interact with a Managed Kafka to mount it into your 
 project using Service Binding operator.
 
-> NOTE: This is technology preview if you looking for fast way to connect your 
-project with managed kafka you can use `rhoas service-account create` command 
+> NOTE: Operator is currently an technology preview. 
+You can connect your project with Managed Kafka using CLI:`rhoas service-account create` command 
 that will output kubernetes secret you can mount into your project/pod.
 
 === Prequisites
@@ -33,7 +33,7 @@ Follow operator link:https://github.com/bf2fc6cc711aee1a0c2a/operator/tree/maste
 https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/commands/rhoas_cluster.adoc
 
 It consist of `connect` and `info` commands.
-3. Execute info command to verify all requirements
+3. Execute info command to verify if your cluster has operator installed
 ----
 rhoas cluster info
 
@@ -46,14 +46,15 @@ Managed Application Services Operator: Installed
  rhoas cluster connect
 ----
 
-5. Go to toplogy screen in your openshift console. 
+5. Go to topology screen in your openshift console. 
 You should be able to bind ManagedKafka with your own service
 
  === Import Sample application
 
-In this example we will import an arbitrary [Node.js application](https://github.com/wtrocki/nodejs-kafka-redhat).
+In this example we will import an [Node.js application](https://github.com/wtrocki/nodejs-kafka-redhat).
 
-In the OpenShift Console switch to the Developer perspective. (Make sure you have selected the the same project that has our ManagedKafkaConnection created). Navigate to the `+Add` page from the menu and then click on the `[From Git]` button. Fill in the form with the following:
+In the OpenShift Console switch to the Developer perspective. 
+(Make sure you have selected the the same project that has our ManagedKafkaConnection created). Navigate to the `+Add` page from the menu and then click on the `[From Git]` button. Fill in the form with the following:
 
 * `Project` = `kafka-binding`
 * `Git Repo URL` = `https://github.com/wtrocki/nodejs-kafka-redhat`
@@ -66,12 +67,13 @@ In the OpenShift Console switch to the Developer perspective. (Make sure you hav
 
 and click on the `[Create]` button.
 
+ === Create and Inspect binding
 
- === Create and inspect binding
-
-1. Go to topology screen and draw arrow from Node.js application to ManagedKafkaConnection deployment
+1. Go to topology screen on your OpenShift cluster
+1.1 Draw arrow from Node.js application to ManagedKafkaConnection deployment
 2. This will create service binding (using service binding operator)
-3. Once binding is created go to Node.js application pod terminal
+3. Once binding is created go to Node.js application pod 
+3.1 Open terminal
 4. Execute
 --- 
  env | grep ManagedKafka
