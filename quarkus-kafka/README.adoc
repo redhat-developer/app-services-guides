@@ -80,7 +80,7 @@ and run with
 
 [source,bash]
 ----
-java -jar target/mas-kafka-1.0-SNAPSHOT-runner.jar
+java -jar target/rhoas-kafka-1.0-SNAPSHOT-runner.jar
 ----
 
 === Running in native
@@ -96,5 +96,5 @@ and run with:
 
 [source,bash]
 ----
-./target/mas-kafka-1.0-SNAPSHOT-runner
+./target/rhoas-kafka-1.0-SNAPSHOT-runner
 ----

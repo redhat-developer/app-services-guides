@@ -1,4 +1,4 @@
-package org.rhmas.kafka;
+package org.rhoas.kafka;
 
 import java.time.Duration;
 import java.util.Random;
