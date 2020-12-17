@@ -13,28 +13,14 @@ Quarkus.
 This guide assumes that you already have Kafka and credentials to connect.
 Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
 
-=== Update Quarkus Configuration File
+=== Configuration
 
-Open your favourate editor and update the
-link:src/main/resources/application.properties[application.properties]
-with the following content
+By default this application will read the configuration from a set of environment variables: the bootstrap host from
+`MANAGEDKAFKACONNECTION_HOST`, and the client credentials from `MANAGEDKAFKACONNECTION_CLIENTID` and
+`MANAGEDKAFKACONNECTION_CLIENTSECRET`.
 
-[source,properties]
-----
-kafka.bootstrap.servers=<kafka-bootstrap-server>:443
-sasl.mechanism=PLAIN
-security.protocol=SASL_SSL
-
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
-  username="<USER>" \
-  password="<PASSWORD>";
-----
-
-____
-NOTE: `<kafka-bootstrap-server>` is the bootstrap server url
-____
-
-Save, now you are ready to start the application.
+If you are using the link:https://github.com/bf2fc6cc711aee1a0c2a/operator[Service Binding Operator] these are the names
+the environment variables it will inject.
 
 === Start the application
 
