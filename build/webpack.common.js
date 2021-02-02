@@ -116,7 +116,8 @@ module.exports = (env, argv, useContentHash) => {
         name: federatedModuleName,
         filename: "remoteEntry.js",
         exposes: {
-          "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated"
+          "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated",
+          "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated"
         },
         shared: {
           ...dependencies,
