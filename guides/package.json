@@ -1,6 +1,6 @@
 {
-  "name": "mas-guides",
-  "federatedModuleName": "masGuides",
+  "name": "guides",
+  "federatedModuleName": "guides",
   "crc": {
     "name": "rhosak-guides-build",
     "bundle": "application-services",
@@ -8,7 +8,7 @@
   },
   "version": "0.0.1",
   "description": "Guides for Red Hat OpenShift Streams for Apache Kafka",
-  "port": "1337",
+  "port": "9001",
   "repository": "https://github.com/bf2fc6cc711aee1a0c2a/mas-guides.git",
   "homepage": "https://cloud.redhat.com/application-services/openshift-streams",
   "license": "MIT",
@@ -39,8 +39,7 @@
     "dr:surge": "node dr-surge.js",
     "build": "webpack --config webpack.prod.js && npm run dr:surge",
     "start": "webpack-cli serve",
-    "start:dev": "webpack serve --https --hot --color --progress --config webpack.dev.js",
-    "start:federate": "HOST=localhost PORT=9001 PROTOCOL=http webpack serve --hot --color --progress --config webpack.dev.js",
+    "start:dev": "webpack serve --hot --color --progress --config webpack.dev.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {

@@ -3,9 +3,9 @@ const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const webpack = require('webpack');
 const { port } = require("./package.json");
-const HOST = process.env.HOST || "prod.foo.redhat.com";
+const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || port;
-const PROTOCOL = process.env.PROTOCOL || "https";
+const PROTOCOL = process.env.PROTOCOL || "http";
 
 const publicPath = `${PROTOCOL}://${HOST}:${PORT}/`;
 
