@@ -9,8 +9,11 @@ import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-ext
 import "@cloudmosaic/quickstarts/dist/quickstarts.css";
 import {loadQuickStarts} from "@app/quickstartLoader";
 
+export type QuickStartDrawerFederatedProps = {
+  basePath?: string
+}
 
-const QuickStartDrawerFederated: FunctionComponent = ({ children }) => {
+const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({ children, basePath }) => {
   const [activeQuickStartID, setActiveQuickStartID] = useLocalStorage(
     "quickstartId",
     ""
@@ -25,7 +28,7 @@ const QuickStartDrawerFederated: FunctionComponent = ({ children }) => {
 
   useEffect(() => {
     const load = async () => {
-      const quickstarts = await loadQuickStarts("")
+      const quickstarts = await loadQuickStarts(basePath || "")
       setAllQuickStarts(quickstarts);
       setAllQuickStartsLoaded(true);
     }
