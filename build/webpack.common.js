@@ -106,7 +106,8 @@ module.exports = (env, argv, useContentHash) => {
         ]
       }),
       new AssetsPlugin({
-        path: './dist'
+        path: './dist',
+        keepInMemory: env === "development"
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
