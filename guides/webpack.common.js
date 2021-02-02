@@ -3,8 +3,13 @@ const path = require("path");
 const webpack = require('webpack');
 const { dependencies, federatedModuleName} = require("./package.json");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const yaml = require("js-yaml");
+const AssetsPlugin = require('assets-webpack-plugin');
+
 
 module.exports = (env, argv, useContentHash) => {
+
   return {
     entry: {
       app: path.resolve(__dirname, 'src', 'index.tsx')
@@ -88,6 +93,22 @@ module.exports = (env, argv, useContentHash) => {
       path: path.resolve(__dirname, 'dist')
     },
     plugins: [
+      new CopyPlugin({
+        patterns: [
+          {
+            from: '../**/*.quickstart.yml',
+            to: 'generated/guides/[name].json',
+            transform(content) {
+              return JSON.stringify(yaml.load(content));
+            },
+            noErrorOnMissing: true
+          }
+        ]
+      }),
+      new AssetsPlugin({
+        path: './dist',
+        keepInMemory: true,
+      }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
       }),
