@@ -40,6 +40,7 @@ import {
   QuickStartContext,
   QuickStartContextValues,
 } from "@cloudmosaic/quickstarts";
+import QuickStartCatalogFederated from "@app/QuickStartCatalogFederated";
 
 class Demo extends React.Component {
   constructor(props) {
@@ -220,28 +221,12 @@ class Demo extends React.Component {
           mainContainerId={pageId}
           isTertiaryNavGrouped
           isBreadcrumbGrouped
-          additionalGroupedContent={
-            <PageSection variant={PageSectionVariants.light}>
-              <TextContent>
-                <Text component="h1">Open quickstart</Text>
-                <Button onClick={onButtonClick}>Open quickstart</Button>
-              </TextContent>
-            </PageSection>
-          }
           groupProps={{
             sticky: "top",
           }}
         >
-          <PageSection>
-            <Gallery hasGutter>
-              {Array.apply(0, Array(20)).map((x, i) => (
-                <GalleryItem key={i}>
-                  <Card>
-                    <CardBody>This is a card</CardBody>
-                  </Card>
-                </GalleryItem>
-              ))}
-            </Gallery>
+            <PageSection variant={PageSectionVariants.light}>
+              <QuickStartCatalogFederated/>
           </PageSection>
         </Page>
       </React.Fragment>
