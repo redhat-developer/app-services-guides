@@ -2,7 +2,7 @@
   "name": "guides",
   "federatedModuleName": "guides",
   "crc": {
-    "name": "rhosak-guides-build",
+    "name": "rhoas-guides-build",
     "bundle": "application-services",
     "beta": true
   },
