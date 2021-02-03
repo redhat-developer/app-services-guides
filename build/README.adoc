@@ -1,0 +1,19 @@
+This module allows us to preview the QuickStarts built in a sample application.
+
+Getting started
+---------------
+
+1. Install the latest version of Node LTS
+2. Run `npm install`
+3. Run `npm run start:dev`
+4. Visit http://localhost:9001 to preview the quickstart - you'll see the QuickStart catalog page.
+
+Authoring QuickStarts
+---------------------
+
+1. Go to the directory containing the sample
+2. Open (or create) the `.quickstart.yml` file
+3. Edit the file
+4. Use the Getting Started section above to run the local server to see a preview
+5. Create a PR with your changes
+6. The PR will automatically generate a `README.adoc` file in the directory for you
