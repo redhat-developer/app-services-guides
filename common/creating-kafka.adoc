@@ -22,7 +22,7 @@ create one.
 
 [source,bash]
 ----
-rhoas kafka create --name=<your-cluster-name>
+rhoas kafka create <your-cluster-name>
 ----
 
 Wait a couple of seconds for the cluster to provision.
