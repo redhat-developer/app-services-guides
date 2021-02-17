@@ -18,7 +18,7 @@ Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
 
 [source,bash]
 ----
-kafkacat -t my-topic -b "$BOOTSTRAP_URL:443" \
+kafkacat -t my-topic -b "$BOOTSTRAP_URL" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username=<USER> \
  -X sasl.password=<PASSWORD> -P
@@ -34,7 +34,7 @@ start the consumer
 
 [source,bash]
 ----
-kafkacat -t my-topic -b "$BOOTSTRAP_URL:443" \
+kafkacat -t my-topic -b "$BOOTSTRAP_URL" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username=<USER> \
  -X sasl.password=<PASSWORD> -C

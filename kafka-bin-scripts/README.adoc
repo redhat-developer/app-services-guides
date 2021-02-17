@@ -32,7 +32,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 [source,bash]
 ----
-./bin/kafka-console-producer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL:443" --producer.config config.properties
+./bin/kafka-console-producer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL" --producer.config config.properties
 
 First message
 Second message
@@ -45,7 +45,7 @@ Start the consumer
 
 [source,bash]
 ----
-./bin/kafka-console-consumer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL:443" --from-beginning --consumer.config config.properties
+./bin/kafka-console-consumer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL" --from-beginning --consumer.config config.properties
 ----
 
 You should see
