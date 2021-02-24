@@ -1,0 +1,94 @@
+// UserStory: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ante ut est suscipit suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris molestie laoreet pharetra. Nulla magna nisl, congue eget augue ut, tempor bibendum leo. Phasellus mollis ex molestie cursus commodo. Curabitur et orci tristique, suscipit velit eget, pretium lectus. Morbi sed eros sed felis facilisis convallis. Pellentesque id euismod massa. Fusce non orci convallis, fermentum eros pulvinar, consequat nulla. Cras at massa massa. Phasellus metus magna, ornare sed purus non, consequat mattis erat. Cras ornare massa molestie, pharetra dui non, euismod tortor. Integer ornare, nunc molestie vestibulum ultrices, velit quam consectetur ex, id tincidunt dui ante quis nulla. Nunc condimentum tempus tellus, sit amet placerat massa euismod tincidunt. Etiam a elementum massa.
+
+[id="adding-health-checks_{context}"]
+= [adoc html] Adding health checks to your sample application
+
+:context: healthcheck-workflow
+
+ifdef::qs[]
+[.qs-duration]
+--
+*Duration:* 5 minutes
+--
+
+[.qs-description]
+--
+You just created a sample application. Now, let’s add health checks to it.
+--
+
+[.qs-prerequisites]
+--
+.Prerequisites
+* Prereq 1
+* Prereq 2
+--
+
+endif::qs[]
+
+[.qs-intro._abstract]
+--
+[discrete]
+== This quick start shows you how to add health checks to your sample application
+You should have previously created the **sample-app** application and **nodejs-sample** deployment using the **Get started with a sample** quick start. If you haven't, you may be able to follow these tasks with any existing deployment without configured health checks.
+--
+
+[.qs-task]
+--
+
+[.qs-task-description]
+====
+[discrete]
+To view the details of your sample application:
+====
+[discrete]
+include::../modules/viewing_the_details_of_your_sample_application.adoc[leveloffset=+1]
+
+--
+
+[.qs-task]
+--
+[.qs-task-description]
+====
+[discrete]
+=== To verify that there your sample application has no health checks configured:
+====
+
+[discrete]
+include::../modules/proc_verify_no_healthchecks.adoc[leveloffset=+1]
+
+ifdef::qs[]
+[.qs-review.failedTaskHelp]
+=====
+This task isn’t verified yet. Try the task again.
+=====
+
+[.qs-summary.success]
+=====
+You have verified that there are no existing health checks!
+=====
+
+[.qs-summary.failed]
+=====
+Try the steps again.
+=====
+endif::qs[]
+--
+
+ifdef::qs[]
+[.qs-conclusion]
+--
+[discrete]
+== Conclusion
+Your sample application now has health checks. To ensure that your application is running correctly, take the *Monitor your sample application* quick start.
+--
+
+[.qs-next-quick-start]
+--
+[]
+link:../monitor-sampleapp{refilesuffix}[Start monitor-sampleapp quick start]
+--
+endif::qs[]
+
+[role="_additional-resources"]
+== Additional resources
+* link:https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/[Product Documentation for {health-check-name}]
