@@ -1,0 +1,14 @@
+[id="viewing_the_details_of_your_sample_application_{context}",role="qs-task-title"]
+= Viewing the details of your sample application
+
+[.qs-task-procedure]
+.Procedure
+. Go to the project your sample application was created in.
+. In the *</> Developer* perspective, go to *Topology*.
+. Click on the *nodejs-sample* deployment to view its details.
+. A side panel is displayed containing the details of your sample application.
+
+[.qs-task-verification]
+.Verification
+. To verify you are viewing the details of your sample application:
+.. Is the side panel titled *nodejs-sample*?

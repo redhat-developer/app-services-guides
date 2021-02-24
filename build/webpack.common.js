@@ -6,7 +6,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const yaml = require("js-yaml");
 const AssetsPlugin = require('assets-webpack-plugin');
-
+const asciidoctor = require('asciidoctor')();
 
 module.exports = (env, argv, useContentHash) => {
 
@@ -96,10 +96,25 @@ module.exports = (env, argv, useContentHash) => {
       new CopyPlugin({
         patterns: [
           {
-            from: '../**/*.quickstart.yml',
-            to: 'generated/guides/[name].json',
-            transform(content) {
-              return JSON.stringify(yaml.load(content));
+            from: '../**/*.quickstart.adoc',
+            to: 'generated/guides/[name].html',
+            transform(content, absoluteFrom) {
+              const base_dir = absoluteFrom.match(/(.*)[\/\\]/)[1]||'';
+              const asciidoctorOptions = {
+                // https://docs.asciidoctor.org/asciidoc/latest/document/doctypes/
+                // article, book, manpage, inline
+                doctype: "article",
+                // add header/footer when true
+                standalone: true,
+                safe: "unsafe",
+                base_dir,
+                sourcemap: true,
+                attributes: {
+                  "qs": "true"
+                }
+              };
+
+              return asciidoctor.convert(content, asciidoctorOptions);
             },
             noErrorOnMissing: true
           }

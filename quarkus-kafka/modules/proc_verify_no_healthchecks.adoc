@@ -1,0 +1,10 @@
+[id="verifying_that_there_are_no_health_checks_{context}",role="qs-task-title"]
+= Verifying that there are no health checks
+
+[.qs-task-procedure]
+.Procedure
+. View the information in the *Resources* tab in the side panel.
+
+[.qs-task-verification]
+.Verification
+. Do you see an inline alert stating that *nodejs-sample* does not have health checks?

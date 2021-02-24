@@ -35,7 +35,8 @@
     "webpack-bundle-analyzer": "^3.9.0",
     "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.2.0"
+    "webpack-merge": "^5.2.0",
+    "asciidoctor": "^2.2.1"
   },
   "scripts": {
     "prebuild": "npm run clean",
@@ -46,7 +47,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@cloudmosaic/quickstarts": "0.0.3-rc2",
+    "@cloudmosaic/quickstarts": "0.0.10",
     "@patternfly/react-core": "^4.90.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
