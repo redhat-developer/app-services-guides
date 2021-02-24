@@ -41,7 +41,7 @@ You should have previously created the **sample-app** application and **nodejs-s
 To view the details of your sample application:
 ====
 [discrete]
-include::../modules/viewing_the_details_of_your_sample_application.adoc[leveloffset=+1]
+include::./modules/viewing_the_details_of_your_sample_application.adoc[leveloffset=+1]
 
 --
 
@@ -54,7 +54,7 @@ include::../modules/viewing_the_details_of_your_sample_application.adoc[leveloff
 ====
 
 [discrete]
-include::../modules/proc_verify_no_healthchecks.adoc[leveloffset=+1]
+include::./modules/proc_verify_no_healthchecks.adoc[leveloffset=+1]
 
 ifdef::qs[]
 [.qs-review.failedTaskHelp]
