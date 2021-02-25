@@ -1,7 +1,7 @@
 // UserStory: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ante ut est suscipit suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris molestie laoreet pharetra. Nulla magna nisl, congue eget augue ut, tempor bibendum leo. Phasellus mollis ex molestie cursus commodo. Curabitur et orci tristique, suscipit velit eget, pretium lectus. Morbi sed eros sed felis facilisis convallis. Pellentesque id euismod massa. Fusce non orci convallis, fermentum eros pulvinar, consequat nulla. Cras at massa massa. Phasellus metus magna, ornare sed purus non, consequat mattis erat. Cras ornare massa molestie, pharetra dui non, euismod tortor. Integer ornare, nunc molestie vestibulum ultrices, velit quam consectetur ex, id tincidunt dui ante quis nulla. Nunc condimentum tempus tellus, sit amet placerat massa euismod tincidunt. Etiam a elementum massa.
 
 [id="adding-health-checks_{context}"]
-= [adoc html] Adding health checks to your sample application
+= Adding health checks to your sample application
 
 :context: healthcheck-workflow
 
@@ -23,13 +23,17 @@ You just created a sample application. Now, let’s add health checks to it.
 * Prereq 2
 --
 
-endif::qs[]
-
 [.qs-intro._abstract]
 --
 [discrete]
 == This quick start shows you how to add health checks to your sample application
+endif::qs[]
+ifndef::qs[]
+[role="_abstract"]
+This quick start shows you how to add health checks to your sample application.
+endif::qs[]
 You should have previously created the **sample-app** application and **nodejs-sample** deployment using the **Get started with a sample** quick start. If you haven't, you may be able to follow these tasks with any existing deployment without configured health checks.
+ifdef::qs[]
 --
 
 [.qs-task]
@@ -41,8 +45,9 @@ You should have previously created the **sample-app** application and **nodejs-s
 To view the details of your sample application:
 ====
 [discrete]
-include::./modules/viewing_the_details_of_your_sample_application.adoc[leveloffset=+1]
-
+endif::qs[]
+include::modules/viewing_the_details_of_your_sample_application.adoc[leveloffset=+1]
+ifdef::qs[]
 --
 
 [.qs-task]
@@ -54,7 +59,8 @@ include::./modules/viewing_the_details_of_your_sample_application.adoc[leveloffs
 ====
 
 [discrete]
-include::./modules/proc_verify_no_healthchecks.adoc[leveloffset=+1]
+endif::qs[]
+include::modules/proc_verify_no_healthchecks.adoc[leveloffset=+1]
 
 ifdef::qs[]
 [.qs-review.failedTaskHelp]
@@ -71,10 +77,9 @@ You have verified that there are no existing health checks!
 =====
 Try the steps again.
 =====
-endif::qs[]
+
 --
 
-ifdef::qs[]
 [.qs-conclusion]
 --
 [discrete]
