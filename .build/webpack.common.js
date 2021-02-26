@@ -1,12 +1,13 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require('webpack');
-const { dependencies, federatedModuleName} = require("./package.json");
+const {dependencies, federatedModuleName} = require("./package.json");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
-const yaml = require("js-yaml");
 const AssetsPlugin = require('assets-webpack-plugin');
-const asciidoctor = require('asciidoctor')();
+const {buildQuickStart} = require('./utils/quickstart-adoc');
+
+const templateDir = process.env.TEMPLATE_DIR;
 
 module.exports = (env, argv, useContentHash) => {
 
@@ -96,28 +97,18 @@ module.exports = (env, argv, useContentHash) => {
       new CopyPlugin({
         patterns: [
           {
-            from: '../**/*.quickstart.adoc',
-            to: 'generated/guides/[name].html',
-            transform(content, absoluteFrom) {
-              const base_dir = absoluteFrom.match(/(.*)[\/\\]/)[1]||'';
-              const asciidoctorOptions = {
-                // https://docs.asciidoctor.org/asciidoc/latest/document/doctypes/
-                // article, book, manpage, inline
-                doctype: "article",
-                // add header/footer when true
-                standalone: true,
-                safe: "unsafe",
-                base_dir,
-                sourcemap: true,
-                attributes: {
-                  "qs": "true"
-                }
-              };
-
-              return asciidoctor.convert(content, asciidoctorOptions);
+            from: '../**/quickstart.yml',
+            to: ({context, absoluteFilename}) => {
+              // The dirname of quickstart is used as the output key
+              const dirName = path.basename(path.dirname(absoluteFilename));
+              return `${dirName}.quickstart.json`
+            },
+            transform: (content, absoluteFilename) => {
+              const basePath = path.dirname(absoluteFilename);
+              return buildQuickStart(content, basePath, {});
             },
             noErrorOnMissing: true
-          }
+          },
         ]
       }),
       new AssetsPlugin({

@@ -1,50 +1,51 @@
-== Using Kafkacat with Managed Kafka Quickstart
+:parent-context: {context}
 
-This project illustrates how you can interact with a Managed Kafka using
-https://github.com/edenhill/kafkacat[Kafkacat].
+// ATTRIBUTES
+// We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
+:Product: bf2
 
-=== Prequisite
+[id='using-kafkacat-{context}']
+= Using Kafkacat with {Product}
 
-* https://github.com/edenhill/kafkacat[Kafkacat]
-* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
+[id=description-{context}]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+[id='task-1-{context}',module-type="proc"]
+== The first task
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+.Prerequisites
+* Prereq 1
+* Prereq 2
+
+.Procedure
+. Step 1
+. Step 2
+
+.Verification
+. Step 1
+. Step 2
+
+[id='task-2-{context}',module-type="proc"]
+== The second task
+Lorem ipsum dolor sit amet, consectetur adipis2
+cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Lorem ipsum dolor sit amet, consectetur adipis2 1
+cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+.Prerequisites
+* Prereq 12
+* Prereq 2
+
+.Procedure
+. Procedure Step 1
+. Procedure Step 2
+
+.Verification
+. Verification Step 1
+. Verification Step 2
 
 
-=== Creating Kafka
-
-This guide assumes that you already have Kafka and credentials to connect.
-Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
-
-=== Produce a message.
-
-[source,bash]
-----
-kafkacat -t my-topic -b "$BOOTSTRAP_URL" \
- -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username=<USER> \
- -X sasl.password=<PASSWORD> -P
-
-First message
-Second message
-Third message
-----
-
-=== Consume a message.
-
-start the consumer
-
-[source,bash]
-----
-kafkacat -t my-topic -b "$BOOTSTRAP_URL" \
- -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username=<USER> \
- -X sasl.password=<PASSWORD> -C
-----
-
-You should see
-
-[source,log]
-----
-First message
-Second message
-Third message
-----
+:context: {parent-context}

@@ -1,82 +1,51 @@
-== Service Binding
+:parent-context: {context}
 
-This guide illustrates how you can interact with a Managed Kafka to mount it into your 
-project using Service Binding operator.
+// ATTRIBUTES
+// We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
+:Product: bf2
 
-> NOTE: Operator is currently an technology preview. 
-You can connect your project with Managed Kafka using CLI:`rhoas service-account create` command 
-that will output kubernetes secret you can mount into your project/pod.
+[id='using-service-binding-{context}']
+= Using Service Binding with {Product}
 
-=== Prequisites
+[id=description-{context}]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
-* RHOAS Operator Running on your own cluster
- 
- === Creating Kafka
+[id='task-1-{context}',module-type="proc"]
+== The first task
 
-This guide assumes that you already have Kafka and credentials to connect.
-Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
- === Installing Operator
+.Prerequisites
+* Prereq 1
+* Prereq 2
 
-Follow operator link:https://github.com/bf2fc6cc711aee1a0c2a/operator/tree/master/docs/installation.adoc[Installation Guide] documentation to install operator
+.Procedure
+. Step 1
+. Step 2
 
- === Creating ManagedKafkaConnection using CLI
+.Verification
+. Step 1
+. Step 2
 
- ==== Instruction
+[id='task-2-{context}',module-type="proc"]
+== The second task
+Lorem ipsum dolor sit amet, consectetur adipis2
+cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-1. Follow the CLI guide for installation and setup of the CLI
-2. Make sure that your account has services (ManagedKafka etc.) that we can connect to our cluster
-3. Make sure that you have logged into cluster and namespace that you want to connect with (using oc or kubectl) 
-2. Get familliar with the CLI cluster command section
+Lorem ipsum dolor sit amet, consectetur adipis2 1
+cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/commands/rhoas_cluster.adoc
+.Prerequisites
+* Prereq 12
+* Prereq 2
 
-It consist of `connect` and `info` commands.
-3. Execute info command to verify if your cluster has operator installed
-----
-rhoas cluster info
+.Procedure
+. Procedure Step 1
+. Procedure Step 2
 
-Namespace: kafka-binding
-Managed Application Services Operator: Installed 
-----
+.Verification
+. Verification Step 1
+. Verification Step 2
 
-4. Execute connect command to create new service account for your services and bind them to the cluster
-----
- rhoas cluster connect
-----
 
-5. Go to topology screen in your openshift console. 
-You should be able to bind ManagedKafka with your own service
-
- === Import Sample application
-
-In this example we will import an [Node.js application](https://github.com/wtrocki/nodejs-kafka-redhat).
-
-In the OpenShift Console switch to the Developer perspective. 
-(Make sure you have selected the the same project that has our ManagedKafkaConnection created). Navigate to the `+Add` page from the menu and then click on the `[From Git]` button. Fill in the form with the following:
-
-* `Project` = `kafka-binding`
-* `Git Repo URL` = `https://github.com/wtrocki/nodejs-kafka-redhat`
-* `Builder Image` = `Node.js`
-* `Application Name` = `nodejs-kafka`
-* `Name` = `nodejs-kafka`
-
-* `Select the resource type to generate` = Deployment
-* `Create a route to the application` = checked
-
-and click on the `[Create]` button.
-
- === Create and Inspect binding
-
-1. Go to topology screen on your OpenShift cluster
-1.1 Draw arrow from Node.js application to ManagedKafkaConnection deployment
-2. This will create service binding (using service binding operator)
-3. Once binding is created go to Node.js application pod 
-3.1 Open terminal
-4. Execute
---- 
- env | grep ManagedKafka
----
-
-You should see environment variables that were injected into your application.
+:context: {parent-context}

@@ -1,0 +1,198 @@
+:Product: bf2
+
+= Contributing to {Product} guides
+
+== Creating a guide
+
+To create a new guide:
+
+. Decide on the _identifier_ for your guide. The identifier should be concise and accurately describe the guide. For example the guide for using {Product} with `kafkacat` has the identifier `kafkacat`. The identifier must be written in lowercase link:https://en.wikipedia.org/wiki/Letter_case#Special_case_styles[kebab case].
+. Create a new directory, using the _identifier_ as the name.
+. Add a `README.adoc` to the directory.
+. TODO Add info on how to write guides that are then split using asciidoc splitter
+
+
+== Repository structure
+
+This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in Quick Starts) in implementations of {Product}.
+
+Each guide is contained in a separate directory. The directory must contain:
+
+`README.adoc`:: contains the guide, written using link:https://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc].
+
+Additionally, the directory may contain:
+
+`quickstart.yml`:: if the guide is also a link:https://github.com/cloudmosaic/quickstarts[quick start], then this file defines the quick start. It normally references snippets of content from the guide that allow for the link:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself[DRY principle] to be applied.
+`pantheon.yml`:: this repository supports the link:https://github.com/redhataccess/pantheon[Pantheon 2.x] modular documentation management and publication system built on top of AsciiDoc. This file defines how the quick start snippets can be loaded from Pantheon rather than directly by Asciidoctor.js.
+Sample code:: Many guides have associated code (and other artifacts such as build files, deployment descriptors and scripts). These are also placed in the directory.
+
+There are a number of additional directories which don't contain guides. These all start with `.`.
+
+The `.build` directory contains a TypeScript project that is used to provide:
+
+* a local preview for quick starts
+* a production build
+* targets to lint all guides
+
+The `.github` directory contains GitHub Actions that are used to validate pull requests.
+
+== Creating a Quick Starts
+
+Many of the guides in this repository are also available as "Quick Starts". Quick Starts are available in the Web UI for the {Product} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
+
+We would always recommend starting with a guide and then adding the Quick Start metadata. This will allow your content to be accessible both in the Web UI and via GitHub.
+
+=== Adding support for quickstart.yml to your IDE
+
+A schema for `quickstart.yml` is provided in `quickstart.schema.json`. To load this into your IDE:
+
+* Follow link:https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom[this guide for IntelliJ], use `**/quickstart.yml` as the file path pattern
+* Install link:https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml[the YAML extension for VS Code], follow the documentation to associate the schema to `**/quickstart.yml`
+
+=== Previewing the quick start locally
+
+The quick start catalog and, the quick start pages can be previewed locally.
+
+. Change your working directory to `.build`
++
+----
+cd .build
+----
++
+. Install the latest version of link:https://nodejs.org/en/about/releases/[Node Active LTS]
+. Install the project dependencies
++
+----
+npm install
+----
++
+. Start the web server
++
+----
+npm run start:dev
+----
++
+. Your web browser should open automatically to http://localhost:9001 and show the quick start catalog
+. Hot reload is enabled meaning saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically
+
+=== Converting your guide into a Quick Start
+
+. Add a `quickstart.yml` file to the same directory as the `README.adoc` for the guide.
++
+. All quick starts must have an `apiVersion: console.openshift.io/v1`, and a `kind: QuickStarts` as well as  an associate array `metadata` with a member with key `name`, which must be given the `identifier` as a value:
++
+----
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: <identifier>
+----
+. The `spec` associative array defines the quick start content. Start by defining the version of the quick start,the URL of an icon to use, and how long the quick start should take to complete.
++
+----
+spec:
+  version: <quick start version>
+  icon: <icon url>
+  durationMinutes: <duration>
+----
++
+. The `displayName` of the quick start is used both in the catalog and as the heading for the quick start drawer.
++
+----
+  displayName: !snippet/title README.adoc#<id>
+----
++
+The `!<tag name>` syntax represents a custom data type in YAML. When the `quickstart.yml` document is deserialized by the YAML parser, the quick start renderer is able to inject content. The `quickstart.yml` parser makes use of custom data types to inject content from an AsciiDoc file into the Quick Start. This allows us to better comply with the DRY principle.
++
+The tag `!snippet/title` allows us to use a link:https://asciidoctor.org/docs/asciidoc-writers-guide/#titles-titles-titles[title] from an AsciiDoc file. In order to this we provide the relative path to an AsciiDoc source file (in this case the `README.adoc` that contains the guide content), followed by the `##` symbol, followed by the link:https://docs.asciidoctor.org/asciidoc/latest/sections/custom-ids/[id] of a link:https://docs.asciidoctor.org/asciidoc/latest/blocks/[block].
++
+Other tags available are `!snippet` (which renders the content of the block as HTML) and `!snippet/proc` (which renders a procedure as a quick start task). All the custom data types described use the same scheme to reference a block.
++
+. The `description` will be rendered in the quick start catalog below the display name.
++
+----
+  description: !snippet README.adoc#description
+----
++
+The `!snippet` tag type allows us to use the content of a link:https://docs.asciidoctor.org/asciidoc/latest/blocks/[block]; it achieves this by rendering the contents of the referenced block as HTML and then using that HTML. The reference scheme is the same as described earlier.
++
+NOTE: In AsciiDoc A block contains the content of any children blocks (e.g. a Level 1 section block contains any Level 2, 3, 4, or 5 section blocks until another Level 1 section block is declared). This can cause a lot of unneeded content to be rendered. A clear understanding of the way blocks work in AsciiDoc is helpful to use the `!snippet` tag.
++
+. The `prerequisites` of the quick start are rendered in the quick start catalog.
++
+----
+  prerequisites:
+    - Requirement 1
+    - Requirement 2
+----
++
+. The `introduction` is used as the content for the first page of the quick start.
++
+----
+  introduction: |-
+    *Lorem* ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+----
++
+NOTE: A `!snippet` tag could be used here, but in this case we chose to inline the text into the `quickstart.yml` as we did not have suitable text to reuse in the guide. link:https://en.wikipedia.org/wiki/Markdown[Markdown] is used to provide formatting for inline text.
++
+. The `conclusion` is used for the content of the final page of the quick start.
++
+----
+  conclusion: |-
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+----
++
+. The `nextQuickStart` list is rendered at the end of the quick start to provide the user with next steps. The value of each list member should be the _identifier_ of another quick start in this repository.
++
+. The bulk of the quick start is the `tasks`. The task can be fully described using `quickstart.yml` however we recommend using the `!snippet/proc` tag to reference an existing link:https://redhat-documentation.github.io/modular-docs/#creating-procedure-modules[procedure].
++
+When building the quick start from the procedure the parser will use the procedure introduction followed by the procedure body for the body of the task. It will use the procedure verification as the review instructions. The procedure additional resources and prerequisites are ignored as the quick start format does not have equivalent areas.
++
+Any section of the task can be overridden by providing the relevant entry in the associative array. In this case a member with key `proc` is used to specify the `!snippet/proc` tag.
++
+. Verify that the quick start is rendering as expected by previewing it locally.
+
+=== Environment Variable in guides and code
+
+One of the benefits of displaying guides within the Web UI is that allows us to have much greater context on what the user is doing.
+
+In keeping with Kubernetes, we recommend using environment variables as a method of providing configuration to applications.
+
+=== Integrating the quick start with Pantheon
+
+link:https://github.com/redhataccess/pantheon[Pantheon 2.x] is a modular documentation management and publication system built on top of AsciiDoc.
+
+NOTE: Currently, Pantheon is integrated with Quick Starts during the Webpack build, meaning that to refresh the content you must rebuild the Quick Starts.
+
+In order to use content published by Pantheon you must map the `!snippet` and `snippet/*` tags that need to use Pantheon to a Pantheon UUID and type. Additionally, you must provide the base URL of your Pantheon server.
+
+. Create a `pantheon.yml` file alongside the `quickstart.yml` file
+. For each tag that needs to reference Pantheon, add it as a member to the root associative array in the `pantheon.yml` with the `<tag> <tag value>` as the key. For example, to map `!snippet/title README.adoc#using-quick-starts` to a Pantheon instance hosted on `pantheon.example.org`:
++
+----
+"!snippet/title README.adoc#using-quick-starts": https://pantheon.example.org/api/assembly/variant.json/53dfb804-2038-4545-b917-2cb01a09ef91
+----
++
+NOTE: Any tags not referenced in `pantheon.yml` will continue to use the AsciiDoc source.
++
+The simplest form of mapping is to simply copy and paste the API URL in. The `!snippet/title` tag will use the value of the `title` key (in either the `assembly` or the `module`). The `!snippet/proc` tag will use the value of the `body` (in either the `assembly` or the `module`) and must reference a module directly. The `!snippet` tag will use the value of the `body` (in either the `assembly` or the `module`), searching for the id in the html.
++
+If more control is required the value of the key in the root associative array should be an associative array, with:
++
+* an `uuid` member that specifies the uuid of the module or assembly to load (required)
+* a `type` member that specifies the type (`module` or `assembly` to load) (required)
+
+Additionally, you may choose to add:
+
+* a `jsonPathExpression` member that overrides the link:https://github.com/dchester/jsonpath#jsonpath-syntax[JSON Path] to the value in the JSON document returned by the Pantheon API. By default, `!snippet` uses `$.\*.body`, `!snippet/title` uses `$.\*.title` and `!snippet/proc` uses `$.\*.body`.
+* a `cssSelector` member that overrides the link:https://www.w3schools.com/cssref/css_selectors.asp[CSS selector] applied to the `body` element of the document returned by the Pantheon API. By default, `!snippet` uses `#<id>` whilst `!snippet/title` and `!snippet/proc` do not use a css selector.
+
+WARNING: When using the local preview with Pantheon the default AsciidoctorJS templates are used rather than the Pantheon templates because the Pantheon template format (Haml) is not supported by Asciidoctor.js
+
+NOTE: The schema for `pantheon.yml` is in `pantheon.schema.json` and can be used in the same way as the `quickstart.schema.json`.
+
+
+
+== Submitting a pull request
+
+TODO

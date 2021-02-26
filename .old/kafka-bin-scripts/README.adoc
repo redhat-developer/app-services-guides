@@ -1,0 +1,58 @@
+== Using Bin Scripts with Managed Kafka Quickstart
+
+This project illustrates how you can interact with a Managed Kafka using
+Kafka Bin Scripts.
+
+=== Prerequisites
+
+* https://www.apache.org/dyn/closer.cgi?path=/kafka/2.6.0/kafka_2.13-2.6.0.tgz[Kafka
+Bin Scripts]
+* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
+
+=== Creating Kafka
+
+This guide assumes that you already have Kafka and credentials to connect.
+Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
+
+=== Create properties file used to connect
+
+Copy USER and PASSWORD values into placeholders
+
+[source,properties]
+----
+sasl.mechanism=PLAIN
+security.protocol=SASL_SSL
+
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="<USER>" \
+  password="<PASSWORD>";
+----
+
+=== Produce messages
+
+[source,bash]
+----
+./bin/kafka-console-producer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL" --producer.config config.properties
+
+First message
+Second message
+Third message
+----
+
+=== Consumimg messages
+
+Start the consumer
+
+[source,bash]
+----
+./bin/kafka-console-consumer.sh -topic my-topic --bootstrap-server "$BOOTSTRAP_URL" --from-beginning --consumer.config config.properties
+----
+
+You should see
+
+[source,log]
+----
+First message
+Second message
+Third message
+----

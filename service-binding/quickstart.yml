@@ -1,0 +1,22 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: service-binding
+spec:
+  version: 0.1
+  displayName: !snippet/title README.adoc#using-service-binding
+  durationMinutes: -1
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - Requirement 1
+    - Requirement 2
+    - Requirement 2
+  introduction: |-
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  tasks:
+    - !snippet/proc README.adoc#task-1
+    - !snippet/proc README.adoc#task-2
+  conclusion: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  nextQuickStart:
+    - 'todo'

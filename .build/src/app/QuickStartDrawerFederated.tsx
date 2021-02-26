@@ -7,7 +7,7 @@ import {
 } from "@cloudmosaic/quickstarts";
 import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-extension.css";
 import "@cloudmosaic/quickstarts/dist/quickstarts.css";
-import {loadQuickStarts} from "@app/quickstartLoader";
+import {loadJSONQuickStarts} from "@app/quickstartLoader";
 
 export type QuickStartDrawerFederatedProps = {
   basePath?: string
@@ -28,7 +28,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
 
   useEffect(() => {
     const load = async () => {
-      const quickstarts = await loadQuickStarts(basePath || "")
+      const quickstarts = await loadJSONQuickStarts(basePath || "")
       setAllQuickStarts(quickstarts);
       setAllQuickStartsLoaded(true);
     }

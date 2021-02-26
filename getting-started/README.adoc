@@ -4,8 +4,8 @@
 // We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
 :Product: bf2
 
-[id='using-kafka-bin-scripts-{context}']
-= Using Kafkacat with {Product}
+[id='getting-started-{context}']
+= Getting Started with {Product}
 
 [id=description-{context}]
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

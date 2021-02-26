@@ -1,0 +1,86 @@
+== Quarkus Kafka Quickstart
+
+This project illustrates how you can interact with a Managed Kafka using
+Quarkus.
+
+=== Prequisite
+
+* Finished link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide
+* mvn installed
+
+=== Creating Kafka
+
+This guide assumes that you already have Kafka and credentials to connect.
+Please follow link:../common/creating-kafka.adoc[Creating Kafka using CLI] guide for more information
+
+=== Configuration
+
+By default this application will read the configuration from a set of environment variables: the bootstrap host from
+`MANAGEDKAFKACONNECTION_HOST`, and the client credentials from `MANAGEDKAFKACONNECTION_CLIENTID` and
+`MANAGEDKAFKACONNECTION_CLIENTSECRET`.
+
+If you are using the link:https://github.com/bf2fc6cc711aee1a0c2a/operator[Service Binding Operator] these are the names
+the environment variables it will inject.
+
+=== Start the application
+
+Run the application in dev mode with.
+
+[source,bash]
+----
+./mvnw quarkus:dev
+----
+
+Then, open your browser to `http://localhost:8080/prices.html`, and you
+should see a fluctuating price.
+
+=== Anatomy
+
+In addition to the `prices.html` page, the application is composed by 3
+components:
+
+* `PriceGenerator` - a bean generating random price. They are sent to a
+Kafka topic
+* `PriceConverter` - on the consuming side, the `PriceConverter`
+receives the Kafka message and convert the price. The result is sent to
+an in-memory stream of data
+* `PriceResource` - the `PriceResource` retrieves the in-memory stream
+of data in which the converted prices are sent and send these prices to
+the browser using Server-Sent Events.
+
+The interaction with Kafka is managed by MicroProfile Reactive
+Messaging. The configuration is located in the
+link:src/main/resources/application.properties[application
+configuration].
+
+=== Running in JVM mode
+
+Package the application with
+
+[source,bash]
+----
+./mvnw clean package
+----
+
+and run with
+
+[source,bash]
+----
+java -jar target/rhoas-kafka-1.0-SNAPSHOT-runner.jar
+----
+
+=== Running in native
+
+You can compile the application into a native binary using:
+
+[source,bash]
+----
+./mvnw clean install -Pnative
+----
+
+and run with:
+
+[source,bash]
+----
+./target/rhoas-kafka-1.0-SNAPSHOT-runner
+----

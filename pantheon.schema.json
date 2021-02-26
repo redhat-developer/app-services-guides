@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json",
+  "type": "object",
+  "description": "Each member represents a mapping from a <tag> <tag value> in the quickstart.yml to the Pantheon API",
+  "default": {},
+  "examples": [
+    {
+      "!snippet/title README.adoc#using-with-quarkus": "https://pantheon.corp.redhat.com/api/assembly/variant.json/53dfb804-2038-4545-b917-2cb01a09ef98",
+      "!snippet README.adoc#description": {
+        "type": "assembly",
+        "uuid": "53dfb804-2038-4545-b917-2cb01a09ef98",
+        "jsonPathExpression": "$.assembly.description",
+        "cssSelector": ".foo"
+      },
+      "!snippet/proc README.adoc#task-1": "https://pantheon.corp.redhat.com/api/module/variant.json/b2c90e5b-a33c-475f-b6af-da7f32532b89",
+      "!snippet/proc README.adoc#task-2": {
+        "type": "module",
+        "uuid": "2f3c3b35-b9f3-4caf-b013-acfc6d5c6b53"
+      }
+    }
+  ],
+  "required": [],
+  "patternProperties": {
+    "^.*$": {
+      "anyOf": [
+        {
+          "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/simple",
+          "type": "string",
+          "description": "A quick and easy way to copy and paste a Pantheon URL. The URL will be parsed to extract the type and UUID",
+          "default": "",
+          "examples": [
+            "https://pantheon.corp.redhat.com/api/assembly/variant.json/53dfb804-2038-4545-b917-2cb01a09ef98",
+            "https://pantheon.corp.redhat.com/api/module/variant.json/b2c90e5b-a33c-475f-b6af-da7f32532b89"
+          ]
+        },
+        {
+          "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full",
+          "type": "object",
+          "description": "Allows full specification of the Pantheon reference",
+          "default": {},
+          "examples": [
+            {
+              "type": "assembly",
+              "uuid": "53dfb804-2038-4545-b917-2cb01a09ef98",
+              "jsonPathExpression": "$.assembly.description",
+              "cssSelector": ".foo"
+            },
+            {
+              "type": "module",
+              "uuid": "2f3c3b35-b9f3-4caf-b013-acfc6d5c6b53"
+            }
+          ],
+          "required": [
+            "type",
+            "uuid"
+          ],
+          "properties": {
+            "type": {
+              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/type",
+              "type": "string",
+              "description": "The Pantheon type (module or assembly)",
+              "examples": [
+                "assembly"
+              ],
+              "enum": ["assembly", "module"]
+            },
+            "uuid": {
+              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/uuid",
+              "type": "string",
+              "examples": [
+                "53dfb804-2038-4545-b917-2cb01a09ef98"
+              ]
+            },
+            "jsonPathExpression": {
+              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/jsonPathExpression",
+              "type": "string",
+              "description": "Override the default JSON Path expression in use. It will be applied to the JSON document returned by the Pantheon API",
+              "default": "",
+              "examples": [
+                "$.assembly.description"
+              ]
+            },
+            "cssSelector": {
+              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/cssSelector",
+              "type": "string",
+              "description": "Override the default CSS Selector expression in use. It will be applied to the $.*.body of the JSON document returned by the Pantheon API",
+              "default": "",
+              "examples": [
+                "#description"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

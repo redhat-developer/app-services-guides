@@ -1,15 +1,17 @@
-== Managed Services Quickstarts
+:PRODUCT: bf2
 
-Quickstarts and examples for the Red Hat Managed Services
+= {PRODUCT} Guides
 
-=== Managed Kafka Guides (RHOSAK)
+Quick Starts and reference guides for {PRODUCT}
 
-* link:./common/creating-kafka.adoc[Creating Kafka using CLI]
-* link:./quarkus-kafka/README.adoc[Quarkus Application with Managed Kafka]
-* link:./kafkacat/README.adoc[Kafkacat with Managed Kafka]
-* link:./kafka-bin-scripts/README.adoc[Kafka Bin Scripts with Managed Kafka]
-* link:./service-binding/README.adoc[Service Binding Operator with Kafka]
+== Quick Starts
 
-> NOTE: Guides were done based on current state of the backend services.
-Our authentication and authorization mechanisms constantly changing. 
-If you happen to see any issues please log issue
+
+
+== Old Content
+
+* link:./.old/common/creating-kafka.adoc[OLD Creating Kafka using CLI]
+* link:./.old/quarkus-kafka/README.adoc[Quarkus Application with Managed Kafka]
+* link:./.old/kafkacat/README.adoc[Kafkacat with Managed Kafka]
+* link:./.old/kafka-bin-scripts/README.adoc[Kafka Bin Scripts with Managed Kafka]
+* link:./.old/service-binding/README.adoc[Service Binding Operator with Kafka]
