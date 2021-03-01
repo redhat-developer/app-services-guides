@@ -1,12 +1,12 @@
 :PRODUCT: bf2
 
-= {PRODUCT} Guides
+= {PRODUCT} Guides & Samples
 
-Quick Starts and reference guides for {PRODUCT}
-
-== Quick Starts
-
-
+* link:./getting-started[The Getting Started Guide]
+* link:./quarkus-kafka[Using {PRODUCT} with Quarkus]
+* link:./kafkacat[Using {PRODUCT} with Kafkacat]
+* link:./kafka-bin-scripts[Using {PRODUCT} with Kafka Bin Scripts]
+* link:./service-binding[Using Service Binding with {PRODUCT}]
 
 == Old Content
 
