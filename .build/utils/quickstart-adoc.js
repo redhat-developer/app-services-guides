@@ -5,10 +5,23 @@ const fs = require("fs");
 const {JSDOM} = require("jsdom");
 const fetch = require('sync-fetch');
 const asciidoctor = require('asciidoctor')();
+const Ajv = require("ajv").default;
 
 const pantheonBaseUrl = process.env.PANTHEON_URL || "https://pantheon.corp.redhat.com/api";
 
-const buildQuickStart = (content, basePath, asciidocOptions) => {
+const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
+
+
+  const validateJSON = (instance, schemaPath) => {
+    const ajv =  new Ajv();
+    const rawSchema = fs.readFileSync(schemaPath, "utf8").toString();
+    const schema = JSON.parse(rawSchema);
+    const validate = ajv.compile(schema);
+    const valid = validate(instance);
+    if (!valid) {
+      throw new Error(`${filePath} ${validate.errors.map(error => error.message).toString()}`);
+    }
+  }
 
   const snippetCache = {};
 
@@ -18,7 +31,9 @@ const buildQuickStart = (content, basePath, asciidocOptions) => {
 
   if (fs.existsSync(pantheonMappingsPath)) {
     // load the pantheon mappings
-    pantheonMappings = yaml.parse(fs.readFileSync(pantheonMappingsPath).toString());
+    pantheonMappings = yaml.parse(fs.readFileSync(pantheonMappingsPath, 'utf8').toString());
+    // validate it
+    validateJSON(pantheonMappings, path.join("../", "pantheon.schema.json"));
   }
 
   const loadSnippet = (ref, tag, type, asciiDocCallback, defaultPathExpression, defaultCssSelector) => {
@@ -163,9 +178,14 @@ const buildQuickStart = (content, basePath, asciidocOptions) => {
     customTags: [snippetTag, procTag, titleTag]
   });
 
+  validateJSON(qs, path.join("../", "quickstart.schema.json"));
+
   // transform the yaml to json for the browser to load
-  return JSON.stringify(qs);
+  const json = JSON.stringify(qs);
+  return json;
 }
+
+
 
 const MODULE_TYPE_ATTRIBUTE = "module-type";
 

@@ -105,7 +105,7 @@ module.exports = (env, argv, useContentHash) => {
             },
             transform: (content, absoluteFilename) => {
               const basePath = path.dirname(absoluteFilename);
-              return buildQuickStart(content, basePath, {});
+              return buildQuickStart(content, absoluteFilename, basePath, {});
             },
             noErrorOnMissing: true
           },

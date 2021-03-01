@@ -246,7 +246,6 @@
               "Requirement 2"
             ]
           ],
-          "additionalItems": false,
           "items": {
             "$id": "#/properties/spec/properties/prerequisites/items",
             "anyOf": [
@@ -300,7 +299,6 @@
               }
             ]
           ],
-          "additionalItems": false,
           "items": {
             "$id": "#/properties/spec/properties/tasks/items",
             "anyOf": [
@@ -332,7 +330,7 @@
                 ],
                 "properties": {
                   "proc": {
-                    "$id": "#/properties/spec/properties/tasks/items/anyOf/0",
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2",
                     "type": "string",
                     "description": "The custom !snippet/proc <file path>#<id> tag",
                     "examples": [
@@ -340,7 +338,7 @@
                     ]
                   },
                   "title": {
-                    "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/title",
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/title",
                     "type": "string",
                     "description": "The title of the Quick Start",
                     "examples": [
@@ -348,7 +346,7 @@
                     ]
                   },
                   "description": {
-                    "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/description",
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/description",
                     "type": "string",
                     "description": "The body of the Quick Start",
                     "default": "",
@@ -357,7 +355,7 @@
                     ]
                   },
                   "review": {
-                    "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/review",
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review",
                     "type": "object",
                     "description": "The messages used review the Quick Start",
                     "default": {},
@@ -369,7 +367,7 @@
                     ],
                     "properties": {
                       "instructions": {
-                        "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/review/properties/instructions",
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review/properties/instructions",
                         "type": "string",
                         "description": "The verification steps",
                         "examples": [
@@ -377,7 +375,7 @@
                         ]
                       },
                       "failedTaskHelp": {
-                        "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/review/properties/failedTaskHelp",
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review/properties/failedTaskHelp",
                         "type": "string",
                         "description": "The message to show if verification fails",
                         "examples": [
@@ -388,7 +386,7 @@
                     "additionalProperties": false
                   },
                   "summary": {
-                    "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/summary",
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary",
                     "type": "object",
                     "description": "The summary screen for the Quick Start task",
                     "default": {},
@@ -400,7 +398,7 @@
                     ],
                     "properties": {
                       "success": {
-                        "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/summary/properties/success",
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary/properties/success",
                         "type": "string",
                         "description": "The success message for the summary screen",
                         "examples": [
@@ -408,7 +406,7 @@
                         ]
                       },
                       "failed": {
-                        "$id": "#/properties/spec/properties/tasks/items/anyOf/0/properties/summary/properties/failed",
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary/properties/failed",
                         "type": "string",
                         "description": "The failure message for the summary screen",
                         "default": "",
@@ -444,7 +442,6 @@
               "install-app-and-associate-pipeline"
             ]
           ],
-          "additionalItems": false,
           "items": {
             "$id": "#/properties/spec/properties/nextQuickStart/items",
             "anyOf": [
