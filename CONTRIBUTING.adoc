@@ -9,7 +9,7 @@ To create a new guide:
 . Decide on the _identifier_ for your guide. The identifier should be concise and accurately describe the guide. For example the guide for using {Product} with `kafkacat` has the identifier `kafkacat`. The identifier must be written in lowercase link:https://en.wikipedia.org/wiki/Letter_case#Special_case_styles[kebab case].
 . Create a new directory, using the _identifier_ as the name.
 . Add a `README.adoc` to the directory.
-. TODO Add info on how to write guides that are then split using asciidoc splitter
+. Use the content from one of `README.adoc` files in another existing guide folder as a template to modify and add documentation to the new file.
 
 
 == Repository structure
@@ -36,7 +36,7 @@ The `.build` directory contains a TypeScript project that is used to provide:
 
 The `.github` directory contains GitHub Actions that are used to validate pull requests.
 
-== Creating a Quick Starts
+== Creating a Quick Start
 
 Many of the guides in this repository are also available as "Quick Starts". Quick Starts are available in the Web UI for the {Product} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
 
@@ -195,4 +195,4 @@ NOTE: The schema for `pantheon.yml` is in `pantheon.schema.json` and can be used
 
 == Submitting a pull request
 
-TODO
+TODO: Every PR should be assigned a dev, QE, and writer reviewer (3 total). This can be done by the contributor or by a repo gatekeeper. Since most content will end up in enterprise, the assigned dev and QE reviewers act as SMEs and technical validators, and the writer ensures that the content is up to enterprise-level quality in substance, formatting, style, mod-doc templates, general tech comm expectations, etc.
