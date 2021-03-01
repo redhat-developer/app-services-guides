@@ -195,4 +195,5 @@ NOTE: The schema for `pantheon.yml` is in `pantheon.schema.json` and can be used
 
 == Submitting a pull request
 
-TODO: Every PR should be assigned a dev, QE, and writer reviewer (3 total). This can be done by the contributor or by a repo gatekeeper. Since most content will end up in enterprise, the assigned dev and QE reviewers act as SMEs and technical validators, and the writer ensures that the content is up to enterprise-level quality in substance, formatting, style, mod-doc templates, general tech comm expectations, etc.
+TODO
+//Every PR should be assigned a dev, QE, and writer reviewer (3 total). This can be done by the contributor or by a repo gatekeeper. The assigned dev and QE reviewers act as SMEs and technical validators, and the writer ensures that the content is up to enterprise-level quality in substance, formatting, style, mod-doc templates, general tech comm expectations, etc.
