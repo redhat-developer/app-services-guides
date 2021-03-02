@@ -46,8 +46,29 @@ Managed Application Services Operator: Installed
  rhoas cluster connect
 ----
 
-5. Go to topology screen in your openshift console. 
-You should be able to bind ManagedKafka with your own service
+5. Save ServiceBinding Object printed by the CLI command to create service binding later. 
+Change application name that we will create in later step. 
+
+
+----
+apiVersion: binding.operators.coreos.com/v1alpha1
+kind: ServiceBinding
+metadata:
+  name: kafka-binding
+  namespace: your-namespace
+spec:
+  application:
+    group: apps
+    name: nodejs-kafka
+    resource: deployments
+    version: v1
+  bindAsFile: true
+  services:
+    - group: rhoas.redhat.com
+      version: v1alpha1
+      kind: ManagedKafkaConnection
+      name: your kafka
+----
 
  === Import Sample application
 
@@ -67,7 +88,15 @@ In the OpenShift Console switch to the Developer perspective.
 
 and click on the `[Create]` button.
 
- === Create and Inspect binding
+ === Create and Inspect binding using CLI
+
+----
+ oc create -f yourservicebinding.yml
+----
+
+ === (Alternative) Create and Inspect binding using OpenShift UI
+
+> NOTE: This option requires OpenShift 3.8
 
 1. Go to topology screen on your OpenShift cluster
 1.1 Draw arrow from Node.js application to ManagedKafkaConnection deployment
