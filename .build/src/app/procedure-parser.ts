@@ -46,10 +46,10 @@ export const ProcQuickStartParser = (
                     if (title) {
                         switch (title?.textContent?.trim()) {
                             case "Procedure":
-                                procedure = child?.querySelector(":not(.heading,.title)")?.outerHTML.trim();
+                                procedure = child?.querySelector(":not(.heading):not(.title)")?.outerHTML.trim();
                                 break;
                             case "Verification":
-                                verification = child?.querySelector(":not(.heading,.title)")?.outerHTML.trim();
+                                verification = child?.querySelector(":not(.heading):not(.title)")?.outerHTML.trim();
                                 break;
                         }
                     } else if (!procedure) {
