@@ -11,26 +11,26 @@
 = Getting Started with {Product}
 
 [id=description-{context}]
-Learn the basics of the `Red Hat OpenShift Streams for Apache Kafka` by creating your first Kafka instance.
+Learn the basics of the {Product} by creating your first Kafka instance.
 
 [id='task-1-{context}',module-type="proc"]
 == Creating a Kafka instance
 
-{Product} is a cloud service. Provisioning a Kafka instance is as simple as specifying a number of configuration properties, like the cloud provider you want to deploy your Kafka instance on, and the region in which your Kafka instance needs to be deployed, and clicking the _Create Instance_ button.
+{Product} is a cloud service. Creating a Kafka instance is as simple as specifying a number of configuration properties, like the cloud provider you want to deploy your Kafka instance on, and the region in which your Kafka instance needs to be deployed, and clicking the _Create Instance_ button.
 
-OpenShift Streams will take care of the rest and deliver a running Kafka instance within a couple of minutes.
+{Product_short} will take care of the rest and deliver a running Kafka instance within a couple of minutes.
 
 .Prerequisites
 * tbd
 
 .Procedure
 . If you're not already in {Product} navigate to https://{Service_URL}[]
-. When you're in the `OpenShift Streams` environment, you will see a left menu panel. This panel provides access to all resources related to the service, including the `Quick Starts` and `Documentation`.
+. When you're in the {Product_short} environment, you will see a left menu panel. This panel provides access to all resources related to the service, including the `Quick Starts` and `Documentation`.
 . In the lower left of the screen you'll see a lightbulb icon. This icon gives access to the `Resource Center`. Here you can find the latest information about the service, like product updates, upcoming events, etc.
 +
 image::rhosak-crc-resource-center.png[]
 +
-. The center of the page shows you the list of Kafka instances that are currently running within your organisation. If this is your, or your organisations, first interaction with `OpenShift Streams`, this list will be empty.
+. The center of the page shows you the list of Kafka instances that are currently running within your organisation. If this is your, or your organisations, first interaction with {Product_short}, this list will be empty.
 + 
 image::rhosak-kafka-overview.png[]
 +
@@ -45,17 +45,17 @@ image::rhosak-create-kafka-form.png[]
 Click on `Create instance` to start the provisioning and deployment of your {Product} instance.
 +
 image::rhosak-create-form-mfos.png[]
-. Your OpenShift Streams instance will be shown in the list, and its status will quickly transition from _Creation pending_ to _Creation in progress_. Creating the instance normally takes 4-5 minutes.
+. Your Kafka instance will be shown in the list, and its status will quickly transition from _Creation pending_ to _Creation in progress_. Creating the instance normally takes 4-5 minutes.
 +
 image::rhosak-creation-in-progress.png[]
 +
-. When your instance is in _Ready_ state, your OpenShift Streams instance is ready to be used.
+. When your instance is in _Ready_ state, your Kafka instance is ready to be used.
 +
 image::rhosak-mfos-ready.png[]
 
 
 .Verification
-. Your Kafka instance named `my-first-openshift-streams` is listed in the OpenShift Streams table.
+. Your Kafka instance named `my-first-openshift-streams` is listed in the Kafka instance table.
 . The status of your Kafka cluster is _Ready_.
 
 [id='task-2-{context}',module-type="proc"]
@@ -67,7 +67,7 @@ information needed to connect to it.
 * tbd
 
 .Procedure
-. In the `OpenShift Streams` environment, click on the _kebab menu_ (the _three dots menu_) on the far right hand side of the Kafka instances list.
+. In the {Product} environment, click on the _kebab menu_ (the _three dots menu_) on the far right hand side of the Kafka instances list.
 +
 image::rhosak-mfos-kebab-menu.png[]
 +
@@ -83,13 +83,13 @@ image::rhosak-mfos-kebab-menu.png[]
 
 [id='task-3-{context}',module-type="proc"]
 == Creating a Service Account
-The OpenShift Streams service is secured by default. To be able to produce messages to it, and consume messages from it, we need to create the credentials that will provide us access to our Kafka instance. This _Service Account_ contains the username and password required to login to the service using the SASL/PLAIN authentication mechanism over TLS.
+The {Product} service is secured by default. To be able to produce messages to it, and consume messages from it, we need to create the credentials that will provide us access to our Kafka instance. This _Service Account_ contains the username and password required to login to the service using the SASL/PLAIN authentication mechanism over TLS.
 
 .Prerequisites
 * tbd
 
 .Procedure
-. With the drawer of your OpenShift Stream instance still open, and on the `Connection` tab, click on the `Generate credential` button. This will create a _Service Account_ and generate credentials for it.
+. With the drawer of your Kafka instance still open, and on the `Connection` tab, click on the `Generate credential` button. This will create a _Service Account_ and generate credentials for it.
 . After a few seconds, a window will open with your `Client ID` and your `Client secret`. This information will only be displayed once, so make sure you copy the _ID_ and _secret_ to a safe place.
 . After you've copied the credentials, check the `I have copied the client ID and secret` checkbox and close the window by clicking the `Close` button.
 . You can close the drawer by clicking on the close icon at the top-right of the drawer.
@@ -103,13 +103,13 @@ The OpenShift Streams service is secured by default. To be able to produce messa
 == Creating a Topic
 Now that you've copied your Bootstrap Server host, created your Service Account and stored the credentials in safe place, it's time to start using the service.
 
-The first thing that we want to do is to create a `topic` to which we will produce and consume messages. Although topics will be auto-created in OpenShift Streams when you send your first message to it, explicitly creating the topic allows you to explicitly specify the topic configuration.
+The first thing that we want to do is to create a `topic` to which we will produce and consume messages. Although topics will be auto-created in {Product_short} when you send your first message to it, explicitly creating the topic allows you to explicitly specify the topic configuration.
 
 .Prerequisites
 * tbd
 
 .Procedure
-. In the `OpenShift Streams` environment, click on your `my-first-openshift-streams` instance to navigate to your Kafka instance.
+. In the {Product} environment, click on your `my-first-openshift-streams` instance to navigate to your Kafka instance.
 . You will see a list of _Topics_, or, if not topics have been created yet, an empty list.
 . To create a topic, click on the `Create Topic` button. A wizard will open that will guide you through the creation process.
 . First we need to specify a name for our topic. Enter the name `redhat-topic` and click `Next`.
