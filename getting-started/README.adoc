@@ -1,5 +1,7 @@
 :parent-context: {context}
 :imagesdir: ./images
+// Placeholder URL, when we get a HOST UI for the service we can put it here properly
+:Service_URL: https://localhost:1234/
 
 // ATTRIBUTES
 // We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
@@ -14,7 +16,7 @@ Learn the basics of the `Red Hat OpenShift Streams for Apache Kafka` by creating
 [id='task-1-{context}',module-type="proc"]
 == Creating a Kafka instance
 
-`Red Hat OpenShift Streams for Apache Kafka` is a fully managed cloud service. Provisioning the environment and deploying a Kafka instance is as simple as specifying a number of configuration properties, like the cloud provider you want to deploy your Kafka instance on, and the region in which your Kafka instance needs to be deployed, and clicking the _Create Instance_ button.
+{Product} is a cloud service. Provisioning a Kafka instance is as simple as specifying a number of configuration properties, like the cloud provider you want to deploy your Kafka instance on, and the region in which your Kafka instance needs to be deployed, and clicking the _Create Instance_ button.
 
 OpenShift Streams will take care of the rest and deliver a running Kafka instance within a couple of minutes.
 
@@ -22,7 +24,7 @@ OpenShift Streams will take care of the rest and deliver a running Kafka instanc
 * tbd
 
 .Procedure
-. If you're not already in the `OpenShift Streams` environment on cloud.redhat.com, navigate to https://cloud.redhat.com/application-services/openshift-streams[]
+. If you're not already in {Product} navigate to https://{Service_URL}[]
 . When you're in the `OpenShift Streams` environment, you will see a left menu panel. This panel provides access to all resources related to the service, including the `Quick Starts` and `Documentation`.
 . In the lower left of the screen you'll see a lightbulb icon. This icon gives access to the `Resource Center`. Here you can find the latest information about the service, like product updates, upcoming events, etc.
 +
@@ -32,7 +34,7 @@ image::rhosak-crc-resource-center.png[]
 + 
 image::rhosak-kafka-overview.png[]
 +
-. To create your first Kafka instance, click on the `Create Kafka instance` button at the top of the screen. This will open a form in which you can specify the configuration of your Kafka instance, like the cloud provider you would like your Kafka instance to be deployed on, and the region in which your instance needs to be deployed.
+. To create your first Kafka instance, click on the `Create Kafka instance` button at the top of the screen. This will open a form in which you can specify the configuration of your Kafka instance such as the cloud provider you would like your Kafka instance to be deployed on, and the region in which your instance needs to be deployed.
 +
 image::rhosak-create-kafka-form.png[]
 . Use the following values for your first Kafka instance:
@@ -40,10 +42,10 @@ image::rhosak-create-kafka-form.png[]
 .. `Cloud provider`: "Amazon Web Services"
 .. `Cloud region`: "US East, N. Virginia"
 .. `Availability zones`: "Multi"
-Click on `Create instance` to start the provisioning and deployment of your `OpenShift Streams for Apache Kafka` instance.
+Click on `Create instance` to start the provisioning and deployment of your {Product} instance.
 +
 image::rhosak-create-form-mfos.png[]
-. Your OpenShift Streams instance will be shown in the list, and its status will quickly transition from _Creation pending_ to _Creation in progress_. Creating the instance will take a couple of minutes.
+. Your OpenShift Streams instance will be shown in the list, and its status will quickly transition from _Creation pending_ to _Creation in progress_. Creating the instance normally takes 4-5 minutes.
 +
 image::rhosak-creation-in-progress.png[]
 +
@@ -54,29 +56,29 @@ image::rhosak-mfos-ready.png[]
 
 .Verification
 . Your Kafka instance named `my-first-openshift-streams` is listed in the OpenShift Streams table.
-. The status of your Kafka cluster is set to _Ready_.
+. The status of your Kafka cluster is _Ready_.
 
 [id='task-2-{context}',module-type="proc"]
-== Inspecting the Kafka instance    details
-With your Kafka instance created, you can now inspect the details of the cluster and retrieve the 
+== Inspecting the Kafka instance
+With your Kafka instance created, you can now inspect the details of the cluster and get the 
 information needed to connect to it.
 
 .Prerequisites
 * tbd
 
 .Procedure
-. In the `OpenShift Streams` environment, click on the _kebab menu_ (the _three dots menu_) on the far right side of your Kafka instance in the Kafka instances list.
+. In the `OpenShift Streams` environment, click on the _kebab menu_ (the _three dots menu_) on the far right hand side of the Kafka instances list.
 +
 image::rhosak-mfos-kebab-menu.png[]
 +
-. Click on `View details`, this will open a drawer with details about the service. It will list the _Cloud provider_, the _Region_, the Kafka instance _ID_, the _Owner_ (the person who create the cluster), and when the cluster was created and update. The _ID_ is a unique identifier of your Kafka instance, and is used in other places in the service, like the Command Line Interface that is available for Red Hat OpenShift Application Services.
-. In the drawer, click on the `Connection` tab. This will show the hostname of the Bootstrap server of your Kafka instance. This is the hostname that you will use in your Kafka client configuration to connect to your Kafka instance.
-. Click on the `Copy to clipboard` icon to the copy the Boostrap Server host to your clipboard. Paste it any text editor, browser bar or terminal to verify the hostname has been correctly copied.
-. This window also provides the functionality to generate the credentials (service account) to access your Kafka instance. We will use this functionality in the next task, so please keep this window open.
+. Click on `View details`, this will open a drawer on the right hand side with details about the service. It will list the _Cloud provider_, the _Region_, the Kafka instance _ID_, the _Owner_ (the person who created the instance), and when the instance was created and last updated. The _ID_ is a unique identifier of your Kafka instance, and is used in other places in the service such as the Command Line Interface.
+. In the drawer, click on the `Connection` tab. This will show the hostname of the Bootstrap server of your Kafka instance. This is the hostname and port that you can use to connect to your Kafka instance.
+. Click on the `Copy to clipboard` icon to the copy the Boostrap Server host to your clipboard. Paste it into your favorite text editor and verify the hostname has been correctly copied.
+. This window also provides the functionality to generate the credentials for a service account which can be used to access your Kafka instance. We will use this functionality in the next task.
 
 .Verification
 . You have seen the `ID` of your Kafka instance.
-. You have copied the Bootstrap server host to your clipboard.
+. You have copied the Bootstrap server and port to your clipboard.
 
 
 [id='task-3-{context}',module-type="proc"]
@@ -87,13 +89,13 @@ The OpenShift Streams service is secured by default. To be able to produce messa
 * tbd
 
 .Procedure
-. With the drawer of your OpenShift Stream instance still open, and on the `Connection` tab, click on the `Generate credential` button. This will generate your _Service Account_ and its credentials.
+. With the drawer of your OpenShift Stream instance still open, and on the `Connection` tab, click on the `Generate credential` button. This will create a _Service Account_ and generate credentials for it.
 . After a few seconds, a window will open with your `Client ID` and your `Client secret`. This information will only be displayed once, so make sure you copy the _ID_ and _secret_ to a safe place.
 . After you've copied the credentials, check the `I have copied the client ID and secret` checkbox and close the window by clicking the `Close` button.
 . You can close the drawer by clicking on the close icon at the top-right of the drawer.
 
 .Verification
-. You have generated a _Service Account_.
+. You have created a _Service Account_.
 . You have copied the _Client id_ and _Client secret_ to a safe location.
 
 
