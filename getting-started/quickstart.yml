@@ -5,18 +5,20 @@ metadata:
 spec:
   version: 0.1
   displayName: !snippet/title README.adoc#getting-started
-  durationMinutes: -1
+  durationMinutes: 10
   icon: ''
   description: !snippet README.adoc#description
   prerequisites:
-    - Requirement 1
-    - Requirement 2
-    - Requirement 2
-  introduction: |-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    - A Red Hat identity
+    - Access to the Red Hat OpenShift Streams for Apache Kafka environment at https://cloud.redhat.com
+  introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#task-1
     - !snippet/proc README.adoc#task-2
-  conclusion: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    - !snippet/proc README.adoc#task-3
+    - !snippet/proc README.adoc#task-4
+  conclusion: Congratulations! You've successfully completed the Red Hat OpenShift Streams for Apache Kafka Getting Started Guide, and are now ready to use the service.
   nextQuickStart:
-    - 'todo'
+    - 'kafkacat'
+    - 'kafka-bin-scripts'
+    - 'quarkus-kafka'
