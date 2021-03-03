@@ -111,6 +111,15 @@ module.exports = (env, argv, useContentHash) => {
           },
         ]
       }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: '../**/images/**/*.png',
+            to: 'images/[name].[ext]',
+            noErrorOnMissing: true
+          }
+        ]
+      }),
       new AssetsPlugin({
         path: './dist',
         keepInMemory: env === "development"
