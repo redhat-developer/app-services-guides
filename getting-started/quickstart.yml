@@ -11,10 +11,7 @@ spec:
   prerequisites:
     - A Red Hat identity
     - Access to the Red Hat OpenShift Streams for Apache Kafka environment at https://cloud.redhat.com
-  introduction: |-
-    Welcome to the Red Hat OpenShift Streams for Apache Kafka Getting Started Guide.
-    
-    In this guide we will walk you through the basics you need to know to get started with our Apache Kafka cloud service.
+  introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#task-1
     - !snippet/proc README.adoc#task-2

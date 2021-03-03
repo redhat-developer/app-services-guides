@@ -13,6 +13,11 @@
 [id=description-{context}]
 Learn the basics of the {Product} by creating your first Kafka instance.
 
+[id=introduction-{context}]
+Welcome to the {Product} Getting Started Guide.
+    
+In this guide we will walk you through the basics you need to know to get started with our Apache Kafka cloud service.
+
 [id='task-1-{context}',module-type="proc"]
 == Creating a Kafka instance
 
