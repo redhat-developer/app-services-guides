@@ -87,3 +87,10 @@ and run with:
 ----
 ./target/rhoas-kafka-1.0-SNAPSHOT-runner
 ----
+
+=== Push to cluster
+
+[source,bash]
+----
+./mvnw clean package -Dquarkus.kubernetes.deploy=true
+----
