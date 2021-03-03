@@ -34,8 +34,6 @@ import {
 } from "@patternfly/react-core";
 import CogIcon from "@patternfly/react-icons/dist/js/icons/cog-icon";
 import HelpIcon from "@patternfly/react-icons/dist/js/icons/help-icon";
-const imgBrand = "/v4/images/pfLogo.ffdafb0c74aa4c9c011251aa8f0c144c.svg";
-const imgAvatar = "/v4/images/avatarImg.6daf7202106fbdb9c72360d30a6ea85d.svg";
 import {
   QuickStartContext,
   QuickStartContextValues,
@@ -106,10 +104,10 @@ class Demo extends React.Component {
       </Nav>
     );
     const kebabDropdownItems = [
-      <DropdownItem>
+      <DropdownItem key="settings">
         <CogIcon /> Settings
       </DropdownItem>,
-      <DropdownItem>
+      <DropdownItem key="help">
         <HelpIcon /> Help
       </DropdownItem>,
     ];
@@ -176,13 +174,12 @@ class Demo extends React.Component {
             />
           </PageHeaderToolsItem>
         </PageHeaderToolsGroup>
-        <Avatar src={imgAvatar} alt="Avatar image" />
       </PageHeaderTools>
     );
 
     const Header = (
       <PageHeader
-        logo={<Brand src={imgBrand} alt="Patternfly Logo" />}
+        logo={<Brand src={<span>Guides</span>} alt="Guides" />}
         headerTools={headerTools}
         showNavToggle
       />

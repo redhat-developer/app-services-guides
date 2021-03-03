@@ -56,8 +56,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@cloudmosaic/quickstarts": "0.0.10",
+    "@cloudmosaic/quickstarts": "0.0.12",
     "@patternfly/react-core": "^4.97.2",
+    "@patternfly/react-icons": "^4.9.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "sync-request": "^6.1.0",
