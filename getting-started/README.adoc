@@ -115,7 +115,7 @@ The first thing that we want to do is to create a `topic` to which we will produ
 
 .Procedure
 . In the {Product} environment, click on your `my-first-openshift-streams` instance to navigate to your Kafka instance.
-. You will see a list of _Topics_, or, if not topics have been created yet, an empty list.
+. You will see a list of _Topics_, or, if no topics have been created yet, an empty list.
 . To create a topic, click on the `Create Topic` button. A wizard will open that will guide you through the creation process.
 . First we need to specify a name for our topic. Enter the name `redhat-topic` and click `Next`.
 . Now we can specify the number of partitions. Since this is our first topic, and we will only be using a single consumer for this topic in our next Quick Starts, we can leave the number of partitions set to 1. Click 'Next'.
