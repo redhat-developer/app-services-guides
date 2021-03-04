@@ -1,0 +1,10 @@
+// ATTRIBUTES
+// These attributes are injected into each content file and override any edits made to the attriutes in the content files. To add or update attributes, edit this source file directly.
+
+ifdef::github,comm[]
+:imagesdir: ./images
+:product: Streams for Apache Kafka
+:product-short: Streams for Apache Kafka
+// Placeholder URL, when we get a HOST UI for the service we can put it here properly
+:service_url: https://localhost:1234/
+endif::[]
