@@ -6,6 +6,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const AssetsPlugin = require('assets-webpack-plugin');
 const {buildQuickStart} = require('./utils/quickstart-adoc');
+const ChunkMapper = require('@redhat-cloud-services/frontend-components-config/chunk-mapper');
 
 const templateDir = process.env.TEMPLATE_DIR;
 
@@ -126,6 +127,11 @@ module.exports = (env, argv, useContentHash) => {
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
+      }),
+      new ChunkMapper({
+        modules: [
+          federatedModuleName
+        ]
       }),
       new webpack.container.ModuleFederationPlugin({
         name: federatedModuleName,
