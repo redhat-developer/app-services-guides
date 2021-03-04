@@ -53,7 +53,8 @@
     "build": "webpack --config webpack.prod.js && npm run dr:surge",
     "start": "webpack-cli serve",
     "start:dev": "webpack serve --hot --color --progress --config webpack.dev.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "generate:attributes": "node ./utils/attributes.js"
   },
   "dependencies": {
     "@cloudmosaic/quickstarts": "0.0.12",

@@ -1,0 +1,4 @@
+# Ignores for attribute generation
+
+_attributes.adoc
+CONTRIBUTING.adoc
