@@ -17,7 +17,7 @@ spec:
     - !snippet/proc README.adoc#task-2
     - !snippet/proc README.adoc#task-3
     - !snippet/proc README.adoc#task-4
-  conclusion: Congratulations! You've successfully completed the Red Hat OpenShift Streams for Apache Kafka Getting Started Guide, and are now ready to use the service.
+  conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'kafkacat'
     - 'kafka-bin-scripts'

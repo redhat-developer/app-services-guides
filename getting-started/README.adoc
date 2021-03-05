@@ -6,6 +6,7 @@
 // ATTRIBUTES
 // We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
 :Product: bf2
+:Product_short: bf2
 
 [id='getting-started-{context}']
 = Getting Started with {Product}
@@ -128,5 +129,8 @@ NOTE: You can increase the number of partitions at a later point in time, but yo
 
 .Verification
 . The topic list contains a topic named `redhat-topic`.
+
+[id=conclusion-{context}]
+Congratulations! You've successfully completed the {Product} Getting Started Guide, and are now ready to use the service.
 
 :context: {parent-context}
