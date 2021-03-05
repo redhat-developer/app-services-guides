@@ -3,49 +3,182 @@
 // ATTRIBUTES
 // We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
 :Product: bf2
+:Product_short: bf2
 
 [id='using-kafkacat_{context}']
 = Using Kafkacat with {Product}
 
+<<<<<<< HEAD
 [id=description_{context}]
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 [id='task-1_{context}',module-type="proc"]
 == The first task
+=======
+[id=description-{context}]
+Learn how to use Kafkacat to interact with a {Product} Kafka instance.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+[id=introduction-{context}]
+Welcome to the {Product} Kafkacat Guide.
+    
+In this guide we will walk you through the basics you need to know to use *Kafkacat* to interact with your Kafka cloud service.
+
+
+[id='task-1-{context}',module-type="proc"]
+== Download and Install Kafkacat
+
+Kafkacat is a generic producer and consumer tool for Apache Kafka. You can use Kafkacat to, for example, test and debug your {Product_short} Kafka instances.
+With Kafkacat you can produce message to, and consume message from, your Kafka instance directly from your terminal.
+>>>>>>> 144cc2a... Initial impl of the Kafkacat guide.
+
+NOTE: Kafkacat is an open-source community tool. It's not a part of {Product} and therefore not supported by Red Hat.
+
+If you already have Kafkacat installed on your system, you can continue to the next task of this tutorial.
 
 .Prerequisites
-* Prereq 1
-* Prereq 2
+* tbd
 
 .Procedure
-. Step 1
-. Step 2
+. Open the https://github.com/edenhill/kafkacat[Kafkacat github repository] in a browser tab, and follow the https://github.com/edenhill/kafkacat#install[installation instructions] for your operating system.
+. With Kafkacat installed, execute `kafkacat -V`. If you've installed Kafkacat correctly, this will print the version of Kafkacat in your terminal.
++
+[source,bash]
+----
+$ kafkacat -V
+
+kafkacat - Apache Kafka producer and consumer tool
+https://github.com/edenhill/kafkacat
+Copyright (c) 2014-2019, Magnus Edenhill
+Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer)
+----
 
 .Verification
-. Step 1
-. Step 2
+. Execute `kafkcat -V` in your terminal. This should print the Kafkacat version information.
 
+<<<<<<< HEAD
 [id='task-2_{context}',module-type="proc"]
 == The second task
 Lorem ipsum dolor sit amet, consectetur adipis2
 cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+=======
+[id='task-2-{context}',module-type="proc"]
+== Producing messages
+Kafkacat is an easy to use command line tool to quickly produce messages to, and consume messages from, Apache Kafka.
+Messages can produced in various ways, for example by reading them from _stdin_, reading them from _syslog, reading them from a file, etc.
 
-Lorem ipsum dolor sit amet, consectetur adipis2 1
-cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+In this task you will produce messages by simply typing them in the terminal. You can find more examples https://github.com/edenhill/kafkacat#examples[here].
+
+Configuration of Kafkacat, for example the location of the Kafka bootstrap server, the authentication scheme, etc. can be set on the command line or configured in a file.
+In this task you will specify configuration settings on the command line. Information on how to specify these configuration settings in a configuration file can be found https://github.com/edenhill/kafkacat#configuration[here].
 
 .Prerequisites
-* Prereq 12
-* Prereq 2
+* Kafkacat installed on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
 
 .Procedure
-. Procedure Step 1
-. Procedure Step 2
+. Get the Bootstrap Server host and port of your {Product_shor} Kafka instance. In the _Getting Started Guide_ we've explained where you can find this information. To quickly recap:
+.. Navigate to the {Product} environment.
+.. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
+.. Copy the _Bootstrap Server_ hostname and port to your clipboard.
+. Get the credentials (_Client ID_ and _Secret_) of your Kafka instance. You've created the Service Account in the _Getting Started Guide_. If you haven't created a Service Account yet, or you if you lost the credentials, generate a new set of credentials from the same UI that you've just copied the _Bootstrap Server_ host by clicking the `Generate credential` button.
+. Start Kafkacat in _producer_ mode. You will use the SASL/PLAIN authentication mechanism. Use the _Client ID_ as the _<USER>_ and _Client Secret_ as the _<PASSWORD>_. Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. If this topic does not exist yet, it will be automatically created with default settings. Execute the following command, replacing the BOOTSTRAP_SERVER, USER and PASSWORD with your settings. You will not see any output.
++
+[source,bash]
+----
+$ kafkacat -t my-topic -b "$BOOTSTRAP_SERVER" \
+ -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
+ -X sasl.username=<USER> \
+ -X sasl.password=<PASSWORD> -P
+----
++
+NOTE: {Product} supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use, and superior to SASL/PLAIN. Unfortunately, Kafkacat does not yet fully support OAUTHBEARER, which is why in this example, you're using SASL/PLAIN.
++
+. With Kafkacat running, you can produce messages by simply typing the message values in the terminal. The following will produce 3 messages to your topic. 
++
+[source,bash]
+----
+First message
+Second message
+Third message
+----
++
+. Keep the producer open. We will use this producer again in one of the following tasks. 
 
 .Verification
-. Verification Step 1
-. Verification Step 2
+. You've a Kafkacat producer running without any errors printed to your console.
+. No errors were printed to the console when you sent the 3 messages.
 
+[id='task-3-{context}',module-type="proc"]
+== Consuming messages
+Apart from producing messages, Kafkacat can also be used to consume messages.
+To consume messages, you simply need to run Kafkacat in _consumer_ mode, which is simply doing by using the `-C` (consumer) switch on the command rather than the `-P` (producer) switch you used in the previous task.
+
+.Prerequisites
+* Kafkacat installed on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
+* Messages produced to the `my-topic` topic as described in the previous task.
+
+.Procedure
+. Using the information retrieved in the previous task, like the _Bootstrap Server_ of your {product_short} Kafka instance and credentials, start Kafkacat in _consumer_ mode. You will consume messages from the same topic, `my-topic` that you produced messages to in the previous task Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. Execute the following command, replacing the BOOTSTRAP_SERVER, USER and PASSWORD with your settings. You should see the 3 messages you produced in the previous task.
++
+[source,bash]
+----
+$ kafkacat -t my-topic -b "$BOOTSTRAP_SERVER" \
+ -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
+ -X sasl.username=<USER> \
+ -X sasl.password=<PASSWORD> -C
+First message
+Second message
+Third message
+% Reached end of topic my-topic [0] at offset 3
+----
++
+. The Kafkacat consumer has consumed the 3 messages you've sent to the topic earlier, and prints that is has reached the end of _partition 0_ of the `my-topic` topic. Keep the consumer, as you will use it in the next task.
+
+.Verification
+. You've a Kafkacat consumer running without any errors printed to your console.
+. Kafkacat consumed the 3 messages you've sent to the `my-topic` topic in the previous task.
+>>>>>>> 144cc2a... Initial impl of the Kafkacat guide.
+
+[id='task-4-{context}',module-type="proc"]
+== This needs a proper title
+Now that you've produced and consumed some messages, and have your Kafkacat producer and Kafkacat consumer still running, we can produce and consume some more messages.
+
+.Prerequisites
+* A Kafkacat producer running and connected to your {Product_short} Kafka instance, producing to your `my-topics` topic.
+* A Kafkacat consumer running and connected to your {Product_short} Kafka instance, consuming from your `my-topics` topic.
+
+.Procedure
+. In your terminal with the running Kafkacat producer, send the following message.
++
+[source,bash]
+----
+My own messsage
+----
++
+. Switch to the terminal in which you have your Kafkacat consumer running. You should see your message being consumed.
++
+[source,bash]
+----
+First message
+Second message
+Third message
+% Reached end of topic my-topic [0] at offset 3
+My own message
+% Reached end of topic my-topic [0] at offset 4
+----
++
+. Produce some more messages to your {Product_short} Kafka instance and see how they are being consumed by your Kafkacat consumer.
+
+.Verification
+. You've produced the _My own message_ to your `my-topic` Kafka topic without errors.
+. The _My own message_ was successfully consumed by your Kafkacat consumer.
+
+[id=conclusion-{context}]
+Congratulations! You've successfully completed the {Product} Kafkacat Guide, and are now ready to produce message to, and consume messages from, the service.
 
 :context: {parent-context}
