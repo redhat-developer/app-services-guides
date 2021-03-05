@@ -20,7 +20,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of cloud applications and services, you can use the {product-long} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product} is a fully managed cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to manually install, set up, and maintain your own Kafka clusters.
+As a developer of applications and services, you can use the {product-long} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product} is a cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
 
 *<@SME: I'm trying for a clear value/why statement above. Feel free to tweak or correct.>*
 
