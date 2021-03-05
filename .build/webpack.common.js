@@ -138,7 +138,7 @@ module.exports = (env, argv, useContentHash) => {
       }),
       new webpack.container.ModuleFederationPlugin({
         name: federatedModuleName,
-        filename: `${federatedModuleName}${useContentHash ? '.[chunkhash]' : ''}.js`,
+        filename: `${federatedModuleName}.${useContentHash ? '.[chunkhash:8]' : ''}.js`,
         exposes: {
           "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated",
           "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated"
