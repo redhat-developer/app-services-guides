@@ -22,13 +22,8 @@ ifdef::context[:parent-context: {context}]
 [role="_abstract"]
 As a developer of applications and services, you can use the {product-long} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product} is a cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
 
-*<@SME: I'm trying for a clear value/why statement above. Feel free to tweak or correct.>*
-
-*<@SME: What prereqs do we need below for the entire story?>*
-
 .Prerequisites
-* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Wdyt?>*.
-* You have access to the {product} web console.
+* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have access to an application or service that you want to connect to a Kafka instance in {product-long}.
 
 // Condition out QS-only content so that it doesn't appear in docs.
@@ -51,8 +46,10 @@ endif::[]
 
 A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services. You can use the {product} web console to create and configure a Kafka instance for your applications or services.
 
+ifndef::qs[]
 .Prerequisites
 * You are logged in to the {product} web console at {service-url}.
+endif::[]
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, click *Create Kafka instance* and define the following instance details. Some values currently have only one option.
