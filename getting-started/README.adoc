@@ -39,7 +39,7 @@ ifdef::qs[]
 Learn how to create and set up your first Apache Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Getting Started quick start. In this quick start, you will learn how to create and inspect a Kafka instance, create a service account so that you can connect to the instance, and create a topic in the instance.
+Welcome to the {product-long} Getting Started quick start. In this quick start, you will learn how to create and inspect a Kafka instance, connect an application or service to the instance, and create a topic in the instance.
 endif::[]
 
 [id="con-product-overview_{context}"]
@@ -71,7 +71,7 @@ endif::[]
 * *Cloud provider*: Select `Amazon Web Services`.
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
-. Click *Create instance* to start the provision and deployment process of your Kafka instance.
+. Click *Create instance* to start the provision and deployment process for your Kafka instance.
 +
 --
 .Kafka instance configuration details
@@ -82,7 +82,7 @@ The new Kafka instance is listed in the instances table. When the instance *Stat
 .New Kafka instance in Ready state
 image::sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
 --
-. On the right side of the Kafka instance in table, use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance as needed.
+. On the right side of the Kafka instance in the table, use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance as needed.
 +
 .Kafka instance options menu
 image::sak-kafka-instance-options.png[Image of Kafka instance options menu]
@@ -143,9 +143,9 @@ NOTE: You can increase the number of partitions later, but you cannot decrease t
 * *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
 * *Replicas*: Set the number of partition replicas for the topic and the minimum number of follower replicas that must be in sync with a partition leader. This example sets the replica factor and in-sync replicas to `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 
-The new Kafka topic is listed in the topics table. The messages between the Kafka instance and the connected services are now streamed in this configured topic.
+After you complete the topic setup, the new Kafka topic is listed in the topics table. The messages between the Kafka instance and the connected services are now streamed in this configured topic.
 --
-. On the right side of the Kafka instance in the table, use the options icon (three vertical dots) to edit or delete the topic as needed.
+. On the right side of the Kafka topic in the table, use the options icon (three vertical dots) to edit or delete the topic as needed.
 
 .Edit or delete Kafka topic
 image::sak-edit-topic.png[Image of topic options to edit or delete]
