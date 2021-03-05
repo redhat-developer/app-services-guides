@@ -102,7 +102,10 @@ module.exports = (env, argv, useContentHash) => {
             to: ({context, absoluteFilename}) => {
               // The dirname of quickstart is used as the output key
               const dirName = path.basename(path.dirname(absoluteFilename));
-              return `${dirName}.quickstart.json`
+              if (env === "development") {
+                return `${dirName}.quickstart.json`
+              }
+              return `${dirName}.[contenthash].quickstart.json`
             },
             transform: (content, absoluteFilename) => {
               const basePath = path.dirname(absoluteFilename);
@@ -116,7 +119,7 @@ module.exports = (env, argv, useContentHash) => {
         patterns: [
           {
             from: '../**/images/**/*.png',
-            to: 'images/[name].[ext]',
+            to: env === "development" ? 'images/[name][ext]' : 'images/[name].[contenthash][ext]',
             noErrorOnMissing: true
           }
         ]
@@ -135,7 +138,7 @@ module.exports = (env, argv, useContentHash) => {
       }),
       new webpack.container.ModuleFederationPlugin({
         name: federatedModuleName,
-        filename: `${federatedModuleName}${useContentHash ? '.[chunkhash]' : ''}.js`,
+        filename: "remoteEntry.js",
         exposes: {
           "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated",
           "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated"
