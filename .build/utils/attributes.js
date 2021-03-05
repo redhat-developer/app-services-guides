@@ -11,13 +11,31 @@ const attributesFooterComment = "\n////\n" +
     "END GENERATED ATTRIBUTES\n" +
     "////";
 
+const attributesFileName = path.join("_artifacts", "document-attributes.adoc");
 
 const injectAttributes = () => {
 
     const rootDir = path.normalize(`${__dirname}/../../`);
 
-    const rawAttributes = fs.readFileSync(path.join(rootDir, "_attributes.adoc"), "utf-8").toString();
-    const attributes = rawAttributes.split("\n").filter(line => !line.trim().startsWith("// _attributes.adoc")).join("\n");
+    const rawAttributes = fs.readFileSync(path.join(rootDir, attributesFileName), "utf-8").toString();
+    const lines = rawAttributes.split("\n");
+    let lastCommentLine = 0;
+    // If there is a // comment at the start of the file
+
+    lines.some((line, index) => {
+       if (line.startsWith("//")) {
+           lastCommentLine = index + 1;
+       } else {
+           // Break once we are no longer in the comment
+           return true;
+       }
+       return false;
+    });
+
+
+    const attributes = lines.slice(lastCommentLine).join("\n");
+
+    console.log(`Injecting attributes:\n ${attributes}`);
 
     const ignoreFiles = [];
 
@@ -27,6 +45,8 @@ const injectAttributes = () => {
         const pattern = `${__dirname}/../../${g}`;
         ignoreFiles.push(...glob.sync(pattern));
     });
+
+    console.log(`\ninto:\n`);
 
     glob(`${__dirname}/../../**/*.adoc`, {}, (er, files) => {
         files.forEach(file => {
@@ -38,7 +58,8 @@ const injectAttributes = () => {
             const fIndex = data.indexOf(attributesFooterComment);
             let output = data;
             let injected = `${attributesHeaderComment}${attributes}${attributesFooterComment}`;
-            if (hIndex > 0 && fIndex > 0) {
+            if (hIndex >= 0 && fIndex > 0) {
+                console.log(file);
                 const before = data.substring(0, hIndex);
                 const after = data.substr(fIndex + attributesFooterComment.length);
                 output = `${before}${injected}${after}`;
