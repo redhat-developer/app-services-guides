@@ -1,60 +1,56 @@
 // ATTRIBUTES
 // These are injected from the attributes.adoc file and will override anything already here. To add or update attributes, edit the source attributes.adoc file directly.
-
-
-
-
-
-:imagesdir: ./images
+// Do not delete attributes with identical values, such as :product-long: and :product:. These are intentional because although they are identical here, they are not in other renderings of this source file.
 
 ifdef::github,comm[]
+:imagesdir: ./images
+:product-long: Streams for Apache Kafka
 :product: Streams for Apache Kafka
-:product-short: Streams for Apache Kafka
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
 :service_url: https://localhost:1234/
 endif::[]
 
 [id="chap-getting-started"]
-= Getting Started with {product}
+= Getting Started with {product-long}
 ifdef::context[:parent-context: {context}]
 :context: getting-started
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of cloud applications and services, you can use the {product} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product-short} is a fully managed cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to manually install, set up, and maintain your own Kafka clusters.
+As a developer of cloud applications and services, you can use the {product-long} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product} is a fully managed cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to manually install, set up, and maintain your own Kafka clusters.
 
 *<@SME: I'm trying for a clear value/why statement above. Feel free to tweak or correct.>*
 
 *<@SME: What prereqs do we need below for the entire story?>*
 
 .Prerequisites
-* You have a subscription to {product}. For more information about signing up, see *<@SME: Wdyt?>*.
-* You have access to the {product-short} web console.
-* You have access to the applications or services that you want to connect to a Kafka instance in {product}.
+* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Wdyt?>*.
+* You have access to the {product} web console.
+* You have access to the applications or services that you want to connect to a Kafka instance in {product-long}.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
-Learn how to create and set up your first Apache Kafka instance in {product}.
+Learn how to create and set up your first Apache Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product} Getting Started quick start. In this quick start, you will learn how to create and inspect a Kafka instance, create a service account so that you can connect to the instance, and create a topic in the instance.
+Welcome to the {product-long} Getting Started quick start. In this quick start, you will learn how to create and inspect a Kafka instance, create a service account so that you can connect to the instance, and create a topic in the instance.
 endif::[]
 
 [id="con-product-overview_{context}"]
-== {product}
+== {product-long}
 
-{product} is a fully managed cloud service running on https://www.openshift.com/products/dedicated/[OpenShift Dedicated]. {product-short} enables you to implement Kafka data-streaming functionality in your applications without having to manually install, set up, and maintain your own Kafka clusters. With {product-short}, you can share data between microservices and other applications with high throughput and low latency. {product-short} includes AMQ Streams functionality that makes Kafka an OpenShift-native offering with operators that simplify the deployment, configuration, management, and use of Kafka on OpenShift.
+{product-long} is a fully managed cloud service running on https://www.openshift.com/products/dedicated/[OpenShift Dedicated]. {product} enables you to implement Kafka data-streaming functionality in your applications without having to manually install, set up, and maintain your own Kafka clusters. With {product}, you can share data between microservices and other applications with high throughput and low latency. {product} includes AMQ Streams functionality that makes Kafka an OpenShift-native offering with operators that simplify the deployment, configuration, management, and use of Kafka on OpenShift.
 
 [id="proc-creating-kafka-instance_{context}"]
-== Creating a Kafka instance in {product-short}
+== Creating a Kafka instance in {product}
 
-A Kafka instance in {product-short} includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services. You can use the {product-short} web console to create and configure a Kafka instance for your applications or services.
+A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services. You can use the {product} web console to create and configure a Kafka instance for your applications or services.
 
 ifdef::docs[]
 .Prerequisites
-* You are logged in to the {product-short} web console at {service-url}.
+* You are logged in to the {product} web console at {service-url}.
 endif::[]
 
 .Procedure
@@ -63,7 +59,7 @@ endif::[]
 * *Cloud provider*: Select `Amazon Web Services`.
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
-. Click *Create instance* to start the provision and deployment of your Kafka instance.
+. Click *Create instance* to start the provision and deployment process of your Kafka instance.
 +
 --
 .Kafka instance configuration details
@@ -94,16 +90,16 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 ////
 
 [id="proc-connecting-kafka-instance_{context}"]
-== Connecting to a Kafka instance in {product-short}
+== Connecting to a Kafka instance in {product}
 
-To connect your applications or services to a Kafka instance in the {product-short} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product} uses the SASL/PLAIN authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. When you generate credentials for a Kafka instance, {product-short} creates a service account that contains the generated user name and password associated with the instance.
+To connect your applications or services to a Kafka instance in the {product} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product-long} uses the SASL/PLAIN authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
 
 .Prerequisites
-* You have created a Kafka instance in the {product-short} web console.
+* You have created a Kafka instance in the {product} web console.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, on the right side of the relevant Kafka instance, select the options icon (three vertical dots) and click *Connect to instance*.
-. In the *Connection* page, copy the *External server* location to a secure location. Your application requires this server location to connect to the Kafka instance.
+. In the *Connection* page, copy the *External server* address to a secure location. Your application requires this server address to connect to the Kafka instance.
 . Click *Generate credential*, copy the *Client ID* and *Client secret* to a secure location, and select the confirmation check box to close the credentials window. Your application requires these credentials to authenticate the connection to the Kafka instance.
 +
 IMPORTANT: The generated credentials are displayed only one time, so ensure that you have successfully and securely saved the copied credentials before closing the credentials window.
@@ -111,19 +107,19 @@ IMPORTANT: The generated credentials are displayed only one time, so ensure that
 . Use the server and client information that you copied to configure your application connection details accordingly.
 
 [id="proc-creating-kafka-topic_{context}"]
-== Creating a Kafka topic in {product-short}
+== Creating a Kafka topic in {product}
 
 After you create a Kafka instance and connect your applications or services to that instance, you can create Kafka topics to start producing and consuming messages in your services.
 
 .Prerequisites
-* You have created a Kafka instance in the {product-short} web console and connected your applications or services to it.
+* You have created a Kafka instance in the {product} web console and connected your applications or services to it.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, select the Kafka instance to which you want to add a topic.
-. Click *Create topic* and follow the wizard steps to define the topic details. Click *Next* to complete each step.
+. Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 --
-.Wizard to define topic details
+.Guided steps to define topic details
 image::sak-create-topic.png[Image of wizard to create a topic]
 
 * *Topic name*: Enter a unique hyphenated topic name, such as `my-first-kafka-topic` in this example.
@@ -132,12 +128,12 @@ image::sak-create-topic.png[Image of wizard to create a topic]
 NOTE: You can increase the number of partitions later, but you cannot decrease them.
 +
 
-* *Message retention*: Set the message retention time in the relevant increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
-* *Replicas*: Set the number of partition replicas for the topic and the minimum number of in-sync replicas. This example sets the replica factor and in-sync replicas to `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
+* *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
+* *Replicas*: Set the number of partition replicas for the topic and the minimum number of follower replicas that must be in sync with a partition leader. This example sets the replica factor and in-sync replicas to `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 
-The new Kafka topic is listed in the topics table. The messages between the Kafka instance and the connected services are now logged in this configured topic.
+The new Kafka topic is listed in the topics table. The messages between the Kafka instance and the connected services are now streamed in this configured topic.
 --
-. On the right side of the Kafka instance in table, use the options icon (three vertical dots) to edit or delete the topic as needed.
+. On the right side of the Kafka instance in the table, use the options icon (three vertical dots) to edit or delete the topic as needed.
 
 .Edit or delete Kafka topic
 image::sak-edit-topic.png[Image of topic options to edit or delete]
