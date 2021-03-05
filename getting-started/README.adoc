@@ -29,7 +29,7 @@ As a developer of cloud applications and services, you can use the {product-long
 .Prerequisites
 * You have a subscription to {product-long}. For more information about signing up, see *<@SME: Wdyt?>*.
 * You have access to the {product} web console.
-* You have access to the applications or services that you want to connect to a Kafka instance in {product-long}.
+* You have access to an application or service that you want to connect to a Kafka instance in {product-long}.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
