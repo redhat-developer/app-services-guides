@@ -4,6 +4,7 @@
 
 
 :community:
+:imagesdir: ./images
 :product-long: bf2fc6cc711aee1a0c2a
 :product: bf2
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
