@@ -8,6 +8,7 @@ const asciidoctor = require('asciidoctor')();
 const Ajv = require("ajv").default;
 
 const pantheonBaseUrl = process.env.PANTHEON_URL || "https://pantheon.corp.redhat.com/api";
+const attributesFile = process.env.ATTRIBUTES_FILE || "quickstart-attributes.yml";
 
 const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
 
@@ -36,6 +37,25 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
     validateJSON(pantheonMappings, path.join("../", "pantheon.schema.json"));
   }
 
+  let attributes;
+
+  if (fs.existsSync(attributesFile)) {
+    attributes = yaml.parse(fs.readFileSync(attributesFile, "utf-8").toString()) || {};
+  } else {
+    attributes = {}
+  }
+  // Inject auto-set attributes
+  attributes.qs = "true";
+
+  if (!asciidocOptions) {
+    asciidocOptions = {};
+  }
+  if (asciidocOptions.attributes) {
+    // Already set, merge them, using the ones passed in as higher precedent
+    Object.assign(attributes, asciidocOptions.attributes);
+  }
+  asciidocOptions.attributes = attributes;
+
   const loadSnippet = (ref, tag, type, asciiDocCallback, defaultPathExpression, defaultCssSelector) => {
     if (pantheonMappings) {
       // Load from pantheon, if mapped
@@ -54,6 +74,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
       const filePath = path.normalize(path.join(basePath, fileName));
       const adoc = asciidoctor.loadFile(filePath, asciidocOptions);
       // create an array with all the blocks in the doc in it
+      const context = adoc.getAttribute("context", "{context}");
       const blocks = flattenBlocks(adoc);
       blocks
         // only blocks with an id can be used
@@ -61,12 +82,17 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
         // If we are looking for a particular moduleType, we can filter for it
         .filter(block => type ? getModuleType(block) === type : true)
         .forEach(block => {
-          const id = block.getId().replace(/-\{context\}$/, "");
+          // create versions with, and without, the context
+          const id = block.getId();
+          const contextLessId = block.getId().replace(`_${context}`, "");
           snippetCache[`${fileName}#${id}`] = block;
+          if (!snippetCache[`${fileName}#${contextLessId}`]) {
+            snippetCache[`${fileName}#${contextLessId}`] = block;
+          }
         });
     }
     if (!snippetCache[ref]) {
-      throw new Error(`unable to locate snippet for ${tag} ${ref}`);
+      throw new Error(`${filePath} unable to locate snippet for ${tag} ${ref}`);
     }
     // Apply the callback, if passed
     if (asciiDocCallback) {

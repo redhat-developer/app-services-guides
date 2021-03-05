@@ -1,6 +1,0 @@
-// _attributes.adoc provides the attributes for all adoc files in this repo. Run npm --prefix .build run generate:attributes to update all adoc files
-
-// Placeholder URL, when we get a HOST UI for the service we can put it here properly
-:Service_URL: https://localhost:1234/
-// Long version of the product name
-:Product: bf2fc6cc711aee1a0c2a

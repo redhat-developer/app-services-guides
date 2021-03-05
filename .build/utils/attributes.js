@@ -48,7 +48,7 @@ const injectAttributes = () => {
 
     console.log(`\ninto:\n`);
 
-    glob(`${__dirname}/../../**/*.adoc`, {}, (er, files) => {
+    glob(`${__dirname}/../../**/*.a?(scii)doc`, {}, (er, files) => {
         files.forEach(file => {
             // Skip if file is ignored
             if (ignoreFiles.includes(file)) return;
