@@ -50,7 +50,7 @@ endif::[]
 {product} also has the following key attributes:
 
 * *Scales with your application needs*: As your applications and services grow and require more Kafka instances, topics, and data, {product} can scale to meet those needs.
-* *Provides flexible user control*: You can use the {product} web console UI or the relevant {product} API to configure the service as you need.
+* *Provides flexible user control*: You can use the {product} web console UI or the relevant {product} API to configure the service as you desire.
 ifndef::community[]
 * *Offers a Service Level Agreement (SLA)*: You can rely on the service functionality as defined in the SLA.
 endif::[]
@@ -82,7 +82,7 @@ The new Kafka instance is listed in the instances table. When the instance *Stat
 .New Kafka instance in Ready state
 image::sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
 --
-. On the right side of the Kafka instance in the table, use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance as needed.
+. In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance as needed.
 +
 .Kafka instance options menu
 image::sak-kafka-instance-options.png[Image of Kafka instance options menu]
@@ -145,7 +145,7 @@ NOTE: You can increase the number of partitions later, but you cannot decrease t
 
 After you complete the topic setup, the new Kafka topic is listed in the topics table. The messages between the Kafka instance and the connected services are now streamed in this configured topic.
 --
-. On the right side of the Kafka topic in the table, use the options icon (three vertical dots) to edit or delete the topic as needed.
+. In the topics table, on the right side of the Kafka topic, use the options icon (three vertical dots) to edit or delete the topic as needed.
 
 .Edit or delete Kafka topic
 image::sak-edit-topic.png[Image of topic options to edit or delete]
