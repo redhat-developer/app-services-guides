@@ -78,7 +78,7 @@ In this task you will specify configuration settings on the command line. Inform
 * The credentials of the Service Account to authenticate against the Kafka instance.
 
 .Procedure
-. Get the Bootstrap Server host and port of your {Product_shor} Kafka instance. In the _Getting Started Guide_ we've explained where you can find this information. To quickly recap:
+. Get the Bootstrap Server host and port of your {Product_short} Kafka instance. In the _Getting Started Guide_ we've explained where you can find this information. To quickly recap:
 .. Navigate to the {Product} environment.
 .. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
 .. Copy the _Bootstrap Server_ hostname and port to your clipboard.
@@ -149,8 +149,8 @@ Third message
 Now that you've produced and consumed some messages, and have your Kafkacat producer and Kafkacat consumer still running, we can produce and consume some more messages.
 
 .Prerequisites
-* A Kafkacat producer running and connected to your {Product_short} Kafka instance, producing to your `my-topics` topic.
-* A Kafkacat consumer running and connected to your {Product_short} Kafka instance, consuming from your `my-topics` topic.
+* A Kafkacat producer running and connected to your {Product_short} Kafka instance, producing to your `my-topic` topic.
+* A Kafkacat consumer running and connected to your {Product_short} Kafka instance, consuming from your `my-topic` topic.
 
 .Procedure
 . In your terminal with the running Kafkacat producer, send the following message.

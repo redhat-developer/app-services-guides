@@ -11,7 +11,6 @@ spec:
   prerequisites:
     - A running Kafka instance (see the Getting Started Guide)
     - A command line/terminal
-    - The 
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#task-1
