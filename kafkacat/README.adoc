@@ -82,15 +82,29 @@ In this task you will specify configuration settings on the command line. Inform
 .. Navigate to the {Product} environment.
 .. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
 .. Copy the _Bootstrap Server_ hostname and port to your clipboard.
+. Set the _Bootstrap_Server_ as an environment variable in your terminal by executing the following command in your terminal, replacing <BOOTSTRAP_SERVER> with the value for your Kafka instance that you've just copied to your clipboard.
++
+[source,bash]
+----
+$ export BOOTSTRAP_SERVER=<BOOTSTRAP_SERVER>
+----
 . Get the credentials (_Client ID_ and _Secret_) of your Kafka instance. You've created the Service Account in the _Getting Started Guide_. If you haven't created a Service Account yet, or you if you lost the credentials, generate a new set of credentials from the same UI that you've just copied the _Bootstrap Server_ host by clicking the `Generate credential` button.
-. Start Kafkacat in _producer_ mode. You will use the SASL/PLAIN authentication mechanism. Use the _Client ID_ as the _<USER>_ and _Client Secret_ as the _<PASSWORD>_. Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. If this topic does not exist yet, it will be automatically created with default settings. Execute the following command, replacing the BOOTSTRAP_SERVER, USER and PASSWORD with your settings. You will not see any output.
+. Set the credentials as environment variables in your terminal by executing the following command in your terminal, replacing <CLIENT_ID> and <CLIENT_SECRET> with the values for your Kafka instance.
++
+[source, bash]
+----
+$ export USER=<CLIENT_ID>
+$ export PASSWORD=<CLIENT_SECRET>
+----
++
+. Start Kafkacat in _producer_ mode. You will use the SASL/PLAIN authentication mechanism. The command uses the environment variables we've set earlier. Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. If this topic does not exist yet, it will be automatically created with default settings. Execute the following command, you will not see any output.
 +
 [source,bash]
 ----
 $ kafkacat -t my-topic -b "$BOOTSTRAP_SERVER" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username=<USER> \
- -X sasl.password=<PASSWORD> -P
+ -X sasl.username="$USER" \
+ -X sasl.password="$PASSWORD" -P
 ----
 +
 NOTE: {Product} supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use, and superior to SASL/PLAIN. Unfortunately, Kafkacat does not yet fully support OAUTHBEARER, which is why in this example, you're using SASL/PLAIN.
@@ -123,14 +137,23 @@ To consume messages, you simply need to run Kafkacat in _consumer_ mode, which i
 * Messages produced to the `my-topic` topic as described in the previous task.
 
 .Procedure
-. Using the information retrieved in the previous task, like the _Bootstrap Server_ of your {product_short} Kafka instance and credentials, start Kafkacat in _consumer_ mode. You will consume messages from the same topic, `my-topic` that you produced messages to in the previous task Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. Execute the following command, replacing the BOOTSTRAP_SERVER, USER and PASSWORD with your settings. You should see the 3 messages you produced in the previous task.
+. Using the information retrieved in the previous task, like the _Bootstrap Server_ of your {product_short} Kafka instance and credentials, set the environment variables BOOTSTRAP_SERVER, USER and PASSWORD like you did in the previous task.
++
+[source,bash]
+----
+$ export BOOTSTRAP_SERVER=<BOOTSTRAP_SERVER>
+$ export USER=<CLIENT_ID>
+$ export PASSWORD=<CLIENT_SECRET>
+----
++
+. Start Kafkacat in _consumer_ mode. You will consume messages from the same topic, `my-topic` that you produced messages to in the previous task Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. Execute the following command. You should see the 3 messages you produced in the previous task.
 +
 [source,bash]
 ----
 $ kafkacat -t my-topic -b "$BOOTSTRAP_SERVER" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username=<USER> \
- -X sasl.password=<PASSWORD> -C
+ -X sasl.username="$USER" \
+ -X sasl.password="$PASSWORD" -C
 First message
 Second message
 Third message
