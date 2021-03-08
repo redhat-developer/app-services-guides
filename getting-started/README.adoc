@@ -135,6 +135,7 @@ After you create a Kafka instance and connect your applications or services to t
 . Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 --
+[.screencapture]
 .Guided steps to define topic details
 image::sak-create-topic.png[Image of wizard to create a topic]
 
@@ -151,6 +152,7 @@ After you complete the topic setup, the new Kafka topic is listed in the topics 
 --
 . In the topics table, on the right side of the Kafka topic, use the options icon (three vertical dots) to edit or delete the topic as needed.
 
+[.screencapture]
 .Edit or delete Kafka topic
 image::sak-edit-topic.png[Image of topic options to edit or delete]
 
