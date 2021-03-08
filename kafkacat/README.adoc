@@ -80,7 +80,7 @@ In this task you will specify configuration settings on the command line. Inform
 .Procedure
 . Get the Bootstrap Server host and port of your {Product_short} Kafka instance. In the _Getting Started Guide_ we've explained where you can find this information. To quickly recap:
 .. Navigate to the {Product} environment.
-.. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
+.. In the Kafka instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
 .. Copy the _Bootstrap Server_ hostname and port to your clipboard.
 . Set the _Bootstrap_Server_ as an environment variable in your terminal by executing the following command in your terminal, replacing <BOOTSTRAP_SERVER> with the value for your Kafka instance that you've just copied to your clipboard.
 +
