@@ -110,15 +110,16 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 To connect your applications or services to a Kafka instance in the {product} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product-long} uses the SASL/PLAIN authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
 
 .Prerequisites
-* You have created a Kafka instance in the {product} web console.
+* You have created a Kafka instance in the {product} web console and the instance is in *Ready* state.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, on the right side of the relevant Kafka instance, select the options icon (three vertical dots) and click *Connect to instance*.
-. In the *Connection* page, copy the *External server* address to a secure location. Your application requires this server address to connect to the Kafka instance.
-. Click *Generate credential*, copy the *Client ID* and *Client secret* to a secure location, and select the confirmation check box to close the credentials window. Your application requires these credentials to authenticate the connection to the Kafka instance.
+. In the *Connection* page, copy the *External server* address to a secure location. Your application requires this bootstrap server address to connect to the Kafka instance.
+. Click *Generate credential* and copy the *Client ID* and *Client secret* to a secure location. Your application requires these credentials to authenticate the connection to the Kafka instance.
 +
 IMPORTANT: The generated credentials are displayed only one time, so ensure that you have successfully and securely saved the copied credentials before closing the credentials window.
 
+. After you save the generated credentials to a secure location, select the confirmation check box in the credentials window and close the window.
 . Use the server and client information that you copied to configure your application connection details accordingly.
 
 [id="proc-creating-kafka-topic_{context}"]
@@ -130,7 +131,7 @@ After you create a Kafka instance and connect your applications or services to t
 * You have created a Kafka instance in the {product} web console and connected your applications or services to it.
 
 .Procedure
-. In the *Streams for Apache Kafka* page of the web console, select the Kafka instance to which you want to add a topic.
+. In the *Streams for Apache Kafka* page of the web console, select the Kafka instance that you want to add a topic to.
 . Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 --
