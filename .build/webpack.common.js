@@ -8,10 +8,8 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const {buildQuickStart} = require('./utils/quickstart-adoc');
 const ChunkMapper = require('@redhat-cloud-services/frontend-components-config/chunk-mapper');
 
-const templateDir = process.env.TEMPLATE_DIR;
-
-module.exports = (env, argv, useContentHash) => {
-
+module.exports = (env, argv) => {
+  const isProduction = argv && argv.mode === 'production';
   return {
     entry: {
       app: path.resolve(__dirname, 'src', 'index.tsx')
@@ -47,7 +45,7 @@ module.exports = (env, argv, useContentHash) => {
               // Limit at 50k. larger files emited into separate files
               limit: 5000,
               outputPath: 'fonts',
-              name: '[name].[ext]'
+              name: isProduction ? '[contenthash:8].[ext]' : '[name].[ext]'
             }
           }
         },
@@ -60,7 +58,7 @@ module.exports = (env, argv, useContentHash) => {
               options: {
                 limit: 5000,
                 outputPath: 'svgs',
-                name: '[name].[ext]'
+                name: isProduction ? '[contenthash:8].[ext]' : '[name].[ext]'
               }
             }
           ]
@@ -119,14 +117,15 @@ module.exports = (env, argv, useContentHash) => {
         patterns: [
           {
             from: '../**/images/**/*.png',
-            to: env === "development" ? 'images/[name][ext]' : 'images/[name].[contenthash][ext]',
+            to: isProduction ? 'images/[contenthash:8][ext]' : 'images/[name][ext]' ,
             noErrorOnMissing: true
           }
         ]
       }),
       new AssetsPlugin({
         path: './dist',
-        keepInMemory: env === "development"
+        keepInMemory: env === "development",
+        removeFullPathAutoPrefix: true
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
@@ -138,7 +137,7 @@ module.exports = (env, argv, useContentHash) => {
       }),
       new webpack.container.ModuleFederationPlugin({
         name: federatedModuleName,
-        filename: `${federatedModuleName}.${useContentHash ? '.[chunkhash:8]' : ''}.js`,
+        filename: `${federatedModuleName}${isProduction ? '[chunkhash:8]' : ''}.js`,
         exposes: {
           "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated",
           "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated"

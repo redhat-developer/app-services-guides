@@ -3,7 +3,7 @@ import {ProcQuickStartParser} from "@app/procedure-parser";
 const loadJSONQuickStartsFilesFromAssets = async (basePath: string): Promise<string[]> => {
     const data = await fetch(`${basePath}/webpack-assets.json`).then(response => response.json());
     const files = Array.isArray(data[""]["json"]) ? data[""]["json"] : [data[""]["json"]];
-    return files.filter(url => url.endsWith(".quickstart.json"));
+    return files.filter(url => url.endsWith(".quickstart.json")).map(e => !e.startsWith("http") ? `${basePath}/${e}`: e);
 }
 
 export const loadJSONQuickStarts = async(basePath: string) => {
