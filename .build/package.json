@@ -1,11 +1,6 @@
 {
   "name": "guides",
   "federatedModuleName": "guides",
-  "crc": {
-    "name": "rhoas-guides-build",
-    "bundle": "application-services",
-    "beta": true
-  },
   "version": "0.0.1",
   "description": "Guides for Red Hat OpenShift Streams for Apache Kafka",
   "port": "9001",
