@@ -1,0 +1,204 @@
+:parent-context: {context}
+
+// ATTRIBUTES
+// We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
+:Product: bf2
+:Product_short: bf2
+:Propertyfile_name: bf2.properties
+
+[id='using-kafka-bin-scripts-{context}']
+= Using Kafka Bin Scripts with {Product}
+
+[id=description-{context}]
+Learn how to use Kafka Bin Scripts to interact with a {Product} Kafka instance.
+
+[id=introduction-{context}]
+Welcome to the {Product} Kafka Bin Scripts Guide.
+    
+In this guide we will walk you through the basics you need to know to use the *Kafka Bin Scripts* to interact with your Kafka cloud service.
+
+
+[id='task-1-{context}',module-type="proc"]
+== Download the Kafka Bin Scripts
+
+The _Kafka Bin Scripts_ are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution/download]. When you extract the Apache Kafka distribution, the `bin` directory of that distribution contains a set of tools that allow you to interact with your Kafka instance. There are scripts to produce message, consume messages, and to execute various operations against the Kafka APIs to administer topics, consumer-groups, etc.
+
+In this Quick Start you will use the Kafka Bin Scripts to produce and consume messages.
+
+NOTE: The Kafka Bin Scripts are part of the open-source community version of Apache Kafka. It's not a part of {Product} and therefore not supported by Red Hat.
+
+If you already have the Kafka Bin Scripts installed on your system, you can continue to the next task of this tutorial.
+
+.Prerequisites
+* tbd
+
+.Procedure
+. Download the latest Kafka distribution from https://kafka.apache.org/downloads[here].
+. Extract the downloaded archive with your tool of choice.
+. In a terminal, navigate into the Apache Kafka folder. From this folder, navigate into the `bin` folder.
+. The `bin` folder contains the Kafka Bin Scripts. Take a look at the scripts inside this folder and verify that you have the `kafka-console-producer` and `kafka-console-consumer` scripts.
+. From the `bin` directory, run `kafka-console-producer.sh --version` to verify that the scripts can start and run without any problems.
++
+[source,bash]
+----
+$ ./kafka-console-producer.sh --version
+2.7.0 (Commit:448719dc99a19793)
+----
+
+.Verification
+. Execute `kafka-console-producer.sh --version` in your terminal. This should print the Kafkas version information.
+
+[id='task-2-{context}',module-type="proc"]
+== Create the Configuration File
+
+You will need to configure the Kafka Bin Scripts to connect with, and authenticate to, your {Product_short} Kafka instance.
+The easiest way to do this is to create a configuration file in the `config` directory of your Apache Kafka folder.
+
+.Prerequisites
+* Kafka Bin Scripts available on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
+
+.Procedure
+. Get the credentials (_Client ID_ and _Secret_) of your Kafka instance. You've created the Service Account in the _Getting Started Guide_. If you haven't created a Service Account yet, or you if you lost the credentials, generate a new set of credentials. This can be done as follows:
+.. Navigate to the {Product} environment.
+.. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
+.. Click the _Generate Credential_ button.
+.. Copu the _Client ID_ and _Client Secret_ and store them in a safe place.
+. Navigate to the `config` folder of your Apache Kafka folder.
+. Create a new file. Call it `{Propertyfile_name}`.
+. Add the following content to your configuration file. Use the _Client ID_ as the _<USER>_ and _Client Secret_ as the _<PASSWORD>_
++
+[source,properties]
+----
+sasl.mechanism=PLAIN
+security.protocol=SASL_SSL
+
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="<USER>" \
+  password="<PASSWORD>";
+----
++
+NOTE: {Product} supports both the SASL/OAUTHBEARER and SASL/PLAIN mechanism for authentication. SASL/OAUTHBEARER is the recommended authentication mechanism to use, and superior to SASL/PLAIN. We highly recommend to always SASL/OAUTHBEARER if your Kafka client or library of choice supports it.
++
+. Save the file. We will use it in the next task to connect to your Kafka instance and produce messages. 
+
+.Verification
+. You have a new file named {Propertyfile_name} in your Apache Kafka's `config` directory
+
+[id='task-3-{context}',module-type="proc"]
+== Produce messages
+The Kafka Bin Scripts contain a script to easily produce message to Apache Kafka from the console/command line/terminal.
+To prdouce messages from the console/terminal, you simply need to run the `kafka-console-producer` script.
+
+In the previous task, you've created a configuration file with the credentials to connect to your Kafka instance. We will use this configuration file to connect the `kafka-console-producer` to Kafka.
+
+.Prerequisites
+* Kafka Bin Scripts available on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* A configuration file containing the authentication information to connect to your Kafka instance.
+
+.Procedure
+. Get the Bootstrap Server host and port of your {Product_short} Kafka instance. In the _Getting Started Guide_ we've explained where you can find this information. To quickly recap:
+.. Navigate to the {Product} environment.
+.. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
+.. Copy the _Bootstrap Server_ hostname and port to your clipboard.
+. Start the `kafka-console-producer` using the following command, replacing the _BOOTSTRAP_SERVER_ with the value for your Kafka instance.
++
+[source,bash]
+----
+./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "$BOOTSTRAP_SERVER" --producer.config ../config/{Propertyfile_name}
+----
++
+. If the producer starts correctly, you will see the following prompt.
++
+[source,bash]
+----
+>
+----
++
+. With `kafka-console-producer` running, you can produce messages by simply typing the message values in your terminal. The following will produce 3 messages to your topic. 
++
+[source,bash]
+----
+>First message
+>Second message
+>Third message
+----
++
+. Keep the producer running. We will use this producer again in one of the following tasks. 
+
+.Verification
+. You've a `kafka-console-producer` running without any errors printed to your console.
+. No errors were printed to the console when you sent the 3 messages.
+
+[id='task-4-{context}',module-type="proc"]
+== Consume messages
+Apart from producing messages, the Kafka Bin Scripts can also be used to consume messages.
+To consume messages from the console/terminal, you simply need to run the `kafka-console-consumer` script, referencing the same configuration file we created earlier.
+
+.Prerequisites
+* The Kafka Bin Scripts installed on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
+* Messages produced to the `my-other-topic` topic as described in the previous task.
+
+.Procedure
+. Using the information from the the previous tasks, like the _Bootstrap Server_ of your {Product_short} Kafka instance and the configuration file, start the `kafka_console_consumer`. You will consume messages from the same topic, `my-other-topic` that you produced messages to in the previous task. Execute the following command, replacing the _BOOTSTRAP_SERVER_ with the value for your Kafka instance. You should see the 3 messages you produced in the previous task.
++
+[source,bash]
+----
+$ ./kafka-console-consumer.sh -topic my-other-topic --bootstrap-server "$BOOTSTRAP_SERVER" --from-beginning --consumer.config {Propertyfile_name}
+First message
+Second message
+Third message
+----
++
+. The `kafka-console-consumer` has consumed the 3 messages you've sent to the topic earlier.
+. Keep the consumer running, as you will use it in the next task.
+
+.Verification
+. You've a `kafka-console-consumer` running without any errors printed to your console.
+. `kafka-console-consumer` consumed the 3 messages you've sent to the `my-other-topic` topic in the previous task.
+
+
+[id='task-5-{context}',module-type="proc"]
+== Produce and Consume messages
+Now that you've produced and consumed some messages, and have your `kafka-console-producer` and `kafka-console-consumer` still running, we can produce and consume some more messages.
+
+.Prerequisites
+* A `kafka-console-producer` running and connected to your {Product_short} Kafka instance, producing to your `my-other-topic` topic.
+* A `kafka-console-consumer` running and connected to your {Product_short} Kafka instance, consuming from your `my-other-topic` topic.
+
+.Procedure
+. In your terminal with the running `kafka-console-producer`, send the following message.
++
+[source,bash]
+----
+My Kafka Bin Scripts messsage
+----
++
+. Switch to the terminal in which you have your `kafka-console-consumer` running. You should see your message being consumed.
++
+[source,bash]
+----
+First message
+Second message
+Third message
+My Kafka Bin Scripts messsage
+----
++
+. Produce some more messages to your {Product_short} Kafka instance and see how they are being consumed by your `kafka-console-consumer`.
+
+.Verification
+. You've produced the _My Kakfa Bin Scripts message_ to your `my-other-topic` Kafka topic without errors.
+. The _My Kafka Bin Scripts message_ was successfully consumed by your `kafka-console-consumer`.
+
+
+[id=conclusion-{context}]
+Congratulations! You've successfully completed the {Product} Kafka Bin Scripts Guide, and are now ready to produce message to, and consume messages from, the service.
+
+:context: {parent-context}

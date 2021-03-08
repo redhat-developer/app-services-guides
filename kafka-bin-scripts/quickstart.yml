@@ -1,0 +1,23 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: quarkus-kafka
+spec:
+  version: 0.1
+  displayName: !snippet/title README.adoc#using-kafka-bin-scripts
+  durationMinutes: 10
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - A running Kafka instance (see the Getting Started Guide)
+    - A command line/terminal
+  introduction: !snippet README.adoc#introduction
+  tasks:
+    - !snippet/proc README.adoc#task-1
+    - !snippet/proc README.adoc#task-2
+    - !snippet/proc README.adoc#task-3
+    - !snippet/proc README.adoc#task-4
+    - !snippet/proc README.adoc#task-5
+  conclusion: !snippet README.adoc#conclusion
+  nextQuickStart:
+    - 'todo'
