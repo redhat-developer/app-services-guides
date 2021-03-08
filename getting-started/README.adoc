@@ -28,8 +28,7 @@ As a developer of applications and services, you can use the {product-long} clou
 ifndef::community[]
 * You have a Red Hat account.
 endif::[]
-* You have a subscription to {product-long}.
-// For more information about signing up, see *<@SME: Where to link?>*.
+//* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have access to an application or service that you want to connect to a Kafka instance in {product-long}.
 
 // Condition out QS-only content so that it doesn't appear in docs.
@@ -71,7 +70,7 @@ endif::[]
 * *Cloud provider*: Select `Amazon Web Services`.
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
-. Click *Create instance* to start the provision and deployment process for your Kafka instance.
+. Click *Create instance* to start the creation process for your Kafka instance.
 +
 --
 [.screencapture]
