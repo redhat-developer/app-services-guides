@@ -14,7 +14,7 @@ spec:
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-creating-kafka-instance
-    - !snippet/proc README.adoc#proc-connecting-kafka-instance
+    - !snippet/proc README.adoc#proc-generating-credentials
     - !snippet/proc README.adoc#proc-creating-kafka-topic
   conclusion: Congratulations! You successfully completed the Streams for Apache Kafka Getting Started quick start, and are now ready to use the service.
   nextQuickStart:
