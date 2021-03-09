@@ -5,8 +5,10 @@ const {dependencies, federatedModuleName} = require("./package.json");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const AssetsPlugin = require('assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {buildQuickStart} = require('./utils/quickstart-adoc');
 const ChunkMapper = require('@redhat-cloud-services/frontend-components-config/chunk-mapper');
+const fileRegEx = /\.(png|woff|woff2|eot|ttf|svg|gif|jpe?g|png)(\?[a-z0-9=.]+)?$/;
 
 module.exports = (env, argv) => {
   const isProduction = argv && argv.mode === 'production';
@@ -29,63 +31,14 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.(svg|ttf|eot|woff|woff2)$/,
-          // only process modules with this loader
-          // if they live under a 'fonts' or 'pficon' directory
-          include: [
-            path.resolve(__dirname, 'node_modules/patternfly/dist/fonts'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/fonts'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/pficon'),
-            path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/fonts'),
-            path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/pficon')
-          ],
-          use: {
-            loader: 'file-loader',
-            options: {
-              // Limit at 50k. larger files emited into separate files
-              limit: 5000,
-              outputPath: 'fonts',
-              name: isProduction ? '[contenthash:8].[ext]' : '[name].[ext]'
-            }
-          }
+          test: /\.css|s[ac]ss$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+          sideEffects: true,
         },
         {
-          test: /\.svg$/,
-          include: input => input.indexOf('background-filter.svg') > 1,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 5000,
-                outputPath: 'svgs',
-                name: isProduction ? '[contenthash:8].[ext]' : '[name].[ext]'
-              }
-            }
-          ]
+          test: fileRegEx,
+          type: 'asset/resource',
         },
-        {
-          test: /\.(jpg|jpeg|png|gif)$/i,
-          include: [
-            path.resolve(__dirname, 'src'),
-            path.resolve(__dirname, 'node_modules/patternfly'),
-            path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/images'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-styles/css/assets/images'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/images'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css/assets/images'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'),
-            path.resolve(__dirname, 'node_modules/@patternfly/react-inline-edit-extension/node_modules/@patternfly/react-styles/css/assets/images')
-          ],
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 5000,
-                outputPath: 'images',
-                name: '[name].[ext]'
-              }
-            }
-          ]
-        }
       ],
     },
     output: {
@@ -97,7 +50,7 @@ module.exports = (env, argv) => {
         patterns: [
           {
             from: '../**/quickstart.yml',
-            to: ({context, absoluteFilename}) => {
+            to: ({_context, absoluteFilename}) => {
               // The dirname of quickstart is used as the output key
               const dirName = path.basename(path.dirname(absoluteFilename));
               if (env === "development") {
@@ -111,10 +64,6 @@ module.exports = (env, argv) => {
             },
             noErrorOnMissing: true
           },
-        ]
-      }),
-      new CopyPlugin({
-        patterns: [
           {
             from: '../**/images/**/*.png',
             to: isProduction ? 'images/[contenthash:8][ext]' : 'images/[name][ext]' ,
@@ -126,6 +75,10 @@ module.exports = (env, argv) => {
         path: './dist',
         keepInMemory: env === "development",
         removeFullPathAutoPrefix: true
+      }),
+      new MiniCssExtractPlugin({
+        filename: '[name].[contenthash:8].css',
+        chunkFilename: '[contenthash:8].css'
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')

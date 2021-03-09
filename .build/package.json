@@ -46,6 +46,8 @@
     "prebuild": "npm run clean",
     "dr:surge": "node dr-surge.js",
     "build": "webpack --config webpack.prod.js && npm run dr:surge",
+    "build:bundle-profile": "webpack --config webpack.prod.js --profile --json > stats.json",
+    "bundle-profile:analyze": "npm run build:bundle-profile && webpack-bundle-analyzer ./stats.json",
     "start": "webpack-cli serve",
     "start:dev": "webpack serve --hot --color --progress --config webpack.dev.js",
     "clean": "rimraf dist"
