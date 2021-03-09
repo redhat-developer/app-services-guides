@@ -89,6 +89,14 @@ image::sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
 .Kafka instance options menu
 image::sak-kafka-instance-options.png[Image of Kafka instance options menu]
 
+.Verification
+ifndef::qs[]
+. Verify that the Kafka instance is ready.
+. Verify another thing
+endif::[]
+. Does the Kafka instance ... ?
+. Is the state ready?
+
 ////
 // Commenting out the following for now, which belongs in an onboarding tour (Stetson, 4 March 2021)
 
@@ -104,7 +112,7 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 ////
 
 [id="proc-connecting-kafka-instance_{context}"]
-== Connecting to a Kafka instance in {product}
+== Generating credentials to connect to a Kafka instance in {product}
 
 To connect your applications or services to a Kafka instance in the {product} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product-long} uses the SASL/PLAIN authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
 
@@ -119,7 +127,8 @@ To connect your applications or services to a Kafka instance in the {product} we
 IMPORTANT: The generated credentials are displayed only one time, so ensure that you have successfully and securely saved the copied credentials before closing the credentials window.
 
 . After you save the generated credentials to a secure location, select the confirmation check box in the credentials window and close the window.
-. Use the server and client information that you copied to configure your application connection details accordingly.
++
+You'll use this server and client information that you copied to configure your application as needed to connect to your Kafka instances when you're ready. For example, if you plan to use Kafkacat to interact with your Kafka instance, you'll use this information to set your bootstrap server and client environment variables.
 
 [id="proc-creating-kafka-topic_{context}"]
 == Creating a Kafka topic in {product}
