@@ -8,28 +8,19 @@
 [id='using-kafkacat_{context}']
 = Using Kafkacat with {Product}
 
-<<<<<<< HEAD
-[id=description_{context}]
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-[id='task-1_{context}',module-type="proc"]
-== The first task
-=======
 [id=description-{context}]
 Learn how to use Kafkacat to interact with a {Product} Kafka instance.
 
 [id=introduction-{context}]
 Welcome to the {Product} Kafkacat Guide.
-    
-In this guide we will walk you through the basics you need to know to use *Kafkacat* to interact with your Kafka cloud service.
 
+In this guide we will walk you through the basics you need to know to use *Kafkacat* to interact with your Kafka cloud service.
 
 [id='task-1-{context}',module-type="proc"]
 == Download and Install Kafkacat
 
 Kafkacat is a generic producer and consumer tool for Apache Kafka. You can use Kafkacat to, for example, test and debug your {Product_short} Kafka instances.
 With Kafkacat you can produce message to, and consume message from, your Kafka instance directly from your terminal.
->>>>>>> 144cc2a... Initial impl of the Kafkacat guide.
 
 NOTE: Kafkacat is an open-source community tool. It's not a part of {Product} and therefore not supported by Red Hat.
 
@@ -55,12 +46,6 @@ Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,
 .Verification
 . Execute `kafkcat -V` in your terminal. This should print the Kafkacat version information.
 
-<<<<<<< HEAD
-[id='task-2_{context}',module-type="proc"]
-== The second task
-Lorem ipsum dolor sit amet, consectetur adipis2
-cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-=======
 [id='task-2-{context}',module-type="proc"]
 == Producing messages
 Kafkacat is an easy to use command line tool to quickly produce messages to, and consume messages from, Apache Kafka.
@@ -109,7 +94,7 @@ $ kafkacat -t my-topic -b "$BOOTSTRAP_SERVER" \
 +
 NOTE: {Product} supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use, and superior to SASL/PLAIN. Unfortunately, Kafkacat does not yet fully support OAUTHBEARER, which is why in this example, you're using SASL/PLAIN.
 +
-. With Kafkacat running, you can produce messages by simply typing the message values in the terminal. The following will produce 3 messages to your topic. 
+. With Kafkacat running, you can produce messages by simply typing the message values in the terminal. The following will produce 3 messages to your topic.
 +
 [source,bash]
 ----
@@ -118,7 +103,7 @@ Second message
 Third message
 ----
 +
-. Keep the producer open. We will use this producer again in one of the following tasks. 
+. Keep the producer open. We will use this producer again in one of the following tasks.
 
 .Verification
 . You've a Kafkacat producer running without any errors printed to your console.
@@ -165,7 +150,6 @@ Third message
 .Verification
 . You've a Kafkacat consumer running without any errors printed to your console.
 . Kafkacat consumed the 3 messages you've sent to the `my-topic` topic in the previous task.
->>>>>>> 144cc2a... Initial impl of the Kafkacat guide.
 
 [id='task-4-{context}',module-type="proc"]
 == This needs a proper title
