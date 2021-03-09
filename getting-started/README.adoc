@@ -146,10 +146,10 @@ endif::[]
 [id="proc-creating-kafka-topic_{context}"]
 == Creating a Kafka topic in {product}
 
-After you create a Kafka instance and connect your applications or services to that instance, you can create Kafka topics to start producing and consuming messages in your services.
+After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
 
 .Prerequisites
-* You have created a Kafka instance in the {product} web console and connected your applications or services to it.
+* You have created a Kafka instance in the {product} web console and the instance is in *Ready* state.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, select the Kafka instance that you want to add a topic to.
