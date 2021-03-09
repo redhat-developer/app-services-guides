@@ -32,6 +32,11 @@ export const ProcQuickStartParser = (
             const taskDOM = document.createElement("div");
             taskDOM.innerHTML = proc;
 
+            // remove the screencapture images
+            taskDOM.querySelectorAll(".imageblock.screencapture").forEach(node => {
+                node.parentElement?.removeChild(node);
+            });
+
             title = taskDOM.querySelector("h1:first-child,h2:first-child,h3:first-child,h4:first-child,h5:first-child")?.innerHTML.trim();
             let sectionBody = taskDOM.querySelector(".sectionbody");
             if (!sectionBody?.hasChildNodes()) {

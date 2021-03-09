@@ -1,0 +1,30 @@
+# This workflow will generate any code then check for any git diff
+
+name: Attribute generation check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm --prefix .build install
+    - run: npm --prefix .build run generate:attributes
+      name: generate attributes
+    - run: git diff --no-ext-diff --exit-code
+      name: check if there are changes

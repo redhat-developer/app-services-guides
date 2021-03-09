@@ -4,10 +4,10 @@ metadata:
   name: quarkus-kafka
 spec:
   version: 0.1
-  displayName: !snippet/title README.adoc#using-kafka-bin-scripts
+  displayName: !snippet/title README.asciidoc#using-kafka-bin-scripts
   durationMinutes: -1
   icon: ''
-  description: !snippet README.adoc#description
+  description: !snippet README.asciidoc#description
   prerequisites:
     - Requirement 1
     - Requirement 2
@@ -15,8 +15,8 @@ spec:
   introduction: |-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   tasks:
-    - !snippet/proc README.adoc#task-1
-    - !snippet/proc README.adoc#task-2
+    - !snippet/proc README.asciidoc#task-1
+    - !snippet/proc README.asciidoc#task-2
   conclusion: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   nextQuickStart:
     - 'todo'

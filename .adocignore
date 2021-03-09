@@ -1,0 +1,4 @@
+# Ignores for attribute generation
+
+CONTRIBUTING.adoc
+_artifacts/*
