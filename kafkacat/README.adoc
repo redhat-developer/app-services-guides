@@ -1,4 +1,6 @@
-:parent-context: {context}
+ifdef::context[:parent-context: {context}]
+:context: kafkacat
+
 
 // ATTRIBUTES
 // We always have to provide default attributes in every file, this enables rendering e.g. in GitHub
@@ -8,15 +10,15 @@
 [id='using-kafkacat_{context}']
 = Using Kafkacat with {Product}
 
-[id=description-{context}]
+[id=description_{context}]
 Learn how to use Kafkacat to interact with a {Product} Kafka instance.
 
-[id=introduction-{context}]
+[id=introduction_{context}]
 Welcome to the {Product} Kafkacat Guide.
 
 In this guide we will walk you through the basics you need to know to use *Kafkacat* to interact with your Kafka cloud service.
 
-[id='task-1-{context}',module-type="proc"]
+[id='task-1_{context}',module-type="proc"]
 == Download and Install Kafkacat
 
 Kafkacat is a generic producer and consumer tool for Apache Kafka. You can use Kafkacat to, for example, test and debug your {Product_short} Kafka instances.
@@ -46,7 +48,7 @@ Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,
 .Verification
 . Execute `kafkcat -V` in your terminal. This should print the Kafkacat version information.
 
-[id='task-2-{context}',module-type="proc"]
+[id='task-2_{context}',module-type="proc"]
 == Producing messages
 Kafkacat is an easy to use command line tool to quickly produce messages to, and consume messages from, Apache Kafka.
 Messages can produced in various ways, for example by reading them from _stdin_, reading them from _syslog, reading them from a file, etc.
@@ -109,7 +111,7 @@ Third message
 . You've a Kafkacat producer running without any errors printed to your console.
 . No errors were printed to the console when you sent the 3 messages.
 
-[id='task-3-{context}',module-type="proc"]
+[id='task-3_{context}',module-type="proc"]
 == Consuming messages
 Apart from producing messages, Kafkacat can also be used to consume messages.
 To consume messages, you simply need to run Kafkacat in _consumer_ mode, which is simply doing by using the `-C` (consumer) switch on the command rather than the `-P` (producer) switch you used in the previous task.
@@ -151,7 +153,7 @@ Third message
 . You've a Kafkacat consumer running without any errors printed to your console.
 . Kafkacat consumed the 3 messages you've sent to the `my-topic` topic in the previous task.
 
-[id='task-4-{context}',module-type="proc"]
+[id='task-4_{context}',module-type="proc"]
 == This needs a proper title
 Now that you've produced and consumed some messages, and have your Kafkacat producer and Kafkacat consumer still running, we can produce and consume some more messages.
 
@@ -185,7 +187,8 @@ My own message
 . You've produced the _My own message_ to your `my-topic` Kafka topic without errors.
 . The _My own message_ was successfully consumed by your Kafkacat consumer.
 
-[id=conclusion-{context}]
+[id=conclusion_{context}]
 Congratulations! You've successfully completed the {Product} Kafkacat Guide, and are now ready to produce message to, and consume messages from, the service.
 
-:context: {parent-context}
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
