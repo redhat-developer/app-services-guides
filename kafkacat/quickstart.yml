@@ -5,18 +5,20 @@ metadata:
 spec:
   version: 0.1
   displayName: !snippet/title README.adoc#using-kafkacat
-  durationMinutes: -1
+  durationMinutes: 10
   icon: ''
   description: !snippet README.adoc#description
   prerequisites:
-    - Requirement 1
-    - Requirement 2
-    - Requirement 2
-  introduction: |-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    - A running Kafka instance (see the Getting Started Guide)
+    - A command line/terminal
+  introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#task-1
     - !snippet/proc README.adoc#task-2
-  conclusion: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    - !snippet/proc README.adoc#task-3
+    - !snippet/proc README.adoc#task-4
+  conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
-    - 'todo'
+    - 'kafka-bin-scripts'
+    - 'quarkus-kafka'
+
