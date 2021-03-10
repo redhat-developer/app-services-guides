@@ -4,21 +4,20 @@ metadata:
   name: kafkacat
 spec:
   version: 0.1
-  displayName: !snippet/title README.adoc#using-kafkacat
+  displayName: !snippet/title README.adoc#chap-using-kafkacat
   durationMinutes: 10
   icon: ''
   description: !snippet README.adoc#description
   prerequisites:
-    - A running Kafka instance (see the Getting Started Guide)
-    - A command line/terminal
+    - A running Kafka instance (see the Getting Started quick start)
+    - A command terminal
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#task-1
-    - !snippet/proc README.adoc#task-2
-    - !snippet/proc README.adoc#task-3
-    - !snippet/proc README.adoc#task-4
-  conclusion: !snippet README.adoc#conclusion
+    - !snippet/proc README.adoc#proc-installing-kafkacat
+    - !snippet/proc README.adoc#proc-setting-kafka-instance-variables
+    - !snippet/proc README.adoc#proc-producing-messages-kafkacat
+    - !snippet/proc README.adoc#proc-consuming-messages-kafkacat
+  conclusion: Congratulations! You successfully completed the Streams for Apache Kafka Kafkacat quick start, and are now ready to produce and consume messages in the service.
   nextQuickStart:
     - 'kafka-bin-scripts'
     - 'quarkus-kafka'
-
