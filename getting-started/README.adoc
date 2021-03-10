@@ -189,5 +189,9 @@ endif::[]
 == Additional resources
 * https://kafka.apache.org/081/documentation.html#configuration[Configuration] in Kafka
 
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

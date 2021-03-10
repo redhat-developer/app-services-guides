@@ -78,8 +78,8 @@ To enable applications and utilities such as Kafkacat to access a Kafka instance
 * You have the bootstrap server address and the generated credentials for your Kafka instance. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connect to instance*, and copying the connection information.
 
 .Procedure
-In a command terminal, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
-
+* In a command terminal, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
++
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
@@ -178,6 +178,11 @@ endif::[]
 ifndef::qs[]
 . Verify that your Kafkacat consumer is running without any errors in the terminal.
 . Verify that the Kafkacat consumer displays the messages from the `my-first-kafka-topic` example topic.
+endif::[]
+
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Kafkacat quick start, and are now ready to produce and consume messages in the service.
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

@@ -17,7 +17,7 @@ spec:
     - !snippet/proc README.adoc#proc-setting-kafka-instance-variables
     - !snippet/proc README.adoc#proc-producing-messages-kafkacat
     - !snippet/proc README.adoc#proc-consuming-messages-kafkacat
-  conclusion: Congratulations! You successfully completed the Streams for Apache Kafka Kafkacat quick start, and are now ready to produce and consume messages in the service.
+  conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'kafka-bin-scripts'
     - 'quarkus-kafka'
