@@ -38,7 +38,7 @@ ifdef::qs[]
 Learn how to create and set up your first Apache Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Getting Started quick start. In this quick start, you will learn how to create and inspect a Kafka instance, connect an application or service to the instance, and create a topic in the instance.
+Welcome to the {product-long} Getting Started quick start. In this quick start, you'll learn how to create and inspect a Kafka instance, generate credentials to connect an application or service to the instance, and create a topic in the instance.
 endif::[]
 
 [id="con-product-overview_{context}"]
@@ -83,7 +83,7 @@ The new Kafka instance is listed in the instances table. When the instance *Stat
 .New Kafka instance in Ready state
 image::sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
 --
-. In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance as needed.
+. In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view the instance details, connect to the instance, or delete the instance as needed.
 +
 [.screencapture]
 .Kafka instance options menu
@@ -152,7 +152,7 @@ After you create a Kafka instance, you can create Kafka topics to start producin
 * You have created a Kafka instance in the {product} web console and the instance is in *Ready* state.
 
 .Procedure
-. In the *Streams for Apache Kafka* page of the web console, select the Kafka instance that you want to add a topic to.
+. In the *Streams for Apache Kafka* page of the web console, select the name of the Kafka instance that you want to add a topic to.
 . Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 --
@@ -169,7 +169,7 @@ NOTE: You can increase the number of partitions later, but you cannot decrease t
 * *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
 * *Replicas*: Set the number of partition replicas for the topic and the minimum number of follower replicas that must be in sync with a partition leader. This example sets the replica factor and in-sync replicas to `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 
-After you complete the topic setup, the new Kafka topic is listed in the topics table. The messages between the Kafka instance and the connected services are now streamed in this configured topic.
+After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now start producing and consuming messages to and from this topic using services that you connect to this instance.
 --
 . In the topics table, on the right side of the Kafka topic, use the options icon (three vertical dots) to edit or delete the topic as needed.
 
@@ -185,11 +185,9 @@ ifndef::qs[]
 * Verify that the new Kafka topic is listed in the topics table.
 endif::[]
 
-////
 [role="_additional-resources"]
 == Additional resources
-* *<Placeholder for links to other upcoming docs>*
-////
+* https://kafka.apache.org/081/documentation.html#configuration[Configuration] in Kafka
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
