@@ -2,3 +2,5 @@
 
 CONTRIBUTING.adoc
 _artifacts/*
+README.adoc
+.build/**

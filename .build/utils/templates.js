@@ -4,7 +4,7 @@ const {execSync} = require('child_process');
 const mkdirp = require('mkdirp');
 const path = require('path');
 const rimraf = require('rimraf');
-const copydir = require('copy-dir');
+const fs = require('fs-extra');
 
 const cloneTemplates = () => {
 
@@ -30,7 +30,7 @@ const cloneTemplates = () => {
   const dstPath = "templates";
 
   rimraf.sync(dstPath);
-  copydir.sync(srcPath, dstPath);
+  fs.copySync(srcPath, dstPath);
 
   rimraf.sync(clonePath);
 
