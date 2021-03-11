@@ -1,0 +1,62 @@
+[id='task-2_{context}']
+= Producing messages
+Kafkacat is an easy to use command line tool to quickly produce messages to, and consume messages from, Apache Kafka.
+Messages can produced in various ways, for example by reading them from _stdin_, reading them from _syslog, reading them from a file, etc.
+
+In this task you will produce messages by simply typing them in the terminal. You can find more examples https://github.com/edenhill/kafkacat#examples[here].
+
+Configuration of Kafkacat, for example the location of the Kafka bootstrap server, the authentication scheme, etc. can be set on the command line or configured in a file.
+In this task you will specify configuration settings on the command line. Information on how to specify these configuration settings in a configuration file can be found https://github.com/edenhill/kafkacat#configuration[here].
+
+.Prerequisites
+* Kafkacat installed on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
+
+.Procedure
+. Get the Bootstrap Server host and port of your {Product_short} Kafka instance. In the _Getting Started Guide_ we've explained where you can find this information. To quickly recap:
+.. Navigate to the {Product} environment.
+.. In the Kafka instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
+.. Copy the _Bootstrap Server_ hostname and port to your clipboard.
+. Set the _Bootstrap_Server_ as an environment variable in your terminal by executing the following command in your terminal, replacing <BOOTSTRAP_SERVER> with the value for your Kafka instance that you've just copied to your clipboard.
++
+[source,bash]
+----
+$ export BOOTSTRAP_SERVER=<BOOTSTRAP_SERVER>
+----
+. Get the credentials (_Client ID_ and _Secret_) of your Kafka instance. You've created the Service Account in the _Getting Started Guide_. If you haven't created a Service Account yet, or you if you lost the credentials, generate a new set of credentials from the same UI that you've just copied the _Bootstrap Server_ host by clicking the `Generate credential` button.
+. Set the credentials as environment variables in your terminal by executing the following command in your terminal, replacing <CLIENT_ID> and <CLIENT_SECRET> with the values for your Kafka instance.
++
+[source, bash]
+----
+$ export USER=<CLIENT_ID>
+$ export PASSWORD=<CLIENT_SECRET>
+----
++
+. Start Kafkacat in _producer_ mode. You will use the SASL/PLAIN authentication mechanism. The command uses the environment variables we've set earlier. Note that you will be producing messages to the _my-topic_ topic that you've created in the _Getting Started Guide_. If this topic does not exist yet, it will be automatically created with default settings. Execute the following command, you will not see any output.
++
+[source,bash]
+----
+$ kafkacat -t my-topic -b "$BOOTSTRAP_SERVER" \
+ -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
+ -X sasl.username="$USER" \
+ -X sasl.password="$PASSWORD" -P
+----
++
+NOTE: {Product} supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use, and superior to SASL/PLAIN. Unfortunately, Kafkacat does not yet fully support OAUTHBEARER, which is why in this example, you're using SASL/PLAIN.
++
+. With Kafkacat running, you can produce messages by simply typing the message values in the terminal. The following will produce 3 messages to your topic.
++
+[source,bash]
+----
+First message
+Second message
+Third message
+----
++
+. Keep the producer open. We will use this producer again in one of the following tasks.
+
+.Verification
+. You've a Kafkacat producer running without any errors printed to your console.
+. No errors were printed to the console when you sent the 3 messages.

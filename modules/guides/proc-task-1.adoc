@@ -1,0 +1,29 @@
+[id='task-1_{context}']
+= Download and Install Kafkacat
+
+Kafkacat is a generic producer and consumer tool for Apache Kafka. You can use Kafkacat to, for example, test and debug your {Product_short} Kafka instances.
+With Kafkacat you can produce message to, and consume message from, your Kafka instance directly from your terminal.
+
+NOTE: Kafkacat is an open-source community tool. It's not a part of {Product} and therefore not supported by Red Hat.
+
+If you already have Kafkacat installed on your system, you can continue to the next task of this tutorial.
+
+.Prerequisites
+* tbd
+
+.Procedure
+. Open the https://github.com/edenhill/kafkacat[Kafkacat github repository] in a browser tab, and follow the https://github.com/edenhill/kafkacat#install[installation instructions] for your operating system.
+. With Kafkacat installed, execute `kafkacat -V`. If you've installed Kafkacat correctly, this will print the version of Kafkacat in your terminal.
++
+[source,bash]
+----
+$ kafkacat -V
+
+kafkacat - Apache Kafka producer and consumer tool
+https://github.com/edenhill/kafkacat
+Copyright (c) 2014-2019, Magnus Edenhill
+Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer)
+----
+
+.Verification
+. Execute `kafkcat -V` in your terminal. This should print the Kafkacat version information.
