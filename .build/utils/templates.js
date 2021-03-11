@@ -16,7 +16,7 @@ const cloneTemplates = () => {
 
   const gitRepoUrl = process.env.GIT_REPO_URL || "https://github.com/redhataccess/pantheon.git";
   const gitRepoPath = process.env.GIT_REPO_PATH || "pantheon-bundle/src/main/resources/apps/pantheon/templates/haml/html5";
-  const gitClone = `git clone --depth 1 --filter=blob:none --sparse ${gitRepoUrl} .`
+  const gitClone = `git clone --quiet --depth 1 --filter=blob:none --sparse ${gitRepoUrl} .`
   const gitSparseCheckoutInit = `git sparse-checkout init --cone`;
   const gitSparseCheckoutSet = `git sparse-checkout set ${gitRepoPath}`;
   execSync(gitClone);
@@ -27,9 +27,10 @@ const cloneTemplates = () => {
 
   process.chdir(pwd);
   const srcPath = path.join(clonePath, gitRepoPath);
-  const dstPath = "templates";
+  const dstPath = "tmp/templates";
 
   rimraf.sync(dstPath);
+  fs.mkdirpSync(dstPath);
   fs.copySync(srcPath, dstPath);
 
   rimraf.sync(clonePath);

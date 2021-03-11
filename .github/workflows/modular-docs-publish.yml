@@ -16,23 +16,30 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v2
-      name: Checkout Source
-      with:
-        lfs: true
-    - name: Checkout LFS objects
-      run: git lfs checkout
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Set up JDK 9.0.4 for x64
-      uses: actions/setup-java@v1
-      with:
-        java-version: 15
-    - run: npm --prefix .build install
-    - run: npm --prefix .build run generate:modular-docs
-      name: generate modular-docs
+      - uses: actions/checkout@v2
+        name: Checkout Source
+        with:
+          lfs: true
+      - name: Checkout LFS objects
+        run: git lfs checkout
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Set up JDK 9.0.4 for x64
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Use Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - run: npm --prefix .build install
+        name: Install Node Dependencies
+      - run: gem install asciidoctor tilt haml
+        name: Install Asciidoctor
+      - run: npm --prefix .build run generate:modular-docs
+        name: Generate modular-docs
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
