@@ -1,6 +1,6 @@
 # This workflow will generate any code then check for any git diff
 
-name: Modular Docs Publish
+name: Modular docs publish
 
 on:
   push:
@@ -17,6 +17,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Checkout Source
+      with:
+        lfs: true
+    - name: Checkout LFS objects
+      run: git lfs checkout
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
