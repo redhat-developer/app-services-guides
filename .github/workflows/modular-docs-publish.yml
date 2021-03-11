@@ -40,10 +40,10 @@ jobs:
         name: Install Asciidoctor
       - run: npm --prefix .build run generate:modular-docs
         name: Generate modular-docs
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./.build/tmp/post-splitter
-        publish_branch: modular-docs
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.build/tmp/post-splitter
+          publish_branch: modular-docs
 
