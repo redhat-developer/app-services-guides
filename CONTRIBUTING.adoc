@@ -248,7 +248,37 @@ WARNING: When using the local preview with Pantheon the default AsciidoctorJS te
 
 NOTE: The schema for `pantheon.yml` is in `pantheon.schema.json` and can be used in the same way as the `quickstart.schema.json`.
 
+== Generating modular documentation
 
+We generate link:https://github.com/redhat-documentation/modular-docs[Modular Documentation] from this repository, using `npm` scripts.
+
+Every time you submit a pull request a job will run that will verify the generation of modular documentation will succeed.
+
+Every time a pull request is merged to `main`, the modular documentation for the content in the `HEAD` of `main` will be generated to the link:https://github.com/bf2fc6cc711aee1a0c2a/guides/tree/modular-docs[modular docs] branch.
+
+To run the modular documentation generation locally run:
+
+----
+npm --prefix .build run generate:modular-docs
+----
+
+Having run the modular documentation generation, you can then push the changes up to the `modular-docs` branch on GitHub run:
+
+----
+npm --prefix .build run commitandpush:modular-docs
+----
+
+To run the modular documentation generation locally, and then push the changes up to the `modular-docs` branch on GitHub all in one go, run:
+
+----
+npm --prefix .build run publish:modular-docs
+----
+
+To run the modular documentation generation locally, and then push the changes up to a different branch and/or repository, run:
+
+----
+npm --prefix .build run publish:modular-docs --repo=<git repo> --branch=<branch>
+----
 
 == Submitting a pull request
 
