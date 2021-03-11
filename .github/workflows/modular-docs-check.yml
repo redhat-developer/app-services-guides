@@ -30,7 +30,13 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 15
+    - name: Use Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6
     - run: npm --prefix .build install
-      name: Install Dependencies
+      name: Install Node Dependencies
+    - run: gem install asciidoctor tilt haml
+      name: Install Asciidoctor
     - run: npm --prefix .build run generate:modular-docs
       name: Generate modular-docs
