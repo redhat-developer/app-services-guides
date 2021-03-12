@@ -192,6 +192,7 @@ endif::[]
 ifdef::qs[]
 [#conclusion]
 Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+endif::[]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
