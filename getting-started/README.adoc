@@ -117,7 +117,7 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 [id="proc-generating-credentials_{context}"]
 == Generating credentials to connect to a Kafka instance in {product}
 
-To connect your applications or services to a Kafka instance in the {product} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product-long} uses the SASL/PLAIN authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
+To connect your applications or services to a Kafka instance in the {product} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product-long} uses the SASL/OAUTHBEARER authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. SASL/PLAIN is also available for tools and libraries that do not support SASL/OAUTHBEARER however we strongly recommend you use SASL/OAUTHBEARER whenever possible. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
 
 .Prerequisites
 * You have created a Kafka instance in the {product} web console and the instance is in *Ready* state.
