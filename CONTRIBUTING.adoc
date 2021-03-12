@@ -132,6 +132,13 @@ npm run start:dev
 . Your web browser should open automatically to http://localhost:9001 and show the quick start catalog
 . Hot reload is enabled meaning saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically
 
+If you want to run the local preview with custom attributes you can do that by providing an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document will be used), or a YAML file.
++
+----
+export ATTRIBUTES_FILE=<path to attributes file>
+npm run start:dev
+----
+
 === Converting your guide into a Quick Start
 
 . Add a `quickstart.yml` file to the same directory as the `README.adoc` for the guide.

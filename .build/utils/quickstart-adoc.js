@@ -40,7 +40,22 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
   let attributes;
 
   if (fs.existsSync(attributesFile)) {
-    attributes = yaml.parse(fs.readFileSync(attributesFile, "utf-8").toString()) || {};
+    const extname = path.extname(attributesFile);
+    // Support for attributes declared as an asciidoc file, like pantheon does it
+    console.log(extname);
+    if (extname === ".asciidoc" || extname === ".adoc") {
+      const attributesDoc = asciidoctor.loadFile(attributesFile, {
+        attributes: {
+          qs: "true"
+        }
+      });
+      attributes = attributesDoc.getAttributes();
+    } else if (extname === ".yml" || extname === ".yaml") {
+      attributes = yaml.parse(fs.readFileSync(attributesFile, "utf-8").toString()) || {};
+    } else {
+      throw new Error(`${attributesFile} type is unsupported, must be .yml, .yaml, .adoc or .asciidoc`);
+    }
+
   } else {
     attributes = {}
   }
