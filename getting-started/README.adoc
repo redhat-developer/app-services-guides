@@ -38,7 +38,7 @@ ifdef::qs[]
 Learn how to create and set up your first Apache Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Getting Started quick start. In this quick start, you'll learn how to create and inspect a Kafka instance, generate credentials to connect an application or service to the instance, and create a topic in the instance.
+Welcome to the {product-long} Getting Started quick start. In this quick start, you'll learn how to create and inspect a Kafka instance, create a service account to connect an application or service to the instance, and create a topic in the instance.
 endif::[]
 
 [id="con-product-overview_{context}"]
@@ -114,18 +114,18 @@ The center of the page shows you the list of Kafka instances that are currently 
 image::sak-kafka-overview.png[Image of initial empty instances table]
 ////
 
-[id="proc-generating-credentials_{context}"]
-== Generating credentials to connect to a Kafka instance in {product}
+[id="proc-creating-service-account_{context}"]
+== Creating a service account to connect to a Kafka instance in {product}
 
-To connect your applications or services to a Kafka instance in the {product} web console, you must copy and save the bootstrap server location and the generated credentials for the instance. {product-long} uses the SASL/PLAIN authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
+To connect your applications or services to a Kafka instance in the {product} web console, you must create a service account, copy and save the generated credentials, and copy and save the bootstrap server location. {product-long} uses the SASL/OAUTHBEARER authentication mechanism over TLS to provide secure connections between your applications and Kafka instances. SASL/PLAIN authentication is also available for tools and libraries that do not support SASL/OAUTHBEARER, but SASL/OAUTHBEARER is recommended whenever possible. When you generate credentials for a Kafka instance, {product} creates a service account that contains the generated user name and password associated with the instance.
 
 .Prerequisites
 * You have created a Kafka instance in the {product} web console and the instance is in *Ready* state.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, on the right side of the relevant Kafka instance, select the options icon (three vertical dots) and click *Connect to instance*.
-. In the *Connection* page, copy the *External server* address to a secure location. Your application requires this bootstrap server address to connect to the Kafka instance.
-. Click *Generate credential* and copy the *Client ID* and *Client secret* to a secure location. Your application requires these credentials to authenticate the connection to the Kafka instance.
+. In the *Connection* page, copy the *External server* endpoint to a secure location. This is the bootstrap server endpoint that your application requires to connect to the Kafka instance.
+. Click *Generate service account* and copy the *Client ID* and *Client secret* to a secure location. Your application requires these credentials to authenticate the connection to the Kafka instance.
 +
 IMPORTANT: The generated credentials are displayed only one time, so ensure that you have successfully and securely saved the copied credentials before closing the credentials window.
 
@@ -135,11 +135,11 @@ You'll use the server and client information that you saved to configure your ap
 
 .Verification
 ifdef::qs[]
-* Did you save the bootstrap server address to a secure location?
+* Did you save the bootstrap server endpoint to a secure location?
 * Did you save the client credentials to a secure location?
 endif::[]
 ifndef::qs[]
-. Verify that the bootstrap server address is saved to a secure location.
+. Verify that the bootstrap server endpoint is saved to a secure location.
 . Verify that the client credentials are saved to a secure location.
 endif::[]
 

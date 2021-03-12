@@ -22,7 +22,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat] to test and debug your Kafka instances in {product-long}. Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later. With Kafkacat, you can produce and consume messages for your Kafka instances directly from a command terminal, and list topic and partition information for your Kafka instances.
+As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat] to test and debug your Kafka instances in {product-long}. Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
 
 .Prerequisites
 ifndef::community[]
@@ -44,7 +44,7 @@ endif::[]
 [id="proc-installing-kafkacat_{context}"]
 == Installing and verifying Kafkacat
 
-https://github.com/edenhill/kafkacat[Kafkacat] is a command-line utility for messaging in Apache Kafka 0.8 and later. You can install and use Kafkacat to test and debug your Kafka instances in {product}. With Kafkacat, you can produce and consume messages for your Kafka instances directly from a command terminal, and list topic and partition information for your Kafka instances.
+https://github.com/edenhill/kafkacat[Kafkacat] is a command-line utility for messaging in Apache Kafka 0.8 and later. You can install and use Kafkacat to test and debug your Kafka instances in {product}. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
 
 ifndef::community[]
 NOTE: Kafkacat is an open source community tool. Kafkacat is not a part of {product} and is therefore not supported by Red Hat.
@@ -73,15 +73,15 @@ endif::[]
 [id="proc-configuring-kafkacat_{context}"]
 == Configuring Kafkacat to connect to a Kafka instance
 
-To enable applications and utilities such as Kafkacat to access a Kafka instance, you must configure the application with the bootstrap server address and the generated credentials for your Kafka instance. For Kafkacat, you can configure connection information for the application either by setting environment variables in the command terminal or by using a configuration file. This example uses the environment variable method so that you can invoke the connection information from the command terminal and in other application properties.
+To enable Kafkacat to access a Kafka instance, you must configure the connection using the bootstrap server endpoint and the generated credentials for your {product} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. This example sets environment variables and then passes them to the `kafkcat` command.
 
 For more information about Kafkacat configuration options, see https://github.com/edenhill/kafkacat#configuration[Configuration] in the Kafkacat documentation.
 
 .Prerequisites
-* You have the bootstrap server address (external server address) and the generated credentials for your Kafka instance. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connect to instance*, and copying the connection information.
+* You have the bootstrap server endpoint (external server endpoint) and the generated credentials for your service account. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connect to instance*, and generating the service account.
 
 .Procedure
-* In a command terminal, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
+* On the command line, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
 +
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
@@ -94,15 +94,15 @@ $ export PASSWORD=__<client_secret>__
 [id="proc-producing-messages-kafkacat_{context}"]
 == Producing messages in Kafkacat
 
-You can use Kafkacat to produce messages to Kafka topics in several ways, such as reading them from standard input (`stdin`) directly in a command terminal, from message logging (`syslog`), or from a file. This example produces messages from input in a command terminal. For more examples of Kafkacat producer messaging, see the https://github.com/edenhill/kafkacat#examples[Examples] in the Kafkacat documentation.
+You can use Kafkacat to produce messages to Kafka topics in several ways, such as reading them from standard input (`stdin`) directly on the command line or from a file. This example produces messages from input on the command line. For more examples of Kafkacat producer messaging, see the https://github.com/edenhill/kafkacat#examples[Examples] in the Kafkacat documentation.
 
 .Prerequisites
 * Kafkacat is installed.
 * You have a running Kafka instance in {product}.
-* You have set the Kafka bootstrap server address and the generated credentials as environment variables.
+* You have set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
 
 .Procedure
-. In a command terminal, enter the following commands to start Kafkacat in _producer_ mode. This mode enables you to produce messages to your Kafka topic.
+. On the command line, enter the following commands to start Kafkacat in _producer_ mode. This mode enables you to produce messages to your Kafka topic.
 +
 --
 This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example produces messages to the `my-first-kafka-topic` example topic. If this topic does not exist yet, it is automatically created with default settings.
@@ -116,12 +116,10 @@ $ kafkacat -t my-first-kafka-topic -b "$BOOTSTRAP_SERVER" \
  -X sasl.password="$PASSWORD" -P
 ----
 
-////
-// Commenting this out for now because it directly contradicts the Getting Started quick start, which specifies that {product} uses SASL/PLAIN by default. Need clarity. (Stetson, 9 Mar 2021)
-NOTE: {product} supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use and is superior to SASL/PLAIN. However, Kafkacat does not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
-////
+NOTE: {product} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, Kafkacat does not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
+
 --
-. With Kafkacat running in producer mode, enter messages in the command terminal that you want to produce to the Kafka topic.
+. With Kafkacat running in producer mode, enter messages into Kafkacat that you want to produce to the Kafka topic.
 +
 .Example messages to produce to the Kafka topic
 [source]
@@ -130,29 +128,29 @@ First message
 Second message
 Third message
 ----
-. Keep this Kafkacat producer running to use later when you create a Kafkacat consumer.
+. Keep this producer running to use later when you create a consumer.
 
 .Verification
 ifdef::qs[]
-* Is your Kafkacat producer still running without any errors in the terminal?
+* Is your producer still running without any errors in the terminal?
 endif::[]
 ifndef::qs[]
-* Verify that your Kafkacat producer is still running without any errors in the terminal.
+* Verify that your producer is still running without any errors in the terminal.
 endif::[]
 
 [id="proc-consuming-messages-kafkacat_{context}"]
 == Consuming messages in Kafkacat
 
-You can use Kafkacat to consume messages from Kafka topics. This example consumes the messages that you sent previously with the Kafkacat producer.
+You can use Kafkacat to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with Kafkacat.
 
 .Prerequisites
 * Kafkacat is installed.
 * You have a running Kafka instance in {product}.
-* You have set the Kafka bootstrap server address and the generated credentials as environment variables.
-* You used a Kafkacat producer to produce example messages to a topic.
+* You have set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
+* You used a producer to produce example messages to a topic.
 
 .Procedure
-. In a command terminal, enter the following commands to start Kafkacat in _consumer_ mode. This mode enables you to consume messages from your Kafka topic.
+. On the command line in a separate terminal from your producer, enter the following commands to start Kafkacat in _consumer_ mode. This mode enables you to consume messages from your Kafka topic.
 +
 --
 This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example consumes and displays the messages from the `my-first-kafka-topic` example topic, and states that it reached the end of partition `0` in the topic.
@@ -171,16 +169,16 @@ Third message
 % Reached end of topic my-first-kafka-topic [0] at offset 3
 ----
 --
-. If your Kafkacat producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
+. If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
 .Verification
 ifdef::qs[]
-* Is your Kafkacat consumer running without any errors in the terminal?
-* Did the Kafkacat consumer display the messages from the `my-first-kafka-topic` example topic?
+* Is your consumer running without any errors in the terminal?
+* Did the consumer display the messages from the `my-first-kafka-topic` example topic?
 endif::[]
 ifndef::qs[]
-. Verify that your Kafkacat consumer is running without any errors in the terminal.
-. Verify that the Kafkacat consumer displays the messages from the `my-first-kafka-topic` example topic.
+. Verify that your consumer is running without any errors in the terminal.
+. Verify that the consumer displays the messages from the `my-first-kafka-topic` example topic.
 endif::[]
 
 ifdef::qs[]
