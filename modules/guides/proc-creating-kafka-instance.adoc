@@ -27,7 +27,7 @@ The new Kafka instance is listed in the instances table. When the instance *Stat
 .New Kafka instance in Ready state
 image::sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
 --
-. In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance as needed.
+. In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view the instance details, connect to the instance, or delete the instance as needed.
 +
 [.screencapture]
 .Kafka instance options menu
