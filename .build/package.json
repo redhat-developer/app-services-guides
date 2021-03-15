@@ -53,6 +53,7 @@
     "bundle-profile:analyze": "npm run build:bundle-profile && webpack-bundle-analyzer ./stats.json",
     "start": "webpack-cli serve",
     "start:dev": "webpack serve --hot --color --progress --config webpack.dev.js",
+    "start:federate": "PORT=9001 webpack serve --hot --color --progress --config webpack.dev.js",
     "clean": "rimraf dist tmp && gh-pages-clean",
     "generate:attributes": "node ./utils/attributes.js",
     "generate:modular-docs-sources": "node ./utils/modular-docs.js",
