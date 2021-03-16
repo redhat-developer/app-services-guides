@@ -32,10 +32,7 @@ function generateSplitterInput(dir) {
         const srcImagesDir = path.join(dir, id, "images");
         const destFilePath = path.join(destDir, destFilename);
         const destImagesDir = path.join(destDir, "_images", id);
-        const relativeImagesDir = path.relative(destDir, destImagesDir);
-        const data = fs.readFileSync(srcFilePath, "utf-8");
-        const output = data.replace(/^:imagesdir:.*$/gm, `:imagesdir: ${relativeImagesDir}`);
-        fs.writeFileSync(destFilePath, output);
+        fs.copySync(srcFilePath, destFilePath);
         if (fs.pathExistsSync(srcImagesDir)) {
             fs.copySync(srcImagesDir, destImagesDir)
         }
@@ -47,7 +44,7 @@ function generateSplitterInput(dir) {
 
 const split = (dir) => {
     const jarDir = path.normalize(`${__dirname}/../binaries/splitter`);
-    const jarName = `asciidoc-splitter-1.0-SNAPSHOT.jar`;
+    const jarName = `asciidoc-splitter-1.0-SNAPSHOT-jar-with-dependencies.jar`;
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
     const splitterCommandBase = `java -cp ${jarDir}/${jarName}:${jarDir}/* com.redhat.documentation.asciidoc.cli.ExtractionRunner`;
@@ -58,11 +55,5 @@ const split = (dir) => {
         });
 }
 
-const publish = (dir) => {
-
-}
-
-
 const srcDir = generateSplitterInput(path.normalize(`${__dirname}/../../`));
-const destDir = split(srcDir);
-publish(destDir);
+split(srcDir);
