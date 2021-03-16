@@ -1,0 +1,19 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: debezium-and-camel-on-openshift
+spec:
+  version: 0.1
+  displayName: !snippet/title README.adoc#user-content-debezium-and-apache-camel-with-red-hat-managed-kafka
+  durationMinutes: 20
+  icon: ''
+  description: !snippet README.adoc#user-content-preamble
+  prerequisites:
+    - An OpenShift cluster up and running
+  introduction: !snippet README.adoc#user-content-preamble
+#  tasks:
+#    - !snippet/proc README.adoc#proc-installing-kafkacat
+#    - !snippet/proc README.adoc#proc-configuring-kafkacat
+#    - !snippet/proc README.adoc#proc-producing-messages-kafkacat
+#    - !snippet/proc README.adoc#proc-consuming-messages-kafkacat
+#  conclusion: !snippet README.adoc#conclusion

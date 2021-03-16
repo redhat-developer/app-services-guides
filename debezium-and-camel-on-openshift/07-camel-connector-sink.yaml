@@ -1,0 +1,19 @@
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnector
+metadata:
+  name: camel-mysql-sink-connector
+  labels:
+    strimzi.io/cluster: dbz-mk-demo-oauth
+spec:
+  class: org.apache.camel.kafkaconnector.sql.CamelSqlSinkConnector
+  tasksMax: 1
+  config:
+    topics: postgres1.inventory.products
+    transforms: unwrap
+    transforms.unwrap.type: io.debezium.transforms.ExtractNewRecordState
+    camel.component.sql.dataSource.user: "${file:/opt/kafka/external-configuration/mysql-connector-credentials/debezium-mysql-credentials.properties:user}"
+    camel.component.sql.dataSource.password: "${file:/opt/kafka/external-configuration/mysql-connector-credentials/debezium-mysql-credentials.properties:password}"
+    camel.component.sql.dataSource.serverName: dbz-mk-mysql
+    camel.component.sql.dataSource: "#class:com.mysql.cj.jdbc.MysqlDataSource"
+    camel.sink.path.query: "INSERT INTO replicated_inventory.products (id, name, description, weight) VALUES (:#id, :#name, :#description, :#weight) ON DUPLICATE KEY UPDATE name=VALUES(name), description=VALUES(description), weight=VALUES(weight)"
+

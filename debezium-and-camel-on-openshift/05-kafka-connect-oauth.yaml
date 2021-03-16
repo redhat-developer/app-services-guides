@@ -1,0 +1,46 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaConnect
+metadata:
+  name: dbz-mk-demo-oauth
+  annotations:
+    strimzi.io/use-connector-resources: "true"
+spec:
+  replicas: 1
+  image: image-registry.openshift-image-registry.svc:5000/dbz-mk-demo/amqstreams-debezium@sha256:4c0e41c814cd90b59acad5b6a50c8a9865e7eb32f4736e43fef5d8bbba8ed9a7
+# 👆 This entry needs to be updated with coordinates to your custom AMQ Streams Kafka container image 👆
+  bootstrapServers: debezium-t--opl--t-kraa-dl-daft-punk.kafka.openshift.org:443
+# 👆 This entry needs to be updated with coordinates to Managed Kafka bootstrap servers address 👆
+  authentication:
+    type: oauth
+    tokenEndpointUri: https://keycloak-edge-redhat-rhoam-user-sso.apps.mas-sso-stage.1gzl.s1.devshift.org/auth/realms/mas-sso-staging/protocol/openid-connect/token
+#   👆 This entry needs to be updated with your OAUTH service token endpoint URL 👆
+    clientId: srvc-acct-2cd59b14-07ad-4f73-bea7-940301f3b605
+#   👆 This entry needs to be updated with your Managed Kafka username 👆
+    clientSecret:
+      secretName: debezium-demo-kafka-secrets
+      key: kafka.password
+  ## see https://strimzi.io/docs/operators/master/using.html#type-KafkaClientAuthenticationOAuth-reference
+  tls:
+    trustedCertificates: [ ]
+  config:
+    request.timeout.ms: 20000
+    retry.backoff.ms: 500
+    consumer.request.timeout.ms: 20000
+    consumer.retry.backoff.ms: 500
+    producer.request.timeout.ms: 20000
+    producer.retry.backoff.ms: 500
+    producer.compression.type: lz4
+    group.id: dbz-mk-demo-oauth-connect
+    config.storage.topic: dbz-mk-demo-oauth-connect-configs
+    offset.storage.topic: dbz-mk-demo-oauth-connect-offsets
+    status.storage.topic: dbz-mk-demo-oauth-connect-status
+    config.providers: file
+    config.providers.file.class: org.apache.kafka.common.config.provider.FileConfigProvider
+  externalConfiguration:
+    volumes:
+      - name: postgres-connector-credentials
+        secret:
+          secretName: debezium-postgres-credentials
+      - name: mysql-connector-credentials
+        secret:
+          secretName: debezium-mysql-credentials

@@ -1,0 +1,43 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaConnect
+metadata:
+  name: dbz-mk-demo-sasl
+  annotations:
+    strimzi.io/use-connector-resources: "true"
+spec:
+  replicas: 1
+  image: image-registry.openshift-image-registry.svc:5000/dbz-mk-demo/amqstreams-debezium@sha256:4c0e41c814cd90b59acad5b6a50c8a9865e7eb32f4736e43fef5d8bbba8ed9a7
+# 👆 This entry needs to be updated with coordinates to your custom AMQ Streams Kafka container image 👆
+  bootstrapServers: debezium-t--opl--t-kraa-dl-daft-punk.kafka.openshift.org:443
+# 👆 This entry needs to be updated with coordinates to Managed Kafka bootstrap servers address 👆
+  authentication:
+    type: plain
+    username: srvc-acct-2cd59b14-07ad-4f73-bea7-940301f3b605
+# 👆 This entry needs to be updated with your Managed Kafka username 👆
+    passwordSecret:
+      secretName: debezium-demo-kafka-secrets
+      password: kafka.password
+  tls:
+    trustedCertificates: [ ]
+  config:
+    request.timeout.ms: 20000
+    retry.backoff.ms: 500
+    consumer.request.timeout.ms: 20000
+    consumer.retry.backoff.ms: 500
+    producer.request.timeout.ms: 20000
+    producer.retry.backoff.ms: 500
+    producer.compression.type: lz4
+    group.id: dbz-mk-demo-sasl-connect
+    config.storage.topic: dbz-mk-demo-sasl-connect-configs
+    offset.storage.topic: dbz-mk-demo-sasl-connect-offsets
+    status.storage.topic: dbz-mk-demo-sasl-connect-status
+    config.providers: file
+    config.providers.file.class: org.apache.kafka.common.config.provider.FileConfigProvider
+  externalConfiguration:
+    volumes:
+      - name: postgres-connector-credentials
+        secret:
+          secretName: debezium-postgres-credentials
+      - name: mysql-connector-credentials
+        secret:
+          secretName: debezium-mysql-credentials

@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dbz-mk-pg-volume-claim
+  labels:
+    app: dbz-mk-pg
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1G
+  storageClassName: gp2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbz-mk-pg
+spec:
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    app: dbz-mk-pg
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbz-mk-pg
+spec:
+  selector:
+    matchLabels:
+      app: dbz-mk-pg
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dbz-mk-pg
+    spec:
+      volumes:
+      - name: dbz-mk-pg-volume
+        persistentVolumeClaim:
+          claimName: dbz-mk-pg-volume-claim
+      containers:
+      - name: dbz-mk-pg
+        image: debezium/example-postgres:1.4
+        env:
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        - name: POSTGRES_DB
+          value: postgres
+        volumeMounts:
+        - name: dbz-mk-pg-volume
+          mountPath: /var/lib/postgresql
+          subPath: data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dbz-mk-mysql-volume-claim
+  labels:
+    app: dbz-mk-mysql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1G
+  storageClassName: gp2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbz-mk-mysql
+spec:
+  ports:
+    - port: 3306
+      protocol: TCP
+      targetPort: 3306
+  selector:
+    app: dbz-mk-mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbz-mk-mysql
+spec:
+  selector:
+    matchLabels:
+      app: dbz-mk-mysql
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dbz-mk-mysql
+    spec:
+      volumes:
+        - name: dbz-mk-mysql-volume
+          persistentVolumeClaim:
+            claimName: dbz-mk-mysql-volume-claim
+      containers:
+        - name: dbz-mk-mysql
+          image: mysql:5.7
+          args:
+            - "--ignore-db-dir=lost+found"
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: debezium
+            - name: MYSQL_USER
+              value: mysql
+            - name: MYSQL_PASSWORD
+              value: mysql
+          volumeMounts:
+            - name: dbz-mk-mysql-volume
+              mountPath: /var/lib/mysql
