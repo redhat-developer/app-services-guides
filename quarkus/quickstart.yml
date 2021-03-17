@@ -1,0 +1,26 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: kafkacat
+spec:
+  version: 0.1
+  displayName: !snippet/title README.adoc#chap-using-quarkus
+  durationMinutes: 10
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - A running Kafka instance (see the Getting Started quick start)
+    - A command-line terminal application
+    - Git
+    - Java
+    - An IDE
+    - Apache Maven
+  introduction: !snippet README.adoc#introduction
+  tasks:
+    - !snippet/proc README.adoc#proc-getting-the-sample-code
+    - !snippet/proc README.adoc#proc-configuring-quarkus
+    - !snippet/proc README.adoc#proc-create-prices-topic
+    - !snippet/proc README.adoc#proc-running-the-quarkus-application
+  conclusion: !snippet README.adoc#conclusion
+  nextQuickStart:
+    - 'service-binding'
