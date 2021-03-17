@@ -4,7 +4,7 @@ metadata:
   name: quarkus-kafka
 spec:
   version: 0.1
-  displayName: !snippet/title README.adoc#using-kafka-bin-scripts
+  displayName: !snippet/title README.adoc#chap-kafka-bin-scripts
   durationMinutes: 10
   icon: ''
   description: !snippet README.adoc#description

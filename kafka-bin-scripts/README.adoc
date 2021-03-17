@@ -6,19 +6,20 @@
 :Product_short: bf2
 :Propertyfile_name: bf2.properties
 
-[id='using-kafka-bin-scripts-{context}']
+[id="chap-kafka-bin-scripts"]
 = Using Kafka Bin Scripts with {Product}
 
-[id=description-{context}]
+ifdef::qs[]
+[#description]
 Learn how to use Kafka Bin Scripts to interact with a {Product} Kafka instance.
 
-[id=introduction-{context}]
+[#introduction]
 Welcome to the {Product} Kafka Bin Scripts Guide.
     
 In this guide we will walk you through the basics you need to know to use the *Kafka Bin Scripts* to interact with your Kafka cloud service.
+endif::[]
 
-
-[id='task-1-{context}',module-type="proc"]
+[id="task-1_{context}",module-type="proc"]
 == Download the Kafka Bin Scripts
 
 The _Kafka Bin Scripts_ are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution/download]. When you extract the Apache Kafka distribution, the `bin` directory of that distribution contains a set of tools that allow you to interact with your Kafka instance. There are scripts to produce message, consume messages, and to execute various operations against the Kafka APIs to administer topics, consumer-groups, etc.
@@ -48,7 +49,7 @@ $ ./kafka-console-producer.sh --version
 .Verification
 . Execute `kafka-console-producer.sh --version` in your terminal. This should print the Kafkas version information.
 
-[id='task-2-{context}',module-type="proc"]
+[id="task-2_{context}",module-type="proc"]
 == Create the Configuration File
 
 You will need to configure the Kafka Bin Scripts to connect with, and authenticate to, your {Product_short} Kafka instance.
@@ -87,7 +88,7 @@ NOTE: {Product} supports both the SASL/OAUTHBEARER and SASL/PLAIN mechanism for 
 .Verification
 . You have a new file named {Propertyfile_name} in your Apache Kafka's `config` directory
 
-[id='task-3-{context}',module-type="proc"]
+[id="task-3_{context}",module-type="proc"]
 == Produce messages
 The Kafka Bin Scripts contain a script to easily produce message to Apache Kafka from the console/command line/terminal.
 To prdouce messages from the console/terminal, you simply need to run the `kafka-console-producer` script.
@@ -134,7 +135,7 @@ In the previous task, you've created a configuration file with the credentials t
 . You've a `kafka-console-producer` running without any errors printed to your console.
 . No errors were printed to the console when you sent the 3 messages.
 
-[id='task-4-{context}',module-type="proc"]
+[id="task-4_{context}",module-type="proc"]
 == Consume messages
 Apart from producing messages, the Kafka Bin Scripts can also be used to consume messages.
 To consume messages from the console/terminal, you simply need to run the `kafka-console-consumer` script, referencing the same configuration file we created earlier.
@@ -165,7 +166,7 @@ Third message
 . `kafka-console-consumer` consumed the 3 messages you've sent to the `my-other-topic` topic in the previous task.
 
 
-[id='task-5-{context}',module-type="proc"]
+[id="task-5_{context}",module-type="proc"]
 == Produce and Consume messages
 Now that you've produced and consumed some messages, and have your `kafka-console-producer` and `kafka-console-consumer` still running, we can produce and consume some more messages.
 
@@ -197,8 +198,9 @@ My Kafka Bin Scripts messsage
 . You've produced the _My Kakfa Bin Scripts message_ to your `my-other-topic` Kafka topic without errors.
 . The _My Kafka Bin Scripts message_ was successfully consumed by your `kafka-console-consumer`.
 
-
-[id=conclusion-{context}]
+ifdef::qs[]
+[#conclusion]
 Congratulations! You've successfully completed the {Product} Kafka Bin Scripts Guide, and are now ready to produce message to, and consume messages from, the service.
+endif::[]
 
 :context: {parent-context}
