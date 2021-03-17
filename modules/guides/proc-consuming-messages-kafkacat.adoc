@@ -1,5 +1,6 @@
 [id='proc-consuming-messages-kafkacat_{context}']
 = Consuming messages in Kafkacat
+:imagesdir: _images
 
 You can use Kafkacat to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with Kafkacat.
 

@@ -2,6 +2,7 @@
 = Using Kafkacat with Kafka instances in {product-long}
 ifdef::context[:parent-context: {context}]
 :context: using-kafkacat
+:imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
