@@ -1,0 +1,39 @@
+[id='task-5_{context}']
+= Produce and Consume messages
+:imagesdir: _images
+Now that you've produced and consumed some messages, and have your `kafka-console-producer` and `kafka-console-consumer` still running, we can produce and consume some more messages.
+
+.Prerequisites
+* A `kafka-console-producer` running and connected to your {Product_short} Kafka instance, producing to your `my-other-topic` topic.
+* A `kafka-console-consumer` running and connected to your {Product_short} Kafka instance, consuming from your `my-other-topic` topic.
+
+.Procedure
+. In your terminal with the running `kafka-console-producer`, send the following message.
++
+[source,bash]
+----
+My Kafka Bin Scripts messsage
+----
++
+. Switch to the terminal in which you have your `kafka-console-consumer` running. You should see your message being consumed.
++
+[source,bash]
+----
+First message
+Second message
+Third message
+My Kafka Bin Scripts messsage
+----
++
+. Produce some more messages to your {Product_short} Kafka instance and see how they are being consumed by your `kafka-console-consumer`.
+
+.Verification
+. You've produced the _My Kakfa Bin Scripts message_ to your `my-other-topic` Kafka topic without errors.
+. The _My Kafka Bin Scripts message_ was successfully consumed by your `kafka-console-consumer`.
+
+ifdef::qs[]
+[#conclusion]
+Congratulations! You've successfully completed the {Product} Kafka Bin Scripts Guide, and are now ready to produce message to, and consume messages from, the service.
+endif::[]
+
+:context: {parent-context}

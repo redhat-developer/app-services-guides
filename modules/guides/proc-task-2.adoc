@@ -1,0 +1,39 @@
+[id='task-2_{context}']
+= Create the Configuration File
+:imagesdir: _images
+
+You will need to configure the Kafka Bin Scripts to connect with, and authenticate to, your {Product_short} Kafka instance.
+The easiest way to do this is to create a configuration file in the `config` directory of your Apache Kafka folder.
+
+.Prerequisites
+* Kafka Bin Scripts available on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
+
+.Procedure
+. Get the credentials (_Client ID_ and _Secret_) of your Kafka instance. You've created the Service Account in the _Getting Started Guide_. If you haven't created a Service Account yet, or you if you lost the credentials, generate a new set of credentials. This can be done as follows:
+.. Navigate to the {Product} environment.
+.. In the Kakfa instance table, click on the kebab/three-dot menu icon of your Kafka and select `Connect to instance`.
+.. Click the _Generate Credential_ button.
+.. Copu the _Client ID_ and _Client Secret_ and store them in a safe place.
+. Navigate to the `config` folder of your Apache Kafka folder.
+. Create a new file. Call it `{Propertyfile_name}`.
+. Add the following content to your configuration file. Use the _Client ID_ as the _<USER>_ and _Client Secret_ as the _<PASSWORD>_
++
+[source,properties]
+----
+sasl.mechanism=PLAIN
+security.protocol=SASL_SSL
+
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="<USER>" \
+  password="<PASSWORD>";
+----
++
+NOTE: {Product} supports both the SASL/OAUTHBEARER and SASL/PLAIN mechanism for authentication. SASL/OAUTHBEARER is the recommended authentication mechanism to use, and superior to SASL/PLAIN. We highly recommend to always SASL/OAUTHBEARER if your Kafka client or library of choice supports it.
++
+. Save the file. We will use it in the next task to connect to your Kafka instance and produce messages.
+
+.Verification
+. You have a new file named {Propertyfile_name} in your Apache Kafka's `config` directory

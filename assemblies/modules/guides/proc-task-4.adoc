@@ -1,0 +1,30 @@
+[id='task-4_{context}']
+= Consume messages
+:imagesdir: _images
+Apart from producing messages, the Kafka Bin Scripts can also be used to consume messages.
+To consume messages from the console/terminal, you simply need to run the `kafka-console-consumer` script, referencing the same configuration file we created earlier.
+
+.Prerequisites
+* The Kafka Bin Scripts installed on your system.
+* A running {Product_short} Kafka instance.
+* The bootstrap server location of your Kafka instance.
+* The credentials of the Service Account to authenticate against the Kafka instance.
+* Messages produced to the `my-other-topic` topic as described in the previous task.
+
+.Procedure
+. Using the information from the the previous tasks, like the _Bootstrap Server_ of your {Product_short} Kafka instance and the configuration file, start the `kafka_console_consumer`. You will consume messages from the same topic, `my-other-topic` that you produced messages to in the previous task. Execute the following command, replacing the _BOOTSTRAP_SERVER_ with the value for your Kafka instance. You should see the 3 messages you produced in the previous task.
++
+[source,bash]
+----
+$ ./kafka-console-consumer.sh -topic my-other-topic --bootstrap-server "$BOOTSTRAP_SERVER" --from-beginning --consumer.config {Propertyfile_name}
+First message
+Second message
+Third message
+----
++
+. The `kafka-console-consumer` has consumed the 3 messages you've sent to the topic earlier.
+. Keep the consumer running, as you will use it in the next task.
+
+.Verification
+. You've a `kafka-console-consumer` running without any errors printed to your console.
+. `kafka-console-consumer` consumed the 3 messages you've sent to the `my-other-topic` topic in the previous task.

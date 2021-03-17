@@ -1,0 +1,30 @@
+[id='task-1_{context}']
+= Download the Kafka Bin Scripts
+:imagesdir: _images
+
+The _Kafka Bin Scripts_ are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution/download]. When you extract the Apache Kafka distribution, the `bin` directory of that distribution contains a set of tools that allow you to interact with your Kafka instance. There are scripts to produce message, consume messages, and to execute various operations against the Kafka APIs to administer topics, consumer-groups, etc.
+
+In this Quick Start you will use the Kafka Bin Scripts to produce and consume messages.
+
+NOTE: The Kafka Bin Scripts are part of the open-source community version of Apache Kafka. It's not a part of {Product} and therefore not supported by Red Hat.
+
+If you already have the Kafka Bin Scripts installed on your system, you can continue to the next task of this tutorial.
+
+.Prerequisites
+* tbd
+
+.Procedure
+. Download the latest Kafka distribution from https://kafka.apache.org/downloads[here].
+. Extract the downloaded archive with your tool of choice.
+. In a terminal, navigate into the Apache Kafka folder. From this folder, navigate into the `bin` folder.
+. The `bin` folder contains the Kafka Bin Scripts. Take a look at the scripts inside this folder and verify that you have the `kafka-console-producer` and `kafka-console-consumer` scripts.
+. From the `bin` directory, run `kafka-console-producer.sh --version` to verify that the scripts can start and run without any problems.
++
+[source,bash]
+----
+$ ./kafka-console-producer.sh --version
+2.7.0 (Commit:448719dc99a19793)
+----
+
+.Verification
+. Execute `kafka-console-producer.sh --version` in your terminal. This should print the Kafkas version information.
