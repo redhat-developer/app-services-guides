@@ -48,7 +48,7 @@ const split = (dir) => {
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
     const splitterCommandBase = `java -cp ${jarDir}/${jarName}:${jarDir}/* com.redhat.documentation.asciidoc.cli.ExtractionRunner`;
-    const cmd = `${splitterCommandBase} -s ${dir} -o ${destDir}`;
+    const cmd = `${splitterCommandBase} -s ${dir} -o ${destDir} --pantheonV2`;
     execSync(cmd,
         {
             stdio: 'inherit'
