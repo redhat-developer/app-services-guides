@@ -1,6 +1,6 @@
 [id='task-4_{context}']
 = Consume messages
-:imagesdir: _images
+:imagesdir: ../_images
 Apart from producing messages, the Kafka Bin Scripts can also be used to consume messages.
 To consume messages from the console/terminal, you simply need to run the `kafka-console-consumer` script, referencing the same configuration file we created earlier.
 

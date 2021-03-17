@@ -1,6 +1,6 @@
 [id='task-3_{context}']
 = Produce messages
-:imagesdir: _images
+:imagesdir: ../_images
 The Kafka Bin Scripts contain a script to easily produce message to Apache Kafka from the console/command line/terminal.
 To prdouce messages from the console/terminal, you simply need to run the `kafka-console-producer` script.
 

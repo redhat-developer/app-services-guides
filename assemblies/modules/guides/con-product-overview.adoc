@@ -1,6 +1,6 @@
 [id='con-product-overview_{context}']
 = bf2fc6cc711aee1a0c2a
-:imagesdir: _images
+:imagesdir: ../_images
 
 {product-long} is a fully managed cloud service running on https://www.openshift.com/products/dedicated/[OpenShift Dedicated]. {product} enables you to implement Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters. With {product}, you can share data between microservices and other applications with high throughput and low latency.
 

@@ -1,6 +1,6 @@
 [id='task-2_{context}']
 = Create the Configuration File
-:imagesdir: _images
+:imagesdir: ../_images
 
 You will need to configure the Kafka Bin Scripts to connect with, and authenticate to, your {Product_short} Kafka instance.
 The easiest way to do this is to create a configuration file in the `config` directory of your Apache Kafka folder.

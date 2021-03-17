@@ -1,6 +1,6 @@
 [id='task-5_{context}']
 = Produce and Consume messages
-:imagesdir: _images
+:imagesdir: ../_images
 Now that you've produced and consumed some messages, and have your `kafka-console-producer` and `kafka-console-consumer` still running, we can produce and consume some more messages.
 
 .Prerequisites

@@ -1,6 +1,6 @@
 [id='assembly-getting-started']
 = Getting Started with {product-long}
-ifdef::context[:parent-context: {context}]
+// -- splitter comment -- ifdef::context[:parent-context: {context}]
 :context: getting-started
 :imagesdir: _images
 
@@ -26,22 +26,21 @@ END GENERATED ATTRIBUTES
 As a developer of applications and services, you can use the {product-long} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product} is a cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
 
 .Prerequisites
-ifndef::community[]
+// -- splitter comment -- ifndef::community[]
 * You have a Red Hat account.
-endif::[]
+// -- splitter comment -- endif::[]
 //* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have access to an application or service that you want to connect to a Kafka instance in {product-long}.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
-ifdef::qs[]
+// -- splitter comment -- ifdef::qs[]
 [#description]
 Learn how to create and set up your first Apache Kafka instance in {product-long}.
 
 [#introduction]
 Welcome to the {product-long} Getting Started quick start. In this quick start, you'll learn how to create and inspect a Kafka instance, create a service account to connect an application or service to the instance, and create a topic in the instance.
-endif::[]
-
+// -- splitter comment -- endif::[]
 ifndef::community[]
 endif::[]
 ifdef::qs[]
@@ -63,3 +62,4 @@ ifdef::qs[]
 Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
 ifdef::qs[]
 endif::[]
+

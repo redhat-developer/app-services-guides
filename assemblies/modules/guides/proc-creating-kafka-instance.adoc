@@ -1,6 +1,6 @@
 [id='proc-creating-kafka-instance_{context}']
 = Creating a Kafka instance in bf2
-:imagesdir: _images
+:imagesdir: ../_images
 
 A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services. You can use the {product} web console to create and configure a Kafka instance for your applications or services.
 

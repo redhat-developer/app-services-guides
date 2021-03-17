@@ -1,6 +1,6 @@
 [id='task-1_{context}']
 = Download the Kafka Bin Scripts
-:imagesdir: _images
+:imagesdir: ../_images
 
 The _Kafka Bin Scripts_ are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution/download]. When you extract the Apache Kafka distribution, the `bin` directory of that distribution contains a set of tools that allow you to interact with your Kafka instance. There are scripts to produce message, consume messages, and to execute various operations against the Kafka APIs to administer topics, consumer-groups, etc.
 
