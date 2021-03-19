@@ -17,6 +17,7 @@ function generateSplitterInput(dir) {
     console.log(`Generating from ${dir} into ${destDir}`)
     rimraf.sync(destDir);
     fs.mkdirpSync(destDir);
+    const imageRefRegex = /(?<macro>image::)(?<path>[^\[]*)(?<attributesArray>\[[^\]]*])/gm;
     // ignores
     const ignore = ignoreFilesGlobs();
     console.log(`Ignoring ${ignore.join(", ")}`)
@@ -32,10 +33,19 @@ function generateSplitterInput(dir) {
         const srcImagesDir = path.join(dir, id, "images");
         const destFilePath = path.join(destDir, destFilename);
         const destImagesDir = path.join(destDir, "_images", id);
-        fs.copySync(srcFilePath, destFilePath);
-        if (fs.pathExistsSync(srcImagesDir)) {
-            fs.copySync(srcImagesDir, destImagesDir)
-        }
+        let data = fs.readFileSync(srcFilePath, "utf-8").toString();
+        const imageFiles = glob.sync(path.join(srcImagesDir, "**"));
+        imageFiles.forEach(f => {
+            fs.copySync(f, path.join(destImagesDir, path.basename(f)));
+            const relativePathToImage = f.replace(`${srcImagesDir}/`, "");
+            data = data.replace(imageRefRegex, function (match, macro, docPath, attributesArray) {
+                if (docPath === relativePathToImage) {
+                    return `${macro}${path.join(id, docPath)}${attributesArray}`;
+                }
+                return match;
+            });
+        });
+        fs.writeFileSync(destFilePath, data);
     });
     // Needed to stop the splitter erroring
     fs.mkdirpSync(path.join(destDir, 'titles-enterprise'));
