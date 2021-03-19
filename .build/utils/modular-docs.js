@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const rimraf = require('rimraf');
 const glob = require('glob');
-const {ignoreFilesGlobs} = require('./common');
+const {ignoreFilesGlobs, injectAttributes} = require('./common');
 const {execSync} = require('child_process');
 
 const tmpDirName = "tmp";
@@ -34,9 +34,11 @@ function generateSplitterInput(dir) {
         const destFilePath = path.join(destDir, destFilename);
         const destImagesDir = path.join(destDir, "_images", id);
         let data = fs.readFileSync(srcFilePath, "utf-8").toString();
-        const imageFiles = glob.sync(path.join(srcImagesDir, "**"));
+        const imageFiles = glob.sync(path.join(srcImagesDir, "**/*"));
         imageFiles.forEach(f => {
-            fs.copySync(f, path.join(destImagesDir, path.basename(f)));
+            const destImageFile = path.join(destImagesDir, path.basename(f));
+            console.log(`Copying file ${f} to ${destImageFile}`);
+            fs.copySync(f, destImageFile);
             const relativePathToImage = f.replace(`${srcImagesDir}/`, "");
             data = data.replace(imageRefRegex, function (match, macro, docPath, attributesArray) {
                 if (docPath === relativePathToImage) {
@@ -44,6 +46,7 @@ function generateSplitterInput(dir) {
                 }
                 return match;
             });
+            data = injectAttributes(data, "");
         });
         fs.writeFileSync(destFilePath, data);
     });
