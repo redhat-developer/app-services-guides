@@ -20,19 +20,19 @@ endif::[]
 --
 [.screencapture]
 .Kafka instance configuration details
-image::sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
+image::getting-started/sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
 
 The new Kafka instance is listed in the instances table. When the instance *Status* becomes *Ready*, you can start using the Kafka instance.
 
 [.screencapture]
 .New Kafka instance in Ready state
-image::sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
+image::getting-started/sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
 --
 . In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view the instance details, connect to the instance, or delete the instance as needed.
 +
 [.screencapture]
 .Kafka instance options menu
-image::sak-kafka-instance-options.png[Image of Kafka instance options menu]
+image::getting-started/sak-kafka-instance-options.png[Image of Kafka instance options menu]
 
 .Verification
 ifdef::qs[]
@@ -52,9 +52,9 @@ When you're in the {Product_short} environment, you will see a left menu panel. 
 
 In the lower left of the screen you'll see a lightbulb icon. This icon gives access to the `Resource Center`. Here you can find the latest information about the service, like product updates, upcoming events, etc.
 
-image::sak-crc-resource-center.png[Image of Resource Center in web console]
+image::getting-started/sak-crc-resource-center.png[Image of Resource Center in web console]
 
 The center of the page shows you the list of Kafka instances that are currently running within your organisation. If this is your, or your organisations, first interaction with {Product_short}, this list will be empty.
 
-image::sak-kafka-overview.png[Image of initial empty instances table]
+image::getting-started/sak-kafka-overview.png[Image of initial empty instances table]
 ////
