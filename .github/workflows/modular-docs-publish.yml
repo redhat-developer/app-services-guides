@@ -41,9 +41,7 @@ jobs:
       - run: npm --prefix .build run generate:modular-docs
         name: Generate modular-docs
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.build/tmp/post-splitter
-          publish_branch: modular-docs
-
+          branch: modular-docs # The branch the action should deploy to.
+          folder: .build/tmp/post-splitter # The folder the action should deploy.
