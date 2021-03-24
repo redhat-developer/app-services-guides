@@ -1,0 +1,6 @@
+[id='assembly-installing-rhoas']
+= RHOAS CLI
+:imagesdir: _images
+
+:toc:
+
