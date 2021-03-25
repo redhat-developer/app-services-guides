@@ -2,7 +2,7 @@
 = Using Kafka Bin Scripts with {Product}
 :imagesdir: _images
 
-// -- splitter comment -- ifdef::qs[]
+ifdef::qs[]
 [#description]
 Learn how to use Kafka Bin Scripts to interact with a {Product} Kafka instance.
 
@@ -10,7 +10,7 @@ Learn how to use Kafka Bin Scripts to interact with a {Product} Kafka instance.
 Welcome to the {Product} Kafka Bin Scripts Guide.
 
 In this guide we will walk you through the basics you need to know to use the *Kafka Bin Scripts* to interact with your Kafka cloud service.
-// -- splitter comment -- endif::[]
+endif::[]
 ifdef::qs[]
 endif::[]
 ifdef::qs[]
