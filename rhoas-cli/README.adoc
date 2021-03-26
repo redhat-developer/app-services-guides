@@ -1,0 +1,585 @@
+[id="chap-getting-started-rhoas-cli"]
+= Getting started with the rhoas CLI
+:context: getting-started-rhoas
+
+[role="_abstract"]
+With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+
+This guide describes how to get started quickly by doing the following:
+
+* Install `rhoas` on your Operating System.
+
+* Configure `rhoas` to enable command completion.
+
+* Start using `rhoas` by creating a simple Kafka instance, connecting to it, and creating a Kafka topic to produce and consume messages.
+
+[id="proc-installing-rhoas_{context}"]
+== Installing the rhoas CLI
+
+[role="_abstract"]
+You can install `rhoas` on Linux, macOS, or Windows.
+
+=== Installing the rhoas CLI on Linux
+
+If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
+
+==== Installation script
+
+.Procedure
+
+. Review the `install.sh` installation script.
++
+The script is located at https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh.
+
+. Run the `install.sh` script:
++
+--
+[source,shell]
+----
+$ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh | bash
+----
+
+[NOTE]
+====
+You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.19.0`:
+
+[source,shell]
+----
+$ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh | bash -s 0.19.0
+----
+====
+
+The `rhoas` CLI is installed in `$HOME/.local/bin`.
+--
+
+. Verify that the `rhoas` installation directory is on your `$PATH`.
++
+--
+To check your `$PATH`, run the following command:
+
+[source,shell]
+----
+$ echo $PATH
+----
+--
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` 0.19.0 is installed:
+
+[source,shell]
+----
+$ rhoas --version
+rhoas version 0.19.0
+----
+--
+
+==== RPM installation
+
+You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHEL), Fedora, or CentOS.
+
+.Procedure
+
+. In a web browser, navigate to the `rhoas` Releases page and choose the version of `rhoas` you would like to install.
+
+. Use `dnf`/`yum` to install the desired version of `rhoas`:
++
+--
+This example installs `rhoas` version `0.19.0`:
+
+[source,shell]
+----
+$ sudo dnf install -y https://github.com/bf3fc6c/cli/releases/download/0.19.0/rhoas_0.19.0_linux_amd64.rpm
+----
+--
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` 0.19.0 is installed:
+
+[source,shell]
+----
+$ rhoas --version
+rhoas version 0.19.0
+----
+--
+
+=== Installing the rhoas CLI on macOS
+
+.Procedure
+
+. Review the `install.sh` installation script.
++
+The script is located at https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh.
+
+. Run the `install.sh` script:
++
+--
+[source,shell]
+----
+$ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh | bash
+----
+
+[NOTE]
+====
+You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.19.0`:
+
+[source,shell]
+----
+$ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh | bash -s 0.19.0
+----
+====
+
+The `rhoas` CLI is installed in `$HOME/bin`.
+--
+
+. Verify that the `rhoas` installation directory is on your `$PATH`.
++
+--
+To check your `$PATH`, run the following command:
+
+[source,shell]
+----
+$ echo $PATH
+----
+--
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` 0.19.0 is installed:
+
+[source,shell]
+----
+$ rhoas --version
+rhoas version 0.19.0
+----
+--
+
+=== Installing the rhoas CLI on Windows
+
+.Procedure
+
+. Navigate to the `rhoas` link:https://github.com/bf3fc6c/cli/releases[Releases page].
+
+. Download the latest `rhoas` .zip file.
+
+. On your computer, create a `C:\rhoas` folder.
+
+. Extract the `rhoas.exe` file from the .zip file that you downloaded.
+
+. Move the `rhoas.exe` file to `C:\rhoas`.
+
+. If you are using Windows 10, set the `PATH` variable.
+
+.. Click *Search* and type `env` or `environment`.
+
+.. Select *Edit environment variables for your account*.
+
+.. In the *Variable* section, select *Path*, and click *Edit*.
+
+.. Click *New*, and enter `C:\rhoas`.
+
+[id="proc-configuring-rhoas_{context}"]
+== Configuring rhoas
+
+[role="_abstract"]
+After you install the `rhoas` CLI,
+you can enable command completion to automatically complete `rhoas` commands or suggest options when you press *Tab*.
+
+NOTE: The procedure for enabling command completion depends on the shell you are using.
+To determine which shell you are using, run the `echo $0` command.
+
+You can enable command completion for each of the following shells:
+
+* xref:_enabling_command_completion_on_bash[Bash]
+* xref:_enabling_command_completion_on_zsh[Zsh]
+* xref:_enabling_command_completion_on_fish[Fish]
+
+.Prerequisites
+
+* You must have xref:proc-installing-rhoas_{context}[installed the `rhoas` CLI].
+
+=== Enabling command completion on Bash
+
+.Procedure
+
+. Create the `rhoas_completions` script file.
++
+[source,shell]
+----
+$ rhoas completion bash > rhoas_completions
+----
+
+. Move the script file to a special Bash completions directory.
++
+--
+.Linux
+[source,shell]
+----
+$ sudo mv rhoas_completions /etc/bash_completion.d/rhoas
+----
+
+.macOS
+[source,shell]
+----
+$ sudo mv rhoas_completions /usr/local/etc/bash_completion.d/rhoas
+----
+--
+
+. Open a new terminal window.
++
+Command completion is enabled.
+
+=== Enabling command completion on Zsh
+
+.Procedure
+
+. Install the command completion script.
++
+[source,shell]
+----
+$ rhoas completion zsh > "${fpath[1]}/_rhoas"
+----
+
+. Unless already installed, enable command completions.
++
+[source,shell]
+----
+$ echo "autoload -U compinit; compinit" >> ~/.zshrc
+----
+
+. Open a new terminal window.
++
+Command completion is enabled.
+
+=== Enabling command completion on Fish
+
+.Procedure
+
+. Install fish completions.
++
+[source,shell]
+----
+$ rhoas completion -s fish > ~/.config/fish/completion/gh.fish
+----
+
+. Open a new terminal window.
++
+Command completion is enabled.
+
+[id="proc-logging-in-to-rhoas_{context}"]
+== Logging in to rhoas
+
+[role="_abstract"]
+After `rhoas` is installed, you can log in to access your application services.
+
+.Prerequisites
+
+* You must have an account to access Red Hat OpenShift Application Services.
+
+* The `rhoas` CLI is installed.
+
+.Procedure
+
+. In a terminal, log in to `rhoas`.
++
+--
+[source,shell]
+----
+$ rhoas login
+----
+
+You are redirected to your web browser at https://sso.redhat.com.
+--
+
+. Enter your credentials to log in to your Red Hat account.
++
+--
+A welcome page is displayed notifying you that you have been logged in to `rhoas` successfully.
+
+In your terminal, the `rhoas login` command indicates that you are logged in:
+
+[source,shell]
+----
+$ rhoas login
+You are now logged in as developer
+----
+--
+
+[id="proc-using-rhoas_{context}"]
+== Using rhoas
+
+[role="_abstract"]
+As a developer of applications and services,
+you can use `rhoas` to create Kafka instances and connect your applications and services to these instances.
+
+The following procedures demonstrate a basic workflow to get started quickly:
+
+* xref:_creating_a_kafka_instance[Create a Kafka instance]
+
+* xref:_creating_a_service_account[Create a service account]
+
+* xref:_creating_a_kafka_topic[Create a Kafka topic]
+
+* xref:_commands_for_managing_kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+
+=== Creating a Kafka instance
+
+A Kafka instance includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services.
+
+.Prerequisites
+
+* You are logged in to `rhoas`.
+
+.Procedure
+
+. Enter the following command to create a Kafka instance with default values.
++
+--
+This example creates a Kafka instance called `my-kafka`.
+
+.Creating a Kafka instance
+[source,shell]
+----
+$ rhoas kafka create my-kafka
+Kafka instance "my-kafka" created successfully
+{
+  "cloud_provider": "aws",
+  "created_at": "2021-03-17T18:33:50.000799005Z",
+  "href": "/api/managed-services-api/v1/kafkas/1ptcsACdx7HVzacKZBA6HRRa1oW",
+  "id": "1ptcsACdx7HVzacKZBA6HRRa1oW",
+  "kind": "Kafka",
+  "multi_az": true,
+  "name": "my-kafka",
+  "owner": "developer",
+  "region": "us-east-1",
+  "status": "accepted",
+  "updated_at": "2021-03-17T18:33:50.000799005Z"
+}
+----
+
+[NOTE]
+====
+If you do not want to use the default values,
+enter the following command: `rhoas kafka create`.
+You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` for the Kafka instance.
+====
+--
+
+. Enter the following command to verify that the Kafka instance is ready to use.
++
+--
+This command shows that the Kafka instance is ready to use,
+because the `Status` field is `ready`.
+
+.Reviewing details of a Kafka instance
+[source,shell]
+----
+$ rhoas status kafka
+
+  Kafka
+  -----------------------------------------------------------------------------------
+  ID:                     1ptdfZRHmLKwqW6A3YKM2MawgDh
+  Name:                   my-kafka
+  Status:                 ready
+  Bootstrap URL:          my-kafka--ptdfzrhmlkwqw-a-ykm-mawgdh.kafka.devshift.org:443
+----
+
+[NOTE]
+====
+When you created the Kafka instance, it was set as the current instance automatically.
+If you have multiple Kafka instances,
+you can switch to a different instance by using the `rhoas kafka use` command.
+====
+--
+
+=== Creating a service account
+
+To connect your applications or services to a Kafka instance, you must first create a service account with credentials.
+The credentials are exported to a file on your computer,
+which you can use to authenticate your application with your Kafka instance.
+
+.Prerequisites
+
+* You have created a Kafka instance, and it has a `ready` status.
+
+.Procedure
+
+. Enter the following command to create a service account.
++
+--
+This example creates a service account called `my-service-acct` and saves the credentials in a JSON file.
+
+.Creating a service account
+[source,shell]
+----
+$ rhoas serviceaccount create --name "my-service-acct" --file-format json
+
+Service account my-service-account created
+Credentials saved to /home/developer/my-project/credentials.json
+----
+
+Your service account credentials are created and saved to a JSON file.
+
+[NOTE]
+====
+When creating a service account, you can choose the file format and location to save the credentials.
+For more information, see the `rhoas serviceaccount create` command help.
+====
+--
+
+. To verify your service account credentials,
+view the `credentials.json` file that you created.
++
+--
+.Verifying service account credentials
+[source,shell]
+----
+$ cat credentials.json
+{
+	"user":"srvc-acct-eb575691-b94a-41f1-ab97-50ade0cd1094",
+	"password":"facf3df1-3c8d-4253-aa87-8c95ca5e1225"
+}
+----
+
+You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
+--
+
+=== Creating a Kafka topic
+
+After creating a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
+
+.Prerequisites
+
+* You have created a Kafka instance, and it has a `ready` status.
+
+.Procedure
+
+. Verify that you are using the Kafka instance that you created.
++
+--
+This example switches to the `my-kafka` instance that was previously created.
+
+.Selecting a Kafka instance to use
+[source,shell]
+----
+$ rhoas kafka use my-kafka
+Kafka instance "my-kafka" has been set as the current instance.
+----
+--
+
+. Create a Kafka topic with default values.
++
+--
+This example creates the `my-topic` Kafka topic.
+
+.Creating a Kafka topic with default values
+[source,shell]
+----
+$ rhoas kafka topic create my-topic
+{
+  "config": [
+    {
+      "key": "retention.ms",
+      "value": "-1"
+    }
+  ],
+  "name": "my-topic",
+  "partitions": [
+    {
+      "id": 1,
+      "leader": {
+        "id": 1
+      },
+      "replicas": [
+        {
+          "id": 1
+        }
+      ]
+    }
+  ]
+}
+----
+
+[NOTE]
+====
+If you do not want to use the default values,
+you can specify the number of partitions (`--partitions`) and message retention time (`--retention-ms`).
+For more information, see the `rhoas kafka topic create` help.
+====
+--
+
+. If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.
+
+=== Commands for managing Kafka
+
+The following list shows the `rhoas` commands you can use to manage your Kafka instances, service accounts, and topics.
+For more information about any of the commands,
+view the command help (for example, `rhoas kafka list -h`).
+
+* View a list of all Kafka instances in your organization:
++
+`rhoas kafka list`
+
+* View configuration details for a particular Kafka instance:
++
+`rhoas kafka describe`
+
+* Switch to a different Kafka instance:
++
+`rhoas kafka use`
+
+* Delete a Kafka instance:
++
+`rhoas kafka delete`
+
+* View a list of Kafka topics:
++
+`rhoas kafka topic list`
+
+* View configuration details for a particular Kafka topic:
++
+`rhoas kafka topic describe`
+
+* Update the message retention time for a Kafka topic:
++
+`rhoas kafka topic update`
+
+* Delete a Kafka topic:
++
+`rhoas kafka topic delete`
+
+* View a list of service accounts in your organization:
++
+`rhoas serviceaccount list`
+
+* View configuration details for a particular service account:
++
+`rhoas serviceaccount describe`
+
+* Generate a new password for a service account:
++
+`rhoas serviceaccount reset-credentials`
+
+* Delete a service account:
++
+`rhoas serviceaccount delete`
+
+[id="proc-logging-out-rhoas_{context}"]
+== Logging out of rhoas
+
+[role="_abstract"]
+You can log out from the `rhoas` CLI by using the `rhoas logout` command.
+
+.Procedure
+
+* Log out of `rhoas`.
++
+[source,shell]
+-----
+$ rhoas logout
+Successfully logged out
+-----
