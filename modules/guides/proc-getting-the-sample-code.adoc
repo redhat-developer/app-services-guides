@@ -1,0 +1,22 @@
+[id='proc-getting-the-sample-code_{context}']
+= Getting the same code
+:imagesdir: ../_images
+
+{quarkus} is a Kubernetes Native Java stack tailored for OpenJDK HotSpot and GraalVM, crafted from the best of breed Java libraries and standards. Applications built for Quarkus can produce messages to and consume messages to {product} using MicroProfile Reactive Messaging.
+
+In order to follow this quick start get the sample from GitHub and open it in your IDE.
+
+.Procedure
+. On the command line use git to clone the sample.
++
+[source,bash,subs="+attributes"]
+----
+$ mkdir guides && git clone {samples_git_repo} .
+----
++
+. Using your IDE, import the `guides/quarkus` directory that you created in the previous step.
+
+ifdef::qs[]
+.Verification
+* You have the quarkus project imported into your IDE and the IDE has configured the project with the needed Java libraries from the Maven `pom.xml`.
+endif::[]
