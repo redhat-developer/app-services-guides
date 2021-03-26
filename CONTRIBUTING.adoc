@@ -151,11 +151,14 @@ kind: QuickStarts
 metadata:
   name: <identifier>
 ----
-. The `spec` associative array defines the quick start content. Start by defining the version of the quick start,the URL of an icon to use, and how long the quick start should take to complete.
+. The `spec` associative array defines the quick start content. Start by defining the content type of the quickstart (Quick start / Documentation), the version of the quick start, the URL of an icon to use, and how long the quick start should take to complete.
 +
 ----
 spec:
   version: <quick start version>
+  type:
+    text: Quick start // or Documentation if it has an external link
+    color: green // orange for Documentation
   icon: <icon url>
   durationMinutes: <duration>
 ----
@@ -221,6 +224,15 @@ Any section of the task can be overridden by providing the relevant entry in the
 One of the benefits of displaying guides within the Web UI is that allows us to have much greater context on what the user is doing.
 
 In keeping with Kubernetes, we recommend using environment variables as a method of providing configuration to applications.
+
+=== Highlighting page elements from a quick start
+
+. To highlight items from a quick start, first the target item needs to have a data attribute: *data-quickstart-id="something"*
+. Then in asciidoc, the trigger element needs to have the *`+data-highlight__something+`* class/role, where the part after *`+data-highlight__+`* matches the data-quickstart-id of the target
+Here are some examples:
+* `+link:[Click me to highlight the logo, role="data-highlight__logo"]+`
+* `+link:[Click me to highlight the Home nav item, role="data-highlight__home"]+`
+* `+link:[Click here to highlight the Quick starts nav item, role="data-highlight__quickstarts"]+`
 
 === Integrating the quick start with Pantheon
 

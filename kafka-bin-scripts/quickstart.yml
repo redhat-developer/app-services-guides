@@ -4,6 +4,9 @@ metadata:
   name: quarkus-kafka
 spec:
   version: 0.1
+  type:
+    text: Quick start
+    color: green
   displayName: !snippet/title README.adoc#chap-kafka-bin-scripts
   durationMinutes: 10
   icon: ''

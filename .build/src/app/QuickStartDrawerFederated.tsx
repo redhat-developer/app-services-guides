@@ -5,9 +5,10 @@ import {
   useLocalStorage,
   useValuesForQuickStartContext,
 } from "@cloudmosaic/quickstarts";
+import {loadJSONQuickStarts} from "@app/quickstartLoader";
+import "@patternfly/patternfly/patternfly.min.css";
 import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-extension.css";
 import "@cloudmosaic/quickstarts/dist/quickstarts.css";
-import {loadJSONQuickStarts} from "@app/quickstartLoader";
 
 export type QuickStartDrawerFederatedProps = {
   basePath?: string

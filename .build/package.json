@@ -63,10 +63,10 @@
     "generate:modular-docs": "npm-run-all --parallel generate:modular-docs-sources fetch:templates --sequential generate:modular-docs-output"
   },
   "dependencies": {
-    "@cloudmosaic/quickstarts": "0.0.12",
+    "@cloudmosaic/quickstarts": "0.0.17",
     "@redhat-cloud-services/frontend-components-config": "^4.0.11",
-    "@patternfly/react-core": "^4.97.2",
-    "@patternfly/react-icons": "^4.9.2",
+    "@patternfly/react-core": "^4.101.3",
+    "@patternfly/react-icons": "^4.9.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sync-request": "^6.1.0",
