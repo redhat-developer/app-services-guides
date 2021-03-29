@@ -42,7 +42,6 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
   if (fs.existsSync(attributesFile)) {
     const extname = path.extname(attributesFile);
     // Support for attributes declared as an asciidoc file, like pantheon does it
-    console.log(extname);
     if (extname === ".asciidoc" || extname === ".adoc") {
       const attributesDoc = asciidoctor.loadFile(attributesFile, {
         attributes: {
