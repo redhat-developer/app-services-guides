@@ -12,6 +12,10 @@
       },
       "spec": {
         "version": 0.1,
+        "type": {
+          "text": "Quick start",
+          "color": "green"
+        },
         "displayName": "!snippet/title README.adoc#using-with",
         "durationMinutes": 15,
         "icon": "",
@@ -43,6 +47,10 @@
       },
       "spec": {
         "version": 4.7,
+        "type": {
+          "text": "Quick start",
+          "color": "green"
+        },
         "displayName": "Installing the Pipelines Operator",
         "durationMinutes": 10,
         "icon": "",
@@ -126,6 +134,10 @@
       "examples": [
         {
           "version": 4.7,
+          "type": {
+            "text": "Quick start",
+            "color": "green"
+          },
           "displayName": "Installing the Pipelines Operator",
           "durationMinutes": 10,
           "icon": "",
@@ -154,6 +166,10 @@
           ]
         }, {
           "version": 0.1,
+          "type": {
+            "text": "Quick start",
+            "color": "green"
+          },
           "displayName": "!snippet/title README.adoc#using-with",
           "durationMinutes": 15,
           "icon": "",
@@ -179,15 +195,10 @@
       ],
       "required": [
         "version",
+        "type",
         "displayName",
-        "durationMinutes",
         "icon",
-        "description",
-        "prerequisites",
-        "introduction",
-        "tasks",
-        "conclusion",
-        "nextQuickStart"
+        "description"
       ],
       "properties": {
         "version": {
@@ -198,6 +209,87 @@
           "examples": [
             4.7
           ]
+        },
+        "type": {
+          "$id": "#/properties/spec/properties/type",
+          "type": "object",
+          "description": "The content type of the quick start (Quick start / Documentation)",
+          "examples": [
+            {
+              "text": "Quick start",
+              "color": "green"
+            },
+            {
+              "text": "Documentation",
+              "color": "orange"
+            }
+          ],
+          "required": [
+            "text"
+          ],
+          "properties": {
+            "text": {
+              "$id": "#/properties/spec/properties/type/properties/text",
+              "type": "string",
+              "description": "The label text",
+              "examples": [
+                "Quick start",
+                "Documentation"
+              ]
+            },
+            "color": {
+              "$id": "#/properties/spec/properties/type/properties/color",
+              "type": "string",
+              "description": "The label color",
+              "enum": [
+                "green",
+                "orange",
+                "blue",
+                "cyan",
+                "purple",
+                "red",
+                "grey"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "link": {
+          "$id": "#/properties/spec/properties/link",
+          "type": "object",
+          "description": "External documentation link",
+          "examples": [
+            {
+              "href": "https://github.com/cloudmosaic/quickstarts",
+              "text": "Quick starts repo"
+            },
+            {
+              "href": "https://www.patternfly.org",
+              "text": "PatternFly"
+            }
+          ],
+          "required": [
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "$id": "#/properties/spec/properties/link/properties/href",
+              "type": "string",
+              "description": "The URL to the external resource",
+              "examples": [
+                "https://www.patternfly.org"
+              ]
+            },
+            "text": {
+              "$id": "#/properties/spec/properties/link/properties/text",
+              "type": "string",
+              "description": "The link text to display",
+              "examples": [
+                "PatternFly"
+              ]
+            }
+          },
+          "additionalProperties": false
         },
         "displayName": {
           "$id": "#/properties/spec/properties/displayName",

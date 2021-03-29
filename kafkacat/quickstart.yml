@@ -4,6 +4,9 @@ metadata:
   name: kafkacat
 spec:
   version: 0.1
+  type:
+    text: Quick start
+    color: green
   displayName: !snippet/title README.adoc#chap-using-kafkacat
   durationMinutes: 10
   icon: ''

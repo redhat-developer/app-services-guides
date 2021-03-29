@@ -1,0 +1,15 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: docs-patternfly
+spec:
+  version: 0.1
+  type: 
+    text: Documentation
+    color: orange
+  displayName: More information on PatternFly 
+  icon: ''
+  description: Learn more about PatternFly, an open source design system built to drive consistency and unify teams.
+  link: 
+    href: https://www.patternfly.org
+    text: PatternFly

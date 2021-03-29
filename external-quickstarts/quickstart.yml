@@ -1,0 +1,15 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: docs-quickstart
+spec:
+  version: 0.1
+  type: 
+    text: Documentation
+    color: orange
+  displayName: More information on quick starts
+  icon: ''
+  description: Learn how to use and build quick starts in your own project.
+  link: 
+    href: https://github.com/cloudmosaic/quickstarts
+    text: Quick starts repo

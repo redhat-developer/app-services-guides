@@ -5,15 +5,16 @@ import {
   useLocalStorage,
   useValuesForQuickStartContext,
 } from "@cloudmosaic/quickstarts";
+import {loadJSONQuickStarts} from "@app/quickstartLoader";
+import "@patternfly/patternfly/patternfly.min.css";
 import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-extension.css";
 import "@cloudmosaic/quickstarts/dist/quickstarts.css";
-import {loadJSONQuickStarts} from "@app/quickstartLoader";
 
-export type QuickStartDrawerFederatedProps = {
+export interface QuickStartDrawerFederatedProps extends React.HTMLProps<HTMLDivElement> {
   basePath?: string
 }
 
-const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({ children, basePath }) => {
+const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({ children, basePath, ...props }) => {
   const [activeQuickStartID, setActiveQuickStartID] = useLocalStorage(
     "quickstartId",
     ""
@@ -46,7 +47,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
   if (allQuickStartsLoaded) {
     return (
         <QuickStartContext.Provider value={valuesForQuickstartContext}>
-          <QuickStartDrawer>{children}</QuickStartDrawer>
+          <QuickStartDrawer {...props}>{children}</QuickStartDrawer>
         </QuickStartContext.Provider>
     );
   } else {
