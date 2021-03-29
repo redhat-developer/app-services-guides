@@ -27,7 +27,8 @@ export const ProcQuickStartParser = (
             delete task["proc"];
         }
 
-        let description, procedure, verification, title, summaryFailed, success, reviewFailed: string | undefined;
+        let procedure, verification, title, summaryFailed, success, reviewFailed: string | undefined;
+        let description = "";
         if (proc) {
             const taskDOM = document.createElement("div");
             taskDOM.innerHTML = proc;
@@ -59,7 +60,7 @@ export const ProcQuickStartParser = (
                         }
                     } else if (!procedure) {
                         // Otherwise if it comes before a procedure it's part of the description
-                        description = child?.innerHTML.trim();
+                        description += child?.innerHTML.trim();
                     }
                 }
             }
