@@ -19,7 +19,7 @@ You can enable command completion for each of the following shells:
 
 * You must have xref:proc-installing-rhoas_{context}[installed the `rhoas` CLI].
 
- Enabling command completion on Bash
+== Enabling command completion on Bash
 
 .Procedure
 
@@ -50,7 +50,7 @@ $ sudo mv rhoas_completions /usr/local/etc/bash_completion.d/rhoas
 +
 Command completion is enabled.
 
- Enabling command completion on Zsh
+== Enabling command completion on Zsh
 
 .Procedure
 
@@ -72,7 +72,7 @@ $ echo "autoload -U compinit; compinit" >> ~/.zshrc
 +
 Command completion is enabled.
 
- Enabling command completion on Fish
+== Enabling command completion on Fish
 
 .Procedure
 

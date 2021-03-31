@@ -28,3 +28,4 @@ Third message
 .Verification
 . You've a `kafka-console-consumer` running without any errors printed to your console.
 . `kafka-console-consumer` consumed the 3 messages you've sent to the `my-other-topic` topic in the previous task.
+

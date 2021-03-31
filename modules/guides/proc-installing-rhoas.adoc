@@ -5,11 +5,11 @@
 [role="_abstract"]
 You can install `rhoas` on Linux, macOS, or Windows.
 
- Installing the rhoas CLI on Linux
+== Installing the rhoas CLI on Linux
 
 If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
 
-= Installation script
+=== Installation script
 
 .Procedure
 
@@ -26,14 +26,14 @@ $ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh
 ----
 
 [NOTE]
-==
+====
 You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.19.0`:
 
 [source,shell]
 ----
 $ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh | bash -s 0.19.0
 ----
-==
+====
 
 The `rhoas` CLI is installed in `$HOME/.local/bin`.
 --
@@ -61,7 +61,7 @@ rhoas version 0.19.0
 ----
 --
 
-= RPM installation
+=== RPM installation
 
 You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHEL), Fedora, or CentOS.
 
@@ -92,7 +92,7 @@ rhoas version 0.19.0
 ----
 --
 
- Installing the rhoas CLI on macOS
+== Installing the rhoas CLI on macOS
 
 .Procedure
 
@@ -109,14 +109,14 @@ $ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh
 ----
 
 [NOTE]
-==
+====
 You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.19.0`:
 
 [source,shell]
 ----
 $ curl -o- https://raw.githubusercontent.com/bf3fc6c/cli/main/scripts/install.sh | bash -s 0.19.0
 ----
-==
+====
 
 The `rhoas` CLI is installed in `$HOME/bin`.
 --
@@ -144,7 +144,7 @@ rhoas version 0.19.0
 ----
 --
 
- Installing the rhoas CLI on Windows
+== Installing the rhoas CLI on Windows
 
 .Procedure
 

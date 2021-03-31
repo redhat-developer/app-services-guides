@@ -32,3 +32,4 @@ endif::[]
 ifndef::qs[]
 * Verify that the new Kafka topic `prices` is listed in the topics table.
 endif::[]
+
