@@ -1,11 +1,11 @@
 [id='proc-create-prices-topic_{context}']
-= Create the prices topic
+= Creating the <code>prices</code> Kafka topic in {product}
 :imagesdir: ../_images
 
-This example uses a topic called `prices`
+For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product} so that the Quarkus application can interact with it.
 
 .Prerequisites
-* You have created a Kafka instance in the {product} web console and the instance is in *Ready* state.
+* You have created a Kafka instance in {product} and the instance is in *Ready* state.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, select the name of the Kafka instance that you want to add a topic to.
@@ -22,8 +22,8 @@ NOTE: You can increase the number of partitions later, but you cannot decrease t
 +
 
 * *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
-
-After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now start producing and consuming messages to and from this topic using the sample {quarkus} application that you connect to this instance.
++
+After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
 
 .Verification
 ifdef::qs[]
@@ -32,4 +32,3 @@ endif::[]
 ifndef::qs[]
 * Verify that the new Kafka topic `prices` is listed in the topics table.
 endif::[]
-

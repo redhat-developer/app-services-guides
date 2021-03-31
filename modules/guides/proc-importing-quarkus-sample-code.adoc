@@ -1,0 +1,20 @@
+[id='proc-importing-quarkus-sample-code_{context}']
+= Importing the Quarkus sample code
+:imagesdir: ../_images
+
+For this quick start, you'll use the Quarkus sample code from the {product} https://github.com/bf2fc6cc711aee1a0c2a/guides[Guides and Samples] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
+
+.Procedure
+. On the command line, clone the {product} https://github.com/bf2fc6cc711aee1a0c2a/guides[Guides and Samples] repository from GitHub.
++
+.Cloning the guides and samples repository
+[source,subs="+attributes"]
+----
+$ mkdir guides && git clone {samples-git-repo}
+----
+. In your IDE, import the `guides/quarkus` directory from the repository that you cloned.
+
+ifdef::qs[]
+.Verification
+* Is the Quarkus example application imported into your IDE?
+endif::[]

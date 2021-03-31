@@ -1,0 +1,36 @@
+[id='proc-running-quarkus-example-application_{context}']
+= Running the Quarkus example application
+:imagesdir: ../_images
+
+After you configure your Quarkus application to connect to a Kafka instance and you create the Kafkat topic, you can run the Quarkus application to start producing and consuming messages to and from the topic. The Quarkus example application in this quick start has three application-scoped beans: one generates a random number between 0 and 100 and produces it to a Kafka topic, another bean consumes the number from the Kafka topic, and a final bean exposes the number as a REST UI (using Server Sent events).
+
+.Prerequisites
+* You have configured the Quarkus example application to connect to the Kafka instance.
+* You have created the `prices` example Kafka topic.
+
+.Procedure
+. On the command line, navigate to the `guides/quarkus` directory that you imported and enter the following commands to run the Quarkus example application.
++
+.Running the Quarkus example application
+[source]
+----
+$ cd ~/guides/quarkus
+$ ./mvnw quarkus:dev
+----
+. After the application is running, in a web browser, go to http://localhost:8080/prices.html and verify that the `Last price` is updated.
++
+If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
+
+ifdef::qs[]
+.Verification
+* Did the Quarkus example application run without any errors?
+* At http://localhost:8080/prices.html, is the `Last price` updated?
+endif::[]
+
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Quarkus quick start, and are now ready to use your own Quarkus applications with {product}.
+endif::[]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
