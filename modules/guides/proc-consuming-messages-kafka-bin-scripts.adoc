@@ -1,0 +1,48 @@
+[id='proc-consuming-messages-kafka-bin-scripts_{context}']
+= Consuming messages using Kafka bin scripts
+:imagesdir: ../_images
+
+You can use the `kafka-console-consumer` script to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with the `kafka-console-producer` script.
+
+.Prerequisites
+
+* You used the `kafka-console-producer` script to produce example messages to a topic.
+
+.Procedure
+
+. On the command line in a separate terminal from your producer, enter the following command to start the `kafka-console-consumer` script.
++
+--
+This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
+
+.Starting the `kafka-console-consumer` script
+
+[source,subs="+quotes,+attributes"]
+----
+$ ./kafka-console-consumer.sh -topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --from-beginning --consumer.config ../config/{property-file-name}
+First message
+Second message
+Third message
+----
+--
+
+. If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
+
+.Verification
+ifdef::qs[]
+* Is the `kafka-console-consumer` script running without any errors in the terminal?
+* Did the `kafka-console-consumer` script display the messages from the `my-other-topic` example topic?
+endif::[]
+ifndef::qs[]
+. Verify that the `kafka-console-consumer` script is running without any errors in the terminal.
+. Verify that the `kafka-console-consumer` script displays the messages from the `my-other-topic` example topic.
+endif::[]
+
+
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Kafka bin scripts quick start, and are now ready to produce and consume messages in the service.
+endif::[]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

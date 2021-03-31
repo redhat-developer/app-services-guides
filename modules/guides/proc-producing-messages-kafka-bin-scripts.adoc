@@ -1,0 +1,46 @@
+[id='proc-producing-messages-kafka-bin-scripts_{context}']
+= Producing messages using Kafka bin scripts
+:imagesdir: ../_images
+
+You can use the `kafka-console-producer` script to produce messages to Kafka topics.
+
+.Prerequisites
+
+* The Kafka bin scripts are downloaded.
+* You have a running Kafka instance in {product}.
+* You have the bootstrap server endpoint (external server endpoint) for your service account. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connect to instance*, and generating the service account.
+* You have created the `{property-file-name}` file to store your service account credentials.
+
+.Procedure
+
+. On the command line, from the `bin/` directory, enter the following command to start the `kafka-console-producer` script.
++
+--
+This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic. If this topic does not exist yet, it is automatically created with default settings.
+
+.Starting the `kafka-console-producer` script
+[source,subs="+quotes,+attributes"]
+----
+./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
+----
+--
+
+. With the `kafka-console-producer` script running, enter messages that you want to produce to the Kafka topic.
++
+.Example messages to produce to the Kafka topic
+[source]
+----
+>First message
+>Second message
+>Third message
+----
+
+. Keep the producer running to use later when you create a consumer.
+
+.Verification
+ifdef::qs[]
+* Is the `kafka-console-producer` script still running without any errors in the terminal?
+endif::[]
+ifndef::qs[]
+* Verify that the `kafka-console-producer` script is still running without any errors in the terminal.
+endif::[]
