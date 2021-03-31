@@ -1,7 +1,7 @@
 apiVersion: console.openshift.io/v1
 kind: QuickStarts
 metadata:
-  name: quarkus-kafka
+  name: kafka-bin-scripts
 spec:
   version: 0.1
   type:
@@ -12,15 +12,15 @@ spec:
   icon: ''
   description: !snippet README.adoc#description
   prerequisites:
-    - A running Kafka instance (see the Getting Started Guide)
-    - A command line/terminal
+    - A running Kafka instance (see the Getting Started quick start)
+    - A command-line terminal application
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#task-1
-    - !snippet/proc README.adoc#task-2
-    - !snippet/proc README.adoc#task-3
-    - !snippet/proc README.adoc#task-4
-    - !snippet/proc README.adoc#task-5
+    - !snippet/proc README.adoc#proc-downloading-kafka-bin-scripts
+    - !snippet/proc README.adoc#proc-configuring-kafka-bin-scripts
+    - !snippet/proc README.adoc#proc-producing-messages-kafka-bin-scripts
+    - !snippet/proc README.adoc#proc-consuming-messages-kafka-bin-scripts
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
-    - 'todo'
+    - 'kafkacat'
+    - 'quarkus-kafka'

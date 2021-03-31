@@ -16,11 +16,9 @@ import {
   QuickStartContextValues,
   QuickStartContext,
   QuickStartTile,
-  getQuickStartStatusCount,
   filterQuickStarts,
   QuickStartCatalogEmptyState,
   QUICKSTART_SEARCH_FILTER_KEY,
-  QUICKSTART_STATUS_FILTER_KEY,
   QuickStartCatalogFilterSearchWrapper,
   QuickStartCatalogFilterCountWrapper,
   clearQuickStartFilters,
@@ -44,49 +42,28 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
   const initialQueryParams = new URLSearchParams(window.location.search);
   const initialSearchQuery =
     initialQueryParams.get(QUICKSTART_SEARCH_FILTER_KEY) || "";
-  const [searchInputText, setSearchInputText] = React.useState<string>(
-    initialSearchQuery
-  );
-  const initialStatusFilters =
-    initialQueryParams.get(QUICKSTART_STATUS_FILTER_KEY)?.split(",") || [];
-  const [statusFilters, setStatusFilters] = React.useState<string[]>(
-    initialStatusFilters
-  );
 
   const sortFnc = (q1: QuickStart, q2: QuickStart) =>
     q1.spec.displayName.localeCompare(q2.spec.displayName);
+
   const initialFilteredQuickStarts = filterQuickStarts(
     quickStarts,
     initialSearchQuery,
-    initialStatusFilters,
+    [],
     allQuickStartStates
   ).sort(sortFnc);
+
   const [filteredQuickStarts, setFilteredQuickStarts] = React.useState<
     QuickStart[]
   >(initialFilteredQuickStarts);
 
-  const quickStartStatusCount = React.useMemo(
-    () => getQuickStartStatusCount(allQuickStartStates, quickStarts),
-    [allQuickStartStates, quickStarts]
-  );
   const onSearchInputChange = (searchValue: string) => {
     const result = filterQuickStarts(
       quickStarts,
       searchValue,
-      statusFilters,
+      [],
       allQuickStartStates
-    ).sort((q1, q2) => q1.spec.displayName.localeCompare(q2.spec.displayName));
-    setSearchInputText(searchValue);
-    setFilteredQuickStarts(result);
-  };
-  const onStatusChange = (statusList: string[]) => {
-    const result = filterQuickStarts(
-      quickStarts,
-      searchInputText,
-      statusList,
-      allQuickStartStates
-    ).sort((q1, q2) => q1.spec.displayName.localeCompare(q2.spec.displayName));
-    setStatusFilters(statusList);
+    ).sort(sortFnc);
     setFilteredQuickStarts(result);
   };
 
@@ -156,11 +133,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
 
   const clearFilters = () => {
     clearQuickStartFilters();
-    setFilteredQuickStarts(
-      quickStarts.sort((q1, q2) =>
-        q1.spec.displayName.localeCompare(q2.spec.displayName)
-      )
-    );
+    setFilteredQuickStarts(quickStarts.sort(sortFnc));
   };
 
   return (
