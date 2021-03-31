@@ -15,15 +15,15 @@ spec:
     - A running Kafka instance (see the Getting Started quick start)
     - A command-line terminal application
     - Git
-    - Java
     - An IDE
-    - Apache Maven
+    - JDK 11 or later
+    - Apache Maven 3.6.2 or later
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#proc-getting-the-sample-code
+    - !snippet/proc README.adoc#proc-importing-quarkus-sample-code
     - !snippet/proc README.adoc#proc-configuring-quarkus
     - !snippet/proc README.adoc#proc-create-prices-topic
-    - !snippet/proc README.adoc#proc-running-the-quarkus-application
+    - !snippet/proc README.adoc#proc-running-quarkus-example-application
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'service-binding'
