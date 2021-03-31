@@ -10,6 +10,8 @@
 :product: bf2
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
 :service_url: https://localhost:1234/
+:property-file-name: bf2.properties
+
 :signup_link: https://localhost:1234/
 // Other upstream project names
 :quarkus: Quarkus
