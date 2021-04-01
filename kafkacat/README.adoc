@@ -43,7 +43,7 @@ ifdef::qs[]
 Learn how to use Kafkacat to interact with a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Kafkacat quick start. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat] to produce and consume messages for your Kafka instances in {product-long}.
+Welcome to the {product-long} Kafkacat quick start. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat] to produce and consume messages for your Kafka instances in {product}.
 endif::[]
 
 [id="proc-installing-kafkacat_{context}"]
@@ -78,12 +78,12 @@ endif::[]
 [id="proc-configuring-kafkacat_{context}"]
 == Configuring Kafkacat to connect to a Kafka instance
 
-To enable Kafkacat to access a Kafka instance, you must configure the connection using the bootstrap server endpoint and the generated credentials for your {product} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. This example sets environment variables and then passes them to the `kafkcat` command.
+To enable Kafkacat to access a Kafka instance, configure the connection using the bootstrap server endpoint and the generated credentials for your {product} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. This example sets environment variables and then passes them to the `kafkcat` command.
 
 For more information about Kafkacat configuration options, see https://github.com/edenhill/kafkacat#configuration[Configuration] in the Kafkacat documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint (external server endpoint) and the generated credentials for your service account. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connect to instance*, and generating the service account.
+* You have the bootstrap server endpoint (external server endpoint) and the generated credentials for your service account. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
 
 .Procedure
 * On the command line, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
@@ -104,13 +104,13 @@ You can use Kafkacat to produce messages to Kafka topics in several ways, such a
 .Prerequisites
 * Kafkacat is installed.
 * You have a running Kafka instance in {product}.
-* You have set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
+* You've set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
 
 .Procedure
 . On the command line, enter the following commands to start Kafkacat in _producer_ mode. This mode enables you to produce messages to your Kafka topic.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example produces messages to the `my-first-kafka-topic` example topic. If this topic does not exist yet, it is automatically created with default settings.
+This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example produces messages to the `my-first-kafka-topic` example topic. If this topic doesn't exist yet, it's automatically created with default settings.
 
 .Starting Kafkacat in producer mode
 [source]
@@ -151,7 +151,7 @@ You can use Kafkacat to consume messages from Kafka topics. This example consume
 .Prerequisites
 * Kafkacat is installed.
 * You have a running Kafka instance in {product}.
-* You have set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
+* You've set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
 * You used a producer to produce example messages to a topic.
 
 .Procedure

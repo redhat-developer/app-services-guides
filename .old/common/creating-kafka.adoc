@@ -1,6 +1,6 @@
 == Creating Managed Kafka Using rhoas CLI
 
-This guide illustrates how you can create and generate connection 
+This guide illustrates how you can create and generate connection
 details for your Managed Kafka instance.
 
 NOTE: This guide uses `rhoas` CLI, however users can also execute the same steps in cloud.redhat.com website.
