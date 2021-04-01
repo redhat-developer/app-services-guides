@@ -46,8 +46,8 @@ function generateSplitterInput(dir) {
                 }
                 return match;
             });
-            data = injectAttributes(data, "");
         });
+        data = injectAttributes(data, "");
         fs.writeFileSync(destFilePath, data);
     });
     // Needed to stop the splitter erroring
