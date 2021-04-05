@@ -78,7 +78,7 @@ To enable your Quarkus application to access a Kafka instance, configure the con
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging] to produce messages to and consume messages from your Kafka instances in {product}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging] in the Quarkus documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint (external server endpoint) and the generated credentials for your service account. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
+* You have the bootstrap server endpoint and the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
 
 .Procedure
 . On the command line, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
