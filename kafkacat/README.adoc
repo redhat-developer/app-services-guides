@@ -78,12 +78,12 @@ endif::[]
 [id="proc-configuring-kafkacat_{context}"]
 == Configuring Kafkacat to connect to a Kafka instance
 
-To enable Kafkacat to access a Kafka instance, configure the connection using the bootstrap server endpoint and the generated credentials for your {product} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. This example sets environment variables and then passes them to the `kafkcat` command.
+To enable Kafkacat to access a Kafka instance, configure the connection using the bootstrap server endpoint and the generated credentials for your {product} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. The example in this task sets environment variables and then passes them to the `kafkcat` command.
 
 For more information about Kafkacat configuration options, see https://github.com/edenhill/kafkacat#configuration[Configuration] in the Kafkacat documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint and the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
+* You have the bootstrap server endpoint and the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
 
 .Procedure
 * On the command line, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
