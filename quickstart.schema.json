@@ -8,7 +8,8 @@
       "apiVersion": "console.openshift.io/v1",
       "kind": "QuickStarts",
       "metadata": {
-        "name": "quarkus-kafka"
+        "name": "quarkus-kafka",
+        "draft": "true"
       },
       "spec": {
         "version": 0.1,
@@ -109,7 +110,8 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
       "examples": [
         {
-          "name": "explore-pipelines"
+          "name": "explore-pipelines",
+          "draft": "true"
         }
       ],
       "required": [
@@ -123,6 +125,30 @@
           "examples": [
             "explore-pipelines"
           ]
+        },
+        "annotations": {
+          "$id": "#/properties/metadata/properties/annotations",
+          "type": "object",
+          "examples": [
+            {
+              "annotations": {
+                "draft": true
+              }
+            }
+          ],
+          "properties": {
+            "draft": {
+              "$id": "#/properties/metadata/properties/annotations/properties/draft",
+              "type": "boolean",
+              "description": "True if the quick start is still in draft. This will cause it not to display in some UIs",
+              "examples": [
+                {
+                  "draft": true
+                }
+              ]
+            }
+          },
+          "additionalProperties": true
         }
       },
       "additionalProperties": false
@@ -164,7 +190,8 @@
           "nextQuickStart": [
             "install-app-and-associate-pipeline"
           ]
-        }, {
+        },
+        {
           "version": 0.1,
           "type": {
             "text": "Quick start",
@@ -376,7 +403,6 @@
               }
             ],
             [
-
               {
                 "title": "Installing the OpenShift Pipelines Operator",
                 "description": "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. ",
