@@ -12,9 +12,10 @@ import "@cloudmosaic/quickstarts/dist/quickstarts.css";
 
 export interface QuickStartDrawerFederatedProps extends React.HTMLProps<HTMLDivElement> {
   basePath?: string
+  showDrafts?: boolean
 }
 
-const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({ children, basePath, ...props }) => {
+const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({ children, basePath, showDrafts, ...props }) => {
   const [activeQuickStartID, setActiveQuickStartID] = useLocalStorage(
     "quickstartId",
     ""
@@ -29,13 +30,14 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
 
   useEffect(() => {
     const load = async () => {
-      const quickstarts = await loadJSONQuickStarts(basePath || "")
+      const quickstarts = await loadJSONQuickStarts(basePath || "", showDrafts)
+      console.log(quickstarts);
       setAllQuickStarts(quickstarts);
       setAllQuickStartsLoaded(true);
     }
     load();
 
-  }, []);
+  }, [basePath, showDrafts]);
 
   const valuesForQuickstartContext = useValuesForQuickStartContext({
     activeQuickStartID,

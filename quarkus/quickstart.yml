@@ -2,6 +2,8 @@ apiVersion: console.openshift.io/v1
 kind: QuickStarts
 metadata:
   name: quarkus
+  annotations:
+    draft: false
 spec:
   version: 0.1
   type:

@@ -1,12 +1,19 @@
 import {QuickStart, QuickStartTask} from "@cloudmosaic/quickstarts";
 
-export const ProcQuickStartParser = (
-    quickStart: QuickStart & {
-        spec: {
-            tasks: undefined | QuickStartTask[] | string[]
+export type GuidesQuickStart = QuickStart & {
+    metadata?: {
+        annotations?: {
+            draft?: boolean
         }
-    },
-    environmentVariables?: { [name: string]: string }
+    }
+    spec: {
+        tasks: undefined | QuickStartTask[] | string[]
+    }
+}
+
+
+export const ProcQuickStartParser = (
+    quickStart: GuidesQuickStart, environmentVariables?: { [name: string]: string }
 ) => {
     const replaceEnvironmentVariables = (s: string | undefined) =>
         s?.replace(/\${(\w+)}/, (substring, name) => {
@@ -80,7 +87,7 @@ export const ProcQuickStartParser = (
             success
             || "You have completed this task!");
         answer.summary.failed = replaceEnvironmentVariables(answer.summary.failed || summaryFailed
-             || "Try the steps again.");
+            || "Try the steps again.");
         return answer;
     });
     return quickStart;

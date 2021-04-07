@@ -1,4 +1,5 @@
-import {ProcQuickStartParser} from "@app/procedure-parser";
+import {GuidesQuickStart, ProcQuickStartParser} from "@app/procedure-parser";
+import {QuickStart} from "@cloudmosaic/quickstarts";
 
 const loadJSONQuickStartsFilesFromAssets = async (basePath: string): Promise<string[]> => {
     const data = await fetch(`${basePath}/webpack-assets.json`).then(response => response.json());
@@ -6,11 +7,16 @@ const loadJSONQuickStartsFilesFromAssets = async (basePath: string): Promise<str
     return files.filter(url => url.endsWith(".quickstart.json")).map(e => !e.startsWith("http") ? `${basePath}/${e}`: e);
 }
 
-export const loadJSONQuickStarts = async(basePath: string) => {
+export const loadJSONQuickStarts = async(basePath: string, showDrafts?: boolean) => {
     const files = await loadJSONQuickStartsFilesFromAssets(basePath);
-    const result = [] as any[];
+    const result = [] as GuidesQuickStart[];
     for (let i = 0; i < files.length; i++) {
         await fetch(files[i]).then(response => response.json().then(data => result.push(data)));
     }
-    return result.map(content => ProcQuickStartParser(content));
+    return result.filter(qs => {
+        if (!showDrafts && qs.metadata.annotations?.draft) {
+            return false;
+        }
+        return true;
+    }).map(content => ProcQuickStartParser(content));
 }
