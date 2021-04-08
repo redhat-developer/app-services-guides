@@ -1,0 +1,24 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: rhoas-cli
+spec:
+  version: 0.1
+  type:
+    text: Quick start
+    color: green
+  displayName: !snippet/title README.adoc#chap-getting-started-rhoas-cli
+  durationMinutes: 10
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - A running Kafka instance (see the Getting Started quick start)
+    - A command-line terminal application
+  introduction: !snippet README.adoc#introduction
+  tasks:
+    - !snippet/proc README.adoc#proc-installing-rhoas
+    - !snippet/proc README.adoc#proc-configuring-rhoas
+    - !snippet/proc README.adoc#proc-using-rhoas
+    - !snippet/proc README.adoc#proc-logging-out-rhoas
+  nextQuickStart:
+    - 'quarkus-kafka'
