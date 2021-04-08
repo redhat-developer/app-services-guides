@@ -1,0 +1,13 @@
+{
+  "name": "guides",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Guides private package",
+  "scripts": {
+    "start": "cd .build && npm install && npm run start:dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bf2fc6cc711aee1a0c2a/guides.git"
+  }
+}

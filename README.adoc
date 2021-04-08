@@ -2,6 +2,8 @@
 
 = {PRODUCT} Guides & Samples
 
+== Guides 
+
 * link:./getting-started[The Getting Started Guide]
 * link:./rhoas-cli[Using the RHOAS CLI]
 * link:./quarkus-kafka[Using {PRODUCT} with Quarkus]
@@ -9,10 +11,6 @@
 * link:./kafka-bin-scripts[Using {PRODUCT} with Kafka Bin Scripts]
 * link:./service-binding[Using Service Binding with {PRODUCT}]
 
-== Old Content
+== Contributing
 
-* link:./.old/common/creating-kafka.adoc[OLD Creating Kafka using CLI]
-* link:./.old/quarkus-kafka/README.adoc[Quarkus Application with Managed Kafka]
-* link:./.old/kafkacat/README.adoc[Kafkacat with Managed Kafka]
-* link:./.old/kafka-bin-scripts/README.adoc[Kafka Bin Scripts with Managed Kafka]
-* link:./.old/service-binding/README.adoc[Service Binding Operator with Kafka]
+* link:./Contributing[Creating new guide]
