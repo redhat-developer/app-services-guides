@@ -1,4 +1,4 @@
-:PRODUCT: bf2
+:PRODUCT: app-services
 
 = {PRODUCT} Guides & Samples
 

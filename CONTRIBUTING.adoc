@@ -1,4 +1,4 @@
-:Product: bf2
+:Product: app-services
 
 = Contributing to {Product} guides
 
