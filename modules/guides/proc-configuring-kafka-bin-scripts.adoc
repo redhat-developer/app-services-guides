@@ -6,7 +6,7 @@ To enable the Kafka bin scripts to access a Kafka instance, you must configure t
 
 .Prerequisites
 
-* You have the generated credentials for your service account. You retrieved this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connect to instance*, and generating the service account.
+* You have the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
 
 .Procedure
 

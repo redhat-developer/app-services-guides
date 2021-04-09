@@ -2,19 +2,25 @@
 = Creating a Kafka instance in {product}
 :imagesdir: ../_images
 
-A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services. You can use the {product} web console to create and configure a Kafka instance for your applications or services.
+Use the {product} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and the configurations needed to connect to producer and consumer services.
 
 ifndef::qs[]
 .Prerequisites
-* You are logged in to the {product} web console at {service-url}.
+* You're logged in to the {product} web console at {service-url}.
 endif::[]
 
 .Procedure
+. In the *Streams for Apache Kafka* page of the web console, click *Create Kafka instance*.
+. Enter a unique *Instance name*, such as `my-first-kafka-instance`. For this release of {product}, all other fields are preconfigured.
++
+////
+//For post preview, when more options are available.
 . In the *Streams for Apache Kafka* page of the web console, click *Create Kafka instance* and define the following instance details. Some values currently have only one option.
-* *Instance name*: Enter a unique hyphenated name for the instance, such as `my-first-kafka-instance` in this example.
+* *Instance name*: Enter a unique name for the instance, such as `my-first-kafka-instance`.
 * *Cloud provider*: Select `Amazon Web Services`.
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
+////
 . Click *Create instance* to start the creation process for your Kafka instance.
 +
 --
@@ -22,17 +28,12 @@ endif::[]
 .Kafka instance configuration details
 image::getting-started/sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
 
-The new Kafka instance is listed in the instances table. When the instance *Status* becomes *Ready*, you can start using the Kafka instance.
+The new Kafka instance is listed in the instances table. When the instance *Status* is *Ready*, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view, connect to, or delete the instance as needed.
 
-[.screencapture]
-.New Kafka instance in Ready state
-image::getting-started/sak-kafka-instance-ready.png[Image of new Kafka instance in Ready state]
---
-. In the instances table, on the right side of the Kafka instance, use the options icon (three vertical dots) to view the instance details, connect to the instance, or delete the instance as needed.
-+
 [.screencapture]
 .Kafka instance options menu
 image::getting-started/sak-kafka-instance-options.png[Image of Kafka instance options menu]
+--
 
 .Verification
 ifdef::qs[]

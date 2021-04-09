@@ -15,14 +15,15 @@ END GENERATED ATTRIBUTES
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use the {product-long} cloud service to create and set up Kafka instances and connect your applications and services to these instances. {product} is a cloud service that enables you to implement Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
+As a developer of applications and services, you can use {product-long} to create and set up Kafka instances and connect your applications and services to these instances. {product} is a managed cloud service that enables you to add Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
 
-.Prerequisites
+//For more overview information about {product}, see [variablized link to overview here https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/].
+
 ifndef::community[]
+.Prerequisites
 * You have a Red Hat account.
-endif::[]
 //* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
-* You have access to an application or service that you want to connect to a Kafka instance in {product-long}.
+endif::[]
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
@@ -37,8 +38,6 @@ ifndef::community[]
 endif::[]
 ifdef::qs[]
 endif::[]
-include::modules/guides/con-product-overview.adoc[leveloffset=+1]
-
 include::modules/guides/proc-creating-kafka-instance.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-service-account.adoc[leveloffset=+1]

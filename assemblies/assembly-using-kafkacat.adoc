@@ -31,7 +31,7 @@ ifdef::qs[]
 Learn how to use Kafkacat to interact with a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Kafkacat quick start. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat] to produce and consume messages for your Kafka instances in {product-long}.
+Welcome to the {product-long} Kafkacat quick start. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat] to produce and consume messages for your Kafka instances in {product}.
 endif::[]
 ifndef::community[]
 endif::[]

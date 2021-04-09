@@ -1,11 +1,11 @@
 [id='proc-create-prices-topic_{context}']
-= Creating the <code>prices</code> Kafka topic in {product}
+= Creating the prices Kafka topic in {product}
 :imagesdir: ../_images
 
 For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product} so that the Quarkus application can interact with it.
 
 .Prerequisites
-* You have created a Kafka instance in {product} and the instance is in *Ready* state.
+* You've created a Kafka instance in {product} and the instance is in *Ready* state.
 
 .Procedure
 . In the *Streams for Apache Kafka* page of the web console, select the name of the Kafka instance that you want to add a topic to.
