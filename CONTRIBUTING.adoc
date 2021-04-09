@@ -1,4 +1,4 @@
-:Product: bf2
+:product: App Services
 
 = Contributing to {Product} guides
 
@@ -273,7 +273,7 @@ We generate link:https://github.com/redhat-documentation/modular-docs[Modular Do
 
 Every time you submit a pull request a job will run that will verify the generation of modular documentation will succeed.
 
-Every time a pull request is merged to `main`, the modular documentation for the content in the `HEAD` of `main` will be generated to the link:https://github.com/bf2fc6cc711aee1a0c2a/guides/tree/modular-docs[modular docs] branch.
+Every time a pull request is merged to `main`, the modular documentation for the content in the `HEAD` of `main` will be generated to the link:https://github.com/redhat-developer/app-services-guides/tree/modular-docs[modular docs] branch.
 
 To run the modular documentation generation locally run:
 

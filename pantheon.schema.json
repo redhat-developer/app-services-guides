@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json",
+  "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json",
   "type": "object",
   "description": "Each member represents a mapping from a <tag> <tag value> in the quickstart.yml to the Pantheon API",
   "default": {},
@@ -25,7 +25,7 @@
     "^.*$": {
       "anyOf": [
         {
-          "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/simple",
+          "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json/simple",
           "type": "string",
           "description": "A quick and easy way to copy and paste a Pantheon URL. The URL will be parsed to extract the type and UUID",
           "default": "",
@@ -35,7 +35,7 @@
           ]
         },
         {
-          "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full",
+          "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json/full",
           "type": "object",
           "description": "Allows full specification of the Pantheon reference",
           "default": {},
@@ -57,7 +57,7 @@
           ],
           "properties": {
             "type": {
-              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/type",
+              "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json/full/type",
               "type": "string",
               "description": "The Pantheon type (module or assembly)",
               "examples": [
@@ -66,14 +66,14 @@
               "enum": ["assembly", "module"]
             },
             "uuid": {
-              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/uuid",
+              "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json/full/uuid",
               "type": "string",
               "examples": [
                 "53dfb804-2038-4545-b917-2cb01a09ef98"
               ]
             },
             "jsonPathExpression": {
-              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/jsonPathExpression",
+              "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json/full/jsonPathExpression",
               "type": "string",
               "description": "Override the default JSON Path expression in use. It will be applied to the JSON document returned by the Pantheon API",
               "default": "",
@@ -82,7 +82,7 @@
               ]
             },
             "cssSelector": {
-              "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/pantheon.schema.json/full/cssSelector",
+              "$id": "https://github.com/redhat-developer/app-services-guides/pantheon.schema.json/full/cssSelector",
               "type": "string",
               "description": "Override the default CSS Selector expression in use. It will be applied to the $.*.body of the JSON document returned by the Pantheon API",
               "default": "",
