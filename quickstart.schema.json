@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://github.com/bf2fc6cc711aee1a0c2a/guides/quickstart.schema.json",
+  "$id": "https://github.com/bf2fc6cc711aee1a0c2a/app-services-guides/quickstart.schema.json",
   "type": "object",
   "title": "A Quick Start",
   "examples": [
