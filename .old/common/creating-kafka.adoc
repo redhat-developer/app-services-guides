@@ -1,0 +1,53 @@
+== Creating Managed Kafka Using rhoas CLI
+
+This guide illustrates how you can create and generate connection
+details for your Managed Kafka instance.
+
+NOTE: This guide uses `rhoas` CLI, however users can also execute the same steps in cloud.redhat.com website.
+
+
+=== Prequisites
+
+* You must have the https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/guides/getting-started.adoc[rhoas CLI installed]
+* Valid account in cloud.redhat.com
+
+=== Logging in
+
+You can follow https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/guides/logging-in.adoc[this guide] to log in to the CLI.
+
+=== Creating a Managed Kafka instance
+
+First you need a Kafka instance. You can follow the instructions to
+create one.
+
+[source,bash]
+----
+rhoas kafka create <your-instance-name>
+----
+
+Wait a couple of seconds for the instance to provision.
+
+=== Retrieve Bootstrap URL
+
+[source,bash]
+----
+echo $(rhoas kafka describe | jq .id -r)
+echo $(rhoas kafka describe | jq .bootstrapServerHost -r)
+----
+
+NOTE: See https://github.com/bf2fc6cc711aee1a0c2a/cli/blob/master/docs/guides/using-the-cli.adoc[Using the CLI] for more Kafka related commands.
+
+=== Create credentials that will be used to connect to instance
+
+[source,bash]
+----
+rhoas serviceaccount create --name=<your-svc-account-name> --file-format env
+----
+
+This will generate a `.env` file with content that should look as follows:
+
+[source,env]
+----
+USER=srvc-acct-fdsfdsf
+PASSWORD=323fsdf23-fgdsgdffsadsa
+----
