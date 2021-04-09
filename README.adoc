@@ -1,4 +1,4 @@
-:PRODUCT: app-services
+:PRODUCT: App Services
 
 = {PRODUCT} Guides & Samples
 

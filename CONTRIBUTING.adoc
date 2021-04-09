@@ -1,4 +1,4 @@
-:Product: app-services
+:product: App Services
 
 = Contributing to {Product} guides
 
