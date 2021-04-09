@@ -1,0 +1,35 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: service-discovery
+  annotations:
+    draft: true
+    order: 2
+spec:
+  version: 0.1
+  type:
+    text: Quick start
+    color: green
+  displayName: !snippet/title README.adoc#chap-using-servicediscovery
+  durationMinutes: 10
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - Access to the RHOAS services
+    - Kubectl or OpenShift CLI installed
+    - Access to the OpenShift Cluster
+    - RHOAS CLI installed - Please follow https://github.com/bf2fc6cc711aee1a0c2a/guides/tree/main/rhoas-cli guide
+    - A command-line terminal application
+  introduction: !snippet README.adoc#introduction
+  tasks:
+    - !snippet/proc README.adoc#proc-installing-cli
+    - !snippet/proc README.adoc#proc-installing-operator
+    - !snippet/proc README.adoc#proc-inspecting-operator
+    - !snippet/proc README.adoc#proc-connecting-kafka
+    - !snippet/proc README.adoc#proc-create-prices-topic
+    - !snippet/proc README.adoc#proc-running-quarkus-example-application
+    - !snippet/proc README.adoc#proc-binding-kafka
+    - !snippet/proc README.adoc#proc-testing-app
+  conclusion: !snippet README.adoc#conclusion
+  nextQuickStart:
+    - 'kafka-bin-scripts'

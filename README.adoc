@@ -9,6 +9,7 @@
 * link:./quarkus[Using {PRODUCT} with Quarkus]
 * link:./kafkacat[Using {PRODUCT} with Kafkacat]
 * link:./kafka-bin-scripts[Using {PRODUCT} with Kafka Bin Scripts]
+* link:./service-discovery[Service Discovery and Binding in your OpenShift Cluster {PRODUCT}]
 
 == OpenShift Quickstarts
 
