@@ -7,11 +7,13 @@ With the `rhoas` command-line interface (CLI), you can manage your application s
 
 This guide describes how to get started quickly by doing the following:
 
+--
 * Install `rhoas` on your Operating System.
 
 * Configure `rhoas` to enable command completion.
 
 * Start using `rhoas` by creating a simple Kafka instance, connecting to it, and creating a Kafka topic to produce and consume messages.
+--
 
 [id="proc-installing-rhoas_{context}"]
 == Installing the rhoas CLI
