@@ -6,7 +6,7 @@
 
 * link:./getting-started[The Getting Started Guide]
 * link:./rhoas-cli[Using the RHOAS CLI]
-* link:./quarkus-kafka[Using {PRODUCT} with Quarkus]
+* link:./quarkus[Using {PRODUCT} with Quarkus]
 * link:./kafkacat[Using {PRODUCT} with Kafkacat]
 * link:./kafka-bin-scripts[Using {PRODUCT} with Kafka Bin Scripts]
 * link:./service-binding[Using Service Binding with {PRODUCT}]
