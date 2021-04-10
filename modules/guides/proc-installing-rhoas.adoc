@@ -13,9 +13,7 @@ If you are using Linux, you can install `rhoas` by either using the installation
 
 .Procedure
 
-. Review the `install.sh` installation script.
-+
-The script is located at https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh.
+. Review the https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh[`install.sh` installation script].
 
 . Run the `install.sh` script:
 +
@@ -96,9 +94,7 @@ rhoas version 0.19.0
 
 .Procedure
 
-. Review the `install.sh` installation script.
-+
-The script is located at https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh.
+. Review the https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh[`install.sh` installation script].
 
 . Run the `install.sh` script:
 +
