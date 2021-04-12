@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/rhoas-kafka-example .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/kafka .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/rhoas-kafka-example
+# docker run -i --rm -p 8080:8080 quarkus/kafka
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
