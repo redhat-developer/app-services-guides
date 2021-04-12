@@ -1,0 +1,171 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleQuickStart
+metadata:
+  name: rhosak-devsandbox-quarkus-bind-cli-toolscontainer-quickstart
+spec:
+  displayName: Binding your Quarkus application to Streams for Apache Kafka
+  tags:
+    - streams
+    - kafka
+    - quarkus
+  durationMinutes: 10
+  description: Binding your Quarkus application to the OpenShift Streams for Apache Kafka cloud service
+  prerequisites: 
+    - Access to Red Hat OpenShift Streams for Apache Kafka (for more information, visit https://cloud.redhat.com/application-services).
+    - A running OpenShift Streams for Apache Kafka instance.
+    - A connection (KafkaConnection) betweeen your OpenShift project and your OpenShift Streams for Apache Kafka instance.
+  introduction: >-
+    ### This quick start shows you how to bind your Quarkus application to your Red Hat OpenShift Streams for Apache Kafka instance.
+    
+    In this Quick Start, you'll bind a Quarkus application to your Kafka instance using Kubernetes Service Binding.
+    Service Binding allows you to communicate connection details and secrets to an application to allow it to bind to a service.
+    In this context, a service can be anything: a Kafka instance, a NoSQL database, etc.    
+    
+    By using Service Binding, we no longer need to configure connection details (host, port) authentication mechanisms (SASL, OAuth) and 
+    credentials (username/password, client id/client secret) in an application. Instead, Service Binding injects these variables into your
+    application container (as files or environment variables), for your application to consume.
+
+    The Quarkus Kubernetes Service Binding extension enables Quarkus applications to automatically pickup these variables, injected as files, from the container's 
+    filesystem, removing the need to specify any configuration settings in the application resources (e.g configuration files) themselves.
+  tasks:
+  - title: Deploying your Quarkus application
+    description: |-
+      As the first task, you will deploy a Quarkus application that produces to, and consumes from, a Kafka instance.
+      It's an adapted version of the standard Quarkus Kafka Quick Start, as we've added the Quarkus Kubernetes Service Binding plugin.
+
+      The Quick Start is a PriceConverter application that generates random prices (integers) and sends them to a Kafka topic.
+      Another component of the application consumes these prices, applies a conversion and makes them available via a REST service endpoint.
+      The output can be inspected on a simple webpage.
+
+      To deploy the Quarkus application:
+      
+      1. Click on the [perspective switcher]{{highlight qs-perspective-switcher}} at the top of the navigation, and select **Developer**.
+
+      1. In the navigation menu, click [Add]{{highlight qs-nav-add}}.
+
+      1. Make sure that your OpenShift **Project**, which you can see at the top of the **Add** window, is set to the correct project. 
+      I.e. the project to which you have connected your Kafka instance, and thus the you want to deploy the Quarkus application to.
+ 
+      To reduce wait time of this Quick Start, we have pre-built the container image with the Quarkus application, allowing us to directly deploy the container instead of having to build it.
+      The source code of this application can be found [here](https://github.com/DuncanDoyle/quarkus-kafka-quickstart-summit2021): 
+
+      1. Click on the **Container Image** card.  
+
+      1. In the **Image name from external registry** field, enter: `quay.io/rhosak/quarkus-kafka-sb-quickstart`
+
+      1. In the *Runtime icon** field, select `quarkus`.
+
+      1. Leave all the the fields set to their default values and click the **Create** button. This will create a new OpenShift **Deployment** for your Quarkus application.
+
+      1. You will see the deployment of your Quarkus application in the **Topology** screen. The icon of your Quarkus applications should have a blue circle around it, indicating that the application has been deployed successfully.
+
+      1. Click on the **Open URL** icon in the upper-right of your Quarkus application icon in the Topology view. You will see the default Quarkus page.
+
+      1. Add the path `/prices.html` to the URL of your Quarkus application. This will open the **prices** page of your Quarkus application.
+      Since the application is not connected to Kafka yet, the page shows that prices are not available.
+
+      1. Go back to your OpenShift Topology view and click on the icon of your Quarkus application. This will open a panel on the righ-hand-side of your screen.
+      Click on the **Resources** tab. You will see the **Pods** of your Deployment. Currently we only have a single pod.
+
+      1. Click on the **View logs** link next to the pod. In the logs of your application, you will see warnings stating that the application can not connect to Kafka.
+
+    review:
+      instructions: |-
+        #### Verify that you've deployed your Quarkus application:
+        Do you see a Quarkus application in your Topology view? Does the Quarkus application icon have blue circle around it, indicating a successful deployment?
+
+        Did you inspect the logs of your application pod? Did you see the warnings stating that the application could not connect to a Kafka instance?
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+    summary:
+      success: >-
+        Great work! You've deployed your Quarkus application to your OpenShift project/namespace.
+      failed: Try the steps again.
+
+  - title: Bind your Quarkus application to your Streams for Apache Kafka instance.
+    description: |-
+      With your Quarkus application running, and your Streams for Apache Kafka instance connected to your namespace, you can now bind your application to your Kafka instance.
+      This is done using the Service Binding Operator, which will inject the configuration values required to connect to your Kafka instance into your Quarkus application.
+      The Quarkus application has been configured to use the `quarkus-kubernetes-service-binding` [extension](https://github.com/DuncanDoyle/quarkus-kafka-quickstart-summit2021/blob/main/pom.xml#L82-L85) 
+      enabling auto-discovery of the binding files injected into the Quarkus application pod.
+
+      We will create the binding using the command line and our OpenShift and Red Hat OpenShift Application Services CLIs. In future versions of OpenShift, you will be able to do this directly from the OpenShift Developer Console.
+
+      1. Click on the **Open Command Line Terminal** icon at the top right of your OpenShift screen. 
+
+      1. A command line terminal window will open at the bottom of your screen. You'll see the message **Connecting to your OpenShift command line terminal**. 
+      This can take a couple of seconds.
+
+      1. You will see a `bash-4.4 ~ $` prompt when your terminal is ready. 
+
+      To create the binding, we need to apply an OpenShift custom resource (CR) using the `oc` command. In future versions this will become native functionality of the OpenShift Developer Console and CLIs.
+      To create the CR, we need to have:
+      * the name of the KafkaConnection
+      * the name of the application.
+
+      1. In your terminal, first login the `oc` client to our OpenShift instance. To do this:
+        1. Click on your username in the top-right of the OpenShift console and click *Copy login command*
+        1. In the *Log in with...* screen, select *DevSandbox*.
+        1. Click on *Display Token*.
+        1. Copy the `oc` login command.
+        1. Go to your terminal, and execute the command you just copied.
+
+      1. In the terminal, point your `oc` client to the correct OpenShift namespace/project (replace {username} with your usernam in the DevSandbox OpenShift environment): `oc project {username}-dev`.
+      1. Get the name of your KafkaConnection: `oc get KafkaConnection`.
+      1. Get the name of your Quarkus application: `oc get Deployment`. This will list 2 deployments, one of your Quarkus application, and one of the container that containing our workshop tooling.
+      1. Execute the following command. Make sure to replace the `{name-of-your-kafkaconnection}` placeholder with the actual name of your KafkaConnection, and 
+      replace the `{name-of-your-application}` placeholder with the name of your Quarkus application.
+      ```
+      cat <<EOF | oc apply -f - 
+      apiVersion: binding.operators.coreos.com/v1alpha1
+      kind: ServiceBinding
+      metadata:
+        name: kafka-config
+        namespace: rhosak-sandbox
+      spec:
+        application:
+          group: apps
+          name: {name-of-your-application}
+          resource: deployments
+          version: v1
+    
+        bindAsFiles: true
+        services:
+        - group: rhoas.redhat.com
+          version: v1alpha1
+          kind: KafkaConnection
+          name: {name-of-your-kafkaconnection}
+      EOF
+      ```
+      
+      1. With the binding created, your Quarkus application will now redeploy. Go back to the **Topology** screen by clicking on the [Topology]{{highlight qs-nav-add}} in the navigation menu.
+
+      1. Click on the **Open URL** icon in the upper-right of your Quarkus application icon in the Topology view. You will see the default Quarkus page.
+
+      1. Add the path `/prices.html` to the URL of your Quarkus application. This will open the **prices** page of your Quarkus application.
+      The application has now been properly configured, and prices are being sent to and consumed from the Kafka topic.
+
+      1. Go back to the **Topology** screen, click on the Quarkus application. This will open a panel on the righ-hand-side of your screen.
+      Click on the **Resources** tab. You will see the **Pod** of your Deployment. Click on the **View logs** link next to your pod.
+      In the logs of your application, you will see that your Quarkus application has connected to Kafka.
+
+      1. In the same screen, click on the **Details** tab. Scroll down until you see the **Volumes** section. Note that there is a **kafka-binding** volume, 
+      which contains the binding files that contain the information required by your Quarkus application to connect to your Kafka instance. 
+      These files are auto-discovered and used by the **quarkus-kubernetes-service-binding** extension to automatically connect your Quarkus application to OpenShift Streams for Apache Kafka.
+
+    review:
+      instructions: |-
+        #### Verify that you've successfully connected your Quarkus application to your OpenShift Streams for Apache Kafka instance:
+        Did you see the **prices** in your Quarkus application's webpage?
+
+        Did you see the binding files mounted in your Quarkus application's pod?
+
+        Did you see your Quarkus application's logs? Did you see it being connected to your Kafka instance?
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+    summary:
+      success: >-
+        Great work! You've connected your Quarkus application to your Streams for Apache Kafka instance using Kubernetes Service Binding.
+      failed: Try the steps again.
+  
+  conclusion: >-
+    You've successfully connected your Quarkus application running on OpenShift to your OpenShift Streams for Apache Kafka instance.
+    You've used Kubernetes Service Binding to automatically inject the configuration parameters to connect to your Kafka instance into your Quarkus application.
