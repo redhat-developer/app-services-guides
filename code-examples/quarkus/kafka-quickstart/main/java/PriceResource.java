@@ -1,4 +1,4 @@
-package org.rhoas.kafka;
+package org.acme.kafka;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

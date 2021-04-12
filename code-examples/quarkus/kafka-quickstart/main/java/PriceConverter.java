@@ -1,4 +1,4 @@
-package org.rhoas.kafka;
+package org.acme.kafka;
 
 import javax.enterprise.context.ApplicationScoped;
 
