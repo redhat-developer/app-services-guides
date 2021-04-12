@@ -5,6 +5,8 @@
 [role="_abstract"]
 You can install `rhoas` on Linux, macOS, or Windows.
 
+NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page] lists the bug fixes and new features for every `rhoas` release.
+
 == Installing the rhoas CLI on Linux
 
 If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
@@ -13,7 +15,7 @@ If you are using Linux, you can install `rhoas` by either using the installation
 
 .Procedure
 
-. Review the https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh[`install.sh` installation script].
+. Review the https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh[`install.sh` installation script].
 
 . Run the `install.sh` script:
 +
@@ -65,28 +67,28 @@ You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHE
 
 .Procedure
 
-. In a web browser, navigate to the `rhoas` Releases page and choose the version of `rhoas` you would like to install.
+. Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page] and choose the version that you'd like to download.
 
 . Use `dnf`/`yum` to install the desired version of `rhoas`:
 +
 --
-This example installs `rhoas` version `0.19.0`:
+This example installs `rhoas` version `0.21.0`:
 
 [source,shell]
 ----
-$ sudo dnf install -y https://github.com/bf3fc6c/cli/releases/download/0.19.0/rhoas_0.19.0_linux_amd64.rpm
+$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/0.21.0/rhoas_0.21.0_linux_amd64.rpm
 ----
 --
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` 0.19.0 is installed:
+This example shows that `rhoas` 0.21.0 is installed:
 
 [source,shell]
 ----
 $ rhoas --version
-rhoas version 0.19.0
+rhoas version 0.21.0
 ----
 --
 
@@ -94,7 +96,7 @@ rhoas version 0.19.0
 
 .Procedure
 
-. Review the https://github.com/bf3fc6c/cli/blob/main/scripts/install.sh[`install.sh` installation script].
+. Review the https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh [`install.sh` installation script].
 
 . Run the `install.sh` script:
 +
@@ -144,7 +146,7 @@ rhoas version 0.19.0
 
 .Procedure
 
-. Navigate to the `rhoas` link:https://github.com/bf3fc6c/cli/releases[Releases page].
+. Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page].
 
 . Download the latest `rhoas` .zip file.
 
