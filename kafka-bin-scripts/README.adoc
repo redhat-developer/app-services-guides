@@ -55,7 +55,7 @@ NOTE: The Kafka bin scripts are part of the open source community version of Apa
 endif::[]
 
 .Procedure
-. In a web browser, go to the Kafka https://kafka.apache.org/downloads[Download] page and download the latest version of Apache Kafka.
+. In a web browser, go to the Kafka https://kafka.apache.org/downloads[Download] page and download the latest binary version of Apache Kafka.
 . Extract the downloaded archive and navigate to the `bin/` directory.
 +
 --
@@ -131,15 +131,28 @@ You can use the `kafka-console-producer` script to produce messages to Kafka top
 
 .Procedure
 
-. On the command line, from the `bin/` directory, enter the following command to start the `kafka-console-producer` script.
+. On the command line, from the `bin/` directory, enter the following command to create a Kafka topic.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic. If this topic does not exist yet, it is automatically created with default settings.
+This example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
+
+.Using the `kafka-topics` script to create a Kafka topic
+[source,subs="+quotes,+attributes"]
+----
+$ ./kafka-topics.sh --create --topic my-other-topic --bootstrap-server __<bootstrap_server>__ --command-config ../config/{property-file-name}
+Created topic my-other-topic.
+----
+--
+
+. Enter the following command to start the `kafka-console-producer` script.
++
+--
+This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic that you created.
 
 .Starting the `kafka-console-producer` script
 [source,subs="+quotes,+attributes"]
 ----
-./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
+$ ./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
 ----
 --
 
