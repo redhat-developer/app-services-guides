@@ -33,4 +33,6 @@ include::modules/guides/proc-configuring-kafka-bin-scripts.adoc[leveloffset=+1]
 
 include::modules/guides/proc-producing-messages-kafka-bin-scripts.adoc[leveloffset=+1]
 
+include::modules/guides/proc-consuming-messages-kafka-bin-scripts.adoc[leveloffset=+1]
+
 
