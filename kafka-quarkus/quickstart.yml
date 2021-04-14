@@ -1,7 +1,7 @@
 apiVersion: console.openshift.io/v1
 kind: QuickStarts
 metadata:
-  name: quarkus
+  name: kafka-quarkus
   annotations:
     draft: false
     order: 2
