@@ -1,6 +1,6 @@
 # This workflow will build a Java project with Maven
 
-name: Build and publish quickstart
+name: Build and publish quickstart to quay
 
 on:
   push:
