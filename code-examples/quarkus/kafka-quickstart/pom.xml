@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.rhoas</groupId>
   <artifactId>rhoas-kafka</artifactId>
-  <version>1.0-${timestamp}</version>
+  <version>1.0-${maven.build.timestamp}</version>
   <properties>
     <kafka2.version>2.7.0</kafka2.version>
     <maven.build.timestamp.format>yyyy-MM-dd-HH-mm-ss</maven.build.timestamp.format>
@@ -17,7 +17,6 @@
     <quarkus.platform.version>1.13.1.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <testcontainers.version>1.14.1</testcontainers.version>
-    <timestamp>${maven.build.timestamp}</timestamp>
   </properties>
   <dependencyManagement>
     <dependencies>
