@@ -5,9 +5,10 @@ name: Build and publish quickstart to quay
 on:
   push:
     branches: [ issue-82 ]
-    ## Other guides 
-    paths:
-    - "code-examples/quarkus/kafka-quickstart"
+  pull_request:
+    branches: [ issue-82 ]
+    # paths:
+    # - "code-examples/quarkus/kafka-quickstart"
 
 jobs:
   build:
@@ -18,14 +19,15 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-    - name: Build and run Unit tests
+    - name: Build and publush to quay
       working-directory: code-examples/quarkus/kafka-quickstart
-      run: mvn install --no-transfer-progress \
-          -Dquarkus.container-image.username=${{ secrets.quay_robotaccount }}  \
+      run: mvn package --file pom.xml --no-transfer-progress 
+          -Dquarkus.container-image.build=true 
           -Dquarkus.container-image.name=kafka-quickstart
-          -Dquarkus.container-image.password=${{ secrets.quay_robottoken }} \ 
-          -Dquarkus.container-image.build=true -Dquarkus.container-image.tag=${{ steps.version-number.outputs.version }} \
-          -Dquarkus.container-image.push=true \
+          -Dquarkus.container-image.username=${{ secrets.quay_robotaccount }} 
+          -Dquarkus.container-image.password=${{ secrets.quay_robottoken }} 
+          -Dquarkus.container-image.tag=latest
+          -Dquarkus.container-image.push=true
           -Dquarkus.container-image.group=rhoas 
   
             
