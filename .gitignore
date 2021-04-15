@@ -5,3 +5,5 @@ package-lock.json
 tmp
 .build/yarn.lock
 .DS_Store
+kafka-quarkus-sbo
+code-examples/nodejs/

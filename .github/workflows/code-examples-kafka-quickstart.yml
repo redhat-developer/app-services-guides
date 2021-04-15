@@ -6,9 +6,7 @@ on:
   push:
     branches: [ main ]
     paths:
-     - "code-examples/quarkus/kafka-quickstart"
-  pull_request:
-    branches: [ main ]
+     - "code-examples/quarkus/kafka-quickstart"git 
 
 jobs:
   build:
