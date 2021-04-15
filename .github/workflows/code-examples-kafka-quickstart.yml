@@ -10,7 +10,6 @@ on:
   pull_request:
     branches: [ issue-82 ]
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
