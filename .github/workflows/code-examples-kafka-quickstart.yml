@@ -27,4 +27,5 @@ jobs:
                       -Dquarkus.container-image.push=true 
                       -Dquarkus.container-image.username="${{ secrets.quay_robotaccount }}" 
                       -Dquarkus.container-image.password="${{ secrets.quay_robottoken }}"
+                      -Dquarkus.container-image.tag=latest
                       -Dquarkus.container-image.image=quay.io/rhoas/rhoas-quarkus-kafka-quickstart
