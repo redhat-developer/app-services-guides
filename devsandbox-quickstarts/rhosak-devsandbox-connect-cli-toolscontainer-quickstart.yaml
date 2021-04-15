@@ -154,4 +154,5 @@ spec:
   conclusion: >-
     You've successfully created a connection between a Red Hat managed cloud service and your OpenShift project/namespace.
     You can now start using this Kafka instance in your applications, for example by binding the service to a Quarkus microservice.
-
+  nextQuickStart:
+  - rhosak-devsandbox-quarkus-bind-cli-toolscontainer-quickstart
