@@ -31,6 +31,8 @@ As a developer of applications and services, you can use the Kafka bin scripts t
 The Kafka bin scripts are a set of shell scripts that are included with the Apache Kafka distribution.
 With these bin scripts, you can produce and consume messages for your Kafka instances.
 
+NOTE: The command examples in this quick start demonstrate how to use the Kafka bin scripts on Linux and macOS. If you're using Windows, you should use the Windows versions of the bin scripts. For example, instead of the `__<Kafka-distribution-dir>__/bin/kafka-console-producer.sh` script, you would use the `__<Kafka-distribution-dir>__\bin\windows\kafka-console-producer.bat` script.
+
 .Prerequisites
 ifndef::community[]
 * You have a Red Hat account.
@@ -48,7 +50,7 @@ endif::[]
 [id="proc-downloading-kafka-bin-scripts_{context}"]
 == Downloading the Kafka bin scripts
 
-The Kafka bin scripts are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution]. When you extract the Apache Kafka distribution, the `bin/` directory of the distribution contains a set of shell scripts that enable you to interact with your Kafka instance. With the bin scripts, you can produce and consume messages, and perform various operations against the Kafka APIs to administer topics, consumer groups, and other resources.
+The Kafka bin scripts are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution]. When you extract the Apache Kafka distribution, the `bin/` directory (or the `bin\windows\` directory if you're using Windows) of the distribution contains a set of shell scripts that enable you to interact with your Kafka instance. With the bin scripts, you can produce and consume messages, and perform various operations against the Kafka APIs to administer topics, consumer groups, and other resources.
 
 ifndef::community[]
 NOTE: The Kafka bin scripts are part of the open source community version of Apache Kafka. The bin scripts are not a part of {product} and are therefore not supported by Red Hat.
