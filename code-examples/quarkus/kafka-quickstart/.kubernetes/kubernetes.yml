@@ -3,49 +3,49 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/vcs-url: https://github.com/bf2fc6cc711aee1a0c2a/guides.git
-    app.quarkus.io/build-timestamp: 2021-04-15 - 11:41:34 +0000
-    app.quarkus.io/commit-id: 8aa4280eaf888ba8078280411c6ebe026d6f098e
+    app.quarkus.io/vcs-url: https://github.com/redhat-developer/app-services-guides.git
+    app.quarkus.io/build-timestamp: 2021-04-15 - 21:08:41 +0000
+    app.quarkus.io/commit-id: 6023c8fcc4d38ca55fbcb4f02e69a79300e5bc80
   labels:
-    app.kubernetes.io/name: rhoas-kafka-quickstart-example
-    app.kubernetes.io/version: latest
-  name: rhoas-kafka-quickstart-example
+    app.kubernetes.io/name: rhoas-quarkus-kafka
+    app.kubernetes.io/version: 1.0-SNAPSHOT
+  name: rhoas-quarkus-kafka
 spec:
   ports:
   - name: http
     port: 8080
     targetPort: 8080
   selector:
-    app.kubernetes.io/name: rhoas-kafka-quickstart-example
-    app.kubernetes.io/version: latest
+    app.kubernetes.io/name: rhoas-quarkus-kafka
+    app.kubernetes.io/version: 1.0-SNAPSHOT
   type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/vcs-url: https://github.com/bf2fc6cc711aee1a0c2a/guides.git
-    app.quarkus.io/build-timestamp: 2021-04-15 - 11:41:34 +0000
-    app.quarkus.io/commit-id: 8aa4280eaf888ba8078280411c6ebe026d6f098e
+    app.quarkus.io/vcs-url: https://github.com/redhat-developer/app-services-guides.git
+    app.quarkus.io/build-timestamp: 2021-04-15 - 21:08:41 +0000
+    app.quarkus.io/commit-id: 6023c8fcc4d38ca55fbcb4f02e69a79300e5bc80
   labels:
-    app.kubernetes.io/name: rhoas-kafka-quickstart-example
-    app.kubernetes.io/version: latest
-  name: rhoas-kafka-quickstart-example
+    app.kubernetes.io/name: rhoas-quarkus-kafka
+    app.kubernetes.io/version: 1.0-SNAPSHOT
+  name: rhoas-quarkus-kafka
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: rhoas-kafka-quickstart-example
-      app.kubernetes.io/version: latest
+      app.kubernetes.io/name: rhoas-quarkus-kafka
+      app.kubernetes.io/version: 1.0-SNAPSHOT
   template:
     metadata:
       annotations:
-        app.quarkus.io/vcs-url: https://github.com/bf2fc6cc711aee1a0c2a/guides.git
-        app.quarkus.io/build-timestamp: 2021-04-15 - 11:41:34 +0000
-        app.quarkus.io/commit-id: 8aa4280eaf888ba8078280411c6ebe026d6f098e
+        app.quarkus.io/vcs-url: https://github.com/redhat-developer/app-services-guides.git
+        app.quarkus.io/build-timestamp: 2021-04-15 - 21:08:41 +0000
+        app.quarkus.io/commit-id: 6023c8fcc4d38ca55fbcb4f02e69a79300e5bc80
       labels:
-        app.kubernetes.io/name: rhoas-kafka-quickstart-example
-        app.kubernetes.io/version: latest
+        app.kubernetes.io/name: rhoas-quarkus-kafka
+        app.kubernetes.io/version: 1.0-SNAPSHOT
     spec:
       containers:
       - env:
@@ -53,9 +53,9 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: quay.io/rhoas/rhoas-quarkus-kafka-quickstart:latest
+        image: wtrocki/rhoas-quarkus-kafka:latest
         imagePullPolicy: Always
-        name: rhoas-kafka-quickstart-example
+        name: rhoas-quarkus-kafka
         ports:
         - containerPort: 8080
           name: http
