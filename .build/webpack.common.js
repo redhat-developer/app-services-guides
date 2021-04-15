@@ -10,6 +10,28 @@ const {buildQuickStart} = require('./utils/quickstart-adoc');
 const ChunkMapper = require('@redhat-cloud-services/frontend-components-config/chunk-mapper');
 const fileRegEx = /\.(png|woff|woff2|eot|ttf|svg|gif|jpe?g|png)(\?[a-z0-9=.]+)?$/;
 
+const quickstartTransform = ({ env, useDir = true }) => ({
+  to: ({_context, absoluteFilename}) => {
+    // if the quickstart is in the format NAME.quickstart.yml, we use the NAME part for the output 
+    const filenameChunks = path.basename(absoluteFilename).split('.');
+    // otherwise, the dirname of the quickstart is used as the output key
+    const dirName = path.basename(path.dirname(absoluteFilename));
+    let outputName = dirName;
+    if (!useDir) {
+      outputName = filenameChunks[0];
+    }
+    if (env === "development") {
+      return `${outputName}.quickstart.json`
+    }
+    return `${outputName}.[contenthash].quickstart.json`
+  },
+  transform: (content, absoluteFilename) => {
+    const basePath = path.dirname(absoluteFilename);
+    return buildQuickStart(content, absoluteFilename, basePath, {});
+  },
+  noErrorOnMissing: true
+});
+
 module.exports = (env, argv) => {
   const isProduction = argv && argv.mode === 'production';
   return {
@@ -49,26 +71,12 @@ module.exports = (env, argv) => {
       new CopyPlugin({
         patterns: [
           {
-            from: '../**/*quickstart.yml',
-            to: ({_context, absoluteFilename}) => {
-              // if the quickstart is in the format NAME.quickstart.yml, we use the NAME part for the output 
-              const filenameChunks = path.basename(absoluteFilename).split('.');
-              // otherwise, the dirname of the quickstart is used as the output key
-              const dirName = path.basename(path.dirname(absoluteFilename));
-              let outputName = dirName;
-              if (filenameChunks.length > 2) {
-                outputName = filenameChunks[0];
-              }
-              if (env === "development") {
-                return `${outputName}.quickstart.json`
-              }
-              return `${outputName}.[contenthash].quickstart.json`
-            },
-            transform: (content, absoluteFilename) => {
-              const basePath = path.dirname(absoluteFilename);
-              return buildQuickStart(content, absoluteFilename, basePath, {});
-            },
-            noErrorOnMissing: true
+            from: '../**/quickstart.yml',
+            ...quickstartTransform({ env })
+          },
+          {
+            from: './external-documentation/**/*quickstart.yml',
+            ...quickstartTransform({ env, useDir: false })
           },
           {
             from: '../**/images/**/*.png',
