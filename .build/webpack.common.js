@@ -49,14 +49,20 @@ module.exports = (env, argv) => {
       new CopyPlugin({
         patterns: [
           {
-            from: '../**/quickstart.yml',
+            from: '../**/*quickstart.yml',
             to: ({_context, absoluteFilename}) => {
-              // The dirname of quickstart is used as the output key
+              // if the quickstart is in the format NAME.quickstart.yml, we use the NAME part for the output 
+              const filenameChunks = path.basename(absoluteFilename).split('.');
+              // otherwise, the dirname of the quickstart is used as the output key
               const dirName = path.basename(path.dirname(absoluteFilename));
-              if (env === "development") {
-                return `${dirName}.quickstart.json`
+              let outputName = dirName;
+              if (filenameChunks.length > 2) {
+                outputName = filenameChunks[0];
               }
-              return `${dirName}.[contenthash].quickstart.json`
+              if (env === "development") {
+                return `${outputName}.quickstart.json`
+              }
+              return `${outputName}.[contenthash].quickstart.json`
             },
             transform: (content, absoluteFilename) => {
               const basePath = path.dirname(absoluteFilename);
