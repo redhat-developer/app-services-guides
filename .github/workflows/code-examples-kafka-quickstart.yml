@@ -4,11 +4,11 @@ name: Build and publish quickstart to quay
 
 on:
   push:
-    branches: [ issue-82 ]
-    # paths:
-    #  - "code-examples/quarkus/kafka-quickstart"
+    branches: [ main ]
+    paths:
+     - "code-examples/quarkus/kafka-quickstart"
   pull_request:
-    branches: [ issue-82 ]
+    branches: [ main ]
 
 jobs:
   build:
