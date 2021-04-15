@@ -44,7 +44,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
     initialQueryParams.get(QUICKSTART_SEARCH_FILTER_KEY) || "";
 
   const sortFnc = (q1: QuickStart, q2: QuickStart) =>
-    q1.spec.displayName.localeCompare(q2.spec.displayName);
+    q1.spec.displayName.localeCompare(q2.spec.displayName)
 
   const initialFilteredQuickStarts = filterQuickStarts(
     quickStarts,
@@ -81,6 +81,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
                 !quickStart.spec.type ||
                 quickStart.spec.type.text !== "Documentation"
             )
+            .sort(sortFnc)
             .map((quickStart) => {
               const {
                 metadata: { name: id },
@@ -111,6 +112,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
             .filter(
               (quickStart) => quickStart.spec.type?.text === "Documentation"
             )
+            .sort(sortFnc)
             .map((quickStart) => {
               const {
                 metadata: { name: id },
