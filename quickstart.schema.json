@@ -9,7 +9,8 @@
       "kind": "QuickStarts",
       "metadata": {
         "name": "quarkus-kafka",
-        "draft": "true"
+        "draft": "true",
+        "order": 1
       },
       "spec": {
         "version": 0.1,
@@ -111,7 +112,8 @@
       "examples": [
         {
           "name": "explore-pipelines",
-          "draft": "true"
+          "draft": "true",
+          "order": 1
         }
       ],
       "required": [
@@ -132,7 +134,8 @@
           "examples": [
             {
               "annotations": {
-                "draft": true
+                "draft": true,
+                "order": 1
               }
             }
           ],
@@ -144,6 +147,16 @@
               "examples": [
                 {
                   "draft": true
+                }
+              ]
+            },
+            "order": {
+              "$id": "#/properties/metadata/properties/annotations/properties/order",
+              "type": "number",
+              "description": "The sort order ranking",
+              "examples": [
+                {
+                  "order": 1
                 }
               ]
             }

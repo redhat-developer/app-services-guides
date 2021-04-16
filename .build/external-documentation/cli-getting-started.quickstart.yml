@@ -2,6 +2,8 @@ apiVersion: console.openshift.io/v1
 kind: QuickStarts
 metadata:
   name: docs-cli-getting-started
+  annotations:
+    order: 1
 spec:
   version: 0.1
   type: 
