@@ -112,7 +112,7 @@ rhoas version 0.21.0
 
 .Procedure
 
-. Review the https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh [`install.sh` installation script].
+. Review the link:https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh[`install.sh` installation script].
 
 . Run the `install.sh` script:
 +
