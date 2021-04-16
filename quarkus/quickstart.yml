@@ -4,6 +4,7 @@ metadata:
   name: quarkus
   annotations:
     draft: false
+    order: 2
 spec:
   version: 0.1
   type:

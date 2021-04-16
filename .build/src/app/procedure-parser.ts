@@ -3,7 +3,8 @@ import {QuickStart, QuickStartTask} from "@cloudmosaic/quickstarts";
 export type GuidesQuickStart = QuickStart & {
     metadata?: {
         annotations?: {
-            draft?: boolean
+            draft?: boolean,
+            order?: number
         }
     }
     spec: {

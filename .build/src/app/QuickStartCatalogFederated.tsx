@@ -11,7 +11,6 @@ import {
   ToolbarContent,
 } from "@patternfly/react-core";
 import {
-  QuickStart,
   getQuickStartStatus,
   QuickStartContextValues,
   QuickStartContext,
@@ -26,9 +25,10 @@ import {
   LoadingBox,
   QuickStartCatalog,
 } from "@cloudmosaic/quickstarts";
+import { GuidesQuickStart } from './procedure-parser';
 
 type MasQuickStartCatalogProps = {
-  quickStarts: QuickStart[];
+  quickStarts: GuidesQuickStart[];
 };
 
 const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
@@ -43,8 +43,20 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
   const initialSearchQuery =
     initialQueryParams.get(QUICKSTART_SEARCH_FILTER_KEY) || "";
 
-  const sortFnc = (q1: QuickStart, q2: QuickStart) =>
-    q1.spec.displayName.localeCompare(q2.spec.displayName);
+  const sortFnc = (q1: GuidesQuickStart, q2: GuidesQuickStart) => {
+    const q1Order = q1.metadata.annotations?.order;
+    const q2Order = q2.metadata.annotations?.order;
+    if (q1Order && !q2Order) {
+      return -1;
+    } else if (!q1Order && q2Order) {
+      return 1;
+    } else if (!q1Order && !q2Order) {
+      return q1.spec.displayName.localeCompare(q2.spec.displayName);
+    } else if (q1Order && q2Order) {
+      return q1Order - q2Order;
+    }
+    return 0;
+  }
 
   const initialFilteredQuickStarts = filterQuickStarts(
     quickStarts,
@@ -54,7 +66,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
   ).sort(sortFnc);
 
   const [filteredQuickStarts, setFilteredQuickStarts] = React.useState<
-    QuickStart[]
+  GuidesQuickStart[]
   >(initialFilteredQuickStarts);
 
   const onSearchInputChange = (searchValue: string) => {
@@ -81,6 +93,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
                 !quickStart.spec.type ||
                 quickStart.spec.type.text !== "Documentation"
             )
+            .sort(sortFnc)
             .map((quickStart) => {
               const {
                 metadata: { name: id },
@@ -111,6 +124,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
             .filter(
               (quickStart) => quickStart.spec.type?.text === "Documentation"
             )
+            .sort(sortFnc)
             .map((quickStart) => {
               const {
                 metadata: { name: id },
@@ -178,7 +192,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
 
 const QuickStartCatalogFederated: FunctionComponent = () => (
   <QuickStartsLoader>
-    {(quickStarts: QuickStart[], loaded: boolean) =>
+    {(quickStarts: GuidesQuickStart[], loaded: boolean) =>
       loaded ? (
         <MasQuickStartCatalog quickStarts={quickStarts} />
       ) : (
