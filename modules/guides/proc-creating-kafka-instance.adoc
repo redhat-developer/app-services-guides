@@ -10,7 +10,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the *Streams for Apache Kafka* page of the web console, click *Create Kafka instance*.
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click *Create Kafka instance*.
 . Enter a unique *Instance name*, such as `my-first-kafka-instance`. For this release of {product}, all other fields are preconfigured.
 +
 ////

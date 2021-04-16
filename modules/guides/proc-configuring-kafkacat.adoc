@@ -6,6 +6,8 @@ To enable Kafkacat to access a Kafka instance, configure the connection using th
 
 For more information about Kafkacat configuration options, see https://github.com/edenhill/kafkacat#configuration[Configuration] in the Kafkacat documentation.
 
+NOTE: Kafkacat does not yet fully support SASL/OAUTHBEARER authentication, so connecting to a Kafka instance requires only the bootstrap server and the service account credentials for SASL/PLAIN authentication.
+
 .Prerequisites
 * You have the bootstrap server endpoint and the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
 
