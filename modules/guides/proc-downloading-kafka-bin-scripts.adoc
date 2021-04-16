@@ -2,7 +2,7 @@
 = Downloading the Kafka bin scripts
 :imagesdir: ../_images
 
-The Kafka bin scripts are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution]. When you extract the Apache Kafka distribution, the `bin/` directory of the distribution contains a set of shell scripts that enable you to interact with your Kafka instance. With the bin scripts, you can produce and consume messages, and perform various operations against the Kafka APIs to administer topics, consumer groups, and other resources.
+The Kafka bin scripts are the binary scripts that are provided in the https://kafka.apache.org/downloads[Apache Kafka distribution]. When you extract the Apache Kafka distribution, the `bin/` directory (or the `bin\windows\` directory if you're using Windows) of the distribution contains a set of shell scripts that enable you to interact with your Kafka instance. With the bin scripts, you can produce and consume messages, and perform various operations against the Kafka APIs to administer topics, consumer groups, and other resources.
 
 ifndef::community[]
 NOTE: The Kafka bin scripts are part of the open source community version of Apache Kafka. The bin scripts are not a part of {product} and are therefore not supported by Red Hat.
