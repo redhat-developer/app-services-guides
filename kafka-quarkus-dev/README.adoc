@@ -63,7 +63,7 @@ For this quick start, you'll use the Quarkus sample code from the {product} http
 ----
 $ git clone {samples-git-repo} guides
 ----
-. In your IDE, import the `code-examples/quarkus/kafka-quickstart` directory from the repository that you cloned.
+. In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
 
 ifdef::qs[]
 .Verification
@@ -148,12 +148,12 @@ The Quarkus example application in this quick start has three application-scoped
 * You've created the `prices` example Kafka topic.
 
 .Procedure
-. On the command line, navigate to the `code-examples/quarkus/kafka-quickstart` directory that you imported and enter the following commands to run the Quarkus example application.
+. On the command line, navigate to the `code-examples/quarkus-kafka-quickstart` directory that you imported and enter the following commands to run the Quarkus example application.
 +
 .Running the Quarkus example application
 [source]
 ----
-$ cd ./code-examples/quarkus/kafka-quickstart
+$ cd ./code-examples/quarkus-kafka-quickstart
 $ ./mvnw quarkus:dev
 ----
 . After the application is running, in a web browser, go to http://localhost:8080/prices.html and verify that the `Last price` is updated.
