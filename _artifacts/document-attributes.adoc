@@ -12,6 +12,5 @@
 :service-url: https://cloud.redhat.com/beta/application-services/streams/
 :property-file-name: app-services.properties
 
-:signup-link: https://localhost:1234/
 // Other upstream project names
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
