@@ -51,7 +51,7 @@ include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 == Additional resources
-* https://kafka.apache.org/081/documentation.html#configuration[Configuration] in Kafka
+* https://kafka.apache.org/081/documentation.html#configuration[Configuration^] in Kafka
 
 ifdef::qs[]
 [#conclusion]

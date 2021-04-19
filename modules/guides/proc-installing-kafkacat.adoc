@@ -2,14 +2,14 @@
 = Installing and verifying Kafkacat
 :imagesdir: ../_images
 
-https://github.com/edenhill/kafkacat[Kafkacat] is a command-line utility for messaging in Apache Kafka 0.8 and later. You can install and use Kafkacat to test and debug your Kafka instances in {product}. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
+https://github.com/edenhill/kafkacat[Kafkacat^] is a command-line utility for messaging in Apache Kafka 0.8 and later. You can install and use Kafkacat to test and debug your Kafka instances in {product}. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
 
 ifndef::community[]
 NOTE: Kafkacat is an open source community tool. Kafkacat is not a part of {product} and is therefore not supported by Red Hat.
 endif::[]
 
 .Procedure
-. In a web browser, go to the https://github.com/edenhill/kafkacat[Kafkacat] repository in GitHub and follow the installation instructions for your operating system.
+. In a web browser, go to the https://github.com/edenhill/kafkacat[Kafkacat^] repository in GitHub and follow the installation instructions for your operating system.
 . Verify that the expected version was installed:
 +
 .Verifying Kafkacat installation

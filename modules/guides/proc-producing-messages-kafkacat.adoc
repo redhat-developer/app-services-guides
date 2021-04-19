@@ -2,7 +2,7 @@
 = Producing messages in Kafkacat
 :imagesdir: ../_images
 
-You can use Kafkacat to produce messages to Kafka topics in several ways, such as reading them from standard input (`stdin`) directly on the command line or from a file. This example produces messages from input on the command line. For more examples of Kafkacat producer messaging, see the https://github.com/edenhill/kafkacat#examples[Examples] in the Kafkacat documentation.
+You can use Kafkacat to produce messages to Kafka topics in several ways, such as reading them from standard input (`stdin`) directly on the command line or from a file. This example produces messages from input on the command line. For more examples of Kafkacat producer messaging, see the https://github.com/edenhill/kafkacat#examples[Examples^] in the Kafkacat documentation.
 
 .Prerequisites
 * Kafkacat is installed.

@@ -20,7 +20,7 @@ END GENERATED ATTRIBUTES
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat] to test and debug your Kafka instances in {product-long}. Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
+As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long}. Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
 
 .Prerequisites
 ifndef::community[]
@@ -36,7 +36,7 @@ ifdef::qs[]
 Learn how to use Kafkacat to interact with a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Kafkacat quick start. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat] to produce and consume messages for your Kafka instances in {product}.
+Welcome to the {product-long} Kafkacat quick start. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat^] to produce and consume messages for your Kafka instances in {product}.
 endif::[]
 ifndef::community[]
 endif::[]

@@ -23,14 +23,14 @@ The Quarkus example application in this quick start has three application-scoped
 $ cd ~/guides/quarkus
 $ ./mvnw quarkus:dev
 ----
-. After the application is running, in a web browser, go to http://localhost:8080/prices.html and verify that the `Last price` is updated.
+. After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
 +
 If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
 
 ifdef::qs[]
 .Verification
 * Did the Quarkus example application run without any errors?
-* At http://localhost:8080/prices.html, is the `Last price` updated?
+* At http://localhost:8080/prices.html[^], is the `Last price` updated?
 endif::[]
 
 ifdef::qs[]
