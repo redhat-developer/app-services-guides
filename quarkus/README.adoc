@@ -32,7 +32,7 @@ END GENERATED ATTRIBUTES
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long}. https://quarkus.io/[Quarkus] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
+As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
 
 .Prerequisites
 ifndef::community[]
@@ -40,10 +40,10 @@ ifndef::community[]
 endif::[]
 * You have a access to {product}. For more information about signing up, see {signup-link}.
 * You have a running Kafka instance in {product}.
-* https://github.com/git-guides/[Git] is installed.
-* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA], https://www.eclipse.org/downloads/[Eclipse], or https://code.visualstudio.com/Download[VSCode].
-* https://adoptopenjdk.net/[JDK] 11 or later is installed.
-* https://maven.apache.org/[Apache Maven] 3.6.2 or later is installed.
+* https://github.com/git-guides/[Git^] is installed.
+* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
+* https://adoptopenjdk.net/[JDK^] 11 or later is installed.
+* https://maven.apache.org/[Apache Maven^] 3.6.2 or later is installed.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
@@ -52,16 +52,16 @@ ifdef::qs[]
 Learn how to use Quarkus applications to produce messages to and consume messages from a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Quarkus quick start. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus] to produce messages to and consume messages from your Kafka instances in {product}.
+Welcome to the {product-long} Quarkus quick start. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
 
 [id="proc-importing-quarkus-sample-code_{context}"]
 == Importing the Quarkus sample code
 
-For this quick start, you'll use the Quarkus sample code from the {product} https://github.com/redhat-developer/app-services-guides[Guides and Samples] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
+For this quick start, you'll use the Quarkus sample code from the {product} https://github.com/redhat-developer/app-services-guides[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
 
 .Procedure
-. On the command line, clone the {product} https://github.com/redhat-developer/app-services-guides[Guides and Samples] repository from GitHub.
+. On the command line, clone the {product} https://github.com/redhat-developer/app-services-guides[Guides and Samples^] repository from GitHub.
 +
 .Cloning the guides and samples repository
 [source,subs="+attributes"]
@@ -80,7 +80,7 @@ endif::[]
 
 To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
 
-Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging] to produce messages to and consume messages from your Kafka instances in {product}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging] in the Quarkus documentation.
+Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
 .Prerequisites
 * You have the bootstrap server endpoint, the service account credentials, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
@@ -161,14 +161,14 @@ The Quarkus example application in this quick start has three application-scoped
 $ cd ~/guides/quarkus
 $ ./mvnw quarkus:dev
 ----
-. After the application is running, in a web browser, go to http://localhost:8080/prices.html and verify that the `Last price` is updated.
+. After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
 +
 If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
 
 ifdef::qs[]
 .Verification
 * Did the Quarkus example application run without any errors?
-* At http://localhost:8080/prices.html, is the `Last price` updated?
+* At http://localhost:8080/prices.html[^], is the `Last price` updated?
 endif::[]
 
 ifdef::qs[]
