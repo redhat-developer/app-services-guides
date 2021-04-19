@@ -143,7 +143,7 @@ spec:
         #### You have all the necessary information to connect your application to your OpenShift Streams for Apache Kafka instance:
         Have you seen the BootstrapServers field with hostname and port?
 
-        Do you know which authentication mechanism (SASL/PLAIN, SASL/OAUTHBEARER) to use?
+Do you know which authentication mechanism (SASL/PLAIN, SASL/OAUTHBEARER) will be used by Kafka?
 
         Do you know the name of the secret in which your **Client ID** and **Client Secret** are stored?
       failedTaskHelp: This task isn't verified yet. Try the task again.
