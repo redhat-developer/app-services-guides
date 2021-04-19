@@ -8,8 +8,6 @@ This project illustrates how you can interact with Apache Kafka using MicroProfi
 ## RHOAS addons
 
 RHOAS extends kafka quickstarts by adding Kubernetes Servic Binding capabilities that will automatically discover configuration.
-Additionally
-
 
 ### RHOAS image 
 
