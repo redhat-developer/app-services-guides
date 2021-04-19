@@ -132,16 +132,16 @@ spec:
 
       1. Execute the following command to retrieve the details of your **KafkaConnection**. Replace *{kafka-connection-name}* with the name of your **KafkaConnection** resource: `oc describe KafkaConnection/{kafka-connection-name}`
     
-      1. The output of the previous command contains the details of your **KafkaConnection**. Try to find the **Bootstrap Server Host** setting of your **KafkaConnection**.
+      1. The output of the previous command contains the details of your **KafkaConnection**. Try to find the **BootstrapServers** setting of your **KafkaConnection**.
 
-      1. The **KafkaConnection** contains more information besides the **Bootstrap Server Host**. Try to find the **Sasl Mechanism** and the **Security Protocol**.
+      1. The **KafkaConnection** contains more information besides the **BootstrapServers**. Try to find the **Sasl Mechanism** and the **Security Protocol**.
 
       1. Finally the **KafkaConnection** has a reference to **Service Account Secret** that contains the **Client ID** and **Client Secret** needed to connect to the service. Try to find that configuration in your **KafkaConnection**.
 
     review:
       instructions: |-
         #### You have all the necessary information to connect your application to your OpenShift Streams for Apache Kafka instance:
-        Have you seen the Bootstrap Server hostname and port?
+        Have you seen the BootstrapServers field with hostname and port?
 
         Do you know which authentication mechanism (SASL/PLAIN, SASL/OAUTHBEARER) to use?
 
