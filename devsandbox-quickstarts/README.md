@@ -11,7 +11,7 @@ oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guid
 ## Contributing Quick Starts
 
 Quick starts walk users through completing different tasks in the OpenShift UI console. 
-OpenShift provies this capability by creating 
+OpenShift provides this capability by creating 
 [quick start custom resource](https://github.com/openshift/enhancements/blob/master/enhancements/console/quick-starts.md).
 This allows operators and administrators to contribute new quick starts to the
 cluster beyond the out-of-the-box set. Typically, quick starts for operators are
