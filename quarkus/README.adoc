@@ -56,10 +56,10 @@ endif::[]
 [id="proc-importing-quarkus-sample-code_{context}"]
 == Importing the Quarkus sample code
 
-For this quick start, you'll use the Quarkus sample code from the {product} https://github.com/redhat-developer/app-services-guides[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
+For this quick start, you'll use the Quarkus sample code from the {product} {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
 
 .Procedure
-. On the command line, clone the {product} https://github.com/redhat-developer/app-services-guides[Guides and Samples^] repository from GitHub.
+. On the command line, clone the {product} {samples-git-repo}[Guides and Samples^] repository from GitHub.
 +
 .Cloning the guides and samples repository
 [source,subs="+attributes"]

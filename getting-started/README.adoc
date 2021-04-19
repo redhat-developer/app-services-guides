@@ -58,7 +58,7 @@ Use the {product} web console to create and configure a Kafka instance for your 
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the {product} web console at {service-url}.
+* You're logged in to the {product} web console at {service-url}[^].
 endif::[]
 
 .Procedure
