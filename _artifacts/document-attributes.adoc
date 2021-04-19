@@ -9,9 +9,8 @@
 :product-long: Application Services
 :product: App Services
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
-:service-url: https://localhost:1234/
+:service-url: https://cloud.redhat.com/beta/application-services/streams/
 :property-file-name: app-services.properties
 
-:signup-link: https://localhost:1234/
 // Other upstream project names
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
