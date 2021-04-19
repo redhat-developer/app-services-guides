@@ -21,7 +21,7 @@ After `rhoas` is installed, you can log in to access your application services.
 $ rhoas login
 ----
 
-You are redirected to your web browser at https://sso.redhat.com.
+You are redirected to your web browser at https://sso.redhat.com[^].
 --
 
 . Enter your credentials to log in to your Red Hat account.
