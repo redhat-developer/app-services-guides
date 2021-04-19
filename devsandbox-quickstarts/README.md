@@ -8,6 +8,9 @@ oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guid
 oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guides/main/devsandbox-quickstarts/rhosak-devsandbox-quarkus-bind-cli-toolscontainer-quickstart.yaml
 ```
 
+After installation go to right top corner `?` icon and select `Quickstarts` to view new Quickstarts that were added.
+
+
 ## Contributing Quick Starts
 
 Quick starts walk users through completing different tasks in the OpenShift UI console. 
