@@ -1,0 +1,32 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: kafka-quarkus-dev
+  annotations:
+    draft: false
+    order: 2
+spec:
+  version: 0.1
+  type:
+    text: Quick start
+    color: green
+  displayName: !snippet/title README.adoc#chap-using-quarkus
+  durationMinutes: 10
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - A running Kafka instance (see the Getting Started quick start)
+    - A command-line terminal application
+    - Git
+    - An IDE
+    - JDK 11 or later
+    - Apache Maven 3.6.2 or later
+  introduction: !snippet README.adoc#introduction
+  tasks:
+    - !snippet/proc README.adoc#proc-importing-quarkus-sample-code
+    - !snippet/proc README.adoc#proc-configuring-quarkus
+    - !snippet/proc README.adoc#proc-create-prices-topic
+    - !snippet/proc README.adoc#proc-running-quarkus-example-application
+  conclusion: !snippet README.adoc#conclusion
+  nextQuickStart:
+    - 'service-binding'
