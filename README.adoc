@@ -20,4 +20,4 @@
 
 == Contributing
 
-* link:./CONTRIBUTING[Creating new guide]
+* link:./CONTRIBUTING.adoc[Creating new guide]
