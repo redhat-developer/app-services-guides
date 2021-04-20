@@ -115,7 +115,7 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 [id="proc-creating-service-account_{context}"]
 == Creating a service account to connect to a Kafka instance in {product}
 
-To connect your applications or services to a Kafka instance in the {product} web console, you need to create a service account that's associated with the instance. You also need to save bootstrap server endpoint for the instance, the generated service account credentials, and the authentication token endpoint to a secure location. You'll use the service account and Kafka instance information later when you configure your application.
+To connect your applications or services to a Kafka instance in the {product} web console, you need to create a service account that's associated with the instance. You also need to save the bootstrap server endpoint for the instance, the generated service account credentials, and the authentication token endpoint to a secure location. You'll use the service account and Kafka instance information later when you configure your application.
 
 .Prerequisites
 * You've created a Kafka instance and the instance is in *Ready* state.
