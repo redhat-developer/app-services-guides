@@ -246,6 +246,18 @@ view the command help (for example, `rhoas kafka list -h`).
 +
 `rhoas serviceaccount list`
 
+* View a list of Kafka consumer groups:
++
+`rhoas kafka consumergroup list`
+
+* View details for a particular Kafka consumer group and its members:
++
+`rhoas kafka consumergroup describe`
+
+* Delete a Kafka consumer group and its members:
++
+`rhoas kafka consumergroup delete`
+
 * View configuration details for a particular service account:
 +
 `rhoas serviceaccount describe`
