@@ -115,7 +115,7 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 [id="proc-creating-service-account_{context}"]
 == Creating a service account to connect to a Kafka instance in {product}
 
-To connect your applications or services to a Kafka instance in the {product} web console, you need to create a service account, copy and save the generated credentials, and copy and save the bootstrap server endpoint. You'll use the service account information later when you configure your application.
+To connect your applications or services to a Kafka instance in the {product} web console, you need to create a service account that's associated with the instance. You also need to save bootstrap server endpoint for the instance, the generated service account credentials, and the authentication token endpoint to a secure location. You'll use the service account and Kafka instance information later when you configure your application.
 
 .Prerequisites
 * You've created a Kafka instance and the instance is in *Ready* state.
@@ -123,8 +123,9 @@ To connect your applications or services to a Kafka instance in the {product} we
 .Procedure
 . In the *Kafka Instances* page of the web console, for the relevant Kafka instance that you want to connect to, select the options icon (three vertical dots) and click *View connection information*.
 . In the *Connection* page, copy the *Bootstrap server* endpoint to a secure location. This is the bootstrap server endpoint that you'll need for connecting to this Kafka instance.
-. Click *Create service account* to generate the credentials that you'll use to connect to this Kafka instance.
-. Copy the generated *Client ID* and *Client Secret* to a secure location.
+. Click *Create service account* to set up the account that you'll use to access this Kafka instance.
+. Enter a unique service account name, such as `my-service-account`, add an optional description, and click *Create*.
+. Copy the generated *Client ID* and *Client Secret* to a secure location. These are the credentials that you'll use to connect to this Kafka instance.
 +
 IMPORTANT: The generated credentials are displayed only one time, so ensure that you've successfully and securely saved the copied credentials before closing the credentials window.
 
@@ -134,16 +135,17 @@ IMPORTANT: The generated credentials are displayed only one time, so ensure that
 NOTE: SASL/PLAIN authentication is also available for tools and libraries that don't support SASL/OAUTHBEARER, but SASL/OAUTHBEARER is recommended whenever possible. With SASL/PLAIN authentication, you use only the service account credentials to authenticate the connection to the Kafka instance.
 
 +
-You'll use the server and client information that you saved to configure your application to connect to your Kafka instances when you're ready. For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance, you'll use this information to set your bootstrap server and client environment variables.
+You'll use the service account information that you saved to configure your application to connect to your Kafka instances when you're ready. For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance, you'll use this information to set your bootstrap server and client environment variables.
+. To review your service account information, reset your credentials, or delete the service account, go to the *Streams for Apache Kafka* > *Service Accounts* page in the web console.
 
 .Verification
 ifdef::qs[]
-* Did you save the bootstrap server endpoint to a secure location?
-* Did you save the client credentials to a secure location?
+* Did you save the bootstrap server, client credentials, and authentication token endpoint to a secure location?
+* Did you verify that your service account was successfully created in the *Streams for Apache Kafka* > *Service Accounts* page?
 endif::[]
 ifndef::qs[]
-. Verify that the bootstrap server endpoint is saved to a secure location.
-. Verify that the client credentials are saved to a secure location.
+. Verify that the bootstrap server, client credentials, and authentication token endpoint are saved to a secure location.
+. Verify that your service account was successfully created in the *Streams for Apache Kafka* > *Service Accounts* page.
 endif::[]
 
 [id="proc-creating-kafka-topic_{context}"]
@@ -169,8 +171,13 @@ image::sak-create-topic.png[Image of wizard to create a topic]
 NOTE: You can increase the number of partitions later, but you cannot decrease them.
 +
 
-* *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
-* *Replicas*: Set the number of partition replicas for the topic and the minimum number of follower replicas that must be in sync with a partition leader. This example sets the replica factor and in-sync replicas to `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
+* *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `7 days` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
+* *Replicas*: For this release of {product}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
+
+////
+//For post Summit when users have more replica options. (Stetson, 20 Apr 2021)
+Set the number of partition replicas for the topic and the minimum number of follower replicas that must be in sync with a partition leader. This example sets the replica factor and in-sync replicas to `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
+////
 
 After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now start producing and consuming messages to and from this topic using services that you connect to this instance.
 --
