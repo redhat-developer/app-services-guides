@@ -1,12 +1,12 @@
-# This workflow will build a Java project with Maven
+# This workflow will build a quickstart image to be used in the guide and CI/CD
 
-name: Build and publish quickstart to quay
+name: Build and publish quickstarts to quay
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, issue-82 ]
     paths:
-     - "code-examples/quarkus/kafka-quickstart"git 
+     - "code-examples/quarkus-kafka-quickstart"
 
 jobs:
   build:
