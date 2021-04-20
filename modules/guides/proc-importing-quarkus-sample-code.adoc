@@ -10,9 +10,9 @@ For this quick start, you'll use the Quarkus sample code from the {product} {sam
 .Cloning the guides and samples repository
 [source,subs="+attributes"]
 ----
-$ mkdir guides && git clone {samples-git-repo}
+git clone {samples-git-repo} guides
 ----
-. In your IDE, import the `guides/quarkus` directory from the repository that you cloned.
+. In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
 
 ifdef::qs[]
 .Verification
