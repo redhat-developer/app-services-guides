@@ -66,7 +66,7 @@ For this quick start, you'll use the Quarkus sample code from the {product} {sam
 ----
 $ mkdir guides && git clone {samples-git-repo}
 ----
-. In your IDE, import the `code-examples/quarkus/kafka-quickstart` directory from the repository that you cloned.
+. In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
 
 ifdef::qs[]
 .Verification
@@ -151,7 +151,7 @@ The Quarkus example application in this quick start has three application-scoped
 * You've created the `prices` example Kafka topic.
 
 .Procedure
-. On the command line, navigate to the `code-examples/quarkus/kafka-quickstart` directory that you imported and enter the following commands to run the Quarkus example application.
+. On the command line, navigate to the `code-examples/quarkus-kafka-quickstart` directory that you imported and enter the following commands to run the Quarkus example application.
 +
 .Running the Quarkus example application
 [source]
