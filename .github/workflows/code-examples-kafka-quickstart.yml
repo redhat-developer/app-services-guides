@@ -4,9 +4,9 @@ name: Build and publish quickstarts to quay
 
 on:
   push:
-    branches: [ main, issue-82 ]
+    branches: [ main ]
     paths:
-     - "code-examples/quarkus-kafka-quickstart"
+     - "code-examples/**"
 
 jobs:
   build:
