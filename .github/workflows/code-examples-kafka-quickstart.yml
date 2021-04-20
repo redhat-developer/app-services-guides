@@ -7,6 +7,7 @@ on:
     branches: [ main ]
     paths:
      - "code-examples/**"
+     - ".github/**"
 
 jobs:
   build:
@@ -18,7 +19,7 @@ jobs:
       with:
         java-version: 11
     - name: Build and publish to quay
-      working-directory: code-examples/quarkus/kafka-quickstart
+      working-directory: code-examples/quarkus-kafka-quickstart
       run: ./mvnw clean package --file pom.xml --no-transfer-progress 
                       -Dquarkus.container-image.build=true 
                       -Dquarkus.container-image.push=true 
