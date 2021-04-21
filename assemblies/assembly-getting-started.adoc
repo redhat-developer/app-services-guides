@@ -1,5 +1,5 @@
 [id='assembly-getting-started']
-= Getting Started with {product-long}
+= Getting started with {product-long}
 ifdef::context[:parent-context: {context}]
 :context: getting-started
 :imagesdir: _images
