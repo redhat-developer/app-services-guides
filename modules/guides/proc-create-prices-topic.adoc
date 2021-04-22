@@ -21,7 +21,8 @@ image::kafka-quarkus-dev/sak-create-topic.png[Image of wizard to create a topic]
 NOTE: You can increase the number of partitions later, but you cannot decrease them.
 +
 
-* *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
+* *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `7 days` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
+* *Replicas*: For this release of {product}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 +
 After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
 

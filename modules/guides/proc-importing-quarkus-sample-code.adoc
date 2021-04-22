@@ -10,7 +10,7 @@ For this quick start, you'll use the Quarkus sample code from the {product} {sam
 .Cloning the guides and samples repository
 [source,subs="+attributes"]
 ----
-git clone {samples-git-repo} guides
+git clone {samples-git-repo} app-services-guides
 ----
 . In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
 

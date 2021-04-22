@@ -15,7 +15,7 @@ The Quarkus example application in this quick start has three application-scoped
 * You've created the `prices` example Kafka topic.
 
 .Procedure
-. On the command line, navigate to the `code-examples/quarkus-kafka-quickstart` directory that you imported and enter the following commands to run the Quarkus example application.
+. On the command line, navigate to the `code-examples/quarkus-kafka-quickstart` directory that you imported and run the Quarkus example application in developer mode.
 +
 .Running the Quarkus example application
 [source]
