@@ -28,7 +28,7 @@ spec:
       and odo on your own machine. These tools can be downloaded from:
         * oc: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/
         * odo: https://mirror.openshift.com/pub/openshift-v4/clients/odo/latest/
-        * RHOAS CLI: https://github.com/bf3fc6c/cli/releases/tag/0.21.0
+        * RHOAS CLI: https://github.com/redhat-developer/app-services-cli/releases/latest
 
       To install the tooling image, do the following (if you are using your local installation of the RHOAS CLI, you can skip these steps):
 
