@@ -51,7 +51,7 @@ ifdef::qs[]
 Learn how to use Quarkus applications to produce messages to and consume messages from a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Quarkus quick start. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
+Welcome to the quick start for {product-long} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
 
 [id="proc-importing-quarkus-sample-code_{context}"]
@@ -67,11 +67,11 @@ For this quick start, you'll use the Quarkus sample code from the {product} {sam
 ----
 git clone {samples-git-repo} app-services-guides
 ----
-. In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
+. In your IDE, open the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
 
 ifdef::qs[]
 .Verification
-* Is the Quarkus example application imported into your IDE?
+* Is the Quarkus example application accessible in your IDE?
 endif::[]
 
 [id="proc-configuring-quarkus_{context}"]
@@ -111,7 +111,7 @@ For this quick start, the Kafka topic that the Quarkus example application refer
 * You've created a Kafka instance in {product} and the instance is in *Ready* state.
 
 .Procedure
-. In the *Streams for Apache Kafka* page of the web console, select the name of the Kafka instance that you want to add a topic to.
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to add a topic to.
 . Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 [.screencapture]
@@ -140,13 +140,13 @@ endif::[]
 [id="proc-running-quarkus-example-application_{context}"]
 == Running the Quarkus example application
 
-After you configure your Quarkus application to connect to a Kafka instance and you create the Kafkat topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
+After you configure your Quarkus application to connect to a Kafka instance and you create the Kafka topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
 
-The Quarkus example application in this quick start has three application-scoped beans:
+The Quarkus example application in this quick start has three application-scoped Java classes:
 
-* One bean generates a random number between 0 and 100 and produces it to a Kafka topic.
-* Another bean consumes the number from the Kafka topic.
-* A final bean exposes the number as a REST UI (using Server Sent events).
+* One class generates a random number between 0 and 100 and produces it to a Kafka topic.
+* Another class consumes the number from the Kafka topic.
+* A final class exposes the number as a REST UI (using Server Sent events).
 
 .Prerequisites
 * You've configured the Quarkus example application to connect to the Kafka instance.
@@ -158,7 +158,7 @@ The Quarkus example application in this quick start has three application-scoped
 .Running the Quarkus example application
 [source]
 ----
-$ cd ./code-examples/quarkus/kafka-quickstart
+$ cd ~/code-examples/quarkus-kafka-quickstart
 $ ./mvnw quarkus:dev
 ----
 . After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
