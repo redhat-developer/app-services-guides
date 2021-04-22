@@ -2,19 +2,19 @@
 
 = {PRODUCT} Guides & Samples
 
-== Guides 
+== Guides
 
 * link:./getting-started[The Getting Started Guide]
 * link:./rhoas-cli[Using the RHOAS CLI]
-* link:./kafka-quarkus-dev[Using {PRODUCT} with Quarkus]
+* link:./quarkus[Using {PRODUCT} with Quarkus]
 * link:./kafkacat[Using {PRODUCT} with Kafkacat]
 * link:./kafka-bin-scripts[Using {PRODUCT} with Kafka Bin Scripts]
 
-== OpenShift Quickstarts 
+== OpenShift Quickstarts
 
 * link:./devsandbox-quickstarts[OpenShift Quick Starts]
 
-== Application Examples used in Guides 
+== Application Examples used in Guides
 
 * link:./code-examples/quarkus-kafka-quickstart[Quarkus example]
 
