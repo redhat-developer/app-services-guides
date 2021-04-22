@@ -27,11 +27,11 @@ $ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/m
 
 [NOTE]
 ====
-You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.19.0`:
+You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.23.1`:
 
 [source,shell]
 ----
-$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash -s 0.19.0
+$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash -s 0.23.1
 ----
 ====
 
@@ -52,12 +52,12 @@ $ echo $PATH
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` 0.19.0 is installed:
+This example shows that `rhoas` 0.24.1 is installed:
 
 [source,shell]
 ----
 $ rhoas --version
-rhoas version 0.19.0
+rhoas version 0.24.1
 ----
 --
 
@@ -108,11 +108,11 @@ $ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/m
 
 [NOTE]
 ====
-You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.19.0`:
+You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `0.23.1`:
 
 [source,shell]
 ----
-$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash -s 0.19.0
+$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash -s 0.23.1
 ----
 ====
 
@@ -133,12 +133,12 @@ $ echo $PATH
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` 0.19.0 is installed:
+This example shows that `rhoas` 0.24.1 is installed:
 
 [source,shell]
 ----
 $ rhoas --version
-rhoas version 0.19.0
+rhoas version 0.24.1
 ----
 --
 
