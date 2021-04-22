@@ -13,7 +13,7 @@ For this quick start, the Kafka topic that the Quarkus example application refer
 +
 [.screencapture]
 .Guided steps to define topic details
-image::kafka-quarkus-dev/sak-create-topic.png[Image of wizard to create a topic]
+image::quarkus/sak-create-topic.png[Image of wizard to create a topic]
 
 * *Topic name*: Enter `prices` as the topic name.
 * *Partitions*: Set the number of partitions for this topic. This example sets the partition to `1` for a single partition. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
