@@ -1,6 +1,6 @@
 Quarkus Kafka Quickstart
 ========================
-To see how to use this code example follow the [quick start](../../kafka-quarkus-dev).
+To see how to use this code example follow the [quick start](../../quarkus).
 
 ## Additional information on this code example
 
