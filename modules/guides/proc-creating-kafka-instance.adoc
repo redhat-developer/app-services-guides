@@ -34,7 +34,7 @@ The new Kafka instance is listed in the instances table. When the instance *Stat
 .Kafka instance options menu
 image::getting-started/sak-kafka-instance-options.png[Image of Kafka instance options menu]
 
-NOTE: Only the user who creates a Kafka instance can edit or delete the instance, access the associated service account and topics, and connect to the instance. All other users can access and connect to only their own instances.
+NOTE: Although you can see Kafka instances created by other users in your organization, you can't manage or connect to those instances. Only the user who creates an instance can edit or delete the instance, access the associated service account and topics, or connect to the instance.
 --
 
 .Verification
