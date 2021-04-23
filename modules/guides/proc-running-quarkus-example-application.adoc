@@ -2,13 +2,13 @@
 = Running the Quarkus example application
 :imagesdir: ../_images
 
-After you configure your Quarkus application to connect to a Kafka instance and you create the Kafkat topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
+After you configure your Quarkus application to connect to a Kafka instance and you create the Kafka topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
 
-The Quarkus example application in this quick start has three application-scoped beans:
+The Quarkus example application in this quick start has three application-scoped Java classes:
 
-* One bean generates a random number between 0 and 100 and produces it to a Kafka topic.
-* Another bean consumes the number from the Kafka topic.
-* A final bean exposes the number as a REST UI (using Server Sent events).
+* One class generates a random number between 0 and 100 and produces it to a Kafka topic.
+* Another class consumes the number from the Kafka topic.
+* A final class exposes the number as a REST UI (using Server Sent events).
 
 .Prerequisites
 * You've configured the Quarkus example application to connect to the Kafka instance.
@@ -20,7 +20,7 @@ The Quarkus example application in this quick start has three application-scoped
 .Running the Quarkus example application
 [source]
 ----
-$ cd ./code-examples/quarkus/kafka-quickstart
+$ cd ~/code-examples/quarkus-kafka-quickstart
 $ ./mvnw quarkus:dev
 ----
 . After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.

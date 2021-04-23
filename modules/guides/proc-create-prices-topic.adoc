@@ -8,7 +8,7 @@ For this quick start, the Kafka topic that the Quarkus example application refer
 * You've created a Kafka instance in {product} and the instance is in *Ready* state.
 
 .Procedure
-. In the *Streams for Apache Kafka* page of the web console, select the name of the Kafka instance that you want to add a topic to.
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to add a topic to.
 . Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 [.screencapture]

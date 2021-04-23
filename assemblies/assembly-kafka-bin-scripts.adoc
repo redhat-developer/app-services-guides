@@ -38,7 +38,7 @@ ifdef::qs[]
 Learn how to use Kafka bin scripts to interact with a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Kafka bin scripts quick start. In this quick start, you'll learn how to use the Kafka bin scripts to produce and consume messages for your Kafka instances in {product}.
+Welcome to the quick start for {product-long} with Kafka bin scripts. In this quick start, you'll learn how to use the Kafka bin scripts to produce and consume messages for your Kafka instances in {product}.
 endif::[]
 ifndef::community[]
 endif::[]

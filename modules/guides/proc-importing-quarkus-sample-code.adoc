@@ -12,9 +12,9 @@ For this quick start, you'll use the Quarkus sample code from the {product} {sam
 ----
 git clone {samples-git-repo} app-services-guides
 ----
-. In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
+. In your IDE, open the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
 
 ifdef::qs[]
 .Verification
-* Is the Quarkus example application imported into your IDE?
+* Is the Quarkus example application accessible in your IDE?
 endif::[]

@@ -40,7 +40,7 @@ ifdef::qs[]
 Learn how to use Quarkus applications to produce messages to and consume messages from a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the {product-long} Quarkus quick start. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
+Welcome to the quick start for {product-long} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
 ifndef::community[]
 endif::[]
