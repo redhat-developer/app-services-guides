@@ -16,7 +16,7 @@ spec:
     ### This quick start shows you how to connect Red Hat OpenShift Streams for Apache Kafka to OpenShift using the RHOAS CLI.
     
     In this Quick Start, you'll connect your OpenShift Streams for Apache Kafka cloud service to your OpenShift cluster using the Red Hat OpenShift Application Services 
-    (RHOAS) Operator and CLI. For more information on Red Hat OpenShift Application Services, please visit [cloud.redhat.com.](https://cloud.redhat.com/application-services)
+    (RHOAS) Operator and CLI. For more information on Red Hat OpenShift Application Services, please visit [cloud.redhat.com](https://cloud.redhat.com/beta/application-services).
   tasks:
   - title: Access the required (CLI) Tools.
     description: |-
