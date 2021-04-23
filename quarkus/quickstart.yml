@@ -21,6 +21,7 @@ spec:
     - An IDE
     - JDK 11 or later
     - Apache Maven 3.6.2 or later
+    - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-importing-quarkus-sample-code
