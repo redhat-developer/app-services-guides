@@ -5,8 +5,9 @@
 To enable the Kafka bin scripts to access a Kafka instance, you must configure the connection using the generated credentials for your {product} service account. For the Kafka bin scripts, you will create a configuration file that defines these values.
 
 .Prerequisites
-
+ifndef::qs[]
 * You have the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
+endif::[]
 
 .Procedure
 
@@ -16,6 +17,11 @@ To enable the Kafka bin scripts to access a Kafka instance, you must configure t
 
 . In the `{property-file-name}` file, add the following content to set the Kafka instance client credentials. Replace the values with your own server and credential information.
 +
+--
+ifdef::qs[]
+The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
+endif::[]
+
 .Setting server and credential values
 [source,subs="+quotes"]
 ----
@@ -26,7 +32,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
   username="__<client_id>__" \
   password="__<client_secret>__";
 ----
-+
+
 NOTE: {product} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, the Kafka bin scripts do not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
 
+--
 . Save the file. You will use it in the next task to connect to your Kafka instance and produce messages.

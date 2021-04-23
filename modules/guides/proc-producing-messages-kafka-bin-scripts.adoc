@@ -8,15 +8,20 @@ You can use the `kafka-console-producer` script to produce messages to Kafka top
 
 * The Kafka bin scripts are downloaded.
 * You have a running Kafka instance in {product}.
+ifndef::qs[]
 * You have the bootstrap server endpoint for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
+endif::[]
 * You have created the `{property-file-name}` file to store your service account credentials.
 
 .Procedure
-
 . On the command line, from the `bin/` directory, enter the following command to create a Kafka topic.
 +
 --
 This example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
+
+ifdef::qs[]
+The `<bootstrap_server>` is the bootstrap server endpoint for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
+endif::[]
 
 .Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
