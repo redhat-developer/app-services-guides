@@ -91,7 +91,7 @@ spec:
 
           **Message retention**: Set the message retention time to the relevant value and increment.
           This example sets the retention to ```7 days```.
-          Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
+          Message retention time is the amount of time that messages are retained in a topic before they are deleted.
 
           **Replicas**: Set the number of partition replicas for the topic and the minimum number of follower replicas that must be in sync with a partition leader.
           In the current version of Streams for Apache Kafka the values are fixed and set to ```3``` for the number of replicas and ```2``` for the in-sync replicas.
