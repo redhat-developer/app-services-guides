@@ -64,7 +64,7 @@ spec:
       1. Add the path `/prices.html` to the URL of your Quarkus application. This will open the **prices** page of your Quarkus application.
       Since the application is not connected to Kafka yet, the page shows that prices are not available.
 
-      1. Go back to your OpenShift Topology view and click on the icon of your Quarkus application. This will open a panel on the righ-hand-side of your screen.
+      1. Go back to your OpenShift Topology view and click on the icon of your Quarkus application. This will open a panel on the right-hand-side of your screen.
       Click on the **Resources** tab. You will see the **Pods** of your Deployment. Currently we only have a single pod.
 
       1. Click on the **View logs** link next to the pod. In the logs of your application, you will see warnings stating that the application can not connect to Kafka.
