@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: service-discovery
   annotations:
-    draft: true
+    draft: false
     order: 2
 spec:
   version: 0.1
@@ -29,7 +29,6 @@ spec:
     - !snippet/proc README.adoc#proc-create-prices-topic
     - !snippet/proc README.adoc#proc-running-quarkus-example-application
     - !snippet/proc README.adoc#proc-binding-kafka
-    - !snippet/proc README.adoc#proc-testing-app
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'kafka-bin-scripts'

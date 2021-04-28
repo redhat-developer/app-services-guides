@@ -37,7 +37,7 @@ OpenShift is an Enteprise Kuberentes Platform. When deploying Quarkus and any ot
 https://developers.redhat.com/blog/2019/12/19/introducing-the-service-binding-operator/[ServiceBinding] capability that would let 
 their applications to discover configuration automatically inside their OpenShift or Kubernetes instance.
 
-RHOAS CLI contains speciallized set of commands that provide capability to connect and bind your applications with {product-long} services.
+RHOAS CLI contains set of commands that provide capability to connect and bind your OpenShift deployed applications with {product-long} services.
 You can review all possible commands in https://github.com/redhat-developer/app-services-cli/blob/main/docs/commands/rhoas_cluster.adoc[cli documentation].
 
 This quick start shows you how to connect Red Hat OpenShift Streams for Apache Kafka to OpenShift using the RHOAS CLI.
@@ -57,38 +57,16 @@ ifdef::qs[]
 Using the {product-long} services in your OpenShift cluster{product-long}.
 
 [#introduction]
-Welcome to the {product-long} Quarkus quick start. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
+Welcome to the {product-long} Service Discovery quick start. In this quick start, you'll learn how to connect your {product} services with https://quarkus.io/[Quarkus^]. Tutorial will connect Kafka with your Application to produce and consume messages from your Kafka instances in {product}.
 endif::[]
 
-[id="proc-importing-quarkus-sample-code_{context}"]
-== Importing the Quarkus sample code
-
-For this quick start, you'll use the Quarkus sample code from the {product} {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
-
-.Procedure
-. On the command line, clone the {product} {samples-git-repo}[Guides and Samples^] repository from GitHub.
-+
-.Cloning the guides and samples repository
-[source,subs="+attributes"]
-----
-git clone {samples-git-repo} guides
-----
-. In your IDE, import the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
-
-ifdef::qs[]
-.Verification
-* Is the Quarkus example application imported into your IDE?
-endif::[]
-
-[id="proc-installing-cli{context}"]
+[id="proc-installing-cli_{context}"]
 == Installing required cli tools
 
 RHOAS operator allow you to represent {product} services as first class citizens in your OpenShift environment.
 This enables you to work and integrate with these services using standard OpenShift/Kubernetes features and APIs.
     
 To connect your OpenShift project to your Red Hat OpenShift Application Services, you can use the RHOAS CLI.  
-This guide assumes that you have installed oc and rhoas cli on your machine.
-
 In this step we going to install RHOAS and OpenShift cli. You can skip this step entirely if you have those CLI
 already installed.
 
@@ -101,8 +79,8 @@ already installed.
 
 ifdef::qs[]
 .Verification
-* Do you see result when running oc command in your terminal
-* Do you see result when running rhoas command in your terminal
+* Do you see help printed when running oc command in your terminal
+* Do you see help printed when running rhoas command in your terminal
 endif::[]
 
 [id="proc-installing-operator_{context}"]
@@ -112,11 +90,13 @@ RHOAS Operator creates instances of {product} Services in your cluster.
 Operator connects with {product} API giving you ability to embed connection details to various services.
 
 Operator currently enables developers to connect with their Red Hat OpenShift Streams for Apache Kafka (RHOSAK) instances.
-Operator is used by RHOAS CLI to connect your services with your cluster
+Operator is used by RHOAS CLI to connect your services with your OpenShift cluster
 
+[.screencapture]
+.Operator and CLI relationships
 image::rhoas-operator.png[Operator and CLI relationships]
 
-NOTE: RHOAS Operator is already installed on various environments like OpenShift Developer Sandbox.
+NOTE: RHOAS Operator is already installed on various environments like OpenShift Developer Sandbox: https://developers.redhat.com/developer-sandbox
 
 NOTE: Installation procedure assumes that you have access to install operators in openshift-namespace on your cluster. 
 
@@ -126,10 +106,13 @@ NOTE: Installation procedure assumes that you have access to install operators i
 
 .Procedure
 . Please login to your OpenShift UI instance (if you do not have OpenShift instance you can use https://developers.redhat.com/developer-sandbox and skip this procedure entirely)
+
 . Navigate to side menu and select "Administrator" > "Operators" > "Operator Hub"
 . Type "RHOAS" in search tab 
 . Select "RHOAS" tile 
 +
+[.screencapture]
+.Operator installation
 image::operator-install.png[Operator]
 . Leave select "All namespaces" option checked and Press install to install your operator
 . Please wait for operator to install.
@@ -142,7 +125,7 @@ endif::[]
 [id="proc-inspecting-operator_{context}"]
 == Setting up RHOAS CLI to use RHOAS operator
 
-RHOAS CLI "cluster" commands provide number of commands that work directly with your own cluster.
+RHOAS CLI "cluster" commands provide number of commands that work directly with your own OpenShift cluster.
 To use cluster command developer needs to have https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/[kuberentesconfig] that can be set using oc or kubectl command.
 This config contains information about your active cluster and namespace that will be used by RHOAS CLI to perform operations on the cluster
 
@@ -156,9 +139,29 @@ The **RHOAS** CLI uses the **oc** CLI to determine the OpenShift instance, and p
 
 .Procedure
 . Login to your OpenShift cluster using `oc login` command line tool
++
+[source]
+----
+oc login
+----
 . Create new namespace `rhoas-quarkus` that will be used for this guide
-. Login to rhoas CLI by entering "rhoas login"
++
+[source]
+----
+oc new-project rhoas-quarkus
+----
+. Login to rhoas CLI
++
+[source]
+----
+rhoas login
+----
 . On the command line, enter  `rhoas cluster status` command and execute check if CLI has proper connection to cluster
++
+[source]
+----
+rhoas cluster status
+----
  
 ifdef::qs[]
 .Verification
@@ -266,11 +269,10 @@ endif::[]
 [id="proc-binding-kafka_{context}"]
 == Connecting your service with running application
 
-Once Application is running we can now connect our service using `rhoas cluster bind` command. This command will let us inject credentials to our application as files. Credentials will be by default injected as volume into our kuberentes deployment. Quarkus Kuberentes Client will detect them and automatically configure our application for us.
-
-
+Once application is running we can now connect our service using `rhoas cluster bind` command. This command will let us inject credentials to our application as files. Credentials will be by default injected as volume into our kuberentes deployment. Quarkus Kuberentes Client will detect them and automatically configure our application for us.
++
 Bind command will create following structure in your pod that many frameworks like quarkus can automatically read and autoconfigure your application to connect with the Kafka and other services.
-
++
 [source]
 ----
 /bindings/yourkafka
@@ -285,6 +287,7 @@ Bind command will create following structure in your pod that many frameworks li
 
 .Procedure
 . Execute 
++
 [source]
 ----
 rhoas cluster bind
