@@ -92,7 +92,7 @@ Operator connects with {product} API giving you ability to embed connection deta
 Operator currently enables developers to connect with their Red Hat OpenShift Streams for Apache Kafka (RHOSAK) instances.
 Operator is used by RHOAS CLI to connect your services with your OpenShift cluster
 
-[.screencapture]
+[.diagram]
 .Operator and CLI relationships
 image::rhoas-operator.png[Operator and CLI relationships]
 
@@ -107,14 +107,14 @@ NOTE: Installation procedure assumes that you have access to install operators i
 .Procedure
 . Please login to your OpenShift UI instance (if you do not have OpenShift instance you can use https://developers.redhat.com/developer-sandbox and skip this procedure entirely)
 
-. Navigate to side menu and select "Administrator" > "Operators" > "Operator Hub"
-. Type "RHOAS" in search tab 
-. Select "RHOAS" tile 
+. Navigate to side menu and select `Administrator` > `Operators`> `Operator Hub`
+. Type `RHOAS` in search tab 
+. Select `RHOAS` tile 
 +
-[.screencapture]
-.Operator installation
+[.instruction]
+.Operator tab
 image::operator-install.png[Operator]
-. Leave select "All namespaces" option checked and Press install to install your operator
+. Leave select `All namespaces` option checked and Press install to install your operator
 . Please wait for operator to install.
 
 ifdef::qs[]
@@ -125,7 +125,7 @@ endif::[]
 [id="proc-inspecting-operator_{context}"]
 == Setting up RHOAS CLI to use RHOAS operator
 
-RHOAS CLI "cluster" commands provide number of commands that work directly with your own OpenShift cluster.
+RHOAS CLI `cluster` commands provide number of commands that work directly with your own OpenShift cluster.
 To use cluster command developer needs to have https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/[kuberentesconfig] that can be set using oc or kubectl command.
 This config contains information about your active cluster and namespace that will be used by RHOAS CLI to perform operations on the cluster
 
@@ -150,12 +150,14 @@ oc login
 ----
 oc new-project rhoas-quarkus
 ----
++
 . Login to rhoas CLI
 +
 [source]
 ----
 rhoas login
 ----
++
 . On the command line, enter  `rhoas cluster status` command and execute check if CLI has proper connection to cluster
 +
 [source]
@@ -184,6 +186,7 @@ Now we can connect one of our services to our cluster.
 ----
 rhoas cluster connect --ignore-context
 ---- 
++
 . You will be asked to select the Kafka instance you want to connect.
 Select instance and Press **Enter** to continue.
 . The CLI will print the **Connection Details** and asks you to confirm. 
@@ -246,18 +249,20 @@ The Quarkus example application in this quick start will connect with Kafka pric
 
 .Procedure
 . Execute quarkus application template that will be deployed to your namespace
-[source]
 +
+[source]
 ----
 oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guides/main/code-examples/quarkus-kafka-quickstart/.kubernetes/kubernetes.yml
 ---- 
++
 . Fetch route to the application by executing
 +
 [source]
 ----
 oc get route
 ---- 
-. Open **HOST/PORT** section in browser
++
+. Open url from **HOST/PORT** section in your default browser
 . Verify that you see Quarkus landing page
 . If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
 . Append `/prices.html` to url to see prices section.
@@ -295,16 +300,14 @@ Bind command will create following structure in your pod that many frameworks li
 ----
 rhoas cluster bind
 ---- 
-. Command will automatically detect our application and single Kafka service in our namespace and inject connection details to the running application.
-. Select application we want to connect with and press enter to select it
-. Command should end up with **Binding succeeded** message
++
+Command will automatically detect our application and single Kafka service in our namespace and inject connection details to the running application.
+. Select application we want to connect with.
+. Press enter to select it on the list
+. Verify that command finished with **Binding succeeded** message
 . Please go back to your app `prices.html` page
 . You should see prices changing on the webpage
-+
-[source]
-----
-rhoas cluster bind
----- 
+
 
 ifdef::qs[]
 .Verification
