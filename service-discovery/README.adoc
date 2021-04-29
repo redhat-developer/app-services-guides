@@ -178,7 +178,8 @@ Now we can connect one of our services to our cluster.
 `rhoas cluster connect` command will let us to connect our Kafka instance to our cluster. If you do not have any Kafka instance you can create new one using `rhoas kafka create` command.
 
 .Procedure
-. Execute 
+. Execute
++
 [source]
 ----
 rhoas cluster connect --ignore-context
@@ -246,10 +247,12 @@ The Quarkus example application in this quick start will connect with Kafka pric
 .Procedure
 . Execute quarkus application template that will be deployed to your namespace
 [source]
++
 ----
 oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guides/main/code-examples/quarkus-kafka-quickstart/.kubernetes/kubernetes.yml
 ---- 
 . Fetch route to the application by executing
++
 [source]
 ----
 oc get route
@@ -270,9 +273,9 @@ endif::[]
 == Connecting your service with running application
 
 Once application is running we can now connect our service using `rhoas cluster bind` command. This command will let us inject credentials to our application as files. Credentials will be by default injected as volume into our kuberentes deployment. Quarkus Kuberentes Client will detect them and automatically configure our application for us.
-+
+
 Bind command will create following structure in your pod that many frameworks like quarkus can automatically read and autoconfigure your application to connect with the Kafka and other services.
-+
+
 [source]
 ----
 /bindings/yourkafka
@@ -297,6 +300,7 @@ rhoas cluster bind
 . Command should end up with **Binding succeeded** message
 . Please go back to your app `prices.html` page
 . You should see prices changing on the webpage
++
 [source]
 ----
 rhoas cluster bind
