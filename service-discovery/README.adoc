@@ -77,8 +77,8 @@ already installed.
 
 ifdef::qs[]
 .Verification
-* Do you see help printed when running oc command in your terminal
-* Do you see help printed when running rhoas command in your terminal
+* Do you see version printed when running `oc version` command in your terminal
+* Do you see version printed when running `rhoas version` command in your terminal
 endif::[]
 
 [id="proc-installing-operator_{context}"]
