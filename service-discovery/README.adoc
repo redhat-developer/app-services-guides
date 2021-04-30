@@ -33,16 +33,15 @@ END GENERATED ATTRIBUTES
 [role="_abstract"]
 As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
 
-OpenShift is an Enteprise Kuberentes Platform. When deploying Quarkus and any other type of Applications developers can use 
-https://developers.redhat.com/blog/2019/12/19/introducing-the-service-binding-operator/[ServiceBinding] capability that would let 
-their applications to discover configuration automatically inside their OpenShift or Kubernetes instance.
+OpenShift is an Enteprise Kuberentes Platform. When deploying Quarkus and any other type of application, developers can use 
+the https://developers.redhat.com/blog/2019/12/19/introducing-the-service-binding-operator/[Service Binding Operator] to 
+enable your applications to discover service configuration automatically in your OpenShift or Kubernetes instance.
 
 RHOAS CLI contains set of commands that provide capability to connect and bind your OpenShift deployed applications with {product-long} services.
 You can review all possible commands in https://github.com/redhat-developer/app-services-cli/blob/main/docs/commands/rhoas_cluster.adoc[cli documentation].
 
-This quick start shows you how to connect Red Hat OpenShift Streams for Apache Kafka to OpenShift using the RHOAS CLI.
     
-In this Quick Start, you'll connect your OpenShift Streams for Apache Kafka cloud service to your OpenShift cluster using the Red Hat OpenShift Application Services. (RHOAS) Operator and CLI. For more information on Red Hat OpenShift Application Services, please visit [cloud.redhat.com.](https://cloud.redhat.com/application-services)
+In this Quick Start, you'll connect your OpenShift Streams for Apache Kafka cloud service to your OpenShift cluster using the Red Hat OpenShift Application Services. (RHOAS) Operator and CLI. For more information on Red Hat OpenShift Application Services, please visit link:https://cloud.redhat.com/application-services[cloud.redhat.com.]
 
 .Prerequisites
 ifndef::community[]
@@ -84,9 +83,9 @@ ifdef::qs[]
 endif::[]
 
 [id="proc-installing-operator_{context}"]
-== Installing RHOAS Operator on your OpenShift cluster
+== Installing the RHOAS Operator in your OpenShift cluster
 
-RHOAS Operator creates instances of {product} Services in your cluster. 
+The RHOAS Operator creates instances of {product} services in your cluster. 
 Operator connects with {product} API giving you ability to embed connection details to various services.
 
 Operator currently enables developers to connect with their Red Hat OpenShift Streams for Apache Kafka (RHOSAK) instances.
