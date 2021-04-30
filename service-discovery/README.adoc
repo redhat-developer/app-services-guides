@@ -37,7 +37,6 @@ OpenShift is an Enteprise Kuberentes Platform. When deploying Quarkus and any ot
 the https://developers.redhat.com/blog/2019/12/19/introducing-the-service-binding-operator/[Service Binding Operator] to 
 enable your applications to discover service configuration automatically in your OpenShift or Kubernetes instance.
 
-RHOAS CLI contains set of commands that provide capability to connect and bind your OpenShift deployed applications with {product-long} services.
 You can review all possible commands in https://github.com/redhat-developer/app-services-cli/blob/main/docs/commands/rhoas_cluster.adoc[cli documentation].
 
     
