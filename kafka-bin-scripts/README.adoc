@@ -89,8 +89,10 @@ $ ./kafka-console-producer.sh --version
 2.7.0 (Commit:448719dc99a19793)
 ----
 
+ifdef::qs[]
 .Verification
 . Were the Kafka bin scripts installed successfully?
+endif::qs[]
 
 [id="proc-configuring-kafka-bin-scripts_{context}"]
 == Configuring the Kafka bin scripts to connect to a Kafka instance
