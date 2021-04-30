@@ -56,10 +56,12 @@
     "clean": "rimraf dist tmp && gh-pages-clean",
     "generate:attributes": "node ./utils/attributes.js",
     "generate:modular-docs-sources": "node ./utils/modular-docs.js",
-    "commitandpush:modular-docs": "node ./utils/publish.js",
-    "publish:modular-docs": "npm run generate:modular-docs && npm run commitandpush:modular-docs",
+    "commitandpush:modular-docs": "gh-pages -d ./tmp/post-splitter -b modular-docs",
+    "publish:modular-docs": "npm run generate:modular-docs-sources && npm run commitandpush:modular-docs",
     "fetch:templates": "node ./utils/templates.js",
-    "generate:modular-docs-output": "rimraf tmp/generated && mkdirp tmp/generated/assemblies tmp/generated/modules && asciidoctor -T templates -D tmp/generated/assemblies tmp/post-splitter/assemblies/*.adoc && asciidoctor -T templates -D tmp/generated/modules tmp/post-splitter/modules/*/*.adoc",
+    "build:generated-assemblies": "asciidoctor --failure-level=WARN  --template-dir=templates --destination-dir=tmp/generated/assemblies tmp/post-splitter/assemblies/assembly-*.adoc",
+    "build:generated-modules": "asciidoctor --failure-level=WARN --trace --template-dir=templates --destination-dir=tmp/generated/modules tmp/post-splitter/modules/*/*.adoc",
+    "generate:modular-docs-output": "rimraf tmp/generated && mkdirp tmp/generated/assemblies tmp/generated/modules && npm-run-all build:generated-modules build:generated-assemblies",
     "generate:modular-docs": "npm-run-all --parallel generate:modular-docs-sources fetch:templates --sequential generate:modular-docs-output"
   },
   "dependencies": {
