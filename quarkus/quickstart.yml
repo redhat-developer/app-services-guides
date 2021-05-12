@@ -30,4 +30,4 @@ spec:
     - !snippet/proc README.adoc#proc-running-quarkus-example-application
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
-    - 'service-discovery'
+    - 'service-binding'
