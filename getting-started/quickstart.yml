@@ -16,8 +16,6 @@ spec:
   prerequisites:
     - A Red Hat identity
     - Access to the Red Hat OpenShift Streams for Apache Kafka environment at https://cloud.redhat.com
-    - JDK 11 or later
-    - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-creating-kafka-instance

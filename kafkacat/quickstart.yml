@@ -16,8 +16,6 @@ spec:
   prerequisites:
     - A running Kafka instance (see the Getting Started quick start)
     - A command-line terminal application
-    - JDK 11 or later
-    - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-installing-kafkacat
