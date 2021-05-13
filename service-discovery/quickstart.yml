@@ -26,8 +26,8 @@ spec:
     - !snippet/proc README.adoc#proc-installing-operator
     - !snippet/proc README.adoc#proc-inspecting-operator
     - !snippet/proc README.adoc#proc-connecting-kafka
-    - !snippet/proc README.adoc#proc-create-prices-topic
-    - !snippet/proc README.adoc#proc-running-quarkus-example-application
+    - !snippet/proc README.adoc#proc-create-prices-topic-for-operator
+    - !snippet/proc README.adoc#proc-running-quarkus-example-application-for-operator
     - !snippet/proc README.adoc#proc-binding-kafka
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:

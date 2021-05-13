@@ -202,7 +202,7 @@ In case of issues you can remove your KafkaConnection by executing
 `oc delete akc name-of-your-kafka` and retry operation
 endif::[]
 
-[id="proc-create-prices-topic_{context}"]
+[id="proc-create-prices-topic-for-operator_{context}"]
 == Creating the prices Kafka topic in {product}
 
 For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product} so that the Quarkus application can interact with it.
@@ -236,7 +236,7 @@ ifndef::qs[]
 * Verify that the new Kafka topic `prices` is listed in the topics table.
 endif::[]
 
-[id="proc-running-quarkus-example-application_{context}"]
+[id="proc-running-quarkus-example-application-for-operator_{context}"]
 == Starting the Quarkus example application
 
 In this section of the guide we going to deploy Quarkus Example application container image 

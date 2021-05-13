@@ -32,6 +32,7 @@ To create a new guide:
 . Create a new directory, using the _identifier_ as the name.
 . Use the content from one of `README.adoc` files in another existing guide folder as a template to modify and add documentation to the new file.
 . If you need to add attributes, don't add them directly to the document but put them in `_attributes.adoc` and then run
+. When you add section ids (e.g. `[id="proc-running-quarkus-example-application-using-operator_\{context\}"]}) to a guide, the section id must be **globally** unique within the entire app-services-guides repository - if they conflict with a section id in another guide modular docs generation will fail. The `_\{context\}` is not considered part of the id, and does not provide any form of uniqueness for the id.
 +
 ----
 npm --prefix .build run generate:attributes
