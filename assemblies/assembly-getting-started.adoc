@@ -24,11 +24,13 @@ As a developer of applications and services, you can use {product-long} to creat
 
 //For more overview information about {product}, see [variablized link to overview here https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/].
 
-ifndef::community[]
 .Prerequisites
+ifndef::community[]
 * You have a Red Hat account.
 //* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]
+* https://adoptopenjdk.net/[JDK^] 11 or later is installed.
+* For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.

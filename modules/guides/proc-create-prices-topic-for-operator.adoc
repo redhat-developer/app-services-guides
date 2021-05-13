@@ -1,0 +1,34 @@
+[id='proc-create-prices-topic-for-operator_{context}']
+= Creating the prices Kafka topic in {product}
+:imagesdir: ../_images
+
+For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product} so that the Quarkus application can interact with it.
+
+.Prerequisites
+* You've created a Kafka instance in {product} and the instance is in *Ready* state.
+
+.Procedure
+. In the *Streams for Apache Kafka* page of the web console, select the name of the Kafka instance that you want to add a topic to.
+. Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
++
+[.screencapture]
+.Guided steps to define topic details
+image::service-discovery/sak-create-topic.png[Image of wizard to create a topic]
+
+. *Topic name*: Enter `prices` as the topic name.
+. *Partitions*: Set the number of partitions for this topic. This example sets the partition to `1` for a single partition. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
++
+NOTE: You can increase the number of partitions later, but you cannot decrease them.
++
+
+* *Message retention*: Set the message retention time to the relevant value and increment. This example sets the retention to `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
++
+After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
+
+.Verification
+ifdef::qs[]
+* Is the new Kafka topic `prices` listed in the topics table?
+endif::[]
+ifndef::qs[]
+* Verify that the new Kafka topic `prices` is listed in the topics table.
+endif::[]

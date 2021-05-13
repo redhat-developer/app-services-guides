@@ -1,0 +1,39 @@
+[id='proc-installing-operator_{context}']
+= Installing the RHOAS Operator in your OpenShift cluster
+:imagesdir: ../_images
+
+The RHOAS Operator creates instances of {product} services in your cluster.
+Operator connects with {product} API giving you ability to embed connection details to various services.
+
+Operator currently enables developers to connect with their Red Hat OpenShift Streams for Apache Kafka (RHOSAK) instances.
+Operator is used by RHOAS CLI to connect your services with your OpenShift cluster
+
+[.diagram]
+.Operator and CLI relationships
+image::service-discovery/rhoas-operator.png[Operator and CLI relationships]
+
+NOTE: RHOAS Operator is already installed on various environments like OpenShift Developer Sandbox: https://developers.redhat.com/developer-sandbox
+
+NOTE: Installation procedure assumes that you have access to install operators in openshift-namespace on your cluster.
+
+.Prerequisites
+* You have login access to OpenShift cluster
+* You have cluster admin rights on OpenShift cluster in order to install Operator
+
+.Procedure
+. Please login to your OpenShift UI instance (if you do not have OpenShift instance you can use https://developers.redhat.com/developer-sandbox and skip this procedure entirely)
+
+. Navigate to side menu and select `Administrator` > `Operators`> `Operator Hub`
+. Type `RHOAS` in search tab
+. Select `RHOAS` tile
++
+[.instruction]
+.Operator tab
+image::service-discovery/operator-install.png[Operator]
+. Leave select `All namespaces` option checked and Press install to install your operator
+. Please wait for operator to install.
+
+ifdef::qs[]
+.Verification
+* Is RHOAS Operator installation finished successfully
+endif::[]

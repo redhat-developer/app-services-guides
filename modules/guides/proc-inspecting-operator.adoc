@@ -1,0 +1,51 @@
+[id='proc-inspecting-operator_{context}']
+= Setting up RHOAS CLI to use RHOAS operator
+:imagesdir: ../_images
+
+RHOAS CLI `cluster` commands provide number of commands that work directly with your own OpenShift cluster.
+To use cluster command developer needs to have https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/[kuberentesconfig] that can be set using oc or kubectl command.
+This config contains information about your active cluster and namespace that will be used by RHOAS CLI to perform operations on the cluster
+
+`rhoas cluster status` command can be used to verify RHOAS operator installation.
+
+The **RHOAS** CLI uses the **oc** CLI to determine the OpenShift instance, and project, that the Streams for Apache Kafka instance should be connected to. Let's verify that your **oc** client is properly connected to your OpenShift project.
+
+.Prerequisites
+* You have login access to OpenShift cluster
+* You have ability to create new namespace and deploy new applications to your OpenShift cluster
+
+.Procedure
+. Login to your OpenShift cluster using `oc login` command line tool
++
+[source]
+----
+oc login
+----
+. Create new namespace `rhoas-quarkus` that will be used for this guide
++
+[source]
+----
+oc new-project rhoas-quarkus
+----
++
+. Login to rhoas CLI
++
+[source]
+----
+rhoas login
+----
++
+. On the command line, enter  `rhoas cluster status` command and execute check if CLI has proper connection to cluster
++
+[source]
+----
+rhoas cluster status
+----
+
+ifdef::qs[]
+.Verification
+* Is RHOAS Operator installation finished successfully
+* Please inspect output of the command and check if RHOAS Operator is installed.
+* Output from the command contains: "RHOAS Operator: Installed"
+* Namespace is `rhoas-quarkus`
+endif::[]

@@ -28,6 +28,8 @@ ifndef::community[]
 endif::[]
 //* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have a running Kafka instance in {product}.
+* https://adoptopenjdk.net/[JDK^] 11 or later is installed.
+* For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
