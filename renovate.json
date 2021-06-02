@@ -4,5 +4,10 @@
     ":pinAllExceptPeerDependencies"
   ],
   "groupName": "all",
-  "matchPaths": [".build/package.json"]
+  "includePaths": [ ".build/" ]
+  "packageRules": [
+    {
+      "matchPaths": [".build/package.json"]
+    }
+  ]
 }
