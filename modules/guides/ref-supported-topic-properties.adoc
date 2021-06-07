@@ -1,0 +1,607 @@
+[id='ref-supported-topic-properties_{context}']
+= Supported topic properties in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+The following Kafka topic properties are supported in {product}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
+
+== Core configuration
+
+These properties determine the identity and core behavior of the topic. Before deploying your topic, enter all core configuration properties.
+
+Name::
++
+--
+The topic name is the unique identifier for the topic within the cluster. You need this to set up your producers and consumers, so make it something memorable.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes
+
+h|Type
+|String
+
+h|Default value
+|None
+
+h|Supported values
+|Letters (Aa-Zz), numbers (0-9), underscores ( _ ), or hyphens ( - ), maximum of 249 characters
+|===
+--
+
+Partitions::
++
+--
+Partitions are distinct lists of messages within a topic. Partitions are the main concurrency mechanism in Kafka and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled. After you create a topic, you can increase the number of partitions but you cannot decrease it.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes (increase only)
+
+h|Type
+|Integer
+
+h|Default value
+|`1`
+
+h|Supported values
+|[`1,...`]
+
+h|Kafka property name
+|`num.partitions`
+|===
+--
+
+Replicas::
++
+--
+Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed. Topic replication is an essential property for fault toleration and high availability.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Integer
+
+h|Default value
+|`3`
+
+h|Kafka property name
+|`replication.factor`
+|===
+--
+
+Minimum in-sync replicas::
++
+--
+Minimum in-sync replicas is the minimum number of replicas that must acknowledge a write for the write to be considered successful. This property assumes that the producer requests acknowledgments from all replicas (`acks` set to `all`). If this minimum is not met, the producer raises an exception (`NotEnoughReplicas` or `NotEnoughReplicasAfterAppend`).
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Integer
+
+h|Default value
+|`2`
+
+h|Kafka property name
+|`min.insync.replicas`
+|===
+--
+
+Retention time::
++
+--
+Retention time is the amount of time that messages are retained in a topic before they are deleted. This property applies only when the topic cleanup policy is set to `Delete` or `Compact, Delete`.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes
+
+h|Type
+|Long
+
+h|Default value
+|`604800000 ms` (7 days)
+
+h|Supported values
+| `milliseconds`, `seconds`, `days`, `months`, `years`, `Unlimited`
+
+h|Kafka property name
+|`retention.ms`
+|===
+--
+
+Retention size::
++
+--
+Retention size is the maximum total size of all log segments in a partition before old log segments are deleted to free up space. By default, no retention size limit is applied, only a retention time limit. This property applies only when the topic cleanup policy is set to `Delete` or `Compact, Delete`.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes
+
+h|Type
+|Long
+
+h|Default value
+|`Unlimited`
+
+h|Supported values
+| `bytes`, `kilobytes`, `megabytes`, `gigabytes`, `terabytes`, `Unlimited`
+
+h|Kafka property name
+|`retention.bytes`
+|===
+--
+
+== Messages
+
+These properties control how your messages are handled in the Kafka instance.
+
+Maximum message bytes::
++
+--
+Maximum message bytes is the maximum record batch size.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Integer
+
+h|Default value
+|`1 MB`
+
+h|Kafka property name
+|`max.message.bytes`
+|===
+--
+
+Message timestamp type::
++
+--
+Message timestamp type determines whether the timestamp is generated when the message is created (`CreateTime`) or when the message is appended to the log (`LogAppendTime`).
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|String
+
+h|Default value
+|`CreateTime`
+
+h|Kafka property name
+|`message.timestamp.type`
+|===
+--
+
+Maximum message timestamp difference::
++
+--
+Maximum message timestamp difference is the maximum difference allowed between the timestamp specified in the message when it leaves the producer and the timestamp recorded when a broker receives the message.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`9223372036854775807 ms`
+
+h|Kafka property name
+|`message.timestamp.difference.max.ms`
+|===
+--
+
+Compression type::
++
+--
+Compression type determines the final compression for the topic. The standard compression types are `gzip`, `snappy`, `lz4`, and `zstd`. Additional compression types include `Uncompressed`, which does not compress the topic, and `Producer`, which retains the original compression type set by the producer. By default, the compression type is set to `Producer`.
+
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|String
+
+h|Default value
+|`Producer`
+
+h|Kafka property name
+|`compression.type`
+|===
+--
+
+
+Message format version::
++
+--
+Message format version is the `ApiVersion` value that the broker uses to append messages to topics. This value must be a valid `ApiVersion` value, such as 0.8.2, 0.9.0.0, or 0.10.0.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|String
+
+h|Default value
+|`2.7-IV2`
+
+h|Kafka property name
+|`message.format.version`
+|===
+--
+
+
+== Log
+
+These properties define how your log is handled.
+
+NOTE: Messages are continually appended to the partition log and are assigned their offset.
+
+Cleanup policy::
++
+--
+Cleanup policy determines whether log messages are deleted, compacted, or both. With the `Compact, Delete` option, log segments are first compacted and then deleted according to the retention time or size limit settings.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes
+
+h|Type
+|List
+
+h|Default value
+|`Delete`
+
+h|Supported values
+|`Delete`, `Compact`, `Compact, Delete`
+
+h|Kafka property name
+|`cleanup.policy`
+|===
+--
+
+Delete retention time::
++
+--
+Delete retention time is the amount of time that deletion tombstone markers are retained if the log is compacted. Producers send a tombstone message to act as a marker to tell a consumer that the value is deleted.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`86400000 ms` (1 day)
+
+h|Kafka property name
+|`delete.retention.ms`
+|===
+--
+
+Minimum cleanable dirty ratio::
++
+--
+Minimum cleanable dirty ratio is the ratio of entries in the log that can be compacted versus entries that cannot be compacted. When this ratio is reached, the eligible messages in the log are compacted. By default, the ratio is `0.5` or 50%, meaning that messages are compacted after at least half of the log messages are eligible. This property applies only when the topic cleanup policy is set to `Compact` or `Compact, Delete`.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Double
+
+h|Default value
+|`0.5` (50%)
+
+h|Kafka property name
+|`min.cleanable.dirty.ratio`
+|===
+--
+
+Minimum compaction lag time::
++
+--
+Minimum compaction lag time is the minimum time a message remains uncompacted in a log. This property applies only when the topic cleanup policy is set to `Compact` or `Compact, Delete`.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`0 seconds`
+
+h|Kafka property name
+|`min.compaction.lag.ms`
+|===
+--
+
+== Replication
+
+These properties control the behavior of your replicas. Each of these properties impacts every replica created in the topic.
+
+Unclean leader election::
++
+--
+Unclean leader election allows a follower replica that is not in sync with the partition leader to become the leader of the partition. This property provides a way to retain at least partial data if partition leaders are lost. However, this property can lead to data loss, so it is disabled by default.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Boolean
+
+h|Default value
+|`Disabled`
+
+h|Kafka property name
+|`unclean.leader.election.enable`
+|===
+--
+
+== Cleanup
+
+These properties control the cleanup processing of the log.
+
+Log segment size::
++
+--
+Log segment size is the size of the log segment files that constitute the log. Log processing actions, such as deletion and compaction, operate on old log segments. A larger setting results in fewer files but less frequent log processing.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Integer
+
+h|Default value
+|`1 GB`
+
+h|Kafka property name
+|`segment.bytes`
+|===
+--
+
+Segment time::
++
+--
+Segment time is the amount of time after which the current log segment is rolled even if the segment file is not full. This property enables the segment to be deleted or compacted as needed, even if the log retention limits have not yet been reached.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`604800000 ms` (7 days)
+
+h|Kafka property name
+|`segment.ms`
+|===
+--
+
+Segment jitter time::
++
+--
+Segment jitter time is the maximum delay for log segment rolling. This delay prevents bursts of log segment rolling activity.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`0 seconds`
+
+h|Kafka property name
+|`segment.jitter.ms`
+|===
+--
+
+File delete delay::
++
+--
+File delete delay is the amount of time that a file is retained in the system before the file is deleted.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`60000 ms` (1 minute)
+
+h|Kafka property name
+|`file.delete.delay.ms`
+|===
+--
+
+Preallocate log segment files::
++
+--
+Preallocate log segment files determines whether to preallocate the file on disk when creating a new log segment. This property ensures sufficient disk space for log segments.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Boolean
+
+h|Default value
+|`Disabled`
+
+h|Kafka property name
+|`preallocate`
+|===
+--
+
+== Index
+
+These properties control the indexing of the log.
+
+Index interval size::
++
+--
+Index interval size is the number of bytes between each index entry to its offset index. The default setting indexes a message about every 4096 bytes. More indexing enables reads to be closer to the exact position in the log but makes the index larger.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Integer
+
+h|Default value
+|`4 KB`
+
+h|Kafka property name
+|`index.interval.bytes`
+|===
+--
+
+Segment index size::
++
+--
+Segment index size is the size of the index that maps offset to file positions.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Integer
+
+h|Default value
+|`10 MB`
+
+h|Kafka property name
+|`segment.index.bytes`
+|===
+--
+
+== Flush
+
+These properties control the frequency of the flushing of the log.
+
+Flush interval messages::
++
+--
+Flush interval messages is the number of messages between each data flush to the log.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`9223372036854775807 messages`
+
+h|Kafka property name
+|`flush.messages`
+|===
+--
+
+Flush interval time::
++
+--
+Flush interval time is the amount of time between each data flush to the log.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|Long
+
+h|Default value
+|`9223372036854775807 ms`
+
+h|Kafka property name
+|`flush.ms`
+|===
+--
+
+.Additional resources
+* https://kafka.apache.org/documentation/#topicconfigs[Topic-Level Configs^] in Kafka documentation
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

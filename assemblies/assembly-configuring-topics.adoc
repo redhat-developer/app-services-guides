@@ -1,0 +1,21 @@
+[id='assembly-configuring-topics']
+= Configuring topics in {product-long}
+ifdef::context[:parent-context: {context}]
+:context: configuring-topics
+:imagesdir: _images
+
+[IMPORTANT]
+====
+{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer of applications and services, you can refer to the properties of your topics in {product} to better understand how the Kafka implementation is managed for your services. You can edit certain topic properties according to the needs and goals of your services. Kafka topics contain the data (events) that applications produce or consume, so the way the topics are configured affects how data is stored and exchanged between applications.
+
+//Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
+include::modules/guides/proc-editing-topic-properties.adoc[leveloffset=+1]
+
+include::modules/guides/ref-supported-topic-properties.adoc[leveloffset=+1]
+
+

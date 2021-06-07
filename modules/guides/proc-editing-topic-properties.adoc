@@ -1,0 +1,35 @@
+[id='proc-editing-topic-properties_{context}']
+= Reviewing and editing topic properties in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+Use the {product} web console to select a topic in your Kafka instance and review the topic properties. You can adjust the editable topic properties as needed.
+
+As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) to update certain topic properties, as shown in the following example command:
+
+.Example CLI command to update topic retention time
+[source]
+----
+rhoas kafka topic update my-kafka-topic --retention-ms 704800000
+----
+
+For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
+
+.Prerequisites
+* You are logged in to the {product} web console.
+* You have created a Kafka instance with at least one Kafka topic in {product}.
+
+.Procedure
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topics that you want to configure.
+. In the *Topics* page, click the name of the topic that you want to review or edit.
++
+Alternatively, select the options icon (three vertical dots) for the relevant topic and click *Edit*.
+. Click *Edit properties*, review the current topic properties, and adjust any editable topic properties as needed.
+. Click *Save* to finish.
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url}[_Getting started with {product}_^]
+* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+
