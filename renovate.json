@@ -1,11 +1,5 @@
 {
   "extends": ["config:base", ":pinAllExceptPeerDependencies"],
   "groupName": "all",
-  "includePaths": [".build/"],
-  "baseBranches": ["renovate"],
-  "packageRules": [
-    {
-      "matchPaths": [".build/package.json"]
-    }
-  ]
+  "baseBranches": ["renovate"]
 }
