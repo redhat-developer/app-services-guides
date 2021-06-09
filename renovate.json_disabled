@@ -1,5 +1,0 @@
-{
-  "extends": ["config:base", ":pinAllExceptPeerDependencies"],
-  "groupName": "all",
-  "baseBranches": ["renovate"]
-}
