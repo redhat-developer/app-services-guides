@@ -85,7 +85,7 @@ type:: Metadata that identifies the Red Hat OpenShift Application Services (RHOA
 user:: User name for connection to the Kafka instance
 
 [id="proc-installing-rhoas-operator_{context}"]
-= Installing the RHOAS Operator on OpenShift
+== Installing the RHOAS Operator on OpenShift
 
 [role="_abstract"]
 Before you can bind Kafka instances in {product-long} to applications in OpenShift, you need to install the OpenShift Application Services (RHOAS) Operator. The following procedure shows how to use the OperatorHub interface in the OpenShift web console to install the RHOAS Operator.
@@ -113,7 +113,7 @@ An information sidebar for the RHOAS Operator opens.
 Observe that the RHOAS Operator is installed in the `openshift-operators` namespace by default.
 
 [id="proc-binding-openshift-to-{product-long}-using-cli_{context}"]
-= Tutorial: Binding an OpenShift application to {product-long} using the RHOAS CLI
+== Tutorial: Binding an OpenShift application to {product-long} using the RHOAS CLI
 
 [role="_abstract"]
 When the OpenShift Application Services (RHOAS) Operator is installed in your OpenShift cluster, you can use the RHOAS CLI to interact directly with the cluster. For example, you can use the CLI to connect an application running in the cluster to a Kafka instance in {product-long}. Establishing a connection between an OpenShift application and a backing service such as {product} is called _service binding_.
@@ -122,7 +122,7 @@ The following tutorial shows how to use the RHOAS CLI to perform service binding
 
 IMPORTANT: Some steps in the tutorial require cluster administrator access for your OpenShift cluster.
 
-== Step 1: Verifying connection to your OpenShift cluster
+=== Step 1: Verifying connection to your OpenShift cluster
 
 [role="_abstract"]
 In this step of the tutorial, you verify that the installed RHOAS Operator is working by using the RHOAS CLI to connect to the OpenShift cluster and retrieve the cluster status.
@@ -171,7 +171,7 @@ RHOAS Operator: Installed
 +
 As shown in the output, the CLI indicates that the RHOAS Operator was successfully installed. The CLI uses the RHOAS Operator to retrieve the name of the current OpenShift project (namespace).
 
-== Step 2: Connecting a Kafka instance to your OpenShift cluster
+=== Step 2: Connecting a Kafka instance to your OpenShift cluster
 
 [role="_abstract"]
 When you have verified connection to your OpenShift cluster, you can connect a specific Kafka instance created in {product} to the current project in the cluster. In this step of the tutorial, you use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
@@ -256,7 +256,7 @@ my-kafka-instance        2m35s
 +
 As shown in the output, the RHOAS Operator creates a `KafkaConnection` resource that matches the name of your Kafka instance.
 
-== Step 3: Deploying an example application in OpenShift
+=== Step 3: Deploying an example application in OpenShift
 
 [role="_abstract"]
 In this step of the tutorial, you deploy an example Quarkus application in the OpenShift project that you created earlier in the tutorial. link:https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
@@ -318,7 +318,7 @@ A web page for the Quarkus application opens.
 +
 A new web page, entitled *Last price*, opens.  Because you have not yet connected the Quarkus application to your Kafka instance, the price value appears as `N/A`.
 
-== Step 4: Creating a topic in your Kafka instance
+=== Step 4: Creating a topic in your Kafka instance
 
 [role="_abstract"]
 In the previous step of this tutorial, you created an example OpenShift application. The application is a Quarkus application that requires a Kafka topic called `prices`. In this step, you create the `prices` topic in your Kafka instance so that the Quarkus application can interact with it.
@@ -353,7 +353,7 @@ NOTE: You can increase the number of partitions later, but you cannot decrease t
 +
 After you complete the topic setup, the new Kafka topic is listed in the topics table.
 
-== Step 5: Binding your Kafka instance to your OpenShift application
+=== Step 5: Binding your Kafka instance to your OpenShift application
 
 In this step of the tutorial, you use the RHOAS CLI to bind your Kafka instance to your OpenShift application. When you perform this binding, the RHOAS CLI injects connection credentials as files into the Pod for the application. In the case of a Quarkus application, Quarkus automatically detects the credentials and configures the application to use them.
 
