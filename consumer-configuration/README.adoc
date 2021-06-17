@@ -60,8 +60,9 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 
 A group ID is _required_ for a consumer to be able to join a consumer group.
 
-When you configure an application client to access Kafka, you assign a group ID to associate the consumer with a consumer group.
+When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
 All consumers with the same group ID belong to the consumer group with that ID.
+Consumer groups connected to a Kafka instance are presented in the {product} web console.
 
 The group ID is the _name_ of the consumer group.
 Add it as a property to your consumer configuration.
@@ -103,6 +104,7 @@ If you can meet throughput goals with fewer consumers, you save on resources.
 ====
 
 .Additional resources
+* {base-url}{getting-started-url}[_Getting started with {product}_^]
 * https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation
 
 [id="proc-editing-consumer-group-properties_{context}"]
@@ -151,6 +153,8 @@ Alternatively, select a consumer group for a specific topic.
 --
 
 . In the *Consumer groups* page, click the name of the consumer group that you want to review.
++
+Alternatively, select the options icon (three vertical dots) for the relevant consumer group and click *View partition offsets*.
 
 [role="_additional-resources"]
 .Additional resources
@@ -186,7 +190,7 @@ The partition number for the topic.
 
 Client ID::
 The unique ID of the client application used to identify active consumers.
-If there is no client ID, the partition is not currently being consumed.
+If there is no client ID shown, the partition is not currently being consumed.
 
 Current offset::
 The current offset for the consumer in the partition log. This is the position of the consumer in the partition and the latest read position.
@@ -220,8 +224,9 @@ For more information about increasing topic retention time, see {base-url}{topic
 == Resetting consumer group offset positions
 
 [role="_abstract"]
-Use the {product} web console to select consumer groups and reset partition offsets.
+Use the {product} web console to select consumer groups and reset partition offsets for a particular topic.
 A reset changes the offset position from which consumers read from the message log of a topic partition.
+The consumer group must have no members connected to a topic.
 
 Choose one of the following options for the reset:
 
@@ -252,8 +257,7 @@ You copy this information for the Kafka instance in the {product} web console by
 
 .Prerequisites
 * You are logged in to the {product} web console.
-* You have created a Kafka instance with at least one Kafka topic in {product}.
-* The consumer group you select must have no active members.
+* The consumer group you select must have no active members connected to the topic.
 * Consumers in the consumer group must be shut down (not consuming partitions).
 
 .Procedure
@@ -266,10 +270,10 @@ Alternatively, select a consumer group for a specific topic.
 .. In the *Topics* page, click the name of the topic.
 --
 . In the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Reset Offset*.
-. Select a topic or all topics.
-. Choose a reset option from *Latest*, *Earliest*, or *Custom offset*.
+. Select a topic.
+. Choose a new offset position from *Latest*, *Earliest*, or *Custom offset*.
 . Select one or more partitions to apply the offset reset.
-. If you chose a custom reset, enter the offset number for the reset.
+. If you chose a custom reset, enter the new offset number for the reset.
 . Click *Reset offset* to finish.
 
 [role="_additional-resources"]
@@ -282,6 +286,7 @@ Alternatively, select a consumer group for a specific topic.
 
 [role="_abstract"]
 Use the {product} web console to delete consumer groups.
+The consumer group must have no active members connected to a topic.
 By deleting the consumer group, you remove the current state associated with the group.
 
 As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) to delete consumer groups, as shown in the following example command:
@@ -305,7 +310,6 @@ You copy this information for the Kafka instance in the {product} web console by
 
 .Prerequisites
 * You are logged in to the {product} web console.
-* You have created a Kafka instance with at least one Kafka topic in {product}.
 * The consumer group you select must have no active members.
 * Consumers in the consumer group must be shut down (not consuming partitions).
 
@@ -319,7 +323,7 @@ Alternatively, select a consumer group for a specific topic.
 .. In the *Topics* page, click the name of the topic.
 --
 . In the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Delete*.
-. Type _delete_ to confirm and click *Delete*.
+. Confirm the deletion by clicking *Delete*.
 
 [role="_additional-resources"]
 .Additional resources
