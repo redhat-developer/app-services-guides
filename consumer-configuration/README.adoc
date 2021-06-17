@@ -56,7 +56,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 //Additional line break to resolve mod docs generation error
 
 [id="con-adding-consumer-group-id_{context}"]
-== Consumer configuration to join a consumer group
+== How to add a consumer to a consumer group
 
 A group ID is _required_ for a consumer to be able to join a consumer group.
 
@@ -166,7 +166,7 @@ Alternatively, select the options icon (three vertical dots) for the relevant co
 
 [role="_abstract"]
 The following consumer group properties are presented in {product}.
-Consumer group properties are used for monitoring and are not editable.
+Consumer group properties are used for monitoring in the {product} web console and are not editable.
 
 === Consumer groups
 
@@ -181,7 +181,7 @@ Partitions with lag::
 Partitions with lag shows the number of partitions where the assigned consumer has not caught up with the last message in the partition.
 The lag reflects the position of the consumer offset in relation to the end of the partition log.
 
-=== Consumers
+=== Consumer offset positions
 
 When you click on a consumer group, you see the details of each member.
 
@@ -193,20 +193,23 @@ The unique ID of the client application used to identify active consumers.
 If there is no client ID shown, the partition is not currently being consumed.
 
 Current offset::
-The current offset for the consumer in the partition log. This is the position of the consumer in the partition and the latest read position.
+The current offset number for the consumer in the partition log. This is the position of the consumer in the partition and the latest read position.
 
 Log end offset::
-The current offset for the producer in the partition log. This is the end of the log and the latest write position.
+The current offset number for the producer in the partition log. This is the end of the log and the latest write position.
 
 Offset lag::
-The difference (delta) between the consumer and producer positions in the log.
+The difference (delta) between the consumer and producer offset positions in the log.
 
 [id="con-reducing-consumer-lag_{context}"]
-== Consumer lag
+== Consumer lag indicators
 
 [role="_abstract"]
 Consumer lag for a given consumer group indicates the delay between the last message added in a partition and the message currently being picked up by that consumer.
 The lag reflects the position of the consumer offset in relation to the end of the partition log.
+
+When you are reviewing consumer group properties in the {product} web console, look for the differences between *Current offset* and *Log end offset*.
+The difference shows as the *Offset lag* value.
 
 For applications that rely on the processing of (near) real-time data, it’s critical that consumer lag doesn't become too big.
 Suppose a topic streams 100 messages a second.
@@ -218,7 +221,13 @@ Lag is often reduced by adding new consumers to a group.
 But you can also increase the retention time for a message to remain in a topic.
 Extending the retention of data in the log gives the consumer a chance to catch up before data is flushed from the message log.
 
-For more information about increasing topic retention time, see {base-url}{topic-config-url}[_Configuring topics in {product}_^]
+For more information about increasing topic retention time, see {base-url}{topic-config-url}[_Configuring topics in {product}_^].
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{consumer-config-url}#ref-supported-consumer-group-properties_configuring-consumer-groups[_Consumer group properties presented in {product}_]
+* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url}{topic-config-url}[_Configuring topics in {product}_^]
 
 [id="proc-resetting-consumer-group-offset_{context}"]
 == Resetting consumer group offset positions
