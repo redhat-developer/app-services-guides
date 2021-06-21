@@ -18,6 +18,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: 11
+        distribution: 'adopt' # See 'Supported distributions' for available options
     - name: Build and publish to quay
       working-directory: code-examples/quarkus-kafka-quickstart
       run: ./mvnw clean package --file pom.xml --no-transfer-progress 
