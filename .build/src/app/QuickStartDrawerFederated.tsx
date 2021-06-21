@@ -10,6 +10,7 @@ import { loadJSONQuickStarts } from "@app/quickstartLoader";
 import "@patternfly/patternfly/patternfly.min.css";
 import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-extension.css";
 import "@cloudmosaic/quickstarts/dist/quickstarts.css";
+import {useAssets} from "@bf2/ui-shared";
 
 const getElement = (node: HTMLElement | (() => HTMLElement)) => {
   if (typeof node === "function") {
@@ -20,7 +21,6 @@ const getElement = (node: HTMLElement | (() => HTMLElement)) => {
 
 export interface QuickStartDrawerFederatedProps
   extends React.HTMLProps<HTMLDivElement> {
-  basePath?: string;
   showDrafts?: boolean;
   appendTo?: HTMLElement | (() => HTMLElement);
   root?: HTMLElement | (() => HTMLElement);
@@ -28,7 +28,6 @@ export interface QuickStartDrawerFederatedProps
 
 const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({
   children,
-  basePath,
   showDrafts,
   appendTo,
   root,
@@ -46,15 +45,17 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
   const [allQuickStartsLoaded, setAllQuickStartsLoaded] = useState<boolean>(false);
   const [allQuickStarts, setAllQuickStarts] = useState<any[]>([]);
 
+  const assets = useAssets();
+
   useEffect(() => {
     const load = async () => {
-      const quickstarts = await loadJSONQuickStarts(basePath || "", showDrafts);
+      const quickstarts = await loadJSONQuickStarts(assets?.getPath() || "", showDrafts);
       console.log(quickstarts);
       setAllQuickStarts(quickstarts);
       setAllQuickStartsLoaded(true);
     };
     load();
-  }, [basePath, showDrafts]);
+  }, [assets, showDrafts]);
 
   useEffect(() => {
     if (root) {
