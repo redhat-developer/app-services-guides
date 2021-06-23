@@ -229,13 +229,14 @@ For more information about increasing topic retention time, see {base-url}{topic
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url}{topic-config-url}[_Configuring topics in {product}_^]
 
+////
 [id="proc-resetting-consumer-group-offset_{context}"]
 == Resetting consumer group offset positions
 
 [role="_abstract"]
 Use the {product} web console to select consumer groups and reset partition offsets for a particular topic.
 A reset changes the offset position from which consumers read from the message log of a topic partition.
-The consumer group must have no members connected to a topic.
+To reset an offset position, the consumer group must have _NO MEMBERS_ connected to a topic.
 
 Choose one of the following options for the reset:
 
@@ -289,7 +290,9 @@ Alternatively, select a consumer group for a specific topic.
 .Additional resources
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+////
 
+////
 [id="proc-deleting-consumer-groups_{context}"]
 == Deleting a consumer group
 
@@ -338,6 +341,7 @@ Alternatively, select a consumer group for a specific topic.
 .Additional resources
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+////
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
