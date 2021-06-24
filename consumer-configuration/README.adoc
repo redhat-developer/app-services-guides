@@ -244,6 +244,11 @@ Choose one of the following options for the reset:
 * *Latest* resets to the latest offset at the end of the message log.
 * *Custom offset* resets to a specific offset in the message log.
 
+[WARNING]
+====
+By resetting the offset position you risk clients skipping or duplicating messages.
+====
+
 As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) to reset consumer group offsets, as shown in the following example command:
 
 .Example CLI command to reset offsets for consumer groups
