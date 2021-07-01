@@ -64,6 +64,7 @@ The RHOAS Operator enables you to expose a Kafka instance created in {product} t
 
 When you bind a Kafka instance with an OpenShift application, the RHOAS Operator injects connection parameters as files into the Pod for your application. The RHOAS Operator creates the following directory and file structure in the application Pod:
 
+.Files injected by the Operator
 [source, subs="+quotes"]
 ----
 /bindings/__<kafka-instance-name>__
@@ -142,6 +143,7 @@ In this step of the tutorial, you verify that the installed RHOAS Operator is wo
 .Procedure
 . Log in to your OpenShift cluster as a user who has privileges to create a new project.
 +
+.Logging in to OpenShift cluster
 [source,subs="+quotes"]
 ----
 $ oc login -u __<user>__ -p __<password>__ --server=__<host:port>__
@@ -151,13 +153,15 @@ In the preceding example, replace the values in angle brackets (`< >`) with your
 
 . Create a new project, as shown in the following example.
 +
+.Creating a new project in OpenShift
 [source, subs="+quotes"]
 ----
 $ oc new-project rhoas-quarkus
 ----
 
-. Log in to the RHOAS CLI.
+. Log in to RHOAS CLI.
 +
+.Logging in to the RHOAS CLI
 [source]
 ----
 $ rhoas login
@@ -165,6 +169,7 @@ $ rhoas login
 
 . Use the RHOAS CLI to connect to your OpenShift cluster and retrieve the cluster status.
 +
+.Using the RHOAS CLI to connect to OpenShift cluster
 [source]
 ----
 $ rhoas cluster status
@@ -190,6 +195,7 @@ When you've verified connection to your OpenShift cluster, you can connect a spe
 
 . If you're not already logged in to your OpenShift cluster, log in as the same user who completed the previous step of this tutorial.
 +
+.Logging in to OpenShift cluster
 [source, subs="+quotes"]
 ----
 $ oc login -u __<user>__ -p __<password>__ --server=__<host:port>__
@@ -199,6 +205,7 @@ In the preceding example, replace the values in angle brackets (`< >`) with your
 
 . Ensure that the current OpenShift project is the one created in the previous step of this tutorial, as shown in the following example.
 +
+.Specifying the current OpenShift project
 [source]
 ----
 $ oc project rhoas-quarkus
@@ -206,6 +213,7 @@ $ oc project rhoas-quarkus
 
 . Connect a Kafka instance in {product} to the current project in your OpenShift cluster.
 +
+.Connecting a Kafka instance to OpenShift cluster
 [source]
 ----
 $ rhoas cluster connect --ignore-context
@@ -217,6 +225,7 @@ You're prompted to specify the Kafka instance that you want to connect to OpenSh
 +
 You should see output like the following:
 +
+.Example output from cluster connect command
 [source]
 ----
 Connection Details:
@@ -236,6 +245,7 @@ You're prompted to provide an access token. The RHOAS Operator requires this tok
 +
 The RHOAS Operator uses the token to create a `KafkaConnection` resource on your OpenShift cluster. When this process is complete, you should see lines like the following:
 +
+.Example output from creation of KafkaConnection resource
 [source]
 ----
 KafkaConnection resource "my-kafka-instance" has been created
@@ -247,6 +257,7 @@ KafkaConnection successfully installed on your cluster.
 
 . Verify that the RHOAS Operator successfully created the connection.
 +
+.Verifying Operator connection to cluster
 [source]
 ----
 $ oc get KafkaConnection
@@ -277,6 +288,7 @@ The example Quarkus application uses the `quarkus-kubernetes-service-binding` li
 
 . If you're not already logged in to your OpenShift cluster, log in as a user who has privileges to deploy applications in the OpenShift project created earlier in this tutorial.
 +
+.Logging in to OpenShift
 [source,subs="+quotes"]
 ----
 $ oc login -u __<user>__ -p __<password>__ --server=__<host:port>__
@@ -286,6 +298,7 @@ In the preceding example, replace the values in angle brackets (`< >`) with your
 
 . Ensure that the current OpenShift project is the one created earlier in this tutorial, as shown in the following example.
 +
+.Specifying the current OpenShift project
 [source]
 ----
 $ oc project rhoas-quarkus
@@ -293,6 +306,7 @@ $ oc project rhoas-quarkus
 
 . To deploy the Quarkus application, apply an example application template provided by {product}.
 +
+.Deploying an example Quarkus application
 [source,options="nowrap"]
 ----
 $ oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guides/main/code-examples/quarkus-kafka-quickstart/.kubernetes/kubernetes.yml
@@ -306,6 +320,7 @@ As shown in the output, when you deploy the application, OpenShift creates a Ser
 
 . Get the URL of the Route created for the application.
 +
+.Getting the Route for the Quarkus application
 [source,options="nowrap"]
 ----
 $ oc get route
@@ -371,6 +386,7 @@ In this step of the tutorial, you use the RHOAS CLI to bind your Kafka instance 
 .Procedure
 . If you're not already logged in to your OpenShift cluster, log in as a user who has privileges to deploy applications in the project created earlier in this tutorial.
 +
+.Logging in to OpenShift
 [source, subs="+quotes"]
 ----
 $ oc login -u __<user>__ -p __<password>__ --server=__<host:port>__
@@ -380,6 +396,7 @@ In the preceding example, replace the values in angle brackets (`< >`) with your
 
 . Ensure that the current OpenShift project is the one created earlier in this tutorial, as shown in the following example.
 +
+.Specifying the current OpenShift project
 [source]
 ----
 $ oc project rhoas-quarkus
@@ -387,6 +404,7 @@ $ oc project rhoas-quarkus
 
 . Use the RHOAS CLI to bind your Kafka instance to an application in your OpenShift project.
 +
+.Binding Kafka instance to application in OpenShift
 [source]
 ----
 $ rhoas cluster bind
@@ -404,6 +422,7 @@ You're prompted to specify the OpenShift application that you want to bind your 
 +
 When binding is complete, you should see output like the following:
 +
+.Example output from binding Kafka instance to application in OpenShift
 [source]
 ----
 Binding my-kafka-instance with rhoas-quarkus-kafka app succeeded
