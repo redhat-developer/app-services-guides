@@ -68,7 +68,7 @@
     "@bf2/ui-shared": "0.3.0",
     "@cloudmosaic/quickstarts": "0.0.24",
     "@patternfly/react-core": "4.101.3",
-    "@redhat-cloud-services/frontend-components-config": "4.2.4",
+    "@redhat-cloud-services/frontend-components-config": "4.2.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sync-request": "6.1.0",
