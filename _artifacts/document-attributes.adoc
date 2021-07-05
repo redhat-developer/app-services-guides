@@ -26,3 +26,4 @@
 :rhoas-cli-url: rhoas-cli/README.adoc
 :rhoas-cli-ref-url: commands
 :topic-config-url: topic-configuration/README.adoc
+:consumer-config-url: consumer-configuration/README.adoc
