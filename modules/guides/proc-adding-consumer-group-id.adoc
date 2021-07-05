@@ -1,0 +1,53 @@
+[id='proc-adding-consumer-group-id_{context}']
+= Adding a consumer to a consumer group
+:imagesdir: ../_images
+
+A group ID is required for a consumer to be able to join a consumer group.
+The group ID is the name of the consumer group.
+When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
+All consumers with the same group ID belong to the consumer group with that ID.
+Consumer groups connected to a Kafka instance are displayed in the {product} web console.
+
+.Procedure
+* Add the consumer group ID as a property to your consumer configuration. The group ID can't be null or empty.
++
+--
+.Example group ID property configuration for a consumer
+[source,properties]
+----
+group.id=my-group-id
+----
+
+.Property attributes
+[cols="25%,75%"]
+|===
+
+h|Type
+|String
+
+h|Default value
+|None
+
+h|Supported values
+|Letters (Aa-Zz), numbers (0-9), underscores ( _ ), or hyphens ( - )
+|===
+
+If you're using Kafka bin scripts to consume messages, you can use the `kafka-console-consumer.sh` tool to create a group ID:
+[source,subs="+quotes,+attributes"]
+----
+bin/kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --topic test-topic --group my-consumer-group
+----
+
+The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
+You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *View connection information*.
+
+[NOTE]
+====
+If you add more consumers than the number of partitions in a consumer group, the additional consumers don't help throughput but they function as standby consumers that can replace any consumers that stop functioning. The fewer consumers you use in order to meet your throughput target, the more resources you save.
+====
+
+--
+
+.Additional resources
+* {base-url}{getting-started-url}[_Getting started with {product}_^]
+* https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation

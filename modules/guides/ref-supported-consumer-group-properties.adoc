@@ -1,0 +1,40 @@
+[id='ref-supported-consumer-group-properties_{context}']
+= Consumer group properties in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+The following consumer group properties are displayed in {product}.
+Consumer group properties are used for monitoring in the {product} web console and are not editable.
+
+== Consumer groups
+
+Consumer Group ID::
+The consumer group ID is the unique identifier for the consumer group within the cluster. This is part of the consumer configuration for the application client.
+
+Active Members::
+Active members shows the number of consumers in the group that are assigned to a topic partition in the Kafka instance.
+If you're viewing information on consumer groups for a topic, these are the active members for the topic.
+
+Partitions with lag::
+Partitions with lag shows the number of partitions where the assigned consumer has not caught up with the last message in the partition.
+The lag reflects the position of the consumer offset in relation to the end of the partition log.
+
+== Consumer offset positions
+
+When you click a consumer group, you see the details of each member.
+
+Partition::
+The partition number for the topic.
+
+Client ID::
+The unique ID of the client application used to identify active consumers.
+If no client ID is shown, the partition is not currently being consumed.
+
+Current offset::
+The current offset number for the consumer in the partition log. This is the position of the consumer in the partition and the latest read position.
+
+Log end offset::
+The current offset number for the producer in the partition log. This is the end of the log and the latest write position.
+
+Offset lag::
+The difference (delta) between the consumer and producer offset positions in the log.
