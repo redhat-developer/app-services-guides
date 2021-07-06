@@ -106,7 +106,7 @@ This example creates a service account called `my-service-acct` and saves the cr
 .Creating a service account
 [source,shell]
 ----
-$ rhoas serviceaccount create --name "my-service-acct" --file-format json
+$ rhoas service-account create --name "my-service-acct" --file-format json
 
 Service account my-service-account created
 Credentials saved to /home/developer/my-project/credentials.json
@@ -117,7 +117,7 @@ Your service account credentials are created and saved to a JSON file.
 [NOTE]
 ====
 When creating a service account, you can choose the file format and location to save the credentials.
-For more information, see the `rhoas serviceaccount create` command help.
+For more information, see the `rhoas service-account create` command help.
 ====
 --
 
@@ -244,28 +244,28 @@ view the command help (for example, `rhoas kafka list -h`).
 
 * View a list of service accounts in your organization:
 +
-`rhoas serviceaccount list`
+`rhoas service-account list`
 
 * View a list of Kafka consumer groups:
 +
-`rhoas kafka consumergroup list`
+`rhoas kafka consumer-group list`
 
 * View details for a particular Kafka consumer group and its members:
 +
-`rhoas kafka consumergroup describe`
+`rhoas kafka consumer-group describe`
 
 * Delete a Kafka consumer group and its members:
 +
-`rhoas kafka consumergroup delete`
+`rhoas kafka consumer-group delete`
 
 * View configuration details for a particular service account:
 +
-`rhoas serviceaccount describe`
+`rhoas service-account describe`
 
 * Generate a new password for a service account:
 +
-`rhoas serviceaccount reset-credentials`
+`rhoas service-account reset-credentials`
 
 * Delete a service account:
 +
-`rhoas serviceaccount delete`
+`rhoas service-account delete`
