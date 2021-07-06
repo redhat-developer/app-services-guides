@@ -1,13 +1,3 @@
 {
-"extends": [
-    "config:base",
-    ":pinAllExceptPeerDependencies"
-  ],
-  "groupName": "all",
-  "includePaths": [ ".build/" ], 
-  "packageRules": [
-    {
-      "matchPaths": [".build/package.json"]
-    }
-  ]
+  "extends": [ "github>redhat-developer/app-services-renovate-config" ]
 }
