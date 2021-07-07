@@ -571,7 +571,7 @@ view the command help (for example, `rhoas kafka list -h`).
 
 * Reset partition offsets for a particular consumer group and its members:
 +
-`rhoas kafka consumergroup reset-offset`
+`rhoas kafka consumer-group reset-offset`
 
 * Delete a Kafka consumer group and its members:
 +
