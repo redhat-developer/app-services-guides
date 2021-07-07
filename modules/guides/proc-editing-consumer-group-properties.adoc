@@ -11,7 +11,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 .Example CLI command to return consumer group information
 [source]
 ----
-rhoas kafka consumergroup describe [flags]
+rhoas kafka consumer-group describe [flags]
 ----
 
 For a list of consumer group commands that you can use with the CLI, see the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
