@@ -65,7 +65,7 @@
     "generate:modular-docs": "npm-run-all --parallel generate:modular-docs-sources fetch:templates --sequential generate:modular-docs-output"
   },
   "dependencies": {
-    "@bf2/ui-shared": "0.3.0",
+    "@bf2/ui-shared": "0.4.0",
     "@cloudmosaic/quickstarts": "0.0.24",
     "@patternfly/react-core": "4.101.3",
     "@redhat-cloud-services/frontend-components-config": "4.2.7",
