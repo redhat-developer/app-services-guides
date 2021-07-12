@@ -7,10 +7,12 @@ You can install `rhoas` on Linux, macOS, or Windows.
 
 NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^] lists the bug fixes and new features for every `rhoas` release.
 
+[discrete,id="installing-rhoas-cli-linux_{context}"]
 == Installing the rhoas CLI on Linux
 
 If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
 
+[discrete,id="installation-script_{context}"]
 === Installation script
 
 .Procedure
@@ -61,6 +63,7 @@ rhoas version 0.25.0
 ----
 --
 
+[discrete,id="rpm-installation_{context}"]
 === RPM installation
 
 You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHEL), Fedora, or CentOS.
@@ -92,6 +95,7 @@ rhoas version 0.25.0
 ----
 --
 
+[discrete,id="installing-rhoas-cli-macos_{context}"]
 == Installing the rhoas CLI on macOS
 
 .Procedure
@@ -142,6 +146,7 @@ rhoas version 0.25.0
 ----
 --
 
+[discrete,id="installing-rhoas-cli-windows_{context}"]
 == Installing the rhoas CLI on Windows
 
 .Procedure

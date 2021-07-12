@@ -11,14 +11,15 @@ To determine which shell you are using, run the `echo $0` command.
 
 You can enable command completion for each of the following shells:
 
-* xref:_enabling_command_completion_on_bash[Bash]
-* xref:_enabling_command_completion_on_zsh[Zsh]
-* xref:_enabling_command_completion_on_fish[Fish]
+* xref:enabling-command-completion-bash_getting-started-rhoas[Bash]
+* xref:enabling-command-completion-zsh_getting-started-rhoas[Zsh]
+* xref:enabling-command-completion-fish_getting-started-rhoas[Fish]
 
 .Prerequisites
 
-* You must have xref:proc-installing-rhoas_{context}[installed the `rhoas` CLI].
+* You must have xref:proc-installing-rhoas_getting-started-rhoas[installed the `rhoas` CLI].
 
+[discrete,id="enabling-command-completion-bash_{context}"]
 == Enabling command completion on Bash
 
 .Procedure
@@ -50,6 +51,7 @@ $ sudo mv rhoas_completions /usr/local/etc/bash_completion.d/rhoas
 +
 Command completion is enabled.
 
+[discrete,id="enabling-command-completion-zsh_{context}"]
 == Enabling command completion on Zsh
 
 .Procedure
@@ -72,6 +74,7 @@ $ echo "autoload -U compinit; compinit" >> ~/.zshrc
 +
 Command completion is enabled.
 
+[discrete,id="enabling-command-completion-fish_{context}"]
 == Enabling command completion on Fish
 
 .Procedure

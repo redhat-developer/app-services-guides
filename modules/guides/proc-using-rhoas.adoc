@@ -8,14 +8,15 @@ you can use `rhoas` to create Kafka instances and connect your applications and 
 
 The following procedures demonstrate a basic workflow to get started quickly:
 
-* xref:_creating_a_kafka_instance[Create a Kafka instance]
+* xref:creating-kafka-instance_getting-started-rhoas[Create a Kafka instance]
 
-* xref:_creating_a_service_account[Create a service account]
+* xref:creating-service-account_getting-started-rhoas[Create a service account]
 
-* xref:_creating_a_kafka_topic[Create a Kafka topic]
+* xref:creating-kafka-topic_getting-started-rhoas[Create a Kafka topic]
 
-* xref:_commands_for_managing_kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* xref:commands-managing-kafka_getting-started-rhoas[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
+[discrete,id="creating-kafka-instance_{context}"]
 == Creating a Kafka instance
 
 A Kafka instance includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services.
@@ -86,6 +87,7 @@ you can switch to a different instance by using the `rhoas kafka use` command.
 ====
 --
 
+[discrete,id="creating-service-account_{context}"]
 == Creating a service account
 
 To connect your applications or services to a Kafka instance, you must first create a service account with credentials.
@@ -138,6 +140,7 @@ $ cat credentials.json
 You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
 --
 
+[discrete,id="creating-kafka-topic_{context}"]
 == Creating a Kafka topic
 
 After creating a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
@@ -204,6 +207,7 @@ For more information, see the `rhoas kafka topic create` help.
 
 . If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.
 
+[discrete,id="commands-managing-kafka_{context}"]
 == Commands for managing Kafka
 
 The following list shows the `rhoas` commands you can use to manage your Kafka instances, service accounts, and topics.
