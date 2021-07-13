@@ -238,13 +238,13 @@ To determine which shell you are using, run the `echo $0` command.
 
 You can enable command completion for each of the following shells:
 
-* xref:enabling-command-completion-bash_getting-started-rhoas[Bash]
-* xref:enabling-command-completion-zsh_getting-started-rhoas[Zsh]
-* xref:enabling-command-completion-fish_getting-started-rhoas[Fish]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-bash_getting-started-rhoas[Bash]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-zsh_getting-started-rhoas[Zsh]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-fish_getting-started-rhoas[Fish]
 
 .Prerequisites
 
-* You must have xref:proc-installing-rhoas_getting-started-rhoas[installed the `rhoas` CLI].
+* You must have link:{base-url}{rhoas-cli-url}#proc-installing-rhoas_getting-started-rhoas[installed the `rhoas` CLI].
 
 [discrete,id="enabling-command-completion-bash_{context}"]
 === Enabling command completion on Bash
@@ -365,13 +365,13 @@ you can use `rhoas` to create Kafka instances and connect your applications and 
 
 The following procedures demonstrate a basic workflow to get started quickly:
 
-* xref:creating-kafka-instance_getting-started-rhoas[Create a Kafka instance]
+* link:{base-url}{rhoas-cli-url}#creating-kafka-instance_getting-started-rhoas[Create a Kafka instance]
 
-* xref:creating-service-account_getting-started-rhoas[Create a service account]
+* link:{base-url}{rhoas-cli-url}#creating-service-account_getting-started-rhoas[Create a service account]
 
-* xref:creating-kafka-topic_getting-started-rhoas[Create a Kafka topic]
+* link:{base-url}{rhoas-cli-url}#creating-kafka-topic_getting-started-rhoas[Create a Kafka topic]
 
-* xref:commands-managing-kafka_getting-started-rhoas[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* link:{base-url}{rhoas-cli-url}#commands-managing-kafka_getting-started-rhoas[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
 [discrete,id="creating-kafka-instance_{context}"]
 === Creating a Kafka instance
