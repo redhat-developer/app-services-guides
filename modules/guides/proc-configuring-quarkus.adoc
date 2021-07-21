@@ -12,20 +12,25 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. On the command line, enter the following commands to set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
+. On the command line, set the Kafka instance bootstrap server, client credentials, and consumer group ID as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
 +
+--
 ifdef::qs[]
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account. The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
-+
 endif::[]
+
+All consumers with the same group ID belong to the consumer group with that ID.
+
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
-export BOOTSTRAP_SERVER=__<bootstrap_server>__
-export CLIENT_ID=__<client_id>__
-export CLIENT_SECRET=__<client_secret>__
-export OAUTH_TOKEN_ENDPOINT_URI=__<oauth_token_endpoint_uri>__
+$ export BOOTSTRAP_SERVER=__<bootstrap_server>__
+$ export CLIENT_ID=__<client_id>__
+$ export CLIENT_SECRET=__<client_secret>__
+$ export GROUP_ID=__<group_id>__
+$ export OAUTH_TOKEN_ENDPOINT_URI=__<oauth_token_endpoint_uri>__
 ----
+--
 . In the Quarkus example application, review the `src/main/resources/application.properties` file to understand how the environment variables you set in the previous step are used in your application. This example uses the `dev` configuration profile in the `application.properties` file.
 
 ifdef::qs[]
