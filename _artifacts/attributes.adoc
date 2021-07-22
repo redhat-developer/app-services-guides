@@ -1,6 +1,6 @@
 :org-name: Red Hat
-:product-long: {org-name} OpenShift Streams for Apache Kafka
-:product: OpenShift Streams for Apache Kafka
+:product-long: {org-name} OpenShift Service Registry
+:product: OpenShift Service Registry
 :product-version: 1
 //:product-version-previous: 0.0
 
