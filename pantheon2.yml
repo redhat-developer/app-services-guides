@@ -1,0 +1,15 @@
+server: https://pantheon.corp.redhat.com
+repository: rhosr-documentation
+variants:
+   - name: global-attributes
+     path: _artifacts/attributes.adoc
+     canonical: true
+assemblies:
+  - assemblies/*.adoc
+  - assemblies/**/*.adoc
+modules:
+  - modules/*.adoc
+  - modules/**/*.adoc
+resources:
+  - _images/**/*.png
+  - _images/**/*.svg

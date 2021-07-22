@@ -1,0 +1,36 @@
+:org-name: Red Hat
+:product-long: {org-name} OpenShift Streams for Apache Kafka
+:product: OpenShift Streams for Apache Kafka
+:product-version: 1
+//:product-version-previous: 0.0
+
+:service-url: https://cloud.redhat.com/beta/application-services/streams/
+
+:property-file-name: app-services.properties
+:samples-git-repo: https://github.com/redhat-developer/app-services-guides
+
+:ocm-name: {org-name} OpenShift Cluster Manager
+:ocm-name-short: OpenShift Cluster Manager
+
+:osd-name: {org-name} OpenShift Dedicated
+:osd-name-short: OpenShift Dedicated
+:osd-version: 4
+:osd-docs: https://docs.openshift.com/dedicated/4/welcome/index.html
+
+:rhoas-module: modules/cli
+
+//URL components for cross refs
+:base-url: https://access.redhat.com/documentation/en-us/
+:base-url-cli: {base-url}
+:product-long-url: red_hat_openshift_streams_for_apache_kafka
+:getting-started-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
+:kafka-bin-scripts-url: {product-long-url}/{product-version}/guide/c0ab8d79-8b74-4876-955d-6d5b6912a966
+:kafkacat-url: {product-long-url}/{product-version}/guide/ee92cfdb-9587-42f8-80d5-54169e0e3c07
+:quarkus-url: {product-long-url}/{product-version}/guide/04827d87-ed92-4ffd-a126-11fa13348eba
+:rhoas-cli-url: {product-long-url}/{product-version}/guide/f520e427-cad2-40ce-823d-96234ccbc047
+:rhoas-cli-ref-url: {product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
+:topic-config-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
+:path: {rhoas-cli-ref-url}
+
+// Enable Pantheon-flavored links for the CLI ref guide
+:pantheonenv:
