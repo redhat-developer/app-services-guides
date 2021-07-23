@@ -42,6 +42,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     {}
   );
 
+  const [allQuickStartsLoaded, setAllQuickStartsLoaded] = useState<boolean>(false);
   const [allQuickStarts, setAllQuickStarts] = useState<any[]>([]);
 
   const assets = useAssets();
@@ -51,6 +52,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
       const quickstarts = await loadJSONQuickStarts(assets?.getPath() || "", showDrafts);
       console.log(quickstarts);
       setAllQuickStarts(quickstarts);
+      setAllQuickStartsLoaded(true);
     };
     load();
   }, [assets, showDrafts]);
@@ -72,11 +74,19 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     setAllQuickStartStates,
     allQuickStarts,
   });
-  return (
-    <QuickStartContext.Provider value={valuesForQuickstartContext}>
-      <QuickStartDrawer appendTo={appendTo} {...props}>{children}</QuickStartDrawer>
-    </QuickStartContext.Provider>
-  );
+  if (allQuickStartsLoaded) {
+    return (
+      <QuickStartContext.Provider value={valuesForQuickstartContext}>
+        <QuickStartDrawer appendTo={appendTo} {...props}>{children}</QuickStartDrawer>
+      </QuickStartContext.Provider>
+    );
+  } else {
+    return (
+      <>
+        {children}
+      </>
+    );
+  }
 };
 
 export default QuickStartDrawerFederated;
