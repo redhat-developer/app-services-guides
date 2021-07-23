@@ -1,6 +1,7 @@
 :org-name: Red Hat
 :product-long: {org-name} OpenShift Service Registry
 :product: OpenShift Service Registry
+:registry: Service Registry
 :product-version: 1
 //:product-version-previous: 0.0
 
