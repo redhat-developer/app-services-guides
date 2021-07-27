@@ -6,7 +6,6 @@ const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || port;
 const PROTOCOL = process.env.PROTOCOL || "http";
 
-
 module.exports = merge(common('development'), {
   mode: "development",
   devtool: "eval-source-map",
