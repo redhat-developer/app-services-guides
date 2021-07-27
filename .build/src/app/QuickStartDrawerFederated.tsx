@@ -1,6 +1,5 @@
 import '@patternfly/react-core/dist/styles/base.css';
 import "@patternfly/quickstarts/dist/quickstarts.min.css";
-import "@patternfly/quickstarts/dist/quickstarts-bootstrap.min.css";
 
 import React, { useState, useEffect, FunctionComponent } from "react";
 import {
@@ -41,6 +40,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     {}
   );
 
+  const [allQuickStartsLoaded, setAllQuickStartsLoaded] = useState<boolean>(false);
   const [allQuickStarts, setAllQuickStarts] = useState<any[]>([]);
 
   const assets = useAssets();
@@ -50,10 +50,9 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
       const quickstarts = await loadJSONQuickStarts(assets?.getPath() || "", showDrafts);
       console.log(quickstarts);
       setAllQuickStarts(quickstarts);
+      setAllQuickStartsLoaded(true);
     };
-    setTimeout(() => {
-      load();
-    }, 5000);
+    load();
   }, [assets, showDrafts]);
 
   useEffect(() => {
@@ -73,11 +72,19 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     setAllQuickStartStates,
     allQuickStarts,
   };
-  return allQuickStarts.length > 0 ? (
-    <QuickStartContextProvider value={valuesForQuickstartContext}>
-      <QuickStartDrawer appendTo={appendTo} {...props}>{children}</QuickStartDrawer>
-    </QuickStartContextProvider>
-  ) : children;
+  if (allQuickStartsLoaded) {
+    return (
+      <QuickStartContextProvider value={valuesForQuickstartContext}>
+        <QuickStartDrawer appendTo={appendTo} {...props}>{children}</QuickStartDrawer>
+      </QuickStartContextProvider>
+    );
+  } else {
+    return (
+      <>
+        {children}
+      </>
+    );
+  }
 };
 
 export default QuickStartDrawerFederated;

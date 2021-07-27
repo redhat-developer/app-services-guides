@@ -53,11 +53,6 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.css|s[ac]ss$/i,
-          use: [MiniCssExtractPlugin.loader, 'css-loader'],
-          sideEffects: true,
-        },
-        {
           test: fileRegEx,
           type: 'asset/resource',
         },
@@ -92,7 +87,15 @@ module.exports = (env, argv) => {
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash:8].css',
-        chunkFilename: '[contenthash:8].css'
+        chunkFilename: '[contenthash:8].css',
+        insert: (linkTag) => {
+          const preloadLinkTag = document.createElement('link')
+          preloadLinkTag.rel = 'preload'
+          preloadLinkTag.as = 'style'
+          preloadLinkTag.href = linkTag.href
+          document.head.appendChild(preloadLinkTag)
+          document.head.appendChild(linkTag)
+        }
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
