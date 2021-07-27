@@ -20,23 +20,18 @@ import {
   QUICKSTART_SEARCH_FILTER_KEY,
   QuickStartCatalogFilterSearchWrapper,
   QuickStartCatalogFilterCountWrapper,
-  clearQuickStartFilters,
-  QuickStartsLoader,
+  // clearQuickStartFilters,
   LoadingBox,
   QuickStartCatalog,
-} from "@cloudmosaic/quickstarts";
+  QuickStartCatalogSection,
+} from "@patternfly/quickstarts";
 import { GuidesQuickStart } from './procedure-parser';
 
-type MasQuickStartCatalogProps = {
-  quickStarts: GuidesQuickStart[];
-};
-
-const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
-  quickStarts,
-}) => {
+const MasQuickStartCatalog: React.FC = () => {
   const {
     activeQuickStartID,
     allQuickStartStates,
+    allQuickStarts
   } = React.useContext<QuickStartContextValues>(QuickStartContext);
 
   const initialQueryParams = new URLSearchParams(window.location.search);
@@ -59,7 +54,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
   }
 
   const initialFilteredQuickStarts = filterQuickStarts(
-    quickStarts,
+    allQuickStarts,
     initialSearchQuery,
     [],
     allQuickStartStates
@@ -71,7 +66,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
 
   const onSearchInputChange = (searchValue: string) => {
     const result = filterQuickStarts(
-      quickStarts,
+      allQuickStarts,
       searchValue,
       [],
       allQuickStartStates
@@ -81,13 +76,13 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
 
   const CatalogWithSections = (
     <>
-      <PageSection>
+      <QuickStartCatalogSection>
         <TextContent>
-          <Text component="h2">Quick starts</Text>
+          <Text component="h2">Hi Juntao! Quick starts</Text>
           <Text component="p">Step-by-step instructions and tasks</Text>
         </TextContent>
         <Gallery className="co-quick-start-catalog__gallery" hasGutter>
-          {quickStarts
+          {allQuickStarts
             .filter(
               (quickStart) =>
                 !quickStart.spec.type ||
@@ -110,17 +105,17 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
               );
             })}
         </Gallery>
-      </PageSection>
-      <PageSection>
+      </QuickStartCatalogSection>
+      <QuickStartCatalogSection>
         <Divider />
-      </PageSection>
-      <PageSection>
+      </QuickStartCatalogSection>
+      <QuickStartCatalogSection>
         <TextContent>
           <Text component="h2">Documentation</Text>
           <Text component="p">Technical information for using the service</Text>
         </TextContent>
         <Gallery className="co-quick-start-catalog__gallery" hasGutter>
-          {quickStarts
+          {allQuickStarts
             .filter(
               (quickStart) => quickStart.spec.type?.text === "Documentation"
             )
@@ -141,13 +136,13 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
               );
             })}
         </Gallery>
-      </PageSection>
+      </QuickStartCatalogSection>
     </>
   );
 
   const clearFilters = () => {
-    clearQuickStartFilters();
-    setFilteredQuickStarts(quickStarts.sort(sortFnc));
+    // clearQuickStartFilters();
+    setFilteredQuickStarts(allQuickStarts.sort(sortFnc));
   };
 
   return (
@@ -179,7 +174,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
         <PageSection>
           <QuickStartCatalogEmptyState clearFilters={clearFilters} />
         </PageSection>
-      ) : filteredQuickStarts.length !== quickStarts.length ? (
+      ) : filteredQuickStarts.length !== allQuickStarts.length ? (
         <PageSection>
           <QuickStartCatalog quickStarts={filteredQuickStarts} />
         </PageSection>
@@ -191,15 +186,7 @@ const MasQuickStartCatalog: React.FC<MasQuickStartCatalogProps> = ({
 };
 
 const QuickStartCatalogFederated: FunctionComponent = () => (
-  <QuickStartsLoader>
-    {(quickStarts: GuidesQuickStart[], loaded: boolean) =>
-      loaded ? (
-        <MasQuickStartCatalog quickStarts={quickStarts} />
-      ) : (
-        <LoadingBox />
-      )
-    }
-  </QuickStartsLoader>
+  <MasQuickStartCatalog />
 );
 
 export default QuickStartCatalogFederated;

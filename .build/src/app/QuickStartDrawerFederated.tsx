@@ -1,15 +1,14 @@
+import '@patternfly/react-core/dist/styles/base.css';
+import "@patternfly/quickstarts/dist/quickstarts.min.css";
+import "@patternfly/quickstarts/dist/quickstarts-bootstrap.min.css";
+
 import React, { useState, useEffect, FunctionComponent } from "react";
-import ReactDOM from "react-dom";
 import {
-  QuickStartContext,
+  QuickStartContextProvider,
   QuickStartDrawer,
   useLocalStorage,
-  useValuesForQuickStartContext,
-} from "@cloudmosaic/quickstarts";
+} from "@patternfly/quickstarts";
 import { loadJSONQuickStarts } from "@app/quickstartLoader";
-import "@patternfly/patternfly/patternfly.min.css";
-import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-extension.css";
-import "@cloudmosaic/quickstarts/dist/quickstarts.css";
 import {useAssets} from "@bf2/ui-shared";
 
 const getElement = (node: HTMLElement | (() => HTMLElement)) => {
@@ -52,7 +51,9 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
       console.log(quickstarts);
       setAllQuickStarts(quickstarts);
     };
-    load();
+    setTimeout(() => {
+      load();
+    }, 5000);
   }, [assets, showDrafts]);
 
   useEffect(() => {
@@ -65,18 +66,18 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     }
   }, [root, activeQuickStartID]);
 
-  const valuesForQuickstartContext = useValuesForQuickStartContext({
+  const valuesForQuickstartContext = {
     activeQuickStartID,
     setActiveQuickStartID,
     allQuickStartStates,
     setAllQuickStartStates,
     allQuickStarts,
-  });
-  return (
-    <QuickStartContext.Provider value={valuesForQuickstartContext}>
+  };
+  return allQuickStarts.length > 0 ? (
+    <QuickStartContextProvider value={valuesForQuickstartContext}>
       <QuickStartDrawer appendTo={appendTo} {...props}>{children}</QuickStartDrawer>
-    </QuickStartContext.Provider>
-  );
+    </QuickStartContextProvider>
+  ) : children;
 };
 
 export default QuickStartDrawerFederated;
