@@ -7,8 +7,6 @@ const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || port;
 const PROTOCOL = process.env.PROTOCOL || "http";
 
-const isPatternflyStyles = (stylesheet) => stylesheet.includes('@patternfly/react-styles/css/') || stylesheet.includes('@patternfly/react-core/');
-
 module.exports = merge(common('development'), {
   mode: "development",
   devtool: "eval-source-map",
@@ -36,18 +34,6 @@ module.exports = merge(common('development'), {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
         sideEffects: true,
       }
-      // {
-      //   test: /\.css|s[ac]ss$/i,
-      //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      //   include: (stylesheet => !isPatternflyStyles(stylesheet)),
-      //   sideEffects: true,
-      // },
-      // {
-      //   test: /\.css$/,
-      //   include: isPatternflyStyles,
-      //   use: ['null-loader'],
-      //   sideEffects: true,
-      // },
     ],
   },
   plugins: [
