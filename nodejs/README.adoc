@@ -54,7 +54,10 @@ endif::[]
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://nodejs.org/en/download/[Node.js 14.x^] is installed.
 
-**NOTE:** The example Node.js application in this quick start uses a https://kafka.js.org/[KafkaJS^] client by default. If you want to use a https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/blob/main/README.md[documentation] for the Node.js application.
+[NOTE]
+====
+The example Node.js application in this quick start uses a https://kafka.js.org/[KafkaJS^] client by default. If you want to use a https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/blob/main/README.md[documentation] for the Node.js application.
+====
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
@@ -65,6 +68,7 @@ Learn how to use Node.js applications to produce messages to and consume message
 [#introduction]
 Welcome to the quick start for {product-long} with Node.js. In this quick start, you'll learn how to use https://nodejs.org/en/about/[Node.js^] to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
+
 
 [id="proc-importing-nodejs-sample-code_{context}"]
 == Importing the Node.js sample code
@@ -140,7 +144,7 @@ ifdef::qs[]
 * Did you set environment variables for the Kafka instance?
 endif::[]
 
-[id="proc-creating-topic_{context}"]
+[id="proc-creating-countries-topic_{context}"]
 == Creating a Kafka topic in {product}
 
 In this quick start, the Node.js example application requires a Kafka topic called `countries`. You need to create this topic in your Kafka instance so that the application can interact with it.
