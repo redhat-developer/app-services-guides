@@ -230,7 +230,7 @@ When you've verified connection to your OpenShift cluster, you can connect a spe
 * You've completed the previous steps in this tutorial:
 ** xref:proc-verifying-connection-to-openshift-cluster_{context}[]
 * You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
-* You have an API token to connect to your Kafka instance. To get a token, see the link:https://cloud.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
+* You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
 
 .Procedure
 
@@ -274,7 +274,7 @@ Service Account Secret: rh-cloud-services-service-account
 +
 You're prompted to provide an access token. The RHOAS Operator requires this token to connect to your Kafka instance.
 
-. In your web browser, open the link:https://cloud.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
+. In your web browser, open the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
 
 . On the OpenShift Cluster Manager API Token page, click **Load token**. When the page is refreshed, copy the API token shown.
 
@@ -361,7 +361,7 @@ rhoas-quarkus-kafka    rhoas-quarkus-kafka-jbyrne-dev.apps.sandbox-m2.ll9k.p1.op
 
 . On the command line, highlight the URL shown under *HOST/PORT*. Right-click and select *Copy*.
 
-. In your web browser, paste the URL for the route.
+. In your web browser, paste the URL for the route. Ensure that the URL includes `http://`.
 +
 A web page for the Quarkus application opens.
 
@@ -385,10 +385,10 @@ In the previous step of this tutorial, you created an example OpenShift applicat
 .Procedure
 . On the link:{service-url}[Kafka Instances] page of the {product} web console, click the name of the Kafka instance that you want to add a topic to.
 
-. Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
+. Click *Create topic* and follow the guided steps to define the details of the `prices` topic. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
-.Guided steps to define topic details
-image::sak-create-topic.png[Image of wizard to create a topic]
+.Guided steps to define topic
+image::sak-create-prices-topic.png[Image of wizard to create prices topic]
 
 *Topic name*:: Enter `prices` as the topic name.
 *Partitions*:: Set the number of partitions for this topic. For this tutorial, set a value of `1`. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
