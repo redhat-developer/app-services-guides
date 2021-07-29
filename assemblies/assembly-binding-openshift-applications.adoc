@@ -1,0 +1,45 @@
+[id='assembly-binding-openshift-applications']
+= Binding OpenShift applications to {product-long}
+:context: service-binding
+:imagesdir: _images
+
+[IMPORTANT]
+====
+{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+[role="_abstract"]
+As a developer of applications and services, you can connect applications deployed on a Kubernetes platform such as Red Hat OpenShift to Kafka instances created in {product-long}.
+
+For example, suppose you have the following applications deployed on OpenShift:
+
+* One application that publishes price updates for a variety of stocks
+* A second application that consumes the price updates for publication on a web page
+
+In addition, you have a Kafka instance in {product}. Each time the first application produces a price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application.
+
+To achieve this behavior, you need a way to connect the applications to your Kafka instance in {product}.
+
+You can use a specialized Operator called the Service Binding Operator to automatically provide an application on Kubernetes with the parameters required to connect to a Kafka instance in {product}. This process is called __service binding__.
+
+This guide describes how to perform service binding. The Kubernetes platform referred to in the remainder of this guide is Red Hat OpenShift.
+
+include::modules/guides/con-about-service-binding.adoc[leveloffset=+1]
+
+include::modules/guides/proc-installing-rhoas-operator.adoc[leveloffset=+1]
+
+include::modules/guides/proc-installing-service-binding-operator.adoc[leveloffset=+1]
+
+include::modules/guides/con-binding-openshift-application-using-cli.adoc[leveloffset=+1]
+
+include::modules/guides/proc-verifying-connection-to-openshift-cluster.adoc[leveloffset=+2]
+
+include::modules/guides/proc-connecting-kafka-instance-to-openshift-cluster.adoc[leveloffset=+2]
+
+include::modules/guides/proc-deploying-example-application-in-openshift.adoc[leveloffset=+2]
+
+include::modules/guides/proc-creating-topic-in-kafka-instance.adoc[leveloffset=+2]
+
+include::modules/guides/proc-binding-kafka-instance-to-openshift-application.adoc[leveloffset=+2]
+
+

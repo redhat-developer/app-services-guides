@@ -1,0 +1,86 @@
+[id='proc-connecting-kafka-instance-to-openshift-cluster_{context}']
+= Connecting a Kafka instance to your OpenShift cluster
+:imagesdir: ../_images
+
+[role="_abstract"]
+When you've verified connection to your OpenShift cluster, you can connect a specific Kafka instance in {product} to the current project in the cluster. In this step of the tutorial, you use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
+
+.Prerequisites
+* You've completed the previous steps in this tutorial:
+** xref:proc-verifying-connection-to-openshift-cluster_{context}[]
+* You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
+* You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
+
+.Procedure
+
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described earlier in this tutorial.
+
+. If you're not already logged in to the RHOAS CLI, log in as described earlier in this tutorial.
+
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one created earlier in this tutorial, as shown in the following example.
++
+.Using the OpenShift CLI to specify the current OpenShift project
+[source]
+----
+$ oc project rhoas-quarkus
+----
+
+. Use the RHOAS CLI to connect a Kafka instance in {product} to the current project in your OpenShift cluster.
++
+.Using the RHOAS CLI to connect a Kafka instance to your OpenShift cluster
+[source]
+----
+$ rhoas cluster connect
+----
++
+You're prompted to specify the Kafka instance that you want to connect to OpenShift.
+
+.  If you have more than one Kafka instance, use the up and down arrows on your keyboard to highlight the instance that you want to connect to OpenShift. Press *Enter*.
++
+You should see output like the following:
++
+.Example output from the cluster connect command
+[source,options="nowrap"]
+----
+Connection Details:
+
+Apache Kafka instance:  my-kafka-instance
+Kubernetes Namespace:   rhoas-quarkus
+Service Account Secret: rh-cloud-services-service-account
+----
+
+. Verify the connection details shown by the RHOAS CLI. When you're ready to continue, type `y` and then press *Enter*.
++
+You're prompted to provide an access token. The RHOAS Operator requires this token to connect to your Kafka instance.
+
+. In your web browser, open the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
+
+. On the OpenShift Cluster Manager API Token page, click **Load token**. When the page is refreshed, copy the API token shown.
+
+. On the command line, right-click and select *Paste*. Press *Enter*.
++
+The RHOAS Operator uses the API token to create a `KafkaConnection` resource on your OpenShift cluster. When this process is complete, you should see lines like the following:
++
+.Example output from creation of KafkaConnection resource
+[source,options="nowrap"]
+----
+Service Account Secret "rh-cloud-services-service-account" created successfully
+KafkaConnection resource "my-kafka-instance" has been created
+Waiting for status from KafkaConnection resource.
+Created KafkaConnection can be injected into your application.
+...
+KafkaConnection successfully installed on your cluster.
+----
+
+. Use the OpenShift CLI to verify that the RHOAS Operator successfully created the connection.
++
+.Using the OpenShift CLI to verify Operator connection to your cluster
+[source]
+----
+$ oc get KafkaConnection
+
+NAME   		         AGE
+my-kafka-instance    2m35s
+----
++
+As shown in the output, the RHOAS Operator creates a `KafkaConnection` resource that matches the name of your Kafka instance. In this example, the resource name matches a Kafka instance called `my-kafka-instance`.

@@ -1,0 +1,55 @@
+[id='proc-verifying-connection-to-openshift-cluster_{context}']
+= Verifying connection to your OpenShift cluster
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this step of the tutorial, you verify that the installed RHOAS Operator is working by using the RHOAS CLI to connect to your OpenShift cluster and retrieve the cluster status.
+
+.Prerequisites
+* The RHOAS Operator is installed on your OpenShift cluster. See xref:proc-installing-rhoas-operator_{context}[].
+* You can access your OpenShift cluster with privileges to create a new project.
+* You've installed the OpenShift CLI. For more information, see link:https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#installing-openshift-cli[Installing the OpenShift CLI].
+* You've installed the RHOAS CLI. For more information, see link:{base-url}{rhoas-cli-url}#proc-installing-rhoas_getting-started-rhoas[Installing the RHOAS CLI].
+
+.Procedure
+. On your computer, open a command-line window.
+. Log in to the OpenShift CLI using a token.
+.. Log in to the OpenShift web console as a user who has privileges to create a new project in the cluster.
+.. In the upper-right corner of the console, next to your user name, click the drop-down menu. Select *Copy login command*.
++
+A new page opens.
+.. Click the *Display Token* link.
+.. In the section entitled *Log in with this token*, copy the full `oc login` command shown.
+.. On the command line, paste the login command you copied. Right-click on the command line and select *Paste*.
++
+You see output confirming that you're logged in to your OpenShift cluster and the current project that you're using.
+
+. On the command line, create a new project, as shown in the following example.
++
+.Creating a new OpenShift project
+[source, subs="+quotes"]
+----
+$ oc new-project rhoas-quarkus
+----
+
+. Log in to the RHOAS CLI.
++
+.Logging in to the RHOAS CLI
+[source]
+----
+$ rhoas login
+----
++
+The login command opens a sign-in process in your web browser.
+
+. On the command line, use the RHOAS CLI to connect to your OpenShift cluster and retrieve the cluster status.
++
+.Using the RHOAS CLI to retrieve the status of your OpenShift cluster
+[source]
+----
+$ rhoas cluster status
+Namespace: rhoas-quarkus
+RHOAS Operator: Installed
+----
++
+As shown in the output, the RHOAS CLI indicates that the RHOAS Operator was successfully installed. The CLI also retrieves the name of the current OpenShift project (namespace).

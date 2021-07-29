@@ -1,0 +1,34 @@
+[id='con-about-service-binding_{context}']
+= About service binding
+:imagesdir: ../_images
+
+You can use a specialized Operator called the Service Binding Operator to automatically provide an application on OpenShift with the parameters required to connect to a specified Kafka instance in {product-long}. This process is called __service binding__. To perform service binding, you must also install the Red Hat OpenShift Application Services (RHOAS) Operator.
+
+The RHOAS Operator exposes a Kafka instance created in {product} to an OpenShift cluster. The Service Binding Operator collects and shares the information required for an application running on the OpenShift cluster to connect to the Kafka instance.
+
+When the RHOAS Operator and Service Binding Operator are installed, you can use the RHOAS CLI to perform service binding. When connection between your application and Kafka instance is established, you can then work directly with the Kafka instance using standard OpenShift features and APIs.
+
+When you perform service binding, the Service Binding Operator injects connection parameters for the Kafka instance into the pod for your application, as files. The Service Binding Operator creates the following directory and file structure in the application pod:
+
+.Files injected by the Service Binding Operator
+[source, subs="+quotes"]
+----
+/bindings/__<kafka-instance-name>__
+├── bootstrapServers
+├── password
+├── provider
+├── saslMechanism
+├── securityProtocol
+├── type
+└── user
+----
+
+Each file that the Service Binding Operator injects into the application pod contains a single connection parameter, specified in plain text. The connection parameters that correspond to the injected files are described below.
+
+bootstrapServers:: Bootstrap server endpoint for the Kafka instance.
+password:: Password for connection to the Kafka instance.
+provider:: Cloud provider for the Kafka instance.
+saslMechanism:: Simple Authentication and Security Layer (SASL) mechanism used by the Kafka instance for client authentication.
+securityProtocol:: Protocol used by the Kafka instance to secure client connections.
+type:: Metadata that identifies the Red Hat OpenShift Application Services (RHOAS) service. For a Kafka instance in {product}, this is set to a value of `kafka`.
+user:: User name for connection to the Kafka instance.

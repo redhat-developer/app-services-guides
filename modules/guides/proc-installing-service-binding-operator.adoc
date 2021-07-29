@@ -1,0 +1,31 @@
+[id='proc-installing-service-binding-operator_{context}']
+= Installing the Service Binding Operator on OpenShift
+:imagesdir: ../_images
+
+[role="_abstract"]
+Before you can bind Kafka instances in {product-long} to applications on OpenShift, you need to install the Service Binding Operator on your OpenShift cluster. The following procedure shows how to use the OperatorHub interface in the OpenShift web console to install the Service Binding Operator.
+
+.Prerequisites
+* You can access your OpenShift cluster with the `dedicated-admin` role (OpenShift Dedicated) or `cluster-admin` role. Only these roles have privileges to install an Operator on a cluster.
+
+.Procedure
+. Log in to the OpenShift web console with the `dedicated-admin` role (OpenShift Dedicated) or `cluster-admin` role.
+. Click the perspective switcher in the upper-left corner. Switch to the *Administrator* perspective.
+. In the left menu, click *Operators* > *OperatorHub*.
+. In the *Filter by keyword* field, enter `Service Binding`.
+. In the filtered results, click *Service Binding Operator*.
++
+An information sidebar for the Service Binding Operator opens.
+. In the sidebar, review the information about the Service Binding Operator and click *Install*.
+. On the *Install Operator* page, perform the following actions:
+.. For the *Update channel* option, select `beta`.
+.. For the *Installation mode* option, ensure that `All namespaces on the cluster` is selected.
+.. For the *Installed Namespace* and *Update approval* options, keep the default values.
+.. Click *Install*.
+. When the installation process is finished, click *View Operator* to see the Operator details.
++
+The *Operator details* page for the Service Binding Operator opens in the *Installed Operators* section of the web console.
++
+On the **Operator details** page, the **Status** field shows a value of `Succeeded`.
++
+Also, you can observe that the Service Binding Operator is installed in the `openshift-operators` namespace.
