@@ -1,4 +1,5 @@
 build/
 html/
+*.html
 .DS_Store
 */.DS_Store

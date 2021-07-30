@@ -37,7 +37,10 @@ endif::[]
 
 [role="_additional-resources"]
 .Additional resources
-* For detailed information, see the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation].
+ifdef::rh-openshift[]
+* For more details, see Managing schemas and APIs in {product-long}
+endif::[]
+* For detailed reference information, see the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation].
 ifdef::apicurio-registry,rh-service-registry[]
 * API documentation for the core {registry} REST API and for all compatible APIs is available from the main endpoint of your {registry} deployment, for example, on `\http://MY-REGISTRY-URL/apis`.  
 endif::[]

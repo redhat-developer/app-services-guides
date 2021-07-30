@@ -21,19 +21,19 @@ $ curl -X POST -H "Content-type: application/json; artifactType=AVRO" \
   -H "X-Registry-ArtifactId: share-price" \ <1>
   --data '{"type":"record","name":"price","namespace":"com.example", \ 
    "fields":[{"name":"symbol","type":"string"},{"name":"price","type":"string"}]}' \ <2>
-  http://MY-REGISTRY-HOST/apis/registry/v2/groups/my-group/artifacts <3>
+  http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts <3>
 ----
 +
 <1> This example adds an Avro schema artifact with an artifact ID of `share-price`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID. 
-<2> `MY-REGISTRY-HOST` is the host name on which {registry} is deployed. 
+<2> `MY-REGISTRY-URL` is the 
 ifdef::apicurio-registry[]
-For example: `\http://localhost:8080`.
+host name on which {registry} is deployed. For example: `\http://localhost:8080`.
 endif::[]
 ifdef::rh-service-registry[]
-For example: `my-cluster-service-registry-myproject.example.com`. 
+host name on which {registry} is deployed. For example: `my-cluster-service-registry-myproject.example.com`. 
 endif::[]
 ifdef::rh-openshift[]
-For example: `\https://service-registry.apps.app-sre-0.k3s7.p1.openshiftapps.com/t/f301375a-18a7-426c-bbd8-8e626a0a1d0e`. 
+URL on which {registry} is deployed. For example: `\https://service-registry.apps.app-sre-0.k3s7.p1.openshiftapps.com/t/f301375a-18a7-426c-bbd8-8e626a0a1d0e`. 
 endif::[]
 <3> This example specifies a group ID of `my-group` in the API path. If you do not specify a unique group ID, you must specify `../groups/default` in the API path. 
 
