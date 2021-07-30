@@ -1,0 +1,11 @@
+[id="introduction-preview"]
+= Try {product-long}
+
+[role="_abstract"]
+To try {product-long}, you can create a no-cost preview instance.
+
+To learn more, go to link:{console-url}[console.redhat.com^].
+
+[role="_additional-resources"]
+.Additional resources
+* link:https://access.redhat.com/articles/5979061[Service Limits for {product-long}^]

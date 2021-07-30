@@ -2,6 +2,7 @@
 
 # pull down upstream apicurio registry docs
 branch=2.0.x
+
 echo "info: fetching upstream content from apicurio registry branch: $branch"
 echo 
 # -L = follow redirects

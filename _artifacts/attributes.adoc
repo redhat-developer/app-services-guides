@@ -5,7 +5,8 @@
 :product-version: 1
 //:product-version-previous: 0.0
 
-:service-url: https://cloud.redhat.com/beta/application-services/streams/
+:console-url: https://console.redhat.com/beta/application-services/sr/
+:attachmentsdir: _attachments
 
 :property-file-name: app-services.properties
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
@@ -32,6 +33,13 @@
 :rhoas-cli-ref-url: {product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
 :topic-config-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
 :path: {rhoas-cli-ref-url}
+
+// internal links
+:registry-overview: xref:intro-to-the-registry[]
+:registry-rules: xref:intro-to-registry-rules[] 
+:registry-reference: xref:registry-artifact-reference[]
+:managing-registry-artifacts-ui: xref:managing-registry-artifacts-ui[]
+:managing-registry-artifacts-api: xref:managing-registry-artifacts-api[]
 
 // Enable Pantheon-flavored links for the CLI ref guide
 :pantheonenv:

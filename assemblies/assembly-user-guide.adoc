@@ -1,0 +1,27 @@
+[id='using-service-registry']
+= Managing schemas and APIs in {product-long}
+:context: intro
+:attachmentsdir: ../_attachments
+:rh-openshift:
+
+
+[IMPORTANT]
+====
+{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+[role="_abstract"]
+Manage schemas and API artifacts stored in the {product-long} cloud service: 
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::../modules/user-guide/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
+include::../modules/user-guide/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
+include::../modules/user-guide/proc-configuring-rules-using-console.adoc[leveloffset=+1]
+include::../modules/user-guide/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
+include::../modules/user-guide/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
+include::../modules/user-guide/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
+include::../modules/user-guide/ref-registry-artifact-types.adoc[leveloffset=+1]
+include::../modules/user-guide/ref-registry-artifact-states.adoc[leveloffset=+1]
+include::../modules/user-guide/ref-registry-artifact-metadata.adoc[leveloffset=+1]
+include::../modules/user-guide/ref-registry-rule-types.adoc[leveloffset=+1]
+include::../modules/user-guide/ref-registry-rule-maturity-matrix.adoc[leveloffset=+1]
