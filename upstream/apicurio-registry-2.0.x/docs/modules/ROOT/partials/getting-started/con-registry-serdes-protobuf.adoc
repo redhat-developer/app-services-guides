@@ -1,0 +1,55 @@
+// Module included in the following assemblies:
+//  assembly-using-kafka-client-serdes
+
+[id='registry-serdes-types-protobuf-{context}']
+
+= Configure Protobuf SerDe with {registry}
+
+[role="_abstract"]
+{registry} provides the following Kafka client serializer and deserializer classes for Google Protobuf:
+
+* `io.apicurio.registry.serde.protobuf.ProtobufKafkaSerializer`
+* `io.apicurio.registry.serde.protobuf.ProtobufKafkaDeserializer`
+
+.Configure the Protobuf serializer
+
+You can configure the Protobuf serializer class as follows:
+
+* {registry} URL
+* Artifact resolver strategy   
+* ID location
+* ID encoding
+* Schema validation
+
+For details on these configuration options, see the following sections: 
+
+* xref:registry-serdes-concepts-constants-registry[]
+* xref:registry-serdes-types-avro-registry[]
+
+.Configure the Protobuf deserializer
+
+You must configure the Protobuf deserializer class to match the following configuration settings in the serializer:
+
+* {registry} URL
+* ID encoding
+
+The configuration property names and values are the same as for the serializer.
+
+[NOTE]
+====
+The following options are not required when configuring the deserializer:
+
+* Artifact resolver strategy  
+* ID location
+====
+
+The deserializer class can determine the values for these options from the message. The strategy is not required because the serializer is responsible for sending the ID as part of the message. 
+
+The ID location is determined by checking for the magic byte at the start of the message payload. If that byte is found, the ID is read from the message payload using the configured handler. If the magic byte is not found, the ID is read from the message headers.
+
+NOTE: The Protobuf deserializer does not deserialize to your exact Protobuf Message implementation,
+but rather to a `DynamicMessage` instance. There is no appropriate API to do otherwise.
+
+[role="_additional-resources"]
+.Additional resources
+* For example applications, see the link:https://github.com/Apicurio/apicurio-registry-examples[Protobuf Bean and Protobuf Find Latest examples] 
