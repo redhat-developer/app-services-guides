@@ -47,5 +47,5 @@ WARNING: Deleting an artifact deletes the artifact and all of its versions, and 
 
 [role="_additional-resources"]
 .Additional resources
-* xref:browsing-artifacts-using-console[]
-* xref:configuring-rules-using-console[]
+* xref:browsing-artifacts-using-console[Viewing artifacts using the {registry} web console]
+* xref:configuring-rules-using-console[Configuring content rules using the {registry} web console]

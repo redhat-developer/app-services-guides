@@ -39,4 +39,4 @@ endif::[]
 
 .Additional resources
 
-* xref:adding-artifacts-using-console[]
+* xref:adding-artifacts-using-console[Adding artifacts using the {registry} web console]
