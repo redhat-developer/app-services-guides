@@ -1,7 +1,8 @@
-[id='using-service-registry']
+[id='managing-content-in-service-registry']
 = Managing schemas and APIs in {product-long}
-:context: intro
-:attachmentsdir: ../_attachments
+:context: user-guide
+:imagesdir: ../../_images
+:attachmentsdir: ../../_attachments
 :rh-openshift:
 
 

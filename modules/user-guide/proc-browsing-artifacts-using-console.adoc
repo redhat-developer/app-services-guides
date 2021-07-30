@@ -37,5 +37,5 @@ endif::[]
 
 .Additional resources
 
-* xref:adding-artifacts-using-console[]
-* xref:configuring-rules-using-console[]
+* xref:adding-artifacts-using-console[Adding artifacts using the {registry} web console]
+* xref:configuring-rules-using-console[Configuring content rules using the {registry} web console]
