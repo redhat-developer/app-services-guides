@@ -7,13 +7,13 @@ In the previous step of this tutorial, you created an example OpenShift applicat
 
 .Prerequisites
 * You've completed the previous steps in this tutorial:
-** xref:proc-verifying-connection-to-openshift-cluster_{context}[]
-** xref:proc-connecting-kafka-instance-to-openshift-cluster_{context}[]
-** xref:proc-deploying-example-application-in-openshift_{context}[]
-* You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
+** link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]
+** link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster]
+** link:{base-url}{service-binding-url}#proc-deploying-example-application-in-openshift_{context}[Deploying an example application in OpenShift]
+* You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}^].
 
 .Procedure
-. On the link:{service-url}[Kafka Instances] page of the {product} web console, click the name of the Kafka instance that you want to add a topic to.
+. On the link:{service-url}[Kafka Instances^] page of the {product} web console, click the name of the Kafka instance that you want to add a topic to.
 
 . Click *Create topic* and follow the guided steps to define the details of the `prices` topic. Click *Next* to complete each step and click *Finish* to complete the setup.
 +

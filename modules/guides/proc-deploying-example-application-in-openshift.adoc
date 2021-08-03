@@ -7,12 +7,12 @@ In this step of the tutorial, you deploy an example Quarkus application in the O
 
 The Quarkus application generates random numbers between 0 and 100 and produces those numbers to a Kafka topic. Another part of the application consumes the numbers from the Kafka topic. Finally, the application uses __server-sent events__ to expose the numbers as a REST UI. A web page in the application displays the exposed numbers.
 
-The example Quarkus application uses the `quarkus-kubernetes-service-binding` link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[extension], which means that the application automatically detects and uses the injected connection parameters. This eliminates the need for manual configuration of the application.
+The example Quarkus application uses the `quarkus-kubernetes-service-binding` link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[extension^], which means that the application automatically detects and uses the injected connection parameters. This eliminates the need for manual configuration of the application.
 
 .Prerequisites
 * You've completed the previous steps in this tutorial:
-** xref:proc-verifying-connection-to-openshift-cluster_{context}[]
-** xref:proc-connecting-kafka-instance-to-openshift-cluster_{context}[]
+** link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]
+** link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster]
 * You've privileges to deploy applications in the OpenShift project created earlier in this tutorial.
 
 .Procedure

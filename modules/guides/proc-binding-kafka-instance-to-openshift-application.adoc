@@ -5,13 +5,13 @@
 In this step of the tutorial, you use the RHOAS CLI to bind your Kafka instance to your OpenShift application. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka instance.
 
 .Prerequisites
-* The Service Binding Operator is installed on your OpenShift cluster. See xref:proc-installing-service-binding-operator_{context}[].
+* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator].
 * You've completed the previous steps in this tutorial:
-** xref:proc-verifying-connection-to-openshift-cluster_{context}[]
-** xref:proc-connecting-kafka-instance-to-openshift-cluster_{context}[]
-** xref:proc-deploying-example-application-in-openshift_{context}[]
-** xref:proc-creating-topic-in-kafka-instance_{context}[]
-* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. To learn more, see xref:con-about-service-binding_{context}[].
+** link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]
+** link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster]
+** link:{base-url}{service-binding-url}#proc-deploying-example-application-in-openshift_{context}[Deploying an example application in OpenShift]
+** link:{base-url}{service-binding-url}#[Creating a topic in your Kafka instance]
+* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. To learn more, see link:{base-url}{service-binding-url}#con-about-service-binding_{context}[About service binding].
 
 .Procedure
 . If you're not already logged in to the OpenShift CLI, log in using a token, as described earlier in this tutorial. Log in as the same user who created a new project earlier in the tutorial.

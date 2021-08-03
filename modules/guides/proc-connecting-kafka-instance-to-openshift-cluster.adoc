@@ -7,9 +7,9 @@ When you've verified connection to your OpenShift cluster, you can connect a spe
 
 .Prerequisites
 * You've completed the previous steps in this tutorial:
-** xref:proc-verifying-connection-to-openshift-cluster_{context}[]
-* You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
-* You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
+** link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]
+* You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}^].
+* You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 
 .Procedure
 
@@ -53,7 +53,7 @@ Service Account Secret: rh-cloud-services-service-account
 +
 You're prompted to provide an access token. The RHOAS Operator requires this token to connect to your Kafka instance.
 
-. In your web browser, open the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token] page.
+. In your web browser, open the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 
 . On the OpenShift Cluster Manager API Token page, click **Load token**. When the page is refreshed, copy the API token shown.
 
