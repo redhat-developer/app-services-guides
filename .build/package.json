@@ -5,7 +5,7 @@
   "description": "Guides for Red Hat OpenShift Streams for Apache Kafka",
   "port": "9001",
   "repository": "https://github.com/redhat-developer/app-services-guides.git",
-  "homepage": "https://cloud.redhat.com/application-services/openshift-streams",
+  "homepage": "https://console.redhat.com/application-services/openshift-streams",
   "license": "MIT",
   "private": true,
   "devDependencies": {
