@@ -18,7 +18,7 @@
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
 
 //URL components for cross refs
-:base-url: https://github.com/jbyrne-redhat/app-services-guides/blob/main/
+:base-url: https://github.com/redhat-developer/app-services-guides/blob/main/
 :base-url-cli: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
 :getting-started-url: getting-started/README.adoc
 :kafka-bin-scripts-url: kafka-bin-scripts/README.adoc
