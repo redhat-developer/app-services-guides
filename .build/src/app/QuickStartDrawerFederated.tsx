@@ -58,7 +58,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
   }, [assets, showDrafts]);
 
   useEffect(() => {
-    if (root) {
+    if (root && getElement(root)) {
       if (activeQuickStartID) {
         getElement(root).classList.add('pf-m-expanded');
       } else {
