@@ -56,7 +56,7 @@ endif::[]
 
 [NOTE]
 ====
-The example Node.js application in this quick start uses a https://kafka.js.org/[KafkaJS^] client by default. If you want to use a https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/blob/main/README.md[documentation] for the Node.js application.
+The example Node.js application in this quick start uses a https://kafka.js.org/[KafkaJS^] client by default. If you want to use a https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install development tools locally on your computer or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the Node.js application.
 ====
 
 // Condition out QS-only content so that it doesn't appear in docs.
@@ -66,7 +66,7 @@ ifdef::qs[]
 Learn how to use Node.js applications to produce and consume messages using a Kafka instance in {product-long}.
 
 [#introduction]
-Welcome to the quick start for {product-long} with Node.js. In this quick start, you'll learn how to use https://nodejs.org/en/about/[Node.js^] to produce messages to and consume messages from your Kafka instances in {product}.
+Welcome to the quick start for {product-long} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
 
 
@@ -111,11 +111,11 @@ endif::[]
 
 .Procedure
 
-. In your IDE, open a new file for the shell script. Save the file with the name `set-environment.sh`.
+. In your IDE, open a new file for a shell script (Linux or macOS) or batch file (Windows). Save the file with the name `set-environment.sh` (Linux or macOS) or `set-environment.bat` (Windows).
 
-. In the `set-environment.sh` file, add the lines shown in the example to set the bootstrap server and client credentials as environment variables to be used by the Node.js application.
+. In the shell script or batch file, add the lines shown in the appropriate example. These lines set the bootstrap server and client credentials as environment variables to be used by the Node.js application.
 +
-.Setting environment variables for bootstrap server and client credentials
+.Setting environment variables in a shell script
 [source,subs="+quotes"]
 ----
 export KAFKA_BOOTSTRAP_SERVER=__<bootstrap_server>__
@@ -124,7 +124,15 @@ export KAFKA_CLIENT_SECRET=__<client_secret>__
 export KAFKA_SASL_MECHANISM=plain
 ----
 +
-In the preceding example, replace the values in angle brackets (`< >`) with your own bootstrap server and client credential information.
+.Setting environment variables in a batch file
+[source,subs="+quotes"]
+----
+set KAFKA_BOOTSTRAP_SERVER=__<bootstrap_server>__
+set KAFKA_CLIENT_ID=__<client_id>__
+set KAFKA_CLIENT_SECRET=__<client_secret>__
+set KAFKA_SASL_MECHANISM=plain
++
+In the preceding examples, replace the values in angle brackets (`< >`) with your own bootstrap server and client credential information.
 ifdef::qs[]
 These details are described below.
 +
@@ -137,7 +145,7 @@ endif::[]
 +
 In this case, observe that the Node.js application uses the `SASL/PLAIN` authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application *doesn't* also require an authentication token.
 
-. Save the the `set-environment.sh` file.
+. Save the the `set-environment.sh` or `set-environment.bat` file.
 
 ifdef::qs[]
 .Verification
@@ -195,23 +203,21 @@ In this task, you'll use the following components of the Node.js application to 
 .Navigating to the reactive-example directory
 [source]
 ----
-$ cd ~/reactive-example
+$ cd reactive-example
 ----
 
-. Check out the `kafkajs` branch of the repository.
-+
-.Checking out the kafkajs branch
-[source]
-----
-$ git checkout kafkajs
-----
-
-. Run the shell script that sets environment variables for the bootstrap server endpoint and client credentials. These are required to connect to your Kafka instance.
+. Run the shell script (Linux or macOS) or batch file (Windows) that sets environment variables for the bootstrap server endpoint and client credentials. These are required to connect to your Kafka instance.
 +
 .Running the shell script
 [source]
 ----
 $ source set-environment.sh
+----
++
+.Running the batch file
+[source]
+----
+$ source set-environment.bat
 ----
 
 . Navigate to the directory for the consumer component. Use Node Package Manager (npm) to install the package for this component.
@@ -240,23 +246,21 @@ If the application fails to run, review the error log in the command-line window
 .Navigating to the reactive-example directory
 [source]
 ----
-$ cd ~/reactive-example
+$ cd reactive-example
 ----
 
-. Check out the `kafkajs` branch of the repository.
-+
-.Checking out the kafkajs branch
-[source]
-----
-$ git checkout kafkajs
-----
-
-. Run the shell script that sets environment variables for the bootstrap server endpoint and client credentials.
+. Run the shell script (Linux or macOS) or batch file (Windows) that sets environment variables for the bootstrap server endpoint and client credentials.
 +
 .Running the shell script
 [source]
 ----
 $ source set-environment.sh
+----
++
+.Running the batch file
+[source]
+----
+$ source set-environment.bat
 ----
 
 . Navigate to the directory for the producer component. Use Node Package Manager (npm) to install the package for this component.
@@ -319,7 +323,7 @@ The output from both components shows that the Node.js application successfully 
 . To verify __how__ the Node.js application connected to the Kafka instance, perform the following actions:
 .. In your IDE, open the `producer.js` file.
 +
-Observe that the producer component is using the environment variables that you set in the `set-environment.sh` shell script. The values of these environment variables are the bootstrap server endpoint and client credentials that the producer component used to connect to the Kafka instance.
+Observe that the producer component is using the environment variables that you set in the shell script or batch file. The values of these environment variables are the bootstrap server endpoint and client credentials that the producer component used to connect to the Kafka instance.
 
 .. Open the `consumer.js` file.
 +
