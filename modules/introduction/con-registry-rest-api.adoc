@@ -32,7 +32,7 @@ Export or import registry content in a `.zip` file, and manage logging levels fo
 
 Applications using Confluent client libraries can use {registry} as a drop-in replacement. 
 ifdef::rh-service-registry,rh-openshift-sr[]
-For more details, see link:https://developers.redhat.com/blog/2019/12/17/replacing-confluent-schema-registry-with-red-hat-integration-service-registry/[Replacing Confluent Schema Registry with Red Hat Integration Service Registry].
+For more details, see link:https://developers.redhat.com/blog/2019/12/17/replacing-confluent-schema-registry-with-red-hat-integration-service-registry/[Replacing Confluent Schema Registry with Service Registry].
 endif::[]
 
 [role="_additional-resources"]

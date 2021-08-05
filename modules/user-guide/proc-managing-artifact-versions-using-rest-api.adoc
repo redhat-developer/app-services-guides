@@ -13,9 +13,23 @@ This section shows a simple curl-based example of using the registry v2 core RES
 
 .Prerequisites
 
-* {registry} must be installed and running in your environment. 
+ifdef::apicurio-registry,rh-service-registry[]
+* {registry} must be installed and running in your environment
+endif::[]
+ifdef::rh-openshift-sr[]
+* You must have access to the {registry} web console
+endif::[]
 
 .Procedure
+
+ifdef::rh-openshift-sr[]
+. Connect to the {registry} web console on:
++
+`*{console-url}*`
+
+. For the relevant {registry} instance that you want to connect to, select the options icon (three vertical dots) and click *View connection information*.
+. In the *Connection* page, copy the URL for the core registry API to a secure location. This is the registry API endpoint that you need for connecting to this {registry} instance. 
+endif::[]
 
 . Add an artifact version in the registry using the `/groups/\{group\}/artifacts` operation. The following example `curl` command adds a simple artifact for a share price application:
 +

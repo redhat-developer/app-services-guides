@@ -4,11 +4,10 @@
 :registry: Service Registry
 :product-version: 1
 :rh-openshift-sr:
-
 //:product-version-previous: 0.0
 
 :console-url: https://console.redhat.com/beta/application-services/sr/
-:attachmentsdir: _attachments
+
 
 :property-file-name: app-services.properties
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
@@ -37,13 +36,8 @@
 :path: {rhoas-cli-ref-url}
 
 // internal links
-
 :registry-rules: link:ref-registry-rule-types.adoc[{registry} content rule types]
 :registry-reference: link:ref-registry-artifact-types.adoc[{registry} content artifact types]
-
-// external links
-* :LinkDebeziumUserGuide: link:#avro-serialization[Avro serialization in Debezium User Guide] 
-* :LinkCamelKafkaConnectorGetStart: link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q1/html-single/getting_started_with_camel_kafka_connector/index
 
 // Enable Pantheon-flavored links for the CLI ref guide
 :pantheonenv:
