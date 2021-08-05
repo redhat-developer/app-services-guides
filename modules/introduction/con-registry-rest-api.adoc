@@ -31,13 +31,13 @@ Export or import registry content in a `.zip` file, and manage logging levels fo
 * CNCF CloudEvents Schema Registry version 0
 
 Applications using Confluent client libraries can use {registry} as a drop-in replacement. 
-ifdef::rh-service-registry,rh-openshift[]
+ifdef::rh-service-registry,rh-openshift-sr[]
 For more details, see link:https://developers.redhat.com/blog/2019/12/17/replacing-confluent-schema-registry-with-red-hat-integration-service-registry/[Replacing Confluent Schema Registry with Red Hat Integration Service Registry].
 endif::[]
 
 [role="_additional-resources"]
 .Additional resources
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 * For more details, see Managing schemas and APIs in {product-long}
 endif::[]
 * For detailed reference information, see the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation].

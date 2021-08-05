@@ -3,7 +3,7 @@
 :context: intro
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
-:rh-openshift:
+:rh-openshift-sr:
 
 [IMPORTANT]
 ====

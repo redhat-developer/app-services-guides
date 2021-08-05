@@ -13,7 +13,7 @@ This section shows simple examples of uploading {registry} artifacts, applying a
 ifdef::apicurio-registry,rh-service-registry[]
 * {registry} must be installed and running in your environment
 endif::[]
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 * You must have access to the {registry} web console
 endif::[]
 
@@ -22,7 +22,7 @@ endif::[]
 . Connect to the {registry} web console on:
 +
 `*{console-url}*`
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 . Click your existing {registry} instance, or click *Create {registry} instance* to provision a new one. 
 endif::[]
 . Click *Upload artifact*, and specify the following:
@@ -38,7 +38,7 @@ NOTE:  The {registry} server cannot automatically detect the *Kafka Connect Sche
 ifdef::apicurio-registry,rh-service-registry[]
 image::images/getting-started/registry-web-console-artifact.png[Artifact Details in Registry web console]
 endif::[]
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 image::../_images/user-guide/registry-web-console-artifact.png[Artifact Details in Registry web console]
 endif::[]
 +

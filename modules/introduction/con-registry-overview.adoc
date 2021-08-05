@@ -22,7 +22,7 @@ endif::[]
 [discrete]
 == {registry} capabilities
 
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 * Deployed as an easy-to-use managed cloud service without having to install, configure, or run your own {registry} instances
 
 * Full integration with Red Hat OpenShift Streams for Apache Kafka managed cloud service, including Kafka topic to schema mapping

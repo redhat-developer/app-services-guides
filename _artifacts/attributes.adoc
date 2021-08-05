@@ -3,6 +3,8 @@
 :product: OpenShift Service Registry
 :registry: Service Registry
 :product-version: 1
+:rh-openshift-sr:
+
 //:product-version-previous: 0.0
 
 :console-url: https://console.redhat.com/beta/application-services/sr/
