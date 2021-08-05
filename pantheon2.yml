@@ -13,3 +13,4 @@ modules:
 resources:
   - _images/**/*.png
   - _images/**/*.svg
+  - _attachments/*.htm

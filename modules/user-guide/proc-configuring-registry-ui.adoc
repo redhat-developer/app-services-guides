@@ -1,1 +1,0 @@
-../../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started/proc-configuring-registry-ui.adoc

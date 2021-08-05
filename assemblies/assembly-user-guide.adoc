@@ -12,14 +12,13 @@
 ====
 
 [role="_abstract"]
-Manage schemas and API artifacts stored in the {product-long} cloud service: 
+Manage schemas and API artifacts stored in the {product-long} cloud service. 
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
 include::../modules/user-guide/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
 include::../modules/user-guide/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
 include::../modules/user-guide/proc-configuring-rules-using-console.adoc[leveloffset=+1]
 include::../modules/user-guide/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-configuring-registry-ui.adoc[leveloffset=+1]
 include::../modules/user-guide/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
 include::../modules/user-guide/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
 include::../modules/user-guide/ref-registry-artifact-types.adoc[leveloffset=+1]
