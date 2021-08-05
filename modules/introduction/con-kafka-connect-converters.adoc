@@ -11,7 +11,7 @@ You can use {registry} with Apache Kafka Connect to stream data between Kafka an
 ifdef::apicurio-registry,rh-service-registry[]
 image::images/getting-started/registry-connect-architecture.png[Registry and Kafka Connect architecture]
 endif::[]
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 image::../_images/introduction/registry-connect-architecture.png[Registry and Kafka Connect architecture]
 endif::[]
 
@@ -31,7 +31,7 @@ The Avro and JSON Schema serializers and deserializers (SerDes) provided by Red 
 .Additional resources
 
 * link:https://kafka.apache.org/documentation/#connect[Apache Kafka Connect documentation]
-ifdef::rh-service-registry,rh-openshift[]
+ifdef::rh-service-registry,rh-openshift-sr[]
 * link:{LinkDebeziumUserGuide}#avro-serialization[Avro serialization in Debezium User Guide] 
 * link:{LinkCamelKafkaConnectorGetStart}[Getting Started with Camel Kafka Connector]
 endif::[] 

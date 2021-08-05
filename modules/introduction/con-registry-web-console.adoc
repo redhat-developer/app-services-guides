@@ -16,7 +16,7 @@ endif::[]
 ifdef::apicurio-registry,rh-service-registry[]
 image::images/getting-started/registry-web-console.png[{registry} web console]
 endif::[]
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 image::../_images/introduction/registry-web-console.png[{registry} web console]
 endif::[]
 
@@ -28,6 +28,6 @@ The {registry} web console is available from {console-url}.
 ifdef::apicurio-registry,rh-service-registry[]
 * {managing-registry-artifacts-ui}
 endif::[]
-ifdef::rh-openshift[]
+ifdef::rh-openshift-sr[]
 * For more details, see Managing schemas and APIs in {product-long}
 endif::[]
