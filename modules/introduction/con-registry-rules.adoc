@@ -3,6 +3,8 @@
 [id="registry-rules"]
 
 = Govern registry content using rules
+
+[role="_abstract"]
 To govern the evolution of registry content, you can configure optional rules for artifact content added to the registry. All configured global rules or artifact rules must pass before a new artifact version can be uploaded to the registry. Configured artifact rules override any configured global rules.
 
 The goal of these rules is to prevent invalid content from being added to the registry. For example, content can be invalid for the following reasons:

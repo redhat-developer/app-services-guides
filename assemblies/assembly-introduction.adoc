@@ -1,8 +1,8 @@
 [id='introduction-to-service-registry']
 = Introduction to {product-long}
 :context: intro
-:imagesdir: ../../_images
-:attachmentsdir: ../../_attachments
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
 :rh-openshift:
 
 [IMPORTANT]

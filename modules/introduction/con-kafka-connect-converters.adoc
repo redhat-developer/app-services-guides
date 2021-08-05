@@ -12,7 +12,7 @@ ifdef::apicurio-registry,rh-service-registry[]
 image::images/getting-started/registry-connect-architecture.png[Registry and Kafka Connect architecture]
 endif::[]
 ifdef::rh-openshift[]
-image::../_images/registry-connect-architecture.png[Registry and Kafka Connect architecture]
+image::../_images/introduction/registry-connect-architecture.png[Registry and Kafka Connect architecture]
 endif::[]
 
 {registry} provides the following features for Kafka Connect:
@@ -25,7 +25,7 @@ You can use the Avro and JSON Schema converters to map Kafka Connect schemas int
 
 {registry} can manage and track the Avro and JSON schemas used in the Kafka topics. Because the schemas are stored in {registry} and decoupled from the message content, each message must only include a tiny schema identifier. For an I/O bound system like Kafka, this means more total throughput for producers and consumers.
 
-The Avro and JSON Schema serializers and deserializers (SerDes) provided by {registry} are also used by Kafka producers and consumers in this use case. Kafka consumer applications that you write to consume change events can use the Avro or JSON Serdes to deserialize these change events. You can install these Serdes into any Kafka-based system and use them along with Kafka Connect, or with Kafka Connect-based systems such as Debezium and Camel Kafka Connector.
+The Avro and JSON Schema serializers and deserializers (SerDes) provided by Red Hat Integration {registry} are also used by Kafka producers and consumers in this use case. Kafka consumer applications that you write to consume change events can use the Avro or JSON Serdes to deserialize these change events. You can install these SerDes into any Kafka-based system and use them along with Kafka Connect, or with Kafka Connect-based systems such as Debezium and Camel Kafka Connector in Red Hat Integration.
 
 [role="_additional-resources"]
 .Additional resources
@@ -33,6 +33,6 @@ The Avro and JSON Schema serializers and deserializers (SerDes) provided by {reg
 * link:https://kafka.apache.org/documentation/#connect[Apache Kafka Connect documentation]
 ifdef::rh-service-registry,rh-openshift[]
 * link:{LinkDebeziumUserGuide}#avro-serialization[Avro serialization in Debezium User Guide] 
-//* link:{LinkCamelKafkaConnectorGetStart}[{NameCamelKafkaConnectorGetStart}]
+* link:{LinkCamelKafkaConnectorGetStart}[Getting Started with Camel Kafka Connector]
 endif::[] 
 * link:https://debezium.io/blog/2020/04/09/using-debezium-wit-apicurio-api-schema-registry/[Demonstration of using Kafka Connect with Debezium and Apicurio Registry]

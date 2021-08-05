@@ -2,7 +2,7 @@
 = Try {product-long}
 
 [role="_abstract"]
-To try {product-long}, you can create a no-cost preview instance.
+To try {product-long}, you can create a no-cost preview {registry} instance.
 
 To learn more, go to link:{console-url}[console.redhat.com^].
 

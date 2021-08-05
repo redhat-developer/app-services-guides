@@ -4,7 +4,7 @@
 = What is {registry}?
 
 [role="_abstract"]
-{registry} is a datastore for sharing standard event schemas and API designs across API and event-driven architectures. You can use {registry} to decouple the structure of your data from your client applications, and to share and manage your data types and API descriptions at runtime using a REST interface.
+{registry} is a datastore for sharing standard event schemas and API designs across event-driven and API architectures. You can use {registry} to decouple the structure of your data from your client applications, and to share and manage your data types and API descriptions at runtime using a REST interface.
 
 For example, client applications can dynamically push or pull the latest schema updates to or from {registry} at runtime without needing to redeploy. Developer teams can query the registry for existing schemas required for services already deployed in production, and can register new schemas required for new services in development.  
 
@@ -22,17 +22,19 @@ endif::[]
 [discrete]
 == {registry} capabilities
 
-* Multiple payload formats for standard event schema and API specifications such as Apache Avro, JSON Schema, Protobuf, AsyncAPI, and OpenAPI 
+ifdef::rh-openshift[]
+* Deployed as an easy-to-use managed cloud service without having to install, configure, or run your own {registry} instances
+
+* Full integration with Red Hat OpenShift Streams for Apache Kafka managed cloud service, including Kafka topic to schema mapping
+endif::[]
+
+* Multiple payload formats for standard event schema and API specifications such as Apache Avro, JSON Schema, Protobuf, AsyncAPI, OpenAPI, and more 
 
 ifdef::rh-service-registry[]
 * Pluggable registry storage options in AMQ Streams or PostgreSQL database 
 endif::[]
 ifdef::apicurio-registry[]
 * Pluggable registry storage options in Apache Kafka or PostgreSQL database 
-endif::[]
-
-ifdef::rh-openshift[]
-* Deployed as an easy-to-use managed cloud service without installation and configuration steps on-premises 
 endif::[]
 
 * Rules for content validation and version compatibility to govern how registry content evolves over time

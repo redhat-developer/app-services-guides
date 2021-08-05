@@ -17,7 +17,7 @@ ifdef::apicurio-registry,rh-service-registry[]
 image::images/getting-started/registry-web-console.png[{registry} web console]
 endif::[]
 ifdef::rh-openshift[]
-image::../_images/registry-web-console.png[{registry} web console]
+image::../_images/introduction/registry-web-console.png[{registry} web console]
 endif::[]
 
 The {registry} web console is available from {console-url}. 
