@@ -1,5 +1,4 @@
 import {GuidesQuickStart, ProcQuickStartParser} from "@app/procedure-parser";
-import {QuickStart} from "@cloudmosaic/quickstarts";
 
 const loadJSONQuickStartsFilesFromAssets = async (basePath: string): Promise<string[]> => {
     const data = await fetch(`${basePath}/webpack-assets.json`).then(response => response.json());
