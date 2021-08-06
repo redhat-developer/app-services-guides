@@ -1,4 +1,4 @@
-import {QuickStart, QuickStartTask} from "@cloudmosaic/quickstarts";
+import {QuickStart, QuickStartTask} from "@patternfly/quickstarts";
 
 export type GuidesQuickStart = QuickStart & {
     metadata?: {
