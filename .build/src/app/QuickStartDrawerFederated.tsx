@@ -1,4 +1,3 @@
-import '@patternfly/react-core/dist/styles/base.css';
 import "@patternfly/quickstarts/dist/quickstarts.min.css";
 import "@patternfly/quickstarts/dist/quickstarts-bootstrap.min.css";
 
