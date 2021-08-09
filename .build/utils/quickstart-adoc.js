@@ -92,7 +92,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
       const blocks = flattenBlocks(adoc);
       blocks
         // only blocks with an id can be used
-        .filter(block => block.getId())
+        .filter(block => block.getId && block.getId())
         // If we are looking for a particular moduleType, we can filter for it
         .filter(block => type ? getModuleType(block) === type : true)
         .forEach(block => {
@@ -175,7 +175,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
     const flat = [];
 
     flat.push(block);
-    if (block.hasBlocks()) {
+    if (block.hasBlocks && block.hasBlocks()) {
       block.getBlocks().forEach(block => {
           flat.push(...flattenBlocks(block));
       });
