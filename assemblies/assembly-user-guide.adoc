@@ -3,6 +3,7 @@
 :context: user-guide
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
 :rh-openshift-sr:
 
 
@@ -15,14 +16,14 @@
 Manage schemas and API artifacts stored in the {product-long} cloud service. 
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-configuring-rules-using-console.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
-include::../modules/user-guide/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
-include::../modules/user-guide/ref-registry-artifact-types.adoc[leveloffset=+1]
-include::../modules/user-guide/ref-registry-artifact-states.adoc[leveloffset=+1]
-include::../modules/user-guide/ref-registry-artifact-metadata.adoc[leveloffset=+1]
-include::../modules/user-guide/ref-registry-rule-types.adoc[leveloffset=+1]
-include::../modules/user-guide/ref-registry-rule-maturity-matrix.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-configuring-rules-using-console.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-types.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-states.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-metadata.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-rule-types.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-rule-maturity-matrix.adoc[leveloffset=+1]

@@ -1,0 +1,17 @@
+[id="kafka-topic-to-schema"]
+= Map Kafka topics to schemas 
+
+[role="_abstract"]
+{registry} provides full integration with Red Hat OpenShift Streams for Apache Kafka to map your Kafka topics to the appropriate schemas. 
+
+You can use the OpenShift Streams for Apache Kafka web console to:
+
+* Map Kafka topics to specific schemas stored in {registry}
+* Check the schemas used for specific topic key and topic values
+
+In addition, you can create mappings between Kafka topics and schemas automatically in your Kafka client application code when registering schemas in {registry}. For example, you can do this using the {registry} Kafka client serializers/derializers (SerDes) in your Java client code. The default schema lookup strategy used by the Kafka client SerDes is the `TopicIdStrategy`. This looks for schema artifacts in the registry with the same name as the Kafka topic receiving messages.
+
+[role="_additional-resources"]
+.Additional resources
+* Red Hat OpenShift Streams for Apache Kafka documentation
+* {registry} Kafka client serializers/derializers documentation
