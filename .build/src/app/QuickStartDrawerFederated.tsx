@@ -1,6 +1,6 @@
 import "@patternfly/quickstarts/dist/quickstarts.min.css";
 
-import React, { useState, useEffect, FunctionComponent } from "react";
+import React, { useState, useEffect, FunctionComponent, useContext } from "react";
 import {
   QuickStartContextProvider,
   QuickStartDrawer,
@@ -8,6 +8,7 @@ import {
 } from "@patternfly/quickstarts";
 import { loadJSONQuickStarts } from "@app/quickstartLoader";
 import {useAssets} from "@bf2/ui-shared";
+import { DemoContext } from "./index";
 
 const getElement = (node: HTMLElement | (() => HTMLElement)) => {
   if (typeof node === "function") {
@@ -23,7 +24,56 @@ export interface QuickStartDrawerFederatedProps
   root?: HTMLElement | (() => HTMLElement);
 }
 
+const xQuickStartDrawerFederated = ({ className, children, ...props }) => <div className={`drawer-wrapper ${className}`} {...props}>
+  <div>drawer wrapper</div>
+  {children}
+</div>
+
 const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({
+  children,
+  showDrafts,
+  appendTo,
+  root,
+  ...props
+}) => {
+  const [activeQuickStartID, setActiveQuickStartID] = useLocalStorage(
+    "quickstartId",
+    ""
+  );
+  const [allQuickStartStates, setAllQuickStartStates] = useLocalStorage(
+    "quickstarts",
+    {}
+  );
+
+  useEffect(() => {
+    if (root && getElement(root)) {
+      if (activeQuickStartID) {
+        getElement(root).classList.add('pf-m-expanded');
+      } else {
+        getElement(root).classList.remove('pf-m-expanded');
+      }
+    }
+  }, [root, activeQuickStartID]);
+
+  const { quickStarts } = useContext(DemoContext);
+
+  const drawerProps = {
+    quickStarts,
+    activeQuickStartID,
+    allQuickStartStates,
+    setActiveQuickStartID,
+    setAllQuickStartStates,
+    loading: quickStarts.length === 0,
+    appendTo,
+  };
+  debugger;
+
+  return (
+    <QuickStartDrawer {...drawerProps} {...props}>{children}</QuickStartDrawer>
+  );
+};
+
+const xxxQuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({
   children,
   showDrafts,
   appendTo,

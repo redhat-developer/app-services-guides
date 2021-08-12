@@ -124,7 +124,8 @@ module.exports = (env, argv) => {
         filename: `${federatedModuleName}${isProduction ? '[chunkhash:8]' : ''}.js`,
         exposes: {
           "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated",
-          "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated"
+          "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated",
+          "./QuickStartLoader": "./src/app/quickstartLoader",
         },
         shared: {
           ...dependencies,
