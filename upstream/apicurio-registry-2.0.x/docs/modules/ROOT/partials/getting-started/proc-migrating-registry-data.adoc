@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts.adoc
 
-[id="migrating-registry-data"]
+[id="migrating-registry-data_{context}"]
 = Migrating {registry} data
 
 [role="_abstract"]

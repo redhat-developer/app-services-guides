@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts-api.adoc
 
-[id="managing-artifact-versions-using-rest-api"]
+[id="managing-artifact-versions-using-rest-api_{context}"]
 = Managing schema and API artifact versions using Registry REST API commands
 
 [role="_abstract"]
@@ -13,9 +13,23 @@ This section shows a simple curl-based example of using the registry v2 core RES
 
 .Prerequisites
 
-* {registry} must be installed and running in your environment. 
+ifdef::apicurio-registry,rh-service-registry[]
+* {registry} must be installed and running in your environment
+endif::[]
+ifdef::rh-openshift-sr[]
+* You must have access to the {registry} web console
+endif::[]
 
 .Procedure
+
+ifdef::rh-openshift-sr[]
+. Connect to the {registry} web console on:
++
+`*{console-url}*`
+
+. For the relevant {registry} instance that you want to connect to, select the options icon (three vertical dots) and click *View connection information*.
+. In the *Connection* page, copy the URL for the core registry API to a secure location. This is the registry API endpoint that you need for connecting to this {registry} instance. 
+endif::[]
 
 . Add an artifact version in the registry using the `/groups/\{group\}/artifacts` operation. The following example `curl` command adds a simple artifact for a share price application:
 +
@@ -25,15 +39,18 @@ $ curl -X POST -H "Content-type: application/json; artifactType=AVRO" \
   -H "X-Registry-ArtifactId: my-share-price" -H "X-Registry-Version: 1.1.1" \ <1>
   --data '{"type":"record","name":" p","namespace":"com.example", \
    "fields":[{"name":"symbol","type":"string"},{"name":"price","type":"string"}]}' \ <2>
-   http://MY-REGISTRY-HOST/apis/registry/v2/groups/my-group/artifacts <3>
+   http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts <3>
 ----
 <1> This example adds an Avro schema artifact with an artifact ID of `my-share-price` and version of `1.1.1`. If you do not specify a version, {registry} automatically generates a default version of `1`. 
-<2> `MY-REGISTRY-HOST` is the host name on which {registry} is deployed. 
+<2> `MY-REGISTRY-URL` is the  
 ifdef::apicurio-registry[]
-For example: `\http://localhost:8080`.
+host name on which {registry} is deployed. For example: `\http://localhost:8080`.
 endif::[]
 ifdef::rh-service-registry[]
-For example: `my-cluster-service-registry-myproject.example.com`. 
+host name on which {registry} is deployed. For example: `my-cluster-service-registry-myproject.example.com`. 
+endif::[]
+ifdef::rh-openshift-sr[]
+URL on which {registry} is deployed. For example: `\https://service-registry.apps.app-sre-0.k3s7.p1.openshiftapps.com/t/f301375a-18a7-426c-bbd8-8e626a0a1d0e`. 
 endif::[]
 <3> This example specifies a group ID of `my-group` in the API path. If you do not specify a unique group ID, you must specify `../groups/default` in the API path. 
 
@@ -59,4 +76,4 @@ $ curl http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts/my-shar
 
 [role="_additional-resources"]
 .Additional resources
-* For more REST API sample requests, see the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation].
+* For more REST API sample requests, see the {registry-rest-api}

@@ -1,7 +1,7 @@
 // Module included in the following assemblies:
 // assembly-using-kafka-client-serdes
 
-[id='registry-serdes-concepts-strategy-{context}']
+[id='registry-serdes-concepts-strategy_{context}']
 = Strategies to look up a schema in {registry}
 
 [role="_abstract"]

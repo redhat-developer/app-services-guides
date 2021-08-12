@@ -10,12 +10,12 @@ include::{mod-loc}shared/all-attributes.adoc[]
 
 This chapter explains how to use Kafka client SerDe in your producer and consumer client applications:
 
-* xref:registry-serdes-concepts-serde-{context}[]
-* xref:registry-serdes-concepts-strategy-{context}[]
-* xref:registry-serdes-register-{context}[]
-* xref:registry-serdes-config-consumer-{context}[]
-* xref:registry-serdes-config-producer-{context}[]
-* xref:registry-serdes-config-stream-{context}[]
+* xref:registry-serdes-concepts-serde_{context}[]
+* xref:registry-serdes-concepts-strategy_{context}[]
+* xref:registry-serdes-register_{context}[]
+* xref:registry-serdes-config-consumer_{context}[]
+* xref:registry-serdes-config-producer_{context}[]
+* xref:registry-serdes-config-stream_{context}[]
 
 .Prerequisites
 * You have read {registry-overview}

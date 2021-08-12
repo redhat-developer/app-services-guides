@@ -1,4 +1,4 @@
-[id="registry-logging"]
+[id="registry-logging_{context}"]
 = Configuring {registry} logging
 
 You can set {registry} logging configuration at runtime. {registry} provides a REST endpoint to set the log level for specific loggers for finer grained logging. This section explains how to view and set {registry} log levels at runtime using the {registry} `/admin` REST API.

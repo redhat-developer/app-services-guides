@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-migration"]
+[id="registry-migration_{context}"]
 = Migration from {registry} {registry-v1} to 2.x
 
 [role="_abstract"]

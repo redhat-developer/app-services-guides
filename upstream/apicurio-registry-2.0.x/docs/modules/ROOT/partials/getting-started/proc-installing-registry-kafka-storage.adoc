@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_installing-the-registry.adoc
 
-[id="installing-registry-kafka-storage"]
+[id="installing-registry-kafka-storage_{context}"]
 ifdef::apicurio-registry[]
 = Installing {registry} with Apache Kafka storage
 endif::[]

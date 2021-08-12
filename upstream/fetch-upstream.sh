@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # pull down upstream apicurio registry docs
-branch=2.0.x
+branch=master
 
 echo "info: fetching upstream content from apicurio registry branch: $branch"
 echo 

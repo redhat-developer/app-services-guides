@@ -4,6 +4,13 @@
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
 :rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.0.1.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+
 
 [IMPORTANT]
 ====
@@ -14,12 +21,13 @@
 Discover the features and functions available in the {product-long} cloud service.
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-overview.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-artifacts.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-rules.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-web-console.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-rest-api.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-serde.adoc[leveloffset=+1]
-include::../modules/introduction/con-kafka-connect-converters.adoc[leveloffset=+1]
-include::../modules/introduction/con-registry-demo.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-overview.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-artifacts.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-rules.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-web-console.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-serde.adoc[leveloffset=+1]
+include::../modules/introduction/con-kafka-topic-to-schema.adoc[leveloffset=+1]
+include::{reuse-modules}/con-kafka-connect-converters.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-demo.adoc[leveloffset=+1]
 include::../modules/introduction/con-introduction-preview.adoc[leveloffset=+1]

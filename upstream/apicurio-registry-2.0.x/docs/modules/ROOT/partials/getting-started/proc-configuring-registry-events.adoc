@@ -1,4 +1,4 @@
-[id="registry-cloud-events"]
+[id="registry-cloud-events_{context}"]
 = Configuring {registry} event sourcing
 
 You can configure {registry} to send events when changes are made to the registry. For example, {registry} can trigger events when schema and API artifacts are created, updated, deleted, and so on. You can configure {registry} to send events to your applications and to third-party integrations in this way.

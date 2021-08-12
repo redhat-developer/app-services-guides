@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_installing-the-registry.adoc
 
-[id="installing-registry-sql-storage"]
+[id="installing-registry-sql-storage_{context}"]
 = Installing {registry} with SQL database storage
 
 [role="_abstract"]
