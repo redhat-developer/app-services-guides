@@ -8,12 +8,12 @@ include::{mod-loc}shared/all-attributes.adoc[]
 [role="_abstract"]
 This chapter provides detailed information on how to configure Kafka SerDes in your producer and consumer Java client applications:
 
-* xref:registry-serdes-concepts-constants-{context}[]
-* xref:registry-serdes-config-props-{context}[]
-* xref:registry-serdes-types-serde-{context}[]
-* xref:registry-serdes-types-avro-{context}[]
-* xref:registry-serdes-types-json-{context}[]
-* xref:registry-serdes-types-protobuf-{context}[]
+* xref:registry-serdes-concepts-constants_{context}[]
+* xref:registry-serdes-config-props_{context}[]
+* xref:registry-serdes-types-serde_{context}[]
+* xref:registry-serdes-types-avro_{context}[]
+* xref:registry-serdes-types-json_{context}[]
+* xref:registry-serdes-types-protobuf_{context}[]
 
 
 .Prerequisites

@@ -1,7 +1,7 @@
 // Module included in the following assemblies:
 //  assembly-using-kafka-client-serdes
 
-[id='registry-serdes-concepts-constants-{context}']
+[id='registry-serdes-concepts-constants_{context}']
 = {registry} serializer/deserializer configuration in client applications
  
 [role="_abstract"]
@@ -30,7 +30,7 @@ The setting should not be used with the `ID_HANDLER` option.
 [role="_additional-resources"]
 .Additional resources
 
-** For more details on configuration options, see xref:registry-serdes-config-props-{context}[]
+** For more details on configuration options, see xref:registry-serdes-config-props_{context}[]
 
 
 [discrete]
@@ -51,7 +51,7 @@ public class SerdeConfig {
 .Additional resources
 
 * For more details on look up strategies, see {kafka-client-serdes}
-* For more details on configuration options, see xref:registry-serdes-config-props-{context}[]
+* For more details on configuration options, see xref:registry-serdes-config-props_{context}[]
 
 [discrete]
 == Configuration for Kafka converters
@@ -76,9 +76,9 @@ public class SerdeBasedConverter<S, T> extends SchemaResolverConfigurer<S, T> im
 
 For details on how to configure SerDe for different schema technologies, see the following: 
 
-* xref:registry-serdes-types-avro-registry[]
-* xref:registry-serdes-types-json-registry[]
-* xref:registry-serdes-types-protobuf-registry[]
+* xref:registry-serdes-types-avro_registry[]
+* xref:registry-serdes-types-json_registry[]
+* xref:registry-serdes-types-protobuf_registry[]
 
 
 

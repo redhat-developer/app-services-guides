@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts-api.adoc
 
-[id="managing-artifact-versions-using-rest-api"]
+[id="managing-artifact-versions-using-rest-api_{context}"]
 = Managing schema and API artifact versions using Registry REST API commands
 
 [role="_abstract"]
@@ -76,4 +76,4 @@ $ curl http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts/my-shar
 
 [role="_additional-resources"]
 .Additional resources
-* For more REST API sample requests, see the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation].
+* For more REST API sample requests, see the {registry-rest-api}

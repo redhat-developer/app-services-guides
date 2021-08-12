@@ -5,6 +5,11 @@
 :attachmentsdir: ../_attachments
 :reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
 :rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.0.1.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
 
 
 [IMPORTANT]
@@ -22,8 +27,9 @@ include::{reuse-modules}/proc-configuring-rules-using-console.adoc[leveloffset=+
 include::{reuse-modules}/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
-include::{reuse-modules}/ref-registry-artifact-types.adoc[leveloffset=+1]
-include::{reuse-modules}/ref-registry-artifact-states.adoc[leveloffset=+1]
-include::{reuse-modules}/ref-registry-artifact-metadata.adoc[leveloffset=+1]
-include::{reuse-modules}/ref-registry-rule-types.adoc[leveloffset=+1]
-include::{reuse-modules}/ref-registry-rule-maturity-matrix.adoc[leveloffset=+1]
+include::../modules/user-guide/ref-registry-reference.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-types.adoc[leveloffset=+2]
+include::{reuse-modules}/ref-registry-artifact-states.adoc[leveloffset=+2]
+include::{reuse-modules}/ref-registry-artifact-metadata.adoc[leveloffset=+2]
+include::{reuse-modules}/ref-registry-rule-types.adoc[leveloffset=+2]
+include::{reuse-modules}/ref-registry-rule-maturity-matrix.adoc[leveloffset=+2]

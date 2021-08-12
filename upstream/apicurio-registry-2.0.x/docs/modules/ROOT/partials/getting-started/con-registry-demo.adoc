@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-demo"]
+[id="registry-demo_{context}"]
 = {registry} demonstration examples
 
 [role="_abstract"]

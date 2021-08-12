@@ -1,7 +1,6 @@
 // Metadata created by nebel
 
-
-[id="kafka-connect"]
+[id="kafka-connect_{context}"]
 = Stream data to external systems with Kafka Connect converters 
 
 [role="_abstract"]

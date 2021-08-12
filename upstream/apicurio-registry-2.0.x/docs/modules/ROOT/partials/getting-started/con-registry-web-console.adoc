@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-web-console"]
+[id="registry-web-console_{context}"]
 = Manage content using the {registry} web console
 
 [role="_abstract"]

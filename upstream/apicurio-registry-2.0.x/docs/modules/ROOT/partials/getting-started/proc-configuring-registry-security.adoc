@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-security"]
+[id="registry-security_{context}"]
 
 = Configuring {registry} authentication and authorization with {keycloak}
 
@@ -14,7 +14,7 @@ ifdef::apicurio-registry[]
 see the link:https://www.apicur.io/registry/docs/apicurio-registry-operator/{operator-version}/assembly-registry-maintenance.html#registry-security-keycloak[{registry} Operator documentation].
 endif::[]
 ifdef::rh-service-registry[]
-see xref:registry-security-keycloak[]. 
+see xref:registry-security-keycloak_{context}[]. 
 endif::[]
 ====
 
@@ -91,7 +91,7 @@ You can use the defaults for the other client settings.
 |`apicurio-registry`
 |===
 +
-TIP: For an example of setting environment variables on OpenShift, see xref:configuring-liveness-readiness-probes[]. 
+TIP: For an example of setting environment variables on OpenShift, see xref:configuring-liveness-readiness-probes_{context}[]. 
 
 . Set the following option to `true` to enable {registry} user roles in {keycloak}:
 +

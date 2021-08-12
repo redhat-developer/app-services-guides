@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-artifact-metadata"]
+[id="registry-artifact-metadata_{context}"]
 = {registry} artifact metadata
 
 [role="_abstract"]
@@ -57,4 +57,4 @@ a| true
 
 [role="_additional-resources"]
 .Additional resources
-For more details, see the `/artifacts/\{artifactId\}/meta` sections in the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation].
+For more details, see the `/artifacts/\{artifactId\}/meta` sections in the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation]

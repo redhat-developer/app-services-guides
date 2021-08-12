@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/assembly-using-the-registry-client.adoc
 
-[id="registry-client-config"]
+[id="registry-client-config_{context}"]
 = {registry} Java client configuration
 
 [role="_abstract"]

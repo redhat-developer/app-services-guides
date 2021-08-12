@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts.adoc
 
-[id="exporting-importing-using-rest-api"]
+[id="exporting-importing-using-rest-api_{context}"]
 = Exporting and importing registry content using Registry REST API commands
 
 [role="_abstract"]
@@ -68,7 +68,7 @@ endif::[]
 
 [role="_additional-resources"]
 .Additional resources
-* For more details, see the `admin` endpoint in the link:{attachmentsdir}/registry-rest-api.htm[Apicurio Registry REST API documentation]
+* For more details, see the `admin` endpoint in the {registry-rest-api}
 ifdef::apicurio-registry,rh-service-registry[]
 * For details on export tools for migrating from {registry} version 1.x to 2.x, see link:https://github.com/Apicurio/apicurio-registry/tree/master/utils/exportV1[Apicurio Registry export utility for 1.x versions]
 endif::[]

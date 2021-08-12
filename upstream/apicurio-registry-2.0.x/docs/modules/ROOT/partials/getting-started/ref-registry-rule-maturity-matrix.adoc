@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_registry-reference.adoc
 
-[id="registry-rule-maturity-matrix"]
+[id="registry-rule-maturity-matrix_{context}"]
 = {registry} content rule maturity
 
 [role="_abstract"]

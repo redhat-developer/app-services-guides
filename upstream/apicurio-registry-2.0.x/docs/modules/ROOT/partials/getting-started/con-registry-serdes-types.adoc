@@ -1,7 +1,7 @@
 // Module included in the following assemblies:
 //  assembly-using-kafka-client-serdes
 
-[id='registry-serdes-types-serde-{context}']
+[id='registry-serdes-types-serde_{context}']
 = How to configure different client serializer/deserializer types
 
 [role="_abstract"]

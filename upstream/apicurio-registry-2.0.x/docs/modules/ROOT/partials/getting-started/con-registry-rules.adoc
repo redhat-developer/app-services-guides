@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-rules"]
+[id="registry-rules_{context}"]
 
 = Govern registry content using rules
 

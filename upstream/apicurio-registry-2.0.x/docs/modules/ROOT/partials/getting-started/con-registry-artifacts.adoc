@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-artifacts"]
+[id="registry-artifacts_{context}"]
 = Schema and API artifacts and groups in {registry} 
 
 [role="_abstract"]

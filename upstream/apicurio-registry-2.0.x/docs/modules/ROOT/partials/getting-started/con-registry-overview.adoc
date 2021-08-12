@@ -1,6 +1,6 @@
 // Metadata created by nebel
 
-[id="registry-overview"]
+[id="registry-overview_{context}"]
 = What is {registry}?
 
 [role="_abstract"]

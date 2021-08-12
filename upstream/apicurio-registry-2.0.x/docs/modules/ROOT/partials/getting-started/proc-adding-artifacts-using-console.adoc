@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts.adoc
 
-[id="adding-artifacts-using-console"]
+[id="adding-artifacts-using-console_{context}"]
 = Adding artifacts using the {registry} web console
 
 [role="_abstract"]
@@ -59,7 +59,7 @@ WARNING: Deleting an artifact deletes the artifact and all of its versions, and 
 ifdef::apicurio-registry,rh-service-registry[]
 [role="_additional-resources"]
 .Additional resources
-* xref:browsing-artifacts-using-console[]
-* xref:configuring-rules-using-console[]
+* xref:browsing-artifacts-using-console_{context}[]
+* xref:configuring-rules-using-console_{context}[]
 * {registry-reference}
 endif::[]

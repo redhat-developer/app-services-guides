@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts.adoc
 
-[id="configuring-rules-using-console"]
+[id="configuring-rules-using-console_{context}"]
 = Configuring content rules using the {registry} web console
 
 [role="_abstract"]
@@ -46,6 +46,6 @@ endif::[]
 ifdef::apicurio-registry,rh-service-registry[]
 [role="_additional-resources"]
 .Additional resources
-* xref:adding-artifacts-using-console[]
+* xref:adding-artifacts-using-console_{context}[]
 * {registry-reference}
 endif::[]

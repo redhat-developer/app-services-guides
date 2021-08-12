@@ -1,5 +1,5 @@
 
-[id="configuring-registry-ui"]
+[id="configuring-registry-ui_{context}"]
 = Configuring the {registry} web console 
 
 [role="_abstract"]

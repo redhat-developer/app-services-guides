@@ -1,4 +1,4 @@
-[id="introduction-preview"]
+[id="registry-intro-preview_{context}"]
 = Try {product-long}
 
 [role="_abstract"]

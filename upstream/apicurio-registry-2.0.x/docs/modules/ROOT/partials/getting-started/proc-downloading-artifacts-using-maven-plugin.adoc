@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_installing-the-registry.adoc
 
-[id="downloading-artifacts-using-maven-plugin"]
+[id="downloading-artifacts-using-maven-plugin_{context}"]
 = Downloading schema and API artifacts using the Maven plug-in
 
 [role="_abstract"]

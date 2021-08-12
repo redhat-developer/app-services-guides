@@ -1,7 +1,7 @@
 // Metadata created by nebel
 // ParentAssemblies: assemblies/getting-started/as_registry-reference.adoc
 
-[id="registry-artifact-states"]
+[id="registry-artifact-states_{context}"]
 
 = {registry} artifact states
 
