@@ -55,11 +55,11 @@ endif::[]
 * You have a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
-* https://nodejs.org/en/download/[Node.js 14.x^] is installed.
+* https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
 
 [NOTE]
 ====
-The example Node.js application in this quick start uses a https://kafka.js.org/[KafkaJS^] client by default. If you want to use a https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer, or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the Node.js application.
+The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer, or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
 ====
 
 // Condition out QS-only content so that it doesn't appear in docs.
@@ -79,7 +79,6 @@ endif::[]
 For this quick start, you'll use sample code from the Nodeshift Application Starters https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Node.js applications with {product} in the same way.
 
 .Procedure
-. On your computer, open a command-line window.
 . On the command line, clone the Nodeshift Application Starters https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository from GitHub.
 +
 .Cloning the reactive-example repository
@@ -107,9 +106,7 @@ In this task, you'll create a new configuration file called `.env`. In this file
 
 .Prerequisites
 ifndef::qs[]
-* You have the bootstrap server endpoint and client credentials for the Kafka instance. You can get this information as follows:
-** For the bootstrap server endpoint, select the options menu (three vertical dots) for a Kafka instance in {product}. Click *View connection information*.
-** For the client ID and client secret, you're prompted to copy and store these credentials when you create a service account in {product}.
+* You have the bootstrap server endpoint and the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
 endif::[]
 
 .Procedure
@@ -139,7 +136,7 @@ The values are described as follows:
 --
 endif::[]
 +
-In this case, observe that the Node.js application uses the `SASL/PLAIN` authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application *doesn't* also require an authentication token.
+In this case, observe that the Node.js application uses the `SASL/PLAIN` authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
 
 . Save the `.env` file.
 
@@ -223,7 +220,7 @@ You should see the Node.js application start to run and connect to the Kafka ins
 +
 If the application fails to run, review the error log in the command-line window and address any problems. Also, review the steps in this quick start to ensure that the application and Kafka topic are configured correctly.
 
-. On your computer, open a second command-line window or tab.
+. Open a second command-line window or tab.
 
 . On the second command line, navigate to the `reactive-example` directory of the repository that you cloned.
 +
