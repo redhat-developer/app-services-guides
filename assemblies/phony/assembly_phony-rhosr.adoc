@@ -1,5 +1,5 @@
 [id="phony-rhosr_{context}"]
-= Phony {product-name}
+= Phony {product}
 
 :context: rhosr-phony
 
