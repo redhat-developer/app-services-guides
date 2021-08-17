@@ -8,6 +8,7 @@ import {
 } from "@patternfly/quickstarts";
 import { loadJSONQuickStarts } from "@app/quickstartLoader";
 import {useAssets} from "@bf2/ui-shared";
+import {MASLoading} from "@app/common";
 
 const getElement = (node: HTMLElement | (() => HTMLElement)) => {
   if (typeof node === "function") {
@@ -78,7 +79,7 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
       </QuickStartContextProvider>
     );
   } else {
-    return children;
+    return <MASLoading />;
   }
 };
 
