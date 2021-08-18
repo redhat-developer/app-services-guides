@@ -56,6 +56,7 @@ const QuickStartLoader: FunctionComponent = ({ showDrafts, onLoad }) => {
     };
     // simulate wait
     setTimeout(() => {
+        console.log(`guides: loading`);
         load();
     }, 3000);
   }, [assets, showDrafts]);
