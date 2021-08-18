@@ -9,7 +9,7 @@ For this quick start, the Kafka topic that the Quarkus example application refer
 
 .Procedure
 . In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to add a topic to.
-. Click *Create topic* and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
+. Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 [.screencapture]
 .Guided steps to define topic details
@@ -17,7 +17,7 @@ image::quarkus/sak-create-topic.png[Image of wizard to create a topic]
 
 * *Topic name*: Enter `prices` as the topic name.
 * *Partitions*: Set the number of partitions for this topic. This example sets the partition to `1` for a single partition. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
-* *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `7 days` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
+* *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `A week` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
 * *Replicas*: For this release of {product}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 +
 After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now run the Quarkus application to start producing and consuming messages to and from this topic.

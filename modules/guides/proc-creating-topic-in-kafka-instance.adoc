@@ -15,7 +15,7 @@ In the previous step of this tutorial, you created an example OpenShift applicat
 .Procedure
 . On the link:{service-url}[Kafka Instances^] page of the {product} web console, click the name of the Kafka instance that you want to add a topic to.
 
-. Click *Create topic* and follow the guided steps to define the details of the `prices` topic. Click *Next* to complete each step and click *Finish* to complete the setup.
+. Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the details of the `prices` topic. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 .Guided steps to define topic
 image::service-discovery/sak-create-prices-topic.png[Image of wizard to create prices topic]
@@ -25,7 +25,7 @@ image::service-discovery/sak-create-prices-topic.png[Image of wizard to create p
 +
 NOTE: You can increase the number of partitions later, but you cannot decrease them.
 +
-*Message retention*:: Set the message retention time to the relevant value and increment. For this tutorial, set a value of `7 days`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
+*Message retention*:: Set the message retention time to the relevant value and increment. For this tutorial, set a value of `A week`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy.
 *Replicas*:: For this release of {product}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 +
 After you complete the topic setup, the new Kafka topic is listed in the topics table.
