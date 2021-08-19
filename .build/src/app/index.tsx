@@ -9,20 +9,20 @@ export const DemoContext = React.createContext({
 });
 
 const App = () => {
-  const [context, setContext] = React.useState({
+  const [qsState, setQsState] = React.useState({
     quickStarts: [],
     loading: true
   });
   return (
-    <DemoContext.Provider value={context}>
-      <QuickStartDrawerFederated>
-        <DemoPage />
-      </QuickStartDrawerFederated>
-      <QuickStartLoader onLoad={(qs) => setContext({
-        quickStarts: qs,
-        loading: false
-      })} />
-    </DemoContext.Provider>
+    <>
+    <QuickStartDrawerFederated quickStarts={qsState.quickStarts} loading={qsState.loading}>
+      <DemoPage />
+    </QuickStartDrawerFederated>
+    <QuickStartLoader onLoad={(qs) => setQsState({
+      quickStarts: qs,
+      loading: false
+    })} />
+    </>
   )};
 
 export { App };

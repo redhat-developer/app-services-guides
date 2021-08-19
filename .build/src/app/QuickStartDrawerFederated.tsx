@@ -1,14 +1,14 @@
 import "@patternfly/quickstarts/dist/quickstarts.min.css";
 
-import React, { useState, useEffect, FunctionComponent, useContext } from "react";
+import React, { useState, useEffect, FunctionComponent } from "react";
 import {
   QuickStartContextProvider,
   QuickStartDrawer,
   useLocalStorage,
+  QuickStartContainer,
 } from "@patternfly/quickstarts";
 import { loadJSONQuickStarts } from "@app/quickstartLoader";
 import {useAssets} from "@bf2/ui-shared";
-import { DemoContext } from "./index";
 
 const getElement = (node: HTMLElement | (() => HTMLElement)) => {
   if (typeof node === "function") {
@@ -31,6 +31,8 @@ const xQuickStartDrawerFederated = ({ className, children, ...props }) => <div c
 
 const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({
   children,
+  quickStarts,
+  loading,
   showDrafts,
   appendTo,
   root,
@@ -55,21 +57,19 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     }
   }, [root, activeQuickStartID]);
 
-  const { quickStarts } = useContext(DemoContext);
-
   const drawerProps = {
     quickStarts,
     activeQuickStartID,
     allQuickStartStates,
     setActiveQuickStartID,
     setAllQuickStartStates,
-    loading: quickStarts.length === 0,
+    loading,
     appendTo,
   };
   debugger;
 
   return (
-    <QuickStartDrawer {...drawerProps} {...props}>{children}</QuickStartDrawer>
+    <QuickStartContainer {...drawerProps} {...props}>{children}</QuickStartContainer>
   );
 };
 

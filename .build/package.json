@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "@bf2/ui-shared": "0.8.0",
-    "@patternfly/quickstarts": "1.1.0",
+    "@patternfly/quickstarts": "1.2.0-rc.1",
     "@patternfly/react-core": "4.135.0",
     "@redhat-cloud-services/frontend-components-config": "4.3.3",
     "react": "17.0.2",

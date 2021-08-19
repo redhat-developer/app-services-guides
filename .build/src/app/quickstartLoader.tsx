@@ -41,18 +41,24 @@ export const loadJSONQuickStarts = async (
 export interface QuickStartLoaderProps {
   children: React.ReactNode;
   showDrafts?: boolean;
-  onLoad?: (quickStarts: QuickStart[]) => {};
+  onLoad: (quickStarts: QuickStart[]) => {};
 }
 
 const QuickStartLoader: FunctionComponent = ({ showDrafts, onLoad }) => {
+  const [loaded, setLoaded] = useState(false);
   const assets = useAssets();
   useEffect(() => {
+    if (loaded) {
+        console.log('already loaded guides');
+        return null;
+    }
     const load = async () => {
       const quickstarts = await loadJSONQuickStarts(
         assets?.getPath() || "",
         showDrafts
       );
-      onLoad && onLoad(quickstarts);
+      onLoad(quickstarts);
+      setLoaded(true);
     };
     // simulate wait
     setTimeout(() => {

@@ -143,7 +143,11 @@ module.exports = (env, argv) => {
             eager: true,
             singleton: true,
             requiredVersion: dependencies["@bf2/ui-shared"]
-          }
+          },
+          "@patternfly/quickstarts": {
+            requiredVersion: dependencies["@patternfly/quickstarts"], 
+            singleton: true
+          },
         },
       })
     ],
