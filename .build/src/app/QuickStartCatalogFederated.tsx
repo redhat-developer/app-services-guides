@@ -34,7 +34,10 @@ const MasQuickStartCatalog: React.FC = () => {
     allQuickStarts,
     filter,
     setFilter,
+    loading,
   } = React.useContext<QuickStartContextValues>(QuickStartContext);
+  console.log(`catalog federated`);
+  console.log(allQuickStarts);
 
   const initialQueryParams = new URLSearchParams(window.location.search);
   const initialSearchQuery =
@@ -74,7 +77,6 @@ const MasQuickStartCatalog: React.FC = () => {
       allQuickStartStates
     ).sort(sortFnc);
     if (filteredQs.length !== filteredQuickStarts.length) {
-      debugger;
       setFilteredQuickStarts(filteredQs);
     }
   }, [allQuickStarts, filter, allQuickStartStates, setFilteredQuickStarts]);
@@ -87,7 +89,6 @@ const MasQuickStartCatalog: React.FC = () => {
       allQuickStartStates
     ).sort(sortFnc);
     if (result.length !== filteredQuickStarts.length) {
-      debugger;
       setFilteredQuickStarts(result);
     }
   };
@@ -96,7 +97,7 @@ const MasQuickStartCatalog: React.FC = () => {
     <>
       <QuickStartCatalogSection>
         <TextContent>
-          <Text component="h2">Hello world! Quick starts</Text>
+          <Text component="h2">Quick starts</Text>
           <Text component="p" className="mk-catalog-sub">
             Step-by-step instructions and tasks
           </Text>
@@ -174,7 +175,7 @@ const MasQuickStartCatalog: React.FC = () => {
     setFilteredQuickStarts(allQuickStarts.sort(sortFnc));
   };
 
-  if (allQuickStarts.length === 0) {
+  if (loading) {
     return <LoadingBox />;
   }
 
