@@ -22,8 +22,8 @@ import {
   QuickStartCatalogHeader,
   QuickStartCatalogToolbar,
   clearFilterParams,
-  LoadingBox,
 } from "@patternfly/quickstarts";
+import {MASLoading} from "@app/common";
 import { GuidesQuickStart } from "./procedure-parser";
 import "./Catalog.css";
 
@@ -34,10 +34,7 @@ const MasQuickStartCatalog: React.FC = () => {
     allQuickStarts,
     filter,
     setFilter,
-    loading,
   } = React.useContext<QuickStartContextValues>(QuickStartContext);
-  console.log(`catalog federated`);
-  console.log(allQuickStarts);
 
   const initialQueryParams = new URLSearchParams(window.location.search);
   const initialSearchQuery =
@@ -175,8 +172,8 @@ const MasQuickStartCatalog: React.FC = () => {
     setFilteredQuickStarts(allQuickStarts.sort(sortFnc));
   };
 
-  if (loading) {
-    return <LoadingBox />;
+  if (allQuickStarts.length === 0) {
+    return <MASLoading />;
   }
 
   return (
