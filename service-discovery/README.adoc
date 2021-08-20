@@ -649,26 +649,26 @@ On the *Topology* page for your project, you should see an icon for the `KafkaCo
 +
 You should also see icons for the producer and consumer components of the Node.js application that you deployed. Each component is a `DeploymentConfig` object and is labelled `DC`.
 
-. Hover the mouse pointer over the icon for the consumer component.
-+
-An arrow with a dotted line appears from the icon, as shown in the figure.
+. To start creating a service binding connection, hover the mouse pointer over the icon for the consumer component.
 +
 .Starting a service binding connection
 image::sak-service-binding-arrow.png[Image of arrow to create a binding connection]
++
+As shown in the figure, an arrow with a dotted line appears from the icon.
 
 . Left-click and drag the head of the arrow until it's directly over the icon for the `KafkaConnection` object.
 +
-A tooltip appears over the icon for the `KafkaConnection` object, as shown in the figure.
-+
-.A completed service binding connection
+.Creating the service binding connection
 image::sak-service-binding-tooltip.png[Image of service binding tooltip]
 +
-The tooltip indicates that you're about to create a service binding connection.
+As shown in the figure, a tooltip appears over the icon for the `KafkaConnection` object. The tooltip indicates that you're about to create a service binding connection.
 
-. Release the left mouse button to complete the service binding connection, as shown in the figure.
+. To create the service binding connection, release the left mouse button.
 +
-.A completed service binding connection
+.The completed service binding connection
 image::sak-service-binding-connection.png[Image of completed binding connection]
++
+As shown in the figure, this action completes the connection. 
 +
 When you create the binding connection, the Service Binding Operator injects connection parameters as files into the pod for the consumer component. The `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^] used by the consumer component automatically detects these files and converts the information into the format required by the KafkaJS client that the component uses by default.
 
