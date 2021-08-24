@@ -13,7 +13,7 @@
 
 == OpenShift quick starts
 
-* link:./devsandbox-quickstarts[OpenShift quick starts]
+* link:https://github.com/redhat-developer/app-services-operator/tree/main/olm/quickstarts[OpenShift quick starts]
 
 == Application examples used in guides
 
