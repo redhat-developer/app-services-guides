@@ -51,7 +51,7 @@ endif::[]
 ////
 // Commenting out the following for now, which belongs in an onboarding tour (Stetson, 4 March 2021)
 
-When you're in the {Product_short} environment, you will see a left menu panel. This panel provides access to all resources related to the service, including the `Quick Starts` and `Documentation`.
+When you're in the {Product_short} environment, you will see a left menu panel. This panel provides access to all resources related to the service, including the `Quick starts` and `Documentation`.
 
 In the lower left of the screen you'll see a lightbulb icon. This icon gives access to the `Resource Center`. Here you can find the latest information about the service, like product updates, upcoming events, etc.
 
