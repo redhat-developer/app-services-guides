@@ -41,7 +41,7 @@ npm --prefix .build run generate:attributes
 
 == Repository structure
 
-This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in Quick Starts) in implementations of {Product}.
+This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in quick starts) in implementations of {Product}.
 
 Each guide is contained in a separate directory. The directory must contain:
 
@@ -94,11 +94,11 @@ A check exists in the continuous integration job that validates that generation 
 
 The file `.adocignore` contains a list of globs which will be ignored by the attribute injector (e.g. this file).
 
-== Creating a Quick Start
+== Creating a quick start
 
-Many of the guides in this repository are also available as "Quick Starts". Quick Starts are available in the Web UI for the {Product} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
+Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {Product} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
 
-We would always recommend starting with a guide and then adding the Quick Start metadata. This will allow your content to be accessible both in the Web UI and via GitHub.
+We would always recommend starting with a guide and then adding the quick start metadata. This will allow your content to be accessible both in the Web UI and via GitHub.
 
 === Adding support for quickstart.yml to your IDE
 
@@ -140,7 +140,7 @@ export ATTRIBUTES_FILE=<path to attributes file>
 npm run start:dev
 ----
 
-=== Converting your guide into a Quick Start
+=== Converting your guide into a quick start
 
 . Add a `quickstart.yml` file to the same directory as the `README.adoc` for the guide.
 +
@@ -170,7 +170,7 @@ spec:
   displayName: !snippet/title README.adoc#<id>
 ----
 +
-The `!<tag name>` syntax represents a custom data type in YAML. When the `quickstart.yml` document is deserialized by the YAML parser, the quick start renderer is able to inject content. The `quickstart.yml` parser makes use of custom data types to inject content from an AsciiDoc file into the Quick Start. This allows us to better comply with the DRY principle.
+The `!<tag name>` syntax represents a custom data type in YAML. When the `quickstart.yml` document is deserialized by the YAML parser, the quick start renderer is able to inject content. The `quickstart.yml` parser makes use of custom data types to inject content from an AsciiDoc file into the quick start. This allows us to better comply with the DRY principle.
 +
 The tag `!snippet/title` allows us to use a link:https://asciidoctor.org/docs/asciidoc-writers-guide/#titles-titles-titles[title] from an AsciiDoc file. In order to this we provide the relative path to an AsciiDoc source file (in this case the `README.adoc` that contains the guide content), followed by the `##` symbol, followed by the link:https://docs.asciidoctor.org/asciidoc/latest/sections/custom-ids/[id] of a link:https://docs.asciidoctor.org/asciidoc/latest/blocks/[block].
 +
@@ -239,7 +239,7 @@ Here are some examples:
 
 link:https://github.com/redhataccess/pantheon[Pantheon 2.x] is a modular documentation management and publication system built on top of AsciiDoc.
 
-NOTE: Currently, Pantheon is integrated with Quick Starts during the Webpack build, meaning that to refresh the content you must rebuild the Quick Starts.
+NOTE: Currently, Pantheon is integrated with quick starts during the Webpack build, meaning that to refresh the content you must rebuild the quick starts.
 
 In order to use content published by Pantheon you must map the `!snippet` and `snippet/*` tags that need to use Pantheon to a Pantheon UUID and type. Additionally, you must provide the base URL of your Pantheon server.
 

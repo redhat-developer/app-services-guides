@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "https://github.com/redhat-developer/app-services-guides/quickstart.schema.json",
   "type": "object",
-  "title": "A Quick Start",
+  "title": "A quick start",
   "examples": [
     {
       "apiVersion": "console.openshift.io/v1",
@@ -169,7 +169,7 @@
     "spec": {
       "$id": "#/properties/spec",
       "type": "object",
-      "description": "Specification of the Quick Start",
+      "description": "Specification of the quick start",
       "examples": [
         {
           "version": 4.7,
@@ -244,7 +244,7 @@
         "version": {
           "$id": "#/properties/spec/properties/version",
           "type": "number",
-          "description": "The version of the Quick Start",
+          "description": "The version of the quick start",
           "default": 0.0,
           "examples": [
             4.7
@@ -444,7 +444,7 @@
               {
                 "$id": "#/properties/spec/properties/tasks/items/anyOf/1",
                 "type": "object",
-                "description": "A full description of the Quick Start",
+                "description": "A full description of the quick start",
                 "examples": [
                   {
                     "title": "Installing the OpenShift Pipelines Operator",
@@ -471,7 +471,7 @@
                   "title": {
                     "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/title",
                     "type": "string",
-                    "description": "The title of the Quick Start",
+                    "description": "The title of the quick start",
                     "examples": [
                       "Installing the OpenShift Pipelines Operator"
                     ]
@@ -479,7 +479,7 @@
                   "description": {
                     "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/description",
                     "type": "string",
-                    "description": "The body of the Quick Start",
+                    "description": "The body of the quick start",
                     "default": "",
                     "examples": [
                       "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. "
@@ -488,7 +488,7 @@
                   "review": {
                     "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review",
                     "type": "object",
-                    "description": "The messages used review the Quick Start",
+                    "description": "The messages used review the quick start",
                     "default": {},
                     "examples": [
                       {
@@ -519,7 +519,7 @@
                   "summary": {
                     "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary",
                     "type": "object",
-                    "description": "The summary screen for the Quick Start task",
+                    "description": "The summary screen for the quick start task",
                     "default": {},
                     "examples": [
                       {

@@ -1,4 +1,4 @@
-Quarkus Kafka Quickstart
+Quarkus Kafka quick start
 ========================
 To see how to use this code example follow the [quick start](../../quarkus).
 

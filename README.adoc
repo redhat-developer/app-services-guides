@@ -1,24 +1,24 @@
 :PRODUCT: App Services
 
-= {PRODUCT} Guides & Samples
+= {PRODUCT} Guides and samples
 
 == Guides
 
-* link:./getting-started[The Getting Started Guide]
-* link:./rhoas-cli[Using the RHOAS CLI]
-* link:./quarkus[Using {PRODUCT} with Quarkus]
-* link:./kafkacat[Using {PRODUCT} with Kafkacat]
-* link:./kafka-bin-scripts[Using {PRODUCT} with Kafka Bin Scripts]
-* link:./service-discovery[Service Discovery and Binding in your OpenShift Cluster {PRODUCT}]
+* link:./getting-started[Getting started with {PRODUCT}]
+* link:./rhoas-cli[Getting started with the `rhoas` CLI]
+* link:./quarkus[Using Quarkus applications with Kafka instances in {PRODUCT}]
+* link:./kafkacat[Using Kafkacat with Kafka instances in {PRODUCT}]
+* link:./kafka-bin-scripts[Using Kafka bin scripts with {PRODUCT}]
+* link:./service-discovery[Binding OpenShift applications to {PRODUCT}]
 
-== OpenShift Quickstarts
+== OpenShift quick starts
 
-* link:./devsandbox-quickstarts[OpenShift Quick Starts]
+* link:https://github.com/redhat-developer/app-services-operator/tree/main/olm/quickstarts[OpenShift quick starts]
 
-== Application Examples used in Guides
+== Application examples used in guides
 
-* link:./code-examples/quarkus-kafka-quickstart[Quarkus example]
+* link:./code-examples/quarkus-kafka-quickstart[Quarkus Kafka quick start]
 
 == Contributing
 
-* link:./CONTRIBUTING.adoc[Creating new guide]
+* link:./CONTRIBUTING.adoc[Contributing to {PRODUCT} guides]
