@@ -113,7 +113,7 @@ Before you can bind Kafka instances in {product-long} to applications on OpenShi
 An information sidebar for the Service Binding Operator opens.
 . In the sidebar, review the information about the Service Binding Operator and click *Install*.
 . On the *Install Operator* page, perform the following actions:
-.. For the *Update channel* option, select `beta`.
+.. For the *Update channel* option, ensure that `beta` is selected.
 .. For the *Installation mode* option, ensure that `All namespaces on the cluster` is selected.
 .. For the *Installed Namespace* and *Update approval* options, keep the default values.
 .. Click *Install*.
@@ -303,8 +303,8 @@ my-kafka-instance    2m35s
 +
 As shown in the output, the RHOAS Operator creates a `KafkaConnection` resource that matches the name of your Kafka instance. In this example, the resource name matches a Kafka instance called `my-kafka-instance`.
 
-[id="con-binding-openshift-application-using-cli_{context}"]
-== Binding an OpenShift application to {product-long} using the RHOAS CLI
+[id="con-binding-quarkus-application-using-cli_{context}"]
+== Binding a Quarkus application to {product-long} using the RHOAS CLI
 
 When the RHOAS Operator is installed on your OpenShift cluster, and you've connected a Kafka instance to the cluster, you can use the RHOAS CLI to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
 
@@ -475,8 +475,8 @@ When service binding is complete, OpenShift redeploys the Quarkus application. W
 +
 On the *Last price* web page, observe that the price value is continuously updated. The updates show that the Quarkus application is now using the `prices` topic in your Kafka instance to produce and consume messages that correspond to price updates.
 
-[id="con-binding-openshift-application-using-web-console_{context}"]
-== Binding an OpenShift application to {product-long} using the OpenShift web console
+[id="con-binding-nodejs-application-using-web-console_{context}"]
+== Binding a Node.js application to {product-long} using the OpenShift web console
 
 When the RHOAS Operator is installed on your OpenShift cluster and you've connected a Kafka instance to the cluster, you can use the OpenShift web console to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
 
@@ -668,7 +668,7 @@ As shown in the figure, a tooltip appears over the icon for the `KafkaConnection
 .The completed service binding connection
 image::sak-service-binding-connection.png[Image of completed binding connection]
 +
-As shown in the figure, this action completes the connection. 
+As shown in the figure, this action completes the connection.
 +
 When you create the binding connection, the Service Binding Operator injects connection parameters as files into the pod for the consumer component. The `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^] used by the consumer component automatically detects these files and converts the information into the format required by the KafkaJS client that the component uses by default.
 
