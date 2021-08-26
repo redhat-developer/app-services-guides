@@ -645,7 +645,7 @@ The *Topology* page opens.
 .. At the top of the *Topology* page, click the *Project* drop-down menu.
 .. Select the project that you previously connected your Kafka instance to.
 +
-On the *Topology* page for your project, you should see an icon for the `KafkaConnection` object that was created when you connected a Kafka instance to the project. The icon for the `KafkaConnection` object is labelled `AKC`.
+On the *Topology* page for your project, you should see an icon for the `KafkaConnection` object that was created when you connected a Kafka instance to the project. The icon for the `KafkaConnection` object is labelled `AKC`. The name of the object matches the name of the Kafka instance that you connected to the project.
 +
 You should also see icons for the producer and consumer components of the Node.js application that you deployed. Each component is a `DeploymentConfig` object and is labelled `DC`.
 
