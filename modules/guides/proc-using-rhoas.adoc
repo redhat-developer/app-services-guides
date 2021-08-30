@@ -172,7 +172,7 @@ This example creates the `my-topic` Kafka topic.
 .Creating a Kafka topic with default values
 [source,shell]
 ----
-$ rhoas kafka topic create my-topic
+$ rhoas kafka topic create --name my-topic
 {
   "config": [
     {
