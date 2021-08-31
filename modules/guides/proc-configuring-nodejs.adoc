@@ -1,0 +1,52 @@
+[id='proc-configuring-nodejs_{context}']
+= Configuring the Node.js example application to connect to a Kafka instance
+:imagesdir: ../_images
+
+To enable your Node.js application to access a Kafka instance, you must configure a connection by specifying the following details:
+
+* The bootstrap server endpoint for your Kafka instance
+* The generated credentials for your {product} service account
+* The Simple Authentication and Security Layer (SASL) mechanism that the client will use to authenticate with the Kafka instance
+
+In this task, you'll create a new configuration file called `.env`. In this file, you'll set the required bootstrap server and client credentials as environment variables.
+
+.Prerequisites
+ifndef::qs[]
+* You have the bootstrap server endpoint and the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *View connection information*.
+endif::[]
+
+.Procedure
+
+. In your IDE, create a new file. Save the file with the name `.env`, at the root level of the `reactive-example` directory for the cloned repository.
+
+. In the `.env` file, add the lines shown in the example. These lines set the bootstrap server and client credentials as environment variables to be used by the Node.js application.
++
+.Setting environment variables in the .env file
+[source,subs="+quotes"]
+----
+KAFKA_BOOTSTRAP_SERVER=__<bootstrap_server>__
+KAFKA_CLIENT_ID=__<client_id>__
+KAFKA_CLIENT_SECRET=__<client_secret>__
+KAFKA_SASL_MECHANISM=plain
+----
++
+In the preceding example, replace the values in angle brackets (`< >`) with your own bootstrap server and client credential information.
+ifdef::qs[]
++
+The values are described as follows:
++
+--
+* *bootstrap_server*: The bootstrap server endpoint for your Kafka instance. To access this information for a Kafka instance in {product}, select the options menu (three vertical dots). Click *View connection information*.
+* *client_id*: A client credential generated when you create a service account in {product}. You're prompted to copy and store this credential when you create the service account.
+* *client_secret*: A client credential generated when you create a service account in {product}. You're prompted to copy and store this credential when you create the service account.
+--
+endif::[]
++
+In this case, observe that the Node.js application uses the `SASL/PLAIN` authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
+
+. Save the `.env` file.
+
+ifdef::qs[]
+.Verification
+* Did you set environment variables for the Kafka instance?
+endif::[]

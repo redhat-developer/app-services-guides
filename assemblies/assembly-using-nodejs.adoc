@@ -1,0 +1,52 @@
+[id='assembly-using-nodejs']
+= Using Node.js applications with Kafka instances in {product-long}
+ifdef::context[:parent-context: {context}]
+:context: using-nodejs
+:imagesdir: _images
+
+[IMPORTANT]
+====
+{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer of applications and services, you can connect Node.js applications to Kafka instances in {product-long}. https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that is designed to build scalable network applications. Node.js provides an I/O model that is based on events and non-blocking operations, which enables efficient applications.
+
+.Prerequisites
+ifndef::community[]
+* You have a Red Hat account.
+endif::[]
+* You have a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
+* https://github.com/git-guides/[Git^] is installed.
+* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
+* https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
+
+[NOTE]
+====
+The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer, or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
+====
+
+// Condition out QS-only content so that it doesn't appear in docs.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
+ifdef::qs[]
+[#description]
+Learn how to use Node.js applications to produce and consume messages using a Kafka instance in {product-long}.
+
+[#introduction]
+Welcome to the quick start for {product-long} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product}.
+endif::[]
+
+ifndef::community[]
+endif::[]
+ifdef::qs[]
+endif::[]
+include::modules/guides/proc-importing-nodejs-sample-code.adoc[leveloffset=+1]
+
+include::modules/guides/proc-configuring-nodejs.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-countries-topic.adoc[leveloffset=+1]
+
+include::modules/guides/proc-running-nodejs-example-application.adoc[leveloffset=+1]
+
+

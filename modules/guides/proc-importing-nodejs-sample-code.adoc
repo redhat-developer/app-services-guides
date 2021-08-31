@@ -1,0 +1,20 @@
+[id='proc-importing-nodejs-sample-code_{context}']
+= Importing the Node.js sample code
+:imagesdir: ../_images
+
+For this quick start, you'll use sample code from the Nodeshift Application Starters https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Node.js applications with {product} in the same way.
+
+.Procedure
+. On the command line, clone the Nodeshift Application Starters https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository from GitHub.
++
+.Cloning the reactive-example repository
+[source,subs="+attributes"]
+----
+$ git clone https://github.com/nodeshift-starters/reactive-example.git
+----
+. In your IDE, open the `reactive-example` directory of the repository that you cloned.
+
+ifdef::qs[]
+.Verification
+* Is the Node.js example application accessible in your IDE?
+endif::[]
