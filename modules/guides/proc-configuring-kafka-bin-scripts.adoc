@@ -6,7 +6,7 @@ To enable the Kafka bin scripts to access a Kafka instance, you must configure t
 
 .Prerequisites
 ifndef::qs[]
-* You have the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
+* You have the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connection*, and creating the service account.
 endif::[]
 
 .Procedure
@@ -19,7 +19,7 @@ endif::[]
 +
 --
 ifdef::qs[]
-The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *View connection information*, and creating the service account.
+The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connection*, and creating the service account.
 endif::[]
 
 All consumers with the same group ID belong to the consumer group with that ID.

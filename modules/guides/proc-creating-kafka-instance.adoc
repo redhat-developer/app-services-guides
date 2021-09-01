@@ -28,7 +28,7 @@ endif::[]
 .Kafka instance configuration details
 image::getting-started/sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
 
-The new Kafka instance is listed in the instances table. When the instance *Status* is *Ready*, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view, connect to, or delete the instance as needed.
+The new Kafka instance is listed in the instances table. When the instance *Status* is *Ready*, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance.
 
 [.screencapture]
 .Kafka instance options menu

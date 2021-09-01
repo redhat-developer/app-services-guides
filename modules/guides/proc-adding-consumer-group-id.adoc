@@ -39,7 +39,7 @@ bin/kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --topic 
 ----
 
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *View connection information*.
+You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 [NOTE]
 ====

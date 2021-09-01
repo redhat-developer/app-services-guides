@@ -23,7 +23,7 @@ bin/kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --describ
 ----
 
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *View connection information*.
+You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 ifndef::community[]
 NOTE: The Kafka bin scripts are part of the open source community version of Apache Kafka. The bin scripts are not a part of {product} and are therefore not supported by Red Hat.
