@@ -6,7 +6,7 @@ You can use a specialized Operator called the Service Binding Operator to automa
 
 The RHOAS Operator exposes a Kafka instance created in {product} to an OpenShift cluster. The Service Binding Operator collects and shares the information required for an application running on the OpenShift cluster to connect to the Kafka instance.
 
-When the RHOAS Operator and Service Binding Operator are installed, you can use the RHOAS CLI to perform service binding. When connection between your application and Kafka instance is established, you can then work directly with the Kafka instance using standard OpenShift features and APIs.
+When the RHOAS Operator and Service Binding Operator are installed, you can use the RHOAS CLI or OpenShift web console to perform service binding. When connection between your application and Kafka instance is established, you can then work directly with the Kafka instance using standard OpenShift features and APIs.
 
 When you perform service binding, the Service Binding Operator injects connection parameters for the Kafka instance into the pod for your application, as files. The Service Binding Operator creates the following directory and file structure in the application pod:
 

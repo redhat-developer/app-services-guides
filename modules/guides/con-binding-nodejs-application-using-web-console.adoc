@@ -1,0 +1,17 @@
+[id='con-binding-nodejs-application-using-web-console_{context}']
+= Binding a Node.js application to {product-long} using the OpenShift web console
+:imagesdir: ../_images
+
+When the RHOAS Operator is installed on your OpenShift cluster and you've connected a Kafka instance to the cluster, you can use the OpenShift web console to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
+
+The following tutorial shows how to use the OpenShift web console to perform service binding. In the tutorial, you create an example Node.js application and connect this to a Kafka instance. link:https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that's designed to build scalable network applications. Node.js provides an I/O model based on events and non-blocking operations, which enables efficient applications.
+
+When you perform service binding, the Service Binding Operator automatically injects connection parameters as files into the pod for the application. The example Node.js application in this tutorial uses the `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^]. This means that the application automatically detects the injected connection parameters and converts the information into the format used by two popular Node.js clients; link:https://kafka.js.org/[KafkaJS^] and link:https://github.com/blizzard/node-rdkafka[node-rdkafka^].
+
+In general, this automatic injection and detection of connection parameters eliminates the need to manually configure an application to connect to a Kafka instance in {product}. This is a particular advantage if you have many applications in your project that you want to connect to a Kafka instance.
+
+== Prerequisites
+* Your OpenShift cluster is running on OpenShift 4.8 or later.
+* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].

@@ -1,30 +1,27 @@
-[id='proc-deploying-example-application-in-openshift_{context}']
-= Deploying an example application in OpenShift
+[id='proc-deploying-example-quarkus-application-on-openshift_{context}']
+= Deploying an example Quarkus application on OpenShift
 :imagesdir: ../_images
 
 [role="_abstract"]
-In this step of the tutorial, you deploy an example Quarkus application in the OpenShift project that you created earlier in the tutorial.
+In this step of the tutorial, you deploy an example Quarkus application in the OpenShift project that you previously connected your Kafka instance to.
 
 The Quarkus application generates random numbers between 0 and 100 and produces those numbers to a Kafka topic. Another part of the application consumes the numbers from the Kafka topic. Finally, the application uses __server-sent events__ to expose the numbers as a REST UI. A web page in the application displays the exposed numbers.
 
 The example Quarkus application uses the `quarkus-kubernetes-service-binding` link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[extension^], which means that the application automatically detects and uses the injected connection parameters. This eliminates the need for manual configuration of the application.
 
 .Prerequisites
-* You've completed the previous steps in this tutorial:
-** link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]
-** link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster]
-* You've privileges to deploy applications in the OpenShift project created earlier in this tutorial.
+* You have privileges to deploy applications in the OpenShift project that you connected your Kafka instance to.
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described earlier in this tutorial. Log in as the same user who created a new project earlier in the tutorial.
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
-. Use the OpenShift CLI to ensure that the current OpenShift project is the one created earlier in this tutorial, as shown in the following example.
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example.
 +
 .Using the OpenShift CLI to specify the current OpenShift project
 [source]
 ----
-$ oc project rhoas-quarkus
+$ oc project my-project
 ----
 
 . To deploy the Quarkus application, apply an example application template provided by {product}.
@@ -49,7 +46,7 @@ As shown in the output, when you deploy the application, OpenShift creates a ser
 $ oc get route
 
 NAME                   HOST/PORT
-rhoas-quarkus-kafka    rhoas-quarkus-kafka-jbyrne-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+rhoas-quarkus-kafka    rhoas-quarkus-kafka-my-project.apps.sandbox-m2.ll9k.p1.openshiftapps.com
 ----
 
 . On the command line, highlight the URL shown under *HOST/PORT*. Right-click and select *Copy*.

@@ -1,0 +1,68 @@
+[id='proc-binding-quarkus-applcation-to-kafka-instance-using-cli_{context}']
+= Binding the Quarkus application to your Kafka instance using the RHOAS CLI
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this step of the tutorial, you use the RHOAS CLI to bind the example Quarkus application that you deployed on OpenShift to your Kafka instance. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka instance.
+
+.Prerequisites
+* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. See link:{base-url}{service-binding-url}#con-about-service-binding_{context}[About service binding].
+* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
+* You've deployed the example Quarkus application. See link:{base-url}{service-binding-url}#proc-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
+* You've created the topic required by the Quarkus application. See link:{base-url}{service-binding-url}#proc-creating-prices-topic-in-kafka-instance_{context}[Creating the prices topic in your Kafka instance].
+
+.Procedure
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+
+. Log in to the RHOAS CLI.
++
+.Logging in to the RHOAS CLI
+[source]
+----
+$ rhoas login
+----
+
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example.
++
+.Using the OpenShift CLI to specify the current OpenShift project
+[source]
+----
+$ oc project my-project
+----
+
+. Use the RHOAS CLI to instruct the Service Binding Operator to bind your Kafka instance to an application in your OpenShift project.
++
+.Using the RHOAS CLI to bind a Kafka instance to an application in OpenShift
+[source]
+----
+$ rhoas cluster bind
+----
++
+You're prompted to specify the Kafka instance that you want to bind to an application in your OpenShift project.
+
+.  If you have more than one Kafka instance, use the up and down arrows on your keyboard to highlight the instance that you want to bind to an application in OpenShift. Press *Enter*.
++
+You're prompted to specify the application that you want to bind your Kafka instance to.
+
+. If you have more than one application in your OpenShift project, use the up and down arrows on your keyboard to highlight the `rhoas-quarkus-kafka` example application. Press *Enter*.
+
+. Type `y` to confirm that you want to continue. Press *Enter*.
++
+When binding is complete, you should see output like the following:
++
+.Example output from binding a Kafka instance to an application in OpenShift
+[source]
+----
+Using Service Binding Operator to perform binding
+Binding my-kafka-instance with rhoas-quarkus-kafka app succeeded
+----
++
+The output shows that the RHOAS CLI successfully instructed the Service Binding Operator to bind a Kafka instance called `my-kafka-instance` to the example Quarkus application called `rhoas-quarkus-kafka`. The Quarkus application automatically detected the connection parameters injected by the Service Binding Operator and used them to bind with the Kafka instance.
++
+When service binding is complete, OpenShift redeploys the Quarkus application. When the application is running again, it starts to use the `prices` Kafka topic that you created in your Kafka instance. One part of the Quarkus application publishes price updates to this topic, while another part of the application consumes the updates.
+
+. To verify that the Quarkus application is using the Kafka topic, reopen the *Last price* web page that you opened earlier in this tutorial.
++
+On the *Last price* web page, observe that the price value is continuously updated. The updates show that the Quarkus application is now using the `prices` topic in your Kafka instance to produce and consume messages that correspond to price updates.

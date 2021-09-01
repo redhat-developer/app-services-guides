@@ -26,20 +26,28 @@ This guide describes how to perform service binding. The Kubernetes platform ref
 
 include::modules/guides/con-about-service-binding.adoc[leveloffset=+1]
 
-include::modules/guides/proc-installing-rhoas-operator.adoc[leveloffset=+1]
-
 include::modules/guides/proc-installing-service-binding-operator.adoc[leveloffset=+1]
 
-include::modules/guides/con-binding-openshift-application-using-cli.adoc[leveloffset=+1]
+include::modules/guides/proc-installing-rhoas-operator.adoc[leveloffset=+1]
 
-include::modules/guides/proc-verifying-connection-to-openshift-cluster.adoc[leveloffset=+2]
+include::modules/guides/proc-verifying-connection-to-openshift-cluster.adoc[leveloffset=+1]
 
-include::modules/guides/proc-connecting-kafka-instance-to-openshift-cluster.adoc[leveloffset=+2]
+include::modules/guides/proc-connecting-kafka-instance-to-openshift-cluster.adoc[leveloffset=+1]
 
-include::modules/guides/proc-deploying-example-application-in-openshift.adoc[leveloffset=+2]
+include::modules/guides/con-binding-quarkus-application-using-cli.adoc[leveloffset=+1]
 
-include::modules/guides/proc-creating-topic-in-kafka-instance.adoc[leveloffset=+2]
+include::modules/guides/proc-deploying-example-quarkus-application-on-openshift.adoc[leveloffset=+2]
 
-include::modules/guides/proc-binding-kafka-instance-to-openshift-application.adoc[leveloffset=+2]
+include::modules/guides/proc-creating-prices-topic-in-kafka-instance.adoc[leveloffset=+2]
+
+include::modules/guides/proc-binding-quarkus-applcation-to-kafka-instance-using-cli.adoc[leveloffset=+2]
+
+include::modules/guides/con-binding-nodejs-application-using-web-console.adoc[leveloffset=+1]
+
+include::modules/guides/proc-deploying-example-nodejs-application-on-openshift.adoc[leveloffset=+2]
+
+include::modules/guides/proc-creating-countries-topic-in-kafka-instance.adoc[leveloffset=+2]
+
+include::modules/guides/proc-binding-nodejs-application-to-kafka-instance-using-web-console.adoc[leveloffset=+2]
 
 

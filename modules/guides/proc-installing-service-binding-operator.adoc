@@ -18,7 +18,7 @@ Before you can bind Kafka instances in {product-long} to applications on OpenShi
 An information sidebar for the Service Binding Operator opens.
 . In the sidebar, review the information about the Service Binding Operator and click *Install*.
 . On the *Install Operator* page, perform the following actions:
-.. For the *Update channel* option, select `beta`.
+.. For the *Update channel* option, ensure that `beta` is selected.
 .. For the *Installation mode* option, ensure that `All namespaces on the cluster` is selected.
 .. For the *Installed Namespace* and *Update approval* options, keep the default values.
 .. Click *Install*.

@@ -1,0 +1,69 @@
+[id='proc-binding-nodejs-application-to-kafka-instance-using-web-console_{context}']
+= Binding the Node.js application to your Kafka instance using the OpenShift web console
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this step of the tutorial, you use the OpenShift web console to bind the components of the example Node.js application that you deployed on OpenShift to your Kafka instance. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for each component.
+
+The example Node.js application uses the `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^]. This means that the application automatically detects and uses the injected connection parameters.
+
+.Prerequisites
+* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. See link:{base-url}{service-binding-url}#con-about-service-binding_{context}[About service binding].
+* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
+* You've deployed the example Node.js application. See link:{base-url}{service-binding-url}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
+* You've created the topic required by the Node.js application. See link:{base-url}{service-binding-url}#proc-creating-countries-topic-in-kafka-instance_{context}[Creating the countries topic in your Kafka instance].
+
+.Procedure
+
+. Ensure that you're logged in to the OpenShift web console as the same user who deployed the Node.js application earlier in this tutorial.
+
+. Click the perspective switcher in the upper-left corner. Switch to the *Developer* perspective.
++
+The *Topology* page opens.
+
+. Ensure that the current OpenShift project is the one you previously connected your Kafka instance to.
+.. At the top of the *Topology* page, click the *Project* drop-down menu.
+.. Select the project that you previously connected your Kafka instance to.
++
+On the *Topology* page for your project, you should see an icon for the `KafkaConnection` object that was created when you connected a Kafka instance to the project. The icon for the `KafkaConnection` object is labelled `AKC`. The name of the object matches the name of the Kafka instance that you connected to the project.
++
+You should also see icons for the producer and consumer components of the Node.js application that you deployed. Each component is a `DeploymentConfig` object and is labelled `DC`.
+
+. To start creating a service binding connection, hover the mouse pointer over the icon for the consumer component.
++
+.Starting a service binding connection
+image::service-discovery/sak-service-binding-arrow.png[Image of arrow to create a binding connection]
++
+As shown in the figure, an arrow with a dotted line appears from the icon.
+
+. Left-click and drag the head of the arrow until it's directly over the icon for the `KafkaConnection` object.
++
+.Creating the service binding connection
+image::service-discovery/sak-service-binding-tooltip.png[Image of service binding tooltip]
++
+As shown in the figure, a tooltip appears over the icon for the `KafkaConnection` object. The tooltip indicates that you're about to create a service binding connection.
+
+. To create the service binding connection, release the left mouse button.
++
+.The completed service binding connection
+image::service-discovery/sak-service-binding-connection.png[Image of completed binding connection]
++
+As shown in the figure, this action completes the connection.
++
+When you create the binding connection, the Service Binding Operator injects connection parameters as files into the pod for the consumer component. The `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^] used by the consumer component automatically detects these files and converts the information into the format required by the KafkaJS client that the component uses by default.
+
+. To bind the producer component to the `KafkaConnection` object, drag a connection to the `KafkaConnection` object, in the same way that you did for the consumer component.
+
+. When you've made a connection to the `KafkaConnection` object, click the icon for the producer component.
++
+A sidebar opens with the *Resources* tab displayed. Under *Pods*, you still see a single pod corresponding to the component.
+
+. Next to the name of the pod, click *View logs*.
++
+You should now see that the producer has connected to the Kafka instance. The producer generates random country names and sends these as messages to the `countries` Kafka topic that you created.
+
+. Open the logs for the pod of the consumer component, in the same way that you did for the producer component.
++
+You should now see that the consumer has connected to the Kafka instance. The consumer displays the same country names that the producer sends to the `countries` Kafka topic, and in the same order.
