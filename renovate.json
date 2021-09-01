@@ -1,4 +1,4 @@
 {
   "extends": [ "github>redhat-developer/app-services-renovate-config" ],
-   "automerge": false
+  "automerge": true
 }
