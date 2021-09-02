@@ -2,7 +2,7 @@
 = {registry} Java libraries
 
 [role="_abstract"]
-{registry} provides the Java libraries for client applications. For example, you can use these libraries to manage the schema or API artifacts stored in {registry}, or to validate Kafka messages using serializers and deserializers for Apache Avro, Protobuf, or JSON schema.   
+{registry} provides the Java libraries for client applications. For example, you can use these libraries to manage the schema and API artifacts stored in {registry}, or to validate Kafka messages using serializers and deserializers for Apache Avro, Protobuf, or JSON schema.   
 
 .{registry} Java library .zip downloads
 [%header,cols="3,3,2"]

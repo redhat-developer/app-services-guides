@@ -24,7 +24,7 @@ You can use the Avro and JSON Schema converters to map Kafka Connect schemas int
 
 {registry} can manage and track the Avro and JSON schemas used in the Kafka topics. Because the schemas are stored in {registry} and decoupled from the message content, each message must only include a tiny schema identifier. For an I/O bound system like Kafka, this means more total throughput for producers and consumers.
 
-The Avro and JSON Schema serializers and deserializers (SerDes) provided by Red Hat Integration {registry} are also used by Kafka producers and consumers in this use case. Kafka consumer applications that you write to consume change events can use the Avro or JSON Serdes to deserialize these change events. You can install these SerDes into any Kafka-based system and use them along with Kafka Connect, or with Kafka Connect-based systems such as Debezium and Camel Kafka Connector in Red Hat Integration.
+The Avro and JSON Schema serializers and deserializers (SerDes) provided by {registry} are also used by Kafka producers and consumers in this use case. Kafka consumer applications that you write to consume change events can use the Avro or JSON Serdes to deserialize these change events. You can install these SerDes into any Kafka-based system and use them along with Kafka Connect, or with Kafka Connect-based systems such as Debezium and Camel Kafka Connector.
 
 [role="_additional-resources"]
 .Additional resources
