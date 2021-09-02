@@ -25,7 +25,7 @@ endif::[]
 ifdef::rh-openshift-sr[]
 * Deployed as an easy-to-use managed cloud service without having to install, configure, or run your own {registry} instances
 
-* Full integration with Red Hat OpenShift Streams for Apache Kafka managed cloud service, including Kafka topic to schema mapping
+* Full integration with Red Hat OpenShift Streams for Apache Kafka managed cloud service, including Kafka topic-to-schema mapping
 endif::[]
 
 * Multiple payload formats for standard event schema and API specifications such as Apache Avro, JSON Schema, Protobuf, AsyncAPI, OpenAPI, and more 

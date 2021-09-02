@@ -1,0 +1,19 @@
+[id="registry-distros_{context}"]
+= {registry} Java libraries
+
+[role="_abstract"]
+{registry} provides the Java libraries for client applications. For example, you can use these libraries to manage the schema or API artifacts stored in {registry}, or to validate Kafka messages using serializers and deserializers for Apache Avro, Protobuf, or JSON schema.   
+
+.{registry} Java library .zip downloads
+[%header,cols="3,3,2"]
+|===
+|Distribution
+|Location
+|Release category
+|Offline Maven repository for {registry} Java client and serializers/deserializers
+|link:{download-url-registry-distribution}[Red Hat Developer downloads]
+|Development Preview
+|Kafka Connect converters 
+|link:{download-url-registry-distribution}[Red Hat Developer downloads]
+|Development Preview
+|===
