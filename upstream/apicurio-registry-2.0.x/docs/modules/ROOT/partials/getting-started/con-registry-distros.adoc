@@ -3,6 +3,9 @@
 [id="registry-distros_{context}"]
 = {registry} available distributions
 
+[role="_abstract"]
+{registry} provides the following distribution options. 
+
 ifdef::apicurio-registry[]
 
 .{registry} images 
@@ -71,7 +74,6 @@ ifdef::rh-service-registry[]
 |link:{download-url-registry-distribution}[Software Downloads for Red Hat Integration]
 |General Availability
 |===
-
 
 NOTE: You must have a subscription for Red Hat Integration and be logged into the Red Hat Customer Portal to access the available {registry} distributions.
 endif::[]

@@ -15,7 +15,7 @@ Manage details about a schema or API artifact, such as when it was created or mo
 Artifact rules::
 Configure rules to govern the content evolution of a specific schema or API artifact to prevent invalid or incompatible content from being added to the registry. Artifact rules override any global rules configured. 
 Global rules::
-Configure rules to govern the content evolution of all schema and API artifacts artifacts to prevent invalid or incompatible content from being added to the registry. Global rules are applied only if an artifact does not have its own specific artifact rules configured. 
+Configure rules to govern the content evolution of all schema and API artifacts to prevent invalid or incompatible content from being added to the registry. Global rules are applied only if an artifact does not have its own specific artifact rules configured. 
 Search::
 Browse or search for schema and API artifacts and versions, for example, by name, group, description, or label.
 Admin::
@@ -23,22 +23,22 @@ Export or import registry content in a `.zip` file, and manage logging levels fo
 
 [discrete]
 == Compatibility with other schema registry REST APIs
-{registry} version 2 provides API compatibility with the following schema registries by including implementations of their respective REST APIs:
+The {registry} core v2 API provides compatibility with the following schema registries by including implementations of their respective REST APIs:
 
-* {registry} version 1 
-* Confluent Schema Registry version 6
-* IBM Event Streams schema registry version 1
-* CNCF CloudEvents Schema Registry version 0
+* {registry} core v1 
+* Confluent Schema Registry v6
+* IBM Event Streams schema registry v1
+* CNCF CloudEvents Schema Registry v0
 
 Applications using Confluent client libraries can use {registry} as a drop-in replacement. 
-ifdef::rh-service-registry,rh-openshift-sr[]
+ifdef::rh-service-registry[]
 For more details, see link:https://developers.redhat.com/blog/2019/12/17/replacing-confluent-schema-registry-with-red-hat-integration-service-registry/[Replacing Confluent Schema Registry with Service Registry].
 endif::[]
 
 [role="_additional-resources"]
 .Additional resources
 ifdef::rh-openshift-sr[]
-* For more details, see Managing schemas and APIs in {product-long}
+* For more details, see Managing {registry} content using the REST API
 endif::[]
 * For detailed reference information, see the {registry-rest-api}
 ifdef::apicurio-registry,rh-service-registry[]
