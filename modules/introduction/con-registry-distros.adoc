@@ -2,7 +2,7 @@
 = {registry} Java libraries
 
 [role="_abstract"]
-{registry} provides Java libraries for client applications to connect to and use {registry} instances: 
+{registry} provides Java libraries for client applications to connect to {registry} instances and manage their content: 
 
 * You can use the {registry} Maven plug-in or Java client to manage schema and API artifacts stored in {registry}, or the Kafka serializers/deserializers for Apache Avro, Protobuf, or JSON schema to validate Kafka messages
 * You can use the {registry} Kafka Connect converters to map Kafka Connect schemas into Avro or JSON schemas when streaming data to external systems
