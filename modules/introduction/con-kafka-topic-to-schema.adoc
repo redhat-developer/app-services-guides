@@ -9,11 +9,11 @@ You can use the OpenShift Streams for Apache Kafka web console to:
 * Map your Kafka topics to specific schemas stored in {registry}
 * Check the schemas that are used for specific Kafka topic key and topic values
 
-You can also create mappings between Kafka topics and schemas automatically when registering schemas with {registry} in your Kafka client application code. You can do this using the {registry} Kafka client serializers/deserializers (SerDes) in your Java client code. 
+You can also create mappings between Kafka topics and schemas automatically when registering schemas with {registry} in your Kafka client application code. You can do this using the {registry} Kafka client serializers/deserializers (SerDes) in your Java Kafka application code. 
 
 For example, you can configure that the serializer automatically tries to create the schema artifact in {registry}. In addition, the default schema lookup strategy used by the serializer is the `TopicIdStrategy`. This looks for schema artifacts in the registry with the same name as the Kafka topic receiving the messages.
 
 [role="_additional-resources"]
 .Additional resources
 * For details on using the Kafka web console to map topics to schemas, see link:https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5#_ccce2150-d7bf-4a44-952d-de41c74fc5ba[Configuring topics in Red Hat OpenShift Streams for Apache Kafka] 
-* For details on using Java SerDes to automatically register schemas, see the link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html/service_registry_user_guide/using-kafka-client-serdes[Service Registry documentation on Kafka client SerDes]
+* For examples of using Java SerDes to automatically register schemas, see the link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html/service_registry_user_guide/using-kafka-client-serdes[Red Hat Integration Service Registry documentation on Kafka client SerDes]
