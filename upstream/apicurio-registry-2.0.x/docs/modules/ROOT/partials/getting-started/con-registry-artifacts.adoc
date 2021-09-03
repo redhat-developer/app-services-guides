@@ -50,9 +50,9 @@ $ curl -X POST -H "Content-type: application/json; artifactType=AVRO" \
   https://my-registry.example.com/apis/registry/v2/groups/my-group/artifacts
 ----
 
-This example adds an Avro schema with an artifact ID of `share-price` in an artifact group named `my-group`.
+This example creates an artifact group named `my-group` and adds an Avro schema with an artifact ID of `share-price`.
 
-NOTE: Specifying a group is optional when using the {registry} web console, where a `default` group is automatically created. When using the v2 REST API or Maven plug-in, you can specify the `default` group in the API path if you do not want to create a unique group.   
+NOTE: Specifying a group is optional when using the {registry} web console, where a `default` group is automatically created. When using the REST API or Maven plug-in, you can specify the `default` group in the API path if you do not want to create a unique group.   
 
 [role="_additional-resources"]
 .Additional resources
