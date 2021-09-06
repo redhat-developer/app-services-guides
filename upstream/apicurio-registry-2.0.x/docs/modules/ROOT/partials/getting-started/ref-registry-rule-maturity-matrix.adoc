@@ -5,9 +5,7 @@
 = {registry} content rule maturity
 
 [role="_abstract"]
-Not all content rules are fully implemented for every artifact type supported by {registry}.
-
-The following table shows the current maturity level for each rule and artifact type:
+Not all content rules are fully implemented for every artifact type supported by {registry}. The following table shows the current maturity level for each rule and artifact type:
 
 .{registry} content rule maturity matrix
 [%header,cols=3*] 
