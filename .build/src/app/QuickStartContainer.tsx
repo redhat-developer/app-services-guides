@@ -1,9 +1,6 @@
-import "@patternfly/quickstarts/dist/quickstarts.min.css";
-
 import React, { useState, useEffect, FunctionComponent } from "react";
 import {
-  QuickStartContextProvider,
-  QuickStartDrawer,
+  QuickStartContainer as PfQuickStartContainer,
   useLocalStorage,
 } from "@patternfly/quickstarts";
 import { loadJSONQuickStarts } from "@app/quickstartLoader";
@@ -17,14 +14,14 @@ const getElement = (node: HTMLElement | (() => HTMLElement)) => {
   return node;
 };
 
-export interface QuickStartDrawerFederatedProps
+export interface QuickStartContainerProps
   extends React.HTMLProps<HTMLDivElement> {
   showDrafts?: boolean;
   appendTo?: HTMLElement | (() => HTMLElement);
   root?: HTMLElement | (() => HTMLElement);
 }
 
-const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProps> = ({
+const QuickStartContainer: FunctionComponent<QuickStartContainerProps> = ({
   children,
   showDrafts,
   appendTo,
@@ -55,32 +52,21 @@ const QuickStartDrawerFederated: FunctionComponent<QuickStartDrawerFederatedProp
     load();
   }, [assets, showDrafts]);
 
-  useEffect(() => {
-    if (root && getElement(root)) {
-      if (activeQuickStartID) {
-        getElement(root).classList.add('pf-m-expanded');
-      } else {
-        getElement(root).classList.remove('pf-m-expanded');
-      }
-    }
-  }, [root, activeQuickStartID]);
-
-  const valuesForQuickstartContext = {
+  const drawerProps = {
+    quickStarts: allQuickStarts,
     activeQuickStartID,
-    setActiveQuickStartID,
     allQuickStartStates,
+    setActiveQuickStartID,
     setAllQuickStartStates,
-    allQuickStarts,
+    showCardFooters: false,
+    loading: allQuickStartsLoaded,
   };
-  if (allQuickStartsLoaded) {
-    return (
-      <QuickStartContextProvider value={valuesForQuickstartContext}>
-        <QuickStartDrawer appendTo={appendTo} {...props}>{children}</QuickStartDrawer>
-      </QuickStartContextProvider>
-    );
-  } else {
-    return <MASLoading />;
-  }
+
+  return (
+    <PfQuickStartContainer {...drawerProps}>
+      {children}
+    </PfQuickStartContainer>
+  );
 };
 
-export default QuickStartDrawerFederated;
+export default QuickStartContainer;

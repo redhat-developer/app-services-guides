@@ -1,0 +1,31 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: nodejs
+  annotations:
+    draft: false
+    order: 5
+spec:
+  version: 0.1
+  type:
+    text: Quick start
+    color: green
+  displayName: !snippet/title README.adoc#chap-using-nodejs
+  durationMinutes: 10
+  icon: ''
+  description: !snippet README.adoc#description
+  prerequisites:
+    - A running Kafka instance (see the Getting Started quick start)
+    - A command-line terminal application
+    - Git
+    - An IDE
+    - Node.js 14.x
+  introduction: !snippet README.adoc#introduction
+  tasks:
+    - !snippet/proc README.adoc#proc-importing-nodejs-sample-code
+    - !snippet/proc README.adoc#proc-configuring-nodejs
+    - !snippet/proc README.adoc#proc-creating-countries-topic
+    - !snippet/proc README.adoc#proc-running-nodejs-example-application
+  conclusion: !snippet README.adoc#conclusion
+  nextQuickStart:
+    - 'quarkus'
