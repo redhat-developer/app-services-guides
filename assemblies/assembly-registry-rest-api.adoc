@@ -1,5 +1,5 @@
 [id='managing-content-in-service-registry']
-= Managing schemas and APIs using the {registry} REST API
+= Managing {registry} data using the core REST API
 :context: user-guide
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments

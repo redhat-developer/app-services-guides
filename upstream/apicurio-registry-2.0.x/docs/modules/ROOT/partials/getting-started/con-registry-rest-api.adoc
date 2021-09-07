@@ -4,7 +4,7 @@
 
 [role="_abstract"]
 = Introduction to the registry core REST API
-Using the {registry} core REST API, client applications can manage the schema and API artifacts in {registry}. This API provides create, read, update, and delete operations for:
+Using the {registry} core v2 REST API, client applications can manage the schema and API artifacts in {registry}. This API provides create, read, update, and delete operations for:
 
 Artifacts::
 Manage schema and API artifacts stored in the registry. You can also manage the lifecycle state of an artifact: enabled, disabled, or deprecated. 

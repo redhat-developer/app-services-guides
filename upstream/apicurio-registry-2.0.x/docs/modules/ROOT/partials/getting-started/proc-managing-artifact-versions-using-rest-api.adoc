@@ -5,7 +5,7 @@
 = Managing schema and API artifact versions using Registry REST API commands
 
 [role="_abstract"]
-If you do not specify an artifact version when adding schema and API artifacts to {registry} using the v2 REST API, {registry} generates one automatically. The default version when creating a new artifact  is `1`.
+If you do not specify an artifact version when adding schema and API artifacts to {registry} using the v2 core REST API, {registry} generates one automatically. The default version when creating a new artifact  is `1`.
 
 {registry} also supports custom versioning where you can specify a version using the `X-Registry-Version` HTTP request header as a string. Specifying a custom version value overrides the default version normally assigned when creating or updating an artifact. You can then use this version value when executing REST API operations that require a version.  
 

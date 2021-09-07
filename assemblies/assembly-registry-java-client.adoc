@@ -18,7 +18,7 @@
 ====
 
 [role="_abstract"]
-Manage schemas and API artifacts stored in the {product-long} cloud service using the {registry} Java client classes in your client application.  
+Manage schema and API artifacts stored in the {product-long} cloud service using the {registry} Java client classes in your client application.  
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
 include::{reuse-modules}/con-registry-client.adoc[leveloffset=+1]
