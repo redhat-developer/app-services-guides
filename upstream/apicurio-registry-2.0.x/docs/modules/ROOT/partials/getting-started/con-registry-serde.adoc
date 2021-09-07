@@ -30,8 +30,6 @@ endif::[]
 
 These implementations include custom Java classes for each supported message type, for example, `io.apicurio.registry.serde.avro`, which client applications can use to pull schemas from the registry at runtime for validation. 
 
-
-
 [role="_additional-resources"]
 .Additional resources
 ifdef::apicurio-registry,rh-service-registry[]

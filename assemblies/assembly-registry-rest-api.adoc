@@ -1,0 +1,28 @@
+[id='managing-content-in-service-registry']
+= Managing {registry} data using the core REST API
+:context: user-guide
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
+:rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.0.1.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+:console-url: https://console.redhat.com/beta/application-services/sr/
+
+
+[IMPORTANT]
+====
+{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+[role="_abstract"]
+Manage schemas and API artifacts stored in the {product-long} cloud service using the registry core REST API. 
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]

@@ -1,0 +1,28 @@
+[id='managing-content-in-service-registry']
+= Supported {registry} content and rules
+:context: artifact-ref
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
+:rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.0.1.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+
+
+[IMPORTANT]
+====
+{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+[role="_abstract"]
+This document provides reference details on the supported artifact types, states, metadata, and content rules stored in {registry}. 
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-types.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-states.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-artifact-metadata.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-rule-types.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-rule-maturity-matrix.adoc[leveloffset=+1]

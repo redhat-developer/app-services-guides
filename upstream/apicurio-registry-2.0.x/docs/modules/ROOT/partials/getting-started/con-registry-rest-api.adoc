@@ -3,8 +3,8 @@
 [id="registry-rest-api"]
 
 [role="_abstract"]
-= Manage content using the core registry REST API
-Using the {registry} core REST API, client applications can manage the schema and API artifacts in {registry}. This API provides create, read, update, and delete operations for:
+= Introduction to the registry core REST API
+Using the {registry} core v2 REST API, client applications can manage the schema and API artifacts in {registry}. This API provides create, read, update, and delete operations for:
 
 Artifacts::
 Manage schema and API artifacts stored in the registry. You can also manage the lifecycle state of an artifact: enabled, disabled, or deprecated. 
@@ -39,9 +39,6 @@ endif::[]
 
 [role="_additional-resources"]
 .Additional resources
-ifdef::rh-openshift-sr[]
-* For more details, see Managing {registry} content using the REST API
-endif::[]
 * For detailed reference information, see the {registry-rest-api}
 ifdef::apicurio-registry,rh-service-registry[]
 * API documentation for the core {registry} REST API and for all compatible APIs is available from the main endpoint of your {registry} instance, for example, on `\http://MY-REGISTRY-URL/apis`  

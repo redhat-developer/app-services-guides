@@ -16,4 +16,8 @@ For example, you can configure that the serializer automatically tries to create
 [role="_additional-resources"]
 .Additional resources
 * For details on using the Kafka web console to map topics to schemas, see link:https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5#_ccce2150-d7bf-4a44-952d-de41c74fc5ba[Configuring topics in Red Hat OpenShift Streams for Apache Kafka] 
+<<<<<<< Updated upstream
 * For examples of using Java SerDes to automatically register schemas, see the link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html/service_registry_user_guide/using-kafka-client-serdes[Red Hat Integration Service Registry documentation on Kafka client SerDes]
+=======
+* For details on using Java SerDes to automatically register schemas, see the link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html/service_registry_user_guide/using-kafka-client-serdes[Service Registry documentation on Kafka client SerDes]
+>>>>>>> Stashed changes

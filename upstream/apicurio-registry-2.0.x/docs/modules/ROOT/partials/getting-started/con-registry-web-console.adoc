@@ -22,12 +22,8 @@ endif::[]
 
 The {registry} web console is available from {console-url}. 
 
-
+ifdef::apicurio-registry,rh-service-registry[]
 [role="_additional-resources"]
 .Additional resources
-ifdef::apicurio-registry,rh-service-registry[]
 * {managing-registry-artifacts-ui}
-endif::[]
-ifdef::rh-openshift-sr[]
-* For more details, see Managing schemas and APIs in {product-long}
 endif::[]

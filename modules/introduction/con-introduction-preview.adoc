@@ -2,6 +2,7 @@
 = Try {product-long}
 
 [role="_abstract"]
+
 {registry} is available at no cost with Red Hat OpenShift Streams for Apache Kakfa and Red Hat OpenShift API Management. To try out {registry}, you can create a {registry} trial instance using the web console.
 
 To learn more, go to link:{console-url}[console.redhat.com^].

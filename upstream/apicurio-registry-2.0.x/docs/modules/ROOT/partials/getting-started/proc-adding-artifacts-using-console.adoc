@@ -6,7 +6,7 @@
 
 [role="_abstract"]
 You can use the {registry} web console to upload event schema and API design artifacts to the registry. 
-This section shows simple examples of uploading {registry} artifacts, applying artifact rules, and adding new artifact versions. 
+This section shows simple examples of uploading {registry} artifacts and adding new artifact versions. 
 
 .Prerequisites
 
@@ -47,8 +47,6 @@ endif::[]
 Click the *Edit Artifact Metadata* pencil icon to edit the artifact name and description or add labels, and click *Download* to download the artifact file locally. Also displays artifact *Content Rules* that you can enable and configure.
 ** *Documentation* (OpenAPI only): Displays automatically-generated REST API documentation.
 ** *Content*: Displays a read-only view of the full artifact content.
-
-. In *Content Rules*, click *Enable* to configure a *Validity Rule* or *Compatibility Rule*, and select the appropriate rule configuration from the drop-down. 
 
 . Click *Upload new version* to add a new artifact version, and drag and drop or click *Browse* to upload the file, for example, `my-schema.json` or `my-openapi.json`.
 

@@ -1,7 +1,7 @@
 // Metadata created by nebel
 
 [id="registry-console_{context}"]
-= Manage {registry} content
+= Manage {registry} content using client tools
 
 [role="_abstract"]
 You can manage {registry} content using the {registry} web console, core REST API, command line, Maven plug-in, or Java client.
@@ -22,8 +22,8 @@ Using the {registry} core REST API, client applications can manage the schema an
 
 {registry} provides compatibility with other schema registry APIs, such as Confluent Schema Registry and CNCF CloudEvents Schema Registry.
 
-== rhoas command line
-You can use the Red Hat OpenShift Application Services (`rhoas`) command line to create, read, and delete {registry} instances, and to manage schema and API artifacts stored {registry}. The `rhoas` CLI provides create, read, update, and delete operations for registry artifacts, versions, and metadata.
+== rhoas CLI
+You can use the Red Hat OpenShift Application Services (`rhoas`) command line interface to create, read, and delete {registry} instances, and to manage schema and API artifacts stored {registry}. The `rhoas` CLI provides create, read, update, and delete operations for registry artifacts, versions, and metadata.
 
 == {registry} Java client
 You can use the {registry} Java client classes to create, read, update, or delete artifacts stored in {registry}. You can also perform admin functions using the Java client, such as managing global rules or importing and exporting registry data.
@@ -37,6 +37,6 @@ The most common use case is adding artifacts to {registry} during a build. Downl
 
 * Managing {registry} content using the web console
 * Managing {registry} content using the REST API
-* Managing {registry} content using the command line
+* Getting started with the rhoas CLI
 * Managing {registry} content using the Java client
 * Managing {registry} content using the Maven plug-in

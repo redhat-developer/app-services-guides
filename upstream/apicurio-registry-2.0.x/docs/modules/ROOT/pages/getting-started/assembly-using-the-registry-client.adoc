@@ -4,7 +4,7 @@ include::{mod-loc}shared/all-attributes.adoc[]
 [id="using-the-registry-client"]
 = Managing {registry} content using a Java client
 
-[role="_absract"]
+[role="_abstract"]
 This chapter explains how to use the {registry} Java client:
 
 * xref:registry-client-intro_{context}[]

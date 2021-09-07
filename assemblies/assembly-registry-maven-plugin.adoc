@@ -1,5 +1,5 @@
 [id='managing-content-in-service-registry']
-= Managing schemas and APIs in {product-long}
+= Managing schemas and APIs using the {registry} Maven plug-in
 :context: user-guide
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
@@ -18,18 +18,9 @@
 ====
 
 [role="_abstract"]
-Manage schemas and API artifacts stored in the {product-long} cloud service. 
+Manage schema and API artifacts stored in the {product-long} cloud service using the {registry} Maven plug-in. For example, this includes adding, downloading, or testing schema and API artifacts during a Maven build.
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-configuring-rules-using-console.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
-include::../modules/user-guide/ref-registry-reference.adoc[leveloffset=+1]
-include::{reuse-modules}/ref-registry-artifact-types.adoc[leveloffset=+2]
-include::{reuse-modules}/ref-registry-artifact-states.adoc[leveloffset=+2]
-include::{reuse-modules}/ref-registry-artifact-metadata.adoc[leveloffset=+2]
-include::{reuse-modules}/ref-registry-rule-types.adoc[leveloffset=+2]
-include::{reuse-modules}/ref-registry-rule-maturity-matrix.adoc[leveloffset=+2]
+include::{reuse-modules}/proc-adding-artifacts-using-maven-plugin.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-downloading-artifacts-using-maven-plugin.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-testing-artifacts-using-maven-plugin.adoc[leveloffset=+1]
