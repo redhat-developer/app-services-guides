@@ -210,66 +210,159 @@ For more information, see the `rhoas kafka topic create` help.
 [discrete,id="commands-managing-kafka_{context}"]
 == Commands for managing Kafka
 
-The following list shows the `rhoas` commands you can use to manage your Kafka instances, service accounts, and topics.
+The following tables show the `rhoas` commands you can use to manage your Kafka instances, consumer groups, service accounts, and topics.
 For more information about any of the commands,
 view the command help (for example, `rhoas kafka list -h`).
 
-* View a list of all Kafka instances in your organization:
-+
-`rhoas kafka list`
+.Commands for managing Kafka instances
+|===
+|To do this...|Use this command...
 
-* View configuration details for a particular Kafka instance:
-+
-`rhoas kafka describe`
+|Create a Kafka instance
+a|
+[source,shell]
+----
+rhoas kafka create
+----
 
-* Switch to a different Kafka instance:
-+
-`rhoas kafka use`
+|View a list of all Kafka instances in your organization
+a|
+[source,shell]
+----
+rhoas kafka list
+----
 
-* Delete a Kafka instance:
-+
-`rhoas kafka delete`
+|View configuration details for a particular Kafka instance
+a|
+[source,shell]
+----
+rhoas kafka describe
+----
 
-* View a list of Kafka topics:
-+
-`rhoas kafka topic list`
+|Switch to a different Kafka instance
+a|
+[source,shell]
+----
+rhoas kafka use
+----
 
-* View configuration details for a particular Kafka topic:
-+
-`rhoas kafka topic describe`
+|Delete a Kafka instance
+a|
+[source,shell]
+----
+rhoas kafka delete
+----
+|===
 
-* Update the message retention time for a Kafka topic:
-+
-`rhoas kafka topic update`
+.Commands for managing Kafka topics
+|===
+|To do this...|Use this command...
 
-* Delete a Kafka topic:
-+
-`rhoas kafka topic delete`
+|Create a Kafka topic in the current Kafka instance
+a|
+[source,shell]
+----
+rhoas kafka topic create
+----
 
-* View a list of service accounts in your organization:
-+
-`rhoas service-account list`
+|View a list of Kafka topics
+a|
+[source,shell]
+----
+rhoas kafka topic list
+----
 
-* View a list of Kafka consumer groups:
-+
-`rhoas kafka consumer-group list`
+|View configuration details for a particular Kafka topic
+a|
+[source,shell]
+----
+rhoas kafka topic describe
+----
 
-* View details for a particular Kafka consumer group and its members:
-+
-`rhoas kafka consumer-group describe`
+|Update the message retention time for a Kafka topic
+a|
+[source,shell]
+----
+rhoas kafka topic update
+----
 
-* Delete a Kafka consumer group and its members:
-+
-`rhoas kafka consumer-group delete`
+|Delete a Kafka topic
+a|
+[source,shell]
+----
+rhoas kafka topic delete
+----
+|===
 
-* View configuration details for a particular service account:
-+
-`rhoas service-account describe`
+.Commands for managing Kafka consumer groups
+|===
+|To do this...|Use this command...
 
-* Generate a new password for a service account:
-+
-`rhoas service-account reset-credentials`
+|View a list of Kafka consumer groups
+a|
+[source,shell]
+----
+rhoas kafka consumer-group list
+----
 
-* Delete a service account:
-+
-`rhoas service-account delete`
+|View details for a particular Kafka consumer group and its members
+a|
+[source,shell]
+----
+rhoas kafka consumer-group describe
+----
+
+|Reset the offset for the consumers in a consumer group that are reading from a given topic
+a|
+[source,shell]
+----
+rhoas kafka consumer-group reset-offset
+----
+
+|Delete a Kafka consumer group and its members
+a|
+[source,shell]
+----
+rhoas kafka consumer-group delete
+----
+|===
+
+.Commands for managing service accounts
+|===
+|To do this...|Use this command...
+
+|Create a service account
+a|
+[source,shell]
+----
+rhoas service-account create
+----
+
+|View a list of service accounts in your organization
+a|
+[source,shell]
+----
+rhoas service-account list
+----
+
+|View configuration details for a particular service account
+a|
+[source,shell]
+----
+rhoas service-account describe
+----
+
+|Generate a new password for a service account
+a|
+[source,shell]
+----
+rhoas service-account reset-credentials
+----
+
+|Delete a service account
+a|
+[source,shell]
+----
+rhoas service-account delete
+----
+|===
