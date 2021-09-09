@@ -51,7 +51,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 .Example CLI command to reset offsets for consumer groups
 [source]
 ----
-rhoas kafka consumer-group reset my-consumer-group --to-earliest
+rhoas kafka consumer-group reset-offset --id my-consumer-group --offset earliest --topic topic1
 ----
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].

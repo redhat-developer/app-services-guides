@@ -159,7 +159,7 @@ This example switches to the `my-kafka` instance that was previously created.
 .Selecting a Kafka instance to use
 [source,shell]
 ----
-$ rhoas kafka use my-kafka
+$ rhoas kafka use --name my-kafka
 Kafka instance "my-kafka" has been set as the current instance.
 ----
 --
