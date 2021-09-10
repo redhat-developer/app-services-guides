@@ -9,7 +9,7 @@
 :org-name: Red Hat
 :product-long: {org-name} OpenShift Service Registry
 :registry: Service Registry
-:console-url: https://console.redhat.com/beta/application-services/sr/
+:console-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====
@@ -19,8 +19,11 @@
 [role="_abstract"]
 Manage schema and API artifacts stored in the {product-long} cloud service using the {registry} web console. 
 
+You can use the web console to browse and search the schema and API artifacts and optional groups stored in {registry}, and to add new schema and API artifacts, groups, and versions. You can search for artifacts by label, name, group, or description. You can view an artifact’s content or its available versions, or download an artifact file locally.
+
+You can configure optional rules for registry content, both globally and for each schema and API artifact. These optional rules for content validation and compatibility are applied when new schema and API artifacts or versions are uploaded to the registry. 
+
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
-include::{reuse-modules}/con-registry-web-console.adoc[leveloffset=+1]
-include::{reuse-modules}/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-configuring-rules-using-console.adoc[leveloffset=+1]

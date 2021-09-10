@@ -58,3 +58,4 @@ NOTE: Specifying a group is optional when using the {registry} web console, wher
 .Additional resources
 
 * For more details on schemas and groups, see the link:https://github.com/cloudevents/spec/blob/master/schemaregistry/schemaregistry.md[Cloud Native Computing Foundation (CNCF) Schema Registry API]
+* For details on the {registry} core REST API, see the {registry-rest-api}

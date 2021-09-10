@@ -11,7 +11,7 @@
 :reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
 :registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.0.1.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
 :download-url-registry-distribution: https://github.com/redhat-developer
-
+:console-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====

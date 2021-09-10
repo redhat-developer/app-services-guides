@@ -2,29 +2,24 @@
 = {registry} Java libraries
 
 [role="_abstract"]
-<<<<<<< Updated upstream
-{registry} provides Java libraries for client applications to connect to {registry} instances and manage their content: 
 
-* You can use the {registry} Maven plug-in or Java client to manage schema and API artifacts stored in {registry}, or the Kafka serializers/deserializers for Apache Avro, Protobuf, or JSON schema to validate Kafka messages
-* You can use the {registry} Kafka Connect converters to map Kafka Connect schemas into Avro or JSON schemas when streaming data to external systems
+{registry} provides Java libraries for client applications to connect to {registry} instances, manage their content, or validate Kafka messages. {registry} Java client applications can: 
+
+* Use a Maven plug-in or Java client classes to manage schema and API artifacts stored in {registry}
+
+* Use Kafka serializers/deserializers for Apache Avro, Protobuf, or JSON schema to serialize and validate Kafka message content
+
+* Use Kafka Connect converters to map Kafka Connect schemas into Avro or JSON schemas when streaming data to external systems
+
 
 .{registry} Java library .zip downloads
 [%header,cols="4,3,3"]
-=======
-{registry} provides the Java libraries for client applications. For example, you can use these libraries to manage the schema or API artifacts stored in {registry}, or to validate Kafka messages using serializers and deserializers for Apache Avro, Protobuf, or JSON schema.   
 
-.{registry} Java library .zip downloads
-[%header,cols="3,3,2"]
->>>>>>> Stashed changes
 |===
 |Distribution
 |Location
 |Release category
-<<<<<<< Updated upstream
 |Offline Maven repository for Maven plug-in, Java client, and serializers/deserializers
-=======
-|Offline Maven repository for {registry} Java client and serializers/deserializers
->>>>>>> Stashed changes
 |link:{download-url-registry-distribution}[Red Hat Developer downloads]
 |Development Preview
 |Kafka Connect converters 
