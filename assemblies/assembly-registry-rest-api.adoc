@@ -10,8 +10,7 @@
 :product-long: {org-name} OpenShift Service Registry
 :registry: Service Registry
 :registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.0.1.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
-:console-url: https://console.redhat.com/beta/application-services/sr/
-
+:console-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====

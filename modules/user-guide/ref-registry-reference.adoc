@@ -1,9 +1,0 @@
-[id="registry-artifact-reference_{context}"]
-= {registry} artifact reference
-
-[role="_abstract"]
-This is a summary of the supported artifact types, states, metadata, and content rules that are stored in {registry}.
-
-[role="_additional-resources"]
-.Additional resources
-* For more detailed information, see the {registry-rest-api}

@@ -6,7 +6,7 @@
 :rh-openshift-sr:
 //:product-version-previous: 0.0
 
-:console-url: https://console.redhat.com/beta/application-services/sr/
+:console-url: https://console.redhat.com/beta/application-services/service-registry/
 
 
 :property-file-name: app-services.properties
