@@ -39,7 +39,12 @@ ifdef::rh-openshift-sr[]
 image::../_images/user-guide/registry-web-console-rules.png[Configure rules in Registry web console]
 endif::[]
 +
+ifdef::apicurio-registry,rh-service-registry[]
 . For global rules, click *Manage global rules* at the top right of the toolbar, and click *Enable* to configure a global *Validity Rule* or *Compatibility Rule*, and select the appropriate rule configuration from the drop-down. 
+endif::[]
+ifdef::rh-openshift-sr[]
+. For global rules, click the *Global Rules* tab at the top left of your {registry} instance page, and click *Enable* to configure a global *Validity Rule* or *Compatibility Rule*, and select the appropriate rule configuration from the drop-down. 
+endif::[]
 
 . To disable an artifact rule or global rule, click the trash icon next to the rule. 
 

@@ -30,7 +30,7 @@ You can use the {registry} Java client classes to create, read, update, or delet
 
 == {registry} Maven plug-in
 You can use the {registry} Maven plug-in to add, download, or test {registry} artifacts in a Maven build. 
-The most common use case is adding artifacts to {registry} during a build. Downloading artifacts from {registry} is useful when generating code from a registered schema. If content rules are configured in {registry}, you can test that artifacts can be registered before making any changes. 
+This includes adding artifacts during a build, or downloading artifacts when generating code from a schema. If content rules are configured, you can test that artifacts can be added before making changes. 
 
 [role="_additional-resources"]
 .Additional resources
