@@ -109,8 +109,6 @@ ifdef::qs[]
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account. The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
 endif::[]
 
-All consumers with the same group ID belong to the consumer group with that ID.
-
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
