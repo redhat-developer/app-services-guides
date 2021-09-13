@@ -117,7 +117,6 @@ All consumers with the same group ID belong to the consumer group with that ID.
 $ export BOOTSTRAP_SERVER=__<bootstrap_server>__
 $ export CLIENT_ID=__<client_id>__
 $ export CLIENT_SECRET=__<client_secret>__
-$ export GROUP_ID=__<group_id>__
 $ export OAUTH_TOKEN_ENDPOINT_URI=__<oauth_token_endpoint_uri>__
 ----
 --
