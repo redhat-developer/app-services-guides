@@ -102,7 +102,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. On the command line, set the Kafka instance bootstrap server, client credentials, and consumer group ID as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
+. On the command line, set the Kafka instance bootstrap server, client credentials as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
 +
 --
 ifdef::qs[]
