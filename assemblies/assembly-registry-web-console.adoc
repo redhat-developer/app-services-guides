@@ -1,4 +1,4 @@
-[id='managing-content-in-web-console']
+[id='managing-content-in-service-registry-web-console']
 = Managing schemas and APIs using the {registry} web console
 :context: user-guide
 :imagesdir: ../_images
