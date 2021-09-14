@@ -1,4 +1,4 @@
-[id='managing-content-in-service-registry']
+[id='managing-content-in-service-registry-java-client']
 = Managing schemas and APIs using the {registry} Java client
 :context: java-client
 :imagesdir: ../_images

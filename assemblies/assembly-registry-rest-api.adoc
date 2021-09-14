@@ -1,4 +1,4 @@
-[id='managing-content-in-service-registry']
+[id='managing-content-in-service-registry-rest-api']
 = Managing {registry} data using the core REST API
 :context: user-guide
 :imagesdir: ../_images

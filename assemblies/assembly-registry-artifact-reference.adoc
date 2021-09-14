@@ -1,6 +1,6 @@
-[id='managing-content-in-service-registry']
+[id='supported-service-registry-content']
 = Supported {registry} content and rules
-:context: artifact-ref
+:context: artifact-reference
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
 :reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 

@@ -1,4 +1,4 @@
-[id='managing-content-in-service-registry']
+[id='managing-content-in-service-registry-maven-plugin']
 = Managing schemas and APIs using the {registry} Maven plug-in
 :context: user-guide
 :imagesdir: ../_images
