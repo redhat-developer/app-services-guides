@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import {
   TextContent,
   Text,
@@ -21,13 +21,20 @@ import {
   QuickStartCatalogSection,
   QuickStartCatalogHeader,
   QuickStartCatalogToolbar,
+  clearFilterParams,
 } from "@patternfly/quickstarts";
+import {MASLoading} from "@app/common";
 import { GuidesQuickStart } from "./procedure-parser";
 import "./Catalog.css";
 
 const MasQuickStartCatalog: React.FC = () => {
-  const { activeQuickStartID, allQuickStartStates, allQuickStarts } =
-    React.useContext<QuickStartContextValues>(QuickStartContext);
+  const {
+    activeQuickStartID,
+    allQuickStartStates,
+    allQuickStarts,
+    filter,
+    setFilter,
+  } = React.useContext<QuickStartContextValues>(QuickStartContext);
 
   const initialQueryParams = new URLSearchParams(window.location.search);
   const initialSearchQuery =
@@ -59,6 +66,18 @@ const MasQuickStartCatalog: React.FC = () => {
     GuidesQuickStart[]
   >(initialFilteredQuickStarts);
 
+  React.useEffect(() => {
+    const filteredQs = filterQuickStarts(
+      allQuickStarts,
+      filter.keyword,
+      [],
+      allQuickStartStates
+    ).sort(sortFnc);
+    if (filteredQs.length !== filteredQuickStarts.length) {
+      setFilteredQuickStarts(filteredQs);
+    }
+  }, [allQuickStarts, filter, allQuickStartStates, setFilteredQuickStarts]);
+
   const onSearchInputChange = (searchValue: string) => {
     const result = filterQuickStarts(
       allQuickStarts,
@@ -66,7 +85,9 @@ const MasQuickStartCatalog: React.FC = () => {
       [],
       allQuickStartStates
     ).sort(sortFnc);
-    setFilteredQuickStarts(result);
+    if (result.length !== filteredQuickStarts.length) {
+      setFilteredQuickStarts(result);
+    }
   };
 
   const CatalogWithSections = (
@@ -146,8 +167,14 @@ const MasQuickStartCatalog: React.FC = () => {
   );
 
   const clearFilters = () => {
+    setFilter("keyword", "");
+    clearFilterParams();
     setFilteredQuickStarts(allQuickStarts.sort(sortFnc));
   };
+
+  if (allQuickStarts.length === 0) {
+    return <MASLoading />;
+  }
 
   return (
     <>
@@ -175,8 +202,4 @@ const MasQuickStartCatalog: React.FC = () => {
   );
 };
 
-const QuickStartCatalogFederated: FunctionComponent = () => (
-  <MasQuickStartCatalog />
-);
-
-export default QuickStartCatalogFederated;
+export default MasQuickStartCatalog;

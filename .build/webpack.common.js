@@ -123,8 +123,8 @@ module.exports = (env, argv) => {
         name: federatedModuleName,
         filename: `${federatedModuleName}${isProduction ? '[chunkhash:8]' : ''}.js`,
         exposes: {
-          "./QuickStartDrawer": "./src/app/QuickStartDrawerFederated",
-          "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated"
+          "./QuickStartCatalog": "./src/app/QuickStartCatalogFederated",
+          "./QuickStartLoader": "./src/app/quickstartLoader",
         },
         shared: {
           ...dependencies,
@@ -142,7 +142,11 @@ module.exports = (env, argv) => {
             eager: true,
             singleton: true,
             requiredVersion: dependencies["@bf2/ui-shared"]
-          }
+          },
+          "@patternfly/quickstarts": {
+            requiredVersion: '*', 
+            singleton: true
+          },
         },
       })
     ],

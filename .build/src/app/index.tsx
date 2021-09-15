@@ -1,11 +1,11 @@
 import * as React from 'react';
-import QuickStartDrawerFederated from './QuickStartDrawerFederated';
+import QuickStartContainer from './QuickStartContainer';
 import DemoPage from './DemoPage';
 
 const App = () => (
-  <QuickStartDrawerFederated>
+  <QuickStartContainer>
     <DemoPage />
-  </QuickStartDrawerFederated>
+  </QuickStartContainer>
 );
 
 export { App };
