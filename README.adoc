@@ -10,6 +10,7 @@
 * link:./kafkacat[Using Kafkacat with Kafka instances in {PRODUCT}]
 * link:./kafka-bin-scripts[Using Kafka bin scripts with {PRODUCT}]
 * link:./service-discovery[Binding OpenShift applications to {PRODUCT}]
+* link:./getting-started-service-registry/[Getting started with Service Registry]
 
 == OpenShift quick starts
 
