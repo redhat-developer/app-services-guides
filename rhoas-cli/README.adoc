@@ -394,7 +394,7 @@ This example creates a Kafka instance called `my-kafka`.
 .Creating a Kafka instance
 [source,shell]
 ----
-$ rhoas kafka create my-kafka
+$ rhoas kafka create --name my-kafka
 Kafka instance "my-kafka" created successfully
 {
   "cloud_provider": "aws",
