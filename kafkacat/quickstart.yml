@@ -15,6 +15,7 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - A running Kafka instance (see the Getting Started quick start)
+    - The latest version of Kafkacat for your operating system
     - A command-line terminal application
     - JDK 11 or later
     - For Windows, the latest version of Oracle JDK

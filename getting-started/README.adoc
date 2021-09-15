@@ -212,6 +212,8 @@ endif::[]
 ifdef::qs[]
 [#conclusion]
 Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+
+You can use Kafka scripts to check that you can connect with your Kafka instance.
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]
