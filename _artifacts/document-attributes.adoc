@@ -9,8 +9,11 @@
 :product-version: 1
 :product-long: Application Services
 :product: App Services
+:registry-product-long: OpenShift Service Registry
+:registry: Service Registry
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
 :service-url: https://console.redhat.com/beta/application-services/streams/
+:registry-url: https://console.redhat.com/beta/application-services/service-registry/
 :property-file-name: app-services.properties
 :rhoas-version: 0.29.0
 

@@ -2,8 +2,8 @@ apiVersion: console.openshift.io/v1
 kind: QuickStarts
 metadata:
   name: getting-started-service-registry
-  draft: true
   annotations:
+
     order: 1
 spec:
   version: 0.1
@@ -16,12 +16,12 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - A Red Hat identity
-    - Access to the Red Hat OpenShift Service Registry environment at https://cloud.redhat.com
+    - Access to the Red Hat OpenShift Service Registry environment at https://console.redhat.com
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-creating-service-registry-instance
-    - !snippet/proc README.adoc#proc-creating-service-account
-    - !snippet/proc README.adoc#proc-uploading-schema
+    - !snippet/proc README.adoc#proc-uploading-registry-schema
+    - !snippet/proc README.adoc#proc-connecting-registry-clients
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'service-registry-quarkus-dev'
