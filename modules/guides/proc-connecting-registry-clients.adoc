@@ -1,0 +1,47 @@
+[id='proc-connecting-registry-clients_{context}']
+= Connecting client applications to {registry}
+:imagesdir: ../_images
+
+To connect your applications or services to a {registry} instance in the web console, you must copy and save the {registry} instance URL, create a service account, and copy and save the generated credentials. You'll use these details later when you configure your application for {registry}.
+
+.Prerequisites
+* You've created a {registry} instance and the instance is in *Ready* state.
+
+.Procedure
+. In the *{registry}* instances page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *View connection information*.
+. Depending on the client libraries that you want to use, chose the API for your needs:
++
+ * *Core Registry API* is the most powerful and works with Apicurio client libraries
+ * *Schema Registry compatibility API* provides compatibility with the Confluent Schema Registry API
+ * *CNCF Schema Registry API* provides compatibility with the CNCF specification
+
+. In the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
+
+.  In the web console left menu, go to *Service Accounts*, and click *Create service account* to generate the credentials that you can use to connect to {registry} and Kafka instances.
+
+. Copy the generated *Client ID* and *Client Secret* to a secure location.
++
+IMPORTANT: The generated credentials are displayed only one time. Ensure that you've successfully and securely saved the copied credentials before closing the credentials window.
+
+. After you save the generated credentials to a secure location, select the confirmation check box in the credentials window and close the window.
++
+You’ll use the details that you saved to configure your applications to connect to your {registry} instances later when you're ready.
++
+For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance and deserialize Avro messages using {registry}, you'll use this information to set your {registry} URL in the client environment variables.
+////
+. For the *Authentication method* for SASL/OAUTHBEARER, use `https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token` as the *Token endpoint URL* and store it to a secure location. This is the endpoint that you'll use with your service account credentials to authenticate the connection to this {registry} instance.
+
++
+NOTE: SASL/PLAIN authentication is also available for tools and libraries that don't support SASL/OAUTHBEARER, but SASL/OAUTHBEARER is recommended whenever possible. With SASL/PLAIN authentication, you use only the service account credentials to authenticate the connection to the Kafka instance.
+////
+
+
+.Verification
+ifdef::qs[]
+* Did you save the {registry} instance URL to a secure location?
+* Did you save the client credentials to a secure location?
+endif::[]
+ifndef::qs[]
+. Verify that the {registry} instance URL is saved to a secure location.
+. Verify that the client credentials are saved to a secure location.
+endif::[]
