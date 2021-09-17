@@ -134,7 +134,7 @@ npm run start:dev
 . Hot reload is enabled meaning saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically
 
 If you want to run the local preview with custom attributes you can do that by providing an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document will be used), or a YAML file.
-+
+
 ----
 export ATTRIBUTES_FILE=<path to attributes file>
 npm run start:dev
@@ -274,7 +274,10 @@ Draft quick starts are hidden from end users. To set a quick start as draft, add
 
 ----
 metadata:
-  draft: true
+  name: my-quickstart
+  annotations:  
+    draft: true
+    ...
 ----
 
 == Generating modular documentation
