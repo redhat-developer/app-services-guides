@@ -15,7 +15,7 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - A running Kafka instance (see the Getting Started quick start)
-    - The latest binary version of the Apache Kafka distribution
+    - The latest supported binary version of the Apache Kafka distribution
     - A command-line terminal application
     - JDK 11 or later
     - For Windows, the latest version of Oracle JDK

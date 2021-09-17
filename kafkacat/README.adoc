@@ -63,12 +63,10 @@ ifndef::community[]
 endif::[]
 //* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have a running Kafka instance in {product}.
-* You have installed the latest version of https://github.com/edenhill/kafkacat[Kafkacat^] for your operating system.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed.
 * For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
-
-You can check the version number of Kafkacat to verify that the expected version is installed.
-
+* You have installed the latest supported version of https://github.com/edenhill/kafkacat[Kafkacat^] for your operating system.
++
 .Verifying Kafkacat installation
 [source]
 ----
