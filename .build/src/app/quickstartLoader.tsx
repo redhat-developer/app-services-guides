@@ -1,7 +1,7 @@
 import { GuidesQuickStart, ProcQuickStartParser } from "@app/procedure-parser";
 import React, { useState, useEffect, FunctionComponent } from "react";
-import { useAssets } from "@bf2/ui-shared";
 import { QuickStart } from "@patternfly/quickstarts";
+import {useAssets} from "@rhoas/app-services-ui-shared";
 
 const loadJSONQuickStartsFilesFromAssets = async (
   basePath: string

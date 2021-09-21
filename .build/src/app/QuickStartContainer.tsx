@@ -4,29 +4,16 @@ import {
   useLocalStorage,
 } from "@patternfly/quickstarts";
 import { loadJSONQuickStarts } from "@app/quickstartLoader";
-import {useAssets} from "@bf2/ui-shared";
-import {MASLoading} from "@app/common";
-
-const getElement = (node: HTMLElement | (() => HTMLElement)) => {
-  if (typeof node === "function") {
-    return node();
-  }
-  return node;
-};
+import {useAssets} from "@rhoas/app-services-ui-shared";
 
 export interface QuickStartContainerProps
   extends React.HTMLProps<HTMLDivElement> {
   showDrafts?: boolean;
-  appendTo?: HTMLElement | (() => HTMLElement);
-  root?: HTMLElement | (() => HTMLElement);
 }
 
 const QuickStartContainer: FunctionComponent<QuickStartContainerProps> = ({
   children,
-  showDrafts,
-  appendTo,
-  root,
-  ...props
+  showDrafts
 }) => {
   const [activeQuickStartID, setActiveQuickStartID] = useLocalStorage(
     "quickstartId",
