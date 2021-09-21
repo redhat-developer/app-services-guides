@@ -1,0 +1,37 @@
+[id='proc-creating-service-registry-instance_{context}']
+= Creating a {registry} instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+Use the {product-long} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
+
+ifndef::qs[]
+.Prerequisites
+* You're logged in to the {registry} web console at {registry-url}[^].
+endif::[]
+
+.Procedure
+. In the {product-long} web console, go to *{registry}* > *{registry} Instances*, and click *Create {registry} instance*.
+. Enter a unique *Instance name*, such as `my-service-registry-instance`. Optionally, you can add a longer text description for this instance.
++
+[.screencapture]
+.Create {registry} instance details
+image::getting-started-service-registry/configure-service-registry-instance.png[Image of instance configuration details in Create {registry} instance window]
+. Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
+
+. When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to view, connect to, or delete the instance as needed.
+
+[.screencapture]
+.{registry} instance options menu
+image::getting-started-service-registry/service-registry-instance-options.png[Image of {registry} instance options menu]
+
+.Verification
+ifdef::qs[]
+* Is the new {registry} instance listed in the instances table?
+* Is the state of the new {registry} instance shown as *Ready*?
+endif::[]
+ifndef::qs[]
+. Verify that the new {registry} instance is listed in the instances table.
+. Verify that the state of the new {registry} instance is shown as *Ready*.
+endif::[]
+
