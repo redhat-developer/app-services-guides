@@ -93,12 +93,13 @@ h|Supported values
 |Letters (Aa-Zz), numbers (0-9), underscores ( _ ), or hyphens ( - )
 |===
 
-If you're using Kafka bin scripts to consume messages, you can use the `kafka-console-consumer.sh` tool to create a group ID:
+If you're using Kafka scripts to consume messages, you can use the `kafka-console-consumer.sh` tool to create a group ID:
 [source,subs="+quotes,+attributes"]
 ----
-bin/kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --topic test-topic --group my-consumer-group
+./kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --topic test-topic --group my-consumer-group
 ----
 
+The new consumer group is named `my-consumer-group`.
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
 You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
@@ -130,17 +131,17 @@ rhoas kafka consumer-group describe [flags]
 
 For a list of consumer group commands that you can use with the CLI, see the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
 
-If you're using Kafka bin scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
+If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
 [source,subs="+quotes,+attributes"]
 ----
-bin/kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --describe --group my-group-id
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --describe --group my-consumer-group
 ----
 
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
 You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 ifndef::community[]
-NOTE: The Kafka bin scripts are part of the open source community version of Apache Kafka. The bin scripts are not a part of {product} and are therefore not supported by Red Hat.
+NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product} and are therefore not supported by Red Hat.
 endif::[]
 
 .Prerequisites
@@ -234,7 +235,7 @@ For more information about increasing topic retention time, see {base-url}{topic
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url}{topic-config-url}[_Configuring topics in {product}_^]
 
-////
+
 [id="proc-resetting-consumer-group-offset_{context}"]
 == Resetting consumer group offset positions
 
@@ -264,10 +265,10 @@ rhoas kafka consumer-group reset-offset --id my-consumer-group --offset earliest
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
 
-If you're using Kafka bin scripts, you can use the `kafka-consumer-groups.sh` tool to reset offsets:
+If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to reset offsets:
 [source,subs="+quotes,+attributes"]
 ----
-bin/kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --reset-offsets --group my-consumer-group --topic topic1 --to-latest
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --reset-offsets --group my-consumer-group --topic topic1 --to-latest
 ----
 
 You can specify the reset for `--all-topics` or a single specified `--topic`.
@@ -291,18 +292,16 @@ Alternatively, select a consumer group for a specific topic.
 --
 . In the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Reset Offset*.
 . Select a topic.
-. Choose a new offset position from *Latest*, *Earliest*, or *Custom offset*.
+. Choose a new offset position from *Absolute*, *Latest*, or *Earliest*.
 . Select one or more partitions to apply the offset reset.
-. If you chose a custom reset, enter the new offset number for the reset.
+. If you chose an absolute reset, enter the new custom offset number for the reset.
 . Click *Reset offset* to finish.
 
 [role="_additional-resources"]
 .Additional resources
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
-////
 
-////
 [id="proc-deleting-consumer-groups_{context}"]
 == Deleting a consumer group
 
@@ -321,10 +320,10 @@ rrhoas kafka consumer-group delete my-consumer-group
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
 
-If you're using Kafka bin scripts, you can use the `kafka-consumer-groups.sh` tool to delete consumer groups:
+If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to delete consumer groups:
 [source,subs="+quotes,+attributes"]
 ----
-bin/kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --delete --group my-consumer-group
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --delete --group my-consumer-group
 ----
 
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
@@ -351,7 +350,6 @@ Alternatively, select a consumer group for a specific topic.
 .Additional resources
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
-////
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
