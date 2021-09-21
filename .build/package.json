@@ -67,7 +67,7 @@
     "generate:modular-docs": "npm-run-all --parallel generate:modular-docs-sources fetch:templates --sequential generate:modular-docs-output"
   },
   "dependencies": {
-    "@rhoas/app-services-ui-shared": "^0.12.2",
+    "@rhoas/app-services-ui-shared": "0.12.2",
     "@patternfly/quickstarts": "1.2.2",
     "@patternfly/react-core": "4.135.0",
     "@redhat-cloud-services/frontend-components-config": "4.3.5",
