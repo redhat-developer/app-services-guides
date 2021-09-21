@@ -21,7 +21,6 @@ spec:
     - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#proc-downloading-kafka-bin-scripts
     - !snippet/proc README.adoc#proc-configuring-kafka-bin-scripts
     - !snippet/proc README.adoc#proc-producing-messages-kafka-bin-scripts
     - !snippet/proc README.adoc#proc-consuming-messages-kafka-bin-scripts

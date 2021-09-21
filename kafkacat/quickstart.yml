@@ -21,7 +21,6 @@ spec:
     - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#proc-installing-kafkacat
     - !snippet/proc README.adoc#proc-configuring-kafkacat
     - !snippet/proc README.adoc#proc-producing-messages-kafkacat
     - !snippet/proc README.adoc#proc-consuming-messages-kafkacat
