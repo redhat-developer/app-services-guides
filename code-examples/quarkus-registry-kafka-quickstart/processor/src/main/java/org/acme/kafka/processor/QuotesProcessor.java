@@ -20,9 +20,9 @@ public class QuotesProcessor {
     @Incoming("requests")
     @Outgoing("quotes")
     @Blocking
-    public Quote process(String quoteRequest) throws InterruptedException {
+    public Quote process(Quote quoteRequest) throws InterruptedException {
         // simulate some hard working task
         Thread.sleep(200);
-        return new Quote(quoteRequest, random.nextInt(100));
+        return new Quote(quoteRequest.getId(), random.nextInt(100));
     }
 }
