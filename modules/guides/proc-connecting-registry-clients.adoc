@@ -8,7 +8,7 @@ To connect your applications or services to a {registry} instance in the web con
 * You've created a {registry} instance and the instance is in *Ready* state.
 
 .Procedure
-. In the *{registry}* instances page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *View connection information*.
+. In the *{registry}* instances page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *Connection*.
 . Depending on the client libraries that you want to use, chose the API for your needs:
 +
  * *Core Registry API* is the most powerful and works with Apicurio client libraries
