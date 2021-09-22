@@ -3,15 +3,29 @@
 
 [role="_abstract"]
 
-{registry} provides Java libraries for client applications to connect to {registry} instances, manage their content, or validate Kafka messages. {registry} Java client applications can: 
+{registry} provides Java libraries for client applications to connect to {registry} instances, manage their registry content, or serialize/deserialize and validate Kafka messages. {registry} Java client applications can: 
 
-* Use a Maven plug-in or Java client classes to manage schema and API artifacts stored in {registry}
+* Use a Maven plug-in or Java client to manage schema and API artifacts stored in {registry}
 
-* Use Kafka serializers/deserializers for Apache Avro, Protobuf, or JSON schema to serialize and validate Kafka message content
+* Use Kafka serializers/deserializers (SerDes) for Apache Avro, Protobuf, or JSON schema to serialize/derserialize and validate Kafka message content
 
 * Use Kafka Connect converters to map Kafka Connect schemas into Avro or JSON schemas when streaming data to external systems
 
+[discrete]
+== Apicurio Registry libraries in Maven
 
+The following Apicurio Registry community-based Java libraries are available from Maven Central:
+
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-maven-plugin/2.1.0.Final/maven-plugin[Apicurio Registry Maven plug-in]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-client/2.1.0.Final/jar[Apicurio Registry Java client]
+* Apicurio Registry SerDes
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[Avro SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[Protobuf SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[JSON Schema SerDes]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-distro-connect-converter/2.1.0.Final/zip[Apicurio Registry Kafka Connect Converters]
+
+////
+// Add for GA when available
 .{registry} Java library .zip downloads
 [%header,cols="4,3,3"]
 
@@ -25,4 +39,8 @@
 |Kafka Connect converters 
 |link:{download-url-registry-distribution}[Red Hat Developer downloads]
 |Development Preview
+|Source Code 
+|link:{download-url-registry-distribution}[Red Hat Developer downloads]
+|Development Preview
 |===
+////
