@@ -1,6 +1,7 @@
 package org.acme.kafka.producer;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
@@ -13,13 +14,13 @@ public class QuotesResourceTest {
 
     @Test
     void testQuotesEventStream() {
-        String body = given()
+        JsonPath body = given()
                 .when()
                 .post("/quotes/request")
                 .then()
                 .statusCode(200)
                 .extract().body()
-                .asString();
-        assertDoesNotThrow(() -> UUID.fromString(body));
+                .jsonPath();
+        assertDoesNotThrow(() -> UUID.fromString(body.get("id")));
     }
 }

@@ -2,6 +2,7 @@ package org.acme.kafka.producer;
 
 
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -19,7 +20,7 @@ import io.smallrye.mutiny.Multi;
 public class QuotesResource {
 
     @Channel("quote-requests")
-    Emitter<String> quoteRequestEmitter;
+    Emitter<Quote> quoteRequestEmitter;
 
     /**
      * Endpoint to generate a new quote request id and send it to "quote-requests" Kafka topic using the emitter.
@@ -27,10 +28,11 @@ public class QuotesResource {
     @POST
     @Path("/request")
     @Produces(MediaType.TEXT_PLAIN)
-    public String createRequest() {
+    public Quote createRequest() {
         UUID uuid = UUID.randomUUID();
-        quoteRequestEmitter.send(uuid.toString());
-        return uuid.toString();
+        Quote quote = new Quote(uuid.toString(), ThreadLocalRandom.current().nextInt());
+        quoteRequestEmitter.send(quote);
+        return quote;
     }
 
     @Channel("quotes")

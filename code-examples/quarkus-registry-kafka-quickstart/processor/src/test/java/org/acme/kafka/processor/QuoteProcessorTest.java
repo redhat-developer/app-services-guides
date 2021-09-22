@@ -62,14 +62,14 @@ public class QuoteProcessorTest {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group-id");
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-        properties.put(SerdeConfig.REGISTRY_URL, "http://localhost:8080/apis/registry/v2");
+        properties.put(SerdeConfig.REGISTRY_URL, "http://localhost:8888/apis/registry/v2");
         properties.put(AvroKafkaSerdeConfig.USE_SPECIFIC_AVRO_READER, true);
         return properties;
     }
 
     Map<String, Object> producerConfig() {
         Map<String, Object> properties = new HashMap<String, Object>(kafkaConfig);
-        properties.put(SerdeConfig.REGISTRY_URL, "http://localhost:8080/apis/registry/v2");
+        properties.put(SerdeConfig.REGISTRY_URL, "http://localhost:8888/apis/registry/v2");
         properties.put(SerdeConfig.AUTO_REGISTER_ARTIFACT, true);
         return properties;
     }
