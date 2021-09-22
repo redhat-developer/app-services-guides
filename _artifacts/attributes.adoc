@@ -3,9 +3,9 @@
 :product: OpenShift Service Registry
 :registry-product-long: OpenShift Service Registry
 :registry: Service Registry
-
 :product-version: 1
 :rh-openshift-sr:
+
 :console-url: https://console.redhat.com/beta/application-services/service-registry/
 :download-url-registry-distribution: https://github.com/redhat-developer
 
@@ -25,7 +25,18 @@
 //URL components for cross refs
 :base-url: https://access.redhat.com/documentation/en-us/
 :base-url-cli: {base-url}
+:registry-product-long-url: red_hat_openshift_service_registry 
 :product-long-url: red_hat_openshift_streams_for_apache_kafka
+
+//registry guides
+:sr-intro-url: {base-url}{registry-product-long-url}/{product-version}/guide/0827e812-1062-4950-83c3-d99cb906a8ef
+:sr-manage-console-url: {base-url}{registry-product-long-url}/{product-version}/guide/ea7b18cd-e335-4fa9-98a3-3a23855d6e6a
+:sr-manage-api-url: {base-url}{registry-product-long-url}/{product-version}/guide/a1d80ed2-5139-4943-b54f-446961118e5c
+:sr-manage-java-client-url: {base-url}{registry-product-long-url}/{product-version}/guide/f8d5ccaf-b4ae-4eb0-abbd-3bf443f91f3b
+:sr-manage-maven-plugin-url: {base-url}{registry-product-long-url}/{product-version}/guide/e5aec371-c620-44e0-a709-3bc03bd6e40a
+:sr-artifact-ref-url: {base-url}{registry-product-long-url}/{product-version}/guide/9b0fdf14-f0d6-4d7f-8637-3ac9e2069817
+
+//kafka guides
 :getting-started-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
 :kafka-bin-scripts-url: {product-long-url}/{product-version}/guide/c0ab8d79-8b74-4876-955d-6d5b6912a966
 :kafkacat-url: {product-long-url}/{product-version}/guide/ee92cfdb-9587-42f8-80d5-54169e0e3c07
