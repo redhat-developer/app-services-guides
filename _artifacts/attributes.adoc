@@ -1,13 +1,13 @@
 :org-name: Red Hat
 :product-long: {org-name} OpenShift Service Registry
 :product: OpenShift Service Registry
+:registry-product-long: OpenShift Service Registry
 :registry: Service Registry
+
 :product-version: 1
 :rh-openshift-sr:
-//:product-version-previous: 0.0
-
 :console-url: https://console.redhat.com/beta/application-services/service-registry/
-
+:download-url-registry-distribution: https://github.com/redhat-developer
 
 :property-file-name: app-services.properties
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
@@ -34,7 +34,6 @@
 :rhoas-cli-ref-url: {product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
 :topic-config-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
 :path: {rhoas-cli-ref-url}
-:download-url-registry-distribution: https://github.com/redhat-developer
 
 // internal links
 :registry-rules: link:ref-registry-rule-types.adoc[{registry} content rule types]
