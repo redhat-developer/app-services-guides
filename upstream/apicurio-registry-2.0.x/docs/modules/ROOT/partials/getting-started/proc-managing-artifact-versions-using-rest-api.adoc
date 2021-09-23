@@ -2,7 +2,7 @@
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts-api.adoc
 
 [id="managing-artifact-versions-using-rest-api_{context}"]
-= Managing schema and API artifact versions using Registry REST API commands
+= Managing schema and API artifact versions using {registry} REST API commands
 
 [role="_abstract"]
 If you do not specify an artifact version when adding schema and API artifacts to {registry} using the v2 core REST API, {registry} generates one automatically. The default version when creating a new artifact  is `1`.
@@ -14,10 +14,11 @@ This section shows a simple curl-based example of using the registry v2 core RES
 .Prerequisites
 
 ifdef::apicurio-registry,rh-service-registry[]
-* {registry} must be installed and running in your environment
+* {registry} is installed and running in your environment
 endif::[]
 ifdef::rh-openshift-sr[]
-* You must have access to the {registry} web console
+* You have a service account with the correct access permissions for {registry} instances.
+* You  have created an access token using your service account credentials. 
 endif::[]
 
 .Procedure
@@ -27,8 +28,8 @@ ifdef::rh-openshift-sr[]
 +
 `*{console-url}*`
 
-. For the relevant {registry} instance that you want to connect to, select the options icon (three vertical dots) and click *View connection information*.
-. In the *Connection* page, copy the URL for the core registry API to a secure location. This is the registry API endpoint that you need for connecting to this {registry} instance. 
+. For the relevant {registry} instance that you want to connect to, select the options icon (three vertical dots) and click *Connection*.
+. In the *Connection* page, copy the URL for the *Core Registry API* to a secure location. This is the registry API endpoint that you need for connecting to this {registry} instance. 
 endif::[]
 
 . Add an artifact version in the registry using the `/groups/\{group\}/artifacts` operation. The following example `curl` command adds a simple artifact for a share price application:
@@ -37,6 +38,7 @@ endif::[]
 ----
 $ curl -X POST -H "Content-type: application/json; artifactType=AVRO" \ 
   -H "X-Registry-ArtifactId: my-share-price" -H "X-Registry-Version: 1.1.1" \ 
+  -H "Authorization: Bearer $ACCESS_TOKEN" \
   --data '{"type":"record","name":" p","namespace":"com.example", \
    "fields":[{"name":"symbol","type":"string"},{"name":"price","type":"string"}]}' \ 
    http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts 
@@ -70,8 +72,9 @@ endif::[]
 +
 [source,bash]
 ----
-$ curl http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts/my-share-price/versions/1.1.1 \ 
-{"type":"record","name":"price","namespace":"com.example", \
+$ curl -H "Authorization: Bearer $ACCESS_TOKEN" \ 
+http://MY-REGISTRY-URL/apis/registry/v2/groups/my-group/artifacts/my-share-price/versions/1.1.1
+{"type":"record","name":"price","namespace":"com.example", 
   "fields":[{"name":"symbol","type":"string"},{"name":"price","type":"string"}]}
 ----
 

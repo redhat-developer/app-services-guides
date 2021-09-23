@@ -8,8 +8,12 @@
 This section explains how to manage artifacts stored in {registry} using a Java client application. 
 
 .Prerequisites
-
-* You must have access to a {registry} instance
+ifdef::apicurio-registry,rh-service-registry[]
+* {registry} is installed and running in your environment
+endif::[]
+ifdef::rh-openshift-sr[]
+* You have a service account with the correct access permissions for {registry} instances
+endif::[]
 
 .Procedure
 . Add the following dependency to your Maven project:
@@ -53,5 +57,5 @@ ifdef::apicurio-registry,rh-service-registry[]
 {kafka-client-serdes}
 endif::[]
 ifdef::rh-openshift-sr[]
-link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html/service_registry_user_guide/using-kafka-client-serdes[Red Hat Integration Service Registry documentation on Kafka client SerDes]
+link:https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html/service_registry_user_guide/using-kafka-client-serdes[Red Hat Integration Service Registry Kafka client SerDes]
 endif::[]

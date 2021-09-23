@@ -2,18 +2,23 @@
 // ParentAssemblies: assemblies/getting-started/as_managing-registry-artifacts.adoc
 
 [id="exporting-importing-using-rest-api_{context}"]
-= Exporting and importing registry content using Registry REST API commands
+= Exporting and importing registry content using {registry} REST API commands
 
 [role="_abstract"]
 This section shows a simple curl-based example of using the registry v2 core REST API to export and import existing registry data in `.zip` format from one {registry} instance to another. For example, this is useful when migrating or upgrading from one {registry} v2.x instance to another. 
 
+ifdef::rh-openshift-sr[]
+IMPORTANT: You can import Service Registry data that has been exported from another {product-long} instance. You cannot currently import Service Registry data from a Red Hat Integration Service Registry instance.   
+endif::[]
+
 .Prerequisites
 
 ifdef::apicurio-registry,rh-service-registry[]
-* {registry} must be installed and running in your environment
+* {registry} is installed and running in your environment
 endif::[]
 ifdef::rh-openshift-sr[]
-* You must have access to the {registry} web console
+* You have a service account with the correct access permissions for {registry} instances.
+* You  have created an access token using your service account credentials. 
 endif::[]
 
 .Procedure
@@ -23,8 +28,8 @@ ifdef::rh-openshift-sr[]
 +
 `*{console-url}*`
 
-. For the relevant {registry} instance that you want to connect to, select the options icon (three vertical dots) and click *View connection information*.
-. In the *Connection* page, copy the URL for the core registry API to a secure location. This is the registry API endpoint that you need for connecting to this {registry} instance. 
+. For the relevant {registry} instance that you want to connect to, select the options icon (three vertical dots) and click *Connection*.
+. In the *Connection* page, copy the URL for the *Core Registry API* to a secure location. This is the registry API endpoint that you need for connecting to this {registry} instance. 
 endif::[]
 
 . Export the registry data from your existing source {registry} instance:
@@ -32,6 +37,7 @@ endif::[]
 [source,bash]
 ----
 $ curl http://MY-REGISTRY-URL/apis/registry/v2/admin/export \ 
+  -H "Authorization: Bearer $ACCESS_TOKEN" \ 
   --output my-registry-data.zip
 ----
 +
@@ -51,7 +57,8 @@ endif::[]
 [source,bash]
 ----
 $ curl -X POST "http://MY-REGISTRY-URL/apis/registry/v2/admin/import" \ 
-  -H "Content-Type: application/zip" --data-binary @my-registry-data.zip
+  -H "Content-Type: application/zip" -H "Authorization: Bearer $ACCESS_TOKEN" \
+  --data-binary @my-registry-data.zip
 ----
 +
 `MY-REGISTRY-URL` is the 

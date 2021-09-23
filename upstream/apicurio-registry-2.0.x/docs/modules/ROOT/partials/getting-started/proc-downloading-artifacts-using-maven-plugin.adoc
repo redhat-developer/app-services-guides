@@ -7,6 +7,14 @@
 [role="_abstract"]
 You can use the Maven plug-in to download artifacts from {registry}. This is often useful, for example, when generating code from a registered schema.
 
+.Prerequisites
+ifdef::apicurio-registry,rh-service-registry[]
+* {registry} is installed and running in your environment
+endif::[]
+ifdef::rh-openshift-sr[]
+* You have service account with the correct access permissions for {registry} instances
+endif::[]
+
 .Procedure
 * Update your Maven `pom.xml` file to use the `apicurio-registry-maven-plugin` to download an artifact. The following example shows downloading Apache Avro and GraphQL schemas.
 +
@@ -24,6 +32,9 @@ You can use the Maven plug-in to download artifacts from {registry}. This is oft
       </goals>
       <configuration>
           <registryUrl>http://REGISTRY-URL/apis/registry/v2</registryUrl> <2>
+          <authServerUrl>MY-AUTH-SERVER</<authServerUrl> 
+          <clientId>MY-CLIENT-ID</clientId>
+          <clientSecret>MY-CLIENT-SECRET</clientSecret> <3>
           <artifacts>
               <artifact>
                   <groupId>TestGroup</groupId> <3>
@@ -46,6 +57,12 @@ You can use the Maven plug-in to download artifacts from {registry}. This is oft
 ----
 . Specify `download` as the execution goal.
 . Specify the {registry} URL with the `../apis/registry/v2` endpoint.
+ifdef::apicurio-registry,rh-service-registry[]
+. If authentication is required, you can specify your authentication server and client credentials.
+endif::[]
+ifdef::rh-openshift-sr[]
+. Specify your service account ID and secret and the OpenShift Application Services authentication server: https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token.
+endif::[]
 . Specify the {registry} artifact group ID. You can specify the `default` group if you do not want to use a unique group.
 . You can download multiple artifacts to a specified directory using the artifact ID. 
 
