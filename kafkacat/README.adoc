@@ -38,7 +38,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-using-kafkacat"]
-= Using Kafkacat with Kafka instances in {product-long}
+= Configuring and connecting Kafkacat with Kafka instances in {product-long}
 ifdef::context[:parent-context: {context}]
 :context: using-kafkacat
 
@@ -49,7 +49,16 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long}. Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
+As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long}.
+Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later.
+With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line,
+and list topic and partition information for your Kafka instances.
+
+ifndef::community[]
+NOTE: Kafkacat is an open source community tool. Kafkacat is not a part of {product} and is therefore not supported by Red Hat.
+endif::[]
+
+You can install and use Kafkacat to test and debug your Kafka instances in {product}.
 
 .Prerequisites
 ifndef::community[]
@@ -59,29 +68,7 @@ endif::[]
 * You have a running Kafka instance in {product}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed.
 * For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
-
-// Condition out QS-only content so that it doesn't appear in docs.
-// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
-ifdef::qs[]
-[#description]
-Learn how to use Kafkacat to interact with a Kafka instance in {product-long}.
-
-[#introduction]
-Welcome to the quick start for {product-long} with Kafkacat. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat^] to produce and consume messages for your Kafka instances in {product}.
-endif::[]
-
-[id="proc-installing-kafkacat_{context}"]
-== Installing and verifying Kafkacat
-
-https://github.com/edenhill/kafkacat[Kafkacat^] is a command-line utility for messaging in Apache Kafka 0.8 and later. You can install and use Kafkacat to test and debug your Kafka instances in {product}. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
-
-ifndef::community[]
-NOTE: Kafkacat is an open source community tool. Kafkacat is not a part of {product} and is therefore not supported by Red Hat.
-endif::[]
-
-.Procedure
-. In a web browser, go to the https://github.com/edenhill/kafkacat[Kafkacat^] repository in GitHub and follow the installation instructions for your operating system.
-. Verify that the expected version was installed:
+* You have installed the latest supported version of https://github.com/edenhill/kafkacat[Kafkacat^] for your operating system.
 +
 .Verifying Kafkacat installation
 [source]
@@ -94,9 +81,14 @@ Copyright (c) 2014-2019, Magnus Edenhill
 Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer)
 ----
 
+// Condition out QS-only content so that it doesn't appear in docs.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
-.Verification
-* Was Kafkacat installed successfully?
+[#description]
+Learn how to use Kafkacat to interact with a Kafka instance in {product-long}.
+
+[#introduction]
+Welcome to the quick start for {product-long} with Kafkacat. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat^] to produce and consume messages for your Kafka instances in {product}.
 endif::[]
 
 [id="proc-configuring-kafkacat_{context}"]
@@ -114,14 +106,12 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-* On the command line, set the Kafka instance bootstrap server, client credentials, and consumer group ID as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
+* On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
 +
 --
 ifdef::qs[]
 The `<bootstrap_server>` is the bootstrap server endpoint for your service account. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
 endif::[]
-
-All consumers with the same group ID belong to the consumer group with that ID.
 
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
@@ -129,7 +119,6 @@ All consumers with the same group ID belong to the consumer group with that ID.
 $ export BOOTSTRAP_SERVER=__<bootstrap_server>__
 $ export USER=__<client_id>__
 $ export PASSWORD=__<client_secret>__
-$ export GROUP_ID=__<group_id>__
 ----
 --
 
