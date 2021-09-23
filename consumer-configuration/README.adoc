@@ -56,9 +56,39 @@ Consumers within a group don’t read data from the same partition, but can read
 As a developer of applications and services, you can view all the consumer groups that have access to a particular Kafka instance in {product}.
 If required, use the {product} web console to reset the offsets of consumer groups or delete consumer groups.
 
-As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` tool to review and update consumer groups.
+As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to review and update consumer groups.
 
 //Additional line break to resolve mod docs generation error
+
+[id="con-consumer-group-script_{context}"]
+== Connecting the Kafka consumer group script
+
+If you're using the `kafka-consumer-groups.sh` script, or any other Kafka scripts,
+you'll need to use the `--boostrap-server` and `--command-config` flags to connect to your Kafka instance.
+
+.Command to list all consumer groups
+[source,subs="+quotes,+attributes"]
+----
+./kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --list
+----
+
+The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
+You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
+
+Kafka scripts require SASL/PLAIN authentication.
+Use an `<authentication_properties>` configuration file to configure the connection.
+Include the client ID and client secret generated when creating a service account to access your Kafka instance.
+
+.Authentication configuration properties
+[source,subs="+quotes"]
+----
+sasl.mechanism=PLAIN
+security.protocol=SASL_SSL
+
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="__<client_id>__" \
+  password="__<client_secret>__" \;
+----
 
 [id="proc-adding-consumer-group-id_{context}"]
 == Adding a consumer to a consumer group
@@ -96,12 +126,10 @@ h|Supported values
 If you're using Kafka scripts to consume messages, you can use the `kafka-console-consumer.sh` tool to create a group ID:
 [source,subs="+quotes,+attributes"]
 ----
-./kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --topic test-topic --group my-consumer-group
+./kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --topic test-topic --group my-consumer-group
 ----
 
 The new consumer group is named `my-consumer-group`.
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 [NOTE]
 ====
@@ -134,11 +162,8 @@ For a list of consumer group commands that you can use with the CLI, see the {ba
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
 [source,subs="+quotes,+attributes"]
 ----
-./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --describe --group my-consumer-group
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --describe --group my-consumer-group
 ----
-
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 ifndef::community[]
 NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product} and are therefore not supported by Red Hat.
@@ -275,13 +300,10 @@ For a list of topic properties that you can update using the CLI, see the `rhoas
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to reset offsets:
 [source,subs="+quotes,+attributes"]
 ----
-./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --reset-offsets --group my-consumer-group --topic topic1 --to-latest
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --reset-offsets --group my-consumer-group --topic topic1 --to-latest
 ----
 
 You can specify the reset for `--all-topics` or a single specified `--topic`.
-
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 .Prerequisites
 * You're logged in to the {product} web console.
@@ -330,11 +352,8 @@ For a list of topic properties that you can update using the CLI, see the `rhoas
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to delete consumer groups:
 [source,subs="+quotes,+attributes"]
 ----
-./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --delete --group my-consumer-group
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --delete --group my-consumer-group
 ----
-
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 .Prerequisites
 * You're logged in to the {product} web console.
