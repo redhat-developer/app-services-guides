@@ -15,6 +15,7 @@ import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 import io.smallrye.mutiny.Multi;
+import org.jboss.resteasy.reactive.RestSseElementType;
 
 @Path("/quotes")
 public class QuotesResource {
@@ -43,6 +44,7 @@ public class QuotesResource {
      */
     @GET
     @Produces(MediaType.SERVER_SENT_EVENTS) // denotes that server side events (SSE) will be produced
+    @RestSseElementType(MediaType.TEXT_PLAIN)
     public Multi<Quote> stream() {
         return quotes.log();
     }
