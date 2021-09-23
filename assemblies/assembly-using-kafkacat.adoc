@@ -1,5 +1,5 @@
 [id='assembly-using-kafkacat']
-= Using Kafkacat with Kafka instances in {product-long}
+= Configuring and connecting Kafkacat with Kafka instances in {product-long}
 ifdef::context[:parent-context: {context}]
 :context: using-kafkacat
 :imagesdir: _images
@@ -11,7 +11,16 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long}. Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later. With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line, and list topic and partition information for your Kafka instances.
+As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long}.
+Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later.
+With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line,
+and list topic and partition information for your Kafka instances.
+
+ifndef::community[]
+NOTE: Kafkacat is an open source community tool. Kafkacat is not a part of {product} and is therefore not supported by Red Hat.
+endif::[]
+
+You can install and use Kafkacat to test and debug your Kafka instances in {product}.
 
 .Prerequisites
 ifndef::community[]
@@ -21,6 +30,18 @@ endif::[]
 * You have a running Kafka instance in {product}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed.
 * For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
+* You have installed the latest supported version of https://github.com/edenhill/kafkacat[Kafkacat^] for your operating system.
++
+.Verifying Kafkacat installation
+[source]
+----
+$ kafkacat -V
+
+kafkacat - Apache Kafka producer and consumer tool
+https://github.com/edenhill/kafkacat
+Copyright (c) 2014-2019, Magnus Edenhill
+Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer)
+----
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
@@ -33,10 +54,10 @@ Welcome to the quick start for {product-long} with Kafkacat. In this quick start
 endif::[]
 ifndef::community[]
 endif::[]
+ifndef::community[]
+endif::[]
 ifdef::qs[]
 endif::[]
-include::modules/guides/proc-installing-kafkacat.adoc[leveloffset=+1]
-
 include::modules/guides/proc-configuring-kafkacat.adoc[leveloffset=+1]
 
 include::modules/guides/proc-producing-messages-kafkacat.adoc[leveloffset=+1]

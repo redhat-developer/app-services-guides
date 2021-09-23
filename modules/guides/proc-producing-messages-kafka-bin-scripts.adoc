@@ -1,12 +1,11 @@
 [id='proc-producing-messages-kafka-bin-scripts_{context}']
-= Producing messages using Kafka bin scripts
+= Producing messages using Kafka scripts
 :imagesdir: ../_images
 
 You can use the `kafka-console-producer` script to produce messages to Kafka topics.
 
 .Prerequisites
 
-* The Kafka bin scripts are downloaded.
 * You have a running Kafka instance in {product}.
 ifndef::qs[]
 * You have the bootstrap server endpoint for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.

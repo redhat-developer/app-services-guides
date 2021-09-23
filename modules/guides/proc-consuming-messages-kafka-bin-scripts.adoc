@@ -1,5 +1,5 @@
 [id='proc-consuming-messages-kafka-bin-scripts_{context}']
-= Consuming messages using Kafka bin scripts
+= Consuming messages using Kafka scripts
 :imagesdir: ../_images
 
 You can use the `kafka-console-consumer` script to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with the `kafka-console-producer` script.
@@ -41,7 +41,7 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
-Congratulations! You successfully completed the {product} Kafka bin scripts quick start, and are now ready to produce and consume messages in the service.
+Congratulations! You successfully completed the {product} Kafka scripts quick start, and are now ready to produce and consume messages in the service.
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

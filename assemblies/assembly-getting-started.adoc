@@ -49,6 +49,8 @@ include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 ifdef::qs[]
 [#conclusion]
 Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+
+You can use Kafka scripts to check that you can connect with your Kafka instance.
 ifdef::qs[]
 endif::[]
 
