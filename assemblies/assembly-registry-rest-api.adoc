@@ -22,6 +22,7 @@ Manage schemas and API artifacts stored in the {product-long} cloud service usin
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
 include::{reuse-modules}/con-registry-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-creating-access-token-rest-api.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
 include::{reuse-modules}/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]
