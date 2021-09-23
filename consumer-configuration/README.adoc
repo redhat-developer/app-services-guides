@@ -263,6 +263,13 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 rhoas kafka consumer-group reset-offset --id my-consumer-group --offset earliest --topic topic1
 ----
 
+The `reset-offset` CLI command has an additional reset option. You can use a timestamp value.
+
+[source]
+----
+rhoas kafka consumer-group reset-offset --id my-consumer-group --offset timestamp --value --value "2021-06-23T09:07:21-07:00"
+----
+
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
 
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to reset offsets:
