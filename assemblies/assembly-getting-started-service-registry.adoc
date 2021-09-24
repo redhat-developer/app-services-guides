@@ -43,7 +43,7 @@ include::modules/guides/proc-connecting-registry-clients.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 == Additional resources
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_service_registry/1[{registry-product-long} user documentation]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation]
 
 ifdef::qs[]

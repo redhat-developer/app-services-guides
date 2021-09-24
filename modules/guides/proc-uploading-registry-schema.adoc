@@ -41,7 +41,7 @@ NOTE:  Specifying a group is optional when using the web console, and a `default
 * *Info*: Displays the artifact name, group, description, lifecycle status, when created, and last modified. Click the *Edit Artifact Metadata* pencil icon to edit the artifact name and description or add labels, or click *Download* to download the artifact file locally.
 * *Content*: Displays a read-only view of the full artifact content.
 * *Documentation*: (OpenAPI only): Displays automatically-generated REST API documentation.
-* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_service_registry/1[{registry-product-long} user documentation].
+* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation].
 +
 You can now use this schema to serialize and deserialize messages from Kafka client applications.
 
