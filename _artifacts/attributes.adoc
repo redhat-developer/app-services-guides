@@ -45,7 +45,7 @@
 :rhoas-cli-url: {product-long-url}/{product-version}/guide/f520e427-cad2-40ce-823d-96234ccbc047
 :rhoas-cli-ref-url: {product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
 :topic-config-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
-:path: {rhoas-cli-ref-url}
+:path: {base-url-cli}{rhoas-cli-ref-url}
 
 // internal links
 :registry-rules: link:ref-registry-rule-types.adoc[{registry} content rule types]
