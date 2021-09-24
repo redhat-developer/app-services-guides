@@ -90,6 +90,10 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
   password="__<client_secret>__" \;
 ----
 
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url}[Getting started with {product-long}] describes how to create a Kafka instance and service account
+
 [id="proc-adding-consumer-group-id_{context}"]
 == Adding a consumer to a consumer group
 
