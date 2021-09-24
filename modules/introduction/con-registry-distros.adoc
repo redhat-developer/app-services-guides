@@ -20,8 +20,8 @@ The following Apicurio Registry community-based Java libraries are available fro
 * link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-client/2.1.0.Final/jar[Apicurio Registry Java client]
 * Apicurio Registry SerDes
 ** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[Avro SerDes]
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[Protobuf SerDes]
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[JSON Schema SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-protobuf-serde/2.1.0.Final/jar[Protobuf SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-jsonschema-serde/2.1.0.Final/jar[JSON Schema SerDes]
 * link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-distro-connect-converter/2.1.0.Final/zip[Apicurio Registry Kafka Connect Converters]
 
 ////

@@ -32,6 +32,7 @@ You can use the {registry} Java client classes to create, read, update, or delet
 You can use the {registry} Maven plug-in to add, download, or test {registry} artifacts in a Maven build. 
 This includes adding artifacts during a build, or downloading artifacts when generating code from a schema. If content rules are configured, you can test that artifacts can be added before making changes. 
 
+////
 [role="_additional-resources"]
 .Additional resources
 
@@ -40,3 +41,4 @@ This includes adding artifacts during a build, or downloading artifacts when gen
 * Getting started with the rhoas CLI
 * Managing {registry} content using the Java client
 * Managing {registry} content using the Maven plug-in
+////

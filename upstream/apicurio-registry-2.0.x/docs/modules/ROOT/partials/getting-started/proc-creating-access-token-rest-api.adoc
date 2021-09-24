@@ -19,7 +19,7 @@ endif::[]
 .Procedure
 
 . Create your service account credentials using the web console: 
-https://cloud.redhat.com/beta/application-services/service-accounts
+https://console.redhat.com/beta/application-services/service-accounts
 
 . Copy the generated *Client ID* and *Client Secret* to a secure location.
 
