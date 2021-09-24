@@ -1,0 +1,49 @@
+[id='proc-deleting-consumer-groups_{context}']
+= Deleting a consumer group
+:imagesdir: ../_images
+
+[role="_abstract"]
+Use the {product} web console to delete consumer groups.
+The consumer group must have no active members connected to a topic.
+By deleting the consumer group, you remove the current state associated with the group.
+
+As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) to delete consumer groups, as shown in the following example command:
+
+.Example CLI command to delete a consumer group
+[source]
+----
+rrhoas kafka consumer-group delete my-consumer-group
+----
+
+For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
+
+If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to delete consumer groups:
+[source,subs="+quotes,+attributes"]
+----
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --delete --group my-consumer-group
+----
+
+.Prerequisites
+* You're logged in to the {product} web console.
+* The consumer group you select must have no active members.
+* Consumers in the consumer group must be shut down (not consuming partitions).
+
+.Procedure
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer group you're updating.
++
+Alternatively, select a consumer group for a specific topic.
++
+--
+.. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topic.
+.. In the *Topics* page, click the name of the topic.
+--
+. In the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Delete*.
+. Confirm the deletion by clicking *Delete*.
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

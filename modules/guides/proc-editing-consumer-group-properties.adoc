@@ -16,17 +16,14 @@ rhoas kafka consumer-group describe [flags]
 
 For a list of consumer group commands that you can use with the CLI, see the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
 
-If you're using Kafka bin scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
+If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
 [source,subs="+quotes,+attributes"]
 ----
-bin/kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --describe --group my-group-id
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --describe --group my-consumer-group
 ----
 
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
-
 ifndef::community[]
-NOTE: The Kafka bin scripts are part of the open source community version of Apache Kafka. The bin scripts are not a part of {product} and are therefore not supported by Red Hat.
+NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product} and are therefore not supported by Red Hat.
 endif::[]
 
 .Prerequisites

@@ -18,9 +18,11 @@ Consumers within a group don’t read data from the same partition, but can read
 As a developer of applications and services, you can view all the consumer groups that have access to a particular Kafka instance in {product}.
 If required, use the {product} web console to reset the offsets of consumer groups or delete consumer groups.
 
-As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` tool to review and update consumer groups.
+As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to review and update consumer groups.
 
 //Additional line break to resolve mod docs generation error
+include::modules/guides/con-consumer-group-script.adoc[leveloffset=+1]
+
 include::modules/guides/proc-adding-consumer-group-id.adoc[leveloffset=+1]
 
 include::modules/guides/proc-editing-consumer-group-properties.adoc[leveloffset=+1]
@@ -28,5 +30,9 @@ include::modules/guides/proc-editing-consumer-group-properties.adoc[leveloffset=
 include::modules/guides/ref-supported-consumer-group-properties.adoc[leveloffset=+1]
 
 include::modules/guides/con-reducing-consumer-lag.adoc[leveloffset=+1]
+
+include::modules/guides/proc-resetting-consumer-group-offset.adoc[leveloffset=+1]
+
+include::modules/guides/proc-deleting-consumer-groups.adoc[leveloffset=+1]
 
 

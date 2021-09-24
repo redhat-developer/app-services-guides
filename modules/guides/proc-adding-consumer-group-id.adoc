@@ -32,14 +32,13 @@ h|Supported values
 |Letters (Aa-Zz), numbers (0-9), underscores ( _ ), or hyphens ( - )
 |===
 
-If you're using Kafka bin scripts to consume messages, you can use the `kafka-console-consumer.sh` tool to create a group ID:
+If you're using Kafka scripts to consume messages, you can use the `kafka-console-consumer.sh` tool to create a group ID:
 [source,subs="+quotes,+attributes"]
 ----
-bin/kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --topic test-topic --group my-consumer-group
+./kafka-console-consumer.sh --bootstrap-server __<bootstrap_server>__ --consumer-config __<authentication_properties>__ --topic test-topic --group my-consumer-group
 ----
 
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
+The new consumer group is named `my-consumer-group`.
 
 [NOTE]
 ====

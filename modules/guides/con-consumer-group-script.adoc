@@ -1,0 +1,34 @@
+[id='con-consumer-group-script_{context}']
+= Connecting the Kafka consumer group script
+:imagesdir: ../_images
+
+If you're using the `kafka-consumer-groups.sh` script, or any other Kafka scripts,
+you'll need to use the `--boostrap-server` and `--command-config` flags to connect to your Kafka instance.
+
+.Command to list all consumer groups
+[source,subs="+quotes,+attributes"]
+----
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --list
+----
+
+The `<bootstrap_server>` is the bootstrap server endpoint for your service account.
+You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
+
+Kafka scripts require SASL/PLAIN authentication.
+Use an `<authentication_properties>` configuration file to configure the connection.
+Include the client ID and client secret generated when creating a service account to access your Kafka instance.
+
+.Authentication configuration properties
+[source,subs="+quotes"]
+----
+sasl.mechanism=PLAIN
+security.protocol=SASL_SSL
+
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+  username="__<client_id>__" \
+  password="__<client_secret>__" \;
+----
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url}[Getting started with {product-long}] describes how to create a Kafka instance and service account
