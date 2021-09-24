@@ -3,6 +3,7 @@
 ifdef::context[:parent-context: {context}]
 :context: getting-started-sr
 :imagesdir: _images
+:registry-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====
@@ -13,7 +14,7 @@ ifdef::context[:parent-context: {context}]
 [role="_abstract"]
 As a developer of applications and services, you can use {registry-product-long} to create and set up {registry} instances and connect your applications and services to these instances. {registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
 
-For more overview information about {registry}, see https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/[].
+For more overview information about {registry}, see the link:https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/[product documentation for {registry-product-long}].
 
 ifndef::community[]
 .Prerequisites
@@ -51,4 +52,3 @@ ifdef::qs[]
 Congratulations! You successfully completed the {registry} Getting Started quick start, and are now ready to use the service.
 ifdef::qs[]
 endif::[]
-

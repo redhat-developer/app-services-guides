@@ -37,14 +37,14 @@ endif::[]
             <clientSecret>MY-CLIENT-SECRET</clientSecret> <3>
             <artifacts>
                 <artifact>
-                    <groupId>TestGroup</groupId> <3>
+                    <groupId>TestGroup</groupId> <4>
                     <artifactId>FullNameRecord</artifactId>
                     <file>${project.basedir}/src/main/resources/schemas/record.avsc</file> 
                     <ifExists>FAIL</ifExists>
                 </artifact>
                 <artifact>
                     <groupId>TestGroup</groupId>
-                    <artifactId>ExampleAPI</artifactId> <4>
+                    <artifactId>ExampleAPI</artifactId> <5>
                     <type>GRAPHQL</type>
                     <file>${project.basedir}/src/main/resources/apis/example.graphql</file>
                     <ifExists>RETURN_OR_UPDATE</ifExists>

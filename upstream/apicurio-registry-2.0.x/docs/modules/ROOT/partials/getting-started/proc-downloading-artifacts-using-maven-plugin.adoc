@@ -37,8 +37,8 @@ endif::[]
           <clientSecret>MY-CLIENT-SECRET</clientSecret> <3>
           <artifacts>
               <artifact>
-                  <groupId>TestGroup</groupId> <3>
-                  <artifactId>FullNameRecord</artifactId> <4>
+                  <groupId>TestGroup</groupId> <4>
+                  <artifactId>FullNameRecord</artifactId> <5>
                   <file>${project.build.directory}/classes/record.avsc</file>
                   <overwrite>true</overwrite>
               </artifact>
