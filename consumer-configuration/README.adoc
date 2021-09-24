@@ -292,7 +292,7 @@ The `reset-offset` CLI command has an additional reset option. You can use a tim
 
 [source]
 ----
-rhoas kafka consumer-group reset-offset --id my-consumer-group --offset timestamp --value --value "2021-06-23T09:07:21-07:00"
+rhoas kafka consumer-group reset-offset --id my-consumer-group --offset timestamp --value "2021-06-23T09:07:21-07:00"
 ----
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
