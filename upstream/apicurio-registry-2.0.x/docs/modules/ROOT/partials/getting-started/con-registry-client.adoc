@@ -11,7 +11,7 @@ ifdef::apicurio-registry,rh-service-registry[]
 For more details, see xref:writing-registry-client_registry[]
 endif::[]
 ifdef::rh-openshift-sr[]
-For more details, see xref:writing-registry-client_java-client[Writing {registry} client applications].
+For more details, see xref:writing-registry-client_java-client[Writing {registry} Java client applications].
 endif::[]
 
 The {registry} client is implemented using the HTTP client provided by the JDK. This gives you the ability to customize its use, for example, by adding custom headers or enabling options for Transport Layer Security (TLS) authentication. 
