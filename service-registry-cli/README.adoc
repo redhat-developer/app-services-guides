@@ -58,7 +58,7 @@ This guide describes how to get started quickly with Service Registry and the RH
 * Manage Service Registry Artifacts directly from command line
 --
 
-[id="proc-installing-rhoas_registry{context}"]
+[id="proc-installing-rhoas-registry{context}"]
 == Installing the rhoas CLI
 
 [role="_abstract"]
@@ -68,7 +68,7 @@ If you haven't installed RHOAS CLI you can install it using the following guide
 NOTE:  Service Registry integration requires *latest* version of RHOAS CLI
 
 
-[id="proc-using-rhoas_registry{context}"]
+[id="proc-using-rhoas-registry{context}"]
 == Using rhoas CLI to manage Service Registry instances
 
 [role="_abstract"]
