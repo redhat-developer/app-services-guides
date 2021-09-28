@@ -38,7 +38,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-getting-started-rhoas-cli-registry"]
-= Getting started with the Service Registry using rhoas CLI
+= Getting started with the OpenShift Service Registry CLI (rhoas)
 :context: getting-started-rhoas-registry
 
 [IMPORTANT]
@@ -48,25 +48,13 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 
 [role="_abstract"]
 With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
-This guide describes how to get started quickly with Service Registry and the RHOAS CLI.
 
---
-* Using `rhoas` CLI to manage Service Registry instances .
-
-* Retrieve configuration to use Service Registry instance in your application
-
-* Manage Service Registry Artifacts directly from command line
+This guide describes how to get started quickly by using the `rhoas` CLI to create a Service Registry instance,  use it in an application, and manage its artifacts.
 --
 
-[id="proc-installing-rhoas-registry{context}"]
-== Installing the rhoas CLI
-
-[role="_abstract"]
-If you haven't installed RHOAS CLI you can install it using the following guide
- TODO link to CLI installation guide
-
-NOTE:  Service Registry integration requires *latest* version of RHOAS CLI
-
+.Prerequisites
+* You have downloaded and installed the latest version of the 'rhoas' CLI.
+For instructions on installing the `rhoas` cli, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI _^]
 
 [id="proc-using-rhoas-registry{context}"]
 == Using rhoas CLI to manage Service Registry instances
