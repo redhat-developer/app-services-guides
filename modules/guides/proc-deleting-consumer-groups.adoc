@@ -12,7 +12,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 .Example CLI command to delete a consumer group
 [source]
 ----
-rrhoas kafka consumer-group delete my-consumer-group
+rhoas kafka consumer-group delete my-consumer-group
 ----
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].

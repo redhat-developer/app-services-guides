@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 If you're using the `kafka-consumer-groups.sh` script, or any other Kafka scripts,
-you'll need to use the `--boostrap-server` and `--command-config` flags to connect to your Kafka instance.
+you'll need to use the `--bootstrap-server` and `--command-config` flags to connect to your Kafka instance.
 
 .Command to list all consumer groups
 [source,subs="+quotes,+attributes"]
