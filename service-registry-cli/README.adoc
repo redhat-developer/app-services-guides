@@ -58,7 +58,7 @@ This guide describes how to get started quickly with Service Registry and the RH
 * Manage Service Registry Artifacts directly from command line
 --
 
-[id="proc-installing-rhoas_{context}"]
+[id="proc-installing-rhoas_registry{context}"]
 == Installing the rhoas CLI
 
 [role="_abstract"]
@@ -211,8 +211,8 @@ order to retrieve artifacts and use them directly in your service.
 RHOAS CLI can be also used to manage artifacts directly from command line without using created service account.
 --
 
-[discrete,id="managing-artifacts{context}"]
-=== Creating and Managing a Service Registry Artifacts 
+[discrete,id="creating-artifacts{context}"]
+=== Creating and viewing Service Registry Artifacts 
 
 After creating a Service registry instance, you can use RHOAS CLI to create and manage artifacts.
 
@@ -270,7 +270,7 @@ Using default artifacts group.
   my-artifact          2021-09-27T16:17:35+0000   wtrocki_kafka_devexp   AVRO   ENABLED  
 ----
 
-Fetch their version information
+. Fetch their version information
 [source,shell]
 ----
 rhoas service-registry artifact versions --artifact-id=my-artifact
@@ -310,10 +310,43 @@ Fetching artifact metadata
   "version": "1"
 }
 ----
-
 --
 
- 
+[discrete,id="downloading-artifacts{context}"]
+=== Downloading Service Registry Artifacts
+
+After creating a Service registry artifact we can also download it using artifact `download` and `get` commands. 
+
+.Prerequisites
+
+* You have created a Service Registry instance with at least one artifact.
+
+.Procedure
+
+. Fetch artifact by specifying artifact-id
++
+--
+This example downloads the artifact with id `my-artifact`
+
+.Fetch artifact by artifact-id
+[source,shell]
+----
+$ rhoas service-registry get --artifact-id my-artifact
+----
+--
+
+. Fetch artifact by specifying artifact global id
++
+--
+This example downloads the artifact with global id.
+Global ID can be obtained by using `rhoas service-registry artifact metadata` command.
+
+.Fetch artifact by global-id
+[source,shell]
+----
+$ rhoas service-registry download --global-id=<yourid>
+----
+--
 
 [discrete,id="commands-managing-registry_{context}"]
 === Commands for managing Service Registry Instance
