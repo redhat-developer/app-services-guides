@@ -201,14 +201,28 @@ view the `credentials.json` file that you created.
 ----
 $ cat credentials.json
 {
-	"user":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
-	"password":"facf3df1-ab97-2253-aa87-ab97",
-  "oauth_token_endpoint_url": https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token
+	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
+	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
+  "oauth_token_url": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
 You'll use these credentials and the URL to connect your applications and services to your Service Registry instance in 
 order to retrieve artifacts and use them directly in your service. 
 RHOAS CLI can be also used to manage artifacts directly from command line without using created service account.
+--
+
+. Assign role to read and write artifacts for new service account 
+in oder to use it in your application
++
+--
+.Assigning role to service account
+
+[source,shell]
+----
+$ rhoas service-registry role add --role DEVELOPER --service-account=<srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1>
+----
+This will grant the service account the DEVELOPER role on this specific Service Registry instance.
+
 --
 
 [discrete,id="creating-artifacts{context}"]
