@@ -64,7 +64,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 == Connecting the Kafka consumer group script
 
 If you're using the `kafka-consumer-groups.sh` script, or any other Kafka scripts,
-you'll need to use the `--boostrap-server` and `--command-config` flags to connect to your Kafka instance.
+you'll need to use the `--bootstrap-server` and `--command-config` flags to connect to your Kafka instance.
 
 .Command to list all consumer groups
 [source,subs="+quotes,+attributes"]
@@ -348,7 +348,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 .Example CLI command to delete a consumer group
 [source]
 ----
-rrhoas kafka consumer-group delete my-consumer-group
+rhoas kafka consumer-group delete my-consumer-group
 ----
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
