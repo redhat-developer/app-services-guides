@@ -38,7 +38,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-getting-started-rhoas-cli"]
-= Getting started with the rhoas CLI and RHOSAK (Kafka)
+= Getting started with the OpenShift Streams for Apache Kafka CLI (rhoas )
 :context: getting-started-rhosak
 
 [IMPORTANT]
