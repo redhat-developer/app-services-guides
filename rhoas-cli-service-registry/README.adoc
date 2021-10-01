@@ -211,7 +211,7 @@ $ rhoas service-registry role add --role DEVELOPER --service-account=<srvc-acct-
 [id="uploading-service-registry-artifacts_{context}"]
 == Uploading Service Registry artifacts
 
-After creating a Service registry instance, you can start uploading Service Registry artifacts.
+After creating a Service Registry instance, you can start uploading Service Registry artifacts.
 Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define an API.
 
 .Prerequisites
