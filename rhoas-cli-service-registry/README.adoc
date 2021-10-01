@@ -109,6 +109,13 @@ Creating Service Registry instance with name: my-registry
   "updated_at": "2021-09-27T15:35:01Z"
 }
 ----
+
+[NOTE]
+====
+If you do not want to use the default values,
+enter the following command: `rhoas service-registry create`.
+You will be prompted to enter the `Name` for the Service Registry instance.
+====
 --
 
 . Enter the following command to verify that the Service Registry instance is ready to use.
