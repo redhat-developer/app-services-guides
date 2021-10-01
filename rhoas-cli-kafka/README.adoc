@@ -144,7 +144,7 @@ you can switch to a different instance by using the `rhoas kafka use` command.
 ====
 --
 
-[id="proc-creating-service-account_{context}"]
+[id="proc-creating-service-account-cli{context}"]
 == Creating a service account
 
 [role="_abstract"]
@@ -198,7 +198,7 @@ $ cat credentials.json
 You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
 --
 
-[id="proc-creating-kafka-topic_{context}"]
+[id="proc-creating-kafka-topic-cli_{context}"]
 == Creating a Kafka topic
 
 [role="_abstract"]
