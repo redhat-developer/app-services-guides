@@ -335,7 +335,8 @@ After registering Service Registry artifacts, you can download them to make upda
 
 .Procedure
 
-* Download the artifact by specifying its ID or global ID.
+* Download the artifact by specifying Artifact ID that we specified when creating artifact using CLI
+* Download the artifact by specifying Global ID retrieved from Kafka Message payload
 +
 --
 This example downloads the `my-artifact` artifact using its ID.
