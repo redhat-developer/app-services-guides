@@ -67,6 +67,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 * link:{base-url}{rhoas-cli-service-registry-url}#downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
 
+
 == Prerequisites
 
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].

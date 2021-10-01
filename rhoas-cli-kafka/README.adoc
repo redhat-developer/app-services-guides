@@ -66,6 +66,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 * link:{base-url}{rhoas-cli-kafka-url}#commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
+
 == Prerequisites
 
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].
