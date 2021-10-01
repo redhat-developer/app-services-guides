@@ -72,7 +72,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 //Additional line break to resolve mod docs generation error
 
-[id="proc-creating-kafka-instance_{context}"]
+[id="proc-creating-kafka-instance-cli_{context}"]
 == Creating a Kafka instance
 
 [role="_abstract"]

@@ -73,7 +73,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 //Additional line break to resolve mod docs generation error
 
-[id="proc-creating-service-registry-instance_{context}"]
+[id="proc-creating-service-registry-instance-cli_{context}"]
 == Creating a Service Registry instance
 
 [role="_abstract"]
