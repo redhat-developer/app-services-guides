@@ -190,8 +190,9 @@ view the `credentials.json` file that you created.
 ----
 $ cat credentials.json
 {
-	"user":"srvc-acct-eb575691-b94a-41f1-ab97-50ade0cd1094",
-	"password":"facf3df1-3c8d-4253-aa87-8c95ca5e1225"
+	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
+	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
+        "oauth_token_url": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
 
