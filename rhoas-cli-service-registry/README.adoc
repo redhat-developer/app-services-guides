@@ -76,6 +76,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 [id="proc-creating-service-registry-instance_{context}"]
 == Creating a Service Registry instance
 
+[role="_abstract"]
 A Service Registry instance serves as a central location for storing artifacts.
 
 .Prerequisites
@@ -140,6 +141,7 @@ you can switch to a different instance by using the `rhoas service-registry use`
 [id="proc-creating-service-registry-account_{context}"]
 == Creating a service account
 
+[role="_abstract"]
 To connect your applications or services to a Service Registry instance, you must first create a service account with credentials.
 The credentials are exported to a file on your computer,
 which you can use to authenticate your application with your Service Registry instance.
@@ -208,9 +210,10 @@ $ rhoas service-registry role add --role DEVELOPER --service-account=<srvc-acct-
 ----
 --
 
-[id="uploading-service-registry-artifacts_{context}"]
+[id="proc-uploading-service-registry-artifacts_{context}"]
 == Uploading Service Registry artifacts
 
+[role="_abstract"]
 After creating a Service Registry instance, you can start uploading Service Registry artifacts.
 Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define an API.
 
@@ -317,8 +320,8 @@ For more information about any of the options, view the command help `rhoas serv
 [id="proc-downloading-service-registry-artifacts_{context}"]
 == Downloading Service Registry artifacts
 
-After registering Service Registry artifacts, you can start downloading them.
-You might want to download an artifact to make updates.
+[role="_abstract"]
+After registering Service Registry artifacts, you can download them to make updates.
 
 .Prerequisites
 
@@ -349,10 +352,12 @@ $ rhoas service-registry download --global-id=28
 [id="proc-commands-managing-registry_{context}"]
 == Commands for managing Service Registry
 
+[role="_abstract"]
 For more information about the `rhoas` commands you can use to manage your Service Registry instance,
 use the following command help:
 
 * `rhoas service-registry -h` for Service Registry instances
+* `rhoas service-account -h` for service accounts
 * `rhoas service-registry artifact -h` for Service Registry artifacts
 
 [role="_additional-resources"]

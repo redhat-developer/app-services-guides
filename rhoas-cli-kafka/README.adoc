@@ -75,6 +75,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 [id="proc-creating-kafka-instance_{context}"]
 == Creating a Kafka instance
 
+[role="_abstract"]
 A Kafka instance includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services.
 
 .Prerequisites
@@ -146,6 +147,7 @@ you can switch to a different instance by using the `rhoas kafka use` command.
 [id="proc-creating-service-account_{context}"]
 == Creating a service account
 
+[role="_abstract"]
 To connect your applications or services to a Kafka instance, you must first create a service account with credentials.
 The credentials are exported to a file on your computer,
 which you can use to authenticate your application with your Kafka instance.
@@ -199,6 +201,7 @@ You'll use these credentials and the bootstrap server URL to connect your applic
 [id="proc-creating-kafka-topic_{context}"]
 == Creating a Kafka topic
 
+[role="_abstract"]
 After creating a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
 
 .Prerequisites
@@ -266,6 +269,7 @@ For more information, use the command help `rhoas kafka topic create -h`.
 [id="proc-commands-managing-kafka_{context}"]
 == Commands for managing Kafka
 
+[role="_abstract"]
 For more information about the `rhoas` commands you can use to manage your Kafka instance,
 use the following command help:
 
