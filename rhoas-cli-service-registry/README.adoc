@@ -212,7 +212,7 @@ This example creates a role called `DEVELOPER` for the service account.
 .Creating a role for the service account
 [source,shell]
 ----
-$ rhoas service-registry role add --role DEVELOPER --service-account=<srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1>
+$ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
 ----
 --
 
