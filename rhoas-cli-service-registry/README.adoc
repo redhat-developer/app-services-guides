@@ -191,7 +191,6 @@ You'll use these credentials and the Service Registry URL to connect your applic
 
 [NOTE]
 ====
-You can use the `rhoas` CLI to manage artifacts without a service account.
 By connecting your applications to your Service Registry instance, you can retrieve artifacts and use them directly in your service.
 ====
 --
