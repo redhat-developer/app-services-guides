@@ -216,7 +216,9 @@ $ cd ~/code-examples/quarkus-service-registry-quickstart/producer
 $ ./mvnw quarkus:dev
 ----
 
-. When both the consumer and producer applications are running, observe the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
+. When both the consumer and producer applications are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
+
+. In the web console, go to *{registry}* > *{registry} Instances*,  select your {registry} instance, and view the automatically generated schemas for your applications.
 
 
 .What just happened?
@@ -231,7 +233,7 @@ ifdef::qs[]
 .Verification
 * Did the Quarkus example application run without any errors?
 * Did you see the generated quotes at http://localhost:8080/quotes.html[^]?
-* Did you see generated schemas in {registry} instance?
+* Did you see generated schemas in the {registry} instance?
 endif::[]
 
 ifdef::qs[]
