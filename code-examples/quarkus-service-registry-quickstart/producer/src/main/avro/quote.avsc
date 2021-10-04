@@ -1,0 +1,15 @@
+{
+  "namespace": "org.acme.kafka.quarkus",
+  "type": "record",
+  "name": "Quote",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "int"
+    }
+  ]
+}
