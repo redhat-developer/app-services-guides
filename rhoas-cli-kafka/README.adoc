@@ -208,12 +208,9 @@ After creating a Kafka instance, you can create Kafka topics to start producing 
 
 * You have created a Kafka instance, and it has a `ready` status.
 
-.Procedure
-
-. Verify that you are using the Kafka instance that you created.
-+
---
-This example switches to the `my-kafka` instance that was previously created.
+[NOTE]
+====
+You can use `rhoas` to switch to a specific Kafka instance.
 
 .Selecting a Kafka instance to use
 [source,shell]
@@ -221,7 +218,9 @@ This example switches to the `my-kafka` instance that was previously created.
 $ rhoas kafka use --name my-kafka
 Kafka instance "my-kafka" has been set as the current instance.
 ----
---
+====
+
+.Procedure
 
 . Create a Kafka topic with default values.
 +

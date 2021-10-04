@@ -204,6 +204,8 @@ By connecting your applications to your Service Registry instance, you can retri
 ====
 --
 
+////
+//Might be needed later
 . Create a role for the new service account that can read and write artifacts.
 +
 This example creates a role called `DEVELOPER` for the service account.
@@ -215,6 +217,7 @@ This example creates a role called `DEVELOPER` for the service account.
 $ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
 ----
 --
+////
 
 [id="proc-uploading-service-registry-artifacts_{context}"]
 == Uploading Service Registry artifacts
@@ -227,12 +230,9 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 
 * You have created a Service Registry instance, and it has a `ready` status.
 
-.Procedure
-
-. Verify that you are using the Service Registry instance that you created.
-+
---
-This example switches to the `my-registry` instance that was previously created.
+[NOTE]
+====
+You can use `rhoas` to switch to a specific Service Registry instance.
 
 .Selecting a Service Registry instance to use
 [source,shell]
@@ -240,7 +240,9 @@ This example switches to the `my-registry` instance that was previously created.
 $ rhoas service-registry use --name my-registry
 Service Registry instance "my-registry" has been set as the current instance.
 ----
---
+====
+
+.Procedure
 
 . Upload a Service Registry artifact.
 +
