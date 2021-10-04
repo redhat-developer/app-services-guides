@@ -67,6 +67,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 * link:{base-url}{rhoas-cli-service-registry-url}#downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
 
+
 == Prerequisites
 
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].
@@ -337,7 +338,8 @@ After registering Service Registry artifacts, you can download them to make upda
 
 .Procedure
 
-* Download the artifact by specifying its ID or global ID.
+* Download the artifact by specifying Artifact ID that we specified when creating artifact using CLI
+* Download the artifact by specifying Global ID retrieved from Kafka Message payload
 +
 --
 This example downloads the `my-artifact` artifact using its ID.

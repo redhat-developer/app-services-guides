@@ -66,6 +66,7 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 * link:{base-url}{rhoas-cli-kafka-url}#commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
+
 == Prerequisites
 
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].
@@ -144,7 +145,7 @@ you can switch to a different instance by using the `rhoas kafka use` command.
 ====
 --
 
-[id="proc-creating-service-account_{context}"]
+[id="proc-creating-service-account-cli{context}"]
 == Creating a service account
 
 [role="_abstract"]
@@ -190,15 +191,16 @@ view the `credentials.json` file that you created.
 ----
 $ cat credentials.json
 {
-	"user":"srvc-acct-eb575691-b94a-41f1-ab97-50ade0cd1094",
-	"password":"facf3df1-3c8d-4253-aa87-8c95ca5e1225"
+	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
+	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
+        "oauth_token_url": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
 
 You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
 --
 
-[id="proc-creating-kafka-topic_{context}"]
+[id="proc-creating-kafka-topic-cli_{context}"]
 == Creating a Kafka topic
 
 [role="_abstract"]
