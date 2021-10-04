@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>quarkus-registry-kafka-quickstart</artifactId>
+    <artifactId>quarkus-service-registry-quickstart</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>producer</module>
-        <module>processor</module>
+        <module>consumer</module>
     </modules>
 
 
