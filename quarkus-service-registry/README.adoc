@@ -125,21 +125,21 @@ endif::[]
 ifdef::qs[]
 * The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. 
 * The `<registry_uri>` is the CORE API endpoint for your {registry} instance. 
-* The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint. 
 * The `<client_id>` and `<client_secret>` are the generated credentials for your service account.
+* The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint. 
 endif::[]
 
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
 $ export BOOTSTRAP_SERVER=__<bootstrap_server>__
+$ export REGISTRY_URL=__<registry_uri>__
 $ export CLIENT_ID=__<client_id>__
 $ export CLIENT_SECRET=__<client_secret>__
 $ export OAUTH_TOKEN_ENDPOINT_URI=__<oauth_token_endpoint_uri>__
-$ export REGISTRY_URL=__<registry_uri>__
 ----
 --
-. In the Quarkus example application, review the `src/main/resources/application.properties` file to understand how the environment variables you set in the previous step are used in your application. This example uses the `dev` configuration profile in the `application.properties` file.
+. In the Quarkus example application, review the `../src/main/resources/application.properties` files to understand how the environment variables you set in the previous step are used in your application. This example uses the `dev` configuration profile in the `application.properties` file.
 
 ifdef::qs[]
 .Verification
@@ -189,8 +189,8 @@ After you configure your Quarkus application to connect to Kafka and  {registry}
 
 The Quarkus project in this quick start consists of two processes:
 
-* The producer application is implemented by the `QuotesResource` class. This class exposes the `/quotes/request` REST endpoint as an empty HTTP POST method. Every request to this endpoint is published to the `requests` topic. The same class exposes the `/quotes/quotes` REST endpoint that streams quotes from `quotes` topic. This application also has a minimal frontend that streams quotes from the latter endpoint using Server-Sent Events to the web page.
-* The processor application is implemented by the `QuotesProcessor` class. This class consumes quote requests from `requests` topic and generates a random quote value that is published to the `quotes` topic.
+* The consumer application is implemented by the `QuotesResource` class. This class exposes the `/quotes/request` REST endpoint as an empty HTTP POST method. Every request to this endpoint is published to the `requests` topic. The same class exposes the `/quotes/quotes` REST endpoint that streams quotes from `quotes` topic. This application also has a minimal frontend that streams quotes from the latter endpoint using Server-Sent Events to the web page.
+* The producer application is implemented by the `QuotesProducer` class. This class consumes quote requests from `requests` topic and generates a random quote value that is published to the `quotes` topic.
 
 .Prerequisites
 * You've configured the Quarkus example application to connect to the Kafka and {registry} instances.
@@ -199,29 +199,25 @@ The Quarkus project in this quick start consists of two processes:
 .Procedure
 . On the command line, navigate to the `code-examples/quarkus-service-registry-quickstart` directory that you imported and run both example applications in the sub-folders.
 +
+.Running the consumer example application
+[source]
+----
+$ cd ~/code-examples/quarkus-service-registry-quickstart/consumer
+$ ./mvnw quarkus:dev
+----
+. After the application is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that the application is available.
+
+. Leave the consumer application running, and run the producer application on a different terminal.
++
 .Running the producer example application
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/producer
 $ ./mvnw quarkus:dev
 ----
-. After the application is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that the application is available.
 
-. Leave the producer application running, and run the processor application on a different terminal.
-+
-.Running the processor example application
-[source]
-----
-$ cd ~/code-examples/quarkus-service-registry-quickstart/processor
-$ ./mvnw quarkus:dev
-----
+. When both the consumer and producer applications are running, observe the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
 
-. When both the producer and processor applications are running, send a quote request using a third terminal and observe the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
-+
-[source]
-----
-TODO CURL instruction to post a request for quote
-----
 
 .What just happened?
 
