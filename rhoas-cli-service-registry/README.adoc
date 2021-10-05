@@ -233,7 +233,7 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 
 [NOTE]
 ====
-You can use `rhoas` to switch to a specific Service Registry instance.
+You can use `rhoas service-registry use` to switch to a specific Service Registry instance.
 
 .Selecting a Service Registry instance to use
 [source,shell]
