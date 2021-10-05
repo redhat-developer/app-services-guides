@@ -107,7 +107,9 @@ To enable your Quarkus application to access a Kafka instance, configure the con
 
 Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. This example sets environment variables and references them in this file.
 
-Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product}. For more details on configuration options, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
+Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product}. For details on configuration options, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
+
+This Quarkus example includes both consumer and producer applications.
 
 .Prerequisites
 ifndef::qs[]
@@ -139,7 +141,7 @@ $ export CLIENT_SECRET=__<client_secret>__
 $ export OAUTH_TOKEN_ENDPOINT_URI=__<oauth_token_endpoint_uri>__
 ----
 --
-. In the Quarkus example application, review the `../src/main/resources/application.properties` files to understand how the environment variables you set in the previous step are used in your application. This example uses the `dev` configuration profile in the `application.properties` file.
+. In the Quarkus example application, review the `/src/main/resources/application.properties` files in the `consumer` and `producer` sub-folders to understand how the environment variables you set in the previous step are used. This example uses the `dev` configuration profile in the `application.properties` files.
 
 ifdef::qs[]
 .Verification
@@ -197,7 +199,7 @@ The Quarkus project in this quick start consists of two processes:
 * You've created the `requests` and `quotes` topics.
 
 .Procedure
-. On the command line, navigate to the `code-examples/quarkus-service-registry-quickstart` directory that you imported and run both example applications in the sub-folders.
+. On the command line, navigate to the `code-examples/quarkus-service-registry-quickstart` directory that you imported and run the consumer application.
 +
 .Running the consumer example application
 [source]
@@ -205,7 +207,7 @@ The Quarkus project in this quick start consists of two processes:
 $ cd ~/code-examples/quarkus-service-registry-quickstart/consumer
 $ ./mvnw quarkus:dev
 ----
-. After the application is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that the application is available.
+. After the consumer application is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that the application is available.
 
 . Leave the consumer application running, and run the producer application on a different terminal.
 +
