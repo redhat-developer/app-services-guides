@@ -199,7 +199,7 @@ Alternatively, select the options icon (three vertical dots) for the relevant co
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 
 [id="ref-supported-consumer-group-properties_{context}"]
@@ -266,7 +266,7 @@ For more information about increasing topic retention time, see {base-url}{topic
 [role="_additional-resources"]
 .Additional resources
 * {base-url}{consumer-config-url}#ref-supported-consumer-group-properties_configuring-consumer-groups[_Consumer group properties presented in {product}_]
-* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
 * {base-url}{topic-config-url}[_Configuring topics in {product}_^]
 
 
@@ -337,7 +337,7 @@ Alternatively, select a consumer group for a specific topic.
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 
 [id="proc-deleting-consumer-groups_{context}"]
@@ -383,7 +383,7 @@ Alternatively, select a consumer group for a specific topic.
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 
 ifdef::parent-context[:context: {parent-context}]
