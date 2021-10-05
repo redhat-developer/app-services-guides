@@ -1,0 +1,15 @@
+[id='proc-commands-managing-kafka_{context}']
+= Commands for managing Kafka
+:imagesdir: ../_images
+
+[role="_abstract"]
+For more information about the `rhoas` commands you can use to manage your Kafka instance,
+use the following command help:
+
+* `rhoas kafka -h` for Kafka instances
+* `rhoas service-account -h` for service accounts
+* `rhoas kafka topic -h` for Kafka topics
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]

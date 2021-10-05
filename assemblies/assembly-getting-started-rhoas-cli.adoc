@@ -1,6 +1,6 @@
 [id='assembly-getting-started-rhoas-cli']
-= Getting started with the rhoas CLI
-:context: getting-started-rhoas
+= Installing and configuring the rhoas CLI
+:context: installing-rhoas-cli
 :imagesdir: _images
 
 [IMPORTANT]
@@ -11,22 +11,22 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 [role="_abstract"]
 With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
 
-This guide describes how to get started quickly by doing the following:
+This guide describes how to set up `rhoas` so that you can log in and use its commands.
+
+The following procedures demonstrate how to install and configure `rhoas`:
 
 --
-* Install `rhoas` on your Operating System.
+* link:{base-url}{rhoas-cli-url}#proc-installing-rhoas_installing-rhoas-cli[Install `rhoas` on your operating system]
 
-* Configure `rhoas` to enable command completion.
-
-* Start using `rhoas` by creating a simple Kafka instance, connecting to it, and creating a Kafka topic to produce and consume messages.
+* link:{base-url}{rhoas-cli-url}#proc-configuring-rhoas_installing-rhoas-cli[Configure `rhoas` to enable command completion]
 --
+
+//Additional line break to resolve mod docs generation error
 include::modules/guides/proc-installing-rhoas.adoc[leveloffset=+1]
 
 include::modules/guides/proc-configuring-rhoas.adoc[leveloffset=+1]
 
 include::modules/guides/proc-logging-in-to-rhoas.adoc[leveloffset=+1]
-
-include::modules/guides/proc-using-rhoas.adoc[leveloffset=+1]
 
 include::modules/guides/proc-logging-out-rhoas.adoc[leveloffset=+1]
 

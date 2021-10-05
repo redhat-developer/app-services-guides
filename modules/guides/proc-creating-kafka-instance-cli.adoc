@@ -1,0 +1,72 @@
+[id='proc-creating-kafka-instance-cli_{context}']
+= Creating a Kafka instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+A Kafka instance includes a Kafka cluster, bootstrap server, and other required configurations for connecting to Kafka producer and consumer services.
+
+.Prerequisites
+
+* You are logged in to `rhoas`.
+
+.Procedure
+
+. Enter the following command to create a Kafka instance with default values.
++
+--
+This example creates a Kafka instance called `my-kafka`.
+
+.Creating a Kafka instance
+[source,shell]
+----
+$ rhoas kafka create --name my-kafka
+Kafka instance "my-kafka" created successfully
+{
+  "cloud_provider": "aws",
+  "created_at": "2021-03-17T18:33:50.000799005Z",
+  "href": "/api/managed-services-api/v1/kafkas/1ptcsACdx7HVzacKZBA6HRRa1oW",
+  "id": "1ptcsACdx7HVzacKZBA6HRRa1oW",
+  "kind": "Kafka",
+  "multi_az": true,
+  "name": "my-kafka",
+  "owner": "developer",
+  "region": "us-east-1",
+  "status": "accepted",
+  "updated_at": "2021-03-17T18:33:50.000799005Z"
+}
+----
+
+[NOTE]
+====
+If you do not want to use the default values,
+enter the following command: `rhoas kafka create`.
+You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` for the Kafka instance.
+====
+--
+
+. Enter the following command to verify that the Kafka instance is ready to use.
++
+--
+This command shows that the Kafka instance is ready to use,
+because the `Status` field is `ready`.
+
+.Reviewing details of a Kafka instance
+[source,shell]
+----
+$ rhoas status kafka
+
+  Kafka
+  -----------------------------------------------------------------------------------
+  ID:                     1ptdfZRHmLKwqW6A3YKM2MawgDh
+  Name:                   my-kafka
+  Status:                 ready
+  Bootstrap URL:          my-kafka--ptdfzrhmlkwqw-a-ykm-mawgdh.kafka.devshift.org:443
+----
+
+[NOTE]
+====
+When you created the Kafka instance, it was set as the current instance automatically.
+If you have multiple Kafka instances,
+you can switch to a different instance by using the `rhoas kafka use` command.
+====
+--

@@ -17,7 +17,7 @@ You can enable command completion for each of the following shells:
 
 .Prerequisites
 
-* You must have link:{base-url}{rhoas-cli-url}#proc-installing-rhoas_getting-started-rhoas[installed the `rhoas` CLI].
+* You've installed the `rhoas` CLI.
 
 [discrete,id="enabling-command-completion-bash_{context}"]
 == Enabling command completion on Bash

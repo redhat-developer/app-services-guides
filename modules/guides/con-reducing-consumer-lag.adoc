@@ -23,6 +23,6 @@ For more information about increasing topic retention time, see {base-url}{topic
 [role="_additional-resources"]
 .Additional resources
 * {base-url}{consumer-config-url}#ref-supported-consumer-group-properties_configuring-consumer-groups[_Consumer group properties presented in {product}_]
-* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
 * {base-url}{topic-config-url}[_Configuring topics in {product}_^]
 
