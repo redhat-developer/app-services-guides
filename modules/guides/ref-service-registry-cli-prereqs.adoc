@@ -1,0 +1,6 @@
+[id='ref-service-registry-cli-prereqs_{context}']
+= Prerequisites
+:imagesdir: ../_images
+
+[role="_abstract"]
+* You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].

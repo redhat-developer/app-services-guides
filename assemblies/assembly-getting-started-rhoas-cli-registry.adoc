@@ -27,6 +27,9 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 * link:{base-url}{rhoas-cli-service-registry-url}#downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
 
+//Additional line break to resolve mod docs generation error
+include::modules/guides/ref-service-registry-cli-prereqs.adoc[leveloffset=+1]
+
 include::modules/guides/proc-creating-service-registry-instance-cli.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-service-registry-account.adoc[leveloffset=+1]
