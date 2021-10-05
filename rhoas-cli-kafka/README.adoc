@@ -66,9 +66,12 @@ The following procedures demonstrate a basic workflow to get started quickly:
 
 * link:{base-url}{rhoas-cli-kafka-url}#commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
+//Additional line break to resolve mod docs generation error
 
+[id="ref-kafka-cli-prereqs_{context}"]
 == Prerequisites
 
+[role="_abstract"]
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].
 
 //Additional line break to resolve mod docs generation error
@@ -145,7 +148,7 @@ you can switch to a different instance by using the `rhoas kafka use` command.
 ====
 --
 
-[id="proc-creating-service-account-cli{context}"]
+[id="proc-creating-service-account-cli_{context}"]
 == Creating a service account
 
 [role="_abstract"]
