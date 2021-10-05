@@ -15,7 +15,7 @@
 :service-url: https://console.redhat.com/beta/application-services/streams/
 :registry-url: https://console.redhat.com/beta/application-services/service-registry/
 :property-file-name: app-services.properties
-:rhoas-version: 0.29.0
+:rhoas-version: 0.32.0
 
 // Other upstream project names
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
@@ -28,6 +28,8 @@
 :kafkacat-url: kafkacat/README.adoc
 :quarkus-url: quarkus/README.adoc
 :rhoas-cli-url: rhoas-cli/README.adoc
+:rhoas-cli-kafka-url: rhoas-cli-kafka/README.adoc
+:rhoas-cli-service-registry-url: rhoas-cli-service-registry/README.adoc
 :rhoas-cli-ref-url: commands
 :topic-config-url: topic-configuration/README.adoc
 :consumer-config-url: consumer-configuration/README.adoc
