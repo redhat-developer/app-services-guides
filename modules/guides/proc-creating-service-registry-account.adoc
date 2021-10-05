@@ -1,0 +1,74 @@
+[id='proc-creating-service-registry-account_{context}']
+= Creating a service account
+:imagesdir: ../_images
+
+[role="_abstract"]
+To connect your applications or services to a Service Registry instance, you must first create a service account with credentials.
+The credentials are exported to a file on your computer,
+which you can use to authenticate your application with your Service Registry instance.
+
+.Prerequisites
+
+* You have created a Service Registry instance, and it has a `ready` status.
+
+.Procedure
+
+. Enter the following command to create a service account.
++
+--
+This example creates a service account called `my-service-acct` and saves the credentials in a JSON file.
+
+.Creating a service account
+[source,shell]
+----
+$ rhoas service-account create --name "my-service-acct" --file-format json
+
+Service account my-service-account created
+Credentials saved to /home/developer/my-project/credentials.json
+----
+
+Your service account credentials are created and saved to a JSON file.
+
+[NOTE]
+====
+When creating a service account, you can choose the file format and location to save the credentials.
+For more information, see the `rhoas service-account create` command help.
+====
+--
+
+. To verify your service account credentials,
+view the `credentials.json` file that you created.
++
+--
+.Verifying service account credentials
+[source,shell]
+----
+$ cat credentials.json
+{
+	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
+	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
+  "oauth_token_url": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+}
+----
+You'll use these credentials and the Service Registry URL to connect your applications and services to your Service Registry instance.
+
+[NOTE]
+====
+By connecting your applications to your Service Registry instance, you can retrieve artifacts and use them directly in your service.
+====
+--
+
+////
+//Might be needed later
+. Create a role for the new service account that can read and write artifacts.
++
+This example creates a role called `DEVELOPER` for the service account.
++
+--
+.Creating a role for the service account
+[source,shell]
+----
+$ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+----
+--
+////

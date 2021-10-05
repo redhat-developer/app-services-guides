@@ -1,0 +1,106 @@
+[id='proc-uploading-service-registry-artifacts_{context}']
+= Uploading Service Registry artifacts
+:imagesdir: ../_images
+
+[role="_abstract"]
+After creating a Service Registry instance, you can start uploading Service Registry artifacts.
+Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define an API.
+
+.Prerequisites
+
+* You have created a Service Registry instance, and it has a `ready` status.
+
+[NOTE]
+====
+You can use `rhoas service-registry use` to switch to a specific Service Registry instance.
+
+.Selecting a Service Registry instance to use
+[source,shell]
+----
+$ rhoas service-registry use --name my-registry
+Service Registry instance "my-registry" has been set as the current instance.
+----
+====
+
+.Procedure
+
+. Upload a Service Registry artifact.
++
+--
+This example uploads a Service Registry artifact called `my-artifact` to the Service Registry instance.
+The artifact is an Apache Kafka Avro schema in JSON format.
+
+.Uploading an artifact
+[source,shell]
+----
+wget https://github.com/redhat-developer/app-services-cli/blob/main/docs/resources/avro-userInfo.json
+$ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
+----
+--
+
+. Verify that the artifact was registered.
++
+--
+This example lists all artifacts belonging to the Service Registry instance.
+
+.Listing artifact details for a Service Registry instance
+[source,shell]
+----
+rhoas service-registry artifact list
+Using default artifacts group.
+  ID            NAME   CREATED ON                 CREATED BY   TYPE   STATE
+ ------------- ------ -------------------------- ------------ ------ --------
+  my-artifact          2021-09-27T16:17:35+0000      User      AVRO   ENABLED
+----
+--
+
+. Check the version and metadata information for the artifact.
++
+--
+.Checking the version information of an artifact
+[source,shell]
+----
+rhoas service-registry artifact versions --artifact-id=my-artifact
+{
+  "count": 1,
+  "versions": [
+    {
+      "contentId": 29,
+      "createdBy": "User",
+      "createdOn": "2021-09-27T16:17:35+0000",
+      "globalId": 28,
+      "state": "ENABLED",
+      "type": "AVRO",
+      "version": "1"
+    }
+  ]
+}
+----
+
+.Checking the metadata information of an artifact
+[source,shell]
+----
+rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+Using default artifacts group.
+Fetching artifact metadata
+✔️ Successfully fetched artifact metadata
+{
+  "contentId": 29,
+  "createdBy": "User",
+  "createdOn": "2021-09-27T16:17:35+0000",
+  "globalId": 28,
+  "id": "my-artifact",
+  "modifiedBy": "User",
+  "modifiedOn": "2021-09-27T16:17:35+0000",
+  "state": "ENABLED",
+  "type": "AVRO",
+  "version": "1"
+}
+----
+
+[NOTE]
+====
+You can use additional options, such as `--group`, `--version`, and  `--description`, to modify the metadata of the artifact you're creating.
+For more information about any of the options, view the command help `rhoas service-registry artifact metadata-set -h`.
+====
+--
