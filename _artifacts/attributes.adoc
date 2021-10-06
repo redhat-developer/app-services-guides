@@ -26,7 +26,7 @@
 //URL components for cross refs
 :base-url: https://access.redhat.com/documentation/en-us/
 :base-url-cli: {base-url}
-:registry-product-long-url: red_hat_openshift_service_registry 
+:registry-product-long-url: red_hat_openshift_service_registry
 :product-long-url: red_hat_openshift_streams_for_apache_kafka
 
 //registry guides
@@ -36,6 +36,7 @@
 :sr-manage-java-client-url: {base-url}{registry-product-long-url}/{product-version}/guide/f8d5ccaf-b4ae-4eb0-abbd-3bf443f91f3b
 :sr-manage-maven-plugin-url: {base-url}{registry-product-long-url}/{product-version}/guide/e5aec371-c620-44e0-a709-3bc03bd6e40a
 :sr-artifact-ref-url: {base-url}{registry-product-long-url}/{product-version}/guide/9b0fdf14-f0d6-4d7f-8637-3ac9e2069817
+:rhoas-cli-service-registry-url: {registry-product-long-url}/{product-version}/guide/88df783c-b19a-470d-90cd-087b82dcb3b5
 
 //kafka guides
 :getting-started-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a

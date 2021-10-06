@@ -1,0 +1,33 @@
+[id='proc-downloading-service-registry-artifacts_{context}']
+= Downloading Service Registry artifacts
+:imagesdir: ../_images
+
+[role="_abstract"]
+After registering Service Registry artifacts, you can download them to make updates.
+
+.Prerequisites
+
+* You have created a Service Registry instance with at least one artifact.
+
+.Procedure
+
+* Download the artifact by specifying Artifact ID that we specified when creating artifact using CLI
+* Download the artifact by specifying Global ID retrieved from Kafka Message payload
++
+--
+This example downloads the `my-artifact` artifact using its ID.
+
+.Downloading an artifact using its ID
+[source,shell]
+----
+$ rhoas service-registry get --artifact-id my-artifact
+----
+
+This example downloads the `my-artifact` artifact using its global ID.
+
+.Downloading an artifact using its global ID
+[source,shell]
+----
+$ rhoas service-registry download --global-id=28
+----
+--

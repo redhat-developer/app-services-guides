@@ -1,0 +1,43 @@
+[id='assembly-getting-started-rhoas-cli-registry']
+= Getting started with the rhoas CLI for OpenShift Service Registry
+:context: getting-started-rhoas-service-registry
+:imagesdir: _images
+
+[IMPORTANT]
+====
+The `rhoas` command-line interface (CLI) is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+[role="_abstract"]
+With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+
+As a developer of applications and services,
+you can use `rhoas` to create Service Registry instances and connect your applications and services to these instances.
+
+This guide describes how to get started quickly by using `rhoas` to create a Service Registry instance and manage artifacts.
+Artifacts are items stored in Service Registry, like schemas and API specifications.
+
+The following procedures demonstrate a basic workflow to get started quickly:
+
+* link:{base-url}{rhoas-cli-service-registry-url}#creating-service-registry-instance_getting-started-rhoas-service-registry[Create a Service Registry instance]
+
+* link:{base-url}{rhoas-cli-service-registry-url}#creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
+
+* link:{base-url}{rhoas-cli-service-registry-url}#uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload Service Registry artifacts]
+
+* link:{base-url}{rhoas-cli-service-registry-url}#downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
+
+//Additional line break to resolve mod docs generation error
+include::modules/guides/ref-service-registry-cli-prereqs.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-service-registry-instance-cli.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-service-registry-account.adoc[leveloffset=+1]
+
+include::modules/guides/proc-uploading-service-registry-artifacts.adoc[leveloffset=+1]
+
+include::modules/guides/proc-downloading-service-registry-artifacts.adoc[leveloffset=+1]
+
+include::modules/guides/proc-commands-managing-registry.adoc[leveloffset=+1]
+
+
