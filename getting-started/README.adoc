@@ -220,7 +220,7 @@ After you create Kafka topics in your Kafka instance and start producing and con
 * You've created topics in your Kafka instance and you've started producing and consuming messages in your services.
 
 .Procedure
-. In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want to view metrics of.
+. In the *Kafka Instances* page of the web console, click the name of the Kafka instance for which you want to view metrics.
 . Select the *Dashboard* tab and review the metrics for your Kafka instance and topics. Use the drop-down filters to refine the displayed metrics as needed.
 +
 --
