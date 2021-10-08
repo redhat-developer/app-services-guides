@@ -1,0 +1,32 @@
+[id='proc-viewing-metrics_{context}']
+= Viewing metrics for a Kafka instance in {product}
+:imagesdir: ../_images
+
+After you create Kafka topics in your Kafka instance and start producing and consuming messages in your services, use the *Dashboard* tab in the Kafka instance to view metrics for the instance and topics. These metrics help you understand the performance and data usage for your Kafka instance and topics.
+
+.Prerequisites
+* You've created a Kafka instance and the instance is in *Ready* state.
+* You've created topics in your Kafka instance and you've started producing and consuming messages in your services.
+
+.Procedure
+. In the *Kafka Instances* page of the web console, click the name of the Kafka instance for which you want to view metrics.
+. Select the *Dashboard* tab and review the metrics for your Kafka instance and topics. Use the drop-down filters to refine the displayed metrics as needed.
++
+--
+NOTE: In some cases, you might need to wait several minutes for the latest metrics to appear.
+
+The following metrics are available:
+
+* *Kafka instance metrics*
+** *Used disk space*: Used disk space is the amount of disk space used by the Kafka brokers in the instance. This metric enables you to assess available disk space relative to the limit. To reduce used disk space, you can adjust topic retention time or other topic properties as needed.
+* *Topic metrics*
+** *Total bytes*: Total bytes is the total incoming and outgoing bytes for all topics or for a selected topic in the Kafka instance. This metric enables you to assess data transfer in and out of your Kafka instance. To modify incoming and outgoing bytes, you can adjust topic message size or other topic properties as needed.
+--
+
+.Verification
+ifdef::qs[]
+* Are metrics displayed for your Kafka instance and topics? You might need to wait several minutes for the latest metrics to appear.
+endif::[]
+ifndef::qs[]
+* Verify that metrics are displayed for your Kafka instance and topics. You might need to wait several minutes for the latest metrics to appear.
+endif::[]
