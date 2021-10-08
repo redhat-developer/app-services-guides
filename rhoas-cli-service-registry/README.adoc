@@ -62,7 +62,7 @@ This guide describes how to get started quickly by doing the following:
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload Service Registry artifacts]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
-* link:{base-url}{rhoas-cli-service-registry-url}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your Service Registry instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
 
@@ -129,7 +129,7 @@ because the `Status` field is `ready`.
 $ rhoas status service-registry
 
   Service Registry
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------
   ID:                    63620903-4a29-4ba4-8229-7ab793bf73f3
   Name:                  my-registry
   Status:                ready
@@ -168,7 +168,7 @@ This example creates a service account called `my-service-acct` and saves the cr
 ----
 $ rhoas service-account create --name "my-service-acct" --file-format json
 
-Service account my-service-account created
+✔️ Service account "my-service-acct" created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
 Credentials saved to /home/developer/my-project/credentials.json
 ----
 
@@ -192,7 +192,7 @@ $ cat credentials.json
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
-  "oauth_token_url": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+        "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
 You'll use these credentials and the Service Registry URL to connect your applications and services to your Service Registry instance.
@@ -252,7 +252,7 @@ The artifact is an Apache Kafka Avro schema in JSON format.
 .Uploading an artifact
 [source,shell]
 ----
-wget https://github.com/redhat-developer/app-services-cli/blob/main/docs/resources/avro-userInfo.json
+$ wget https://github.com/redhat-developer/app-services-cli/blob/main/docs/resources/avro-userInfo.json
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
 --
@@ -265,11 +265,12 @@ This example lists all artifacts belonging to the Service Registry instance.
 .Listing artifact details for a Service Registry instance
 [source,shell]
 ----
-rhoas service-registry artifact list
+$ rhoas service-registry artifact list
 Using default artifacts group.
+
   ID            NAME   CREATED ON                 CREATED BY   TYPE   STATE
  ------------- ------ -------------------------- ------------ ------ --------
-  my-artifact          2021-09-27T16:17:35+0000      User      AVRO   ENABLED
+  my-artifact          2021-09-27T16:17:35+0000   User         AVRO   ENABLED
 ----
 --
 
@@ -279,7 +280,7 @@ Using default artifacts group.
 .Checking the version information of an artifact
 [source,shell]
 ----
-rhoas service-registry artifact versions --artifact-id=my-artifact
+$ rhoas service-registry artifact versions --artifact-id=my-artifact
 {
   "count": 1,
   "versions": [
@@ -345,7 +346,7 @@ This example downloads the `my-artifact` artifact using its ID.
 .Downloading an artifact using its ID
 [source,shell]
 ----
-$ rhoas service-registry get --artifact-id my-artifact
+$ rhoas service-registry artifact get --artifact-id my-artifact
 ----
 
 This example downloads the `my-artifact` artifact using its global ID.
@@ -353,7 +354,7 @@ This example downloads the `my-artifact` artifact using its global ID.
 .Downloading an artifact using its global ID
 [source,shell]
 ----
-$ rhoas service-registry download --global-id=28
+$ rhoas service-registry artifact download --global-id=28
 ----
 --
 
