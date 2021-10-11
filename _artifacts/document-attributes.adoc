@@ -34,3 +34,4 @@
 :topic-config-url: topic-configuration/README.adoc
 :consumer-config-url: consumer-configuration/README.adoc
 :service-binding-url: service-discovery/README.adoc
+:access-mgmt-url: access-mgmt/README.adoc
