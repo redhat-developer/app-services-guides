@@ -163,16 +163,72 @@ NOTE: SASL/PLAIN authentication is also available for tools and libraries that d
 
 +
 You'll use the service account information that you saved to configure your application to connect to your Kafka instances when you're ready. For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance, you'll use this information to set your bootstrap server and client environment variables.
-. To review your service account information, reset your credentials, or delete the service account, go to the *Streams for Apache Kafka* > *Service Accounts* page in the web console.
+. To review your service account information, reset your credentials, or delete the service account, use the left navigation menu to go to the *Service Accounts* page.
 
 .Verification
 ifdef::qs[]
 * Did you save the bootstrap server, client credentials, and authentication token endpoint to a secure location?
-* Did you verify that your service account was successfully created in the *Streams for Apache Kafka* > *Service Accounts* page?
+* Did you verify that your service account was successfully created in the *Service Accounts* page?
 endif::[]
 ifndef::qs[]
 . Verify that the bootstrap server, client credentials, and authentication token endpoint are saved to a secure location.
-. Verify that your service account was successfully created in the *Streams for Apache Kafka* > *Service Accounts* page.
+. Verify that your service account was successfully created in the *Service Accounts* page.
+endif::[]
+
+[id="proc-setting-service-account-permissions_{context}"]
+== Setting permissions for a service account in a Kafka instance in {product}
+
+After you create a service account to connect to a Kafka instance, you must also set the appropriate level of access for that new account in the Access Control List (ACL) of the Kafka instance. {product} uses ACLs provided by Kafka that enable you to manage how other user accounts and service accounts are permitted to interact with the Kafka resources that you create.
+
+.Prerequisites
+* You've created a Kafka instance and the instance is in *Ready* state.
+* You've created a service account that you want to allow to access the running Kafka instance.
+
+.Procedure
+. In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want the service account to access.
+. Click the *Access* tab to view the current ACL for this instance.
+. Click *Manage access*, use the *Account* drop-down menu to select the service account that you previously created, and click *Next*.
+. Under *Assign Permissions*, use the drop-down menus to set the permissions shown in the following table for this service account. Click *Add* to add each new resource permission.
++
+--
+These permissions enable applications associated with the service account to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+
+.Example ACL permissions for a new service account
+[cols="25%,25%,25%,25%"]
+|===
+h|Resource type
+h|Resource identifier and value
+h|Access type
+h|Operation
+
+|`Topic`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`Consumer group`
+|`Is` = `*`
+|`Allow`
+|`Read`
+
+|`Transactional ID`
+|`Is` = `*`
+|`Allow`
+|`All`
+|===
+--
+. After you add these permissions for the service account, click *Save* to finish.
+
+.Verification
+ifdef::qs[]
+* Are the new permissions for the service account listed in the *Access* page of the Kafka instance?
+endif::[]
+ifndef::qs[]
+* Verify that the new permissions for the service account are listed in the *Access* page of the Kafka instance.
+
+[role="_additional-resources"]
+.Additional resources
+* link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation
 endif::[]
 
 [id="proc-creating-kafka-topic_{context}"]
