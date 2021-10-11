@@ -1,0 +1,201 @@
+[id='ref-example-access-scenarios_{context}']
+= Example account access scenarios in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product}. Use these examples as a guide for your own ACLs.
+
+Access for a new service account in a Kafka instance::
++
+--
+I’ve created a new service account and I want to allow it to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+
+.Example ACL permissions
+[cols="25%,22%,23%,15%,15%"]
+|===
+h|Account
+h|Resource type
+h|Resource identifier and value
+h|Access type
+h|Operation
+
+|`srvc-acct-1a2b3c4d-...`
+|`Topic`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`srvc-acct-1a2b3c4d-...`
+|`Consumer group`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`srvc-acct-1a2b3c4d-...`
+|`Transactional ID`
+|`Is` = `*`
+|`Allow`
+|`All`
+|===
+--
+
+Access for all accounts in a Kafka instance::
++
+--
+I want this Kafka instance to be fully accessible to all accounts in the organization. I want any user to be able to read all topics, write to all topics, use any consumer group, and use any producer.
+
+.Example ACL permissions
+[cols="25%,22%,23%,15%,15%"]
+|===
+h|Account
+h|Resource
+h|Resource identifier and value
+h|Access type
+h|Operations
+
+|`All accounts`
+|`Topic`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`All accounts`
+|`Consumer group`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`All accounts`
+|`Transactional ID`
+|`Is` = `*`
+|`Allow`
+|`All`
+|===
+--
+
+Access for a specific user in a Kafka instance::
++
+--
+I want this Kafka instance to be fully accessible to a specific user. I don't know which topics or consumer groups the user will use, so I want the user to be able to read any topic, write to any topic, and join any consumer group in the instance.
+
+.Example ACL permissions
+[cols="25%,22%,23%,15%,15%"]
+|===
+h|Account
+h|Resource
+h|Resource identifier and value
+h|Access type
+h|Operations
+
+|`usr-acct-1a2b3c4d-...`
+|`Topic`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`usr-acct-1a2b3c4d-...`
+|`Consumer group`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`usr-acct-1a2b3c4d-...`
+|`Transactional ID`
+|`Is` = `*`
+|`Allow`
+|`All`
+|===
+--
+
+Access for a specific producer to write to a topic::
++
+--
+I want to allow a user account with a producer of a specific `transactional.id` value to produce messages to a specific topic in this Kafka instance.
+
+.Example ACL permissions
+[cols="25%,22%,23%,15%,15%"]
+|===
+h|Account
+h|Resource
+h|Resource identifier and value
+h|Access type
+h|Operations
+
+|`usr-acct-1a2b3c4d-...`
+|`Topic`
+|`Is` = `topic-1`
+|`Allow`
+|`Write`
+
+|`usr-acct-1a2b3c4d-...`
+|`Transactional ID`
+|`Is` = `producer-1`
+|`Allow`
+|`All`
+|===
+--
+
+Access for specific consumer groups to consume from a topic::
++
+--
+I want to allow a service account with consumers from consumer groups whose names start with `app` to consume messages from a specific topic in this Kafka instance.
+
+.Example ACL permissions
+[cols="25%,22%,23%,15%,15%"]
+|===
+h|Account
+h|Resource
+h|Resource identifier and value
+h|Access type
+h|Operations
+
+|`srvc-acct-1a2b3c4d-...`
+|`Topic`
+|`Is` = `topic-1`
+|`Allow`
+|`Read`
+
+|`srvc-acct-1a2b3c4d-...`
+|`Consumer group`
+|`Starts with` = `app`
+|`Allow`
+|`Read`
+|===
+--
+
+Access for a specific user to manage all permissions in the ACL of a Kafka instance::
++
+--
+I want to allow a user account to manage all permissions in the ACL for this Kafka instance. I've removed all other permissions from this instance so that the new authorized user can define the new ACL as needed.
+
+.Example ACL permissions
+[cols="25%,22%,23%,15%,15%"]
+|===
+h|Account
+h|Resource
+h|Resource identifier and value
+h|Access type
+h|Operations
+
+|`usr-acct-1a2b3c4d-...`
+|`Kafka instance`
+|None
+|`Allow`
+|`Alter`
+
+|`usr-acct-1a2b3c4d-...`
+|`Kafka instance`
+|None
+|`Allow`
+|`Describe`
+|===
+--
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url}[_Getting started with {product}_^]
+* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

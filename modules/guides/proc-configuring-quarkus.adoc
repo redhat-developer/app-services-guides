@@ -8,7 +8,9 @@ Quarkus applications use https://github.com/eclipse/microprofile-reactive-messag
 
 .Prerequisites
 ifndef::qs[]
-* You have the bootstrap server endpoint, the service account credentials, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
+* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To relocate the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the generated credentials for your service account. To regenerate the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product} web console and use the *Access* page to find your service account permission settings.
 endif::[]
 
 .Procedure
@@ -16,7 +18,7 @@ endif::[]
 +
 --
 ifdef::qs[]
-The `<bootstrap_server>` is the bootstrap server endpoint for your service account. The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
+The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
 endif::[]
 
 .Setting environment variables for server and credentials

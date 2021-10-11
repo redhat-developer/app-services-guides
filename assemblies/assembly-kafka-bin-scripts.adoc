@@ -31,7 +31,7 @@ endif::[]
 * You have a running Kafka instance in {product}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed.
 * For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
-* You have downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^].
+* You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^].
 +
 .Verifying Kafka scripts
 [source]

@@ -40,6 +40,8 @@ include::modules/guides/proc-creating-kafka-instance.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-service-account.adoc[leveloffset=+1]
 
+include::modules/guides/proc-setting-service-account-permissions.adoc[leveloffset=+1]
+
 include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 
 include::modules/guides/proc-viewing-metrics.adoc[leveloffset=+1]

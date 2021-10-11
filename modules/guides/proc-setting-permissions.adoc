@@ -1,0 +1,78 @@
+[id='proc-setting-permissions_{context}']
+= Setting account permissions in a Kafka instance in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+In {product}, you can create Access Control Lists (ACLs) in your Kafka instances and set permissions for how other user accounts or service accounts can interact with an instance and its resources. You can manage access for only the Kafka instances that you create or for the instances that the owner has enabled you to access and alter.
+
+.Prerequisites
+* You've created a Kafka instance and the instance is in *Ready* state.
+* The user account or service account that you're setting permissions for has been created in the organization.
+
+.Procedure
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to set permissions for.
+. Click the *Access* tab to view the current ACL permissions for this instance.
+. Use this *Access* page to set permissions for a new account, add permissions to an existing account, or delete account permissions in this instance.
++
+* To set permissions for a new account in this instance, follow these steps:
+
+.. Click *Manage access*.
+.. In the *Account* drop-down menu, select the new user account or service account that you want to set permissions for. You can also select *All accounts* to set permissions for all user accounts and service accounts in the organization.
+.. Click *Next*.
++
+--
+The *Review existing permissions* section lists any permission settings in this instance that are already defined for all accounts in the organization and for the same account that you previously selected, if applicable. You can delete existing permissions now if needed, or you can wait to delete existing permissions later from the main *Access* page.
+
+If you previously selected a specific account, you can delete only permission entries that apply to individual accounts. If you previously selected *All accounts*, you can delete only permission entries that apply to all accounts.
+--
+.. Under *Assign Permissions*, set the permissions for the specified account or all accounts for a resource type, such as a topic, and click *Add* to continue adding permissions for other resources as needed.
++
+--
+For example, when you create a new service account, you can add the permissions shown in the following table to the Kafka instance that you want the account to access. In this example, the permissions enable applications associated with the service account to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+
+.Example ACL permissions for a new service account
+[cols="25%,25%,25%,25%"]
+|===
+h|Resource type
+h|Resource identifier and value
+h|Access type
+h|Operation
+
+|`Topic`
+|`Is` = `*`
+|`Allow`
+|`All`
+
+|`Consumer group`
+|`Is` = `*`
+|`Allow`
+|`Read`
+
+|`Transactional ID`
+|`Is` = `*`
+|`Allow`
+|`All`
+|===
+--
+.. Click *Save* to finish.
+
+* To add permissions to an existing account in this instance, follow these steps:
+
+.. For the account that you want to add permissions to, select the options icon (three vertical dots) for that entry and click *Manage*.
++
+--
+The *Review existing permissions* section lists any permission settings in this instance that are already defined for all accounts in the organization and for the same account that you previously selected, if applicable. You can delete existing permissions now if needed, or you can wait to delete existing permissions later from the main *Access* page.
+
+If you selected a permission entry that applies to a specific account, you can delete only permission entries that apply to individual accounts. If you selected a permission entry that applies to all accounts, you can delete only permission entries that apply to all accounts.
+--
+.. Under *Assign Permissions*, set the additional permissions for that account or all accounts for a resource type, such as a topic, and click *Add* to continue adding permissions for other resources as needed.
+.. Click *Save* to finish.
+
+* To delete existing account permissions in this instance, use the following options:
+
+ ** Select one or more permission entries, select the options icon (three vertical dots) at the top of the table, and click *Delete selected permissions*.
+ ** For the account that you want to delete, select the options icon (three vertical dots) for that entry and click *Delete*.
+
+[role="_additional-resources"]
+.Additional resources
+* link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation

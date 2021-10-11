@@ -6,7 +6,8 @@ To enable the Kafka scripts to access a Kafka instance, you must configure the c
 
 .Prerequisites
 ifndef::qs[]
-* You have the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots), clicking *Connection*, and creating the service account.
+* You have the generated credentials for your service account. To regenerate the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product} web console and use the *Access* page to find your service account permission settings.
 endif::[]
 
 .Procedure

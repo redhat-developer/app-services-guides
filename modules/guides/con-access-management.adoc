@@ -1,0 +1,139 @@
+[id='con-access-management_{context}']
+= Access management in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+{product} uses Access Control Lists (ACLs) provided by Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
+
+An account in {product} is either a user account or a service account. A user account enables users in your organization to access your resources. A service account enables your application or tool to connect securely to your instance and access your resources.
+
+A resource in an ACL can be a Kafka instance, topic, consumer group, or producer transaction. You use the ACL to define how specific accounts or all accounts in an organization are permitted to access these resources.
+
+An ACL permission setting typically consists of the following components:
+
+* A single named account or all accounts within the organization that you want to manage access for
+* A single named resource, all resources of a particular type (such as a topic, consumer group, or transactional ID), or all resources of a particular type with a specified prefix
+* A single operation (such as `Write`) or all operations for the specified resource or resources
+
+You can also allow other users or service accounts to manage access to the resources in your instance for you.
+
+If two or more permission settings in an ACL match a request being made to the Kafka broker and at least one of the matching permissions specifies that the action is denied, then the request is denied.
+
+[role="_additional-resources"]
+.Additional resources
+* link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation
+
+== Supported ACL permissions in {product}
+
+An ACL acts as a mapping of permitted operations on specified resources for a selected account or for all accounts in an organization. An account can be either a user account or a service account. Operations correspond to Kafka APIs or request types that relate to the specified resource.
+
+For example, a `Read` operation for a `Topic` resource corresponds to the `Fetch`, `OffsetCommit`, and `TxnOffsetCommit` Kafka requests. A `Write` operation for a `Topic` resource corresponds to the `Produce` and `AddPartitionsToTxn` Kafka requests.
+
+The following table lists the supported ACL permissions in {product}.
+
+NOTE: The resource identifier `Is` supports the wildcard character `*` to denote any occurrences of the specified resource. For example, `Topic is *` means any topic in a Kafka instance.
+
+.Supported ACL permissions
+[cols="25%,25%,25%,25%"]
+|===
+h|Resource type
+h|Resource identifier
+h|Access type
+h|Operations
+
+|`Consumer group`
+
+(For consumer group access to a resource)
+a|
+* `Starts with`
+* `Is`
+a|
+* `Allow`
+* `Deny`
+a|
+* `All`
+* `Read`
+* `Delete`
+* `Describe`
+
+|`Topic`
+
+(For access to a topic)
+a|
+* `Starts with`
+* `Is`
+a|
+* `Allow`
+* `Deny`
+a|
+* `All`
+* `Read`
+* `Write`
+* `Create`
+* `Delete`
+* `Alter`
+* `Alter configs`
+* `Describe`
+* `Describe configs`
+
+|`Transactional ID`
+
+(For producer access to a resource)
+a|
+* `Starts with`
+* `Is`
+a|
+* `Allow`
+* `Deny`
+a|
+* `All`
+* `Write`
+* `Describe`
+
+|`Kafka instance`
+
+(For access to Kafka instance permissions in ACLs)
+|None
+a|
+* `Allow`
+* `Deny`
+a|
+* `Alter`
+* `Describe`
+|===
+
+By default, new Kafka instances contain the permissions shown in the following table. These permissions allow all accounts in the organization to view the instance permissions and to view topics in the instance, but not to produce or consume messages.
+
+.Default ACL permissions for new Kafka instances
+[cols="25%,25%,25%,25%"]
+|===
+h|Account
+h|Resource
+h|Access type
+h|Operation
+
+|`All accounts`
+|`Topic is *`
+
+(Any topic)
+|`Allow`
+|`Describe`
+
+|`All accounts`
+|`Consumer group is *`
+
+(Any consumer group)
+|`Allow`
+|`Describe`
+
+|`All accounts`
+|`Kafka instance`
+
+(Kafka instance permissions in ACLs)
+|`Allow`
+|`Describe`
+|===
+
+[role="_additional-resources"]
+.Additional resources
+https://kafka.apache.org/documentation/#security_authz_primitives[Authorization Primitives^] in Kafka documentation

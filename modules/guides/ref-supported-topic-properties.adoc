@@ -600,6 +600,7 @@ h|Kafka property name
 |===
 --
 
+[role="_additional-resources"]
 .Additional resources
 * https://kafka.apache.org/documentation/#topicconfigs[Topic-Level Configs^] in Kafka documentation
 
