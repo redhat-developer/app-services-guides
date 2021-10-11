@@ -252,7 +252,7 @@ The artifact is an Apache Kafka Avro schema in JSON format.
 .Uploading an artifact
 [source,shell]
 ----
-$ https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
+$ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
 --
