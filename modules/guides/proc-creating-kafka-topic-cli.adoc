@@ -32,27 +32,145 @@ This example creates the `my-topic` Kafka topic.
 [source,shell]
 ----
 $ rhoas kafka topic create --name my-topic
+Topic "my-topic" created in Kafka instance "my-kafka":
 {
-  "config": [
-    {
-      "key": "retention.ms",
-      "value": "-1"
-    }
-  ],
-  "name": "my-topic",
-  "partitions": [
-    {
-      "id": 1,
-      "leader": {
-        "id": 1
-      },
-      "replicas": [
+    "config": [
         {
-          "id": 1
+            "key": "compression.type",
+            "value": "producer"
+        },
+        {
+            "key": "leader.replication.throttled.replicas",
+            "value": ""
+        },
+        {
+            "key": "min.insync.replicas",
+            "value": "2"
+        },
+        {
+            "key": "message.downconversion.enable",
+            "value": "true"
+        },
+        {
+            "key": "segment.jitter.ms",
+            "value": "0"
+        },
+        {
+            "key": "cleanup.policy",
+            "value": "delete"
+        },
+        {
+            "key": "flush.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "follower.replication.throttled.replicas",
+            "value": ""
+        },
+        {
+            "key": "segment.bytes",
+            "value": "1073741824"
+        },
+        {
+            "key": "retention.ms",
+            "value": "604800000"
+        },
+        {
+            "key": "flush.messages",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "message.format.version",
+            "value": "2.7-IV2"
+        },
+        {
+            "key": "max.compaction.lag.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "file.delete.delay.ms",
+            "value": "60000"
+        },
+        {
+            "key": "max.message.bytes",
+            "value": "1048588"
+        },
+        {
+            "key": "min.compaction.lag.ms",
+            "value": "0"
+        },
+        {
+            "key": "message.timestamp.type",
+            "value": "CreateTime"
+        },
+        {
+            "key": "preallocate",
+            "value": "false"
+        },
+        {
+            "key": "index.interval.bytes",
+            "value": "4096"
+        },
+        {
+            "key": "min.cleanable.dirty.ratio",
+            "value": "0.5"
+        },
+        {
+            "key": "unclean.leader.election.enable",
+            "value": "false"
+        },
+        {
+            "key": "retention.bytes",
+            "value": "-1"
+        },
+        {
+            "key": "delete.retention.ms",
+            "value": "86400000"
+        },
+        {
+            "key": "segment.ms",
+            "value": "604800000"
+        },
+        {
+            "key": "message.timestamp.difference.max.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "segment.index.bytes",
+            "value": "10485760"
         }
-      ]
-    }
-  ]
+    ],
+    "name": "my-topic",
+    "partitions": [
+        {
+            "id": 0,
+            "isr": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 0
+                }
+            ],
+            "leader": {
+                "id": 1
+            },
+            "replicas": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 0
+                }
+            ]
+        }
+    ]
 }
 ----
 

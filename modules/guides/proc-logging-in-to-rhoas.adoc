@@ -26,13 +26,16 @@ You are redirected to your web browser at https://sso.redhat.com[^].
 . Enter your credentials to log in to your Red Hat account.
 +
 --
-A welcome page is displayed notifying you that you have been logged in to `rhoas` successfully.
+Welcome pages in the browser notify you that you have been logged in to `rhoas` successfully.
 
 In your terminal, the `rhoas login` command indicates that you are logged in:
 
 [source,shell]
 ----
 $ rhoas login
-You are now logged in as developer
+Logging in...
+✔️ Logged in successfully
+
+✔️ You are now logged in as "user"
 ----
 --

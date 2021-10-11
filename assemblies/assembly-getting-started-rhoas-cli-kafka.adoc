@@ -9,22 +9,18 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 ====
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+With the `rhoas` command-line interface (CLI), you can manage OpenShift Streams for Apache Kafka from a terminal.
 
 As a developer of applications and services,
 you can use `rhoas` to create Kafka instances and connect your applications and services to these instances.
+You can also create Kafka topics to store data for producers and consumers.
 
-This guide describes how to get started quickly by using `rhoas` to create a simple Kafka instance, connect to it, and create a Kafka topic to produce and consume messages.
+This guide describes how to get started quickly by doing the following:
 
-The following procedures demonstrate a basic workflow to get started quickly:
-
-* link:{base-url}{rhoas-cli-kafka-url}#creating-kafka-instance_getting-started-rhoas-kafka[Create a Kafka instance]
-
-* link:{base-url}{rhoas-cli-kafka-url}#creating-service-account_getting-started-rhoas-kafka[Create a service account]
-
-* link:{base-url}{rhoas-cli-kafka-url}#creating-kafka-topic_getting-started-rhoas-kafka[Create a Kafka topic]
-
-* link:{base-url}{rhoas-cli-kafka-url}#commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-creating-kafka-instance-cli_getting-started-rhoas-kafka[Create a Kafka instance]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-creating-service-account-cli_getting-started-rhoas-kafka[Create a service account]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-creating-kafka-topic-cli_getting-started-rhoas-kafka[Create a Kafka topic]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
 //Additional line break to resolve mod docs generation error
 include::modules/guides/ref-kafka-cli-prereqs.adoc[leveloffset=+1]

@@ -11,14 +11,13 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 [role="_abstract"]
 With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
 
-This guide describes how to set up `rhoas` so that you can log in and use its commands.
-
-The following procedures demonstrate how to install and configure `rhoas`:
+This guide describes how to set up `rhoas` by doing the following:
 
 --
 * link:{base-url}{rhoas-cli-url}#proc-installing-rhoas_installing-rhoas-cli[Install `rhoas` on your operating system]
-
 * link:{base-url}{rhoas-cli-url}#proc-configuring-rhoas_installing-rhoas-cli[Configure `rhoas` to enable command completion]
+* link:{base-url}{rhoas-cli-url}#proc-logging-in-to-rhoas_installing-rhoas-cli[Log in to `rhoas`]
+* link:{base-url}{rhoas-cli-url}#proc-logging-out-rhoas_installing-rhoas-cli[Log out of `rhoas`]
 --
 
 //Additional line break to resolve mod docs generation error

@@ -9,23 +9,20 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 ====
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+With the `rhoas` command-line interface (CLI), you can manage OpenShift Service Registry from a terminal.
 
 As a developer of applications and services,
 you can use `rhoas` to create Service Registry instances and connect your applications and services to these instances.
-
-This guide describes how to get started quickly by using `rhoas` to create a Service Registry instance and manage artifacts.
+You can also manage artifacts.
 Artifacts are items stored in Service Registry, like schemas and API specifications.
 
-The following procedures demonstrate a basic workflow to get started quickly:
+This guide describes how to get started quickly by doing the following:
 
-* link:{base-url}{rhoas-cli-service-registry-url}#creating-service-registry-instance_getting-started-rhoas-service-registry[Create a Service Registry instance]
-
-* link:{base-url}{rhoas-cli-service-registry-url}#creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
-
-* link:{base-url}{rhoas-cli-service-registry-url}#uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload Service Registry artifacts]
-
-* link:{base-url}{rhoas-cli-service-registry-url}#downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a Service Registry instance]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload Service Registry artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your Service Registry instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
 include::modules/guides/ref-service-registry-cli-prereqs.adoc[leveloffset=+1]
