@@ -270,7 +270,7 @@ endif::[]
 [id="proc-viewing-metrics_{context}"]
 == Viewing metrics for a Kafka instance in {product}
 
-After you create Kafka topics in your Kafka instance, you can start producing and consuming messages in your services by using your preferred method, such as using link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application.
+After you create Kafka topics in your Kafka instance, you can start producing and consuming messages using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application.
 
 After you produce and consume messages in your services, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
@@ -284,7 +284,7 @@ After you produce and consume messages in your services, you can return to the K
 --
 When you create your Kafka instance and topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics.
 
-In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
+NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
 
 After your topics contain data, the following metrics are available:
 
