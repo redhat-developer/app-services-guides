@@ -49,22 +49,18 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 ====
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+With the `rhoas` command-line interface (CLI), you can manage OpenShift Streams for Apache Kafka from a terminal.
 
 As a developer of applications and services,
 you can use `rhoas` to create Kafka instances and connect your applications and services to these instances.
+You can also create Kafka topics to store data for producers and consumers.
 
-This guide describes how to get started quickly by using `rhoas` to create a simple Kafka instance, connect to it, and create a Kafka topic to produce and consume messages.
+This guide describes how to get started quickly by doing the following:
 
-The following procedures demonstrate a basic workflow to get started quickly:
-
-* link:{base-url}{rhoas-cli-kafka-url}#creating-kafka-instance_getting-started-rhoas-kafka[Create a Kafka instance]
-
-* link:{base-url}{rhoas-cli-kafka-url}#creating-service-account_getting-started-rhoas-kafka[Create a service account]
-
-* link:{base-url}{rhoas-cli-kafka-url}#creating-kafka-topic_getting-started-rhoas-kafka[Create a Kafka topic]
-
-* link:{base-url}{rhoas-cli-kafka-url}#commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-creating-kafka-instance-cli_getting-started-rhoas-kafka[Create a Kafka instance]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-creating-service-account-cli_getting-started-rhoas-kafka[Create a service account]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-creating-kafka-topic-cli_getting-started-rhoas-kafka[Create a Kafka topic]
+* link:{base-url}{rhoas-cli-kafka-url}#proc-commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
 
 //Additional line break to resolve mod docs generation error
 
@@ -97,7 +93,6 @@ This example creates a Kafka instance called `my-kafka`.
 [source,shell]
 ----
 $ rhoas kafka create --name my-kafka
-Kafka instance "my-kafka" created successfully
 {
   "cloud_provider": "aws",
   "created_at": "2021-03-17T18:33:50.000799005Z",
@@ -111,6 +106,7 @@ Kafka instance "my-kafka" created successfully
   "status": "accepted",
   "updated_at": "2021-03-17T18:33:50.000799005Z"
 }
+Kafka instance "my-kafka" is being created. To monitor its status run "rhoas status".
 ----
 
 [NOTE]
@@ -172,7 +168,7 @@ This example creates a service account called `my-service-acct` and saves the cr
 ----
 $ rhoas service-account create --name "my-service-acct" --file-format json
 
-Service account my-service-account created
+✔️ Service account "my-service-acct" created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
 Credentials saved to /home/developer/my-project/credentials.json
 ----
 
@@ -196,7 +192,7 @@ $ cat credentials.json
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
-        "oauth_token_url": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+        "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
 
@@ -236,27 +232,145 @@ This example creates the `my-topic` Kafka topic.
 [source,shell]
 ----
 $ rhoas kafka topic create --name my-topic
+Topic "my-topic" created in Kafka instance "my-kafka":
 {
-  "config": [
-    {
-      "key": "retention.ms",
-      "value": "-1"
-    }
-  ],
-  "name": "my-topic",
-  "partitions": [
-    {
-      "id": 1,
-      "leader": {
-        "id": 1
-      },
-      "replicas": [
+    "config": [
         {
-          "id": 1
+            "key": "compression.type",
+            "value": "producer"
+        },
+        {
+            "key": "leader.replication.throttled.replicas",
+            "value": ""
+        },
+        {
+            "key": "min.insync.replicas",
+            "value": "2"
+        },
+        {
+            "key": "message.downconversion.enable",
+            "value": "true"
+        },
+        {
+            "key": "segment.jitter.ms",
+            "value": "0"
+        },
+        {
+            "key": "cleanup.policy",
+            "value": "delete"
+        },
+        {
+            "key": "flush.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "follower.replication.throttled.replicas",
+            "value": ""
+        },
+        {
+            "key": "segment.bytes",
+            "value": "1073741824"
+        },
+        {
+            "key": "retention.ms",
+            "value": "604800000"
+        },
+        {
+            "key": "flush.messages",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "message.format.version",
+            "value": "2.7-IV2"
+        },
+        {
+            "key": "max.compaction.lag.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "file.delete.delay.ms",
+            "value": "60000"
+        },
+        {
+            "key": "max.message.bytes",
+            "value": "1048588"
+        },
+        {
+            "key": "min.compaction.lag.ms",
+            "value": "0"
+        },
+        {
+            "key": "message.timestamp.type",
+            "value": "CreateTime"
+        },
+        {
+            "key": "preallocate",
+            "value": "false"
+        },
+        {
+            "key": "index.interval.bytes",
+            "value": "4096"
+        },
+        {
+            "key": "min.cleanable.dirty.ratio",
+            "value": "0.5"
+        },
+        {
+            "key": "unclean.leader.election.enable",
+            "value": "false"
+        },
+        {
+            "key": "retention.bytes",
+            "value": "-1"
+        },
+        {
+            "key": "delete.retention.ms",
+            "value": "86400000"
+        },
+        {
+            "key": "segment.ms",
+            "value": "604800000"
+        },
+        {
+            "key": "message.timestamp.difference.max.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "segment.index.bytes",
+            "value": "10485760"
         }
-      ]
-    }
-  ]
+    ],
+    "name": "my-topic",
+    "partitions": [
+        {
+            "id": 0,
+            "isr": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 0
+                }
+            ],
+            "leader": {
+                "id": 1
+            },
+            "replicas": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 0
+                }
+            ]
+        }
+    ]
 }
 ----
 

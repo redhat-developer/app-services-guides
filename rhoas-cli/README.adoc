@@ -54,14 +54,13 @@ The `rhoas` command-line interface (CLI) is currently available for Development 
 [role="_abstract"]
 With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
 
-This guide describes how to set up `rhoas` so that you can log in and use its commands.
-
-The following procedures demonstrate how to install and configure `rhoas`:
+This guide describes how to set up `rhoas` by doing the following:
 
 --
 * link:{base-url}{rhoas-cli-url}#proc-installing-rhoas_installing-rhoas-cli[Install `rhoas` on your operating system]
-
 * link:{base-url}{rhoas-cli-url}#proc-configuring-rhoas_installing-rhoas-cli[Configure `rhoas` to enable command completion]
+* link:{base-url}{rhoas-cli-url}#proc-logging-in-to-rhoas_installing-rhoas-cli[Log in to `rhoas`]
+* link:{base-url}{rhoas-cli-url}#proc-logging-out-rhoas_installing-rhoas-cli[Log out of `rhoas`]
 --
 
 //Additional line break to resolve mod docs generation error
@@ -146,7 +145,7 @@ This example installs `rhoas` version `{rhoas-version}`:
 
 [source,shell,subs="+attributes"]
 ----
-$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/{rhoas-version}/rhoas_{rhoas-version}_linux_amd64.rpm
+$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/v{rhoas-version}/rhoas_{rhoas-version}_linux_amd64.rpm
 ----
 --
 
@@ -250,9 +249,9 @@ To determine which shell you are using, run the `echo $0` command.
 
 You can enable command completion for each of the following shells:
 
-* link:{base-url}{rhoas-cli-url}#enabling-command-completion-bash_getting-started-rhoas[Bash]
-* link:{base-url}{rhoas-cli-url}#enabling-command-completion-zsh_getting-started-rhoas[Zsh]
-* link:{base-url}{rhoas-cli-url}#enabling-command-completion-fish_getting-started-rhoas[Fish]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-bash_installing-rhoas-cli[Bash]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-zsh_installing-rhoas-cli[Zsh]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-fish_installing-rhoas-cli[Fish]
 
 .Prerequisites
 
@@ -322,7 +321,7 @@ Command completion is enabled.
 +
 [source,shell]
 ----
-$ rhoas completion -s fish > ~/.config/fish/completion/gh.fish
+$ rhoas completion -s fish > ~/.config/fish/completions/rhoas.fish
 ----
 
 . Open a new terminal window.
@@ -356,14 +355,17 @@ You are redirected to your web browser at https://sso.redhat.com[^].
 . Enter your credentials to log in to your Red Hat account.
 +
 --
-A welcome page is displayed notifying you that you have been logged in to `rhoas` successfully.
+Welcome pages in the browser notify you that you have been logged in to `rhoas` successfully.
 
 In your terminal, the `rhoas login` command indicates that you are logged in:
 
 [source,shell]
 ----
 $ rhoas login
-You are now logged in as developer
+Logging in...
+✔️ Logged in successfully
+
+✔️ You are now logged in as "user"
 ----
 --
 
