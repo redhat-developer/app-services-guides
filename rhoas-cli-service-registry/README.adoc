@@ -252,7 +252,7 @@ The artifact is an Apache Kafka Avro schema in JSON format.
 .Uploading an artifact
 [source,shell]
 ----
-$ wget https://github.com/redhat-developer/app-services-cli/blob/main/docs/resources/avro-userInfo.json
+$ https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
 --
@@ -300,7 +300,7 @@ $ rhoas service-registry artifact versions --artifact-id=my-artifact
 .Checking the metadata information of an artifact
 [source,shell]
 ----
-rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+$ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 Using default artifacts group.
 Fetching artifact metadata
 ✔️ Successfully fetched artifact metadata
