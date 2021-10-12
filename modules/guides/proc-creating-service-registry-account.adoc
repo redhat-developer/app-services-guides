@@ -16,15 +16,15 @@ which you can use to authenticate your application with your Service Registry in
 . Enter the following command to create a service account.
 +
 --
-This example creates a service account called `my-service-acct` and saves the credentials in a JSON file.
+This example creates a service account and saves the credentials in a JSON file.
 
 .Creating a service account
 [source,shell]
 ----
-$ rhoas service-account create --name "my-service-acct" --file-format json
+$ rhoas service-account create --short-description="rhoas-service-account" --file-format json
 
-✔️ Service account "my-service-acct" created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
-Credentials saved to /home/developer/my-project/credentials.json
+✔️ Service account created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
+✔️ Credentials saved to /home/developer/my-project/credentials.json
 ----
 
 Your service account credentials are created and saved to a JSON file.
