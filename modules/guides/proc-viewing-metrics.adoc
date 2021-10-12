@@ -2,20 +2,23 @@
 = Viewing metrics for a Kafka instance in {product}
 :imagesdir: ../_images
 
-After you create Kafka topics in your Kafka instance and start producing and consuming messages in your services, use the *Dashboard* tab in the Kafka instance to view metrics for the instance and topics. These metrics help you understand the performance and data usage for your Kafka instance and topics.
+After you create Kafka topics in your Kafka instance, you can start producing and consuming messages using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application.
+
+After you produce and consume messages in your services, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites
 * You've created a Kafka instance and the instance is in *Ready* state.
-* You've created topics in your Kafka instance and you've started producing and consuming messages in your services.
+* You've created topics in your Kafka instance.
 
 .Procedure
-. In the *Kafka Instances* page of the web console, click the name of the Kafka instance for which you want to view metrics.
-. Select the *Dashboard* tab and review the metrics for your Kafka instance and topics. Use the drop-down filters to refine the displayed metrics as needed.
+* In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
 +
 --
-NOTE: In some cases, you might need to wait several minutes for the latest metrics to appear.
+When you create your Kafka instance and topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics.
 
-The following metrics are available:
+NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
+
+After your topics contain data, the following metrics are available:
 
 * *Kafka instance metrics*
 ** *Used disk space*: Used disk space is the amount of disk space used by the Kafka brokers in the instance. This metric enables you to assess available disk space relative to the limit. To reduce used disk space, you can adjust topic retention time or other topic properties as needed.
@@ -25,8 +28,8 @@ The following metrics are available:
 
 .Verification
 ifdef::qs[]
-* Are metrics displayed for your Kafka instance and topics? You might need to wait several minutes for the latest metrics to appear.
+* Did you note how to navigate to the instance *Dashboard* page to view metrics later?
 endif::[]
 ifndef::qs[]
-* Verify that metrics are displayed for your Kafka instance and topics. You might need to wait several minutes for the latest metrics to appear.
+* Verify that you know how to navigate to the instance *Dashboard* page to view metrics later.
 endif::[]
