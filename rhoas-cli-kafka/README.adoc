@@ -209,7 +209,7 @@ This example allows applications to produce and consume messages from topics sta
 [source,shell]
 ----
 $ rhoas kafka acl grant-permissions --consumer --producer \
-    --service-account <clientID> --topic-prefix <prefix>  --group "*"
+    --service-account srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1 --topic-prefix prefix  --group "*"
 ----
 
 The permissions you assign depend on whether your application produces or consumes messages. 
