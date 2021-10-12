@@ -196,8 +196,22 @@ $ cat credentials.json
         "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
-
 You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
+
+--
+
+. Assign required permissions to your service account in order to be able to produce and consume messages
+from your application. 
++
+Following command will enable service account to produce and consume messages with topics starting from prefix and any consumer group name
++
+--
+.Example of assigning permissions to your service account
+[source,shell]
+----
+$ rhoas kafka acl grant-permissions --consumer --producer \
+    --service-account <clientID> --topic-prefix <prefix>  --group-prefix "*"
+----
 --
 
 [id="proc-creating-kafka-topic-cli_{context}"]
