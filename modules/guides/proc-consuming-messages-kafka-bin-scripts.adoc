@@ -19,7 +19,7 @@ This example uses the SASL/PLAIN authentication mechanism with the credentials t
 
 [source,subs="+quotes,+attributes"]
 ----
-$ ./kafka-console-consumer.sh -topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --from-beginning --consumer.config ../config/{property-file-name}
+$ ./kafka-console-consumer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --from-beginning --consumer.config ../config/{property-file-name}
 First message
 Second message
 Third message
