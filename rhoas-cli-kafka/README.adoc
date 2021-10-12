@@ -210,7 +210,7 @@ Following command will enable service account to produce and consume messages wi
 [source,shell]
 ----
 $ rhoas kafka acl grant-permissions --consumer --producer \
-    --service-account <clientID> --topic-prefix <prefix>  --group-prefix "*"
+    --service-account <clientID> --topic-prefix <prefix>  --group "*"
 ----
 
 The permissions you assign depend on whether your application produces or consumes messages. 
