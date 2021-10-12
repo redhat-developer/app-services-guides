@@ -202,10 +202,10 @@ You'll use these credentials and the bootstrap server URL to connect your applic
 
 . Set the permissions for your service account to access the Kafka instance resources.
 +
-Following command will enable service account to produce and consume messages with topics starting from prefix and any consumer group name
+This example allows applications to produce and consume messages from topics starting with a specified prefix that belong to any consumer group.
 +
 --
-.Example of assigning permissions to your service account
+.Assigning access permissions to a service account
 [source,shell]
 ----
 $ rhoas kafka acl grant-permissions --consumer --producer \
