@@ -213,7 +213,7 @@ $ rhoas kafka acl grant-permissions --consumer --producer \
     --service-account <clientID> --topic-prefix <prefix>  --group-prefix "*"
 ----
 
-Use different arguments depending if your application produces or consumes messages. For full reference please refer to CLI reference documentation. 
+The permissions you assign depend on whether your application produces or consumes messages. 
 --
 
 [id="proc-creating-kafka-topic-cli_{context}"]
