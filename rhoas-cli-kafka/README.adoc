@@ -201,7 +201,6 @@ You'll use these credentials and the bootstrap server URL to connect your applic
 --
 
 . Assign required permissions to your service account in order to be able to produce and consume messages
-from your application. 
 +
 Following command will enable service account to produce and consume messages with topics starting from prefix and any consumer group name
 +
