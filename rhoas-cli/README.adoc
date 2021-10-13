@@ -235,6 +235,20 @@ rhoas version {rhoas-version}
 
 .. Click *New*, and enter `C:\rhoas`.
 
+.. Click *OK* to save changes.
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` {rhoas-version} is installed:
+
+[source,shell,subs="+attributes"]
+----
+$ rhoas --version
+rhoas version {rhoas-version}
+----
+--
+
 [id="proc-configuring-rhoas_{context}"]
 == Configuring rhoas
 
