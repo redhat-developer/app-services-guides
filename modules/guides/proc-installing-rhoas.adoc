@@ -170,3 +170,17 @@ rhoas version {rhoas-version}
 .. In the *Variable* section, select *Path*, and click *Edit*.
 
 .. Click *New*, and enter `C:\rhoas`.
+
+.. Click *OK* to save changes.
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` {rhoas-version} is installed:
+
+[source,shell,subs="+attributes"]
+----
+$ rhoas --version
+rhoas version {rhoas-version}
+----
+--
