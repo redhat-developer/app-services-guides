@@ -8,6 +8,7 @@ use the following command help:
 
 * `rhoas kafka -h` for Kafka instances
 * `rhoas service-account -h` for service accounts
+* `rhoas kafka acl -h` for access management
 * `rhoas kafka topic -h` for Kafka topics
 
 [role="_additional-resources"]
