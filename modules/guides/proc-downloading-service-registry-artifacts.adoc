@@ -20,7 +20,7 @@ This example downloads the `my-artifact` artifact using its ID.
 .Downloading an artifact using its ID
 [source,shell]
 ----
-$ rhoas service-registry get --artifact-id my-artifact
+$ rhoas service-registry artifact get --artifact-id my-artifact
 ----
 
 This example downloads the `my-artifact` artifact using its global ID.
@@ -28,6 +28,6 @@ This example downloads the `my-artifact` artifact using its global ID.
 .Downloading an artifact using its global ID
 [source,shell]
 ----
-$ rhoas service-registry download --global-id=28
+$ rhoas service-registry artifact download --global-id=28
 ----
 --
