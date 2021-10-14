@@ -208,7 +208,7 @@ This example allows applications to produce and consume messages from topics sta
 .Assigning access permissions to a service account
 [source,shell]
 ----
-$ rhoas kafka acl grant-permissions --consumer --producer \
+$ rhoas kafka acl grant-access --consumer --producer \
     --service-account srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1 --topic-prefix myapp  --group all
     
     The following ACL rules are to be created:
