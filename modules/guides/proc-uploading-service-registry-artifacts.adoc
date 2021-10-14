@@ -33,7 +33,7 @@ The artifact is an Apache Kafka Avro schema in JSON format.
 .Uploading an artifact
 [source,shell]
 ----
-wget https://github.com/redhat-developer/app-services-cli/blob/main/docs/resources/avro-userInfo.json
+$ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
 --
@@ -46,11 +46,12 @@ This example lists all artifacts belonging to the Service Registry instance.
 .Listing artifact details for a Service Registry instance
 [source,shell]
 ----
-rhoas service-registry artifact list
+$ rhoas service-registry artifact list
 Using default artifacts group.
+
   ID            NAME   CREATED ON                 CREATED BY   TYPE   STATE
  ------------- ------ -------------------------- ------------ ------ --------
-  my-artifact          2021-09-27T16:17:35+0000      User      AVRO   ENABLED
+  my-artifact          2021-09-27T16:17:35+0000   User         AVRO   ENABLED
 ----
 --
 
@@ -60,7 +61,7 @@ Using default artifacts group.
 .Checking the version information of an artifact
 [source,shell]
 ----
-rhoas service-registry artifact versions --artifact-id=my-artifact
+$ rhoas service-registry artifact versions --artifact-id=my-artifact
 {
   "count": 1,
   "versions": [
@@ -80,7 +81,7 @@ rhoas service-registry artifact versions --artifact-id=my-artifact
 .Checking the metadata information of an artifact
 [source,shell]
 ----
-rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+$ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 Using default artifacts group.
 Fetching artifact metadata
 ✔️ Successfully fetched artifact metadata
