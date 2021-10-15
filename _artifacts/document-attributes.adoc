@@ -9,7 +9,7 @@
 :product-version: 1
 :product-long: Application Services
 :product: App Services
-:registry-product-long: OpenShift Service Registry
+:registry-product-long: Red Hat OpenShift Service Registry
 :registry: Service Registry
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
 :service-url: https://console.redhat.com/beta/application-services/streams/
@@ -24,9 +24,11 @@
 :base-url: https://github.com/redhat-developer/app-services-guides/blob/main/
 :base-url-cli: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
 :getting-started-url: getting-started/README.adoc
+:getting-started-service-registry-url: getting-started-service-registry/README.adoc
 :kafka-bin-scripts-url: kafka-bin-scripts/README.adoc
 :kafkacat-url: kafkacat/README.adoc
 :quarkus-url: quarkus/README.adoc
+:quarkus-service-registry-url: quarkus-service-registry/README.adoc
 :rhoas-cli-url: rhoas-cli/README.adoc
 :rhoas-cli-kafka-url: rhoas-cli-kafka/README.adoc
 :rhoas-cli-service-registry-url: rhoas-cli-service-registry/README.adoc
