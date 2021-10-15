@@ -1,0 +1,54 @@
+[id='assembly-using-quarkus-registry']
+= Using Quarkus applications with Kafka instances and {registry-product-long}
+ifdef::context[:parent-context: {context}]
+:context: quarkus-service-registry
+:imagesdir: _images
+
+
+[IMPORTANT]
+====
+{registry-product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+====
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long} and {registry} instances in {registry-product-long}. This makes it easy for development teams to store and reuse schemas in event streaming architectures.
+
+https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments.
+
+Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
+
+.Prerequisites
+ifndef::community[]
+* You have a Red Hat account.
+endif::[]
+* You have a running Kafka instance in {product} (see the link:{getting-started-url}[Getting started with Kafka quick start^]).
+* You have a running {registry} instance in {registry-product-long} (see the link:{getting-started-service-registry-url}[Getting started with {registry} quick start^]).
+* https://github.com/git-guides/[Git^] is installed.
+* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
+* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS
+* https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
+* For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
+
+// Condition out QS-only content so that it doesn't appear in docs.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
+ifdef::qs[]
+[#description]
+Learn how to use a Quarkus application that produces messages to and consume messages from a Kafka instance in {product-long} and manage the message schemas in {registry-product-long}.
+
+[#introduction]
+Welcome to the quick start for {registry-product-long} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product} and manage the message schemas in {registry-product-long}.
+endif::[]
+ifndef::community[]
+endif::[]
+ifdef::qs[]
+endif::[]
+include::modules/guides/proc-importing-quarkus-registry-sample-code.adoc[leveloffset=+1]
+
+include::modules/guides/proc-configuring-quarkus-registry-app.adoc[leveloffset=+1]
+
+include::modules/guides/proc-create-prices-topic-registry.adoc[leveloffset=+1]
+
+include::modules/guides/proc-running-quarkus-registry-example-app.adoc[leveloffset=+1]
+
+
