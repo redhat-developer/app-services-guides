@@ -193,7 +193,7 @@ h|Operations
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url}[_Getting started with {product}_^]
+* {base-url}{getting-started-url}[_Getting started with {product-long}_^]
 * {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 

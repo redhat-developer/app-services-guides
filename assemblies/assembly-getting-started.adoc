@@ -49,6 +49,11 @@ include::modules/guides/proc-viewing-metrics.adoc[leveloffset=+1]
 [role="_additional-resources"]
 == Additional resources
 * https://kafka.apache.org/081/documentation.html#configuration[Configuration^] in Kafka
+* {base-url}{rhoas-cli-url}[_Getting started with the `rhoas` CLI_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url}{kafkacat-url}[_Configuring and connecting Kafkacat with {product-long}_^]
+* {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^]
+* {base-url}{quarkus-url}[_Using Quarkus applications with Kafka instances in {product-long}_^]
 
 ifdef::qs[]
 [#conclusion]

@@ -48,5 +48,5 @@ If you add more consumers than the number of partitions in a consumer group, the
 --
 
 .Additional resources
-* {base-url}{getting-started-url}[_Getting started with {product}_^]
+* {base-url}{getting-started-url}[_Getting started with {product-long}_^]
 * https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation

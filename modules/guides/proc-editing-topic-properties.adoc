@@ -29,7 +29,7 @@ Alternatively, select the options icon (three vertical dots) for the relevant to
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url}[_Getting started with {product}_^]
+* {base-url}{getting-started-url}[_Getting started with {product-long}_^]
 * {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
 * {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 
