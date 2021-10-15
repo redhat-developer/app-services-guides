@@ -1,17 +1,17 @@
-:PRODUCT: App Services
+:product: App Services
 
-= {PRODUCT} Guides and samples
+= {product} Guides and samples
 
 == Guides
 
-* link:./getting-started[Getting started with {PRODUCT}]
+* link:./getting-started[Getting started with {product}]
 * link:./rhoas-cli[Installing and configuring the `rhoas` CLI]
 * link:./rhoas-cli-kafka[Getting started with the `rhoas` CLI for OpenShift Streams for Apache Kafka]
 * link:./rhoas-cli-service-registry[Getting started with the `rhoas` CLI for OpenShift Service Registry]
-* link:./quarkus[Using Quarkus applications with Kafka instances in {PRODUCT}]
-* link:./kafkacat[Using Kafkacat with Kafka instances in {PRODUCT}]
-* link:./kafka-bin-scripts[Using Kafka bin scripts with {PRODUCT}]
-* link:./service-discovery[Binding OpenShift applications to {PRODUCT}]
+* link:./quarkus[Using Quarkus applications with Kafka instances in {product}]
+* link:./kafkacat[Using Kafkacat with Kafka instances in {product}]
+* link:./kafka-bin-scripts[Using Kafka bin scripts with {product}]
+* link:./service-discovery[Binding OpenShift applications to {product}]
 * link:./getting-started-service-registry/[Getting started with Service Registry]
 
 == OpenShift quick starts
@@ -24,4 +24,4 @@
 
 == Contributing
 
-* link:./CONTRIBUTING.adoc[Contributing to {PRODUCT} guides]
+* link:./CONTRIBUTING.adoc[Contributing to {product} guides]

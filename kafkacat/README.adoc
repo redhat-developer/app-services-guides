@@ -41,7 +41,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-using-kafkacat"]
-= Configuring and connecting Kafkacat with Kafka instances in {product-long}
+= Configuring and connecting Kafkacat with {product-long}
 ifdef::context[:parent-context: {context}]
 :context: using-kafkacat
 
