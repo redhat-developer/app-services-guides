@@ -1,0 +1,17 @@
+{
+  "name": "Order",
+  "namespace": "org.acme.kafka.schema.avro",
+  "type": "record",
+  "doc": "Avro Schema for Order",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  }, {
+    "name" : "item",
+    "type" : "string"
+  }, {
+    "name" : "quantity",
+    "type" : "int"
+  }
+  ]
+}
