@@ -73,6 +73,10 @@ If you selected a permission entry that applies to a specific account, you can d
  ** Select one or more permission entries, select the options icon (three vertical dots) at the top of the table, and click *Delete selected permissions*.
  ** For the account that you want to delete, select the options icon (three vertical dots) for that entry and click *Delete*.
 
++
+IMPORTANT: If you delete a user account or service account, you should also delete any ACL permissions associated with that account. If you don't delete unused ACL permissions, then a future account with the same ID of a previously deleted account could inherit the ACL permissions and have automatic access to a Kafka instance.
+
+
 [role="_additional-resources"]
 .Additional resources
 * link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation
