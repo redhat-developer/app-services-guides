@@ -274,7 +274,7 @@ If you selected a permission entry that applies to a specific account, you can d
  ** For the account that you want to delete, select the options icon (three vertical dots) for that entry and click *Delete*.
 
 +
-IMPORTANT: If you delete a user account or service account, you must also delete any ACL permissions associated with that account. If you don't delete unused ACL permissions, then a future account with the same ID of a previously deleted account could have access to an instance according to the existing permissions.
+IMPORTANT: If you delete a user account or service account, you must also delete any ACL permissions associated with that account. If you don't delete unused ACL permissions, then a future account with the same ID of a previously deleted account could have automatic access to an instance.
 
 
 [role="_additional-resources"]
