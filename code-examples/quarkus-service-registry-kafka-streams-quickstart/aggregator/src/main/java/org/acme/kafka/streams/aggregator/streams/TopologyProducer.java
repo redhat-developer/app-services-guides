@@ -4,13 +4,18 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Instant;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 
+import io.apicurio.registry.serde.SerdeConfig;
 import io.apicurio.registry.serde.avro.AvroKafkaDeserializer;
 import io.apicurio.registry.serde.avro.AvroKafkaSerdeConfig;
 import io.apicurio.registry.serde.avro.AvroKafkaSerializer;
+import io.apicurio.registry.serde.avro.AvroSerde;
 import org.acme.kafka.quarkus.Aggregation;
 import org.acme.kafka.quarkus.TemperatureRecord;
 import org.acme.kafka.quarkus.WeatherStation;
@@ -25,6 +30,7 @@ import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Produced;
 import org.apache.kafka.streams.state.KeyValueBytesStoreSupplier;
 import org.apache.kafka.streams.state.Stores;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 @ApplicationScoped
 public class TopologyProducer {
@@ -35,24 +41,32 @@ public class TopologyProducer {
     static final String TEMPERATURE_VALUES_TOPIC = "temperature-values";
     static final String TEMPERATURES_AGGREGATED_TOPIC = "temperatures-aggregated";
 
+    @Inject
+    WeatherSerdeConfig weatherSerdeConfig;
+
     @Produces
     public Topology buildTopology() {
         StreamsBuilder builder = new StreamsBuilder();
 
-        final AvroKafkaSerdeConfig serdeConfig = new AvroKafkaSerdeConfig(Collections.emptyMap());
+        final Map<String, String> serdeConfig = new HashMap<>();
 
-        //TODO configure serdes
-        final AvroKafkaSerializer<Aggregation> aggregationSerializer = new AvroKafkaSerializer<>();
-        final AvroKafkaDeserializer<Aggregation> aggregationDeserializer = new AvroKafkaDeserializer<>();
-        final AvroKafkaSerializer<WeatherStation> weatherStationSerializer = new AvroKafkaSerializer<>();
-        final AvroKafkaDeserializer<WeatherStation> weatherStationDeserializer = new AvroKafkaDeserializer<>();
-        final AvroKafkaSerializer<TemperatureRecord> temperatureRecordSerializer = new AvroKafkaSerializer<>();
-        final AvroKafkaDeserializer<TemperatureRecord> temperatureRecordDeserializer = new AvroKafkaDeserializer<>();
+        serdeConfig.put(SerdeConfig.REGISTRY_URL, weatherSerdeConfig.getRegistryUrl());
+        serdeConfig.put(SerdeConfig.AUTO_REGISTER_ARTIFACT, weatherSerdeConfig.getAutoRegister());
+        serdeConfig.put(SerdeConfig.FIND_LATEST_ARTIFACT, weatherSerdeConfig.getFindLatest());
+        serdeConfig.put(SerdeConfig.ARTIFACT_RESOLVER_STRATEGY, weatherSerdeConfig.getResolverStrategy());
+        serdeConfig.put(SerdeConfig.AUTH_SERVICE_URL, weatherSerdeConfig.getAuthUrl());
+        serdeConfig.put(SerdeConfig.AUTH_REALM, weatherSerdeConfig.getRealm());
+        serdeConfig.put(SerdeConfig.AUTH_CLIENT_ID, weatherSerdeConfig.getClientId());
+        serdeConfig.put(SerdeConfig.AUTH_CLIENT_SECRET, weatherSerdeConfig.getClientSecret());
 
         //Build serdes
-        final Serde<Aggregation> aggregationSerde = Serdes.serdeFrom(aggregationSerializer, aggregationDeserializer);
-        final Serde<WeatherStation> weatherStationSerde = Serdes.serdeFrom(weatherStationSerializer, weatherStationDeserializer);
-        final Serde<TemperatureRecord> temperatureRecordSerde = Serdes.serdeFrom(temperatureRecordSerializer, temperatureRecordDeserializer);
+        final AvroSerde<Aggregation> aggregationSerde = new AvroSerde<>();
+        final AvroSerde<WeatherStation> weatherStationSerde = new AvroSerde<>();
+        final AvroSerde<TemperatureRecord> temperatureRecordSerde = new AvroSerde<>();
+
+        aggregationSerde.configure(serdeConfig, false);
+        weatherStationSerde.configure(serdeConfig, false);
+        temperatureRecordSerde.configure(serdeConfig, false);
 
         KeyValueBytesStoreSupplier storeSupplier = Stores.persistentKeyValueStore(WEATHER_STATIONS_STORE);
 
