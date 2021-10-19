@@ -7,17 +7,17 @@
 :rh-openshift-sr:
 //attributes for asciidoctor previews
 :org-name: Red Hat
-:product-long: {org-name} OpenShift Service Registry
+:registry-product-long: {org-name} OpenShift Service Registry
 :registry: Service Registry
 :console-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====
-{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+{registry-product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
 ====
 
 [role="_abstract"]
-Manage schema and API artifacts stored in the {product-long} cloud service using the {registry} web console. 
+Manage schema and API artifacts stored in the {registry-product-long} cloud service using the {registry} web console. 
 
 You can use the web console to browse and search the schema and API artifacts and optional groups stored in {registry}, and to add new schema and API artifacts, groups, and versions. You can search for artifacts by label, name, group, or description. You can view an artifact’s content or its available versions, or download an artifact file locally.
 

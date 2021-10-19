@@ -2,9 +2,9 @@
 = Map Kafka topics to schemas 
 
 [role="_abstract"]
-{registry} provides full integration with Red Hat OpenShift Streams for Apache Kafka to map your Kafka topics to the appropriate schemas. 
+{registry} provides full integration with {product-long} to map your Kafka topics to the appropriate schemas. 
 
-You can use the OpenShift Streams for Apache Kafka web console to:
+You can use the {product} web console to:
 
 * Map your Kafka topics to specific schemas stored in {registry}
 * Check the schemas that are used for specific Kafka topic key and topic values

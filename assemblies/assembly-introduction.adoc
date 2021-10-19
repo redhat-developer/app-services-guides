@@ -1,5 +1,5 @@
 [id='introduction-to-service-registry']
-= Introduction to {product-long}
+= Introduction to {registry-product-long}
 :context: intro
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
@@ -7,7 +7,8 @@
 :rh-openshift-sr:
 //attributes for asciidoctor previews
 :org-name: Red Hat
-:product-long: {org-name} OpenShift Service Registry
+:registry-product-long: {org-name} OpenShift Service Registry
+:registry-product: OpenShift Service Registry
 :registry: Service Registry
 :registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.0.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
 :download-url-registry-distribution: https://github.com/redhat-developer
@@ -15,11 +16,11 @@
 
 [IMPORTANT]
 ====
-{product-long} is currently available in a Development Preview release. Development Previews provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
+{registry-product-long} is currently available in a Development Preview release. Development Previews provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
 ====
 
 [role="_abstract"]
-Discover the features and functions available in the {product-long} cloud service.
+Discover the features and functions available in the {registry-product-long} cloud service.
 
 include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
 include::{reuse-modules}/con-registry-overview.adoc[leveloffset=+1]

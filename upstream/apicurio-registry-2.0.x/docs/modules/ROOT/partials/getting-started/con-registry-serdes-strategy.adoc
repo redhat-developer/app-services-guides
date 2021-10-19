@@ -29,7 +29,7 @@ Which lookup strategy you use depends on how and where you store your schema. Fo
 
 
 [discrete]
-== ArtifaceResolverStrategy interface
+== ArtifactResolverStrategy interface
 
 The artifact resolver strategy provides a way to map the Kafka topic and message information to an artifact in {registry}. The common convention for the mapping is to combine the Kafka topic name with the `key` or `value`, depending on whether the serializer is used for the Kafka message key or value.
 
