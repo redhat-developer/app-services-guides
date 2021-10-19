@@ -1,0 +1,21 @@
+[id='proc-importing-quarkus-registry-sample-code_{context}']
+= Importing the Quarkus sample code
+:imagesdir: ../_images
+
+[role="_abstract"]
+For this quick start, you'll use the Quarkus {registry} sample code from the App Services link:{samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} and {registry} in the same way.
+
+.Procedure
+. On the command line, clone the App Services link:{samples-git-repo}[Guides and Samples^] repository from GitHub.
++
+.Cloning the guides and samples repository
+[source,subs="+attributes"]
+----
+git clone {samples-git-repo} app-services-guides
+----
+. In your IDE, open the `code-examples/quarkus-service-registry-quickstart` directory from the repository that you cloned.
+
+ifdef::qs[]
+.Verification
+* Is the Quarkus example application accessible in your IDE?
+endif::[]
