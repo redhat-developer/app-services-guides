@@ -12,7 +12,7 @@
 :registry: Service Registry
 :registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.0.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
 :download-url-registry-distribution: https://github.com/redhat-developer
-:console-url: https://console.redhat.com/beta/application-services/service-registry/
+:registry-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====

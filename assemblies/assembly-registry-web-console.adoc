@@ -9,7 +9,7 @@
 :org-name: Red Hat
 :registry-product-long: {org-name} OpenShift Service Registry
 :registry: Service Registry
-:console-url: https://console.redhat.com/beta/application-services/service-registry/
+:registry-url: https://console.redhat.com/beta/application-services/service-registry/
 
 [IMPORTANT]
 ====

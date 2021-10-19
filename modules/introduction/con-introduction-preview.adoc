@@ -5,7 +5,7 @@
 
 {registry} is available with {product-long} and Red Hat OpenShift API Management. To try out {registry}, you can create a {registry} trial instance using the web console.
 
-To learn more, go to link:{console-url}[console.redhat.com^].
+To learn more, go to link:{registry-url}[console.redhat.com^].
 
 [role="_additional-resources"]
 .Additional resources
