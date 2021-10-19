@@ -1,5 +1,5 @@
 [id='assembly-getting-started-rhoas-cli-registry']
-= Getting started with the rhoas CLI for OpenShift Service Registry
+= Getting started with the rhoas CLI for {registry-product-long}
 :context: getting-started-rhoas-service-registry
 :imagesdir: _images
 

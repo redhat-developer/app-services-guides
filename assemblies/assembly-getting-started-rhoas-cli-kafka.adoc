@@ -1,5 +1,5 @@
 [id='assembly-getting-started-rhoas-cli-kafka']
-= Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka
+= Getting started with the rhoas CLI for {product-long}
 :context: getting-started-rhoas-kafka
 :imagesdir: _images
 
