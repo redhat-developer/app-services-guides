@@ -37,7 +37,7 @@ endif::[]
 [source]
 ----
 $ ./kafka-console-producer.sh --version
-2.7.0 (Commit:448719dc99a19793)
+3.0.0 (Commit:8cb0a5e9d3441962)
 ----
 
 ifdef::qs[]

@@ -26,7 +26,7 @@ endif::[]
 .Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
 ----
-$ ./kafka-topics.sh --create --topic my-other-topic --bootstrap-server __<bootstrap_server>__ --command-config ../config/{property-file-name}
+$ ./kafka-topics.sh --create --topic my-other-topic --partitions 1 --replication-factor 3 --bootstrap-server __<bootstrap_server>__ --command-config ../config/{property-file-name}
 Created topic my-other-topic.
 ----
 --
