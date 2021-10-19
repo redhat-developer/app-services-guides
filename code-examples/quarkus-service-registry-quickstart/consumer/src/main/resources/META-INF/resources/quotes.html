@@ -14,7 +14,6 @@
     <div class="card">
         <div class="card-body">
             <h2 class="card-title">Quotes</h2>
-            <button class="btn btn-info" id="request-quote">Request Quote</button>
             <div class="quotes"></div>
         </div>
     </div>
@@ -34,9 +33,8 @@
     var source = new EventSource("/quotes");
     source.onmessage = (event) => {
       var json = JSON.parse(event.data);
-      $(`#${json.id}`).html((index, html) => {
-        return html.replace("Pending", `\$\xA0${json.price}`);
-      });
+      var row = $(`<h4 class='col-md-12' id='${json.id}'>Quote # <i>${json.id}</i> | <strong>${json.price}</strong></h4>`);
+      $(".quotes").prepend(row);
     };
 </script>
 </html>
