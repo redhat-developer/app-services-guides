@@ -7,8 +7,8 @@
 :product-version: 1
 :rh-openshift-sr:
 
-:console-url: https://console.redhat.com/beta/application-services/service-registry/
 :registry-url: https://console.redhat.com/beta/application-services/service-registry/
+:service-url: https://console.redhat.com/beta/application-services/streams/
 :download-url-registry-distribution: https://github.com/redhat-developer
 
 :property-file-name: app-services.properties

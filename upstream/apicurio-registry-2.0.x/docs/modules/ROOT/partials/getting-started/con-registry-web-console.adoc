@@ -20,7 +20,7 @@ ifdef::rh-openshift-sr[]
 image::../_images/introduction/registry-web-console.png[{registry} web console]
 endif::[]
 
-The {registry} web console is available from {console-url}. 
+The {registry} web console is available from {registry-url}. 
 
 ifdef::apicurio-registry,rh-service-registry[]
 [role="_additional-resources"]
