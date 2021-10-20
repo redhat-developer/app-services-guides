@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: docs-kafka-sfm-api
   annotations:
-    order: 3
+    order: 5
 spec:
   version: 0.1
   type:

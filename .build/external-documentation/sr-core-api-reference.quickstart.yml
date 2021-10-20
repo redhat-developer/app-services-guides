@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: docs-sr-core-api
   annotations:
-    order: 5
+    order: 7
 spec:
   version: 0.1
   type:
