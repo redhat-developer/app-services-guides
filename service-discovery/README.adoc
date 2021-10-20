@@ -268,7 +268,7 @@ You're prompted to specify the Kafka instance that you want to connect to OpenSh
 +
 You should see output like the following:
 +
-.Example output from the cluster connect command
+.Example connection details
 [source,options="nowrap"]
 ----
 Connection Details:
@@ -289,9 +289,9 @@ You're prompted to provide an access token. The RHOAS Operator requires this tok
 
 . On the command line, right-click and select *Paste*. Press *Enter*.
 +
-The RHOAS Operator uses the API token to create a `KafkaConnection` resource on your OpenShift cluster. When this process is complete, you should see lines like the following:
+The RHOAS Operator uses the API token to create a `KafkaConnection` object on your OpenShift cluster. When this process is complete, you should see lines like the following:
 +
-.Example output from creation of KafkaConnection resource
+.Example output from rhoas cluster connect command
 [source,options="nowrap"]
 ----
 Service Account Secret "rh-cloud-services-service-account" created successfully
@@ -310,7 +310,7 @@ The RHOAS Operator also creates a `KafkaConnection` object for your Kafka instan
 
 . Set permissions to enable the new service account created by the RHOAS Operator to access resources in your Kafka instance. To set permissions, use the `Client ID` value for the service account.
 +
-.Assigning access permissions to the service account
+.Setting access permissions for the service account
 [source]
 ----
 $ rhoas kafka acl grant-access --consumer --producer \
@@ -346,7 +346,6 @@ my-kafka-instance    2m35s
 ----
 +
 As shown in the output, when you use the `rhoas cluster connect` command, the RHOAS Operator creates a `KafkaConnection` object that matches the name of your Kafka instance. In this example, the object name matches a Kafka instance called `my-kafka-instance`.
-
 
 [id="con-binding-quarkus-application-using-cli_{context}"]
 == Binding a Quarkus application to {product-long} using the RHOAS CLI
