@@ -65,11 +65,11 @@ Quarkus is designed to work with popular Java standards, frameworks, and librari
 ifndef::community[]
 * You have a Red Hat account.
 endif::[]
-* You have a running Kafka instance in {product} (see the link:{getting-started-url}[Getting started with Kafka quick start^]).
-* You have a running {registry} instance in {registry-product-long} (see the link:{getting-started-service-registry-url}[Getting started with {registry} quick start^]).
+* You have a running Kafka instance in {product} (see link:../{getting-started-url}[Getting started with Kafka^]).
+* You have a running {registry} instance in {registry-product-long} (see the link:../{getting-started-service-registry-url}[Getting started with {registry}^]).
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
-* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS
+* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS.
 * https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
 * For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
 
@@ -118,7 +118,7 @@ This Quarkus example application includes producer and consumer processes that s
 
 .Prerequisites
 ifndef::qs[]
-* You have a service account with access to Kafka and {registry} instances and have stored your credentials securely (see the Getting started quick starts for Kafka and {registry}).
+* You have a service account with access to Kafka and {registry} instances and have stored your credentials securely (see link:../{getting-started-url}[Getting started with Kafka^] and  link:../{getting-started-service-registry-url}[Getting started with {registry}^]).
 * You have the Kafka bootstrap server endpoint for the Kafka instance. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
 * You have the Core Registry API endpoint for the {registry} instance. You copied this information for the {registry} instance by selecting the options menu (three vertical dots) and clicking *Connection*. From the list of endpoints, you copied the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
 * You copied the *Token endpoint URL* value from the same list of endpoints to be used for the OAuth-based athentication method used in this example.
@@ -128,7 +128,7 @@ endif::[]
 . On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace the values with your own server and credential information:
 +
 * The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. 
-* The `<core_registry_url>` is the core REST API endpoint for your {registry} instance. 
+* The `<core_registry_url>` is the Core REST API endpoint for your {registry} instance. 
 * The `<client_id>` and `<client_secret>` are the generated credentials for your service account.
 * The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint. 
 +
@@ -211,7 +211,7 @@ endif::[]
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/consumer
-$ ./mvnw quarkus:dev
+$ mvn quarkus:dev
 ----
 . After the consumer process is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that this process is available.
 
@@ -221,7 +221,7 @@ $ ./mvnw quarkus:dev
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/producer
-$ ./mvnw quarkus:dev
+$ mvn quarkus:dev
 ----
 
 . When both the consumer and producer processes are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
