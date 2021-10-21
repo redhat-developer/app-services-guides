@@ -259,8 +259,10 @@ $ oc project my-project
 ----
 $ rhoas cluster connect
 ----
++
+You're prompted to specify the service that you want to connect to OpenShift.
 
-. You're prompted to specify the service that you want to connect to OpenShift. Use the up and down arrows on your keyboard to highlight `kafka`. Press *Enter*.
+. Use the up and down arrows on your keyboard to highlight the `kafka` service. Press *Enter*.
 +
 You're prompted to specify the Kafka instance that you want to connect to OpenShift.
 
@@ -308,7 +310,7 @@ As shown in the preceding output, the RHOAS Operator creates a new service accou
 +
 The RHOAS Operator also creates a `KafkaConnection` object for your Kafka instance, which connects the instance to the OpenShift cluster. When you bind your Kafka instance to an application on OpenShift, the Service Binding Operator uses the `KafkaConnection` object to provide the application with the necessary connection information for the instance. Binding an application to your Kafka instance is described later in this guide.
 
-. Set permissions to enable the new service account created by the RHOAS Operator to access resources in your Kafka instance. To set permissions, use the `Client ID` value for the service account.
+. Set Access Control List (ACL) permissions to enable the new service account created by the RHOAS Operator to access resources in your Kafka instance. To set permissions, use the `Client ID` value for the service account.
 +
 .Setting access permissions for the service account
 [source]
@@ -332,7 +334,7 @@ The following ACL rules are to be created:
 ✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
 ----
 +
-The command you entered allows applications to produce and consume messages from any topic in the instance, belonging to any consumer group.
+The command you entered allows applications to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
 
 . Use the OpenShift CLI to verify that the RHOAS Operator successfully created the connection.
 +
