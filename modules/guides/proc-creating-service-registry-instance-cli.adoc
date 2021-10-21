@@ -50,7 +50,7 @@ You will be prompted to enter the `Name` for the Service Registry instance.
 This command shows that the Service Registry instance is ready to use,
 because the `Status` field is `ready`.
 
-.Reviewing details of a Registry instance
+.Reviewing details of a Service Registry instance
 [source,shell]
 ----
 $ rhoas status service-registry
