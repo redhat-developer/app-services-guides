@@ -7,7 +7,7 @@ After you configure your Quarkus application to connect to Kafka and {registry} 
 
 The Quarkus application in this quick start consists of two processes:
 
-* The consumer process is implemented by the `QuotesResource` class. This class exposes the `/quotes/quotes` REST endpoint that streams quotes from the `quotes` topic. This process also has a minimal frontend that streams quotes using Server-Sent Events to the web page.
+* The consumer process is implemented by the `QuotesResource` class. This class exposes the `/quotes` REST endpoint that streams quotes from the `quotes` topic. This process also has a minimal frontend that streams quotes using Server-Sent Events to the web page.
 * The producer process is implemented by the `QuotesProducer` class. This class produces a new quote periodically (every 5 seconds) with a random quote value that is published to the `quotes` topic.
 
 .Prerequisites
@@ -25,7 +25,7 @@ endif::[]
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/consumer
-$ ./mvnw quarkus:dev
+$ mvn quarkus:dev
 ----
 . After the consumer process is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that this process is available.
 
@@ -35,7 +35,7 @@ $ ./mvnw quarkus:dev
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/producer
-$ ./mvnw quarkus:dev
+$ mvn quarkus:dev
 ----
 
 . When both the consumer and producer processes are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].

@@ -22,11 +22,11 @@ Quarkus is designed to work with popular Java standards, frameworks, and librari
 ifndef::community[]
 * You have a Red Hat account.
 endif::[]
-* You have a running Kafka instance in {product} (see the link:{getting-started-url}[Getting started with Kafka quick start^]).
-* You have a running {registry} instance in {registry-product-long} (see the link:{getting-started-service-registry-url}[Getting started with {registry} quick start^]).
+* You have a running Kafka instance in {product} (see link:../{getting-started-url}[Getting started with Kafka^]).
+* You have a running {registry} instance in {registry-product-long} (see link:../{getting-started-service-registry-url}[Getting started with {registry}^]).
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
-* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS
+* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS.
 * https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
 * For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
 
