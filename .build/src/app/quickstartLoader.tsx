@@ -35,7 +35,7 @@ export const loadJSONQuickStarts = async (
       }
       return true;
     })
-    .map((content) => ProcQuickStartParser(content));
+    .map((content) => ProcQuickStartParser(content, basePath));
 };
 
 export interface QuickStartLoaderProps {
