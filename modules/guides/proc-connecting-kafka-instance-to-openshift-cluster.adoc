@@ -9,6 +9,7 @@ When you've verified connection to your OpenShift cluster, you can connect a Kaf
 * You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 * You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}^].
 * You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
+* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url}[Managing account access in {product-long}^].
 
 .Procedure
 
@@ -38,19 +39,24 @@ $ oc project my-project
 $ rhoas cluster connect
 ----
 +
+You're prompted to specify the service that you want to connect to OpenShift.
+
+. Use the up and down arrows on your keyboard to highlight the `kafka` service. Press *Enter*.
++
 You're prompted to specify the Kafka instance that you want to connect to OpenShift.
 
 .  If you have more than one Kafka instance, use the up and down arrows on your keyboard to highlight the instance that you want to connect to OpenShift. Press *Enter*.
 +
 You should see output like the following:
 +
-.Example output from the cluster connect command
+.Example connection details
 [source,options="nowrap"]
 ----
 Connection Details:
 
-Apache Kafka instance:  my-kafka-instance
-Kubernetes Namespace:   my-project
+Service Type: kafka
+Service Name: my-kafka-instance
+Kubernetes Namespace:  my-project
 Service Account Secret: rh-cloud-services-service-account
 ----
 
@@ -64,18 +70,50 @@ You're prompted to provide an access token. The RHOAS Operator requires this tok
 
 . On the command line, right-click and select *Paste*. Press *Enter*.
 +
-The RHOAS Operator uses the API token to create a `KafkaConnection` resource on your OpenShift cluster. When this process is complete, you should see lines like the following:
+The RHOAS Operator uses the API token to create a `KafkaConnection` object on your OpenShift cluster. When this process is complete, you should see lines like the following:
 +
-.Example output from creation of KafkaConnection resource
+.Example output from rhoas cluster connect command
 [source,options="nowrap"]
 ----
 Service Account Secret "rh-cloud-services-service-account" created successfully
+Client ID: srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+...
 KafkaConnection resource "my-kafka-instance" has been created
 Waiting for status from KafkaConnection resource.
 Created KafkaConnection can be injected into your application.
 ...
 KafkaConnection successfully installed on your cluster.
 ----
++
+As shown in the preceding output, the RHOAS Operator creates a new service account to access your Kafka instance in {product}. The Operator stores the service account information in a secret.
++
+The RHOAS Operator also creates a `KafkaConnection` object for your Kafka instance, which connects the instance to the OpenShift cluster. When you bind your Kafka instance to an application on OpenShift, the Service Binding Operator uses the `KafkaConnection` object to provide the application with the necessary connection information for the instance. Binding an application to your Kafka instance is described later in this guide.
+
+. Set Access Control List (ACL) permissions to enable the new service account created by the RHOAS Operator to access resources in your Kafka instance. To set permissions, use the `Client ID` value for the service account.
++
+.Setting access permissions for the service account
+[source]
+----
+$ rhoas kafka acl grant-access --consumer --producer \
+    --service-account srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1 --topic "*" --group "*"
+
+The following ACL rules are to be created:
+
+  PRINCIPAL (7)                                   PERMISSION         DESCRIPTION
+ ----------------------------------------------- ------------------ ---------------------------
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | DESCRIBE   TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | READ       TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | READ       GROUP is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | WRITE      TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | CREATE     TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | WRITE      TRANSACTIONAL_ID is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | DESCRIBE   TRANSACTIONAL_ID is "*"
+
+? Are you sure you want to create the listed ACL rules (y/N) Yes
+✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
+----
++
+The command you entered allows applications to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
 
 . Use the OpenShift CLI to verify that the RHOAS Operator successfully created the connection.
 +
@@ -88,4 +126,4 @@ NAME   		         AGE
 my-kafka-instance    2m35s
 ----
 +
-As shown in the output, the RHOAS Operator creates a `KafkaConnection` resource that matches the name of your Kafka instance. In this example, the resource name matches a Kafka instance called `my-kafka-instance`.
+As shown in the output, when you use the `rhoas cluster connect` command, the RHOAS Operator creates a `KafkaConnection` object that matches the name of your Kafka instance. In this example, the object name matches a Kafka instance called `my-kafka-instance`.
