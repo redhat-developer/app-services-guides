@@ -46,6 +46,7 @@ const QuickStartContainer: FunctionComponent<QuickStartContainerProps> = ({
     setActiveQuickStartID,
     setAllQuickStartStates,
     showCardFooters: false,
+    language: 'en',
     loading: allQuickStartsLoaded,
   };
 
