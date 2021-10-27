@@ -57,7 +57,7 @@ function generateSplitterInput(dir) {
 
 const split = (dir) => {
     const jarDir = path.normalize(`${__dirname}/../binaries/splitter`);
-    const jarName = `asciidoc-splitter-1.0-SNAPSHOT-jar-with-dependencies.jar`;
+    const jarName = `asciidoc-splitter-1.5.0-jar-with-dependencies.jar`;
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
     const splitterCommandBase = `java -cp ${jarDir}/${jarName}:${jarDir}/* com.redhat.documentation.asciidoc.cli.ExtractionRunner`;
