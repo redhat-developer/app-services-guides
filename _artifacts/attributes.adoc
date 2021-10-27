@@ -8,7 +8,7 @@
 :rh-openshift-sr:
 
 :registry-url: https://console.redhat.com/beta/application-services/service-registry/
-:service-url: https://console.redhat.com/beta/application-services/streams/
+:service-url: https://console.redhat.com/application-services/streams/
 :download-url-registry-distribution: https://github.com/redhat-developer
 
 :property-file-name: app-services.properties
@@ -29,23 +29,24 @@
 :product-long-url: red_hat_openshift_streams_for_apache_kafka
 
 //registry guides
-:sr-intro-url: {base-url}{registry-product-long-url}/{product-version}/guide/0827e812-1062-4950-83c3-d99cb906a8ef
-:sr-manage-console-url: {base-url}{registry-product-long-url}/{product-version}/guide/ea7b18cd-e335-4fa9-98a3-3a23855d6e6a
-:sr-manage-api-url: {base-url}{registry-product-long-url}/{product-version}/guide/a1d80ed2-5139-4943-b54f-446961118e5c
-:sr-manage-java-client-url: {base-url}{registry-product-long-url}/{product-version}/guide/f8d5ccaf-b4ae-4eb0-abbd-3bf443f91f3b
-:sr-manage-maven-plugin-url: {base-url}{registry-product-long-url}/{product-version}/guide/e5aec371-c620-44e0-a709-3bc03bd6e40a
-:sr-artifact-ref-url: {base-url}{registry-product-long-url}/{product-version}/guide/9b0fdf14-f0d6-4d7f-8637-3ac9e2069817
-:rhoas-cli-service-registry-url:  {base-url}{registry-product-long-url}/{product-version}/guide/1630486d-c8d0-45d0-b2de-7fdb52c78499
-:getting-started-service-registry-url: {base-url}{registry-product-long-url}/{product-version}/guide/ab1894d1-cae0-4d11-b185-81d62b4aabc7
+:sr-intro-url: {registry-product-long-url}/{product-version}/guide/0827e812-1062-4950-83c3-d99cb906a8ef
+:sr-manage-console-url: {registry-product-long-url}/{product-version}/guide/ea7b18cd-e335-4fa9-98a3-3a23855d6e6a
+:sr-manage-api-url: {registry-product-long-url}/{product-version}/guide/a1d80ed2-5139-4943-b54f-446961118e5c
+:sr-manage-java-client-url: {registry-product-long-url}/{product-version}/guide/f8d5ccaf-b4ae-4eb0-abbd-3bf443f91f3b
+:sr-manage-maven-plugin-url: {registry-product-long-url}/{product-version}/guide/e5aec371-c620-44e0-a709-3bc03bd6e40a
+:sr-artifact-ref-url: {registry-product-long-url}/{product-version}/guide/9b0fdf14-f0d6-4d7f-8637-3ac9e2069817
+:rhoas-cli-service-registry-url: {registry-product-long-url}/{product-version}/guide/1630486d-c8d0-45d0-b2de-7fdb52c78499
+:getting-started-service-registry-url: {registry-product-long-url}/{product-version}/guide/ab1894d1-cae0-4d11-b185-81d62b4aabc7
+:quarkus-service-registry-url: {registry-product-long-url}/{product-version}/guide/7314d8c8-3c5b-457c-9c10-8817aa89b8f1
 
 //kafka guides
-:getting-started-url:  {base-url}{product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
-:kafka-bin-scripts-url:  {base-url}{product-long-url}/{product-version}/guide/c0ab8d79-8b74-4876-955d-6d5b6912a966
-:kafkacat-url:  {base-url}{product-long-url}/{product-version}/guide/ee92cfdb-9587-42f8-80d5-54169e0e3c07
-:quarkus-url:  {base-url}{product-long-url}/{product-version}/guide/04827d87-ed92-4ffd-a126-11fa13348eba
-:rhoas-cli-url:  {base-url}{product-long-url}/{product-version}/guide/f520e427-cad2-40ce-823d-96234ccbc047
-:rhoas-cli-ref-url:  {base-url}{product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
-:topic-config-url:  {base-url}{product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
+:getting-started-url:  {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
+:kafka-bin-scripts-url:  {product-long-url}/{product-version}/guide/c0ab8d79-8b74-4876-955d-6d5b6912a966
+:kafkacat-url:  {product-long-url}/{product-version}/guide/ee92cfdb-9587-42f8-80d5-54169e0e3c07
+:quarkus-url:  {product-long-url}/{product-version}/guide/04827d87-ed92-4ffd-a126-11fa13348eba
+:rhoas-cli-url:  {product-long-url}/{product-version}/guide/f520e427-cad2-40ce-823d-96234ccbc047
+:rhoas-cli-ref-url:  {product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
+:topic-config-url: {base-url}{product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
 
 // internal links
 :registry-rules: link:ref-registry-rule-types.adoc[{registry} content rule types]
