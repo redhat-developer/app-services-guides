@@ -76,6 +76,7 @@ NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/rele
 === Installing the rhoas CLI on Linux
 
 If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
+The installation script installs the latest version of `rhoas` by default.
 
 [discrete,id="installation-script_{context}"]
 ==== Installation script
@@ -111,10 +112,9 @@ $ echo $PATH
 --
 This example shows that `rhoas` is installed:
 
-[source,shell,subs="+quotes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version _<version-num>_
 ----
 --
 
@@ -143,10 +143,9 @@ $ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/relea
 --
 This example shows that `rhoas` is installed:
 
-[source,shell,subs="+quotes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version _<version-num>_
 ----
 --
 
@@ -184,10 +183,9 @@ $ echo $PATH
 --
 This example shows that `rhoas` is installed:
 
-[source,shell,subs="+quotes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version _<version-num>_
 ----
 --
 
@@ -223,10 +221,9 @@ rhoas version _<version-num>_
 --
 This example shows that `rhoas` is installed:
 
-[source,shell,subs="+quotes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version _<version-num>_
 ----
 --
 
