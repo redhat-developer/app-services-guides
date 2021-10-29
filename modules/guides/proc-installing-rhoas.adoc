@@ -11,6 +11,7 @@ NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/rele
 == Installing the rhoas CLI on Linux
 
 If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
+The installation script installs the latest version of `rhoas` by default.
 
 [discrete,id="installation-script_{context}"]
 === Installation script
@@ -26,16 +27,6 @@ If you are using Linux, you can install `rhoas` by either using the installation
 ----
 $ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash
 ----
-
-[NOTE]
-====
-You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `{rhoas-version}`:
-
-[source,shell,subs="+attributes"]
-----
-$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash -s {rhoas-version}
-----
-====
 
 The `rhoas` CLI is installed in `$HOME/.local/bin`.
 --
@@ -54,12 +45,11 @@ $ echo $PATH
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` {rhoas-version} is installed:
+This example shows that `rhoas` is installed:
 
-[source,shell,subs="+attributes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version {rhoas-version}
 ----
 --
 
@@ -75,23 +65,22 @@ You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHE
 . Use `dnf`/`yum` to install the desired version of `rhoas`:
 +
 --
-This example installs `rhoas` version `{rhoas-version}`:
+This example installs `rhoas`:
 
-[source,shell,subs="+attributes"]
+[source,shell,subs="+quotes"]
 ----
-$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/v{rhoas-version}/rhoas_{rhoas-version}_linux_amd64.rpm
+$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/v_<__version-num__>_/rhoas_<__version-num__>_linux_amd64.rpm
 ----
 --
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` {rhoas-version} is installed:
+This example shows that `rhoas` is installed:
 
-[source,shell,subs="+attributes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version {rhoas-version}
 ----
 --
 
@@ -110,16 +99,6 @@ rhoas version {rhoas-version}
 $ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash
 ----
 
-[NOTE]
-====
-You can use the `-s` argument to install a specific version of the `rhoas` CLI. For example, this command installs version `{rhoas-version}`:
-
-[source,shell,subs="+attributes"]
-----
-$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash -s {rhoas-version}
-----
-====
-
 The `rhoas` CLI is installed in `$HOME/bin`.
 --
 
@@ -137,12 +116,11 @@ $ echo $PATH
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` {rhoas-version} is installed:
+This example shows that `rhoas` is installed:
 
-[source,shell,subs="+attributes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version {rhoas-version}
 ----
 --
 
@@ -176,11 +154,10 @@ rhoas version {rhoas-version}
 . Check the `rhoas` version to verify that the CLI is installed.
 +
 --
-This example shows that `rhoas` {rhoas-version} is installed:
+This example shows that `rhoas` is installed:
 
-[source,shell,subs="+attributes"]
+[source,shell]
 ----
 $ rhoas --version
-rhoas version {rhoas-version}
 ----
 --
