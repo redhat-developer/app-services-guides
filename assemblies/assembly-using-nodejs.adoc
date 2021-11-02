@@ -4,11 +4,6 @@ ifdef::context[:parent-context: {context}]
 :context: using-nodejs
 :imagesdir: _images
 
-[IMPORTANT]
-====
-{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
-====
-
 // Purpose statement for the assembly
 [role="_abstract"]
 As a developer of applications and services, you can connect Node.js applications to Kafka instances in {product-long}. https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that is designed to build scalable network applications. Node.js provides an I/O model that is based on events and non-blocking operations, which enables efficient applications.

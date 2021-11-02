@@ -4,11 +4,6 @@ ifdef::context[:parent-context: {context}]
 :context: managing-access
 :imagesdir: _images
 
-[IMPORTANT]
-====
-{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
-====
-
 // Purpose statement for the assembly
 [role="_abstract"]
 As an owner of a Kafka instance in {product}, you can manage the level of access that other user accounts and service accounts have to your instance. You can allow or deny access to your instance for specific accounts or for all accounts in your organization. You can also allow other users or service accounts to manage the level of access to your instance for you.

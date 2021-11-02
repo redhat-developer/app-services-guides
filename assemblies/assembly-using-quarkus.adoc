@@ -4,11 +4,6 @@ ifdef::context[:parent-context: {context}]
 :context: using-quarkus
 :imagesdir: _images
 
-[IMPORTANT]
-====
-{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
-====
-
 // Purpose statement for the assembly
 [role="_abstract"]
 As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.

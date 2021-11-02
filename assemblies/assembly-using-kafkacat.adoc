@@ -4,11 +4,6 @@ ifdef::context[:parent-context: {context}]
 :context: using-kafkacat
 :imagesdir: _images
 
-[IMPORTANT]
-====
-{product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
-====
-
 // Purpose statement for the assembly
 [role="_abstract"]
 As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long}.

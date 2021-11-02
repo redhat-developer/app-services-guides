@@ -3,11 +3,6 @@
 :context: installing-rhoas-cli
 :imagesdir: _images
 
-[IMPORTANT]
-====
-The `rhoas` command-line interface (CLI) is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users should not use Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
-====
-
 [role="_abstract"]
 With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
 
