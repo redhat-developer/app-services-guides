@@ -99,7 +99,7 @@ endif::[]
 .Kafka instance configuration details
 image::sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
 
-The new Kafka instance is listed in the instances table. In some cases, you might need to wait several minutes for the instance creation process to complete.
+The new Kafka instance is listed in the instances table. Typically, you need to wait a few minutes for the instance creation process to finish.
 
 When the instance *Status* is *Ready*, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view instance details, connect to the instance, change the instance owner, or delete the instance.
 
