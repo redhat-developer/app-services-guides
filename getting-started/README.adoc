@@ -107,7 +107,7 @@ When the instance *Status* is *Ready*, you can start using the Kafka instance. Y
 .Kafka instance options menu
 image::sak-kafka-instance-options.png[Image of Kafka instance options menu]
 
-NOTE: Although you can see Kafka instances created by other users in your organization, you might not be able manage or connect to those instances. Only the instance owner or users with permissions to access the instance can edit or delete the instance, access the associated service account and topics, or connect to the instance.
+NOTE: Although you can see Kafka instances created by other users in your organization, you might not be able to manage or connect to those instances. Only the instance owner or users with permissions to access the instance can edit or delete the instance, access the associated service account and topics, or connect to the instance.
 --
 
 .Verification
