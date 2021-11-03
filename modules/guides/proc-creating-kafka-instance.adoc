@@ -11,7 +11,7 @@ endif::[]
 
 .Procedure
 . In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click *Create Kafka instance*.
-. Enter a unique *Name* for the Kafka instance, such as `my-first-kafka-instance`. For this release of {product}, all other fields are preconfigured.
+. Enter a unique *Name* for the Kafka instance, such as `my-first-kafka-instance`, and select the relevant *Cloud region* option. All other fields are preconfigured.
 +
 ////
 //For post preview, when more options are available.
@@ -28,13 +28,15 @@ endif::[]
 .Kafka instance configuration details
 image::getting-started/sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
 
-The new Kafka instance is listed in the instances table. When the instance *Status* is *Ready*, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view instance details, connect to the instance, or delete the instance.
+The new Kafka instance is listed in the instances table. Typically, you need to wait a few minutes for the instance creation process to finish.
+
+When the instance *Status* is *Ready*, you can start using the Kafka instance. You can use the options icon (three vertical dots) to view instance details, connect to the instance, change the instance owner, or delete the instance.
 
 [.screencapture]
 .Kafka instance options menu
 image::getting-started/sak-kafka-instance-options.png[Image of Kafka instance options menu]
 
-NOTE: Although you can see Kafka instances created by other users in your organization, you can't manage or connect to those instances. Only the user who creates an instance can edit or delete the instance, access the associated service account and topics, or connect to the instance.
+NOTE: Although you can see Kafka instances created by other users in your organization, you might not be able to manage or connect to those instances. Only the instance owner or users with permissions to access the instance can edit or delete the instance, access the associated service account and topics, or connect to the instance.
 --
 
 .Verification
