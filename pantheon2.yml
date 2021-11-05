@@ -10,7 +10,7 @@ assemblies:
 modules:
   - modules/*.adoc
   - modules/**/*.adoc
-  - upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/**/*.adoc
+  - upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/**/*.adoc
 resources:
   - _images/**/*.png
   - _images/**/*.svg
