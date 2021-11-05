@@ -3,7 +3,7 @@
 :context: java-client
 :imagesdir: ../_images
 :attachmentsdir: ../_attachments
-:reuse-modules: ../upstream/apicurio-registry-2.0.x/docs/modules/ROOT/partials/getting-started 
+:reuse-modules: ../upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/getting-started 
 :rh-openshift-sr:
 //attributes for asciidoctor previews
 :org-name: Red Hat

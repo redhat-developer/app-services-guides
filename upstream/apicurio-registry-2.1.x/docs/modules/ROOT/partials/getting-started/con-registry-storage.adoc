@@ -1,0 +1,35 @@
+// Metadata created by nebel
+
+[id="registry-storage_{context}"]
+= {registry} storage options
+
+[role="_abstract"]
+{registry} provides the following options for the underlying storage of registry data: 
+
+ifdef::apicurio-registry[]
+
+* In-memory 
+* PostgreSQL {registry-db-version} database 
+* Apache Kafka 2.6
+
+NOTE: The in-memory storage option is suitable for a development environment only. All data is lost when restarting {registry} with this storage. The PostgreSQL or Kafka storage option is recommended for a production environment.
+
+endif::[]
+
+ifdef::rh-service-registry[]
+
+* PostgreSQL {registry-db-version} database 
+* AMQ Streams {registry-streams-version} 
+
+endif::[]
+
+[role="_additional-resources"]
+.Additional resources
+ifdef::apicurio-registry[]
+* {installing-the-registry-docker}
+* {installing-the-registry-openshift}
+* {installing-the-registry-storage-openshift}
+endif::[]
+ifdef::rh-service-registry[]
+* For more details on storage options, see link:{LinkServiceRegistryInstall}[{NameServiceRegistryInstall}]
+endif::[]

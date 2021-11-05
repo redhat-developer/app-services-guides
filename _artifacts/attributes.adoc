@@ -51,7 +51,7 @@
 // internal links
 :registry-rules: link:ref-registry-rule-types.adoc[{registry} content rule types]
 :registry-reference: link:ref-registry-artifact-types.adoc[{registry} content artifact types]
-:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.0.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.x/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
 
 // Enable Pantheon-flavored links for the CLI ref guide
 :pantheonenv:
