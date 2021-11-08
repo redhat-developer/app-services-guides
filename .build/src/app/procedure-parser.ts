@@ -14,7 +14,9 @@ export type GuidesQuickStart = QuickStart & {
 
 
 export const ProcQuickStartParser = (
-    quickStart: GuidesQuickStart, environmentVariables?: { [name: string]: string }
+    quickStart: GuidesQuickStart,
+    basePath: string,
+    environmentVariables?: { [name: string]: string }
 ) => {
     const replaceEnvironmentVariables = (s: string | undefined) =>
         s?.replace(/\${(\w+)}/, (substring, name) => {
@@ -38,8 +40,9 @@ export const ProcQuickStartParser = (
         let procedure, verification, title, summaryFailed, success, reviewFailed: string | undefined;
         let description = "";
         if (proc) {
-            const taskDOM = document.createElement("div");
-            taskDOM.innerHTML = proc;
+            const parser = new DOMParser();
+            proc = proc.replace("<img src=\"\./images", "<img src=\"" + basePath + "/images");
+            const taskDOM = parser.parseFromString(proc, 'text/html');
 
             // remove the screencapture images
             taskDOM.querySelectorAll(".imageblock.screencapture").forEach(node => {
