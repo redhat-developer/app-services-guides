@@ -4,12 +4,13 @@
 // Do not delete attributes with identical values, such as :product-long: and :product:. These are intentional because although they are identical here, they are not in other renderings of this source file.
 
 
+:org-name: Application Services
 :community:
 :imagesdir: ./images
 :product-version: 1
-:product-long: Application Services
-:product: App Services
-:registry-product-long: Red Hat OpenShift Service Registry
+:product-long: OpenShift Streams for Apache Kafka
+:product: Streams for Apache Kafka
+:registry-product-long: OpenShift Service Registry
 :registry: Service Registry
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
 :service-url: https://console.redhat.com/application-services/streams/
@@ -36,3 +37,4 @@
 :consumer-config-url: consumer-configuration/README.adoc
 :service-binding-url: service-discovery/README.adoc
 :access-mgmt-url: access-mgmt/README.adoc
+:access-mgmt-service-registry-url: access-mgmt-service-registry/README.adoc
