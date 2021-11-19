@@ -54,6 +54,8 @@ As an owner of a {registry} instance, administrator, or organization administrat
 
 {registry} instance owners or administrators can manage access for only the {registry} instances that they create or for instances that the owner has allowed them to access and change. Organization administrators can manage access for all {registry} instances.
 
+//Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
+
 [id="con-registry-access-management_{context}"]
 == Access management in {registry-product-long}
 
