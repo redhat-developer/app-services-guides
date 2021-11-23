@@ -11,11 +11,6 @@
 :registry: Service Registry
 :registry-url: https://console.redhat.com/beta/application-services/service-registry/
 
-[IMPORTANT]
-====
-{registry-product-long} is currently available for Development Preview. Development Preview releases provide early access to a limited set of features that might not be fully tested and that might change in the final GA version. Users are discouraged from using Development Preview software in production or for business-critical workloads. Limited documentation is available for Development Preview releases and is typically focused on fundamental user goals.
-====
-
 [role="_abstract"]
 Manage schema and API artifacts stored in the {registry-product-long} cloud service using the {registry} web console. 
 
