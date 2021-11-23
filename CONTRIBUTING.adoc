@@ -21,7 +21,7 @@ npm --prefix .build install
 +
 . If generating modular docs:
 .. Java 15 or later
-.. link:https://git-lfs.github.com/[Git LFS support] - follow up to the end of step 1
+.. link:https://maven.apache.org/install.html[Apache Maven 3.x]
 .. link:https://docs.asciidoctor.org/asciidoctor/latest/install/[Asciidoctor 2]
 
 == Creating a guide

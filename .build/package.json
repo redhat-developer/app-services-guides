@@ -8,6 +8,7 @@
   "homepage": "https://console.redhat.com/application-services/openshift-streams",
   "license": "MIT",
   "private": true,
+  "asciidocSplitterVersion": "1.5.3",
   "devDependencies": {
     "ajv": "8.6.2",
     "asciidoctor": "2.2.5",
@@ -56,15 +57,17 @@
     "start": "webpack-cli serve",
     "start:dev": "webpack serve --hot --color --progress --config webpack.dev.js",
     "clean": "rimraf dist tmp && gh-pages-clean",
-    "generate:attributes": "node ./utils/attributes.js",
-    "generate:modular-docs-sources": "node ./utils/modular-docs.js",
     "commitandpush:modular-docs": "gh-pages -d ./tmp/post-splitter -b modular-docs",
     "publish:modular-docs": "npm run generate:modular-docs-sources && npm run commitandpush:modular-docs",
     "fetch:templates": "node ./utils/templates.js",
+    "fetch:splitter": "mvn org.apache.maven.plugins:maven-dependency-plugin:3.2.0:copy -Dartifact=io.github.lightguard.documentation:asciidoc-splitter:1.5.3:jar:jar-with-dependencies -DoutputDirectory=tmp/binaries/splitter",
     "build:generated-assemblies": "asciidoctor --failure-level=WARN  --template-dir=templates --destination-dir=tmp/generated/assemblies tmp/post-splitter/assemblies/assembly-*.adoc",
     "build:generated-modules": "asciidoctor --failure-level=WARN --trace --template-dir=templates --destination-dir=tmp/generated/modules tmp/post-splitter/modules/*/*.adoc",
+    "generate:attributes": "node ./utils/attributes.js",
+    "generate:modular-docs-sources": "node ./utils/modular-docs.js",
     "generate:modular-docs-output": "rimraf tmp/generated && mkdirp tmp/generated/assemblies tmp/generated/modules && npm-run-all build:generated-modules build:generated-assemblies",
-    "generate:modular-docs": "npm-run-all --parallel generate:modular-docs-sources fetch:templates --sequential generate:modular-docs-output"
+    "pregenerate:modular-docs": "npm-run-all --parallel fetch:*",
+    "generate:modular-docs": "npm-run-all generate:modular-docs-sources generate:modular-docs-output"
   },
   "dependencies": {
     "@rhoas/app-services-ui-shared": "0.12.2",

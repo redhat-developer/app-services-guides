@@ -56,11 +56,11 @@ function generateSplitterInput(dir) {
 }
 
 const split = (dir) => {
-    const jarDir = path.normalize(`${__dirname}/../binaries/splitter`);
-    const jarName = `asciidoc-splitter-1.0-SNAPSHOT-jar-with-dependencies.jar`;
+    const jarDir = path.normalize(`${__dirname}/../tmp/binaries/splitter`);
+    const jarName = `asciidoc-splitter-jar-with-dependencies.jar`;
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
-    const splitterCommandBase = `java -cp ${jarDir}/${jarName}:${jarDir}/* com.redhat.documentation.asciidoc.cli.ExtractionRunner`;
+    const splitterCommandBase = `java -cp ${jarDir}/* io.github.lightguard.documentation.asciidoc.cli.ExtractionRunner`;
     const cmd = `${splitterCommandBase} -s ${dir} -o ${destDir} --pantheonV2`;
     execSync(cmd,
         {
