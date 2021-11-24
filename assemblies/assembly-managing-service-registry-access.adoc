@@ -11,6 +11,7 @@ As a {registry} instance owner, an instance administrator, or an organization ad
 {registry} instance owners or instance administrators can manage access for only the {registry} instances that they create or for instances that the owner has allowed them to access and change. Organization administrators can manage access for all {registry} instances.
 
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
+
 include::modules/guides/con-registry-access-management.adoc[leveloffset=+1]
 
 include::modules/guides/proc-viewing-registry-roles.adoc[leveloffset=+1]
@@ -19,4 +20,6 @@ include::modules/guides/proc-setting-registry-roles.adoc[leveloffset=+1]
 
 include::modules/guides/proc-remove-registry-roles.adoc[leveloffset=+1]
 
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

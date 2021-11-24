@@ -47,16 +47,17 @@ Learn how to use Kafkacat to interact with a Kafka instance in {product-long}.
 [#introduction]
 Welcome to the quick start for {product-long} with Kafkacat. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat^] to produce and consume messages for your Kafka instances in {product}.
 endif::[]
-ifndef::community[]
-endif::[]
-ifndef::community[]
-endif::[]
-ifdef::qs[]
-endif::[]
+
 include::modules/guides/proc-configuring-kafkacat.adoc[leveloffset=+1]
 
 include::modules/guides/proc-producing-messages-kafkacat.adoc[leveloffset=+1]
 
 include::modules/guides/proc-consuming-messages-kafkacat.adoc[leveloffset=+1]
 
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Kafkacat quick start, and are now ready to produce and consume messages in the service.
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

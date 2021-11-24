@@ -33,10 +33,7 @@ Learn how to use a Quarkus application that produces messages to and consume mes
 [#introduction]
 Welcome to the quick start for {registry-product-long} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product} and manage the message schemas in {registry-product-long}.
 endif::[]
-ifndef::community[]
-endif::[]
-ifdef::qs[]
-endif::[]
+
 include::modules/guides/proc-importing-quarkus-registry-sample-code.adoc[leveloffset=+1]
 
 include::modules/guides/proc-configuring-quarkus-registry-app.adoc[leveloffset=+1]
@@ -45,4 +42,10 @@ include::modules/guides/proc-create-prices-topic-registry.adoc[leveloffset=+1]
 
 include::modules/guides/proc-running-quarkus-registry-example-app.adoc[leveloffset=+1]
 
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} and {registry} Quarkus quick start, and are now ready to use your own Quarkus application with {product} and {registry}.
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

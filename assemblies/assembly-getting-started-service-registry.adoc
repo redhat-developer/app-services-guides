@@ -26,10 +26,7 @@ Learn how to create and set up your first {registry} instance in {registry-produ
 [#introduction]
 Welcome to the quick start for {registry-product-long}. In this quick start, you'll learn how to create and view a {registry} instance, create a schema in this instance, and create a service account to connect an application or service to this instance.
 endif::[]
-ifndef::community[]
-endif::[]
-ifdef::qs[]
-endif::[]
+
 include::modules/guides/proc-creating-service-registry-instance.adoc[leveloffset=+1]
 
 include::modules/guides/proc-uploading-registry-schema.adoc[leveloffset=+1]
@@ -45,5 +42,9 @@ ifdef::qs[]
 [#conclusion]
 Congratulations! You successfully completed the {registry} Getting Started quick start, and are now ready to use the service.
 ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {registry} Getting Started quick start, and are now ready to use the service.
 endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

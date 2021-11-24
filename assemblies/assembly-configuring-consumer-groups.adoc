@@ -16,6 +16,7 @@ If required, use the {product} web console to reset the offsets of consumer grou
 As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to review and update consumer groups.
 
 //Additional line break to resolve mod docs generation error
+
 include::modules/guides/con-consumer-group-script.adoc[leveloffset=+1]
 
 include::modules/guides/proc-adding-consumer-group-id.adoc[leveloffset=+1]
@@ -30,4 +31,6 @@ include::modules/guides/proc-resetting-consumer-group-offset.adoc[leveloffset=+1
 
 include::modules/guides/proc-deleting-consumer-groups.adoc[leveloffset=+1]
 
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

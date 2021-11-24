@@ -27,10 +27,7 @@ Learn how to create and set up your first Apache Kafka instance in {product-long
 [#introduction]
 Welcome to the quick start for {product-long}. In this quick start, you'll learn how to create and inspect a Kafka instance, create a service account to connect an application or service to the instance, and create a topic in the instance.
 endif::[]
-ifndef::community[]
-endif::[]
-ifdef::qs[]
-endif::[]
+
 include::modules/guides/proc-creating-kafka-instance.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-service-account.adoc[leveloffset=+1]
@@ -56,5 +53,11 @@ Congratulations! You successfully completed the {product} Getting Started quick 
 
 You can use Kafka scripts to check that you can connect with your Kafka instance.
 ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+
+You can use Kafka scripts to check that you can connect with your Kafka instance.
 endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

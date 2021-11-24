@@ -19,6 +19,7 @@ You can use a specialized Operator called the Service Binding Operator to automa
 
 This guide describes how to perform service binding. The Kubernetes platform referred to in the remainder of this guide is Red Hat OpenShift.
 
+
 include::modules/guides/con-about-service-binding.adoc[leveloffset=+1]
 
 include::modules/guides/proc-installing-service-binding-operator.adoc[leveloffset=+1]

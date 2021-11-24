@@ -11,10 +11,13 @@ As an owner of a Kafka instance in {product}, you can manage the level of access
 You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
 
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
+
 include::modules/guides/con-access-management.adoc[leveloffset=+1]
 
 include::modules/guides/proc-setting-permissions.adoc[leveloffset=+1]
 
 include::modules/guides/ref-example-access-scenarios.adoc[leveloffset=+1]
 
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

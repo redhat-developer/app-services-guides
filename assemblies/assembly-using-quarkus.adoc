@@ -28,10 +28,7 @@ Learn how to use Quarkus applications to produce messages to and consume message
 [#introduction]
 Welcome to the quick start for {product-long} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
-ifndef::community[]
-endif::[]
-ifdef::qs[]
-endif::[]
+
 include::modules/guides/proc-importing-quarkus-sample-code.adoc[leveloffset=+1]
 
 include::modules/guides/proc-configuring-quarkus.adoc[leveloffset=+1]
@@ -40,4 +37,10 @@ include::modules/guides/proc-create-prices-topic.adoc[leveloffset=+1]
 
 include::modules/guides/proc-running-quarkus-example-application.adoc[leveloffset=+1]
 
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Quarkus quick start, and are now ready to use your own Quarkus applications with {product}.
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 

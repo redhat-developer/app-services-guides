@@ -16,6 +16,7 @@ This guide describes how to set up `rhoas` by doing the following:
 --
 
 //Additional line break to resolve mod docs generation error
+
 include::modules/guides/proc-installing-rhoas.adoc[leveloffset=+1]
 
 include::modules/guides/proc-configuring-rhoas.adoc[leveloffset=+1]

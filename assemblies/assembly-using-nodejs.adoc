@@ -32,10 +32,7 @@ Learn how to use Node.js applications to produce and consume messages using a Ka
 Welcome to the quick start for {product-long} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product}.
 endif::[]
 
-ifndef::community[]
-endif::[]
-ifdef::qs[]
-endif::[]
+
 include::modules/guides/proc-importing-nodejs-sample-code.adoc[leveloffset=+1]
 
 include::modules/guides/proc-configuring-nodejs.adoc[leveloffset=+1]
@@ -44,4 +41,10 @@ include::modules/guides/proc-creating-countries-topic.adoc[leveloffset=+1]
 
 include::modules/guides/proc-running-nodejs-example-application.adoc[leveloffset=+1]
 
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Node.js quick start. You're now ready to use your own Node.js applications with {product}.
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 
