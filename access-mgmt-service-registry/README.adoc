@@ -50,9 +50,9 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As an owner of a {registry} instance, administrator, or organization administrator in {registry-product-long}, you can manage the level of access that other user accounts and service accounts have to your {registry} instance. You can grant or remove access to your instance for specific user accounts in your organization based on user roles. You can also allow other users or service accounts to manage the level of access to your instance for you.
+As a {registry} instance owner, an instance administrator, or an organization administrator in {registry-product-long}, you can manage the level of access that other user accounts and service accounts have to your {registry} instance. You can grant or remove access to your  {registry} instance for specific user accounts in your organization based on user roles. You can also allow other users or service accounts to manage the level of access to your instance for you.
 
-{registry} instance owners or administrators can manage access for only the {registry} instances that they create or for instances that the owner has allowed them to access and change. Organization administrators can manage access for all {registry} instances.
+{registry} instance owners or instance administrators can manage access for only the {registry} instances that they create or for instances that the owner has allowed them to access and change. Organization administrators can manage access for all {registry} instances.
 
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
 
@@ -64,17 +64,20 @@ As an owner of a {registry} instance, administrator, or organization administrat
 
 An account in {registry-product-long} is either a user account or a service account. A user account enables users in your organization to access your {registry} instances. A service account enables your client application or tool to connect securely and to access your {registry} instances.
 
-You can also allow other users or service accounts to manage access to your {registry} instances for you.
 
-=== Supported user roles in {registry-product-long}
+=== User roles in {registry-product-long}
 
-The {registry} web console provides an *Access* tab on the {registry} instance page. {registry} instance owners, administrators, and organization administrators can use this tab to manage the following user roles:
+The {registry} web console provides an *Access* tab on the {registry} instance page. {registry} instance owners, instance administrators, and organization administrators can use this tab to manage the following user roles:
 
-* *Administrator* - Can view or write user roles and schema and API artifacts, configure global rules for compatibility and validity, and import/export {registry} data in this {registry} instance 
+* *Administrator* - Can perform the following in this {registry} instance:
+** View or write user roles
+** View or write schema and API artifacts 
+** Configure global rules for compatibility and validity
+** Import/export {registry} data 
 * *Manager* - Can view or write schema and API artifacts in this {registry} instance
 * *Viewer* - Can view schema and API artifacts in this {registry} instance
 
-IMPORTANT: The owner of a {registry} instance has the administrator role for that instance by default, and can assign roles in the same organization. Other users in the organization have no access by default.
+IMPORTANT: The owner of a {registry} instance has the administrator role for that instance by default, and can assign roles in the same organization. Other users in the organization have no access to that instance by default.
 
 In addition to the web console, the `rhoas` CLI provides commands to manage user roles, and the core {registry} REST API also provides Admin API endpoints for managing user roles.
 
@@ -103,7 +106,7 @@ In {registry-product-long}, you can assign user roles in your {registry} instanc
 
 .Prerequisites
 * The {registry} instance has been created and is in *Ready* state.
-* The user account or service account that you're assigning roles to has been created in the organization.
+* The user accounts or service accounts that you're assigning roles to have been created in the organization.
 
 .Procedure
 . In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to assign roles for.
@@ -121,14 +124,14 @@ You can edit or remove the user roles assigned in your {registry} instances that
 
 .Prerequisites
 * The {registry} instance has been created and is in *Ready* state.
-* The user account or service account has been created in the organization and the user roles have already been assigned.
+* The user accounts or service accounts have been created in the organization and the user roles have already been assigned.
 
 .Procedure
 . In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to remove a user role for.
 . Click the *Access* tab to view the accounts and roles assigned for this instance.
 . Select the options menu (three vertical dots) next to the assigned *Role* name: 
 .. To change to a different role, click *Edit* and select the new user role, for example, *Viewer* for read-only access to this instance.  
-.. To remove the currently assigned role, click *Remove*, and confirm in the dialog.
+.. To remove the currently assigned role, click *Remove* and confirm in the dialog.
 
 
 
