@@ -1,0 +1,18 @@
+[id='proc-setting-registry-roles_{context}']
+= Assigning user roles in a {registry} instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+In {registry-product-long}, you can assign user roles in your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can assign user roles only for instances that you create or for instances that the owner has assigned you access to.
+
+.Prerequisites
+* The {registry} instance has been created and is in *Ready* state.
+* The user accounts or service accounts that you're assigning roles to have been created in the organization.
+
+.Procedure
+. In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to assign roles for.
+. Click the *Access* tab to view the accounts and roles already assigned for this instance.
+. Click the *Grant access* to assign roles to accounts.
+. Select the *Account* that you want to assign the role to. A service account enables your application or tool to connect securely to your instance, while a user account enables users in your organization to access instances.
+. Select the *Role* that you want to assign to your account, for example, *Manager* for write access to this instance.
+. Click *Save*.
