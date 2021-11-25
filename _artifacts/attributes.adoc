@@ -10,7 +10,7 @@
 :registry-url: https://console.redhat.com/beta/application-services/service-registry/
 :service-url: https://console.redhat.com/application-services/streams/
 :download-url-registry-distribution: https://github.com/redhat-developer
-
+:apicurio-registry-version: 2.1.3.Final
 :property-file-name: app-services.properties
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
 
