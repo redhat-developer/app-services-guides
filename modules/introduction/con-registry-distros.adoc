@@ -5,7 +5,7 @@
 
 {registry} provides Java libraries for client applications to connect to {registry} instances, manage their registry content, or serialize/deserialize and validate Kafka messages. {registry} Java client applications can: 
 
-* Use a Maven plug-in or Java client to manage schema and API artifacts stored in {registry}
+* Use a Java client or Maven plug-in to manage schema and API artifacts stored in {registry}
 
 * Use Kafka serializers/deserializers (SerDes) for Apache Avro, Protobuf, or JSON schema to serialize/derserialize and validate Kafka message content
 
@@ -16,13 +16,13 @@
 
 The following Apicurio Registry community-based Java libraries are available from Maven Central:
 
-* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-maven-plugin/2.1.0.Final/maven-plugin[Apicurio Registry Maven plug-in]
-* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-client/2.1.0.Final/jar[Apicurio Registry Java client]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-maven-plugin/{apicurio-registry-version}/maven-plugin[Apicurio Registry Maven plug-in]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-client/{apicurio-registry-version}/jar[Apicurio Registry Java client]
 * Apicurio Registry SerDes
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/2.1.0.Final/jar[Avro SerDes]
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-protobuf-serde/2.1.0.Final/jar[Protobuf SerDes]
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-jsonschema-serde/2.1.0.Final/jar[JSON Schema SerDes]
-* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-distro-connect-converter/2.1.0.Final/zip[Apicurio Registry Kafka Connect Converters]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/{apicurio-registry-version}/jar[Avro SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-protobuf-serde/{apicurio-registry-version}/jar[Protobuf SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-jsonschema-serde/{apicurio-registry-version}/jar[JSON Schema SerDes]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-distro-connect-converter/{apicurio-registry-version}/zip[Apicurio Registry Kafka Connect Converters]
 
 ////
 // Add for GA when available
