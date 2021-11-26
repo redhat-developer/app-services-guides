@@ -14,7 +14,7 @@ For more overview information about {registry}, see the link:https://access.redh
 
 ifndef::community[]
 .Prerequisites
-* You have a Red Hat account.
+* You have a {org-name} account.
 * You have a subscription to {product-long}.
 //For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]

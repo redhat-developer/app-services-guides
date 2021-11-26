@@ -1,0 +1,25 @@
+[id='con-registry-access-management_{context}']
+= Access management in {registry-product-long}
+:imagesdir: ../_images
+
+[role="_abstract"]
+{registry-product-long} uses Role-Based Access Control (RBAC) to manage how other user accounts and service accounts access the {registry} instances that you create and the artifacts that they contain. You can manage access for only the {registry} instances that you create or for instances that the owner has allowed you to access and change.
+
+An account in {registry-product-long} is either a user account or a service account. A user account enables users in your organization to access your {registry} instances. A service account enables your client application or tool to connect securely and to access your {registry} instances.
+
+
+== User roles in {registry-product-long}
+
+The {registry} web console provides an *Access* tab on the {registry} instance page. {registry} instance owners, instance administrators, and organization administrators can use this tab to manage the following user roles:
+
+* *Administrator* - Can perform the following in this {registry} instance:
+** View or write user roles
+** View or write schema and API artifacts
+** Configure global rules for compatibility and validity
+** Import/export {registry} data
+* *Manager* - Can view or write schema and API artifacts in this {registry} instance
+* *Viewer* - Can view schema and API artifacts in this {registry} instance
+
+IMPORTANT: The owner of a {registry} instance has the administrator role for that instance by default, and can assign roles in the same organization. Other users in the organization have no access to that instance by default.
+
+In addition to the web console, the `rhoas` CLI provides commands to manage user roles, and the core {registry} REST API also provides Admin API endpoints for managing user roles.

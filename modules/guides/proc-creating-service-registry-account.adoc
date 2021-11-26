@@ -58,8 +58,6 @@ By connecting your applications to your Service Registry instance, you can retri
 ====
 --
 
-////
-//Might be needed later
 . Create a role for the new service account that can read and write artifacts.
 +
 This example creates a role called `DEVELOPER` for the service account.
@@ -71,4 +69,3 @@ This example creates a role called `DEVELOPER` for the service account.
 $ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
 ----
 --
-////
