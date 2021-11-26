@@ -26,6 +26,7 @@
 
 //URL components for cross refs
 :base-url: https://access.redhat.com/documentation/en-us/
+:base-url-cli: {base-url}
 :registry-product-long-url: red_hat_openshift_service_registry
 :product-long-url: red_hat_openshift_streams_for_apache_kafka
 
@@ -39,7 +40,7 @@
 :rhoas-cli-service-registry-url: {registry-product-long-url}/{product-version}/guide/1630486d-c8d0-45d0-b2de-7fdb52c78499
 :getting-started-service-registry-url: {registry-product-long-url}/{product-version}/guide/ab1894d1-cae0-4d11-b185-81d62b4aabc7
 :quarkus-service-registry-url: {registry-product-long-url}/{product-version}/guide/7314d8c8-3c5b-457c-9c10-8817aa89b8f1
-:access-mgmt-service-registry-url: TBD
+:access-mgmt-service-registry-url: {registry-product-long-url}/{product-version}/guide/7717db0b-9fad-4fff-91b7-b311b63290a4
 
 //kafka guides
 :getting-started-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
