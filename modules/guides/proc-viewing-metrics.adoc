@@ -3,6 +3,8 @@
 :imagesdir: ../_images
 
 After you create Kafka topics in your Kafka instance, you can start producing and consuming messages using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application.
+ifdef::qs[You'll learn in the next quick starts how to connect applications to produce and consume messages.]
+ifndef::qs[For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].]
 
 After you produce and consume messages in your services, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
@@ -18,12 +20,6 @@ When you create your Kafka instance and topics, the *Dashboard* page is initiall
 
 NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
 
-After your topics contain data, the following metrics are available:
-
-* *Kafka instance metrics*
-** *Used disk space*: Used disk space is the amount of disk space used by the Kafka brokers in the instance. This metric enables you to assess available disk space relative to the limit. To reduce used disk space, you can adjust topic retention time or other topic properties as needed.
-* *Topic metrics*
-** *Total bytes*: Total bytes is the total incoming and outgoing bytes for all topics or for a selected topic in the Kafka instance. This metric enables you to assess data transfer in and out of your Kafka instance. To modify incoming and outgoing bytes, you can adjust topic message size or other topic properties as needed.
 --
 
 .Verification
