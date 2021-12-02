@@ -13,7 +13,7 @@ This Quarkus example application includes producer and consumer processes that s
 
 .Prerequisites
 ifndef::qs[]
-* You have a service account with access to Kafka and {registry} instances and have stored your credentials securely (see link:{base-url}{getting-started-url}[Getting started with Kafka^] and link:{base-url}{getting-started-service-registry-url}[Getting started with {registry}^]).
+* You have a service account with write access to Kafka and {registry} instances and have stored your credentials securely (see link:{base-url}{getting-started-url}[Getting started with Kafka^] and link:{base-url}{getting-started-service-registry-url}[Getting started with {registry}^]).
 * You have the Kafka bootstrap server endpoint for the Kafka instance. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
 * You have the Core Registry API endpoint for the {registry} instance. You copied this information for the {registry} instance by selecting the options menu (three vertical dots) and clicking *Connection*. From the list of endpoints, you copied the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
 * You copied the *Token endpoint URL* value from the same list of endpoints to be used for the OAuth-based athentication method used in this example.

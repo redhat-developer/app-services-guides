@@ -3,10 +3,11 @@
 
 [role="_abstract"]
 
-{registry} is available with {product-long} and Red Hat OpenShift API Management. To try out {registry}, you can create a {registry} trial instance using the web console.
+{registry} is available with {product-long} and Red Hat OpenShift API Management. 
 
-To learn more, go to link:{registry-url}[console.redhat.com^].
+To try out {registry}, you can create a {registry} trial instance using the web console. To learn more, go to link:{registry-url}[console.redhat.com^].
 
 [role="_additional-resources"]
 .Additional resources
-* link:https://access.redhat.com/articles/6289891[Service Limits for {product-long}^]
+* link:https://access.redhat.com/articles/6532521[Service definition for {product-long}^]
+* link:https://access.redhat.com/articles/6289891[Service limits for {product-long}^]

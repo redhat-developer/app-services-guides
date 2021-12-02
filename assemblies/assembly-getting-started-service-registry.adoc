@@ -3,7 +3,7 @@
 ifdef::context[:parent-context: {context}]
 :context: getting-started-sr
 :imagesdir: _images
-:registry-url: https://console.redhat.com/beta/application-services/service-registry/
+:registry-url: https://console.redhat.com/application-services/service-registry/
 
 
 // Purpose statement for the assembly

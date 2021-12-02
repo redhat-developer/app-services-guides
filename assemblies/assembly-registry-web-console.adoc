@@ -9,7 +9,7 @@
 :org-name: Red Hat
 :registry-product-long: {org-name} OpenShift Service Registry
 :registry: Service Registry
-:registry-url: https://console.redhat.com/beta/application-services/service-registry/
+:registry-url: https://console.redhat.com/application-services/service-registry/
 
 [role="_abstract"]
 Manage schema and API artifacts stored in the {registry-product-long} cloud service using the {registry} web console. 
