@@ -44,15 +44,15 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-getting-started-service-registry"]
-= Getting Started with {registry-product-long}
+= Getting started with {registry-product-long}
 ifdef::context[:parent-context: {context}]
 :context: getting-started-sr
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {registry-product-long} to create and set up {registry} instances and connect your applications and services to these instances. {registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
+As a developer of applications and services, you can use {registry-product-long} to create and set up {registry} instances and connect your applications and services to these instances. {registry-product-long} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
 
-For more overview information about {registry}, see https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/[].
+For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^]
 
 ifndef::community[]
 .Prerequisites
@@ -84,11 +84,8 @@ endif::[]
 
 .Procedure
 . In the {product-long} web console, go to *{registry}* > *{registry} Instances*, and click *Create {registry} instance*.
-. Enter a unique *Instance name*, such as `my-service-registry-instance`. Optionally, you can add a longer text description for this instance.
-+
-[.screencapture]
-.Create {registry} instance details
-image::configure-service-registry-instance.png[Image of instance configuration details in Create {registry} instance window]
+. Enter a unique *Instance name*, such as `my-service-registry-instance`.
+
 . Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
 
 . When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to connect to or delete the instance as needed.
@@ -127,7 +124,7 @@ image::upload-schema.png[Image of form to upload a schema]
 +
 * *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
-NOTE:  Specifying a group is optional when using the web console, and a `default` group is automatically created. When using the REST API or Maven plug-in, you can specify the `default` group in the API path if you do not want to create a unique group.
+NOTE:  Specifying a group is optional when using the web console, and a `default` group is automatically created. 
 +
 * *ID*: Enter an optional unique ID for this artifact such as `my-ID`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID.
 * *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the drop-down, for example, Avro Schema or OpenAPI.
@@ -147,10 +144,10 @@ NOTE:  Specifying a group is optional when using the web console, and a `default
 
 . Click *Upload* to complete the operation and display the new artifact details:
 
-* *Info*: Displays the artifact name, group, description, lifecycle status, when created, and last modified. Click the *Edit Artifact Metadata* pencil icon to edit the artifact name and description or add labels, or click *Download* to download the artifact file locally.
+* *Info*: Displays the artifact name, group, description, lifecycle status, when created, and last modified. 
 * *Content*: Displays a read-only view of the full artifact content.
 * *Documentation*: (OpenAPI only): Displays automatically-generated REST API documentation.
-* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation].
+* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^].
 +
 You can now use this schema to serialize and deserialize messages from Kafka client applications.
 
@@ -162,10 +159,10 @@ IMPORTANT: Deleting an artifact deletes the artifact and all of its versions, an
 
 .Verification
 ifdef::qs[]
-* Is the new schema in the Artifacts table?
+* Is the new schema in the *Artifacts* table?
 endif::[]
 ifndef::qs[]
-* Verify that the new schema is listed in the Artifacts table.
+* Verify that the new schema is listed in the *Artifacts* table.
 endif::[]
 
 [id="proc-connecting-registry-clients_{context}"]
@@ -177,7 +174,7 @@ To connect your applications or services to a {registry} instance in the web con
 * You've created a {registry} instance and the instance is in *Ready* state.
 
 .Procedure
-. In the *{registry}* instances page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *Connection*.
+. In the *{registry} Instances* page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *Connection*.
 . Depending on the client libraries that you want to use, chose the API for your needs:
 +
  * *Core Registry API* is the most powerful and works with Apicurio client libraries
@@ -186,24 +183,22 @@ To connect your applications or services to a {registry} instance in the web con
 
 . In the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
 
-.  In the web console left menu, go to *Service Accounts*, and click *Create service account* to generate the credentials that you can use to connect to {registry} and Kafka instances.
+.  Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
 
 . Copy the generated *Client ID* and *Client Secret* to a secure location.
 +
 IMPORTANT: The generated credentials are displayed only one time. Ensure that you've successfully and securely saved the copied credentials before closing the credentials window.
 
 . After you save the generated credentials to a secure location, select the confirmation check box in the credentials window and close the window.
+
+. For the *Authentication method*, copy the OAuth *Token endpoint URL* to a secure location. This is the endpoint that you’ll use with your service account credentials to authenticate the connection to this {registry} instance.
 +
-You’ll use the details that you saved to configure your applications to connect to your {registry} instances later when you're ready.
+NOTE: HTTP Basic authentication is also available for tools and libraries that don't support OAuth, but OAuth is recommended whenever possible. With HTTP Basic, you use only the service account credentials to authenticate the connection to the {registry} instance.
+
++
+You’ll use the service account information that you saved to configure your applications to connect to your {registry} instances later when you're ready. 
 +
 For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance and deserialize Avro messages using {registry}, you'll use this information to set your {registry} URL in the client environment variables.
-////
-. For the *Authentication method* for SASL/OAUTHBEARER, use `https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token` as the *Token endpoint URL* and store it to a secure location. This is the endpoint that you'll use with your service account credentials to authenticate the connection to this {registry} instance.
-
-+
-NOTE: SASL/PLAIN authentication is also available for tools and libraries that don't support SASL/OAUTHBEARER, but SASL/OAUTHBEARER is recommended whenever possible. With SASL/PLAIN authentication, you use only the service account credentials to authenticate the connection to the Kafka instance.
-////
-
 
 .Verification
 ifdef::qs[]
@@ -215,10 +210,37 @@ ifndef::qs[]
 . Verify that the client credentials are saved to a secure location.
 endif::[]
 
+
+[id="proc-setting-service-account-user-roles_{context}"]
+== Assigning a role for a service account to access a {registry} instance
+
+After you create a service account for applications to connect to a {registry} instance, you must also set the appropriate level of access for the new account in the *Access* tab of the {registry} instance. {registry} uses role-based access to enable you to manage how other user accounts and service accounts can interact with the {registry} instance that you create.
+
+.Prerequisites
+* You've created a {registry} instance and the instance is in *Ready* state.
+* You've created a service account that you want to allow to access the running {registry} instance.
+
+.Procedure
+. In the *{registry} Instances* page of the web console, click the name of the {registry} instance that you want the service account to access.
+. Click the *Access* tab to view the accounts and roles already assigned for this instance.
+. Click *Grant access* to assign a role to the service account.
+. In the *Account* field, select or enter the service account name that you want to assign the role to.
+. Select the *Role* that you want to assign to the account, for example, *Manager* for write access to this instance.
+. Click *Save* to finish.
+
+.Verification
+ifdef::qs[]
+* Is the new role for the service account listed in the *Access* page of the {registry} instance?
+endif::[]
+ifndef::qs[]
+* Verify that the new role for the service account is listed in the *Access* page of the {registry} instance.
+endif::[]
+
 [role="_additional-resources"]
 == Additional resources
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation]
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation]
+* link:{base-url}{access-mgmt-service-registry-url}[Managing account access in Red Hat OpenShift Service Registry^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
 
 ifdef::qs[]
 [#conclusion]
