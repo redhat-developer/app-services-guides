@@ -20,6 +20,6 @@ The {registry} web console provides an *Access* tab on the {registry} instance p
 * *Manager* - Can view or write schema and API artifacts in this {registry} instance
 * *Viewer* - Can view schema and API artifacts in this {registry} instance
 
-IMPORTANT: The owner of a {registry} instance has the administrator role for that instance by default, and can assign roles in the same organization. Other users in the organization have no access to that instance by default.
+IMPORTANT: The owner of a {registry} instance has the administrator role for that instance by default, and can assign roles in the same organization. Other user accounts or service accounts in the organization have no access to that instance by default.
 
 In addition to the web console, the `rhoas` CLI provides commands to manage user roles, and the core {registry} REST API also provides Admin API endpoints for managing user roles.
