@@ -76,23 +76,19 @@ NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/rele
 
 . Navigate to the https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/overview[Red Hat OpenShift Streams for Apache Kafka] page on the Red Hat Developer Portal.
 
-. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/Specifics*] and navigate to the bottom of the page to the *All Downloads* section.
+. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/specifics*] and scroll to the bottom of the page to the *All Downloads* section.
 
-. Click the *Download* button from the Linux row in the *RHOAS CLI* downloads table to download the `rhoas` zip file.
+. In the *RHOAS CLI* downloads table, in the Linux row, click the *Download* button to download the `rhoas` .zip file.
 
-. Unzip the file to extract the `rhoas` binary: 
+. Extract the `rhoas` binary:
 +
 --
 [source,shell]
 ----
-$ unzip rhoas-${version}-linux.zip
-Archive:  rhoas-${version}-linux.zip
-  inflating: rhoas                   
-  inflating: README.md               
-  inflating: LICENSE
+unzip rhoas-${version}-linux.zip
 ----
 
-An open-source license and README file are also included in the zip file.
+An open source license and README file are also included in the .zip file.
 --
 
 . For `rhoas` to be executable from any directory you must place it onto your system PATH. To view which directories are on your PATH, run the following:
@@ -104,7 +100,7 @@ echo $PATH
 ----
 --
 
-. Move the `rhoas` executable into your preferred PATH location:
+. Move the `rhoas` executable to your preferred PATH location:
 +
 [source,shell]
 ----
@@ -129,23 +125,19 @@ $ rhoas --version
 
 . Navigate to the https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/overview[Red Hat OpenShift Streams for Apache Kafka] page on the Red Hat Developer Portal.
 
-. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/Specifics*] and navigate to the bottom of the page to the *All Downloads* section.
+. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/specifics*] and scroll to the bottom of the page to the *All Downloads* section.
 
-. Click the *Download* button from the macOS row in the *RHOAS CLI* downloads table to download the `rhoas` zip file.
+. In the *RHOAS CLI* downloads table, in the macOS row, click the *Download* button to download the `rhoas` .zip file.
 
-. Unzip the file to extract the `rhoas` binary: 
+. Extract the `rhoas` binary: 
 +
 --
 [source,shell]
 ----
-$ unzip rhoas-${version}-darwin.zip
-Archive:  rhoas-${version}-darwin.zip
-  inflating: rhoas                   
-  inflating: README.md               
-  inflating: LICENSE
+unzip rhoas-${version}-darwin.zip
 ----
 
-An open-source license and README file are also included in the zip file.
+An open source license and README file are also included in the .zip file.
 --
 
 . For `rhoas` to be executable from any directory you must place it onto your system PATH. To view which directories are on your PATH, run the following:
@@ -157,7 +149,7 @@ echo $PATH
 ----
 --
 
-. Move the `rhoas` executable into your preferred PATH location:
+. Move the `rhoas` executable to your preferred PATH location:
 +
 [source,shell]
 ----
@@ -182,9 +174,9 @@ $ rhoas --version
 
 . Navigate to the https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/overview[Red Hat OpenShift Streams for Apache Kafka] page on the Red Hat Developer Portal.
 
-. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/Specifics*] and navigate to the bottom of the page to the *All Downloads* section.
+. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/specifics*] and scroll to the bottom of the page to the *All Downloads* section.
 
-. Click the *Download* button from the Windows row in the *RHOAS CLI* downloads table to download the `rhoas` zip file.
+. In the *RHOAS CLI* downloads table, in the Windows row, click the *Download* button to download the `rhoas` .zip file.
 
 . On your computer, create a `C:\rhoas` folder.
 
@@ -211,7 +203,7 @@ This example shows that `rhoas` is installed:
 
 [source,shell]
 ----
-$ rhoas --version
+rhoas --version
 ----
 --
 
@@ -340,8 +332,7 @@ In your terminal, the `rhoas login` command indicates that you are logged in:
 [source,shell]
 ----
 $ rhoas login
-Logging in...
-✔️ Logged in successfully
+⣟ Logging in...
 
 ✔️ You are now logged in as "user"
 ----
