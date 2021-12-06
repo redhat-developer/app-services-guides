@@ -22,6 +22,7 @@ spec:
     - !snippet/proc README.adoc#proc-creating-service-registry-instance
     - !snippet/proc README.adoc#proc-uploading-registry-schema
     - !snippet/proc README.adoc#proc-connecting-registry-clients
+    - !snippet/proc README.adoc#proc-setting-service-account-user-roles
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'service-registry-quarkus-dev'
