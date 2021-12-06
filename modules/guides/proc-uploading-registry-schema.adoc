@@ -18,7 +18,7 @@ image::getting-started-service-registry/upload-schema.png[Image of form to uploa
 +
 * *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
-NOTE:  Specifying a group is optional when using the web console, and a `default` group is automatically created. When using the REST API or Maven plug-in, you can specify the `default` group in the API path if you do not want to create a unique group.
+NOTE:  Specifying a group is optional when using the web console, and a `default` group is automatically created.
 +
 * *ID*: Enter an optional unique ID for this artifact such as `my-ID`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID.
 * *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the drop-down, for example, Avro Schema or OpenAPI.
@@ -38,10 +38,10 @@ NOTE:  Specifying a group is optional when using the web console, and a `default
 
 . Click *Upload* to complete the operation and display the new artifact details:
 
-* *Info*: Displays the artifact name, group, description, lifecycle status, when created, and last modified. Click the *Edit Artifact Metadata* pencil icon to edit the artifact name and description or add labels, or click *Download* to download the artifact file locally.
+* *Info*: Displays the artifact name, group, description, lifecycle status, when created, and last modified.
 * *Content*: Displays a read-only view of the full artifact content.
 * *Documentation*: (OpenAPI only): Displays automatically-generated REST API documentation.
-* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation].
+* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^].
 +
 You can now use this schema to serialize and deserialize messages from Kafka client applications.
 
@@ -53,8 +53,8 @@ IMPORTANT: Deleting an artifact deletes the artifact and all of its versions, an
 
 .Verification
 ifdef::qs[]
-* Is the new schema in the Artifacts table?
+* Is the new schema in the *Artifacts* table?
 endif::[]
 ifndef::qs[]
-* Verify that the new schema is listed in the Artifacts table.
+* Verify that the new schema is listed in the *Artifacts* table.
 endif::[]

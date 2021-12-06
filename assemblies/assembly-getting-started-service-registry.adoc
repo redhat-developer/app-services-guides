@@ -1,14 +1,14 @@
 [id='assembly-getting-started-service-registry']
-= Getting Started with {registry-product-long}
+= Getting started with {registry-product-long}
 ifdef::context[:parent-context: {context}]
 :context: getting-started-sr
 :imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {registry-product-long} to create and set up {registry} instances and connect your applications and services to these instances. {registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
+As a developer of applications and services, you can use {registry-product-long} to create and set up {registry} instances and connect your applications and services to these instances. {registry-product-long} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
 
-For more overview information about {registry}, see https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/[].
+For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^]
 
 ifndef::community[]
 .Prerequisites
@@ -33,10 +33,13 @@ include::modules/guides/proc-uploading-registry-schema.adoc[leveloffset=+1]
 
 include::modules/guides/proc-connecting-registry-clients.adoc[leveloffset=+1]
 
+include::modules/guides/proc-setting-service-account-user-roles.adoc[leveloffset=+1]
+
 [role="_additional-resources"]
 == Additional resources
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation]
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation]
+* link:{base-url}{access-mgmt-service-registry-url}[Managing account access in Red Hat OpenShift Service Registry^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
 
 ifdef::qs[]
 [#conclusion]

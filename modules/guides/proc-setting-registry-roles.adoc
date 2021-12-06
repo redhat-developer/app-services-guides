@@ -12,7 +12,9 @@ In {registry-product-long}, you can assign user roles in your {registry} instanc
 .Procedure
 . In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to assign roles for.
 . Click the *Access* tab to view the accounts and roles already assigned for this instance.
-. Click the *Grant access* to assign roles to accounts.
-. Select the *Account* that you want to assign the role to. A service account enables your application or tool to connect securely to your instance, while a user account enables users in your organization to access instances.
+. Click *Grant access* to assign roles to accounts.
+. In the *Account* field, select or enter the service account or user account name that you want to assign the role to:
+** A service account enables your application or tool to connect securely to your instance
+** A user account enables users in your organization to access instances
 . Select the *Role* that you want to assign to your account, for example, *Manager* for write access to this instance.
 . Click *Save*.

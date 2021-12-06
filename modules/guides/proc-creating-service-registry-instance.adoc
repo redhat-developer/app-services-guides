@@ -12,11 +12,8 @@ endif::[]
 
 .Procedure
 . In the {product-long} web console, go to *{registry}* > *{registry} Instances*, and click *Create {registry} instance*.
-. Enter a unique *Instance name*, such as `my-service-registry-instance`. Optionally, you can add a longer text description for this instance.
-+
-[.screencapture]
-.Create {registry} instance details
-image::getting-started-service-registry/configure-service-registry-instance.png[Image of instance configuration details in Create {registry} instance window]
+. Enter a unique *Instance name*, such as `my-service-registry-instance`.
+
 . Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
 
 . When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to connect to or delete the instance as needed.
