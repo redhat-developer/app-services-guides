@@ -7,16 +7,16 @@ Use the {product-long} web console to create and configure a {registry} instance
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the {product-long} web console at {registry-url}[^].
+* You're logged in to the {registry} web console at {registry-url}[^].
 endif::[]
 
 .Procedure
 . In the {registry} web console, go to *{registry}* > *{registry} Instances*, and click *Create {registry} instance*.
-. Enter a unique *Instance name*, such as `my-service-registry-instance`. 
+. Enter a unique *Instance name*, such as `my-service-registry-instance`.
 
 . Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
 
-. When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to connect client applications or to delete the instance as needed.
+. When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to connect applications to this instance or to delete this instance as needed.
 
 [.screencapture]
 .{registry} instance options menu
