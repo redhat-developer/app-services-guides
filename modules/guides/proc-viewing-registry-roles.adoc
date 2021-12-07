@@ -12,6 +12,6 @@ You can view the user roles assigned to your {registry} instances that manage ho
 .Procedure
 . In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to view roles and accounts for.
 . Click the *Access* tab to view the roles and accounts assigned for this instance:
-.. To view specific accounts, click *Account*, enter the account name, and click the search button.
+.. To view specific accounts, click *Account*, enter the user account or service account name, and click the search button.
 .. To view accounts with a specific role, click *Role*, select *Filter by role* and then the role you want (for example, *Administrator*), and click the search button.
 . Click *Clear all filters* when done.
