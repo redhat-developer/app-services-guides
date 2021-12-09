@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {product-long} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
+Use the {registry-product-long} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
 
 ifndef::qs[]
 .Prerequisites

@@ -2,7 +2,7 @@
 = Map Kafka topics to schemas 
 
 [role="_abstract"]
-{registry} provides full integration with {product-long} to map your Kafka topics to the appropriate schemas. 
+{registry-product} provides full integration with {product-long} to map your Kafka topics to the appropriate schemas. 
 
 You can use the {product} web console to:
 
