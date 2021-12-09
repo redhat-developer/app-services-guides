@@ -1,46 +1,63 @@
 [id="registry-distros_{context}"]
-= {registry} Java libraries
+= {registry} Java libraries for client applications
 
 [role="_abstract"]
 
-{registry} provides Java libraries for client applications to connect to {registry} instances, manage their registry content, or serialize/deserialize and validate Kafka messages. {registry} Java client applications can: 
+{registry-product} provides Java libraries for client applications to connect to {registry} instances, manage {registry} content, or serialize/deserialize and validate Kafka messages. 
 
-* Use a Java client or Maven plug-in to manage schema and API artifacts stored in {registry}
+{registry} client applications can: 
+
+* Use a Java client to access and manage schema and API artifacts in {registry}
+
+* Use a Maven plug-in to upload, download, or test schema and API artifacts in {registry}
 
 * Use Kafka serializers/deserializers (SerDes) for Apache Avro, Protobuf, or JSON schema to serialize/derserialize and validate Kafka message content
 
 * Use Kafka Connect converters to map Kafka Connect schemas into Avro or JSON schemas when streaming data to external systems
 
 [discrete]
-== Apicurio Registry libraries in Maven
+== {org-name} Maven repository
+The {registry} Java libraries for client applications are available from the {org-name} Maven repository in 
+https://maven.repository.redhat.com/ga/io/apicurio/.
 
-The following Apicurio Registry community-based Java libraries are available from Maven Central:
 
-* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-maven-plugin/{apicurio-registry-version}/maven-plugin[Apicurio Registry Maven plug-in]
-* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-client/{apicurio-registry-version}/jar[Apicurio Registry Java client]
+The available Java libraries include:
+
+* link:https://maven.repository.redhat.com/ga/io/apicurio/apicurio-registry-client/{apicurio-registry-version}.managedsvc-redhat-00001/[{registry} Java client]
+* link:https://maven.repository.redhat.com/ga/io/apicurio/apicurio-registry-maven-plugin/{apicurio-registry-version}.managedsvc-redhat-00001/[{registry} Maven plug-in]
+* {registry} SerDes
+** link:https://maven.repository.redhat.com/ga/io/apicurio/apicurio-registry-serdes-avro-serde/{apicurio-registry-version}.managedsvc-redhat-00001/[Avro SerDes]
+** link:https://maven.repository.redhat.com/ga/io/apicurio/apicurio-registry-serdes-protobuf-serde/{apicurio-registry-version}.managedsvc-redhat-00001/[Protobuf SerDes]
+** link:https://maven.repository.redhat.com/ga/io/apicurio/apicurio-registry-serdes-jsonschema-serde/{apicurio-registry-version}.managedsvc-redhat-00001/[JSON Schema SerDes]
+* link:https://maven.repository.redhat.com/ga/io/apicurio/apicurio-registry-distro-connect-converter/{apicurio-registry-version}.managedsvc-redhat-00001/[{registry} Kafka Connect Converters]
+
+
+[discrete]
+== {org-name} Developer Portal
+The {registry} Java libraries for client applications are also available for download in a `.zip` file from the {org-name} Developer Portal: 
+
+* https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download
+
+This `.zip` download includes all of the {registry} Java libraries for client applications and any dependencies required for offline development.  
+
+////
+[discrete]
+== Maven Central
+
+The Apicurio Registry community-based Java libraries are also available from Maven Central:
+
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-client/{apicurio-registry-version}.Final/jar[Apicurio Registry Java client]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-maven-plugin/{apicurio-registry-version}.Final/maven-plugin[Apicurio Registry Maven plug-in]
 * Apicurio Registry SerDes
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/{apicurio-registry-version}/jar[Avro SerDes]
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-protobuf-serde/{apicurio-registry-version}/jar[Protobuf SerDes]
-** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-jsonschema-serde/{apicurio-registry-version}/jar[JSON Schema SerDes]
-* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-distro-connect-converter/{apicurio-registry-version}/zip[Apicurio Registry Kafka Connect Converters]
-
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-avro-serde/{apicurio-registry-version}.Final/jar[Avro SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-protobuf-serde/{apicurio-registry-version}.Final/jar[Protobuf SerDes]
+** link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-serdes-jsonschema-serde/{apicurio-registry-version}.Final/jar[JSON Schema SerDes]
+* link:https://search.maven.org/artifact/io.apicurio/apicurio-registry-distro-connect-converter/{apicurio-registry-version}.Final/zip[Apicurio Registry Kafka Connect Converters]
 ////
-// Add for GA when available
-.{registry} Java library .zip downloads
-[%header,cols="4,3,3"]
 
-|===
-|Distribution
-|Location
-|Release category
-|Offline Maven repository for Maven plug-in, Java client, and serializers/deserializers
-|link:{download-url-registry-distribution}[Red Hat Developer downloads]
-|Development Preview
-|Kafka Connect converters 
-|link:{download-url-registry-distribution}[Red Hat Developer downloads]
-|Development Preview
-|Source Code 
-|link:{download-url-registry-distribution}[Red Hat Developer downloads]
-|Development Preview
-|===
-////
+[role="_additional-resources"]
+.Additional resources
+* link:{base-url}{sr-manage-java-client-url}[Managing schemas and APIs using the Service Registry Java client]
+* link:{base-url}{sr-manage-maven-plugin-url}[Managing schemas and APIs using the Service Registry Maven plug-in]
+* xref:client-serde_intro[]
+* xref:kafka-connect_intro[]
