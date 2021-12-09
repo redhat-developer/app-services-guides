@@ -59,5 +59,5 @@ The Apicurio Registry community-based Java libraries are also available from Mav
 .Additional resources
 * link:{base-url}{sr-manage-java-client-url}[Managing schemas and APIs using the Service Registry Java client]
 * link:{base-url}{sr-manage-maven-plugin-url}[Managing schemas and APIs using the Service Registry Maven plug-in]
-* xref:client-serde_intro[]
-* xref:kafka-connect_intro[]
+* xref:client-serde_intro[Validate Kafka messages using schemas and Java client serializers/deserializers]
+* xref:kafka-connect_intro[Stream data to external systems with Kafka Connect converters]
