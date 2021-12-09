@@ -33,8 +33,7 @@ In your terminal, the `rhoas login` command indicates that you are logged in:
 [source,shell]
 ----
 $ rhoas login
-Logging in...
-✔️ Logged in successfully
+⣟ Logging in...
 
 ✔️ You are now logged in as "user"
 ----
