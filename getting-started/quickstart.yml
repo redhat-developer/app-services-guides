@@ -25,7 +25,6 @@ spec:
     - !snippet/proc README.adoc#proc-creating-service-account
     - !snippet/proc README.adoc#proc-setting-service-account-permissions
     - !snippet/proc README.adoc#proc-creating-kafka-topic
-    - !snippet/proc README.adoc#proc-viewing-metrics
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'kafkacat'
