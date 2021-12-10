@@ -70,9 +70,9 @@ Broker metrics::
 
 * `kafka_controller_kafkacontroller_offline_partitions_count`: Number of partitions without an active leader and that are therefore not writable or readable
 
-* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: *<@SME: Description?>*
+* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Incoming byte rate for the broker in the last five minutes
 
-* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: *<@SME: Description?>*
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Outgoing byte rate for the broker in the last five minutes
 
 * `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of client connections to the broker
 
@@ -92,25 +92,11 @@ Topic metrics::
 
 * `kafka_server_brokertopicmetrics_messages_in_total`: Number of messages per second received by one or more topics in the instance
 
-* `kafka_topic:kafka_log_log_size:sum`: Log size for each partition in a topic *<@SME: This correct?>*
+* `kafka_topic:kafka_log_log_size:sum`: Log size of all topics in the instance
 
-* `kafka_topic:kafka_topic_partitions:count`: Number of partitions in a topic *<@SME: This correct?>*
+* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the instance
 
-* `kafka_topic:kafka_topic_partitions:sum`: *<@SME: Description? I don't see the diff between this and "partitions:count".>*
---
-
-Scrape metrics::
-+
---
-*<SME: Description for these? I can kind of guess on a couple, but not clear.>*
-
-* `scrape_duration_seconds`:
-
-* `scrape_samples_post_metric_relabeling`:
-
-* `scrape_samples_scraped`:
-
-* `scrape_series_added`:
+* `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the instance
 --
 
 [id="proc-viewing-metrics_{context}"]
@@ -120,13 +106,12 @@ After you produce and consume messages in your services using methods such as li
 
 .Prerequisites
 * You have access to a Kafka instance in {product} that contains topics. For more information about access management in {product}, see {base-url}{access-mgmt-url}[_Managing account access in {product-long}_^].
-* You or other users have produced and consumed messages in the Kafka topics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
 
 .Procedure
 * In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
 +
 --
-When you create your Kafka instance and topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics.
+When you create a Kafka instance and add new topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
 
 NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
 
@@ -142,7 +127,6 @@ This procedure follows the https://github.com/prometheus-operator/prometheus-ope
 .Prerequisites
 * You have access to a Kafka instance that contains topics in {product}. For more information about access management in {product}, see {base-url}{access-mgmt-url}[_Managing account access in {product-long}_^].
 * You have the generated credentials for your service account that has access to the Kafka instance. To regenerate and re-copy the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials. For more information about service accounts, see {base-url}{getting-started-url}#proc-creating-service-account_getting-started[_Getting started with {product-long}_^].
-* You or other users have produced and consumed messages in the Kafka topics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
 * You've installed a Prometheus instance. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
 * You've installed the https://kubernetes.io/docs/tasks/tools/#kubectl[kubectl] Kubernetes command-line tool.
 
@@ -165,8 +149,9 @@ The `<kafka_instance_id>` is the ID of the Kafka instance. The `<client_id>` and
     client_secret: "__<client_secret>__"
     token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 ----
-
-Alternatively, you can add this information to your Prometheus configuration file, as shown in the following example. For more information about this method, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] in the Prometheus documentation.
+[NOTE]
+====
+Alternatively, you can add this information to your Prometheus configuration file as shown in the following example, and then skip the remaining steps in this procedure. For more information about this method, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] in the Prometheus documentation.
 
 .Alternative method to update Prometheus configuration
 [source,yaml,subs="+quotes"]
@@ -181,8 +166,10 @@ Alternatively, you can add this information to your Prometheus configuration fil
     client_secret: "__<client_secret>__"
     token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 ----
+====
+
 --
-. Create a Kubernetes secret that contains the new `kafka-federate.yaml` file, as shown in the following example. Replace `<namespace>` with the value of your own Kubernetes namespace.
+. Create a Kubernetes secret that contains the new `kafka-federate.yaml` file, as shown in the following example. Replace `<namespace>` with the value of the Kubernetes namespace where your Prometheus instance is installed, if applicable.
 +
 .Example command to create a Kubernetes secret
 [source,subs="+quotes"]
@@ -210,6 +197,11 @@ spec:
 The new scrape target becomes available after the configuration has reloaded.
 
 You can view your collected metrics in the Prometheus expression browser at `http://__<host>__:__<port>__/graph`, or integrate your Prometheus data source with a data-graphing tool such as Grafana. For information about Prometheus metrics in Grafana, see https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus] in the Grafana documentation.
+
+When you create a Kafka instance and add new topics, the metrics are initially empty. After you start producing and consuming messages in your services, you can return to your monitoring tool to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
+
+NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
+
 --
 
 [role="_additional-resources"]
