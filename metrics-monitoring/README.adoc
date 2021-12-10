@@ -66,21 +66,21 @@ Broker metrics::
 
 * `kafka_broker_quota_totalstorageusedbytes`: Total storage used by the broker
 
-* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions across all topics in the cluster
+* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions for each broker in the instance
 
 * `kafka_controller_kafkacontroller_offline_partitions_count`: Number of partitions without an active leader and that are therefore not writable or readable
 
-* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Incoming byte rate for the broker in the last five minutes
+* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Incoming byte rate for the instance in the last five minutes
 
-* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Outgoing byte rate for the broker in the last five minutes
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Outgoing byte rate for the instance in the last five minutes
 
-* `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of client connections to the broker
+* `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of client connections to the instance
 
-* `kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum`: Number of attempted client connections per second for the broker
+* `kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum`: Number of attempted client connections per second for the instance
 
-* `kubelet_volume_stats_available_bytes`: Available disk space in the broker
+* `kubelet_volume_stats_available_bytes`: Available disk space in the instance
 
-* `kubelet_volume_stats_used_bytes`: Used disk space in the broker
+* `kubelet_volume_stats_used_bytes`: Used disk space in the instance
 --
 
 Topic metrics::
@@ -122,19 +122,42 @@ NOTE: In some cases, after you start producing and consuming messages, you might
 
 As an alternative to viewing metrics for a Kafka instance in the {product} web console, you can export your metrics to https://prometheus.io/docs/introduction/overview/[Prometheus] and integrate the metrics with your own metrics monitoring platform. {product} provides a `kafkas/{id}/metrics/federate` API endpoint that you can configure as a scrape target for Prometheus to use to collect and store metrics. You can then access the metrics in the https://prometheus.io/docs/visualization/browser/[Prometheus expression browser] or in a data-graphing tool such as https://prometheus.io/docs/visualization/grafana/[Grafana].
 
-This procedure follows the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] method defined by Prometheus for integrating third-party metrics.
+This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] method.
 
 .Prerequisites
 * You have access to a Kafka instance that contains topics in {product}. For more information about access management in {product}, see {base-url}{access-mgmt-url}[_Managing account access in {product-long}_^].
 * You have the generated credentials for your service account that has access to the Kafka instance. To regenerate and re-copy the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials. For more information about service accounts, see {base-url}{getting-started-url}#proc-creating-service-account_getting-started[_Getting started with {product-long}_^].
-* You've installed a Prometheus instance. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
-* You've installed the https://kubernetes.io/docs/tasks/tools/#kubectl[kubectl] Kubernetes command-line tool.
+* You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
 
 .Procedure
-. In your Prometheus instance, create the following `kafka-federate.yaml` file. Replace the values with your own Kafka instance and credential information.
+* In your Prometheus configuration file, add the following information. Replace `<kafka_instance_id>` with the ID of the Kafka instance. Replace `<client_id>` and `<client_secret>` with the generated credentials for your service account.
 +
 --
-The `<kafka_instance_id>` is the ID of the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account.
+.Required information for Prometheus configuration file
+[source,yaml,subs="+quotes"]
+----
+- job_name: "kafka-federate"
+  static_configs:
+  - targets: ["api.openshift.com"]
+  scheme: "https"
+  metrics_path: "/api/kafkas_mgmt/v1/kafkas/__<kafka_instance_id>__/metrics/federate"
+  oauth2:
+    client_id: "__<client_id>__"
+    client_secret: "__<client_secret>__"
+    token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+----
+
+The new scrape target becomes available after the configuration has reloaded.
+
+You can view your collected metrics in the Prometheus expression browser at `http://__<host>__:__<port>__/graph`, or integrate your Prometheus data source with a data-graphing tool such as Grafana. For information about Prometheus metrics in Grafana, see https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus] in the Grafana documentation.
+
+When you create a Kafka instance and add new topics, the metrics are initially empty. After you start producing and consuming messages in your services, you can return to your monitoring tool to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
+
+NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
+
+[NOTE]
+====
+If you use the Prometheus Operator in your monitoring environment, you can alternatively create a `kafka-federate.yaml` file as an additional scrape configuration in your Prometheus custom resource as shown in the following example commands. For more information about this method, see https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] in the Prometheus documentation.
 
 .Example `kafka-federate.yaml` file
 [source,yaml,subs="+quotes"]
@@ -149,37 +172,14 @@ The `<kafka_instance_id>` is the ID of the Kafka instance. The `<client_id>` and
     client_secret: "__<client_secret>__"
     token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 ----
-[NOTE]
-====
-Alternatively, you can add this information to your Prometheus configuration file as shown in the following example, and then skip the remaining steps in this procedure. For more information about this method, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] in the Prometheus documentation.
 
-.Alternative method to update Prometheus configuration
-[source,yaml,subs="+quotes"]
-----
-- job_name: "kafka-federate"
-  static_configs:
-  - targets: ["api.openshift.com"]
-  scheme: "https"
-  metrics_path: "/api/kafkas_mgmt/v1/kafkas/__<kafka_instance_id>__/metrics/federate"
-  oauth2:
-    client_id: "__<client_id>__"
-    client_secret: "__<client_secret>__"
-    token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
-----
-====
-
---
-. Create a Kubernetes secret that contains the new `kafka-federate.yaml` file, as shown in the following example. Replace `<namespace>` with the value of the Kubernetes namespace where your Prometheus instance is installed, if applicable.
-+
-.Example command to create a Kubernetes secret
+.Example command to create and apply a Kubernetes secret
 [source,subs="+quotes"]
 ----
-kubectl create secret generic additional-scrape-configs --from-file=kafka-federate.yaml --dry-run -o yaml \
+kubectl create secret generic additional-scrape-configs --from-file=__<~/kafka-federate.yaml>__ --dry-run -o yaml \
 kubectl apply -f - -n __<namespace>__
 ----
-. In the Prometheus custom resource of your Kubernetes cluster, reference the new secret as shown in the following example.
-+
---
+
 .Example Prometheus custom resource with new secret
 [source,subs="+quotes"]
 ----
@@ -193,14 +193,7 @@ spec:
         name: additional-scrape-configs
         key: kafka-federate.yaml
 ----
-
-The new scrape target becomes available after the configuration has reloaded.
-
-You can view your collected metrics in the Prometheus expression browser at `http://__<host>__:__<port>__/graph`, or integrate your Prometheus data source with a data-graphing tool such as Grafana. For information about Prometheus metrics in Grafana, see https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus] in the Grafana documentation.
-
-When you create a Kafka instance and add new topics, the metrics are initially empty. After you start producing and consuming messages in your services, you can return to your monitoring tool to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
-
-NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
+====
 
 --
 
