@@ -1,0 +1,44 @@
+[id='proc-creating-registry-instance-and-matching-schema-for-topic_{context}']
+= Creating a new registry instance and matching schema for a topic
+:imagesdir: ../_images
+
+[role="_abstract"]
+The following procedure shows how to use {product} web console to select a Kafka topic, and then create a new {registry} instance with a value or key schema that matches the topic.
+
+Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url}#proc-checking-schema-matches-for-topic_{context}[Checking existing schema matches for a topic].
+
+.Prerequisites
+* You're logged in to the {product} web console.
+* You've created a Kafka instance with at least one Kafka topic in {product}. To learn how to do this, see {base-url}{getting-started-url}[Getting started with {product-long}^].
+* You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-service-registry-url}[Getting started with {registry}^].
+
+.Procedure
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {registry}.
+. On the *Topics* page, click the name of the topic that you want to check.
+. Click the *Schemas* tab.
+. Based on what the *Schemas* tab shows, start creating a new {registry} instance using one of these options:
++
+--
+** If there are no existing {registry} instances in your organization, the drop-down menu is empty and the *Schemas* tab displays `No {registry} instances`.
++
+For the type of schema that you want to associate with your topic, copy the required naming format shown on the *Schemas* tab. To start creating a new {registry} instance and schema, click *Go to {registry}*.
+
+** Even if there are existing {registry} instances in the drop-down menu, you can still create and select a new instance.
++
+Before you start, take note of your topic name. To match the topic, the ID of a schema that you add to a new {registry} instance must be in the format of `_<topic-name>_-value`, or  `_<topic-name>_-key`. When you're ready to start creating a new {registry} instance and schema, below the drop-down menu, click *Create {registry} instance*.
+--
++
+The {registry} section of the web console opens.
+
+. On the *{registry}* page, click *Create {registry} instance*. Follow the instructions in the resulting dialog box to create a new instance.
+. To create a new schema, select your new {registry} instance and then click *Upload artifact*.
+. In the `ID of the artifact` field, specify a schema ID in the format of `_<topic-name>_-value`, or  `_<topic-name>_-key`. If you previously copied this required naming format, you can paste it in the `ID of the artifact` field.
+. Finish creating the schema in the normal way.
+. When you have finished creating the new {registry} instance and schema, in the web console, click *Streams for Apache Kafka*. Navigate to the *Schemas* tab for your topic, as you did previously.
+. In the *{registry} instance* drop-down menu, select the new {registry} instance that you created.
++
+The *Schemas* tab shows the name of the schema that you uploaded when you created the new {registry} instance.
+. To see details for the schema, or to manage it, click *View details*.
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

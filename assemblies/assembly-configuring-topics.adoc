@@ -6,13 +6,23 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
+--
 As a developer of applications and services, you can refer to the properties of your topics in {product} to better understand how the Kafka implementation is managed for your services. You can edit certain topic properties according to the needs and goals of your services. Kafka topics contain the data (events) that applications produce or consume, so the way the topics are configured affects how data is stored and exchanged between applications.
+
+In addition, as a developer, you can use the {product} web console to check Kafka topics in {product} for matching schemas in {registry-product-long}. When you use a schema with your Kafka topic, the schema ensures that producers publish data that conforms to a certain structure and compatibility policy. The schema also helps consumers parse and interpret the data from a topic as it is meant to be read. Using the web console to quickly identify matches between Kafka topics and schemas means that you or others in your organization don't need to inspect client application code to check for schema usage. If you don’t have any {registry} instances, or don’t have a schema that matches your topic, the console provides links to {registry}, where you can create instances and schemas.
+--
 
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
 
 include::modules/guides/proc-editing-topic-properties.adoc[leveloffset=+1]
 
 include::modules/guides/ref-supported-topic-properties.adoc[leveloffset=+1]
+
+include::modules/guides/con-using-kafka-topics-with-registry-schemas.adoc[leveloffset=+1]
+
+include::modules/guides/proc-checking-topic-for-existing-schema-matches.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-registry-instance-and-matching-schema-for-topic.adoc[leveloffset=+1]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

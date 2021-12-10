@@ -1,0 +1,53 @@
+[id='proc-checking-topic-for-existing-schema-matches_{context}']
+= Checking a topic for existing schema matches
+:imagesdir: ../_images
+
+[role="_abstract"]
+The following procedure shows how to use the {product} web console to select a Kafka topic and then check an existing {registry} instance for value or key schemas that have IDs that match the name of the topic.
+
+Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url}#proc-creating-registry-instance-and-schema_{context}[Creating a new {registry} instance and matching schema for a topic].
+
+.Prerequisites
+* You're logged in to the {product} web console.
+* You've created a Kafka instance with at least one topic in {product}. To learn how to do this, see {base-url}{getting-started-url}[Getting started with {product-long}^].
+* You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-service-registry-url}[Getting started with {registry}^].
+* You have access to at least one instance in {registry} that you can check for schemas that match your topic.
+
+.Procedure
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {registry}.
+. On the *Topics* page, click the name of the topic that you want to check.
+. Click the *Schemas* tab.
+. In the *{registry} instance* drop-down menu, select a {registry} instance to check for schemas that have IDs that match the name of the topic.
++
+The *Schemas* tab shows any schemas registered to the selected {registry} instance that match the topic.
++
+NOTE: Although the drop-down menu shows all {registry} instances in your organization, you can see schema information *only* for instances that you own or have been granted access to.
+
+. If the *Schemas* tab shows the schema types that you want associated with your topic, you're done. You don't need to complete the remainder of this procedure.
++
+However, to see the details for a matching schema, or to manage it, click *View details*.
+
+. If the *Schemas* tab doesn't show a matching value or key schema that you want associated with your topic, you can start creating the schema using one of these options:
++
+--
+*** If {product} found *either* a value or key schema that matches your topic (but not both), the *Schemas* tab displays `No matching schema` next to the schema type that it couldn't find.
++
+To create this type of schema in your {registry} instance, click the question mark icon. In the resulting pop-up window, copy the required naming format, and click *Go to {registry} instance*.
+
+*** If {product} found *no* schemas that match your topic, the *Schemas* tab displays `No matching schema exists for the selected instance`.
++
+For the type of schema that you want to associate with your topic, copy the required naming format, and click *Go to {registry} instance*.
+--
++
+The {registry} section of the web console opens with your {registry} instance selected.
+
+. In your {registry} instance, to create a new schema, click *Upload artifact*.
+. In the `ID of the artifact` field, paste the naming format that you previously copied. You must use this naming format so that the new schema matches your Kafka topic.
++
+NOTE: To match your topic, the schema ID must be in the format of `_<topic-name>_-value`, or  `_<topic-name>_-key`.
+
+. When you have finished uploading a new schema, in the {product} web console, click *Streams for Apache Kafka*. Navigate to the *Schemas* tab for your topic, as you did previously.
+. Select the same {registry} instance that you selected previously.
++
+The *Schemas* tab now shows the name of the matching schema that you uploaded.
+. To see details for the schema, or to manage it, click *View details*.

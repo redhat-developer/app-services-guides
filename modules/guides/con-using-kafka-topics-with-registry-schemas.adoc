@@ -1,0 +1,12 @@
+[id='con-using-kafka-topics-with-registry-schemas_{context}']
+= Using topics in {product-long} with schemas in {registry-product-long}
+:imagesdir: ../_images
+By default, a Kafka topic that you create in {product-long} can store any kind of data. The topic doesn't validate the structures of messages that it stores. However, as a developer of applications and services, you might want to define the structure of the data for messages stored in a given topic, and ensure that producers and consumers use this structure. To achieve this goal, you can use schemas that you upload to your {registry} instances with your Kafka topics. {registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own registry instances.
+
+When you use a schema with your Kafka topic, the schema ensures that producers publish data that conforms to a certain structure and compatibility policy. The schema also helps consumers parse and interpret the data from a topic as it is meant to be read.
+
+To use a schema, a client application can directly publish a new schema to a {registry} instance itself, or use one that is already created there. In either case, to associate the schema with a Kafka topic, client application code is typically configured to use a strategy whereby the schema ID must use the name of the topic. Specifically, to match an existing topic, a value or key schema must use a naming format of `_<topic-name>_-value` or `_<topic-name>_-key`.
+
+However, to identify schema usage for Kafka topics in {product}, it might not always be convenient for you or others in your organization to inspect client application code. Instead, to quickly identify schemas that match your topics, you can use the {product} web console.
+
+For a given Kafka topic, you can use the console to check {registry} instances for value or key schemas registered to those instances that match the name of the topic. If you don't have access to any {registry} instances, or don't have value or key schemas registered to your instances that match your topic, the console provides links to {registry}, where you can create instances and schemas. The console also shows you the naming format you need to use when creating a new value or key schema, so that it matches the topic.

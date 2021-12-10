@@ -603,6 +603,3 @@ h|Kafka property name
 [role="_additional-resources"]
 .Additional resources
 * https://kafka.apache.org/documentation/#topicconfigs[Topic-Level Configs^] in Kafka documentation
-
-ifdef::parent-context[:context: {parent-context}]
-ifndef::parent-context[:!context:]
