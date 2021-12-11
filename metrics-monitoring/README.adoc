@@ -92,7 +92,7 @@ Topic metrics::
 
 * `kafka_server_brokertopicmetrics_messages_in_total`: Number of messages per second received by one or more topics in the instance
 
-* `kafka_topic:kafka_log_log_size:sum`: Log size of all topics in the instance
+* `kafka_topic:kafka_log_log_size:sum`: Log size of each topic in the instance
 
 * `kafka_topic:kafka_topic_partitions:count`: Number of topics in the instance
 
