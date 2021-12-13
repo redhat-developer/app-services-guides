@@ -38,3 +38,4 @@
 :service-binding-url: service-discovery/README.adoc
 :access-mgmt-url: access-mgmt/README.adoc
 :access-mgmt-service-registry-url: access-mgmt-service-registry/README.adoc
+:metrics-monitoring-url: metrics-monitoring/README.adoc
