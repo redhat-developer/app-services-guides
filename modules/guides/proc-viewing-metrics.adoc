@@ -2,30 +2,17 @@
 = Viewing metrics for a Kafka instance in {product}
 :imagesdir: ../_images
 
-After you create Kafka topics in your Kafka instance, you can start producing and consuming messages using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application.
-ifdef::qs[You'll learn in the next quick starts how to connect applications to produce and consume messages.]
-ifndef::qs[For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].]
-
-After you produce and consume messages in your services, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
+After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites
-* You've created a Kafka instance and the instance is in *Ready* state.
-* You've created topics in your Kafka instance.
+* You have access to a Kafka instance in {product} that contains topics. For more information about access management in {product}, see {base-url}{access-mgmt-url}[_Managing account access in {product-long}_^].
 
 .Procedure
 * In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
 +
 --
-When you create your Kafka instance and topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics.
+When you create a Kafka instance and add new topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
 
 NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
 
 --
-
-.Verification
-ifdef::qs[]
-* Did you note how to navigate to the instance *Dashboard* page to view metrics later?
-endif::[]
-ifndef::qs[]
-* Verify that you know how to navigate to the instance *Dashboard* page to view metrics later.
-endif::[]

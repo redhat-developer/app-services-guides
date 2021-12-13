@@ -1,0 +1,92 @@
+[id='proc-configuring-metrics-prometheus_{context}']
+= Configuring metrics monitoring for a Kafka instance in Prometheus
+:imagesdir: ../_images
+
+As an alternative to viewing metrics for a Kafka instance in the {product} web console, you can export your metrics to https://prometheus.io/docs/introduction/overview/[Prometheus] and integrate the metrics with your own metrics monitoring platform. {product} provides a `kafkas/{id}/metrics/federate` API endpoint that you can configure as a scrape target for Prometheus to use to collect and store metrics. You can then access the metrics in the https://prometheus.io/docs/visualization/browser/[Prometheus expression browser] or in a data-graphing tool such as https://prometheus.io/docs/visualization/grafana/[Grafana].
+
+This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] method.
+
+.Prerequisites
+* You have access to a Kafka instance that contains topics in {product}. For more information about access management in {product}, see {base-url}{access-mgmt-url}[_Managing account access in {product-long}_^].
+* You have the generated credentials for your service account that has access to the Kafka instance. To regenerate and re-copy the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials. For more information about service accounts, see {base-url}{getting-started-url}#proc-creating-service-account_getting-started[_Getting started with {product-long}_^].
+* You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
+
+.Procedure
+* In your Prometheus configuration file, add the following information. Replace `<kafka_instance_id>` with the ID of the Kafka instance. Replace `<client_id>` and `<client_secret>` with the generated credentials for your service account.
++
+--
+.Required information for Prometheus configuration file
+[source,yaml,subs="+quotes"]
+----
+- job_name: "kafka-federate"
+  static_configs:
+  - targets: ["api.openshift.com"]
+  scheme: "https"
+  metrics_path: "/api/kafkas_mgmt/v1/kafkas/__<kafka_instance_id>__/metrics/federate"
+  oauth2:
+    client_id: "__<client_id>__"
+    client_secret: "__<client_secret>__"
+    token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+----
+
+The new scrape target becomes available after the configuration has reloaded.
+
+You can view your collected metrics in the Prometheus expression browser at `http://__<host>__:__<port>__/graph`, or integrate your Prometheus data source with a data-graphing tool such as Grafana. For information about Prometheus metrics in Grafana, see https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus] in the Grafana documentation.
+
+When you create a Kafka instance and add new topics, the metrics are initially empty. After you start producing and consuming messages in your services, you can return to your monitoring tool to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^].
+
+NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
+
+[NOTE]
+====
+If you use the Prometheus Operator in your monitoring environment, you can alternatively create a `kafka-federate.yaml` file as an additional scrape configuration in your Prometheus custom resource as shown in the following example commands. For more information about this method, see https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] in the Prometheus documentation.
+
+.Example `kafka-federate.yaml` file
+[source,yaml,subs="+quotes"]
+----
+- job_name: "kafka-federate"
+  static_configs:
+  - targets: ["api.openshift.com"]
+  scheme: "https"
+  metrics_path: "/api/kafkas_mgmt/v1/kafkas/__<kafka_instance_id>__/metrics/federate"
+  oauth2:
+    client_id: "__<client_id>__"
+    client_secret: "__<client_secret>__"
+    token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+----
+
+.Example command to create and apply a Kubernetes secret
+[source,subs="+quotes"]
+----
+kubectl create secret generic additional-scrape-configs --from-file=__<~/kafka-federate.yaml>__ --dry-run -o yaml \
+kubectl apply -f - -n __<namespace>__
+----
+
+.Example Prometheus custom resource with new secret
+[source,subs="+quotes"]
+----
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+    ...
+spec:
+    ...
+    additionalScrapeConfigs:
+        name: additional-scrape-configs
+        key: kafka-federate.yaml
+----
+====
+
+--
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url}[_Getting started with {product-long}_^]
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the `rhoas` CLI for {product-long}_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation
+* https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus]
+* https://grafana.com/docs/grafana/latest/datasources/prometheus/[Prometheus Data Source] in the Grafana documentation
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

@@ -1,0 +1,21 @@
+[id='assembly-monitoring-metrics']
+= Monitoring metrics in {product-long}
+ifdef::context[:parent-context: {context}]
+:context: monitoring-metrics
+:imagesdir: _images
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer or administrator, you can view metrics in {product} to visualize the performance and data usage for Kafka instances and topics that you have access to. You can view metrics directly in the {product} web console, or use the metrics API endpoint provided by {product} to import the data into your own metrics monitoring tool, such as Prometheus.
+
+//Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
+
+include::modules/guides/ref-supported-metrics.adoc[leveloffset=+1]
+
+include::modules/guides/proc-viewing-metrics.adoc[leveloffset=+1]
+
+include::modules/guides/proc-configuring-metrics-prometheus.adoc[leveloffset=+1]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+

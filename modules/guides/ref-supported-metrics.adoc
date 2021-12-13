@@ -1,0 +1,45 @@
+[id='ref-supported-metrics_{context}']
+= Supported metrics in {product}
+:imagesdir: ../_images
+
+{product} supports the following metrics for Kafka instances and topics. In the {product} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
+
+Broker metrics::
++
+--
+* `kafka_broker_quota_softlimitbytes`: Maximum amount of broker storage before producers are throttled
+
+* `kafka_broker_quota_totalstorageusedbytes`: Total storage used by the broker
+
+* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions for each broker in the instance
+
+* `kafka_controller_kafkacontroller_offline_partitions_count`: Number of partitions without an active leader and that are therefore not writable or readable
+
+* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Incoming byte rate for the instance in the last five minutes
+
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Outgoing byte rate for the instance in the last five minutes
+
+* `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of client connections to the instance
+
+* `kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum`: Number of attempted client connections per second for the instance
+
+* `kubelet_volume_stats_available_bytes`: Available disk space in the instance
+
+* `kubelet_volume_stats_used_bytes`: Used disk space in the instance
+--
+
+Topic metrics::
++
+--
+* `kafka_server_brokertopicmetrics_bytes_in_total`: Number of incoming bytes to topics in the instance
+
+* `kafka_server_brokertopicmetrics_bytes_out_total`: Number of outgoing bytes from topics in the instance
+
+* `kafka_server_brokertopicmetrics_messages_in_total`: Number of messages per second received by one or more topics in the instance
+
+* `kafka_topic:kafka_log_log_size:sum`: Log size of each topic in the instance
+
+* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the instance
+
+* `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the instance
+--

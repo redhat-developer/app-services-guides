@@ -36,8 +36,6 @@ include::modules/guides/proc-setting-service-account-permissions.adoc[leveloffse
 
 include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 
-include::modules/guides/proc-viewing-metrics.adoc[leveloffset=+1]
-
 [role="_additional-resources"]
 == Additional resources
 * https://kafka.apache.org/081/documentation.html#configuration[Configuration^] in Kafka
