@@ -1,6 +1,8 @@
 [id='con-using-kafka-topics-with-registry-schemas_{context}']
 = Using topics in {product-long} with schemas in {registry-product-long}
 :imagesdir: ../_images
+
+[role="_abstract"]
 By default, a Kafka topic that you create in {product-long} can store any kind of data. The topic doesn't validate the structures of messages that it stores. However, as a developer of applications and services, you might want to define the structure of the data for messages stored in a given topic, and ensure that producers and consumers use this structure. To achieve this goal, you can use schemas that you upload to your {registry} instances with your Kafka topics. {registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own registry instances.
 
 When you use a schema with your Kafka topic, the schema ensures that producers publish data that conforms to a certain structure and compatibility policy. The schema also helps consumers parse and interpret the data from a topic as it is meant to be read.
