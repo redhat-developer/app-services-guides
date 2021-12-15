@@ -719,7 +719,7 @@ For a given Kafka topic, you can use the console to check {registry} instances f
 [role="_abstract"]
 The following procedure shows how to use the {product} web console to select a Kafka topic and then check an existing {registry} instance for value or key schemas that have IDs that match the name of the topic.
 
-Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url}#proc-creating-registry-instance-and-schema_{context}[Creating a new {registry} instance and matching schema for a topic].
+Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new {registry} instance and matching schema for a topic].
 
 .Prerequisites
 * You're logged in to the {product} web console.
@@ -772,7 +772,7 @@ The *Schemas* tab now shows the name of the matching schema that you uploaded.
 [role="_abstract"]
 The following procedure shows how to use {product} web console to select a Kafka topic, and then create a new {registry} instance with a value or key schema that matches the topic.
 
-Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url}#proc-checking-schema-matches-for-topic_{context}[Checking existing schema matches for a topic].
+Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url}#proc-checking-topic-for-existing-schema-matches_{context}[Checking a topic for existing schema matches].
 
 .Prerequisites
 * You're logged in to the {product} web console.
