@@ -5,7 +5,7 @@
 [role="_abstract"]
 The following procedure shows how to use the {product} web console to select a Kafka topic and then check an existing {registry} instance for value or key schemas that have IDs that match the name of the topic.
 
-Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url}#proc-creating-registry-instance-and-schema_{context}[Creating a new {registry} instance and matching schema for a topic].
+Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new {registry} instance and matching schema for a topic].
 
 .Prerequisites
 * You're logged in to the {product} web console.
