@@ -10,40 +10,68 @@ NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/rele
 [discrete,id="installing-rhoas-cli-linux_{context}"]
 == Installing the rhoas CLI on Linux
 
+If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
+The installation script installs the latest version of `rhoas` by default.
+
+[discrete,id="installation-script_{context}"]
+=== Installation script
+
 .Procedure
 
-. Navigate to the https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/overview[Red Hat OpenShift Streams for Apache Kafka] page on the Red Hat Developer Portal.
+. Review the https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh[`install.sh` installation script^].
 
-. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/specifics*] and scroll to the bottom of the page to the *All Downloads* section.
-
-. In the *RHOAS CLI* downloads table, in the Linux row, click the *Download* button to download the `rhoas` .zip file.
-
-. Extract the `rhoas` binary:
+. Run the `install.sh` script:
 +
 --
 [source,shell]
 ----
-unzip rhoas-${version}-linux.zip
+$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash
 ----
 
-An open source license and README file are also included in the .zip file.
+The `rhoas` CLI is installed in `$HOME/.local/bin`.
 --
 
-. For `rhoas` to be executable from any directory you must place it onto your system PATH. To view which directories are on your PATH, run the following:
+. Verify that the `rhoas` installation directory is on your `$PATH`.
 +
 --
+To check your `$PATH`, run the following command:
+
 [source,shell]
 ----
-echo $PATH
+$ echo $PATH
 ----
 --
 
-. Move the `rhoas` executable to your preferred PATH location:
+. Check the `rhoas` version to verify that the CLI is installed.
 +
+--
+This example shows that `rhoas` is installed:
+
 [source,shell]
 ----
-mv rhoas $HOME/.local/bin
+$ rhoas --version
 ----
+--
+
+[discrete,id="rpm-installation_{context}"]
+=== RPM installation
+
+You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHEL), Fedora, or CentOS.
+
+.Procedure
+
+. Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^] and choose the version that you'd like to download.
+
+. Use `dnf`/`yum` to install the desired version of `rhoas`:
++
+--
+This example installs `rhoas`:
+
+[source,shell,subs="+quotes"]
+----
+$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/v_<__version-num__>_/rhoas_<__version-num__>_linux_amd64.rpm
+----
+--
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
@@ -61,38 +89,29 @@ $ rhoas --version
 
 .Procedure
 
-. Navigate to the https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/overview[Red Hat OpenShift Streams for Apache Kafka] page on the Red Hat Developer Portal.
+. Review the link:https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh[`install.sh` installation script^].
 
-. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/specifics*] and scroll to the bottom of the page to the *All Downloads* section.
-
-. In the *RHOAS CLI* downloads table, in the macOS row, click the *Download* button to download the `rhoas` .zip file.
-
-. Extract the `rhoas` binary:
+. Run the `install.sh` script:
 +
 --
 [source,shell]
 ----
-unzip rhoas-${version}-darwin.zip
+$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash
 ----
 
-An open source license and README file are also included in the .zip file.
+The `rhoas` CLI is installed in `$HOME/bin`.
 --
 
-. For `rhoas` to be executable from any directory you must place it onto your system PATH. To view which directories are on your PATH, run the following:
+. Verify that the `rhoas` installation directory is on your `$PATH`.
 +
 --
+To check your `$PATH`, run the following command:
+
 [source,shell]
 ----
-echo $PATH
+$ echo $PATH
 ----
 --
-
-. Move the `rhoas` executable to your preferred PATH location:
-+
-[source,shell]
-----
-mv rhoas $HOME/bin
-----
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
@@ -110,11 +129,9 @@ $ rhoas --version
 
 .Procedure
 
-. Navigate to the https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/overview[Red Hat OpenShift Streams for Apache Kafka] page on the Red Hat Developer Portal.
+. Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^].
 
-. Click https://developers.redhat.com/products/red-hat-openshift-streams-for-apache-kafka/download[*Install/specifics*] and scroll to the bottom of the page to the *All Downloads* section.
-
-. In the *RHOAS CLI* downloads table, in the Windows row, click the *Download* button to download the `rhoas` .zip file.
+. Download the latest `rhoas` .zip file.
 
 . On your computer, create a `C:\rhoas` folder.
 
@@ -141,6 +158,6 @@ This example shows that `rhoas` is installed:
 
 [source,shell]
 ----
-rhoas --version
+$ rhoas --version
 ----
 --
