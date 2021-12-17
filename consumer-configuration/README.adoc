@@ -66,6 +66,7 @@ As an alternative to using the {product} web console, you can use the `rhoas` co
 [id="con-consumer-group-script_{context}"]
 == Connecting the Kafka consumer group script
 
+[role="_abstract"]
 If you're using the `kafka-consumer-groups.sh` script, or any other Kafka scripts,
 you'll need to use the `--bootstrap-server` and `--command-config` flags to connect to your Kafka instance.
 
@@ -101,6 +102,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 [id="proc-adding-consumer-group-id_{context}"]
 == Adding a consumer to a consumer group
 
+[role="_abstract"]
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
 When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
@@ -146,6 +148,7 @@ If you add more consumers than the number of partitions in a consumer group, the
 
 --
 
+[role="_additional-resources"]
 .Additional resources
 * {base-url}{getting-started-url}[_Getting started with {product-long}_^]
 * https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation

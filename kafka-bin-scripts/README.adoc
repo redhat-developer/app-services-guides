@@ -92,6 +92,7 @@ endif::[]
 [id="proc-configuring-kafka-bin-scripts_{context}"]
 == Configuring the Kafka scripts to connect to a Kafka instance
 
+[role="_abstract"]
 To enable the Kafka scripts to access a Kafka instance, you must configure the connection using the generated credentials for your {product} service account. For the Kafka scripts, you will create a configuration file that defines these values.
 
 .Prerequisites
@@ -132,6 +133,7 @@ NOTE: {product} also supports the SASL/OAUTHBEARER mechanism for authentication,
 [id="proc-producing-messages-kafka-bin-scripts_{context}"]
 == Producing messages using Kafka scripts
 
+[role="_abstract"]
 You can use the `kafka-console-producer` script to produce messages to Kafka topics.
 
 .Prerequisites
@@ -196,6 +198,7 @@ endif::[]
 [id="proc-consuming-messages-kafka-bin-scripts_{context}"]
 == Consuming messages using Kafka scripts
 
+[role="_abstract"]
 You can use the `kafka-console-consumer` script to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with the `kafka-console-producer` script.
 
 .Prerequisites

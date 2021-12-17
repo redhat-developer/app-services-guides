@@ -77,6 +77,7 @@ endif::[]
 [id="proc-creating-kafka-instance_{context}"]
 == Creating a Kafka instance in {product}
 
+[role="_abstract"]
 Use the {product} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and the configurations needed to connect to producer and consumer services.
 
 ifndef::qs[]
@@ -142,6 +143,7 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 [id="proc-creating-service-account_{context}"]
 == Creating a service account to connect to a Kafka instance in {product}
 
+[role="_abstract"]
 To connect your applications or services to a Kafka instance in the {product} web console, you need to create a service account that's associated with the instance. You also need to save the bootstrap server endpoint for the instance, the generated service account credentials, and the authentication token endpoint to a secure location. You'll use the service account and Kafka instance information later when you configure your application.
 
 .Prerequisites
@@ -178,6 +180,7 @@ endif::[]
 [id="proc-setting-service-account-permissions_{context}"]
 == Setting permissions for a service account in a Kafka instance in {product}
 
+[role="_abstract"]
 After you create a service account to connect to a Kafka instance, you must also set the appropriate level of access for that new account in the Access Control List (ACL) of the Kafka instance. {product} uses ACLs provided by Kafka that enable you to manage how other user accounts and service accounts are permitted to interact with the Kafka resources that you create.
 
 .Prerequisites
@@ -234,6 +237,7 @@ endif::[]
 [id="proc-creating-kafka-topic_{context}"]
 == Creating a Kafka topic in {product}
 
+[role="_abstract"]
 After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
 
 .Prerequisites

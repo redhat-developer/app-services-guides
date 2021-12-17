@@ -78,6 +78,7 @@ endif::[]
 [id="proc-importing-quarkus-sample-code_{context}"]
 == Importing the Quarkus sample code
 
+[role="_abstract"]
 For this quick start, you'll use the Quarkus sample code from the {product} {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} in the same way.
 
 .Procedure
@@ -98,6 +99,7 @@ endif::[]
 [id="proc-configuring-quarkus_{context}"]
 == Configuring the Quarkus example application to connect to a Kafka instance
 
+[role="_abstract"]
 To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
@@ -136,6 +138,7 @@ endif::[]
 [id="proc-create-prices-topic_{context}"]
 == Creating the prices Kafka topic in {product}
 
+[role="_abstract"]
 For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product} so that the Quarkus application can interact with it.
 
 .Prerequisites
@@ -167,6 +170,7 @@ endif::[]
 [id="proc-running-quarkus-example-application_{context}"]
 == Running the Quarkus example application
 
+[role="_abstract"]
 After you configure your Quarkus application to connect to a Kafka instance and you create the Kafka topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
 
 The Quarkus example application in this quick start has three application-scoped Java classes:
