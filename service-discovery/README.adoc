@@ -69,6 +69,7 @@ This guide describes how to perform service binding. The Kubernetes platform ref
 [id="con-about-service-binding_{context}"]
 == About service binding
 
+[role="_abstract"]
 You can use a specialized Operator called the Service Binding Operator to automatically provide an application on OpenShift with the parameters required to connect to a specified Kafka instance in {product-long}. This process is called __service binding__. To perform service binding, you must also install the Red Hat OpenShift Application Services (RHOAS) Operator.
 
 The RHOAS Operator exposes a Kafka instance created in {product} to an OpenShift cluster. The Service Binding Operator collects and shares the information required for an application running on the OpenShift cluster to connect to the Kafka instance.
@@ -350,6 +351,7 @@ As shown in the output, when you use the `rhoas cluster connect` command, the RH
 [id="con-binding-quarkus-application-using-cli_{context}"]
 == Binding a Quarkus application to {product-long} using the RHOAS CLI
 
+[role="_abstract"]
 When the RHOAS Operator is installed on your OpenShift cluster, and you've connected a Kafka instance to the cluster, you can use the RHOAS CLI to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
 
 The following tutorial shows how to use the RHOAS CLI to perform service binding. In the tutorial, you create an example Quarkus application and connect this to a Kafka instance. link:https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
@@ -522,6 +524,7 @@ On the *Last price* web page, observe that the price value is continuously updat
 [id="con-binding-nodejs-application-using-web-console_{context}"]
 == Binding a Node.js application to {product-long} using the OpenShift web console
 
+[role="_abstract"]
 When the RHOAS Operator is installed on your OpenShift cluster and you've connected a Kafka instance to the cluster, you can use the OpenShift web console to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
 
 The following tutorial shows how to use the OpenShift web console to perform service binding. In the tutorial, you create an example Node.js application and connect this to a Kafka instance. link:https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that's designed to build scalable network applications. Node.js provides an I/O model based on events and non-blocking operations, which enables efficient applications.

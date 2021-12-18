@@ -59,6 +59,7 @@ As a developer or administrator, you can view metrics in {product} to visualize 
 [id="ref-supported-metrics_{context}"]
 == Supported metrics in {product}
 
+[role="_abstract"]
 {product} supports the following metrics for Kafka instances and topics. In the {product} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
 
 Broker metrics::
@@ -104,6 +105,7 @@ Topic metrics::
 [id="proc-viewing-metrics_{context}"]
 == Viewing metrics for a Kafka instance in {product}
 
+[role="_abstract"]
 After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites
@@ -122,6 +124,7 @@ NOTE: In some cases, after you start producing and consuming messages, you might
 [id="proc-configuring-metrics-prometheus_{context}"]
 == Configuring metrics monitoring for a Kafka instance in Prometheus
 
+[role="_abstract"]
 As an alternative to viewing metrics for a Kafka instance in the {product} web console, you can export your metrics to https://prometheus.io/docs/introduction/overview/[Prometheus] and integrate the metrics with your own metrics monitoring platform. {product} provides a `kafkas/{id}/metrics/federate` API endpoint that you can configure as a scrape target for Prometheus to use to collect and store metrics. You can then access the metrics in the https://prometheus.io/docs/visualization/browser/[Prometheus expression browser] or in a data-graphing tool such as https://prometheus.io/docs/visualization/grafana/[Grafana].
 
 This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] method.
