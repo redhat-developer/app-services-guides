@@ -2,6 +2,7 @@
 = Creating a Kafka instance in {product}
 :imagesdir: ../_images
 
+[role="_abstract"]
 Use the {product} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and the configurations needed to connect to producer and consumer services.
 
 ifndef::qs[]

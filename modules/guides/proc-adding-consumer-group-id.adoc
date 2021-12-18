@@ -2,6 +2,7 @@
 = Adding a consumer to a consumer group
 :imagesdir: ../_images
 
+[role="_abstract"]
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
 When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
@@ -47,6 +48,7 @@ If you add more consumers than the number of partitions in a consumer group, the
 
 --
 
+[role="_additional-resources"]
 .Additional resources
 * {base-url}{getting-started-url}[_Getting started with {product-long}_^]
 * https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation

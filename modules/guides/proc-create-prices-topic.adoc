@@ -2,6 +2,7 @@
 = Creating the prices Kafka topic in {product}
 :imagesdir: ../_images
 
+[role="_abstract"]
 For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product} so that the Quarkus application can interact with it.
 
 .Prerequisites

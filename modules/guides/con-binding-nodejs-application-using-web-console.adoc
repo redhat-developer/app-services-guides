@@ -2,6 +2,7 @@
 = Binding a Node.js application to {product-long} using the OpenShift web console
 :imagesdir: ../_images
 
+[role="_abstract"]
 When the RHOAS Operator is installed on your OpenShift cluster and you've connected a Kafka instance to the cluster, you can use the OpenShift web console to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
 
 The following tutorial shows how to use the OpenShift web console to perform service binding. In the tutorial, you create an example Node.js application and connect this to a Kafka instance. link:https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that's designed to build scalable network applications. Node.js provides an I/O model based on events and non-blocking operations, which enables efficient applications.

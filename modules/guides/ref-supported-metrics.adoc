@@ -2,6 +2,7 @@
 = Supported metrics in {product}
 :imagesdir: ../_images
 
+[role="_abstract"]
 {product} supports the following metrics for Kafka instances and topics. In the {product} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
 
 Broker metrics::

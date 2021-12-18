@@ -2,6 +2,7 @@
 = Configuring the Node.js example application to connect to a Kafka instance
 :imagesdir: ../_images
 
+[role="_abstract"]
 To enable your Node.js application to access a Kafka instance, you must configure a connection by specifying the following details:
 
 * The bootstrap server endpoint for your Kafka instance

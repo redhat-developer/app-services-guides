@@ -2,6 +2,7 @@
 = Configuring metrics monitoring for a Kafka instance in Prometheus
 :imagesdir: ../_images
 
+[role="_abstract"]
 As an alternative to viewing metrics for a Kafka instance in the {product} web console, you can export your metrics to https://prometheus.io/docs/introduction/overview/[Prometheus] and integrate the metrics with your own metrics monitoring platform. {product} provides a `kafkas/{id}/metrics/federate` API endpoint that you can configure as a scrape target for Prometheus to use to collect and store metrics. You can then access the metrics in the https://prometheus.io/docs/visualization/browser/[Prometheus expression browser] or in a data-graphing tool such as https://prometheus.io/docs/visualization/grafana/[Grafana].
 
 This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] method.

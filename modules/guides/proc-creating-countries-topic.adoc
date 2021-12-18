@@ -2,6 +2,7 @@
 = Creating a Kafka topic in {product}
 :imagesdir: ../_images
 
+[role="_abstract"]
 The Node.js application in this quick start uses a Kafka topic called `countries` to produce and consume messages. In this task, you'll create the topic in your Kafka instance.
 
 .Prerequisites

@@ -2,6 +2,7 @@
 = Running the Node.js example application
 :imagesdir: ../_images
 
+[role="_abstract"]
 After you configure your Node.js application to connect to a Kafka instance, and you create the required Kafka topic, you're ready to run the application.
 
 In this task, you'll run the following components of the Node.js application:

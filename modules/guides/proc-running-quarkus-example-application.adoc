@@ -2,6 +2,7 @@
 = Running the Quarkus example application
 :imagesdir: ../_images
 
+[role="_abstract"]
 After you configure your Quarkus application to connect to a Kafka instance and you create the Kafka topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
 
 The Quarkus example application in this quick start has three application-scoped Java classes:

@@ -2,6 +2,7 @@
 = Connecting client applications to {registry}
 :imagesdir: ../_images
 
+[role="_abstract"]
 To connect your applications or services to a {registry} instance in the web console, you must copy and save the {registry} instance URL, create a service account, and copy and save the generated credentials. You'll use these details later when you configure your application for {registry}.
 
 .Prerequisites

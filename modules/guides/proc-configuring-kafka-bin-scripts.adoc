@@ -2,6 +2,7 @@
 = Configuring the Kafka scripts to connect to a Kafka instance
 :imagesdir: ../_images
 
+[role="_abstract"]
 To enable the Kafka scripts to access a Kafka instance, you must configure the connection using the generated credentials for your {product} service account. For the Kafka scripts, you will create a configuration file that defines these values.
 
 .Prerequisites

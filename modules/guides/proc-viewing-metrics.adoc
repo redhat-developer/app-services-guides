@@ -2,6 +2,7 @@
 = Viewing metrics for a Kafka instance in {product}
 :imagesdir: ../_images
 
+[role="_abstract"]
 After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites

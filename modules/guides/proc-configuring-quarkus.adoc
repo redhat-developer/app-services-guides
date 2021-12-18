@@ -2,6 +2,7 @@
 = Configuring the Quarkus example application to connect to a Kafka instance
 :imagesdir: ../_images
 
+[role="_abstract"]
 To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.

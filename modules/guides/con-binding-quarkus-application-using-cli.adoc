@@ -2,6 +2,7 @@
 = Binding a Quarkus application to {product-long} using the RHOAS CLI
 :imagesdir: ../_images
 
+[role="_abstract"]
 When the RHOAS Operator is installed on your OpenShift cluster, and you've connected a Kafka instance to the cluster, you can use the RHOAS CLI to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. Using the Service Binding Operator to automatically inject an application with connection parameters for a Kafka instance is called __service binding__.
 
 The following tutorial shows how to use the RHOAS CLI to perform service binding. In the tutorial, you create an example Quarkus application and connect this to a Kafka instance. link:https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.

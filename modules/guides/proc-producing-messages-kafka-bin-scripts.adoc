@@ -2,6 +2,7 @@
 = Producing messages using Kafka scripts
 :imagesdir: ../_images
 
+[role="_abstract"]
 You can use the `kafka-console-producer` script to produce messages to Kafka topics.
 
 .Prerequisites
