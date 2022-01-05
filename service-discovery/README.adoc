@@ -888,7 +888,7 @@ NOTE: You can increase the number of partitions later, but you cannot decrease t
 +
 After you complete the topic setup, the new Kafka topic is listed in the topics table.
 
-[id="proc-binding-quarkus-applcation-to-kafka-instance-using-cli_{context}"]
+[id="proc-binding-quarkus-application-to-kafka-and-registry-instances-using-cli_{context}"]
 === Binding the Quarkus application to your Kafka and {registry} instances using the RHOAS CLI
 
 [role="_abstract"]
