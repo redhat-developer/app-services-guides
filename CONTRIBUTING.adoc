@@ -334,6 +334,8 @@ link: https://github.com/redhat-developer/app-services-guides/releases/new
 
 . Please provide tag name. For example v0.1.0
 . Please provide the same value for release title (v0.1.0)
+. Please click on "Autogenerate Release Notes" to generate release notes
+. Select Create to create release
 
 NOTE: CICD process will automatically synchronize changes with downstream on release
 
