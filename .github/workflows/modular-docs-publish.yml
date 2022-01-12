@@ -4,8 +4,9 @@ name: Modular docs publish
 
 on:
   push:
-    branches: [ main ]
-
+    tags:
+      - 'v*'
+    #branches: [main]
 jobs:
   build:
 
