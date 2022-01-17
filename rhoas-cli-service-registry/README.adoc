@@ -57,12 +57,13 @@ you can use `rhoas` to create Service Registry instances and connect your applic
 You can also manage artifacts.
 Artifacts are items stored in Service Registry, like schemas and API specifications.
 
-This guide describes how to get started quickly by doing the following:
+This guide describes how to get started quickly by doing the following tasks:
 
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a Service Registry instance]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload Service Registry artifacts]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update Service Registry artifacts]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your Service Registry instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
@@ -114,7 +115,7 @@ Creating Service Registry instance with name: my-registry
 ====
 If you do not want to use the default values,
 enter the following command: `rhoas service-registry create`.
-You will be prompted to enter the `Name` for the Service Registry instance.
+You are prompted to enter the `Name` for the Service Registry instance.
 ====
 --
 
@@ -327,7 +328,7 @@ For more information about any of the options, view the command help `rhoas serv
 == Downloading Service Registry artifacts
 
 [role="_abstract"]
-After registering Service Registry artifacts, you can download them to make updates.
+After you register a Service Registry artifact, you can download the artifact to update it.
 
 .Prerequisites
 
@@ -335,25 +336,103 @@ After registering Service Registry artifacts, you can download them to make upda
 
 .Procedure
 
-* Download the artifact by specifying Artifact ID that we specified when creating artifact using CLI
-* Download the artifact by specifying Global ID retrieved from Kafka Message payload
-+
---
-This example downloads the `my-artifact` artifact using its ID.
+Download the artifact in either of the following ways:
 
-.Downloading an artifact using its ID
+* Use the `rhoas service-registry artifact get` command and specify the artifact ID.
+* Use the `rhoas service-registry artifact download` command and specify the global ID.
+
+[NOTE]
+====
+To find the artifact ID, use the `rhoas service-registry artifact list` command.
+
+To find the global ID, see the Kafka Message payload.
+====
+
+--
+The following example downloads the `my-artifact` artifact by using its ID.
+
+.Downloading an artifact by using the artifact ID
 [source,shell]
 ----
-$ rhoas service-registry artifact get --artifact-id my-artifact
+$ rhoas service-registry artifact get --artifact-id=my-artifact
 ----
 
-This example downloads the `my-artifact` artifact using its global ID.
+The following example downloads the `my-artifact` artifact by using its global ID.
 
-.Downloading an artifact using its global ID
+.Downloading an artifact by using the global ID
 [source,shell]
 ----
 $ rhoas service-registry artifact download --global-id=28
 ----
+--
+
+[NOTE]
+====
+You can use additional options, such as `--group` and `--instance-id`, to specify the artifact to download.
+For more information about any of the options, view the command help `rhoas service-registry artifact download -h` and `rhoas service-registry artifact get -h`.
+====
+
+[id="proc-updating-service-registry-artifacts_{context}"]
+== Updating Service Registry artifacts
+
+[role="_abstract"]
+You can update an artifact with content from a file or from standard input.
+
+.Prerequisites
+
+* You have created a Service Registry instance with at least one artifact.
+* The type of the updated content is compatible with the current artifact type.
+
+.Procedure
+
+. Update a Service Registry artifact.
++
+--
+This example updates a Service Registry artifact called `my-artifact` with content from a file in JSON format.
+
+.Updating an artifact from a file
+[source,shell]
+----
+$ rhoas service-registry artifact update --artifact-id=my-artifact --group my-group my-artifact.json
+----
+
+[NOTE]
+====
+If you want to update an artifact from standard input,
+enter the following command: `rhoas service-registry artifact update --artifact-id=<artifact_name>`.
+Paste the updated artifact content on the command line, and then press Ctrl+D to save.
+====
+--
+
+. Verify that the artifact was updated. The updated artifact is saved as a new version.
++
+--
+.Checking the version number and modified date of an artifact
+[source,shell]
+----
+$ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+Using default artifacts group.
+Fetching artifact metadata
+✔️ Successfully fetched artifact metadata
+{
+  "contentId": 30,
+  "createdBy": "User",
+  "createdOn": "2021-09-27T16:17:35+0000",
+  "globalId": 29,
+  "id": "my-artifact",
+  "modifiedBy": "User",
+  "modifiedOn": "2022-01-17T12:19:56+0000",
+  "state": "ENABLED",
+  "type": "AVRO",
+  "version": "2"
+}
+----
+
+[NOTE]
+====
+You can use additional options, such as `--group` and `--version`, to specify the artifact to update.
+For more information about any of the options, view the command help `rhoas service-registry artifact update -h`.
+====
 --
 
 [id="proc-commands-managing-registry_{context}"]
