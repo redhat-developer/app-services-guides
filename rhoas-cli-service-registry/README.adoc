@@ -102,7 +102,7 @@ Creating Service Registry instance with name: my-registry
   "created_at": "2021-09-27T15:35:01Z",
   "href": "/api/serviceregistry_mgmt/v1/registries/63620903-4a29-4ba4-8229-7ab793bf73f3",
   "id": "63620903-4a29-4ba4-8229-7ab793bf73f3",
-  "instance_type": "eval",
+  "instance_type": "standard",
   "kind": "ServiceRegistry",
   "name": "my-registry",
   "owner": "User",
@@ -169,9 +169,18 @@ This example creates a service account and saves the credentials in a JSON file.
 [source,shell]
 ----
 $ rhoas service-account create --short-description="rhoas-service-account" --file-format json
-
+Creating service account
 ✔️ Service account created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
 ✔️ Credentials saved to /home/developer/my-project/credentials.json
+
+You can now set access rules for your current services.
+To grant full access to produce and consume Kafka messages, enter this command:
+
+ $ rhoas kafka acl grant-access --producer --consumer --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f --topic all --group all
+
+To grant read and write access to the currently selected Service Registry instance, enter this command:
+
+ $ rhoas service-registry role add --role DEVELOPER --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f
 ----
 
 Your service account credentials are created and saved to a JSON file.
@@ -194,7 +203,7 @@ $ cat credentials.json
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
-        "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+    "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
 You'll use these credentials and the Service Registry URL to connect your applications and services to your Service Registry instance.
@@ -214,6 +223,8 @@ This example creates a role called `DEVELOPER` for the service account.
 [source,shell]
 ----
 $ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+Creating new role for principal
+Role was successfuly applied
 ----
 --
 
@@ -252,7 +263,38 @@ The artifact is an Apache Kafka Avro schema in JSON format.
 [source,shell]
 ----
 $ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
+--2021-09-27 16:17:18--  https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 732 [text/plain]
+Saving to: ‘avro-userInfo.json’
+
+avro-userInfo.json  100%[==================>]     732  --.-KB/s    in 0.001s
+
+2021-09-27 16:17:18 (746 KB/s) - ‘avro-userInfo.json’ saved [732/732]
+
+
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
+Using default artifacts group.
+Opening file: avro-userInfo.json
+Artifact created
+You can view or manage this artifact in your browser by accessing:
+https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/1
+
+{
+  "contentId": 29,
+  "createdBy": "User",
+  "createdOn": "2021-09-27T16:17:35+0000",
+  "globalId": 28,
+  "id": "my-artifact",
+  "modifiedBy": "User",
+  "modifiedOn": "2021-09-27T16:17:35+0000",
+  "name": "userInfo",
+  "state": "ENABLED",
+  "type": "AVRO",
+  "version": "1"
+}
 ----
 --
 
@@ -267,9 +309,9 @@ This example lists all artifacts belonging to the Service Registry instance.
 $ rhoas service-registry artifact list
 Using default artifacts group.
 
-  ID            NAME   CREATED ON                 CREATED BY   TYPE   STATE
- ------------- ------ -------------------------- ------------ ------ --------
-  my-artifact          2021-09-27T16:17:35+0000   User         AVRO   ENABLED
+  ID            NAME      CREATED ON                 CREATED BY   TYPE   STATE
+ ------------- --------- -------------------------- ------------ ------ --------
+  my-artifact   userInfo  2021-09-27T16:17:35+0000   User         AVRO   ENABLED
 ----
 --
 
@@ -288,6 +330,7 @@ $ rhoas service-registry artifact versions --artifact-id=my-artifact
       "createdBy": "User",
       "createdOn": "2021-09-27T16:17:35+0000",
       "globalId": 28,
+      "name": "userInfo",
       "state": "ENABLED",
       "type": "AVRO",
       "version": "1"
@@ -303,6 +346,9 @@ $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 Using default artifacts group.
 Fetching artifact metadata
 ✔️ Successfully fetched artifact metadata
+You can view or manage this artifact in your browser by accessing:
+https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/1
+
 {
   "contentId": 29,
   "createdBy": "User",
@@ -311,6 +357,7 @@ Fetching artifact metadata
   "id": "my-artifact",
   "modifiedBy": "User",
   "modifiedOn": "2021-09-27T16:17:35+0000",
+  "name": "userInfo",
   "state": "ENABLED",
   "type": "AVRO",
   "version": "1"
@@ -393,13 +440,16 @@ This example updates a Service Registry artifact called `my-artifact` with conte
 .Updating an artifact from a file
 [source,shell]
 ----
-$ rhoas service-registry artifact update --artifact-id=my-artifact --group my-group my-artifact.json
+$ rhoas service-registry artifact update --artifact-id=my-artifact my-artifact.json
 ----
 
 [NOTE]
 ====
-If you want to update an artifact from standard input,
-enter the following command: `rhoas service-registry artifact update --artifact-id=<artifact_name>`.
+If you want to update the artifact from standard input,
+enter the following command:
+
+`$ rhoas service-registry artifact update --artifact-id=my_artifact`
+
 Paste the updated artifact content on the command line, and then press Ctrl+D to save.
 ====
 --
@@ -414,6 +464,9 @@ $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 Using default artifacts group.
 Fetching artifact metadata
 ✔️ Successfully fetched artifact metadata
+You can view or manage this artifact in your browser by accessing:
+https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/2
+
 {
   "contentId": 30,
   "createdBy": "User",
