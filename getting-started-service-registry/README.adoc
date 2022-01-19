@@ -77,7 +77,7 @@ endif::[]
 == Creating a {registry} instance
 
 [role="_abstract"]
-Use the {product-long} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
+Use the {registry-product-long} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
 
 ifndef::qs[]
 .Prerequisites
@@ -85,7 +85,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {product-long} web console, go to *{registry}* > *{registry} Instances*, and click *Create {registry} instance*.
+. In the link:{registry-url}[{registry} web console], click *Create {registry} instance*.
 . Enter a unique *Instance name*, such as `my-service-registry-instance`.
 
 . Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
@@ -185,8 +185,12 @@ To connect your applications or services to a {registry} instance in the web con
  * *CNCF Schema Registry API* provides compatibility with the CNCF specification
 
 . In the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
++
+NOTE: The remainder of this section describes how to create a service account and copy the generated credentials.
+If you want to use the credentials of an _existing_ service account, you can skip to the next section.
 
 .  Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
+
 
 . Copy the generated *Client ID* and *Client Secret* to a secure location.
 +
@@ -220,11 +224,15 @@ endif::[]
 [role="_abstract"]
 After you create a service account for applications to connect to a {registry} instance, you must also set the appropriate level of access for the new account in the *Access* tab of the {registry} instance. {registry} uses role-based access to enable you to manage how other user accounts and service accounts can interact with the {registry} instance that you create.
 
+NOTE: If you want to use a service account that already has the required role, you can skip this section.
+
+
 .Prerequisites
 * You've created a {registry} instance and the instance is in *Ready* state.
 * You've created a service account that you want to allow to access the running {registry} instance.
 
 .Procedure
+
 . In the *{registry} Instances* page of the web console, click the name of the {registry} instance that you want the service account to access.
 . Click the *Access* tab to view the accounts and roles already assigned for this instance.
 . Click *Grant access* to assign a role to the service account.
