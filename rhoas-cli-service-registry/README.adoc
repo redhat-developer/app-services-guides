@@ -50,21 +50,21 @@ END GENERATED ATTRIBUTES
 :context: getting-started-rhoas-service-registry
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage OpenShift Service Registry from a terminal.
+With the `rhoas` command-line interface (CLI), you can manage {registry-product-long} from a terminal.
 
 As a developer of applications and services,
-you can use `rhoas` to create Service Registry instances and connect your applications and services to these instances.
+you can use `rhoas` to create {registry} instances and connect your applications and services to these instances.
 You can also manage artifacts.
-Artifacts are items stored in Service Registry, like schemas and API specifications.
+Artifacts are items stored in {registry}, like schemas and API specifications.
 
 This guide describes how to get started quickly by doing the following tasks:
 
-* link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a Service Registry instance]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a {registry} instance]
 * link:{base-url}{rhoas-cli-service-registry-url}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
-* link:{base-url}{rhoas-cli-service-registry-url}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload Service Registry artifacts]
-* link:{base-url}{rhoas-cli-service-registry-url}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download Service Registry artifacts]
-* link:{base-url}{rhoas-cli-service-registry-url}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update Service Registry artifacts]
-* link:{base-url}{rhoas-cli-service-registry-url}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your Service Registry instance, service accounts, and artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload {registry} artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download {registry} artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update {registry} artifacts]
+* link:{base-url}{rhoas-cli-service-registry-url}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your {registry} instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
 
@@ -75,10 +75,10 @@ This guide describes how to get started quickly by doing the following tasks:
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-url}[_Installing the rhoas CLI_^].
 
 [id="proc-creating-service-registry-instance-cli_{context}"]
-== Creating a Service Registry instance
+== Creating a {registry} instance
 
 [role="_abstract"]
-A Service Registry instance serves as a central location for storing artifacts.
+A {registry} instance serves as a central location for storing artifacts.
 
 .Prerequisites
 
@@ -86,12 +86,12 @@ A Service Registry instance serves as a central location for storing artifacts.
 
 .Procedure
 
-. Enter the following command to create a Service Registry instance with default values.
+. Enter the following command to create a {registry} instance with default values.
 +
 --
-This example creates a Service Registry instance called `my-registry`.
+This example creates a {registry} instance called `my-registry`.
 
-.Creating a Service Registry instance
+.Creating a {registry} instance
 [source,shell]
 ----
 $ rhoas service-registry create --name my-registry
@@ -115,17 +115,17 @@ Creating Service Registry instance with name: my-registry
 ====
 If you do not want to use the default values,
 enter the following command: `rhoas service-registry create`.
-You are prompted to enter the `Name` for the Service Registry instance.
+You are prompted to enter the `Name` for the {registry} instance.
 ====
 --
 
-. Enter the following command to verify that the Service Registry instance is ready to use.
+. Enter the following command to verify that the {registry} instance is ready to use.
 +
 --
-This command shows that the Service Registry instance is ready to use,
+This command shows that the {registry} instance is ready to use,
 because the `Status` field is `ready`.
 
-.Reviewing details of a Service Registry instance
+.Reviewing details of a {registry} instance
 [source,shell]
 ----
 $ rhoas status service-registry
@@ -140,8 +140,8 @@ $ rhoas status service-registry
 
 [NOTE]
 ====
-When you created the Service Registry instance, it was set as the current instance automatically.
-If you have multiple Service Registry instances,
+When you created the {registry} instance, it was set as the current instance automatically.
+If you have multiple {registry} instances,
 you can switch to a different instance by using the `rhoas service-registry use` command.
 ====
 --
@@ -150,13 +150,13 @@ you can switch to a different instance by using the `rhoas service-registry use`
 == Creating a service account
 
 [role="_abstract"]
-To connect your applications or services to a Service Registry instance, you must first create a service account with credentials.
+To connect your applications or services to a {registry} instance, you must first create a service account with credentials.
 The credentials are exported to a file on your computer,
-which you can use to authenticate your application with your Service Registry instance.
+which you can use to authenticate your application with your {registry} instance.
 
 .Prerequisites
 
-* You have created a Service Registry instance, and it has a `ready` status.
+* You have created a {registry} instance, and it has a `ready` status.
 
 .Procedure
 
@@ -206,11 +206,11 @@ $ cat credentials.json
     "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
-You'll use these credentials and the Service Registry URL to connect your applications and services to your Service Registry instance.
+You'll use these credentials and the {registry} URL to connect your applications and services to your {registry} instance.
 
 [NOTE]
 ====
-By connecting your applications to your Service Registry instance, you can retrieve artifacts and use them directly in your service.
+By connecting your applications to your {registry} instance, you can retrieve artifacts and use them directly in your service.
 ====
 --
 
@@ -229,21 +229,21 @@ Role was successfuly applied
 --
 
 [id="proc-uploading-service-registry-artifacts_{context}"]
-== Uploading Service Registry artifacts
+== Uploading {registry} artifacts
 
 [role="_abstract"]
-After creating a Service Registry instance, you can start uploading Service Registry artifacts.
+After creating a {registry} instance, you can start uploading {registry} artifacts.
 Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define an API.
 
 .Prerequisites
 
-* You have created a Service Registry instance, and it has a `ready` status.
+* You have created a {registry} instance, and it has a `ready` status.
 
 [NOTE]
 ====
-You can use `rhoas service-registry use` to switch to a specific Service Registry instance.
+You can use `rhoas service-registry use` to switch to a specific {registry} instance.
 
-.Selecting a Service Registry instance to use
+.Selecting a {registry} instance to use
 [source,shell]
 ----
 $ rhoas service-registry use --name my-registry
@@ -253,10 +253,10 @@ Service Registry instance "my-registry" has been set as the current instance.
 
 .Procedure
 
-. Upload a Service Registry artifact.
+. Upload a {registry} artifact.
 +
 --
-This example uploads a Service Registry artifact called `my-artifact` to the Service Registry instance.
+This example uploads a {registry} artifact called `my-artifact` to the {registry} instance.
 The artifact is an Apache Kafka Avro schema in JSON format.
 
 .Uploading an artifact
@@ -301,9 +301,9 @@ https://console.redhat.com/application-services/service-registry/t/63620903-4a29
 . Verify that the artifact was registered.
 +
 --
-This example lists all artifacts belonging to the Service Registry instance.
+This example lists all artifacts belonging to the {registry} instance.
 
-.Listing artifact details for a Service Registry instance
+.Listing artifact details for a {registry} instance
 [source,shell]
 ----
 $ rhoas service-registry artifact list
@@ -372,14 +372,14 @@ For more information about any of the options, view the command help `rhoas serv
 --
 
 [id="proc-downloading-service-registry-artifacts_{context}"]
-== Downloading Service Registry artifacts
+== Downloading {registry} artifacts
 
 [role="_abstract"]
-After you register a Service Registry artifact, you can download the artifact to update it.
+After you register a {registry} artifact, you can download the artifact to update it.
 
 .Prerequisites
 
-* You have created a Service Registry instance with at least one artifact.
+* You have created a {registry} instance with at least one artifact.
 
 .Procedure
 
@@ -392,7 +392,7 @@ Download the artifact in either of the following ways:
 ====
 To find the artifact ID, use the `rhoas service-registry artifact list` command.
 
-To find the global ID, see the Kafka Message payload.
+To find the global ID, see the Kafka message payload.
 ====
 
 --
@@ -420,22 +420,22 @@ For more information about any of the options, view the command help `rhoas serv
 ====
 
 [id="proc-updating-service-registry-artifacts_{context}"]
-== Updating Service Registry artifacts
+== Updating {registry} artifacts
 
 [role="_abstract"]
 You can update an artifact with content from a file or from standard input.
 
 .Prerequisites
 
-* You have created a Service Registry instance with at least one artifact.
+* You have created a {registry} instance with at least one artifact.
 * The type of the updated content is compatible with the current artifact type.
 
 .Procedure
 
-. Update a Service Registry artifact.
+. Update a {registry} artifact.
 +
 --
-This example updates a Service Registry artifact called `my-artifact` with content from a file in JSON format.
+This example updates a {registry} artifact called `my-artifact` with content from a file in JSON format.
 
 .Updating an artifact from a file
 [source,shell]
@@ -489,15 +489,15 @@ For more information about any of the options, view the command help `rhoas serv
 --
 
 [id="proc-commands-managing-registry_{context}"]
-== Commands for managing Service Registry
+== Commands for managing {registry}
 
 [role="_abstract"]
-For more information about the `rhoas` commands you can use to manage your Service Registry instance,
+For more information about the `rhoas` commands you can use to manage your {registry} instance,
 use the following command help:
 
-* `rhoas service-registry -h` for Service Registry instances
+* `rhoas service-registry -h` for {registry} instances
 * `rhoas service-account -h` for service accounts
-* `rhoas service-registry artifact -h` for Service Registry artifacts
+* `rhoas service-registry artifact -h` for {registry} artifacts
 
 [role="_additional-resources"]
 .Additional resources
