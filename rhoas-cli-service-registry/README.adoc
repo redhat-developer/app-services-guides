@@ -92,11 +92,11 @@ A {registry} instance serves as a central location for storing artifacts.
 This example creates a {registry} instance called `my-registry`.
 
 .Creating a {registry} instance
-[source,shell]
+[source,shell,subs="attributes"]
 ----
 $ rhoas service-registry create --name my-registry
-Creating Service Registry instance with name: my-registry
-✔️ Successfully created Service Registry instance
+Creating {registry} instance with name: my-registry
+✔️ Successfully created {registry} instance
 {
   "browserUrl": "https://console.redhat.com/beta/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3",
   "created_at": "2021-09-27T15:35:01Z",
@@ -126,11 +126,11 @@ This command shows that the {registry} instance is ready to use,
 because the `Status` field is `ready`.
 
 .Reviewing details of a {registry} instance
-[source,shell]
+[source,shell,subs="attributes"]
 ----
 $ rhoas status service-registry
 
-  Service Registry
+  {registry}
   -----------------------------------------------------------
   ID:                    63620903-4a29-4ba4-8229-7ab793bf73f3
   Name:                  my-registry
@@ -166,7 +166,7 @@ which you can use to authenticate your application with your {registry} instance
 This example creates a service account and saves the credentials in a JSON file.
 
 .Creating a service account
-[source,shell]
+[source,shell,subs="attributes"]
 ----
 $ rhoas service-account create --short-description="rhoas-service-account" --file-format json
 Creating service account
@@ -178,7 +178,7 @@ To grant full access to produce and consume Kafka messages, enter this command:
 
  $ rhoas kafka acl grant-access --producer --consumer --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f --topic all --group all
 
-To grant read and write access to the currently selected Service Registry instance, enter this command:
+To grant read and write access to the currently selected {registry} instance, enter this command:
 
  $ rhoas service-registry role add --role DEVELOPER --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f
 ----
@@ -244,10 +244,10 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 You can use `rhoas service-registry use` to switch to a specific {registry} instance.
 
 .Selecting a {registry} instance to use
-[source,shell]
+[source,shell,subs="attributes"]
 ----
 $ rhoas service-registry use --name my-registry
-Service Registry instance "my-registry" has been set as the current instance.
+{registry} instance "my-registry" has been set as the current instance.
 ----
 ====
 
