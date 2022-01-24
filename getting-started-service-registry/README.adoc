@@ -186,8 +186,22 @@ To connect your applications or services to a {registry} instance in the web con
 
 . In the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
 +
-NOTE: The remainder of this section describes how to create a service account and copy the generated credentials.
-If you want to use the credentials of an _existing_ service account, you can skip to the next section.
+NOTE: The remainder of this
+ifdef::qs[]
+task
+endif::[]
+ifndef::qs[]
+section
+endif::[]
+describes how to create a service account and copy the generated credentials.
+If you want to use the credentials of an _existing_ service account, you can skip to the next
+ifdef::qs[]
+task.
+endif::[]
+ifndef::qs[]
+section.
+endif::[]
+
 
 .  Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
 
@@ -224,7 +238,14 @@ endif::[]
 [role="_abstract"]
 After you create a service account for applications to connect to a {registry} instance, you must also set the appropriate level of access for the new account in the *Access* tab of the {registry} instance. {registry} uses role-based access to enable you to manage how other user accounts and service accounts can interact with the {registry} instance that you create.
 
-*Note:* If you want to use a service account that already has the required role, you can skip this section.
+*Note:* If you want to use a service account that already has the required role, you can skip this
+ifdef::qs[]
+task.
+endif::[]
+ifndef::qs[]
+section.
+endif::[]
+
 
 .Prerequisites
 * You've created a {registry} instance and the instance is in *Ready* state.
