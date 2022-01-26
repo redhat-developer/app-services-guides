@@ -50,7 +50,7 @@ END GENERATED ATTRIBUTES
 :context: installing-rhoas-cli
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+With the Red Hat OpenShift Application Services `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
 
 This guide describes how to set up `rhoas` by doing the following:
 

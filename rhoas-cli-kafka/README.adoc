@@ -50,7 +50,7 @@ END GENERATED ATTRIBUTES
 :context: getting-started-rhoas-kafka
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage OpenShift Streams for Apache Kafka from a terminal.
+With the Red Hat OpenShift Application Services `rhoas` command-line interface (CLI), you can manage OpenShift Streams for Apache Kafka from a terminal.
 
 As a developer of applications and services,
 you can use `rhoas` to create Kafka instances and connect your applications and services to these instances.
@@ -213,15 +213,15 @@ $ rhoas kafka acl grant-access --consumer --producer \
 
 The following ACL rules are to be created:
 
-  PRINCIPAL (7)                                   PERMISSION   OPERATION   DESCRIPTION                
- ----------------------------------------------- ------------ ----------- --------------------------- 
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        describe    topic starts with "myapp"  
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        read        topic starts with "myapp"  
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        read        group is "*"               
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        write       topic starts with "myapp"  
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        create      topic starts with "myapp"  
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        write       transactional-id is "*"    
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        describe    transactional-id is "*" 
+  PRINCIPAL (7)                                   PERMISSION   OPERATION   DESCRIPTION
+ ----------------------------------------------- ------------ ----------- ---------------------------
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        describe    topic starts with "myapp"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        read        topic starts with "myapp"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        read        group is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        write       topic starts with "myapp"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        create      topic starts with "myapp"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        write       transactional-id is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   allow        describe    transactional-id is "*"
 
 ? Are you sure you want to create the listed ACL rules (y/N)
 ----

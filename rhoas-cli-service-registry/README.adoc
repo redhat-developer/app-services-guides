@@ -50,7 +50,7 @@ END GENERATED ATTRIBUTES
 :context: getting-started-rhoas-service-registry
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage {registry-product-long} from a terminal.
+With the Red Hat OpenShift Application Services `rhoas` command-line interface (CLI), you can manage {registry-product-long} from a terminal.
 
 As a developer of applications and services,
 you can use `rhoas` to create {registry} instances and connect your applications and services to these instances.
