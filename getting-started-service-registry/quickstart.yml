@@ -16,7 +16,7 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - A Red Hat identity
-    - Access to the Red Hat OpenShift Service Registry environment at https://console.redhat.com
+    - Access to the <a href="https://console.redhat.com/application-services/service-registry">Red Hat OpenShift Service Registry web console</a>
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-creating-service-registry-instance

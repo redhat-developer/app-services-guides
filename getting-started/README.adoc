@@ -152,6 +152,15 @@ To connect your applications or services to a Kafka instance in the {product} we
 .Procedure
 . In the *Kafka Instances* page of the web console, for the relevant Kafka instance that you want to connect to, select the options icon (three vertical dots) and click *Connection*.
 . In the *Connection* page, copy the *Bootstrap server* endpoint to a secure location. This is the bootstrap server endpoint that you'll need for connecting to this Kafka instance.
++
+ifdef::qs[]
+The remainder of this task describes how to create a service account and copy the generated credentials.
+If you want to use the credentials of an _existing_ service account, you can skip to the next task.
+endif::[]
+ifndef::qs[]
+The remainder of this section describes how to create a service account and copy the generated credentials.
+If you want to use the credentials of an _existing_ service account, you can skip to the next section.
+endif::[]
 . Click *Create service account* to set up the account that you'll use to access this Kafka instance.
 . Enter a unique service account name, such as `my-service-account`, add an optional description, and click *Create*.
 . Copy the generated *Client ID* and *Client Secret* to a secure location. These are the credentials that you'll use to connect to this Kafka instance.
