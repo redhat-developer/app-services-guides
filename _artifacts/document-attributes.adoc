@@ -13,6 +13,7 @@
 :registry-product-long: OpenShift Service Registry
 :registry-product: Service Registry
 :registry: Service Registry
+:cli-product-long: OpenShift Application Services
 // Placeholder URL, when we get a HOST UI for the service we can put it here properly
 :service-url: https://console.redhat.com/application-services/streams/
 :registry-url: https://console.redhat.com/application-services/service-registry/
