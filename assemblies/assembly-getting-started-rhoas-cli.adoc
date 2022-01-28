@@ -4,7 +4,7 @@
 :imagesdir: _images
 
 [role="_abstract"]
-With the `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+With the {cli-product-long} `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
 
 This guide describes how to set up `rhoas` by doing the following:
 

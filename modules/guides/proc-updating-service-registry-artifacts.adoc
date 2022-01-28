@@ -1,0 +1,69 @@
+[id='proc-updating-service-registry-artifacts_{context}']
+= Updating {registry} artifacts
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can update an artifact with content from a file or from standard input.
+
+.Prerequisites
+
+* You have created a {registry} instance with at least one artifact.
+* The type of the updated content is compatible with the current artifact type.
+
+.Procedure
+
+. Update a {registry} artifact.
++
+--
+This example updates a {registry} artifact called `my-artifact` with content from a file in JSON format.
+
+.Updating an artifact from a file
+[source,shell]
+----
+$ rhoas service-registry artifact update --artifact-id=my-artifact my-artifact.json
+----
+
+[NOTE]
+====
+If you want to update the artifact from standard input,
+enter the following command:
+
+`$ rhoas service-registry artifact update --artifact-id=my_artifact`
+
+Paste the updated artifact content on the command line, and then press Ctrl+D to save.
+====
+--
+
+. Verify that the artifact was updated. The updated artifact is saved as a new version.
++
+--
+.Checking the version number and modified date of an artifact
+[source,shell]
+----
+$ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+Using default artifacts group.
+Fetching artifact metadata
+✔️ Successfully fetched artifact metadata
+You can view or manage this artifact in your browser by accessing:
+https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/2
+
+{
+  "contentId": 30,
+  "createdBy": "User",
+  "createdOn": "2021-09-27T16:17:35+0000",
+  "globalId": 29,
+  "id": "my-artifact",
+  "modifiedBy": "User",
+  "modifiedOn": "2022-01-17T12:19:56+0000",
+  "state": "ENABLED",
+  "type": "AVRO",
+  "version": "2"
+}
+----
+
+[NOTE]
+====
+You can use additional options, such as `--group` and `--version`, to specify the artifact to update.
+For more information about any of the options, view the command help `rhoas service-registry artifact update -h`.
+====
+--
