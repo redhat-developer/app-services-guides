@@ -1,24 +1,23 @@
 [id='assembly-binding-openshift-applications']
-= Binding OpenShift applications to {product-long} and {registry-product-long}
+= Binding OpenShift applications to {product-long}
 :context: service-binding
 :imagesdir: _images
 
 [role="_abstract"]
-As a developer of applications and services, you can connect applications on a Kubernetes platform such as Red Hat OpenShift to cloud services such as {product-long} and {registry-product-long}.
+As a developer of applications and services, you can connect applications deployed on a Kubernetes platform such as Red Hat OpenShift to Kafka instances created in {product-long}.
 
 For example, suppose you have the following applications deployed on OpenShift:
 
 * One application that publishes price updates for a variety of stocks
 * A second application that consumes the price updates for publication on a web page
 
-In addition, suppose you have a Kafka instance in {product}. Each time the first application produces a price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application.
-To achieve this behavior, you need a way to connect the applications on OpenShift to your Kafka instance in {product}.
+In addition, you have a Kafka instance in {product}. Each time the first application produces a price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application.
 
-In cases such as this, you can use a specialized Operator called the Service Binding Operator. The Service Binding Operator automatically provides an application on Kubernetes with the parameters required to connect to a Kafka instance in {product}. This process is called __service binding__.
+To achieve this behavior, you need a way to connect the applications to your Kafka instance in {product}.
 
-You can also use the Service Binding Operator to connect the application to a {registry} instance. {registry} instances store value and key schemas (as well as APIs). When you use a schema with your Kafka instance, the schema ensures that messages conform to a specified format.
+You can use a specialized Operator called the Service Binding Operator to automatically provide an application on Kubernetes with the parameters required to connect to a Kafka instance in {product}. This process is called __service binding__.
 
-This guide describes how to perform service binding for {product} and {registry}. The Kubernetes platform referred to in the remainder of this guide is Red Hat OpenShift.
+This guide describes how to perform service binding. The Kubernetes platform referred to in the remainder of this guide is Red Hat OpenShift.
 
 
 include::modules/guides/con-about-service-binding.adoc[leveloffset=+1]
@@ -29,11 +28,11 @@ include::modules/guides/proc-installing-rhoas-operator.adoc[leveloffset=+1]
 
 include::modules/guides/proc-verifying-connection-to-openshift-cluster.adoc[leveloffset=+1]
 
-include::modules/guides/proc-connecting-kafka-registry-instance-to-openshift-cluster.adoc[leveloffset=+1]
+include::modules/guides/proc-connecting-kafka-instance-to-openshift-cluster.adoc[leveloffset=+1]
 
-include::modules/guides/con-kafka-binding-quarkus-application-using-cli.adoc[leveloffset=+1]
+include::modules/guides/con-binding-quarkus-application-using-cli.adoc[leveloffset=+1]
 
-include::modules/guides/proc-kafka-deploying-example-quarkus-application-on-openshift.adoc[leveloffset=+2]
+include::modules/guides/proc-deploying-example-quarkus-application-on-openshift.adoc[leveloffset=+2]
 
 include::modules/guides/proc-creating-prices-topic-in-kafka-instance.adoc[leveloffset=+2]
 
@@ -46,13 +45,5 @@ include::modules/guides/proc-deploying-example-nodejs-application-on-openshift.a
 include::modules/guides/proc-creating-countries-topic-in-kafka-instance.adoc[leveloffset=+2]
 
 include::modules/guides/proc-binding-nodejs-application-to-kafka-instance-using-web-console.adoc[leveloffset=+2]
-
-include::modules/guides/con-kafka-registry-binding-quarkus-application-using-cli.adoc[leveloffset=+1]
-
-include::modules/guides/proc-kafka-registry-deploying-example-quarkus-application-on-openshift.adoc[leveloffset=+2]
-
-include::modules/guides/proc-creating-movies-topic-in-kafka-instance.adoc[leveloffset=+2]
-
-include::modules/guides/proc-binding-quarkus-application-to-kafka-and-registry-instances-using-cli.adoc[leveloffset=+2]
 
 

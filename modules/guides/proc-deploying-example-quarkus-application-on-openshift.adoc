@@ -1,4 +1,4 @@
-[id='proc-kafka-deploying-example-quarkus-application-on-openshift_{context}']
+[id='proc-deploying-example-quarkus-application-on-openshift_{context}']
 = Deploying an example Quarkus application on OpenShift
 :imagesdir: ../_images
 
@@ -7,7 +7,7 @@ In this step of the tutorial, you deploy an example Quarkus application in the O
 
 The Quarkus application generates random numbers between 0 and 100 and produces those numbers to a Kafka topic. Another part of the application consumes the numbers from the Kafka topic. Finally, the application uses __server-sent events__ to expose the numbers as a REST UI. A web page in the application displays the exposed numbers.
 
-The example Quarkus application uses link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[service binding extensions^] for Kafka and the Service Binding Operator. This means that the application automatically detects and uses the injected connection parameters. This eliminates the need for manual configuration of the application.
+The example Quarkus application uses the `quarkus-kubernetes-service-binding` link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[extension^], which means that the application automatically detects and uses the injected connection parameters. This eliminates the need for manual configuration of the application.
 
 .Prerequisites
 * You have privileges to deploy applications in the OpenShift project that you connected your Kafka instance to.
@@ -24,7 +24,7 @@ The example Quarkus application uses link:https://quarkus.io/guides/deploying-to
 $ oc project my-project
 ----
 
-. To deploy the Quarkus application, apply an example application template provided by {org-name}.
+. To deploy the Quarkus application, apply an example application template provided by {product}.
 +
 .Deploying an example Quarkus application
 [source,options="nowrap"]

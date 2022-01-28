@@ -6,7 +6,7 @@
 In the previous step of this tutorial, you deployed an example application on OpenShift. The application is a Quarkus application that uses a Kafka topic called `prices` to produce and consume messages. In this step, you create the `prices` topic in your Kafka instance.
 
 .Prerequisites
-* You've deployed the example Quarkus application. See link:{base-url}{service-binding-url}#proc-kafka-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
+* You've deployed the example Quarkus application. See link:{base-url}{service-binding-url}#proc-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
 * You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}^].
 
 .Procedure

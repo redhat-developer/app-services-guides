@@ -11,7 +11,7 @@ The example Node.js application uses the `kube-service-bindings` link:https://ww
 * You understand how the Service Binding Operator injects connection parameters as files into a client application pod. See link:{base-url}{service-binding-url}#con-about-service-binding_{context}[About service binding].
 * The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
 * The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}[Connecting a Kafka or {registry} instance to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
 * You've deployed the example Node.js application. See link:{base-url}{service-binding-url}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
 * You've created the topic required by the Node.js application. See link:{base-url}{service-binding-url}#proc-creating-countries-topic-in-kafka-instance_{context}[Creating the countries topic in your Kafka instance].
 
@@ -61,7 +61,7 @@ When you create the binding connection, the Service Binding Operator injects con
 A sidebar opens with the *Resources* tab displayed. Under *Pods*, you still see a single pod corresponding to the component.
 
 . Next to the name of the pod, click *View logs*.
-+of
++
 You should now see that the producer has connected to the Kafka instance. The producer generates random country names and sends these as messages to the `countries` Kafka topic that you created.
 
 . Open the logs for the pod of the consumer component, in the same way that you did for the producer component.
