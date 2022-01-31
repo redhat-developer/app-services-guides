@@ -2,6 +2,7 @@
 = Connecting client applications to {registry}
 :imagesdir: ../_images
 
+[role="_abstract"]
 To connect your applications or services to a {registry} instance in the web console, you must copy and save the {registry} instance URL, create a service account, and copy and save the generated credentials. You'll use these details later when you configure your application for {registry}.
 
 .Prerequisites
@@ -16,8 +17,19 @@ To connect your applications or services to a {registry} instance in the web con
  * *CNCF Schema Registry API* provides compatibility with the CNCF specification
 
 . In the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
++
+ifdef::qs[]
+The remainder of this task describes how to create a service account and copy the generated credentials.
+If you want to use the credentials of an _existing_ service account, you can skip to the next task.
+endif::[]
+ifndef::qs[]
+The remainder of this section describes how to create a service account and copy the generated credentials.
+If you want to use the credentials of an _existing_ service account, you can skip to the next section.
+endif::[]
+
 
 .  Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
+
 
 . Copy the generated *Client ID* and *Client Secret* to a secure location.
 +
@@ -33,13 +45,18 @@ NOTE: HTTP Basic authentication is also available for tools and libraries that d
 You’ll use the service account information that you saved to configure your applications to connect to your {registry} instances later when you're ready.
 +
 For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance and deserialize Avro messages using {registry}, you'll use this information to set your {registry} URL in the client environment variables.
++
+To review your service account information, reset your credentials, or delete the service account, use the left navigation menu to go to the *Service Accounts* page.
 
 .Verification
 ifdef::qs[]
 * Did you save the {registry} instance URL to a secure location?
 * Did you save the client credentials to a secure location?
+* Did you verify that your service account was successfully created in the *Service Accounts* page?
 endif::[]
 ifndef::qs[]
 . Verify that the {registry} instance URL is saved to a secure location.
 . Verify that the client credentials are saved to a secure location.
+. Verify that your service account was successfully created in the *Service Accounts* page.
 endif::[]
+

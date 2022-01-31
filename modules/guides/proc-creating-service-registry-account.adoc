@@ -3,13 +3,13 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-To connect your applications or services to a Service Registry instance, you must first create a service account with credentials.
+To connect your applications or services to a {registry} instance, you must first create a service account with credentials.
 The credentials are exported to a file on your computer,
-which you can use to authenticate your application with your Service Registry instance.
+which you can use to authenticate your application with your {registry} instance.
 
 .Prerequisites
 
-* You have created a Service Registry instance, and it has a `ready` status.
+* You have created a {registry} instance, and it has a `ready` status.
 
 .Procedure
 
@@ -19,12 +19,21 @@ which you can use to authenticate your application with your Service Registry in
 This example creates a service account and saves the credentials in a JSON file.
 
 .Creating a service account
-[source,shell]
+[source,shell,subs="attributes"]
 ----
 $ rhoas service-account create --short-description="rhoas-service-account" --file-format json
-
+Creating service account
 ✔️ Service account created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
 ✔️ Credentials saved to /home/developer/my-project/credentials.json
+
+You can now set access rules for your current services.
+To grant full access to produce and consume Kafka messages, enter this command:
+
+ $ rhoas kafka acl grant-access --producer --consumer --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f --topic all --group all
+
+To grant read and write access to the currently selected {registry} instance, enter this command:
+
+ $ rhoas service-registry role add --role DEVELOPER --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f
 ----
 
 Your service account credentials are created and saved to a JSON file.
@@ -47,14 +56,14 @@ $ cat credentials.json
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
-        "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+    "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
-You'll use these credentials and the Service Registry URL to connect your applications and services to your Service Registry instance.
+You'll use these credentials and the {registry} URL to connect your applications and services to your {registry} instance.
 
 [NOTE]
 ====
-By connecting your applications to your Service Registry instance, you can retrieve artifacts and use them directly in your service.
+By connecting your applications to your {registry} instance, you can retrieve artifacts and use them directly in your service.
 ====
 --
 
@@ -67,5 +76,7 @@ This example creates a role called `DEVELOPER` for the service account.
 [source,shell]
 ----
 $ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+Creating new role for principal
+Role was successfuly applied
 ----
 --

@@ -25,7 +25,7 @@ endif::[]
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/consumer
-$ mvnw quarkus:dev
+$ mvn quarkus:dev
 ----
 . After the consumer process is running, in a web browser, go to http://localhost:8080/quotes.html[^] and verify that this process is available.
 
@@ -35,7 +35,7 @@ $ mvnw quarkus:dev
 [source]
 ----
 $ cd ~/code-examples/quarkus-service-registry-quickstart/producer
-$ mvnw quarkus:dev
+$ mvn quarkus:dev
 ----
 
 . When both the consumer and producer processes are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
