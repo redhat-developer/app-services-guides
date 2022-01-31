@@ -33,3 +33,4 @@ endif::[]
 ifndef::qs[]
 * Verify that the new `quotes` Kafka topic is listed in the topics table.
 endif::[]
+

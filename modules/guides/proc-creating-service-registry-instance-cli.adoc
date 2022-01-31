@@ -1,9 +1,9 @@
 [id='proc-creating-service-registry-instance-cli_{context}']
-= Creating a Service Registry instance
+= Creating a {registry} instance
 :imagesdir: ../_images
 
 [role="_abstract"]
-A Service Registry instance serves as a central location for storing artifacts.
+A {registry} instance serves as a central location for storing artifacts.
 
 .Prerequisites
 
@@ -11,23 +11,23 @@ A Service Registry instance serves as a central location for storing artifacts.
 
 .Procedure
 
-. Enter the following command to create a Service Registry instance with default values.
+. Enter the following command to create a {registry} instance with default values.
 +
 --
-This example creates a Service Registry instance called `my-registry`.
+This example creates a {registry} instance called `my-registry`.
 
-.Creating a Service Registry instance
-[source,shell]
+.Creating a {registry} instance
+[source,shell,subs="attributes"]
 ----
 $ rhoas service-registry create --name my-registry
-Creating Service Registry instance with name: my-registry
-✔️ Successfully created Service Registry instance
+Creating {registry} instance with name: my-registry
+✔️ Successfully created {registry} instance
 {
   "browserUrl": "https://console.redhat.com/beta/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3",
   "created_at": "2021-09-27T15:35:01Z",
   "href": "/api/serviceregistry_mgmt/v1/registries/63620903-4a29-4ba4-8229-7ab793bf73f3",
   "id": "63620903-4a29-4ba4-8229-7ab793bf73f3",
-  "instance_type": "eval",
+  "instance_type": "standard",
   "kind": "ServiceRegistry",
   "name": "my-registry",
   "owner": "User",
@@ -40,22 +40,22 @@ Creating Service Registry instance with name: my-registry
 ====
 If you do not want to use the default values,
 enter the following command: `rhoas service-registry create`.
-You will be prompted to enter the `Name` for the Service Registry instance.
+You are prompted to enter the `Name` for the {registry} instance.
 ====
 --
 
-. Enter the following command to verify that the Service Registry instance is ready to use.
+. Enter the following command to verify that the {registry} instance is ready to use.
 +
 --
-This command shows that the Service Registry instance is ready to use,
+This command shows that the {registry} instance is ready to use,
 because the `Status` field is `ready`.
 
-.Reviewing details of a Service Registry instance
-[source,shell]
+.Reviewing details of a {registry} instance
+[source,shell,subs="attributes"]
 ----
 $ rhoas status service-registry
 
-  Service Registry
+  {registry}
   -----------------------------------------------------------
   ID:                    63620903-4a29-4ba4-8229-7ab793bf73f3
   Name:                  my-registry
@@ -65,8 +65,8 @@ $ rhoas status service-registry
 
 [NOTE]
 ====
-When you created the Service Registry instance, it was set as the current instance automatically.
-If you have multiple Service Registry instances,
+When you created the {registry} instance, it was set as the current instance automatically.
+If you have multiple {registry} instances,
 you can switch to a different instance by using the `rhoas service-registry use` command.
 ====
 --
