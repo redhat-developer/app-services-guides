@@ -2,10 +2,13 @@ const yaml = require("yaml");
 const path = require("path");
 const jp = require("jsonpath");
 const fs = require("fs-extra");
-const {JSDOM} = require("jsdom");
+const { JSDOM } = require("jsdom");
 const fetch = require('sync-fetch');
 const asciidoctor = require('asciidoctor')();
 const Ajv = require("ajv").default;
+
+const { addReactConverter } = require('@patternfly/transform-adoc');
+addReactConverter(asciidoctor);
 
 const pantheonBaseUrl = process.env.PANTHEON_URL || "https://pantheon.corp.redhat.com/api";
 const attributesFile = process.env.ATTRIBUTES_FILE || "../_artifacts/document-attributes.adoc";
@@ -14,7 +17,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
 
 
   const validateJSON = (instance, schemaPath) => {
-    const ajv =  new Ajv();
+    const ajv = new Ajv();
     const rawSchema = fs.readFileSync(schemaPath, "utf8").toString();
     const schema = JSON.parse(rawSchema);
     const validate = ajv.compile(schema);
@@ -127,7 +130,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
       type = mapping["type"];
       cssSelector = mapping["cssSelector"] || defaultCssSelector;
       pathExpression = mapping["jsonPathExpression"] || defaultPathExpression;
-    } else if (typeof mapping === "string"){
+    } else if (typeof mapping === "string") {
       if (mapping.startsWith("https")) {
         const parts = mapping.match(/https:\/\/.*\/api\/(\w*)\/.*\/([a-z0-9-]*)/);
         if (parts.length !== 3) {
@@ -177,7 +180,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
     flat.push(block);
     if (block.hasBlocks && block.hasBlocks()) {
       block.getBlocks().forEach(block => {
-          flat.push(...flattenBlocks(block));
+        flat.push(...flattenBlocks(block));
       });
     }
     return flat;
@@ -209,7 +212,7 @@ const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
   const titleTag = {
     identify: false,
     tag: '!snippet/title',
-    resolve: (doc, cst) => loadSnippet(cst.strValue, "!snippet/title", undefined,(block) => block.getTitle(), '$.*.title'),
+    resolve: (doc, cst) => loadSnippet(cst.strValue, "!snippet/title", undefined, (block) => block.getTitle(), '$.*.title'),
     stringify: () => ""
   };
 
