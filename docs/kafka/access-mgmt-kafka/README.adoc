@@ -180,7 +180,7 @@ h|Operation
 
 (Any topic)
 |`Allow`
-|`Describe`
+|`Describe`, `Describe configs`
 
 |`All accounts`
 |`Consumer group is *`
@@ -227,10 +227,16 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you previously selected a specific account, you can delete only permission entries that apply to individual accounts. If you previously selected *All accounts*, you can delete only permission entries that apply to all accounts.
 --
-.. Under *Assign Permissions*, set the permissions for the specified account or all accounts for a resource type, such as a topic, and click *Add* to continue adding permissions for other resources as needed.
+.. Under *Assign Permissions*, use the drop-down menu to select the permissions for the specified account or all accounts for a resource type, such as a topic.
 +
 --
-For example, when you create a new service account, you can add the permissions shown in the following table to the Kafka instance that you want the account to access. In this example, the permissions enable applications associated with the service account to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+You can click *Add permission* to add permissions individually, or you can select from the following predefined permission options:
+
+** *Consume from a topic*:
+** *Produce to a topic*:
+** *Manage access*:
+
+For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set the permissions as shown in the following table. In this example, the permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
 
 .Example ACL permissions for a new service account
 [cols="25%,25%,25%,25%"]
@@ -241,20 +247,29 @@ h|Access type
 h|Operation
 
 |`Topic`
+
+(For consuming)
 |`Is` = `*`
 |`Allow`
-|`All`
+|`Read`, `Describe`
 
 |`Consumer group`
+
+(For consuming)
 |`Is` = `*`
 |`Allow`
 |`Read`
 
-|`Transactional ID`
+|`Topic`
+
+(For producing)
 |`Is` = `*`
 |`Allow`
-|`All`
+|`Write`, `Create`, `Describe`
 |===
+
+NOTE: Alternatively, you can individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permission for the consumer group in a single entry. But you must configure these individually without using the predefined permission options.
+
 --
 .. Click *Save* to finish.
 
@@ -267,7 +282,7 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you selected a permission entry that applies to a specific account, you can delete only permission entries that apply to individual accounts. If you selected a permission entry that applies to all accounts, you can delete only permission entries that apply to all accounts.
 --
-.. Under *Assign Permissions*, set the additional permissions for that account or all accounts for a resource type, such as a topic, and click *Add* to continue adding permissions for other resources as needed.
+.. Under *Assign Permissions*, use the drop-down menu to select the permissions for the specified account or all accounts for a resource type, such as a topic. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
 .. Click *Save* to finish.
 
 * To delete existing account permissions in this instance, use the following options:
@@ -313,13 +328,7 @@ h|Operation
 |`Consumer group`
 |`Is` = `*`
 |`Allow`
-|`All`
-
-|`srvc-acct-1a2b3c4d-...`
-|`Transactional ID`
-|`Is` = `*`
-|`Allow`
-|`All`
+|`Read`
 |===
 --
 
@@ -345,12 +354,6 @@ h|Operations
 
 |`All accounts`
 |`Consumer group`
-|`Is` = `*`
-|`Allow`
-|`All`
-
-|`All accounts`
-|`Transactional ID`
 |`Is` = `*`
 |`Allow`
 |`All`
@@ -382,19 +385,13 @@ h|Operations
 |`Is` = `*`
 |`Allow`
 |`All`
-
-|`usr-acct-1a2b3c4d-...`
-|`Transactional ID`
-|`Is` = `*`
-|`Allow`
-|`All`
 |===
 --
 
 Access for a specific producer to write to a topic::
 +
 --
-I want to allow a user account with a producer of a specific `transactional.id` value to produce messages to a specific topic in this Kafka instance.
+I want to allow a user account with a producer that is associated with a specific `transactional.id` value to produce messages to a specific topic in this Kafka instance.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
