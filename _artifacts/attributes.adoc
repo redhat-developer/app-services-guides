@@ -6,7 +6,7 @@
 :product: OpenShift Streams for Apache Kafka
 :product-version: 1
 :rh-openshift-sr:
-:cli-product-long: OpenShift Application Services
+:cli-product-long: {org-name} OpenShift Application Services
 
 :registry-url: https://console.redhat.com/application-services/service-registry/
 :service-url: https://console.redhat.com/application-services/streams/
