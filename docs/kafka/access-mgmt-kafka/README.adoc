@@ -227,16 +227,19 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you previously selected a specific account, you can delete only permission entries that apply to individual accounts. If you previously selected *All accounts*, you can delete only permission entries that apply to all accounts.
 --
-.. Under *Assign Permissions*, use the drop-down menu to select the permissions for the specified account or all accounts for a resource type, such as a topic.
+.. Under *Assign Permissions*, use the drop-down menu to select and define the permissions for the specified account or all accounts for a resource type, such as a topic.
 +
 --
-You can click *Add permission* to add permissions individually, or you can select from the following predefined permission options:
+The following permission options are available:
 
-** *Consume from a topic*:
-** *Produce to a topic*:
-** *Manage access*:
+** *Add permission*: Empty permission entry that you must define manually
+** *Consume from a topic*: Predefined permission entry for consuming from one or more specified topics
+** *Produce to a topic*: Predefined permission entry for producing to one or more specified topics
+** *Manage access*: Predefined permission entry for allowing other user accounts or service accounts to access and alter the permissions in the Kafka instance
 
-For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set the permissions as shown in the following table. In this example, the permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set all resource identifiers and values to `Starts with *`. These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+
+These permission settings result in the following ACL permissions for the new service account:
 
 .Example ACL permissions for a new service account
 [cols="25%,25%,25%,25%"]
@@ -249,26 +252,26 @@ h|Operation
 |`Topic`
 
 (For consuming)
-|`Is` = `*`
+|`Starts with` = `*`
 |`Allow`
 |`Read`, `Describe`
 
 |`Consumer group`
 
 (For consuming)
-|`Is` = `*`
+|`Starts with` = `*`
 |`Allow`
 |`Read`
 
 |`Topic`
 
 (For producing)
-|`Is` = `*`
+|`Starts with` = `*`
 |`Allow`
 |`Write`, `Create`, `Describe`
 |===
 
-NOTE: Alternatively, you can individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permission for the consumer group in a single entry. But you must configure these individually without using the predefined permission options.
+NOTE: Alternatively, you can click *Add permission* to individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permission for the consumer group in a single entry. But you must configure these entries individually without using the predefined permission options.
 
 --
 .. Click *Save* to finish.
@@ -282,7 +285,7 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you selected a permission entry that applies to a specific account, you can delete only permission entries that apply to individual accounts. If you selected a permission entry that applies to all accounts, you can delete only permission entries that apply to all accounts.
 --
-.. Under *Assign Permissions*, use the drop-down menu to select the permissions for the specified account or all accounts for a resource type, such as a topic. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
+.. Under *Assign Permissions*, use the drop-down menu to select and define the permissions for the specified account or all accounts for a resource type, such as a topic. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
 .. Click *Save* to finish.
 
 * To delete existing account permissions in this instance, use the following options:
@@ -302,7 +305,7 @@ IMPORTANT: If you delete a user account or service account, you should also dele
 == Example account access scenarios in {product-kafka}
 
 [role="_abstract"]
-The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-kafka}. Use these examples as a guide for your own ACLs.
+The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-kafka}. Some examples differ from the predefined permissions in {product-kafka} to demonstrate various possible ACL scenarios. Use these examples as a guide for your own ACLs.
 
 Access for a new service account in a Kafka instance::
 +

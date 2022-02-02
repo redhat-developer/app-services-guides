@@ -204,10 +204,12 @@ After you create a service account to connect to a Kafka instance, you must also
 . In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want the service account to access.
 . Click the *Access* tab to view the current ACL for this instance.
 . Click *Manage access*, use the *Account* drop-down menu to select the service account that you previously created, and click *Next*.
-. Under *Assign Permissions*, use the drop-down menus to select the *Consume from a topic* and the *Product to a topic* permission options, and set the permissions as shown in the following table for this service account.
+. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers and values to `Starts with *`.
 +
 --
-These permissions enable applications associated with the service account to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+
+These permission settings result in the following ACL permissions for the new service account:
 
 .Example ACL permissions for a new service account
 [cols="25%,25%,25%,25%"]
@@ -220,26 +222,26 @@ h|Operation
 |`Topic`
 
 (For consuming)
-|`Is` = `*`
+|`Starts with` = `*`
 |`Allow`
 |`Read`, `Describe`
 
 |`Consumer group`
 
 (For consuming)
-|`Is` = `*`
+|`Starts with` = `*`
 |`Allow`
 |`Read`
 
 |`Topic`
 
 (For producing)
-|`Is` = `*`
+|`Starts with` = `*`
 |`Allow`
 |`Write`, `Create`, `Describe`
 |===
 
-NOTE: Alternatively, you can individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permission for the consumer group in a single entry. But you must configure these individually without using the predefined permission options.
+NOTE: Alternatively, you can click *Add permission* to individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permission for the consumer group in a single entry. But you must configure these entries individually without using the predefined permission options.
 
 --
 . After you add these permissions for the service account, click *Save* to finish.
