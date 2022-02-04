@@ -271,7 +271,7 @@ h|Operation
 |`Write`, `Create`, `Describe`
 |===
 
-NOTE: Alternatively, you can click *Add permission* to individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permission for the consumer group in a single entry. But you must configure these entries individually without using the predefined permission options.
+NOTE: Alternatively, you can click *Add permission* to individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permissions for the consumer group in a single entry. But you must configure these entries individually without using the predefined permission options.
 
 --
 .. Click *Save* to finish.
