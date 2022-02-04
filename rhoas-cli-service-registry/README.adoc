@@ -181,7 +181,7 @@ To grant full access to produce and consume Kafka messages, enter this command:
 
 To grant read and write access to the currently selected {registry} instance, enter this command:
 
- $ rhoas service-registry role add --role DEVELOPER --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f
+ $ rhoas service-registry role add --role=manager --service-account=srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f
 ----
 
 Your service account credentials are created and saved to a JSON file.
@@ -217,15 +217,15 @@ By connecting your applications to your {registry} instance, you can retrieve ar
 
 . Create a role for the new service account that can read and write artifacts.
 +
-This example creates a role called `DEVELOPER` for the service account.
+This example creates a role called `manager` for the service account.
 +
 --
 .Creating a role for the service account
 [source,shell]
 ----
-$ rhoas service-registry role add --role DEVELOPER --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+$ rhoas service-registry role add --role=manager --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
 Creating new role for principal
-Role was successfuly applied
+Role was successfully applied
 ----
 --
 
@@ -247,7 +247,7 @@ You can use `rhoas service-registry use` to switch to a specific {registry} inst
 .Selecting a {registry} instance to use
 [source,shell,subs="attributes"]
 ----
-$ rhoas service-registry use --name my-registry
+$ rhoas service-registry use --name=my-registry
 {registry} instance "my-registry" has been set as the current instance.
 ----
 ====
