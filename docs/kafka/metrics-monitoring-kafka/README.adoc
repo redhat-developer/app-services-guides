@@ -66,44 +66,48 @@ As a developer or administrator, you can view metrics in {product-kafka} to visu
 [role="_abstract"]
 {product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
 
+Cluster metrics::
++
+--
+* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Number of incoming bytes for the cluster in the last five minutes. This metric represents all the data that producers are sending to topics in the cluster. The maximum incoming byte rate is 30 MB per second.
+
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes for the cluster in the last five minutes. This metric represents all the data that producers are receiving from topics in the cluster. The maximum outgoing byte rate is 30 MB per second.
+
+* `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of current client connections to the cluster. Kafka clients use persistent connections to interact with brokers in the cluster. For example, a consumer holds a connection to each broker it is receiving data from and a connection to its group coordinator. The maximum number of active connections is 2000.
+
+* `kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum`: Number of client connection creations per second for the cluster. Kafka clients use persistent connections to interact with brokers in the cluster. A constant high number of connection creations might indicate a client issue. The maximum connection creation rate is 100 per second.
+
+* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the cluster. This does not include internal Kafka topics, such as `__consumer_offsets` and `__transaction_state`. The maximum number of topics is 1000.
+
+* `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the cluster. This does not include internal Kafka topics, such as `__consumer_offsets` and `__transaction_state`. The maximum number of partitions is 1000.
+--
+
 Broker metrics::
 +
 --
-* `kafka_broker_quota_softlimitbytes`: Maximum amount of broker storage before producers are throttled
+* `kafka_broker_quota_softlimitbytes`: Maximum amount of storage, in bytes, for this broker before producers are throttled. When this limit is reached, the broker starts throttling producers to prevent them from sending additional data. The maximum storage in the broker is 1000 GiB.
 
-* `kafka_broker_quota_totalstorageusedbytes`: Total storage used by the broker
+* `kafka_broker_quota_totalstorageusedbytes`: Amount of storage, in bytes, that is currently used by partitions in the broker. The storage usage depends on the number and retention configurations of the partitions. This metric must stay below the `kafka_broker_quota_softlimitbytes` metric setting.
 
-* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions for each broker in the instance
+* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions in the cluster. Only the broker that is the current controller in the cluster reports this metric. Any other brokers report `0`. This count includes partitions from internal Kafka topics, such as `__consumer_offsets` and `__transaction_state`. The maximum number of partitions is 1000.
 
-* `kafka_controller_kafkacontroller_offline_partitions_count`: Number of partitions without an active leader and that are therefore not writable or readable
+* `kafka_controller_kafkacontroller_offline_partitions_count`: Number of partitions in the cluster that are currently offline. Offline partitions cannot be used by clients for producing or consuming data. Only the broker that is the current controller in the cluster reports this metric. Any other brokers report `0`.
 
-* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Incoming byte rate for the instance in the last five minutes
+* `kubelet_volume_stats_available_bytes`: Amount of disk space, in bytes, that is available in the broker.
 
-* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Outgoing byte rate for the instance in the last five minutes
-
-* `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of client connections to the instance
-
-* `kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum`: Number of attempted client connections per second for the instance
-
-* `kubelet_volume_stats_available_bytes`: Available disk space in the instance
-
-* `kubelet_volume_stats_used_bytes`: Used disk space in the instance
+* `kubelet_volume_stats_used_bytes`: Amount of disk space, in bytes, that is currently used in the broker.
 --
 
 Topic metrics::
 +
 --
-* `kafka_server_brokertopicmetrics_bytes_in_total`: Number of incoming bytes to topics in the instance
+* `kafka_server_brokertopicmetrics_bytes_in_total`: Number of incoming bytes to topics in the instance.
 
-* `kafka_server_brokertopicmetrics_bytes_out_total`: Number of outgoing bytes from topics in the instance
+* `kafka_server_brokertopicmetrics_bytes_out_total`: Number of outgoing bytes from topics in the instance.
 
-* `kafka_server_brokertopicmetrics_messages_in_total`: Number of messages per second received by one or more topics in the instance
+* `kafka_server_brokertopicmetrics_messages_in_total`: Number of messages per second received by one or more topics in the instance.
 
-* `kafka_topic:kafka_log_log_size:sum`: Log size of each topic in the instance
-
-* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the instance
-
-* `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the instance
+* `kafka_topic:kafka_log_log_size:sum`: Log size of each topic and replica, in bytes, across all brokers in the cluster.
 --
 
 [id="proc-viewing-metrics_{context}"]
