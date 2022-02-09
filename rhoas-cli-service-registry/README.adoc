@@ -97,6 +97,10 @@ This example creates a {registry} instance called `my-registry`.
 ----
 $ rhoas service-registry create --name my-registry
 Creating {registry} instance with name: my-registry
+----
+
+.Example output
+----
 ✔️ Successfully created {registry} instance
 {
   "browserUrl": "https://console.redhat.com/beta/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3",
@@ -120,23 +124,27 @@ You are prompted to enter the `Name` for the {registry} instance.
 ====
 --
 
-. Enter the following command to verify that the {registry} instance is ready to use.
+. Verify that the {registry} instance is ready to use.
 +
 --
 This command shows that the {registry} instance is ready to use,
 because the `Status` field is `ready`.
 
 .Reviewing details of a {registry} instance
-[source,shell,subs="attributes"]
+[source,shell]
 ----
 $ rhoas status service-registry
+----
 
-  {registry}
-  -----------------------------------------------------------
-  ID:                    63620903-4a29-4ba4-8229-7ab793bf73f3
-  Name:                  my-registry
-  Status:                ready
-  Registry URL:          https://service-registry-service-registry-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/t/63620903-4a29-4ba4-8229-7ab793bf73f3
+.Example output
+[subs="attributes"]
+----
+{registry}
+-----------------------------------------------------------
+ID:                    63620903-4a29-4ba4-8229-7ab793bf73f3
+Name:                  my-registry
+Status:                ready
+Registry URL:          https://service-registry-service-registry-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/t/63620903-4a29-4ba4-8229-7ab793bf73f3
 ----
 
 [NOTE]
@@ -161,15 +169,20 @@ which you can use to authenticate your application with your {registry} instance
 
 .Procedure
 
-. Enter the following command to create a service account.
+. Create a service account.
 +
 --
 This example creates a service account and saves the credentials in a JSON file.
 
 .Creating a service account
-[source,shell,subs="attributes"]
+[source,shell]
 ----
 $ rhoas service-account create --short-description="rhoas-service-account" --file-format json
+----
+
+.Example output
+[subs="attributes"]
+----
 Creating service account
 ✔️ Service account created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
 ✔️ Credentials saved to /home/developer/my-project/credentials.json
@@ -201,12 +214,17 @@ view the `credentials.json` file that you created.
 [source,shell]
 ----
 $ cat credentials.json
+----
+
+.Example output
+----
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
     "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
+
 You'll use these credentials and the {registry} URL to connect your applications and services to your {registry} instance.
 
 [NOTE]
@@ -224,6 +242,10 @@ This example creates a role called `manager` for the service account.
 [source,shell]
 ----
 $ rhoas service-registry role add --role=manager --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+----
+
+.Example output
+----
 Creating new role for principal
 Role was successfully applied
 ----
@@ -243,13 +265,6 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 [NOTE]
 ====
 You can use `rhoas service-registry use` to switch to a specific {registry} instance.
-
-.Selecting a {registry} instance to use
-[source,shell,subs="attributes"]
-----
-$ rhoas service-registry use --name=my-registry
-{registry} instance "my-registry" has been set as the current instance.
-----
 ====
 
 .Procedure
@@ -257,26 +272,27 @@ $ rhoas service-registry use --name=my-registry
 . Upload a {registry} artifact.
 +
 --
-This example uploads a {registry} artifact called `my-artifact` to the {registry} instance.
+This example uploads {registry} artifact content called `my-artifact` to the {registry} instance.
 The artifact is an Apache Kafka Avro schema in JSON format.
 
-.Uploading an artifact
+.Uploading artifact content
 [source,shell]
 ----
 $ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
---2021-09-27 16:17:18--  https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 732 [text/plain]
-Saving to: ‘avro-userInfo.json’
+----
+--
 
-avro-userInfo.json  100%[==================>]     732  --.-KB/s    in 0.001s
-
-2021-09-27 16:17:18 (746 KB/s) - ‘avro-userInfo.json’ saved [732/732]
-
-
+. Create the {registry} artifact from the Avro schema that you uploaded.
++
+--
+.Creating an artifact
+[source, shell]
+----
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
+----
+
+.Example output
+----
 Using default artifacts group.
 Opening file: avro-userInfo.json
 Artifact created
@@ -308,6 +324,10 @@ This example lists all artifacts belonging to the {registry} instance.
 [source,shell]
 ----
 $ rhoas service-registry artifact list
+----
+
+.Example output
+----
 Using default artifacts group.
 
   ID            NAME      CREATED ON                 CREATED BY   TYPE   STATE
@@ -323,6 +343,10 @@ Using default artifacts group.
 [source,shell]
 ----
 $ rhoas service-registry artifact versions --artifact-id=my-artifact
+----
+
+.Example output
+----
 {
   "count": 1,
   "versions": [
@@ -344,6 +368,10 @@ $ rhoas service-registry artifact versions --artifact-id=my-artifact
 [source,shell]
 ----
 $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+----
+
+.Example output
+----
 Using default artifacts group.
 Fetching artifact metadata
 ✔️ Successfully fetched artifact metadata
@@ -449,9 +477,9 @@ $ rhoas service-registry artifact update --artifact-id=my-artifact my-artifact.j
 If you want to update the artifact from standard input,
 enter the following command:
 
-`$ rhoas service-registry artifact update --artifact-id=my_artifact`
+`rhoas service-registry artifact update --artifact-id=my_artifact`
 
-Paste the updated artifact content on the command line, and then press Ctrl+D to save.
+Paste the updated artifact content on the command line, and then press kbd:[Ctrl+D] to save.
 ====
 --
 
@@ -462,6 +490,10 @@ Paste the updated artifact content on the command line, and then press Ctrl+D to
 [source,shell]
 ----
 $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
+----
+
+.Example output
+----
 Using default artifacts group.
 Fetching artifact metadata
 ✔️ Successfully fetched artifact metadata
