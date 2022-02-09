@@ -98,25 +98,17 @@ The `rhoas` CLI is installed in `$HOME/.local/bin`.
 
 . Verify that the `rhoas` installation directory is on your `$PATH`.
 +
---
-To check your `$PATH`, run the following command:
-
 [source,shell]
 ----
 $ echo $PATH
 ----
---
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [discrete,id="rpm-installation_{context}"]
 ==== RPM installation
@@ -140,14 +132,10 @@ $ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/relea
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [discrete,id="installing-rhoas-cli-macos_{context}"]
 === Installing the rhoas CLI on macOS
@@ -169,25 +157,17 @@ The `rhoas` CLI is installed in `$HOME/bin`.
 
 . Verify that the `rhoas` installation directory is on your `$PATH`.
 +
---
-To check your `$PATH`, run the following command:
-
 [source,shell]
 ----
 $ echo $PATH
 ----
---
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [discrete,id="installing-rhoas-cli-windows_{context}"]
 === Installing the rhoas CLI on Windows
@@ -218,14 +198,10 @@ $ rhoas --version
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [id="proc-configuring-rhoas_{context}"]
 == Configuring rhoas
@@ -347,11 +323,10 @@ You are redirected to your web browser at https://sso.redhat.com[^].
 --
 Welcome pages in the browser notify you that you have been logged in to `rhoas` successfully.
 
-In your terminal, the `rhoas login` command indicates that you are logged in:
+In your terminal, the `rhoas login` command indicates that you are logged in.
 
-[source,shell]
+.Example output
 ----
-$ rhoas login
 Logging in...
 ✔️ Logged in successfully
 
@@ -372,7 +347,6 @@ You can log out from the `rhoas` CLI by using the `rhoas logout` command.
 [source,shell]
 -----
 $ rhoas logout
-Successfully logged out
 -----
 
 [role="_additional-resources"]

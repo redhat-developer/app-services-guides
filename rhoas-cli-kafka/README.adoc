@@ -86,15 +86,18 @@ A Kafka instance includes a Kafka cluster, bootstrap server, and other required 
 
 .Procedure
 
-. Enter the following command to create a Kafka instance with default values.
+. Create a Kafka instance with default values.
 +
 --
 This example creates a Kafka instance called `my-kafka`.
 
-.Creating a Kafka instance
 [source,shell]
 ----
 $ rhoas kafka create --name my-kafka
+----
+
+.Example output
+----
 {
   "cloud_provider": "aws",
   "created_at": "2021-03-17T18:33:50.000799005Z",
@@ -122,21 +125,24 @@ You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` f
 . Enter the following command to verify that the Kafka instance is ready to use.
 +
 --
-This command shows that the Kafka instance is ready to use,
-because the `Status` field is `ready`.
-
-.Reviewing details of a Kafka instance
 [source,shell]
 ----
 $ rhoas status kafka
-
-  Kafka
-  -----------------------------------------------------------------------------------
-  ID:                     1ptdfZRHmLKwqW6A3YKM2MawgDh
-  Name:                   my-kafka
-  Status:                 ready
-  Bootstrap URL:          my-kafka--ptdfzrhmlkwqw-a-ykm-mawgdh.kafka.devshift.org:443
 ----
+
+.Example output
+----
+
+Kafka
+-----------------------------------------------------------------------------------
+ID:                     1ptdfZRHmLKwqW6A3YKM2MawgDh
+Name:                   my-kafka
+Status:                 ready
+Bootstrap URL:          my-kafka--ptdfzrhmlkwqw-a-ykm-mawgdh.kafka.devshift.org:443
+----
+
+The command shows that the Kafka instance is ready to use,
+because the `Status` field is `ready`.
 
 [NOTE]
 ====
@@ -150,7 +156,8 @@ you can switch to a different instance by using the `rhoas kafka use` command.
 == Creating a service account
 
 [role="_abstract"]
-To connect your applications or services to a Kafka instance, you must first create a service account with credentials.
+To connect your applications or services to a Kafka instance,
+you must first create a service account with credentials.
 The credentials are exported to a file on your computer,
 which you can use to authenticate your application with your Kafka instance.
 
@@ -160,16 +167,18 @@ which you can use to authenticate your application with your Kafka instance.
 
 .Procedure
 
-. Enter the following command to create a service account.
+. Create a service account.
 +
 --
 This example creates a service account and saves the credentials in a JSON file.
 
-.Creating a service account
 [source,shell]
 ----
 $ rhoas service-account create --file-format json --short-description="rhoas-service-account"
+----
 
+.Example output
+----
 ✔️ Service account created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
 ✔️ Credentials saved to /home/developer/my-project/credentials.json
 ----
@@ -187,18 +196,21 @@ For more information, see the `rhoas service-account create` command help.
 view the `credentials.json` file that you created.
 +
 --
-.Verifying service account credentials
 [source,shell]
 ----
 $ cat credentials.json
+----
+
+.Example output
+----
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
         "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
-You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
 
+You'll use these credentials and the bootstrap server URL to connect your applications and services to your Kafka instance.
 --
 
 . Set the permissions for your service account to access the Kafka instance resources.
@@ -206,12 +218,14 @@ You'll use these credentials and the bootstrap server URL to connect your applic
 This example allows applications to produce and consume messages from topics starting with a specified prefix that belong to any consumer group.
 +
 --
-.Assigning access permissions to a service account
 [source,shell]
 ----
 $ rhoas kafka acl grant-access --consumer --producer \
     --service-account srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1 --topic-prefix myapp  --group all
+----
 
+.Example output
+----
 The following ACL rules are to be created:
 
   PRINCIPAL (7)                                   PERMISSION   OPERATION   DESCRIPTION
@@ -243,13 +257,6 @@ After creating a Kafka instance, you can create Kafka topics to start producing 
 [NOTE]
 ====
 You can use `rhoas kafka use` to switch to a specific Kafka instance.
-
-.Selecting a Kafka instance to use
-[source,shell]
-----
-$ rhoas kafka use --name my-kafka
-Kafka instance "my-kafka" has been set as the current instance.
-----
 ====
 
 .Procedure
@@ -259,10 +266,13 @@ Kafka instance "my-kafka" has been set as the current instance.
 --
 This example creates the `my-topic` Kafka topic.
 
-.Creating a Kafka topic with default values
 [source,shell]
 ----
 $ rhoas kafka topic create --name my-topic
+----
+
+.Example output
+----
 Topic "my-topic" created in Kafka instance "my-kafka":
 {
     "config": [
