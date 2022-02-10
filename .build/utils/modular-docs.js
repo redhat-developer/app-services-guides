@@ -4,14 +4,44 @@ const rimraf = require('rimraf');
 const glob = require('glob');
 const {ignoreFilesGlobs, injectAttributes} = require('./common');
 const {execSync} = require('child_process');
+const yaml = require("yaml");
 
 const tmpDirName = "tmp";
+
+getAndValidateMappingsFile = (dir) => {
+    if(!process.env.DOCS_PRODUCT_NAME) {
+        throw new Error(`Missing DOCS_PRODUCT_NAME environment variable`);
+    }
+
+    serviceMappingsLocation = path.join(dir, "product-mapping.yaml");
+    console.info("Reading service mappings from " + serviceMappingsLocation);
+    if(!fs.existsSync(serviceMappingsLocation)){
+        throw new Error(`"product-mapping.yaml" file not found in ${dir}`);
+    }
+    serviceMappingsFileContent = fs.readFileSync(serviceMappingsLocation, 'utf8').toString()
+    mappingsJson = yaml.parse(serviceMappingsFileContent);
+
+    mappings = mappingsJson.products[process.env.DOCS_PRODUCT_NAME];
+    if(mappings === undefined) {
+        throw new Error(`No mappings found for ${process.env.DOCS_PRODUCT_NAME}`);
+    }
+
+    if(mappings.directories === undefined || mappings.directories.length === 0) {
+        throw new Error(`No directories found for ${process.env.DOCS_PRODUCT_NAME}`);
+    }
+
+    // TODO validate directories
+
+    return {glob: mappings.directories.join(","), mappings: mappings}
+}
 
 /**
  * Converts the guides to the modular-docs format https://github.com/redhat-documentation/modular-docs
  * @param dir the dir to convert
  */
 function generateSplitterInput(dir) {
+    fs.readFileSync(dir, 'utf8').toString()
+
     // Create a clean working area
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/pre-splitter/guides`);
     console.log(`Generating from ${dir} into ${destDir}`)
@@ -56,11 +86,10 @@ function generateSplitterInput(dir) {
 }
 
 const split = (dir) => {
-    const jarDir = path.normalize(`${__dirname}/../tmp/binaries/splitter`);
-    const jarName = `asciidoc-splitter-jar-with-dependencies.jar`;
+    const jarLocation = path.normalize(`${__dirname}/../binaries/asciidoc-splitter.jar`);
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
-    const splitterCommandBase = `java -cp ${jarDir}/* io.github.lightguard.documentation.asciidoc.cli.ExtractionRunner`;
+    const splitterCommandBase = `java -jar ${jarLocation}`;
     const cmd = `${splitterCommandBase} -s ${dir} -o ${destDir} --pantheonV2`;
     execSync(cmd,
         {
@@ -68,5 +97,5 @@ const split = (dir) => {
         });
 }
 
-const srcDir = generateSplitterInput(path.normalize(`${__dirname}/../../`));
-split(srcDir);
+module.exports = {  getAndValidateMappingsFile, generateSplitterInput, split };
+
