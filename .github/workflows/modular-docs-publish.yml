@@ -37,8 +37,6 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6
-      - name: Install splitter
-        run:  npm --prefix .build run fetch:splitter
 
       - name: Install Node Dependencies 
         run: npm --prefix .build install
