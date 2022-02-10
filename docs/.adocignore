@@ -1,3 +1,4 @@
 # Ignores for attribute generation
-# No files ignored for now
-#README.adoc
+
+**/document-attributes.adoc
+ 
