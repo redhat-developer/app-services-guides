@@ -1,6 +1,6 @@
 # This workflow will generate any code then check for any git diff
 
-name: Modular docs generation
+name: Modular-docs tests
 
 on:
   pull_request:
