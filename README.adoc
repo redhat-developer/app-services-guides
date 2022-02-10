@@ -1,22 +1,26 @@
 :product: App Services
 
+
+
 = {product} Guides and samples
 
 == Guides
 
-* link:./getting-started[Getting started with {product}]
+* link:./docs/kafka/getting-started[Getting started with {product}]
 * link:./rhoas-cli[Installing and configuring the `rhoas` CLI]
-* link:./rhoas-cli-kafka[Getting started with the `rhoas` CLI for OpenShift Streams for Apache Kafka]
-* link:./rhoas-cli-service-registry[Getting started with the `rhoas` CLI for OpenShift Service Registry]
-* link:./quarkus[Using Quarkus applications with Kafka instances in {product}]
-* link:./kafkacat[Using Kafkacat with Kafka instances in {product}]
-* link:./kafka-bin-scripts[Using Kafka bin scripts with {product}]
-* link:./service-discovery[Binding OpenShift applications to {product}]
-* link:./getting-started-service-registry/[Getting started with Service Registry]
+* link:./docs/service-discovery[Binding OpenShift applications to {product}]
 
-== OpenShift quick starts
+== OpenShift Streams For Apache Kafka Guides
 
-* link:https://github.com/redhat-developer/app-services-operator/tree/main/olm/quickstarts[OpenShift quick starts]
+* link:./docs/kafka/rhoas-cli-kafka[Getting started with the `rhoas` CLI for OpenShift Streams for Apache Kafka]
+* link:./docs/kafka/quarkus[Using Quarkus applications with Kafka instances in {product}]
+* link:./docs/kafka/kafkacat[Using Kafkacat with Kafka instances in {product}]
+* link:./docs/kafka/kafka-bin-scripts[Using Kafka bin scripts with {product}]
+
+== OpenShift Service Registry Guides
+
+* link:./docs/registry/rhoas-cli-service-registry[Getting started with the `rhoas` CLI for OpenShift Service Registry]
+* link:./docs/registry/getting-started-service-registry/[Getting started with Service Registry]
 
 == Application examples used in guides
 
