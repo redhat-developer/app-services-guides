@@ -35,7 +35,7 @@ jobs:
       with:
         ruby-version: 2.6
 
-    - run:  npm --prefix .build fetch:splitter
+    - run:  npm --prefix .build run fetch:splitter
       name: Install splitter
 
     - run: npm --prefix .build install
