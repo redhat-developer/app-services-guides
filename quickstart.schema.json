@@ -1,0 +1,595 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://github.com/redhat-developer/app-services-guides/quickstart.schema.json",
+  "type": "object",
+  "title": "A quick start",
+  "examples": [
+    {
+      "apiVersion": "console.openshift.io/v1",
+      "kind": "QuickStarts",
+      "metadata": {
+        "name": "quarkus-kafka",
+        "draft": "true",
+        "order": 1
+      },
+      "spec": {
+        "version": 0.1,
+        "type": {
+          "text": "Quick start",
+          "color": "green"
+        },
+        "displayName": "!snippet/title README.adoc#using-with",
+        "durationMinutes": 15,
+        "icon": "",
+        "description": "!snippet README.adoc#description",
+        "prerequisites": [
+          "Requirement 1",
+          "Requirement 2",
+          "Requirement 2"
+        ],
+        "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "tasks": [
+          "!snippet/proc README.adoc#task-1",
+          {
+            "proc": "!snippet/proc README.adoc#task-2",
+            "title": "foo"
+          }
+        ],
+        "conclusion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "nextQuickStart": [
+          ""
+        ]
+      }
+    },
+    {
+      "apiVersion": "console.openshift.io/v1",
+      "kind": "QuickStarts",
+      "metadata": {
+        "name": "explore-pipelines"
+      },
+      "spec": {
+        "version": 4.7,
+        "type": {
+          "text": "Quick start",
+          "color": "green"
+        },
+        "displayName": "Installing the Pipelines Operator",
+        "durationMinutes": 10,
+        "icon": "",
+        "description": "Install the OpenShift® Pipelines Operator to build Pipelines using Tekton.",
+        "prerequisites": [
+          ""
+        ],
+        "introduction": "OpenShift® Pipelines is a cloud-native, continuous integration and continuous delivery (CI/CD) solution based on Kubernetes resources. It uses Tekton building blocks to automate deployments across multiple Kubernetes distributions by abstracting away the underlying implementation details.\n* OpenShift Pipelines is a serverless CI/CD system that runs pipelines with all the required dependencies in isolated containers.\n* They are designed for decentralized teams that work on a microservice-based architecture.\n* They are defined using standard Custom Resource Definitions making them extensible and easy to integrate with the existing Kubernetes tools. This enables you to scale on-demand.\n* You can use OpenShift Pipelines to build images with Kubernetes tools such as Source-to-Image (S2I), Buildah, Buildpacks, and Kaniko that are portable across any Kubernetes platform.\n* You can use the Developer perspective to create and manage pipelines and view logs in your namespaces.\n\nTo start using Pipelines, install the OpenShift® Pipelines Operator on your cluster.",
+        "tasks": [
+          {
+            "title": "Installing the OpenShift Pipelines Operator",
+            "description": "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. ",
+            "review": {
+              "instructions": "#### To verify that the OpenShift Pipelines Operator is installed:\n1. From the **Operators** section of the navigation, go to the **Installed Operators** page.\n2. Verify that the **OpenShift Pipelines Operator** appears in the list of Operators.\n\nIn the status column, is the status of the OpenShift Pipelines Operator **Succeeded**?",
+              "failedTaskHelp": "This task isn’t verified yet. Try the task again, or [read more](https://docs.openshift.com/container-platform/4.6/pipelines/installing-pipelines.html#op-installing-pipelines-operator-in-web-console_installing-pipelines) about this topic."
+            },
+            "summary": {
+              "success": "You have installed the Pipelines Operator!",
+              "failed": "Try the steps again."
+            }
+          }
+        ],
+        "conclusion": "You successfully installed the OpenShift Pipelines Operator! If you want to learn how to deploy an application and associate a Pipeline with it, take the Creating a Pipeline quick start.",
+        "nextQuickStart": [
+          "install-app-and-associate-pipeline"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "$id": "#/properties/apiVersion",
+      "type": "string",
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "examples": [
+        "console.openshift.io/v1"
+      ]
+    },
+    "kind": {
+      "$id": "#/properties/kind",
+      "type": "string",
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "examples": [
+        "QuickStarts"
+      ]
+    },
+    "metadata": {
+      "$id": "#/properties/metadata",
+      "type": "object",
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "examples": [
+        {
+          "name": "explore-pipelines",
+          "draft": "true",
+          "order": 1
+        }
+      ],
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/metadata/properties/name",
+          "type": "string",
+          "description": "Name must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+          "examples": [
+            "explore-pipelines"
+          ]
+        },
+        "annotations": {
+          "$id": "#/properties/metadata/properties/annotations",
+          "type": "object",
+          "examples": [
+            {
+              "annotations": {
+                "draft": true,
+                "order": 1
+              }
+            }
+          ],
+          "properties": {
+            "draft": {
+              "$id": "#/properties/metadata/properties/annotations/properties/draft",
+              "type": "boolean",
+              "description": "True if the quick start is still in draft. This will cause it not to display in some UIs",
+              "examples": [
+                {
+                  "draft": true
+                }
+              ]
+            },
+            "order": {
+              "$id": "#/properties/metadata/properties/annotations/properties/order",
+              "type": "number",
+              "description": "The sort order ranking",
+              "examples": [
+                {
+                  "order": 1
+                }
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "spec": {
+      "$id": "#/properties/spec",
+      "type": "object",
+      "description": "Specification of the quick start",
+      "examples": [
+        {
+          "version": 4.7,
+          "type": {
+            "text": "Quick start",
+            "color": "green"
+          },
+          "displayName": "Installing the Pipelines Operator",
+          "durationMinutes": 10,
+          "icon": "",
+          "description": "Install the OpenShift® Pipelines Operator to build Pipelines using Tekton.",
+          "prerequisites": [
+            ""
+          ],
+          "introduction": "OpenShift® Pipelines is a cloud-native, continuous integration and continuous delivery (CI/CD) solution based on Kubernetes resources. It uses Tekton building blocks to automate deployments across multiple Kubernetes distributions by abstracting away the underlying implementation details.\n* OpenShift Pipelines is a serverless CI/CD system that runs pipelines with all the required dependencies in isolated containers.\n* They are designed for decentralized teams that work on a microservice-based architecture.\n* They are defined using standard Custom Resource Definitions making them extensible and easy to integrate with the existing Kubernetes tools. This enables you to scale on-demand.\n* You can use OpenShift Pipelines to build images with Kubernetes tools such as Source-to-Image (S2I), Buildah, Buildpacks, and Kaniko that are portable across any Kubernetes platform.\n* You can use the Developer perspective to create and manage pipelines and view logs in your namespaces.\n\nTo start using Pipelines, install the OpenShift® Pipelines Operator on your cluster.",
+          "tasks": [
+            {
+              "title": "Installing the OpenShift Pipelines Operator",
+              "description": "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. ",
+              "review": {
+                "instructions": "#### To verify that the OpenShift Pipelines Operator is installed:\n1. From the **Operators** section of the navigation, go to the **Installed Operators** page.\n2. Verify that the **OpenShift Pipelines Operator** appears in the list of Operators.\n\nIn the status column, is the status of the OpenShift Pipelines Operator **Succeeded**?",
+                "failedTaskHelp": "This task isn’t verified yet. Try the task again, or [read more](https://docs.openshift.com/container-platform/4.6/pipelines/installing-pipelines.html#op-installing-pipelines-operator-in-web-console_installing-pipelines) about this topic."
+              },
+              "summary": {
+                "success": "You have installed the Pipelines Operator!",
+                "failed": "Try the steps again."
+              }
+            }
+          ],
+          "conclusion": "You successfully installed the OpenShift Pipelines Operator! If you want to learn how to deploy an application and associate a Pipeline with it, take the Creating a Pipeline quick start.",
+          "nextQuickStart": [
+            "install-app-and-associate-pipeline"
+          ]
+        },
+        {
+          "version": 0.1,
+          "type": {
+            "text": "Quick start",
+            "color": "green"
+          },
+          "displayName": "!snippet/title README.adoc#using-with",
+          "durationMinutes": 15,
+          "icon": "",
+          "description": "!snippet README.adoc#description",
+          "prerequisites": [
+            "Requirement 1",
+            "Requirement 2",
+            "Requirement 2"
+          ],
+          "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "tasks": [
+            "!snippet/proc README.adoc#task-1",
+            {
+              "proc": "!snippet/proc README.adoc#task-2",
+              "title": "foo"
+            }
+          ],
+          "conclusion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "nextQuickStart": [
+            ""
+          ]
+        }
+      ],
+      "required": [
+        "version",
+        "type",
+        "displayName",
+        "icon",
+        "description"
+      ],
+      "properties": {
+        "version": {
+          "$id": "#/properties/spec/properties/version",
+          "type": "number",
+          "description": "The version of the quick start",
+          "default": 0.0,
+          "examples": [
+            4.7
+          ]
+        },
+        "type": {
+          "$id": "#/properties/spec/properties/type",
+          "type": "object",
+          "description": "The content type of the quick start (Quick start / Documentation)",
+          "examples": [
+            {
+              "text": "Quick start",
+              "color": "green"
+            },
+            {
+              "text": "Documentation",
+              "color": "orange"
+            }
+          ],
+          "required": [
+            "text"
+          ],
+          "properties": {
+            "text": {
+              "$id": "#/properties/spec/properties/type/properties/text",
+              "type": "string",
+              "description": "The label text",
+              "examples": [
+                "Quick start",
+                "Documentation"
+              ]
+            },
+            "color": {
+              "$id": "#/properties/spec/properties/type/properties/color",
+              "type": "string",
+              "description": "The label color",
+              "enum": [
+                "green",
+                "orange",
+                "blue",
+                "cyan",
+                "purple",
+                "red",
+                "grey"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "link": {
+          "$id": "#/properties/spec/properties/link",
+          "type": "object",
+          "description": "External documentation link",
+          "examples": [
+            {
+              "href": "https://github.com/cloudmosaic/quickstarts",
+              "text": "Quick starts repo"
+            },
+            {
+              "href": "https://www.patternfly.org",
+              "text": "PatternFly"
+            }
+          ],
+          "required": [
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "$id": "#/properties/spec/properties/link/properties/href",
+              "type": "string",
+              "description": "The URL to the external resource",
+              "examples": [
+                "https://www.patternfly.org"
+              ]
+            },
+            "text": {
+              "$id": "#/properties/spec/properties/link/properties/text",
+              "type": "string",
+              "description": "The link text to display",
+              "examples": [
+                "PatternFly"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "displayName": {
+          "$id": "#/properties/spec/properties/displayName",
+          "type": "string",
+          "description": "Used both in the catalog and as the heading for the quick start drawer",
+          "examples": [
+            "Installing the Pipelines Operator",
+            "!snippet/title README.adoc#using-with-quarkus"
+          ]
+        },
+        "durationMinutes": {
+          "$id": "#/properties/spec/properties/durationMinutes",
+          "type": "integer",
+          "description": "How long the quick start should take to complete",
+          "default": 0,
+          "examples": [
+            10
+          ]
+        },
+        "icon": {
+          "$id": "#/properties/spec/properties/icon",
+          "type": "string",
+          "title": "The icon schema",
+          "description": "The URL of an icon to use",
+          "examples": [
+            ""
+          ]
+        },
+        "description": {
+          "$id": "#/properties/spec/properties/description",
+          "type": "string",
+          "description": "Rendered in the quick start catalog below the display name",
+          "examples": [
+            "Install the OpenShift® Pipelines Operator to build Pipelines using Tekton.",
+            "!snippet README.adoc#description"
+          ]
+        },
+        "prerequisites": {
+          "$id": "#/properties/spec/properties/prerequisites",
+          "type": "array",
+          "description": "Rendered in the quick start catalog",
+          "default": [],
+          "examples": [
+            [
+              "Requirement 1",
+              "Requirement 2"
+            ]
+          ],
+          "items": {
+            "$id": "#/properties/spec/properties/prerequisites/items",
+            "anyOf": [
+              {
+                "$id": "#/properties/spec/properties/prerequisites/items/anyOf/0",
+                "type": "string",
+                "description": "Rendered in the quick start catalog",
+                "examples": [
+                  "Requirement 1",
+                  "Requirement 2"
+                ]
+              }
+            ]
+          }
+        },
+        "introduction": {
+          "$id": "#/properties/spec/properties/introduction",
+          "type": "string",
+          "description": "Used as the content for the first page of the quick start",
+          "examples": [
+            "OpenShift® Pipelines is a cloud-native, continuous integration and continuous delivery (CI/CD) solution based on Kubernetes resources. It uses Tekton building blocks to automate deployments across multiple Kubernetes distributions by abstracting away the underlying implementation details.\n* OpenShift Pipelines is a serverless CI/CD system that runs pipelines with all the required dependencies in isolated containers.\n* They are designed for decentralized teams that work on a microservice-based architecture.\n* They are defined using standard Custom Resource Definitions making them extensible and easy to integrate with the existing Kubernetes tools. This enables you to scale on-demand.\n* You can use OpenShift Pipelines to build images with Kubernetes tools such as Source-to-Image (S2I), Buildah, Buildpacks, and Kaniko that are portable across any Kubernetes platform.\n* You can use the Developer perspective to create and manage pipelines and view logs in your namespaces.\n\nTo start using Pipelines, install the OpenShift® Pipelines Operator on your cluster."
+          ]
+        },
+        "tasks": {
+          "$id": "#/properties/spec/properties/tasks",
+          "type": "array",
+          "title": "The tasks schema",
+          "description": "The stages of the QuickStart",
+          "default": [],
+          "examples": [
+            [
+              "!snippet/proc README.adoc#task-1",
+              {
+                "proc": "!snippet/proc README.adoc#task-2",
+                "title": "foo"
+              }
+            ],
+            [
+              {
+                "title": "Installing the OpenShift Pipelines Operator",
+                "description": "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. ",
+                "review": {
+                  "instructions": "#### To verify that the OpenShift Pipelines Operator is installed:\n1. From the **Operators** section of the navigation, go to the **Installed Operators** page.\n2. Verify that the **OpenShift Pipelines Operator** appears in the list of Operators.\n\nIn the status column, is the status of the OpenShift Pipelines Operator **Succeeded**?",
+                  "failedTaskHelp": "This task isn’t verified yet. Try the task again, or [read more](https://docs.openshift.com/container-platform/4.6/pipelines/installing-pipelines.html#op-installing-pipelines-operator-in-web-console_installing-pipelines) about this topic."
+                },
+                "summary": {
+                  "success": "You have installed the Pipelines Operator!",
+                  "failed": "Try the steps again."
+                }
+              }
+            ]
+          ],
+          "items": {
+            "$id": "#/properties/spec/properties/tasks/items",
+            "anyOf": [
+              {
+                "$id": "#/properties/spec/properties/tasks/items/anyOf/0",
+                "type": "string",
+                "description": "The custom !snippet/proc <file path>#<id> tag",
+                "examples": [
+                  "!snippet/proc README.adoc#task-1"
+                ]
+              },
+              {
+                "$id": "#/properties/spec/properties/tasks/items/anyOf/1",
+                "type": "object",
+                "description": "A full description of the quick start",
+                "examples": [
+                  {
+                    "title": "Installing the OpenShift Pipelines Operator",
+                    "description": "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. ",
+                    "review": {
+                      "instructions": "#### To verify that the OpenShift Pipelines Operator is installed:\n1. From the **Operators** section of the navigation, go to the **Installed Operators** page.\n2. Verify that the **OpenShift Pipelines Operator** appears in the list of Operators.\n\nIn the status column, is the status of the OpenShift Pipelines Operator **Succeeded**?",
+                      "failedTaskHelp": "This task isn’t verified yet. Try the task again, or [read more](https://docs.openshift.com/container-platform/4.6/pipelines/installing-pipelines.html#op-installing-pipelines-operator-in-web-console_installing-pipelines) about this topic."
+                    },
+                    "summary": {
+                      "success": "You have installed the Pipelines Operator!",
+                      "failed": "Try the steps again."
+                    }
+                  }
+                ],
+                "properties": {
+                  "proc": {
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2",
+                    "type": "string",
+                    "description": "The custom !snippet/proc <file path>#<id> tag",
+                    "examples": [
+                      "!snippet/proc README.adoc#task-1"
+                    ]
+                  },
+                  "title": {
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/title",
+                    "type": "string",
+                    "description": "The title of the quick start",
+                    "examples": [
+                      "Installing the OpenShift Pipelines Operator"
+                    ]
+                  },
+                  "description": {
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/description",
+                    "type": "string",
+                    "description": "The body of the quick start",
+                    "default": "",
+                    "examples": [
+                      "### To install the OpenShift Pipelines Operator:\n\n1. From the **Administrator** perspective in the console navigation panel, click **Operators > OperatorHub**.\n2. In the **Filter by keyword** field, type `OpenShift Pipelines Operator`.\n3. If the tile has an Installed label, the Operator is already installed. Proceed to the next quick start to create a Pipeline.\n4. Click the **tile** to open the Operator details.\n5. At the top of the OpenShift Pipelines Operator panel that opens, click **Install**.\n6. Fill out the Operator subscription form by selecting the channel that matches your OpenShift cluster, and then click **Install**.\n7. On the **Installed Operators** page, wait for the OpenShift Pipelines Operator's status to change from **Installing** to **Succeeded**. "
+                    ]
+                  },
+                  "review": {
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review",
+                    "type": "object",
+                    "description": "The messages used review the quick start",
+                    "default": {},
+                    "examples": [
+                      {
+                        "instructions": "#### To verify that the OpenShift Pipelines Operator is installed:\n1. From the **Operators** section of the navigation, go to the **Installed Operators** page.\n2. Verify that the **OpenShift Pipelines Operator** appears in the list of Operators.\n\nIn the status column, is the status of the OpenShift Pipelines Operator **Succeeded**?",
+                        "failedTaskHelp": "This task isn’t verified yet. Try the task again, or [read more](https://docs.openshift.com/container-platform/4.6/pipelines/installing-pipelines.html#op-installing-pipelines-operator-in-web-console_installing-pipelines) about this topic."
+                      }
+                    ],
+                    "properties": {
+                      "instructions": {
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review/properties/instructions",
+                        "type": "string",
+                        "description": "The verification steps",
+                        "examples": [
+                          "#### To verify that the OpenShift Pipelines Operator is installed:\n1. From the **Operators** section of the navigation, go to the **Installed Operators** page.\n2. Verify that the **OpenShift Pipelines Operator** appears in the list of Operators.\n\nIn the status column, is the status of the OpenShift Pipelines Operator **Succeeded**?"
+                        ]
+                      },
+                      "failedTaskHelp": {
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/2/properties/review/properties/failedTaskHelp",
+                        "type": "string",
+                        "description": "The message to show if verification fails",
+                        "examples": [
+                          "This task isn’t verified yet. Try the task again, or [read more](https://docs.openshift.com/container-platform/4.6/pipelines/installing-pipelines.html#op-installing-pipelines-operator-in-web-console_installing-pipelines) about this topic."
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "summary": {
+                    "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary",
+                    "type": "object",
+                    "description": "The summary screen for the quick start task",
+                    "default": {},
+                    "examples": [
+                      {
+                        "success": "You have installed the Pipelines Operator!",
+                        "failed": "Try the steps again."
+                      }
+                    ],
+                    "properties": {
+                      "success": {
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary/properties/success",
+                        "type": "string",
+                        "description": "The success message for the summary screen",
+                        "examples": [
+                          "You have installed the Pipelines Operator!"
+                        ]
+                      },
+                      "failed": {
+                        "$id": "#/properties/spec/properties/tasks/items/anyOf/3/properties/summary/properties/failed",
+                        "type": "string",
+                        "description": "The failure message for the summary screen",
+                        "default": "",
+                        "examples": [
+                          "Try the steps again."
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "conclusion": {
+          "$id": "#/properties/spec/properties/conclusion",
+          "type": "string",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "Used for the content of the final page of the quick start.",
+          "examples": [
+            "You successfully installed the OpenShift Pipelines Operator! If you want to learn how to deploy an application and associate a Pipeline with it, take the Creating a Pipeline quick start."
+          ]
+        },
+        "nextQuickStart": {
+          "$id": "#/properties/spec/properties/nextQuickStart",
+          "type": "array",
+          "description": "Rendered at the end of the quick start to provide the user with next steps. The value of each list member should be the _identifier_ of another quick start in this repository.",
+          "default": [],
+          "examples": [
+            [
+              "install-app-and-associate-pipeline"
+            ]
+          ],
+          "items": {
+            "$id": "#/properties/spec/properties/nextQuickStart/items",
+            "anyOf": [
+              {
+                "$id": "#/properties/spec/properties/nextQuickStart/items/anyOf/0",
+                "type": "string",
+                "description": "Rendered at the end of the quick start to provide the user with next steps. The value of each list member should be the _identifier_ of another quick start in this repository.",
+                "examples": [
+                  "install-app-and-associate-pipeline"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
