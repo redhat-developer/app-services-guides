@@ -92,7 +92,7 @@ Anything between the start of the start block and the end of the end block will 
 
 A check exists in the continuous integration job that validates that generation is up to date. If generation is not up to date then continuous integration will fail.
 
-The file `.adocignore` contains a list of globs which will be ignored by the attribute injector.
+The file `.adocignore` contains a list of globs which will be ignored by the attribute injector
 
 == Creating a quick start
 
