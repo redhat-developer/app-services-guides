@@ -1,3 +1,4 @@
 # Ignores for attribute generation
 
+./**/document-attributes.adoc
  

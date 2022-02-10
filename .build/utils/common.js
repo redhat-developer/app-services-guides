@@ -29,7 +29,7 @@ const injectAttributesIntoFileTree = (rootDir, rawAttributes) => {
 
     const ignoreFiles = [];
 
-    const ignoreFilesGlobs = fs.readFileSync(path.normalize(`${rootDir}/.adocignore`), "utf-8").toString();
+    const ignoreFilesGlobs = fs.readFileSync(path.normalize(`${rootDir}/docs/.adocignore`), "utf-8").toString();
 
     ignoreFilesGlobs
         .split("\n")
