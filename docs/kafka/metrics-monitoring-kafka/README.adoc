@@ -95,7 +95,7 @@ Broker metrics::
 
 * `kubelet_volume_stats_available_bytes`: Amount of disk space, in bytes, that is available in the broker.
 
-* `kubelet_volume_stats_used_bytes`: Amount of disk space, in bytes, that is currently used in the broker.
+* `kubelet_volume_stats_used_bytes`: Amount of disk space, in bytes, that is currently used in the broker. This metric is similar to the `kafka_broker_quota_totalstorageusedbytes` broker metric.
 --
 
 Topic metrics::
