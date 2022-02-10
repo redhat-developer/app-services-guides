@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const {injectAttributesIntoFileTree} = require("./common");
 
-const attributesFileName = path.join("_artifacts", "document-attributes.adoc");
+const attributesFileName = path.join("_artifacts", "docs", "document-attributes.adoc");
 
 const processAttributes = () => {
     const rootDir = path.normalize(`${__dirname}/../../`);
