@@ -69,9 +69,9 @@ As a developer or administrator, you can view metrics in {product-kafka} to visu
 Cluster metrics::
 +
 --
-* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Number of incoming bytes for the cluster in the last five minutes. This metric represents all the data that producers are sending to topics in the cluster. The maximum incoming byte rate is 30 MB per second.
+* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Number of incoming bytes per second for the cluster in the last five minutes. This metric represents all the data that producers are sending to topics in the cluster. The maximum incoming byte rate is 30 MB per second.
 
-* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes for the cluster in the last five minutes. This metric represents all the data that producers are receiving from topics in the cluster. The maximum outgoing byte rate is 30 MB per second.
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes per second for the cluster in the last five minutes. This metric represents all the data that producers are receiving from topics in the cluster. The maximum outgoing byte rate is 30 MB per second.
 
 * `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of current client connections to the cluster. Kafka clients use persistent connections to interact with brokers in the cluster. For example, a consumer holds a connection to each broker it is receiving data from and a connection to its group coordinator. The maximum number of active connections is 2000.
 
@@ -79,7 +79,7 @@ Cluster metrics::
 
 * `kafka_topic:kafka_topic_partitions:count`: Number of topics in the cluster. This does not include internal Kafka topics, such as `__consumer_offsets` and `__transaction_state`. The maximum number of topics is 1000.
 
-* `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the cluster. This does not include internal Kafka topics, such as `__consumer_offsets` and `__transaction_state`. The maximum number of partitions is 1000.
+* `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the cluster. This does not include partitions from internal Kafka topics, such as `__consumer_offsets` and `__transaction_state`. The maximum number of partitions is 1000.
 --
 
 Broker metrics::
