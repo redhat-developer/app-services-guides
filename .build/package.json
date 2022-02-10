@@ -66,7 +66,7 @@
     "build:generated-assemblies": "asciidoctor --failure-level=WARN  --template-dir=templates --destination-dir=tmp/generated/assemblies tmp/post-splitter/assemblies/assembly-*.adoc",
     "build:generated-modules": "asciidoctor --failure-level=WARN --trace --template-dir=templates --destination-dir=tmp/generated/modules tmp/post-splitter/modules/*/*.adoc",
     "generate:attributes": "node ./utils/attributes.js",
-    "generate:modular-docs-sources": "node ./utils/modular-docs.js",
+    "generate:modular-docs-sources": "node ./utils/run-modular-docs.js",
     "generate:modular-docs-output": "rimraf tmp/generated && mkdirp tmp/generated/assemblies tmp/generated/modules && npm-run-all build:generated-modules build:generated-assemblies",
     "pregenerate:modular-docs": "npm-run-all --parallel fetch:*",
     "generate:modular-docs": "npm-run-all generate:modular-docs-sources generate:modular-docs-output",

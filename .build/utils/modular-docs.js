@@ -80,7 +80,8 @@ function generateSplitterInput(dir) {
     console.info(`Converting ${readmes.join(", ")} to modular docs`);
 
     readmes.forEach(p => {
-        const id = path.dirname(p);
+        const id = path.dirname(p).replace(/\//g, '-');
+        console.info("id", id)
         const destFilename = `chap-${id}.adoc`;
         const srcFilePath = path.join(dir, p);
         const srcImagesDir = path.join(dir, id, "images");
