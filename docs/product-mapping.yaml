@@ -1,9 +1,21 @@
+## File used in modular documentation generator to 
+## split documentation into different proudcts
+## Each product should have dedicated directory along with the other common documentation folders
 products:
   RHOSAK:
+    ## List of the directories that will be searched for adoc files
+    ## You can also list each template separately
+    ## For example kafka/access-mgmt etc.
     directories:
-      - /kafka
-      - /rhoas-cli
+      - kafka
+      - rhoas-cli
+      - service-binding
   RHOSR:
     directories:
-      - /registry
-      - /rhoas-cli
+      - registry
+      - rhoas-cli
+      - service-binding
+  ## Adding early to support connectors
+  RHOC:
+    directories:
+      - rhoas-cli
