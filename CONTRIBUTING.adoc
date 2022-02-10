@@ -324,6 +324,13 @@ NOTE: If you check in out of date attributes the build will fail
 . Having create the PR, automated tests will run. If they fail, use the error log to determine the problem, and fix it
 . Once your build is passing ask for review from a Subject Matter Expert (who will check for accuracy), a writer (who will check that the content is up to expected quality for substance, formatting, style, structure and consistency), and a developer who will ensure the steps covered by the quick start are the end to end test suite.
 
+== Adding new product to repository
+
+. Go to ./docs/product-mapping.yaml file and add new product to the list of products.
+. Under directories please provide all directories with quickstarts that should be included in the product.
+. Go to .github/workflows/modular-docs-publish.yaml file and add new product values under "matrix.include" section
+This will push proper modular documentation to the modular-docs-"product_name" branch on release
+
 == Releases
 
 Guides are released by creating tag in format vx.x.x - where x is number representing semver version. 
@@ -338,4 +345,3 @@ link: https://github.com/redhat-developer/app-services-guides/releases/new
 . Select Create to create release
 
 NOTE: CICD process will automatically synchronize changes with downstream on release
-

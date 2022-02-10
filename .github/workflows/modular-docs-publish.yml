@@ -19,8 +19,8 @@ jobs:
               branch: modular-docs-rhosak
             - product: RHOSR
               branch: modular-docs-rhosr
-            - product: RHOC
-              branch: modular-docs-rhoc
+            # - product: RHOC
+            #   branch: modular-docs-rhoc
     steps:
       - uses: actions/checkout@v2
         name: Checkout Source

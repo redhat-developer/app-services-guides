@@ -16,7 +16,7 @@ jobs:
         include:
             - product: RHOSAK
             - product: RHOSR
-            - product: RHOC
+            #- product: RHOC
 
     steps:
     - uses: actions/checkout@v2
