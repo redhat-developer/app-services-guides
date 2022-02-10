@@ -3,7 +3,7 @@ const path = require('path');
 const glob = require("glob");
 
 const ignoreFilesGlobs = () => {
-    const ignoreFilesGlobs = fs.readFileSync(path.normalize(`${__dirname}/../../.adocignore`), "utf-8").toString();
+    const ignoreFilesGlobs = fs.readFileSync(path.normalize(`${__dirname}/../../docs/.adocignore`), "utf-8").toString();
     return ignoreFilesGlobs.split("\n").filter(line => !line.startsWith("#")).filter(line => line !== "")
 };
 

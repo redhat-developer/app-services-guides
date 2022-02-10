@@ -19,3 +19,4 @@ products:
   RHOC:
     directories:
       - rhoas-cli
+      - service-binding

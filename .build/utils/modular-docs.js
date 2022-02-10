@@ -8,6 +8,7 @@ const yaml = require("yaml");
 
 const tmpDirName = "tmp";
 
+// Generate the glob for the modular-docs search to include only the guides for specific product
 getAndValidateMappingsFile = (dir) => {
     if(!process.env.DOCS_PRODUCT_NAME) {
         throw new Error(`Missing DOCS_PRODUCT_NAME environment variable`);
@@ -21,6 +22,19 @@ getAndValidateMappingsFile = (dir) => {
     serviceMappingsFileContent = fs.readFileSync(serviceMappingsLocation, 'utf8').toString()
     mappingsJson = yaml.parse(serviceMappingsFileContent);
 
+    // Validate if every path is valid
+    for(productName in mappingsJson.products){
+        directories = mappingsJson.products[productName].directories;
+        if(directories){
+            directories.forEach(function(directory){
+                if(!fs.existsSync(path.join(dir, directory))) {
+                    throw new Error(`"${directory}" not found in ${dir}`);
+                }
+            });
+        }        
+    }
+  
+
     mappings = mappingsJson.products[process.env.DOCS_PRODUCT_NAME];
     if(mappings === undefined) {
         throw new Error(`No mappings found for ${process.env.DOCS_PRODUCT_NAME}`);
@@ -29,10 +43,24 @@ getAndValidateMappingsFile = (dir) => {
     if(mappings.directories === undefined || mappings.directories.length === 0) {
         throw new Error(`No directories found for ${process.env.DOCS_PRODUCT_NAME}`);
     }
+    var glob =  "("+mappings.directories.join("|") + ")"
+    return { glob, mappings}
+}
 
-    // TODO validate directories
+// Get all the .adoc files for the product set in the env variable
+var getAllAdocFiles = function (dir) {
+    var pathGlob = getAndValidateMappingsFile(dir).glob;
+     // ignores
+     const ignore = ignoreFilesGlobs();
+     console.info(`Ignoring files ${ignore.join(", ")}`)
+     console.info()
 
-    return {glob: mappings.directories.join(","), mappings: mappings}
+     const readmes = glob.sync(`@${pathGlob}/**/@(readme|README).a?(scii)doc`, {
+         cwd: dir,
+         ignore
+     });
+
+     return readmes
 }
 
 /**
@@ -40,22 +68,17 @@ getAndValidateMappingsFile = (dir) => {
  * @param dir the dir to convert
  */
 function generateSplitterInput(dir) {
-    fs.readFileSync(dir, 'utf8').toString()
-
     // Create a clean working area
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/pre-splitter/guides`);
     console.log(`Generating from ${dir} into ${destDir}`)
     rimraf.sync(destDir);
     fs.mkdirpSync(destDir);
+    
     const imageRefRegex = /(?<macro>image::)(?<path>[^\[]*)(?<attributesArray>\[[^\]]*])/gm;
-    // ignores
-    const ignore = ignoreFilesGlobs();
-    console.log(`Ignoring ${ignore.join(", ")}`)
-    const readmes = glob.sync(`**/@(readme|README).a?(scii)doc`, {
-        cwd: dir,
-        ignore
-    });
-    console.log(`Converting ${readmes.join(", ")} to modular docs`);
+   
+    var readmes = getAllAdocFiles(dir)
+    console.info(`Converting ${readmes.join(", ")} to modular docs`);
+
     readmes.forEach(p => {
         const id = path.dirname(p);
         const destFilename = `chap-${id}.adoc`;
@@ -97,5 +120,5 @@ const split = (dir) => {
         });
 }
 
-module.exports = {  getAndValidateMappingsFile, generateSplitterInput, split };
+module.exports = { getAllAdocFiles, getAndValidateMappingsFile, generateSplitterInput, split };
 
