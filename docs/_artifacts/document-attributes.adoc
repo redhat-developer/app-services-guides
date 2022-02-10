@@ -28,7 +28,7 @@
 :getting-started-url: getting-started/README.adoc
 :getting-started-service-registry-url: getting-started-service-registry/README.adoc
 :kafka-bin-scripts-url: kafka-bin-scripts/README.adoc
-:kafkacat-url: kafkacat/README.adoc
+:kafkacat-url: kcat/README.adoc
 :quarkus-url: quarkus/README.adoc
 :quarkus-service-registry-url: quarkus-service-registry/README.adoc
 :rhoas-cli-url: rhoas-cli/README.adoc
@@ -37,7 +37,7 @@
 :rhoas-cli-ref-url: commands
 :topic-config-url: topic-configuration/README.adoc
 :consumer-config-url: consumer-configuration/README.adoc
-:service-binding-url: service-discovery/README.adoc
+:service-binding-url: service-binding/README.adoc
 :access-mgmt-url: access-mgmt/README.adoc
 :access-mgmt-service-registry-url: access-mgmt-service-registry/README.adoc
 :metrics-monitoring-url: metrics-monitoring/README.adoc
