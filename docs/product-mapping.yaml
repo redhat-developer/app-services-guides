@@ -1,0 +1,9 @@
+products:
+  RHOSAK:
+    directories:
+      - /kafka
+      - /rhoas-cli
+  RHOSR:
+    directories:
+      - /registry
+      - /rhoas-cli
