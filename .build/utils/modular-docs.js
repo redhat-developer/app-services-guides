@@ -14,10 +14,10 @@ getAndValidateMappingsFile = (dir) => {
         throw new Error(`Missing DOCS_PRODUCT_NAME environment variable`);
     }
 
-    serviceMappingsLocation = path.join(dir, "product-mapping.yaml");
+    serviceMappingsLocation = path.join(dir, ".product-mapping");
     console.info("Reading service mappings from " + serviceMappingsLocation);
     if(!fs.existsSync(serviceMappingsLocation)){
-        throw new Error(`"product-mapping.yaml" file not found in ${dir}`);
+        throw new Error(`".product-mapping" file not found in ${dir}`);
     }
     serviceMappingsFileContent = fs.readFileSync(serviceMappingsLocation, 'utf8').toString()
     mappingsJson = yaml.parse(serviceMappingsFileContent);
@@ -110,7 +110,7 @@ function generateSplitterInput(dir) {
 }
 
 const split = (dir) => {
-    const jarLocation = path.normalize(`${__dirname}/../binaries/asciidoc-splitter.jar`);
+    const jarLocation = path.normalize(`${__dirname}/../tmp/binaries/splitter/asciidoc-splitter-1.5.3-jar-with-dependencies.jar`);
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
     const splitterCommandBase = `java -jar ${jarLocation}`;
