@@ -4,8 +4,64 @@ const rimraf = require('rimraf');
 const glob = require('glob');
 const {ignoreFilesGlobs, injectAttributes} = require('./common');
 const {execSync} = require('child_process');
+const yaml = require("yaml");
 
 const tmpDirName = "tmp";
+
+// Generate the glob for the modular-docs search to include only the guides for specific product
+getAndValidateMappingsFile = (dir) => {
+    if(!process.env.DOCS_PRODUCT_NAME) {
+        throw new Error(`Missing DOCS_PRODUCT_NAME environment variable`);
+    }
+
+    serviceMappingsLocation = path.join(dir, ".product-mapping");
+    console.info("Reading service mappings from " + serviceMappingsLocation);
+    if(!fs.existsSync(serviceMappingsLocation)){
+        throw new Error(`".product-mapping" file not found in ${dir}`);
+    }
+    serviceMappingsFileContent = fs.readFileSync(serviceMappingsLocation, 'utf8').toString()
+    mappingsJson = yaml.parse(serviceMappingsFileContent);
+
+    // Validate if every path is valid
+    for(productName in mappingsJson.products){
+        directories = mappingsJson.products[productName].directories;
+        if(directories){
+            directories.forEach(function(directory){
+                if(!fs.existsSync(path.join(dir, directory))) {
+                    throw new Error(`"${directory}" not found in ${dir}`);
+                }
+            });
+        }        
+    }
+  
+
+    mappings = mappingsJson.products[process.env.DOCS_PRODUCT_NAME];
+    if(mappings === undefined) {
+        throw new Error(`No mappings found for ${process.env.DOCS_PRODUCT_NAME}`);
+    }
+
+    if(mappings.directories === undefined || mappings.directories.length === 0) {
+        throw new Error(`No directories found for ${process.env.DOCS_PRODUCT_NAME}`);
+    }
+    var glob =  "("+mappings.directories.join("|") + ")"
+    return { glob, mappings}
+}
+
+// Get all the .adoc files for the product set in the env variable
+var getAllAdocFiles = function (dir) {
+    var pathGlob = getAndValidateMappingsFile(dir).glob;
+     // ignores
+     const ignore = ignoreFilesGlobs();
+     console.info(`Ignoring files ${ignore.join(", ")}`)
+     console.info()
+
+     const readmes = glob.sync(`@${pathGlob}/**/@(readme|README).a?(scii)doc`, {
+         cwd: dir,
+         ignore
+     });
+
+     return readmes
+}
 
 /**
  * Converts the guides to the modular-docs format https://github.com/redhat-documentation/modular-docs
@@ -17,17 +73,15 @@ function generateSplitterInput(dir) {
     console.log(`Generating from ${dir} into ${destDir}`)
     rimraf.sync(destDir);
     fs.mkdirpSync(destDir);
+    
     const imageRefRegex = /(?<macro>image::)(?<path>[^\[]*)(?<attributesArray>\[[^\]]*])/gm;
-    // ignores
-    const ignore = ignoreFilesGlobs();
-    console.log(`Ignoring ${ignore.join(", ")}`)
-    const readmes = glob.sync(`**/@(readme|README).a?(scii)doc`, {
-        cwd: dir,
-        ignore
-    });
-    console.log(`Converting ${readmes.join(", ")} to modular docs`);
+   
+    var readmes = getAllAdocFiles(dir)
+    console.info(`Converting ${readmes.join(", ")} to modular docs`);
+
     readmes.forEach(p => {
-        const id = path.dirname(p);
+        const id = path.dirname(p).replace(/\//g, '-');
+        console.info("id", id)
         const destFilename = `chap-${id}.adoc`;
         const srcFilePath = path.join(dir, p);
         const srcImagesDir = path.join(dir, id, "images");
@@ -56,11 +110,10 @@ function generateSplitterInput(dir) {
 }
 
 const split = (dir) => {
-    const jarDir = path.normalize(`${__dirname}/../tmp/binaries/splitter`);
-    const jarName = `asciidoc-splitter-jar-with-dependencies.jar`;
+    const jarLocation = path.normalize(`${__dirname}/../tmp/binaries/splitter/asciidoc-splitter-1.5.3-jar-with-dependencies.jar`);
     const destDir = path.normalize(`${__dirname}/../${tmpDirName}/post-splitter`);
     rimraf.sync(destDir);
-    const splitterCommandBase = `java -cp ${jarDir}/* io.github.lightguard.documentation.asciidoc.cli.ExtractionRunner`;
+    const splitterCommandBase = `java -jar ${jarLocation}`;
     const cmd = `${splitterCommandBase} -s ${dir} -o ${destDir} --pantheonV2`;
     execSync(cmd,
         {
@@ -68,5 +121,5 @@ const split = (dir) => {
         });
 }
 
-const srcDir = generateSplitterInput(path.normalize(`${__dirname}/../../`));
-split(srcDir);
+module.exports = { getAllAdocFiles, getAndValidateMappingsFile, generateSplitterInput, split };
+
