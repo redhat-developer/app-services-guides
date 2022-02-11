@@ -1,0 +1,48 @@
+[id='proc-downloading-service-registry-artifacts_{context}']
+= Downloading {registry} artifacts
+:imagesdir: ../_images
+
+[role="_abstract"]
+After you register a {registry} artifact, you can download the artifact to update it.
+
+.Prerequisites
+
+* You have created a {registry} instance with at least one artifact.
+
+.Procedure
+
+Download the artifact in either of the following ways:
+
+* Use the `rhoas service-registry artifact get` command and specify the artifact ID.
+* Use the `rhoas service-registry artifact download` command and specify the global ID.
+
+[NOTE]
+====
+To find the artifact ID, use the `rhoas service-registry artifact list` command.
+
+To find the global ID, see the Kafka message payload.
+====
+
+--
+The following example downloads the `my-artifact` artifact by using its ID.
+
+.Downloading an artifact by using the artifact ID
+[source,shell]
+----
+$ rhoas service-registry artifact get --artifact-id=my-artifact
+----
+
+The following example downloads the `my-artifact` artifact by using its global ID.
+
+.Downloading an artifact by using the global ID
+[source,shell]
+----
+$ rhoas service-registry artifact download --global-id=28
+----
+--
+
+[NOTE]
+====
+You can use additional options, such as `--group` and `--instance-id`, to specify the artifact to download.
+For more information about any of the options, view the command help `rhoas service-registry artifact download -h` and `rhoas service-registry artifact get -h`.
+====

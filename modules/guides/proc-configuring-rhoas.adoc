@@ -1,0 +1,91 @@
+[id='proc-configuring-rhoas_{context}']
+= Configuring rhoas
+:imagesdir: ../_images
+
+[role="_abstract"]
+After you install the `rhoas` CLI,
+you can enable command completion to automatically complete `rhoas` commands or suggest options when you press *Tab*.
+
+NOTE: The procedure for enabling command completion depends on the shell you are using.
+To determine which shell you are using, run the `echo $0` command.
+
+You can enable command completion for each of the following shells:
+
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-bash_installing-rhoas-cli[Bash]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-zsh_installing-rhoas-cli[Zsh]
+* link:{base-url}{rhoas-cli-url}#enabling-command-completion-fish_installing-rhoas-cli[Fish]
+
+.Prerequisites
+
+* You've installed the `rhoas` CLI.
+
+[discrete,id="enabling-command-completion-bash_{context}"]
+== Enabling command completion on Bash
+
+.Procedure
+
+. Create the `rhoas_completions` script file.
++
+[source,shell]
+----
+$ rhoas completion bash > rhoas_completions
+----
+
+. Move the script file to a special Bash completions directory.
++
+--
+.Linux
+[source,shell]
+----
+$ sudo mv rhoas_completions /etc/bash_completion.d/rhoas
+----
+
+.macOS
+[source,shell]
+----
+$ sudo mv rhoas_completions /usr/local/etc/bash_completion.d/rhoas
+----
+--
+
+. Open a new terminal window.
++
+Command completion is enabled.
+
+[discrete,id="enabling-command-completion-zsh_{context}"]
+== Enabling command completion on Zsh
+
+.Procedure
+
+. Install the command completion script.
++
+[source,shell]
+----
+$ rhoas completion zsh > "${fpath[1]}/_rhoas"
+----
+
+. Unless already installed, enable command completions.
++
+[source,shell]
+----
+$ echo "autoload -U compinit; compinit" >> ~/.zshrc
+----
+
+. Open a new terminal window.
++
+Command completion is enabled.
+
+[discrete,id="enabling-command-completion-fish_{context}"]
+== Enabling command completion on Fish
+
+.Procedure
+
+. Install fish completions.
++
+[source,shell]
+----
+$ rhoas completion -s fish > ~/.config/fish/completions/rhoas.fish
+----
+
+. Open a new terminal window.
++
+Command completion is enabled.

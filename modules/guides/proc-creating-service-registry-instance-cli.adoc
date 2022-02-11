@@ -1,0 +1,72 @@
+[id='proc-creating-service-registry-instance-cli_{context}']
+= Creating a {registry} instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+A {registry} instance serves as a central location for storing artifacts.
+
+.Prerequisites
+
+* You are logged in to `rhoas`.
+
+.Procedure
+
+. Enter the following command to create a {registry} instance with default values.
++
+--
+This example creates a {registry} instance called `my-registry`.
+
+.Creating a {registry} instance
+[source,shell,subs="attributes"]
+----
+$ rhoas service-registry create --name my-registry
+Creating {registry} instance with name: my-registry
+✔️ Successfully created {registry} instance
+{
+  "browserUrl": "https://console.redhat.com/beta/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3",
+  "created_at": "2021-09-27T15:35:01Z",
+  "href": "/api/serviceregistry_mgmt/v1/registries/63620903-4a29-4ba4-8229-7ab793bf73f3",
+  "id": "63620903-4a29-4ba4-8229-7ab793bf73f3",
+  "instance_type": "standard",
+  "kind": "ServiceRegistry",
+  "name": "my-registry",
+  "owner": "User",
+  "status": "accepted",
+  "updated_at": "2021-09-27T15:35:01Z"
+}
+----
+
+[NOTE]
+====
+If you do not want to use the default values,
+enter the following command: `rhoas service-registry create`.
+You are prompted to enter the `Name` for the {registry} instance.
+====
+--
+
+. Enter the following command to verify that the {registry} instance is ready to use.
++
+--
+This command shows that the {registry} instance is ready to use,
+because the `Status` field is `ready`.
+
+.Reviewing details of a {registry} instance
+[source,shell,subs="attributes"]
+----
+$ rhoas status service-registry
+
+  {registry}
+  -----------------------------------------------------------
+  ID:                    63620903-4a29-4ba4-8229-7ab793bf73f3
+  Name:                  my-registry
+  Status:                ready
+  Registry URL:          https://service-registry-service-registry-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/t/63620903-4a29-4ba4-8229-7ab793bf73f3
+----
+
+[NOTE]
+====
+When you created the {registry} instance, it was set as the current instance automatically.
+If you have multiple {registry} instances,
+you can switch to a different instance by using the `rhoas service-registry use` command.
+====
+--

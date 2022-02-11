@@ -1,0 +1,15 @@
+[id='proc-commands-managing-registry_{context}']
+= Commands for managing {registry}
+:imagesdir: ../_images
+
+[role="_abstract"]
+For more information about the `rhoas` commands you can use to manage your {registry} instance,
+use the following command help:
+
+* `rhoas service-registry -h` for {registry} instances
+* `rhoas service-account -h` for service accounts
+* `rhoas service-registry artifact -h` for {registry} artifacts
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
