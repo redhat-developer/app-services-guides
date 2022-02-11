@@ -1,0 +1,61 @@
+[id='assembly-getting-started']
+= Getting started with {product-long}
+ifdef::context[:parent-context: {context}]
+:context: getting-started
+:imagesdir: _images
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer of applications and services, you can use {product-long} to create and set up Kafka instances and connect your applications and services to these instances. {product} is a managed cloud service that enables you to add Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
+
+//For more overview information about {product}, see [variablized link to overview here https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/].
+
+.Prerequisites
+ifndef::community[]
+* You have a Red Hat account.
+//* You have a subscription to {product-long}. For more information about signing up, see *<@SME: Where to link?>*.
+endif::[]
+* https://adoptopenjdk.net/[JDK^] 11 or later is installed.
+* For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
+
+// Condition out QS-only content so that it doesn't appear in docs.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
+ifdef::qs[]
+[#description]
+Learn how to create and set up your first Apache Kafka instance in {product-long}.
+
+[#introduction]
+Welcome to the quick start for {product-long}. In this quick start, you'll learn how to create and inspect a Kafka instance, create a service account to connect an application or service to the instance, and create a topic in the instance.
+endif::[]
+
+include::modules/guides/proc-creating-kafka-instance.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-service-account.adoc[leveloffset=+1]
+
+include::modules/guides/proc-setting-service-account-permissions.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
+
+[role="_additional-resources"]
+== Additional resources
+* https://kafka.apache.org/081/documentation.html#configuration[Configuration^] in Kafka
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the `rhoas` CLI for {product-long}_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url}{kafkacat-url}[_Configuring and connecting Kafkacat with {product-long}_^]
+* {base-url}{kafka-bin-scripts-url}[_Configuring and connecting Kafka scripts with {product-long}_^]
+* {base-url}{quarkus-url}[_Using Quarkus applications with Kafka instances in {product-long}_^]
+
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+
+You can use Kafka scripts to check that you can connect with your Kafka instance.
+ifdef::qs[]
+[#conclusion]
+Congratulations! You successfully completed the {product} Getting Started quick start, and are now ready to use the service.
+
+You can use Kafka scripts to check that you can connect with your Kafka instance.
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+

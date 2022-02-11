@@ -1,0 +1,163 @@
+[id='proc-installing-rhoas_{context}']
+= Installing the rhoas CLI
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can install `rhoas` on Linux, macOS, or Windows.
+
+NOTE: The `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^] lists the bug fixes and new features for every `rhoas` release.
+
+[discrete,id="installing-rhoas-cli-linux_{context}"]
+== Installing the rhoas CLI on Linux
+
+If you are using Linux, you can install `rhoas` by either using the installation script, or the RPM.
+The installation script installs the latest version of `rhoas` by default.
+
+[discrete,id="installation-script_{context}"]
+=== Installation script
+
+.Procedure
+
+. Review the https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh[`install.sh` installation script^].
+
+. Run the `install.sh` script:
++
+--
+[source,shell]
+----
+$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash
+----
+
+The `rhoas` CLI is installed in `$HOME/.local/bin`.
+--
+
+. Verify that the `rhoas` installation directory is on your `$PATH`.
++
+--
+To check your `$PATH`, run the following command:
+
+[source,shell]
+----
+$ echo $PATH
+----
+--
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` is installed:
+
+[source,shell]
+----
+$ rhoas --version
+----
+--
+
+[discrete,id="rpm-installation_{context}"]
+=== RPM installation
+
+You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHEL), Fedora, or CentOS.
+
+.Procedure
+
+. Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^] and choose the version that you'd like to download.
+
+. Use `dnf`/`yum` to install the desired version of `rhoas`:
++
+--
+This example installs `rhoas`:
+
+[source,shell,subs="+quotes"]
+----
+$ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/v_<__version-num__>_/rhoas_<__version-num__>_linux_amd64.rpm
+----
+--
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` is installed:
+
+[source,shell]
+----
+$ rhoas --version
+----
+--
+
+[discrete,id="installing-rhoas-cli-macos_{context}"]
+== Installing the rhoas CLI on macOS
+
+.Procedure
+
+. Review the link:https://github.com/redhat-developer/app-services-cli/blob/main/scripts/install.sh[`install.sh` installation script^].
+
+. Run the `install.sh` script:
++
+--
+[source,shell]
+----
+$ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/scripts/install.sh | bash
+----
+
+The `rhoas` CLI is installed in `$HOME/bin`.
+--
+
+. Verify that the `rhoas` installation directory is on your `$PATH`.
++
+--
+To check your `$PATH`, run the following command:
+
+[source,shell]
+----
+$ echo $PATH
+----
+--
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` is installed:
+
+[source,shell]
+----
+$ rhoas --version
+----
+--
+
+[discrete,id="installing-rhoas-cli-windows_{context}"]
+== Installing the rhoas CLI on Windows
+
+.Procedure
+
+. Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^].
+
+. Download the latest `rhoas` .zip file.
+
+. On your computer, create a `C:\rhoas` folder.
+
+. Extract the `rhoas.exe` file from the .zip file that you downloaded.
+
+. Move the `rhoas.exe` file to `C:\rhoas`.
+
+. If you are using Windows 10, set the `PATH` variable.
+
+.. Click *Search* and type `env` or `environment`.
+
+.. Select *Edit environment variables for your account*.
+
+.. In the *Variable* section, select *Path*, and click *Edit*.
+
+.. Click *New*, and enter `C:\rhoas`.
+
+.. Click *OK* to save changes.
+
+. Check the `rhoas` version to verify that the CLI is installed.
++
+--
+This example shows that `rhoas` is installed:
+
+[source,shell]
+----
+$ rhoas --version
+----
+--

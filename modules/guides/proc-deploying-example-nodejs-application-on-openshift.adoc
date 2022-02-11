@@ -1,0 +1,97 @@
+[id='proc-deploying-example-nodejs-application-on-openshift_{context}']
+= Deploying an example Node.js application on OpenShift
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this step of the tutorial, you deploy an example Node.js application in the OpenShift project that you previously connected your Kafka instance to.
+
+To deploy the example application, you use sample code from the Nodeshift Application Starters link:https://github.com/nodeshift-starters/reactive-example[reactive example^] repository in GitHub. In particular, you install the following components of the Node.js application:
+
+- A `producer-backend` component that generates random country names and sends these names to a topic in your Kafka instance.
+- A `consumer-backend` component that consumes the country names from the Kafka topic.
+
+.Prerequisites
+* You have privileges to deploy applications in the OpenShift project that you connected your Kafka instance to.
+
+.Procedure
+
+. Log in to the OpenShift web console with privileges to deploy applications in the project that you previously connected your Kafka instance to.
+
+. Click the perspective switcher in the upper-left corner. Switch to the *Developer* perspective.
++
+The *Topology* page opens.
+
+. Ensure that the current OpenShift project is the one you previously connected your Kafka instance to.
+.. At the top of the *Topology* page, click the *Project* drop-down menu.
+.. Select the project that you previously connected your Kafka instance to.
+
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+
+. On the command line, clone the Nodeshift Application Starters link:https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository from GitHub.
++
+.Cloning the reactive-example repository
+[source]
+----
+$ git clone https://github.com/nodeshift-starters/reactive-example.git
+----
+
+. Navigate to the `reactive-example` directory of the repository that you cloned.
++
+.Navigating to the reactive-example directory
+[source]
+----
+$ cd reactive-example
+----
+
+. Navigate to the directory for the consumer component. Use Node Package Manager (npm) to install the dependencies for this component.
++
+.Installing dependencies for the consumer component
+[source]
+----
+$ cd consumer-backend
+$ npm install
+----
+
+. Build the consumer component and deploy it to your OpenShift project.
++
+.Deploying to OpenShift
+[source]
+----
+$ npm run openshift
+----
+
+. In the OpenShift web console, ensure that you're on the *Topology* page.
++
+You should see an icon for the consumer component that you deployed. The component is a `DeploymentConfig` object and is labelled `DC`. After some time, OpenShift completes the deployment.
+
+. Click the icon for the consumer component.
++
+A sidebar opens with the *Resources* tab displayed. Under *Pods*, you should see a single pod.
+
+. Next to the name of the pod, click *View logs*.
++
+In the logs of the pod for the consumer component, you should see errors indicating that the component can't connect to Kafka. You'll establish this connection later in this tutorial.
+
+. On the command line, in the repository that you cloned, navigate to the directory for the producer component. Use Node Package Manager to install the dependencies for this component.
++
+.Installing dependencies for the producer component
+[source]
+----
+$ cd ..
+$ cd producer-backend
+$ npm install
+----
+
+. Build the producer component and deploy it to your OpenShift project.
++
+.Deploying to OpenShift
+[source]
+----
+$ npm run openshift
+----
++
+On the *Topology* page of the OpenShift web console, you should see an icon for the producer component that you deployed. The producer component is also a `DeploymentConfig` object and labelled `DC`. After some time, OpenShift completes the deployment.
+
+. Open the logs of the pod for the producer component, in the same way that you did for the consumer component.
++
+In the logs, you should see errors indicating that the producer component can't connect to Kafka. You'll also establish this connection later in this tutorial.

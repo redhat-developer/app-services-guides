@@ -1,0 +1,51 @@
+[id='proc-editing-consumer-group-properties_{context}']
+= Reviewing consumer group properties in {product}
+:imagesdir: ../_images
+
+[role="_abstract"]
+Use the {product} web console to select a consumer group and review the consumer properties.
+You can look at the consumer groups associated with a Kafka instance or a specific topic of the instance.
+
+As an alternative to using the {product} web console, you can use the `rhoas` command-line interface (CLI) to return information about a consumer group, as shown in the following example command:
+
+.Example CLI command to return consumer group information
+[source]
+----
+rhoas kafka consumer-group describe [flags]
+----
+
+For a list of consumer group commands that you can use with the CLI, see the {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
+
+If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
+[source,subs="+quotes,+attributes"]
+----
+./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --describe --group my-consumer-group
+----
+
+ifndef::community[]
+NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product} and are therefore not supported by Red Hat.
+endif::[]
+
+.Prerequisites
+* You're logged in to the {product} web console.
+* You've created a Kafka instance with at least one Kafka topic in {product}.
+* Consumer client applications connected to the Kafka instance have a consumer group ID.
+
+.Procedure
+. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer groups that you want to review.
++
+Alternatively, select a consumer group for a specific topic.
++
+--
+.. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topic.
+.. In the *Topics* page, click the name of the topic.
+--
+
+. In the *Consumer groups* page, click the name of the consumer group that you want to review.
++
+Alternatively, select the options icon (three vertical dots) for the relevant consumer group and click *View partition offsets*.
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]

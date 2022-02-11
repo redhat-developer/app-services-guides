@@ -1,0 +1,185 @@
+[id='proc-creating-kafka-topic-cli_{context}']
+= Creating a Kafka topic
+:imagesdir: ../_images
+
+[role="_abstract"]
+After creating a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
+
+.Prerequisites
+
+* You have created a Kafka instance, and it has a `ready` status.
+
+[NOTE]
+====
+You can use `rhoas kafka use` to switch to a specific Kafka instance.
+
+.Selecting a Kafka instance to use
+[source,shell]
+----
+$ rhoas kafka use --name my-kafka
+Kafka instance "my-kafka" has been set as the current instance.
+----
+====
+
+.Procedure
+
+. Create a Kafka topic with default values.
++
+--
+This example creates the `my-topic` Kafka topic.
+
+.Creating a Kafka topic with default values
+[source,shell]
+----
+$ rhoas kafka topic create --name my-topic
+Topic "my-topic" created in Kafka instance "my-kafka":
+{
+    "config": [
+        {
+            "key": "compression.type",
+            "value": "producer"
+        },
+        {
+            "key": "leader.replication.throttled.replicas",
+            "value": ""
+        },
+        {
+            "key": "min.insync.replicas",
+            "value": "2"
+        },
+        {
+            "key": "message.downconversion.enable",
+            "value": "true"
+        },
+        {
+            "key": "segment.jitter.ms",
+            "value": "0"
+        },
+        {
+            "key": "cleanup.policy",
+            "value": "delete"
+        },
+        {
+            "key": "flush.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "follower.replication.throttled.replicas",
+            "value": ""
+        },
+        {
+            "key": "segment.bytes",
+            "value": "1073741824"
+        },
+        {
+            "key": "retention.ms",
+            "value": "604800000"
+        },
+        {
+            "key": "flush.messages",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "message.format.version",
+            "value": "2.7-IV2"
+        },
+        {
+            "key": "max.compaction.lag.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "file.delete.delay.ms",
+            "value": "60000"
+        },
+        {
+            "key": "max.message.bytes",
+            "value": "1048588"
+        },
+        {
+            "key": "min.compaction.lag.ms",
+            "value": "0"
+        },
+        {
+            "key": "message.timestamp.type",
+            "value": "CreateTime"
+        },
+        {
+            "key": "preallocate",
+            "value": "false"
+        },
+        {
+            "key": "index.interval.bytes",
+            "value": "4096"
+        },
+        {
+            "key": "min.cleanable.dirty.ratio",
+            "value": "0.5"
+        },
+        {
+            "key": "unclean.leader.election.enable",
+            "value": "false"
+        },
+        {
+            "key": "retention.bytes",
+            "value": "-1"
+        },
+        {
+            "key": "delete.retention.ms",
+            "value": "86400000"
+        },
+        {
+            "key": "segment.ms",
+            "value": "604800000"
+        },
+        {
+            "key": "message.timestamp.difference.max.ms",
+            "value": "9223372036854775807"
+        },
+        {
+            "key": "segment.index.bytes",
+            "value": "10485760"
+        }
+    ],
+    "name": "my-topic",
+    "partitions": [
+        {
+            "id": 0,
+            "isr": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 0
+                }
+            ],
+            "leader": {
+                "id": 1
+            },
+            "replicas": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 0
+                }
+            ]
+        }
+    ]
+}
+----
+
+[NOTE]
+====
+If you do not want to use the default values,
+you can specify the number of partitions (`--partitions`) and message retention time (`--retention-ms`).
+For more information, use the command help `rhoas kafka topic create -h`.
+====
+--
+
+. If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.

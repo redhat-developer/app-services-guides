@@ -1,0 +1,32 @@
+[id='proc-installing-rhoas-operator_{context}']
+= Installing the RHOAS Operator on OpenShift
+:imagesdir: ../_images
+
+[role="_abstract"]
+Before you can bind Kafka instances in {product-long} to applications on OpenShift, you need to install the Red Hat OpenShift Application Services (RHOAS) Operator on your OpenShift cluster. The following procedure shows how to use the OperatorHub interface in the OpenShift web console to install the RHOAS Operator.
+
+.Prerequisites
+* You can access your OpenShift cluster with the `dedicated-admin` role (OpenShift Dedicated) or `cluster-admin` role. Only these roles have privileges to install an Operator on a cluster.
+
+.Procedure
+. Log in to the OpenShift web console with the `dedicated-admin` role (OpenShift Dedicated) or `cluster-admin` role.
+. Click the perspective switcher in the upper-left corner. Switch to the *Administrator* perspective.
+. In the left menu, click *Operators* > *OperatorHub*.
+. In the *Filter by keyword* field, enter `RHOAS`.
+. In the filtered results, select the *OpenShift Application Services (RHOAS)* Operator.
+. If you see a dialog box entitled *Show community Operator*, review the included information. When you've finished, click *Continue*.
++
+An information sidebar for the RHOAS Operator opens.
+
+. In the sidebar, review the information about the RHOAS Operator and click *Install*.
+. On the *Install Operator* page, perform the following actions:
+.. For the *Installation mode* option, ensure that `All namespaces on the cluster` is selected.
+.. For the *Update channel*, *Installed Namespace*, and *Update approval* options, keep the default values.
+.. Click *Install*.
+. When the installation process is finished, click *View Operator* to see the Operator details.
++
+The *Operator details* page for the RHOAS Operator opens in the *Installed Operators* section of the web console.
++
+On the **Operator details** page, the **Status** field shows a value of `Succeeded`.
++
+Also, you can observe that the RHOAS Operator is installed in the `openshift-operators` namespace.

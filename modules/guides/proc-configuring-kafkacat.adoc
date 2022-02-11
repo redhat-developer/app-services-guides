@@ -1,0 +1,34 @@
+[id='proc-configuring-kafkacat_{context}']
+= Configuring Kafkacat to connect to a Kafka instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+To enable Kafkacat to access a Kafka instance, configure the connection using the bootstrap server endpoint for the instance and the generated credentials for your {product} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. The example in this task sets environment variables and then passes them to the `kafkcat` command.
+
+For more information about Kafkacat configuration options, see https://github.com/edenhill/kafkacat#configuration[Configuration^] in the Kafkacat documentation.
+
+NOTE: Kafkacat does not yet fully support SASL/OAUTHBEARER authentication, so connecting to a Kafka instance requires only the bootstrap server and the service account credentials for SASL/PLAIN authentication.
+
+.Prerequisites
+ifndef::qs[]
+* You have the bootstrap server endpoint for your Kafka instance. To relocate the server endpoint, select your Kafka instance in the {product} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the generated credentials for your service account. To regenerate the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product} web console and use the *Access* page to find your service account permission settings.
+endif::[]
+
+.Procedure
+* On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
++
+--
+ifdef::qs[]
+The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product} by selecting the options menu (three vertical dots) and clicking *Connection*.
+endif::[]
+
+.Setting environment variables for server and credentials
+[source,subs="+quotes"]
+----
+$ export BOOTSTRAP_SERVER=__<bootstrap_server>__
+$ export USER=__<client_id>__
+$ export PASSWORD=__<client_secret>__
+----
+--

@@ -1,0 +1,22 @@
+[id='proc-logging-out-rhoas_{context}']
+= Logging out of rhoas
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can log out from the `rhoas` CLI by using the `rhoas logout` command.
+
+.Procedure
+
+* Log out of `rhoas`.
++
+[source,shell]
+-----
+$ rhoas logout
+Successfully logged out
+-----
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
+* {base-url}{rhoas-cli-service-registry-url}[_Getting started with the rhoas CLI for OpenShift Service Registry_^]
+* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
