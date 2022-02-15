@@ -1,0 +1,20 @@
+[id='managing-content-in-service-registry-java-client']
+= Managing schemas and APIs using the {registry} Java client
+:context: java-client
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/getting-started 
+:rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:registry-product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.0.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+
+[role="_abstract"]
+Manage schema and API artifacts stored in the {registry-product-long} cloud service using the {registry} Java client classes in your client application.  
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-client.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-writing-registry-client.adoc[leveloffset=+1]
+include::{reuse-modules}/ref-registry-client.adoc[leveloffset=+1]

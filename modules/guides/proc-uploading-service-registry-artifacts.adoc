@@ -17,7 +17,7 @@ You can use `rhoas service-registry use` to switch to a specific {registry} inst
 .Selecting a {registry} instance to use
 [source,shell,subs="attributes"]
 ----
-$ rhoas service-registry use --name=my-registry
+$ rhoas service-registry use --name my-registry
 {registry} instance "my-registry" has been set as the current instance.
 ----
 ====

@@ -1,0 +1,17 @@
+server: https://pantheon.corp.redhat.com
+repository: rhosr-documentation
+variants:
+   - name: global-attributes
+     path: _artifacts/attributes.adoc
+     canonical: true
+assemblies:
+  - assemblies/*.adoc
+  - assemblies/**/*.adoc
+modules:
+  - modules/*.adoc
+  - modules/**/*.adoc
+  - upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/**/*.adoc
+resources:
+  - _images/**/*.png
+  - _images/**/*.svg
+  - _attachments/*.htm

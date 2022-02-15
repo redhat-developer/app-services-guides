@@ -14,7 +14,7 @@ After you create a {registry} instance, you can upload schema or API content to 
 +
 [.screencapture]
 .Guided steps to define artifact details
-image::upload-schema.png[Image of form to upload a schema]
+image::getting-started-service-registry/upload-schema.png[Image of form to upload a schema]
 +
 * *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +

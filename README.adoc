@@ -1,0 +1,4 @@
+= Red Hat OpenShift Service Registry Docs
+
+This repository contains the documentation for Red Hat OpenShift Service Registry.
+

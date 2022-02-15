@@ -1,0 +1,18 @@
+[id="phony-rhosr_{context}"]
+= Phony {product}
+
+:context: rhosr-phony
+
+[role="_abstract"]
+This paragraph is the assembly introduction. It explains what the user will accomplish by working through the modules in the assembly and sets the context for the user story the assembly is based on. Can include more than one paragraph. Consider using the information from the user story.
+
+
+.Prerequisites
+*
+
+//include::../../modules/administering/con_overview-rhoam-upgrades.adoc[leveloffset=+1]
+
+
+//[role="_additional-resources"]
+//.Additional resources
+//*

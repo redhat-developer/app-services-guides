@@ -1,0 +1,24 @@
+[id='managing-content-in-service-registry-web-console']
+= Managing schemas and APIs using the {registry} web console
+:context: user-guide
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/getting-started 
+:rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:registry-product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-url: https://console.redhat.com/application-services/service-registry/
+
+[role="_abstract"]
+Manage schema and API artifacts stored in the {registry-product-long} cloud service using the {registry} web console. 
+
+You can use the web console to browse and search the schema and API artifacts and optional groups stored in {registry}, and to add new schema and API artifacts, groups, and versions. You can search for artifacts by label, name, group, or description. You can view an artifact’s content or its available versions, or download an artifact file locally.
+
+You can configure optional rules for registry content, both globally and for each schema and API artifact. These optional rules for content validation and compatibility are applied when new schema and API artifacts or versions are uploaded to the registry. 
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-browsing-artifacts-using-console.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-adding-artifacts-using-console.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-configuring-rules-using-console.adoc[leveloffset=+1]

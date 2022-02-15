@@ -1,0 +1,23 @@
+[id='managing-content-in-service-registry-rest-api']
+= Managing {registry} data using the core REST API
+:context: user-guide
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/getting-started 
+:rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:registry-product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-url: https://console.redhat.com/beta/application-services/service-registry/
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.x/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+
+[role="_abstract"]
+Manage schemas and API artifacts stored in the {registry-product-long} cloud service using the registry core REST API. 
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::{reuse-modules}/con-registry-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-creating-access-token-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-managing-artifacts-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-managing-artifact-versions-using-rest-api.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-exporting-importing-using-rest-api.adoc[leveloffset=+1]

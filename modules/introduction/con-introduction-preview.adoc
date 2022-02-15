@@ -1,0 +1,33 @@
+[id="registry-intro-preview_{context}"]
+= Try out {registry-product-long}
+
+[role="_abstract"]
+{registry-product-long} is available as a freely entitled cloud service to the users of the following cloud services:
+
+* {product-long} 
+* Red Hat OpenShift API Management
+
+== {registry-product} use cases
+
+The main use cases for {registry-product} are:
+
+* *Store and manage schemas in event-driven architectures with OpenShift Streams for Apache Kafka*
++
+Schemas define the structure of data in a message and ensure that producers and consumers use the expected structure. Schemas force producers to publish data that conforms to a specific structure and compatibility policy, and also help consumers to parse and interpret the data.
++
+You can use {registry-product} to store and manage the schemas used by your producers and consumers. {registry-product} also helps to reduce message size and improve overall performance. By storing the schemas in {registry-product} and passing only a schema ID rather than the whole schema in every message, the message size is reduced.
+
+* *Store and manage API definitions in API-driven architectures with OpenShift API Management* 
++
+When creating API-driven applications, the API definitions can be stored in a central datastore for easier discovery and governance. Development teams can query {registry-product} for existing API definitions for services already deployed in production, and can register new API definitions for new services in development.
++
+You can use {registry-product} with OpenShift API Management to store and manage API definitions based on standards such as OpenAPI, GraphQL, WSDL, and AsyncAPI.
+
+== Create a {registry} trial instance
+
+To try out {registry-product}, you can create a {registry} trial instance using the web console. To learn more, go to link:{registry-url}[console.redhat.com^].
+
+[role="_additional-resources"]
+.Additional resources
+* link:https://access.redhat.com/articles/6532521[Service definition for {product-long}^]
+* link:https://access.redhat.com/articles/6289891[Service limits for {product-long}^]

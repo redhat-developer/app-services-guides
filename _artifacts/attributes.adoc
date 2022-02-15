@@ -1,0 +1,64 @@
+:org-name: Red Hat
+:registry-product-long: {org-name} OpenShift Service Registry
+:registry-product: OpenShift Service Registry
+:registry: Service Registry
+:product-long: {org-name} OpenShift Streams for Apache Kafka
+:product: OpenShift Streams for Apache Kafka
+:product-version: 1
+:rh-openshift-sr:
+:cli-product-long: {org-name} OpenShift Application Services
+
+:registry-url: https://console.redhat.com/application-services/service-registry/
+:service-url: https://console.redhat.com/application-services/streams/
+:download-url-registry-distribution: https://github.com/redhat-developer
+:apicurio-registry-version: 2.1.3
+:property-file-name: app-services.properties
+:samples-git-repo: https://github.com/redhat-developer/app-services-guides
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.x/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+
+:ocm-name: {org-name} OpenShift Cluster Manager
+:ocm-name-short: OpenShift Cluster Manager
+:osd-name: {org-name} OpenShift Dedicated
+:osd-name-short: OpenShift Dedicated
+:osd-version: 4
+:osd-docs: https://docs.openshift.com/dedicated/4/welcome/index.html
+
+:rhoas-module: modules/cli
+
+//URL components for cross refs
+:base-url: https://access.redhat.com/documentation/en-us/
+:base-url-cli: {base-url}
+:registry-product-long-url: red_hat_openshift_service_registry
+:product-long-url: red_hat_openshift_streams_for_apache_kafka
+
+//registry guides
+:sr-intro-url: {registry-product-long-url}/{product-version}/guide/0827e812-1062-4950-83c3-d99cb906a8ef
+:sr-manage-console-url: {registry-product-long-url}/{product-version}/guide/ea7b18cd-e335-4fa9-98a3-3a23855d6e6a
+:sr-manage-api-url: {registry-product-long-url}/{product-version}/guide/a1d80ed2-5139-4943-b54f-446961118e5c
+:sr-manage-java-client-url: {registry-product-long-url}/{product-version}/guide/f8d5ccaf-b4ae-4eb0-abbd-3bf443f91f3b
+:sr-manage-maven-plugin-url: {registry-product-long-url}/{product-version}/guide/e5aec371-c620-44e0-a709-3bc03bd6e40a
+:sr-artifact-ref-url: {registry-product-long-url}/{product-version}/guide/9b0fdf14-f0d6-4d7f-8637-3ac9e2069817
+:rhoas-cli-service-registry-url: {registry-product-long-url}/{product-version}/guide/1630486d-c8d0-45d0-b2de-7fdb52c78499
+:getting-started-service-registry-url: {registry-product-long-url}/{product-version}/guide/ab1894d1-cae0-4d11-b185-81d62b4aabc7
+:quarkus-service-registry-url: {registry-product-long-url}/{product-version}/guide/7314d8c8-3c5b-457c-9c10-8817aa89b8f1
+:access-mgmt-service-registry-url: {registry-product-long-url}/{product-version}/guide/7717db0b-9fad-4fff-91b7-b311b63290a4
+
+//kafka guides
+:getting-started-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
+:kafka-bin-scripts-url: {product-long-url}/{product-version}/guide/c0ab8d79-8b74-4876-955d-6d5b6912a966
+:kafkacat-url: {product-long-url}/{product-version}/guide/ee92cfdb-9587-42f8-80d5-54169e0e3c07
+:quarkus-url: {product-long-url}/{product-version}/guide/04827d87-ed92-4ffd-a126-11fa13348eba
+:rhoas-cli-url: {product-long-url}/{product-version}/guide/f520e427-cad2-40ce-823d-96234ccbc047
+:rhoas-cli-kafka-url: {product-long-url}/{product-version}/guide/88e1487a-2a14-4b35-85b9-a7a2d67a37f3
+:rhoas-cli-ref-url: {product-long-url}/{product-version}/guide/bd840e21-c3f9-4978-b726-b24effb5c4e8
+:topic-config-url: {product-long-url}/{product-version}/guide/f351c4bd-9840-42ef-bcf2-b0c9be4ee30a
+:service-binding-url: {product-long-url}/{product-version}/guide/5d3559cc-1989-41b7-a2bc-e461d2337a6f
+:access-mgmt-url: {product-long-url}/{product-version}/guide/2f4bf7cf-5de2-4254-8274-6bf71673f407
+:path: {base-url-cli}{rhoas-cli-ref-url}
+
+// internal links
+:registry-rules: link:ref-registry-rule-types.adoc[{registry} content rule types]
+:registry-reference: link:ref-registry-artifact-types.adoc[{registry} content artifact types]
+
+// Enable Pantheon-flavored links for the CLI ref guide
+:pantheonenv:

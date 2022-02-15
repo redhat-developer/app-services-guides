@@ -1,0 +1,21 @@
+[id='managing-content-in-service-registry-maven-plugin']
+= Managing schemas and APIs using the {registry} Maven plug-in
+:context: user-guide
+:imagesdir: ../_images
+:attachmentsdir: ../_attachments
+:reuse-modules: ../upstream/apicurio-registry-2.1.x/docs/modules/ROOT/partials/getting-started 
+:rh-openshift-sr:
+//attributes for asciidoctor previews
+:org-name: Red Hat
+:registry-product-long: {org-name} OpenShift Service Registry
+:registry: Service Registry
+:registry-rest-api: https://www.apicur.io/registry/docs/apicurio-registry/2.1.0.Final/assets-attachments/registry-rest-api.htm[Apicurio Registry REST API documentation]
+
+
+[role="_abstract"]
+Manage schema and API artifacts stored in the {registry-product-long} cloud service using the {registry} Maven plug-in. For example, this includes adding, downloading, or testing schema and API artifacts during a Maven build.
+
+include::../modules/con_conscious-language-message.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-adding-artifacts-using-maven-plugin.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-downloading-artifacts-using-maven-plugin.adoc[leveloffset=+1]
+include::{reuse-modules}/proc-testing-artifacts-using-maven-plugin.adoc[leveloffset=+1]
