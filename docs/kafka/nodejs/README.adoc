@@ -229,7 +229,7 @@ $ npm install
 $ node consumer.js
 ----
 +
-You should see see the Node.js run and connect to the Kafka instance. However, because you haven't yet run the producer component, the consumer has no country names to display.
+You should see the Node.js application run and connect to the Kafka instance. However, because you haven't yet run the producer component, the consumer has no country names to display.
 +
 If the application fails to run, review the error log in the command-line window and address any problems. Also, review the steps in this quick start to ensure that the application and Kafka topic are configured correctly.
 
