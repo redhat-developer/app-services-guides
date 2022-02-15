@@ -14,10 +14,10 @@ getAndValidateMappingsFile = (dir) => {
         throw new Error(`Missing DOCS_PRODUCT_NAME environment variable`);
     }
 
-    serviceMappingsLocation = path.join(dir, ".product-mapping");
+    serviceMappingsLocation = path.join(dir, ".product-mapping.yml");
     console.info("Reading service mappings from " + serviceMappingsLocation);
     if(!fs.existsSync(serviceMappingsLocation)){
-        throw new Error(`".product-mapping" file not found in ${dir}`);
+        throw new Error(`".product-mapping.yml" file not found in ${dir}`);
     }
     serviceMappingsFileContent = fs.readFileSync(serviceMappingsLocation, 'utf8').toString()
     mappingsJson = yaml.parse(serviceMappingsFileContent);

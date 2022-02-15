@@ -326,7 +326,7 @@ NOTE: If you check in out of date attributes the build will fail
 
 == Adding new product to repository
 
-. Go to ./docs/.product-mapping file and add new product to the list of products.
+. Go to ./docs/.product-mapping.yml file and add new product to the list of products.
 . Under directories please provide all directories with quickstarts that should be included in the product.
 . Go to .github/workflows/modular-docs-publish.yaml file and add new product values under "matrix.include" section
 This will push proper modular documentation to the modular-docs-"product_name" branch on release
