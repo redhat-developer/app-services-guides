@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-For this quick start, you'll use sample code from the Nodeshift Application Starters https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Node.js applications with {product} in the same way.
+For this quick start, you'll use sample code from the _Nodeshift Application Starters_ https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Node.js applications with {product} in the same way.
 
 .Procedure
 . On the command line, clone the Nodeshift Application Starters https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository from GitHub.

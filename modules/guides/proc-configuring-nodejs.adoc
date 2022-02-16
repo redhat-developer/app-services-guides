@@ -13,7 +13,7 @@ In this task, you'll create a new configuration file called `.env`. In this file
 
 .Prerequisites
 ifndef::qs[]
-* You have the bootstrap server endpoint for your Kafka instance. To relocate the server endpoint, select your Kafka instance in the {product} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, select your Kafka instance in the {product} web console, select the options menu (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account. To regenerate the credentials, use the *Service Accounts* page in the {product} web console to find your service account and update the credentials.
 * You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product} web console and use the *Access* page to find your service account permission settings.
 endif::[]
@@ -45,7 +45,7 @@ The values are described as follows:
 --
 endif::[]
 +
-In this case, observe that the Node.js application uses the `SASL/PLAIN` authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
+In this case, observe that the Node.js application uses the SASL/PLAIN authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
 
 . Save the `.env` file.
 
