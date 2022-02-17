@@ -25,7 +25,7 @@ The *Topology* page opens.
 .. At the top of the *Topology* page, click the *Project* drop-down menu.
 .. Select the project that you previously connected your Kafka instance to.
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
 . On the command line, clone the Nodeshift Application Starters link:https://github.com/nodeshift-starters/reactive-example[reactive-example^] repository from GitHub.
 +

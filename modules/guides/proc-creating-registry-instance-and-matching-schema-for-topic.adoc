@@ -5,15 +5,15 @@
 [role="_abstract"]
 The following procedure shows how to use the web console to select a Kafka topic, and then create a new {registry} instance with a value or key schema that matches the topic.
 
-Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url}#proc-checking-topic-for-existing-schema-matches_{context}[Checking a topic for existing schema matches].
+Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url-kafka}#proc-checking-topic-for-existing-schema-matches_{context}[Checking a topic for existing schema matches].
 
 .Prerequisites
-* You're logged in to the {product} web console.
-* You've created a Kafka instance with at least one Kafka topic in {product}. To learn how to do this, see {base-url}{getting-started-url}[Getting started with {product-long}^].
-* You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-service-registry-url}[Getting started with {registry-product-long}^].
+* You're logged in to the {product-kafka} web console.
+* You've created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {registry-product}.
+. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
 . On the *Topics* page, click the name of the topic that you want to check.
 . Click the *Schemas* tab.
 . Based on what the *Schemas* tab shows, start creating a new {registry} instance using one of these options:

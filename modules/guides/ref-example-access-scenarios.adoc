@@ -1,9 +1,9 @@
 [id='ref-example-access-scenarios_{context}']
-= Example account access scenarios in {product}
+= Example account access scenarios in {product-kafka}
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product}. Use these examples as a guide for your own ACLs.
+The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-kafka}. Use these examples as a guide for your own ACLs.
 
 Access for a new service account in a Kafka instance::
 +
@@ -193,9 +193,9 @@ h|Operations
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url}[_Getting started with {product-long}_^]
-* {base-url}{rhoas-cli-kafka-url}[_Getting started with the `rhoas` CLI for {product-long}_^]
-* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
+* {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
+* {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

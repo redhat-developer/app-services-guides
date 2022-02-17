@@ -5,16 +5,16 @@
 [role="_abstract"]
 The following procedure shows how to use the web console to select a Kafka topic and then check an existing {registry} instance for value or key schemas that have IDs that match the name of the topic.
 
-Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new registry instance and matching schema for a topic].
+Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url-kafka}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new registry instance and matching schema for a topic].
 
 .Prerequisites
-* You're logged in to the {product} web console.
-* You've created a Kafka instance with at least one topic in {product}. To learn how to do this, see {base-url}{getting-started-url}[Getting started with {product-long}^].
-* You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-service-registry-url}[Getting started with {registry-product-long}^].
+* You're logged in to the {product-kafka} web console.
+* You've created a Kafka instance with at least one topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 * You have access to at least one instance in {registry} that you can check for schemas that match your topic.
 
 .Procedure
-. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {registry-product}.
+. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
 . On the *Topics* page, click the name of the topic that you want to check.
 . Click the *Schemas* tab.
 . In the *{registry} instance* drop-down menu, select a {registry} instance to check for schemas that have IDs that match the name of the topic.
@@ -30,11 +30,11 @@ However, to see the details for a matching schema, or to manage it, click *View 
 . If the *Schemas* tab doesn't show a matching value or key schema that you want associated with your topic, you can start creating the schema using one of these options:
 +
 --
-*** If {product} found *either* a value or key schema that matches your topic (but not both), the *Schemas* tab displays `No matching schema` next to the schema type that it couldn't find.
+*** If {product-kafka} found *either* a value or key schema that matches your topic (but not both), the *Schemas* tab displays `No matching schema` next to the schema type that it couldn't find.
 +
 To create this type of schema in your {registry} instance, click the question mark icon. In the resulting pop-up window, copy the required naming format, and click *Go to {registry} instance*.
 
-*** If {product} found *no* schemas that match your topic, the *Schemas* tab displays `No matching schema exists for the selected instance`.
+*** If {product-kafka} found *no* schemas that match your topic, the *Schemas* tab displays `No matching schema exists for the selected instance`.
 +
 For the type of schema that you want to associate with your topic, copy the required naming format, and click *Go to {registry} instance*.
 --

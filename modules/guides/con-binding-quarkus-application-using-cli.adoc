@@ -1,5 +1,5 @@
 [id='con-binding-quarkus-application-using-cli_{context}']
-= Binding a Quarkus application to {product-long} using the RHOAS CLI
+= Binding a Quarkus application to {product-long-kafka} using the RHOAS CLI
 :imagesdir: ../_images
 
 [role="_abstract"]
@@ -9,9 +9,9 @@ The following tutorial shows how to use the RHOAS CLI to perform service binding
 
 When you perform service binding, the Service Binding Operator automatically injects connection parameters as files into the pod for the application. The example Quarkus application in this tutorial uses the `quarkus-kubernetes-service-binding` link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[extension^]. This means that the application automatically detects and uses the injected connection parameters.
 
-In general, this automatic injection and detection of connection parameters eliminates the need to manually configure an application to connect to a Kafka instance in {product}. This is a particular advantage if you have many applications in your project that you want to connect to a Kafka instance.
+In general, this automatic injection and detection of connection parameters eliminates the need to manually configure an application to connect to a Kafka instance in {product-kafka}. This is a particular advantage if you have many applications in your project that you want to connect to a Kafka instance.
 
 == Prerequisites
-* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
+* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].

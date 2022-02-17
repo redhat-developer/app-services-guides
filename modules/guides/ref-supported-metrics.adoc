@@ -1,9 +1,9 @@
 [id='ref-supported-metrics_{context}']
-= Supported metrics in {product}
+= Supported metrics in {product-kafka}
 :imagesdir: ../_images
 
 [role="_abstract"]
-{product} supports the following metrics for Kafka instances and topics. In the {product} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
+{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
 
 Broker metrics::
 +

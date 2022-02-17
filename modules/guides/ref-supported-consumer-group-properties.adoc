@@ -1,10 +1,10 @@
 [id='ref-supported-consumer-group-properties_{context}']
-= Consumer group properties in {product}
+= Consumer group properties in {product-kafka}
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following consumer group properties are displayed in {product}.
-Consumer group properties are used for monitoring in the {product} web console and are not editable.
+The following consumer group properties are displayed in {product-kafka}.
+Consumer group properties are used for monitoring in the {product-kafka} web console and are not editable.
 
 == Consumer groups
 

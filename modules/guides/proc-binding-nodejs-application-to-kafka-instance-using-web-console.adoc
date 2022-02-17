@@ -8,12 +8,12 @@ In this step of the tutorial, you use the OpenShift web console to bind the comp
 The example Node.js application uses the `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^]. This means that the application automatically detects and uses the injected connection parameters.
 
 .Prerequisites
-* You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See link:{base-url}{service-binding-url}#con-about-service-binding_{context}[About service binding].
-* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
-* You've deployed the example Node.js application. See link:{base-url}{service-binding-url}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
-* You've created the topic required by the Node.js application. See link:{base-url}{service-binding-url}#proc-creating-countries-topic-in-kafka-instance_{context}[Creating the countries topic in your Kafka instance].
+* You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See link:{base-url}{service-binding-url-kafka}#con-about-service-binding_{context}[About service binding].
+* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
+* You've deployed the example Node.js application. See link:{base-url}{service-binding-url-kafka}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
+* You've created the topic required by the Node.js application. See link:{base-url}{service-binding-url-kafka}#proc-creating-countries-topic-in-kafka-instance_{context}[Creating the countries topic in your Kafka instance].
 
 .Procedure
 
@@ -34,21 +34,21 @@ You should also see icons for the producer and consumer components of the Node.j
 . To start creating a service binding connection, hover the mouse pointer over the icon for the consumer component.
 +
 .Starting a service binding connection
-image::service-binding/sak-service-binding-arrow.png[Image of arrow to create a binding connection]
+image::sak-service-binding-arrow.png[Image of arrow to create a binding connection]
 +
 As shown in the figure, an arrow with a dotted line appears from the icon.
 
 . Left-click and drag the head of the arrow until it's directly over the icon for the `KafkaConnection` object.
 +
 .Creating the service binding connection
-image::service-binding/sak-service-binding-tooltip.png[Image of service binding tooltip]
+image::sak-service-binding-tooltip.png[Image of service binding tooltip]
 +
 As shown in the figure, a tooltip appears over the icon for the `KafkaConnection` object. The tooltip indicates that you're about to create a service binding connection.
 
 . To create the service binding connection, release the left mouse button.
 +
 .The completed service binding connection
-image::service-binding/sak-service-binding-connection.png[Image of completed binding connection]
+image::sak-service-binding-connection.png[Image of completed binding connection]
 +
 As shown in the figure, this action completes the connection.
 +

@@ -13,7 +13,7 @@ you'll need to use the `--bootstrap-server` and `--command-config` flags to conn
 ----
 
 The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance.
-You copy this information for the Kafka instance in the {product} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
+You copy this information for the Kafka instance in the {product-kafka} web console by selecting the options menu (three vertical dots) and clicking *Connection*.
 
 Kafka scripts require SASL/PLAIN authentication.
 Use an `<authentication_properties>` configuration file to configure the connection.
@@ -32,5 +32,5 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url}[_Getting started with {product-long}_] describes how to create a Kafka instance and service account, and how to set permissions in the instance for a service account.
+* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_] describes how to create a Kafka instance and service account, and how to set permissions in the instance for a service account.
 

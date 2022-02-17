@@ -1,21 +1,21 @@
 [id='assembly-binding-openshift-applications']
-= Binding OpenShift applications to {product-long}
+= Binding OpenShift applications to {product-long-kafka}
 :context: service-binding
 :imagesdir: _images
 
 [role="_abstract"]
-As a developer of applications and services, you can connect applications deployed on a Kubernetes platform such as Red Hat OpenShift to Kafka instances created in {product-long}.
+As a developer of applications and services, you can connect applications deployed on a Kubernetes platform such as Red Hat OpenShift to Kafka instances created in {product-long-kafka}.
 
 For example, suppose you have the following applications deployed on OpenShift:
 
 * One application that publishes price updates for a variety of stocks
 * A second application that consumes the price updates for publication on a web page
 
-In addition, you have a Kafka instance in {product}. Each time the first application produces a price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application.
+In addition, you have a Kafka instance in {product-kafka}. Each time the first application produces a price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application.
 
-To achieve this behavior, you need a way to connect the applications to your Kafka instance in {product}.
+To achieve this behavior, you need a way to connect the applications to your Kafka instance in {product-kafka}.
 
-You can use a specialized Operator called the Service Binding Operator to automatically provide an application on Kubernetes with the parameters required to connect to a Kafka instance in {product}. This process is called __service binding__.
+You can use a specialized Operator called the Service Binding Operator to automatically provide an application on Kubernetes with the parameters required to connect to a Kafka instance in {product-kafka}. This process is called __service binding__.
 
 This guide describes how to perform service binding. The Kubernetes platform referred to in the remainder of this guide is Red Hat OpenShift.
 

@@ -7,7 +7,7 @@ A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
 When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
 All consumers with the same group ID belong to the consumer group with that ID.
-Consumer groups connected to a Kafka instance are displayed in the {product} web console.
+Consumer groups connected to a Kafka instance are displayed in the {product-kafka} web console.
 
 .Procedure
 * Add the consumer group ID as a property to your consumer configuration. The group ID can't be null or empty.
@@ -50,5 +50,5 @@ If you add more consumers than the number of partitions in a consumer group, the
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url}[_Getting started with {product-long}_^]
+* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
 * https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation

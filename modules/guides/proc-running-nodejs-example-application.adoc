@@ -127,7 +127,7 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
-Congratulations! You successfully completed the {product} Node.js quick start. You're now ready to use your own Node.js applications with {product}.
+Congratulations! You successfully completed the {product-kafka} Node.js quick start. You're now ready to use your own Node.js applications with {product-kafka}.
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

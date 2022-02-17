@@ -1,16 +1,16 @@
 [id='proc-setting-permissions_{context}']
-= Setting account permissions in a Kafka instance in {product}
+= Setting account permissions in a Kafka instance in {product-kafka}
 :imagesdir: ../_images
 
 [role="_abstract"]
-In {product}, you can create Access Control Lists (ACLs) in your Kafka instances and set permissions for how other user accounts or service accounts can interact with an instance and its resources. You can manage access for only the Kafka instances that you create or for the instances that the owner has enabled you to access and alter.
+In {product-kafka}, you can create Access Control Lists (ACLs) in your Kafka instances and set permissions for how other user accounts or service accounts can interact with an instance and its resources. You can manage access for only the Kafka instances that you create or for the instances that the owner has enabled you to access and alter.
 
 .Prerequisites
 * You've created a Kafka instance and the instance is in *Ready* state.
 * The user account or service account that you're setting permissions for has been created in the organization.
 
 .Procedure
-. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to set permissions for.
+. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to set permissions for.
 . Click the *Access* tab to view the current ACL permissions for this instance.
 . Use this *Access* page to set permissions for a new account, add permissions to an existing account, or delete account permissions in this instance.
 +

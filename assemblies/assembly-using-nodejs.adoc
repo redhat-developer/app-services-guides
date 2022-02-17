@@ -1,18 +1,18 @@
 [id='assembly-using-nodejs']
-= Using Node.js applications with Kafka instances in {product-long}
+= Using Node.js applications with Kafka instances in {product-long-kafka}
 ifdef::context[:parent-context: {context}]
 :context: using-nodejs
 :imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can connect Node.js applications to Kafka instances in {product-long}. https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that is designed to build scalable network applications. Node.js provides an I/O model that is based on events and non-blocking operations, which enables efficient applications.
+As a developer of applications and services, you can connect Node.js applications to Kafka instances in {product-long-kafka}. https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that is designed to build scalable network applications. Node.js provides an I/O model that is based on events and non-blocking operations, which enables efficient applications.
 
 .Prerequisites
 ifndef::community[]
 * You have a Red Hat account.
 endif::[]
-* You have a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}].
+* You have a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}].
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
@@ -26,10 +26,10 @@ The example Node.js application in this quick start uses the https://kafka.js.or
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
-Learn how to use Node.js applications to produce and consume messages using a Kafka instance in {product-long}.
+Learn how to use Node.js applications to produce and consume messages using a Kafka instance in {product-long-kafka}.
 
 [#introduction]
-Welcome to the quick start for {product-long} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product}.
+Welcome to the quick start for {product-long-kafka} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product-kafka}.
 endif::[]
 
 
@@ -43,7 +43,7 @@ include::modules/guides/proc-running-nodejs-example-application.adoc[leveloffset
 
 ifdef::qs[]
 [#conclusion]
-Congratulations! You successfully completed the {product} Node.js quick start. You're now ready to use your own Node.js applications with {product}.
+Congratulations! You successfully completed the {product-kafka} Node.js quick start. You're now ready to use your own Node.js applications with {product-kafka}.
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

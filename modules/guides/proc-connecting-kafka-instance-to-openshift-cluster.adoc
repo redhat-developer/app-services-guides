@@ -3,17 +3,17 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-When you've verified connection to your OpenShift cluster, you can connect a Kafka instance in {product} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
+When you've verified connection to your OpenShift cluster, you can connect a Kafka instance in {product-kafka} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
 
 .Prerequisites
-* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You’ve created a Kafka instance in {product} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long}^].
+* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 * You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
-* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url}[Managing account access in {product-long}^].
+* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 
 . Log in to the RHOAS CLI.
 +
@@ -31,7 +31,7 @@ $ rhoas login
 $ oc project my-project
 ----
 
-. Use the RHOAS CLI to connect a Kafka instance in {product} to the current project in your OpenShift cluster.
+. Use the RHOAS CLI to connect a Kafka instance in {product-kafka} to the current project in your OpenShift cluster.
 +
 .Using the RHOAS CLI to connect a Kafka instance to your OpenShift cluster
 [source]
@@ -85,7 +85,7 @@ Created KafkaConnection can be injected into your application.
 KafkaConnection successfully installed on your cluster.
 ----
 +
-As shown in the preceding output, the RHOAS Operator creates a new service account to access your Kafka instance in {product}. The Operator stores the service account information in a secret.
+As shown in the preceding output, the RHOAS Operator creates a new service account to access your Kafka instance in {product-kafka}. The Operator stores the service account information in a secret.
 +
 The RHOAS Operator also creates a `KafkaConnection` object for your Kafka instance, which connects the instance to the OpenShift cluster. When you bind your Kafka instance to an application on OpenShift, the Service Binding Operator uses the `KafkaConnection` object to provide the application with the necessary connection information for the instance. Binding an application to your Kafka instance is described later in this guide.
 

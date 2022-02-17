@@ -42,7 +42,7 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
-Congratulations! You successfully completed the {product} Kafka scripts quick start, and are now ready to produce and consume messages in the service.
+Congratulations! You successfully completed the {product-kafka} Kafka scripts quick start, and are now ready to produce and consume messages in the service.
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

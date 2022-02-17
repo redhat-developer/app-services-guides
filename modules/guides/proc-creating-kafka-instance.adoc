@@ -1,17 +1,17 @@
 [id='proc-creating-kafka-instance_{context}']
-= Creating a Kafka instance in {product}
+= Creating a Kafka instance in {product-kafka}
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {product} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product} includes a Kafka cluster, bootstrap server, and the configurations needed to connect to producer and consumer services.
+Use the {product-kafka} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product-kafka} includes a Kafka cluster, bootstrap server, and the configurations needed to connect to producer and consumer services.
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the {product} web console at {service-url}[^].
+* You're logged in to the {product-kafka} web console at {service-url-kafka}[^].
 endif::[]
 
 .Procedure
-. In the {product} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click *Create Kafka instance*.
+. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click *Create Kafka instance*.
 . Enter a unique *Name* for the Kafka instance, such as `my-first-kafka-instance`, and select the relevant *Cloud region* option. All other fields are preconfigured.
 +
 ////

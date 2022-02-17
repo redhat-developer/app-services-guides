@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Before you can bind Kafka instances in {product-long} to applications on OpenShift, you need to install the Service Binding Operator on your OpenShift cluster. The following procedure shows how to use the OperatorHub interface in the OpenShift web console to install the Service Binding Operator.
+Before you can bind Kafka instances in {product-long-kafka} to applications on OpenShift, you need to install the Service Binding Operator on your OpenShift cluster. The following procedure shows how to use the OperatorHub interface in the OpenShift web console to install the Service Binding Operator.
 
 .Prerequisites
 * You can access your OpenShift cluster with the `dedicated-admin` role (OpenShift Dedicated) or `cluster-admin` role. Only these roles have privileges to install an Operator on a cluster.

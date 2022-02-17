@@ -6,7 +6,7 @@
 Consumer lag for a given consumer group indicates the delay between the last message added in a partition and the message currently being picked up by that consumer.
 The lag reflects the position of the consumer offset in relation to the end of the partition log.
 
-When you're reviewing consumer group properties in the {product} web console, look for the differences between *Current offset* and *Log end offset*.
+When you're reviewing consumer group properties in the {product-kafka} web console, look for the differences between *Current offset* and *Log end offset*.
 The difference shows as the *Offset lag* value.
 
 For applications that rely on the processing of (near) real-time data, it’s critical that consumer lag doesn't become too big.
@@ -18,11 +18,11 @@ To reduce lag, you typically add new consumers to a group.
 However, you can also increase the retention time for a message to remain in a topic.
 Extending the retention of data in the log gives the consumer a chance to catch up before data is flushed from the message log.
 
-For more information about increasing topic retention time, see {base-url}{topic-config-url}[_Configuring topics in {product}_^].
+For more information about increasing topic retention time, see {base-url}{topic-config-url-kafka}[_Configuring topics in {product-kafka}_^].
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{consumer-config-url}#ref-supported-consumer-group-properties_configuring-consumer-groups[_Consumer group properties presented in {product}_]
-* {base-url}{rhoas-cli-kafka-url}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {base-url}{topic-config-url}[_Configuring topics in {product}_^]
+* {base-url}{consumer-config-url-kafka}#ref-supported-consumer-group-properties_configuring-consumer-groups[_Consumer group properties presented in {product-kafka}_]
+* {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
+* {base-url}{topic-config-url-kafka}[_Configuring topics in {product-kafka}_^]
 

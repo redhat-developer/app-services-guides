@@ -1,9 +1,9 @@
 [id='ref-supported-topic-properties_{context}']
-= Supported topic properties in {product}
+= Supported topic properties in {product-kafka}
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following Kafka topic properties are supported in {product}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
+The following Kafka topic properties are supported in {product-kafka}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
 
 == Core configuration
 
