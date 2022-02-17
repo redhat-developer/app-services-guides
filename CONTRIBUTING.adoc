@@ -1,6 +1,6 @@
 :product: App Services
 
-= Contributing to {Product} guides
+= Contributing to {product-kafka} guides
 
 == Prerequisites
 
@@ -28,7 +28,7 @@ npm --prefix .build install
 
 To create a new guide:
 
-. Decide on the _identifier_ for your guide. The identifier should be concise and accurately describe the guide. For example the guide for using {Product} with `kafkacat` has the identifier `kafkacat`. The identifier must be written in lowercase link:https://en.wikipedia.org/wiki/Letter_case#Special_case_styles[kebab case].
+. Decide on the _identifier_ for your guide. The identifier should be concise and accurately describe the guide. For example the guide for using {product-kafka} with `kafkacat` has the identifier `kafkacat`. The identifier must be written in lowercase link:https://en.wikipedia.org/wiki/Letter_case#Special_case_styles[kebab case].
 . Create a new directory, using the _identifier_ as the name.
 . Use the content from one of `README.adoc` files in another existing guide folder as a template to modify and add documentation to the new file.
 . If you need to add attributes, don't add them directly to the document but put them in `_attributes.adoc` and then run
@@ -41,7 +41,7 @@ npm --prefix .build run generate:attributes
 
 == Repository structure
 
-This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in quick starts) in implementations of {Product}.
+This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in quick starts) in implementations of {product-kafka}.
 
 Each guide is contained in a separate directory. The directory must contain:
 
@@ -96,7 +96,7 @@ The file `./doc/.adocignore` contains a list of globs which will be ignored by t
 
 == Creating a quick start
 
-Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {Product} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
+Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {product-kafka} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
 
 We would always recommend starting with a guide and then adding the quick start metadata. This will allow your content to be accessible both in the Web UI and via GitHub.
 

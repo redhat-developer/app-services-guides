@@ -2,20 +2,20 @@
 
 
 
-= {product} Guides and samples
+= {product-kafka} Guides and samples
 
 == Guides
 
-* link:./docs/kafka/getting-started[Getting started with {product}]
+* link:./docs/kafka/getting-started[Getting started with {product-kafka}]
 * link:./rhoas-cli[Installing and configuring the `rhoas` CLI]
-* link:./docs/service-discovery[Binding OpenShift applications to {product}]
+* link:./docs/service-discovery[Binding OpenShift applications to {product-kafka}]
 
 == OpenShift Streams For Apache Kafka Guides
 
 * link:./docs/kafka/rhoas-cli-kafka[Getting started with the `rhoas` CLI for OpenShift Streams for Apache Kafka]
-* link:./docs/kafka/quarkus[Using Quarkus applications with Kafka instances in {product}]
-* link:./docs/kafka/kafkacat[Using Kafkacat with Kafka instances in {product}]
-* link:./docs/kafka/kafka-bin-scripts[Using Kafka bin scripts with {product}]
+* link:./docs/kafka/quarkus[Using Quarkus applications with Kafka instances in {product-kafka}]
+* link:./docs/kafka/kafkacat[Using Kafkacat with Kafka instances in {product-kafka}]
+* link:./docs/kafka/kafka-bin-scripts[Using Kafka bin scripts with {product-kafka}]
 
 == OpenShift Service Registry Guides
 
@@ -28,4 +28,4 @@
 
 == Contributing
 
-* link:./CONTRIBUTING.adoc[Contributing to {product} guides]
+* link:./CONTRIBUTING.adoc[Contributing to {product-kafka} guides]
