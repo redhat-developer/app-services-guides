@@ -20,9 +20,9 @@ You can edit or remove the user roles assigned in your {registry} instances that
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-service-registry-url}[_Getting started with {registry-product-long}_^]
-* {base-url}{rhoas-cli-service-registry-url}[_Getting started with the rhoas CLI for {registry-product-long}_^]
-* {base-url-cli}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-registry}[_Getting started with {product-long-registry}_^]
+* {base-url}{rhoas-cli-getting-started-url-registry}[_Getting started with the rhoas CLI for {product-long-registry}_^]
+* {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 * https://www.apicur.io/registry/docs/apicurio-registry/2.1.x/assets-attachments/registry-rest-api.htm[_Apicurio Registry REST API documentation_^]
 
 ifdef::parent-context[:context: {parent-context}]

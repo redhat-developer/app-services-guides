@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-For this quick start, you'll use the Quarkus {registry} sample code from the App Services link:{samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product} and {registry} in the same way.
+For this quick start, you'll use the Quarkus {registry} sample code from the App Services link:{samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product-kafka} and {registry} in the same way.
 
 .Procedure
 . On the command line, clone the App Services link:{samples-git-repo}[Guides and Samples^] repository from GitHub.

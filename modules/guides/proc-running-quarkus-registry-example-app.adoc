@@ -14,7 +14,7 @@ The Quarkus application in this quick start consists of two processes:
 * You've configured the Quarkus example application to connect to the Kafka and {registry} instances.
 * You've created the Kafka `quotes` topic.
 ifndef::qs[]
-* You're logged in to the {registry} web console at {registry-url}[^].
+* You're logged in to the {registry} web console at {service-url-registry}[^].
 endif::[]
 
 
@@ -45,7 +45,7 @@ $ mvn quarkus:dev
 
 .What just happened?
 
-* The Quarkus application is configured to use the `io.apicurio.registry.serde.avro.AvroKafkaSerializer` Java class for serializing and the `io.apicurio.registry.serde.avro.AvroKafkaDeserializer` class for deserializing messages to Avro format. This SerDes is configured to use remote schemas in {registry-product-long} rather than the local schemas in the application.
+* The Quarkus application is configured to use the `io.apicurio.registry.serde.avro.AvroKafkaSerializer` Java class for serializing and the `io.apicurio.registry.serde.avro.AvroKafkaDeserializer` class for deserializing messages to Avro format. This SerDes is configured to use remote schemas in {product-long-registry} rather than the local schemas in the application.
 
 * Because there are no schemas in the {registry} instance, the SerDes published the schema for the `quotes` topic. The name of the schema is managed by the `TopicRecordIdStrategy` class, which uses the `topic_name-value` convention. You can find this schema in the {registry} instance and configure compatability rules to govern how the schema can evolve for future versions.
 
@@ -60,7 +60,7 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
-Congratulations! You successfully completed the {product} and {registry} Quarkus quick start, and are now ready to use your own Quarkus application with {product} and {registry}.
+Congratulations! You successfully completed the {product-kafka} and {registry} Quarkus quick start, and are now ready to use your own Quarkus application with {product-kafka} and {registry}.
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

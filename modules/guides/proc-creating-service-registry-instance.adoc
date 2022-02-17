@@ -3,15 +3,15 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {registry-product-long} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
+Use the {product-long-registry} web console to create and configure a {registry} instance for your applications or services. A {registry} instance is an isolated virtual tenant in a multi-tenanted deployment with its own unique instance URL and configuration to connect to producer and consumer applications.
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the {registry} web console at {registry-url}[^].
+* You're logged in to the {registry} web console at {service-url-registry}[^].
 endif::[]
 
 .Procedure
-. In the link:{registry-url}[{registry} web console], click *Create {registry} instance*.
+. In the link:{service-url-registry}[{registry} web console], click *Create {registry} instance*.
 . Enter a unique *Instance name*, such as `my-service-registry-instance`.
 
 . Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.

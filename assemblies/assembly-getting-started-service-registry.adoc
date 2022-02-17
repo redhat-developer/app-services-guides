@@ -1,19 +1,19 @@
 [id='assembly-getting-started-service-registry']
-= Getting started with {registry-product-long}
+= Getting started with {product-long-registry}
 ifdef::context[:parent-context: {context}]
 :context: getting-started-sr
 :imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {registry-product-long} to create and set up {registry} instances and connect your applications and services to these instances. {registry-product-long} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
+As a developer of applications and services, you can use {product-long-registry} to create and set up {registry} instances and connect your applications and services to these instances. {product-long-registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
 
-For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^]
+For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
 
 ifndef::community[]
 .Prerequisites
 * You have a {org-name} account.
-* You have a subscription to {product-long}.
+* You have a subscription to {product-long-kafka}.
 //For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]
 
@@ -21,10 +21,10 @@ endif::[]
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
-Learn how to create and set up your first {registry} instance in {registry-product-long}.
+Learn how to create and set up your first {registry} instance in {product-long-registry}.
 
 [#introduction]
-Welcome to the quick start for {registry-product-long}. In this quick start, you'll learn how to create and view a {registry} instance, create a schema in this instance, and create a service account to connect an application or service to this instance.
+Welcome to the quick start for {product-long-registry}. In this quick start, you'll learn how to create and view a {registry} instance, create a schema in this instance, and create a service account to connect an application or service to this instance.
 endif::[]
 
 include::modules/guides/proc-creating-service-registry-instance.adoc[leveloffset=+1]
@@ -37,8 +37,8 @@ include::modules/guides/proc-setting-service-account-user-roles.adoc[leveloffset
 
 [role="_additional-resources"]
 == Additional resources
-* link:{base-url}{access-mgmt-service-registry-url}[Managing account access in Red Hat OpenShift Service Registry^]
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{registry-product-long} user documentation^]
+* link:{base-url}{access-mgmt-url-registry}[Managing account access in Red Hat OpenShift Service Registry^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
 
 ifdef::qs[]

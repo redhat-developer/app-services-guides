@@ -1,12 +1,12 @@
 [id='assembly-using-quarkus-registry']
-= Using Quarkus applications with Kafka instances and {registry-product-long}
+= Using Quarkus applications with Kafka instances and {product-long-registry}
 ifdef::context[:parent-context: {context}]
 :context: quarkus-service-registry
 :imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long} and {registry} instances in {registry-product-long}. This makes it easy for development teams to store and reuse schemas in event streaming architectures.
+As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka} and {registry} instances in {product-long-registry}. This makes it easy for development teams to store and reuse schemas in event streaming architectures.
 
 https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments.
 
@@ -16,8 +16,8 @@ Quarkus is designed to work with popular Java standards, frameworks, and librari
 ifndef::community[]
 * You have a Red Hat account.
 endif::[]
-* You have a running Kafka instance in {product} (see link:{base-url}{getting-started-url}[Getting started with Kafka^]).
-* You have a running {registry} instance in {registry-product-long} (see link:{base-url}{getting-started-service-registry-url}[Getting started with {registry}^]).
+* You have a running Kafka instance in {product-kafka} (see link:{base-url}{getting-started-url-kafka}[Getting started with Kafka^]).
+* You have a running {registry} instance in {product-long-registry} (see link:{base-url}{getting-started-url-registry}[Getting started with {registry}^]).
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS.
@@ -28,10 +28,10 @@ endif::[]
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
-Learn how to use a Quarkus application that produces messages to and consume messages from a Kafka instance in {product-long} and manage the message schemas in {registry-product-long}.
+Learn how to use a Quarkus application that produces messages to and consume messages from a Kafka instance in {product-long-kafka} and manage the message schemas in {product-long-registry}.
 
 [#introduction]
-Welcome to the quick start for {registry-product-long} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product} and manage the message schemas in {registry-product-long}.
+Welcome to the quick start for {product-long-registry} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product-kafka} and manage the message schemas in {product-long-registry}.
 endif::[]
 
 include::modules/guides/proc-importing-quarkus-registry-sample-code.adoc[leveloffset=+1]
@@ -44,7 +44,7 @@ include::modules/guides/proc-running-quarkus-registry-example-app.adoc[leveloffs
 
 ifdef::qs[]
 [#conclusion]
-Congratulations! You successfully completed the {product} and {registry} Quarkus quick start, and are now ready to use your own Quarkus application with {product} and {registry}.
+Congratulations! You successfully completed the {product-kafka} and {registry} Quarkus quick start, and are now ready to use your own Quarkus application with {product-kafka} and {registry}.
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

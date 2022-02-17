@@ -1,14 +1,14 @@
 [id='con-registry-access-management_{context}']
-= Access management in {registry-product-long}
+= Access management in {product-long-registry}
 :imagesdir: ../_images
 
 [role="_abstract"]
-{registry-product-long} uses Role-Based Access Control (RBAC) to manage how other user accounts and service accounts access the {registry} instances that you create and the artifacts that they contain. You can manage access for only the {registry} instances that you create or for instances that the owner has allowed you to access and change.
+{product-long-registry} uses Role-Based Access Control (RBAC) to manage how other user accounts and service accounts access the {registry} instances that you create and the artifacts that they contain. You can manage access for only the {registry} instances that you create or for instances that the owner has allowed you to access and change.
 
-An account in {registry-product-long} is either a user account or a service account. A user account enables users in your organization to access your {registry} instances. A service account enables your client application or tool to connect securely and to access your {registry} instances.
+An account in {product-long-registry} is either a user account or a service account. A user account enables users in your organization to access your {registry} instances. A service account enables your client application or tool to connect securely and to access your {registry} instances.
 
 
-== User roles in {registry-product-long}
+== User roles in {product-long-registry}
 
 The {registry} web console provides an *Access* tab on the {registry} instance page. {registry} instance owners, instance administrators, and organization administrators can use this tab to manage the following user roles:
 

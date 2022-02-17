@@ -1,12 +1,12 @@
 [id='assembly-managing-service-registry-access']
-= Managing account access in {registry-product-long}
+= Managing account access in {product-long-registry}
 ifdef::context[:parent-context: {context}]
 :context: managing-access-service-registry
 :imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a {registry} instance owner, an instance administrator, or an organization administrator in {registry-product-long}, you can manage the level of access that other user accounts and service accounts have to your {registry} instance. You can grant or remove access to your  {registry} instance for specific user accounts in your organization based on user roles. You can also allow other users or service accounts to manage the level of access to your instance for you.
+As a {registry} instance owner, an instance administrator, or an organization administrator in {product-long-registry}, you can manage the level of access that other user accounts and service accounts have to your {registry} instance. You can grant or remove access to your  {registry} instance for specific user accounts in your organization based on user roles. You can also allow other users or service accounts to manage the level of access to your instance for you.
 
 {registry} instance owners or instance administrators can manage access for only the {registry} instances that they create or for instances that the owner has allowed them to access and change. Organization administrators can manage access for all {registry} instances.
 
