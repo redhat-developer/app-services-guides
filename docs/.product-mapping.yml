@@ -1,4 +1,4 @@
-## File used in modular documentation generator to 
+## File used in modular documentation generator to
 ## split documentation into different proudcts
 ## Each product should have dedicated directory along with the other common documentation folders
 products:
@@ -8,14 +8,12 @@ products:
     ## For example kafka/access-mgmt etc.
     directories:
       - kafka
-      - rhoas-cli
-      - service-binding
+      - rhoas
   RHOSR:
     directories:
       - registry
-      - rhoas-cli
+      - rhoas
   ## Adding early to support connectors
   RHOC:
     directories:
-      - rhoas-cli
-      - service-binding
+      - rhoas
