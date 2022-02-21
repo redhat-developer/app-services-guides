@@ -153,6 +153,10 @@ endif::[]
 . On the command line, from the `bin/` directory, enter the following command to create a Kafka topic.
 +
 --
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93d9f4d... Updated with reviewer's feedback implemented.
 
 ifdef::qs[]
 The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
@@ -165,9 +169,13 @@ $ ./kafka-topics.sh --create --topic my-other-topic --partitions 1 --replication
 Created topic my-other-topic.
 ----
 --
+<<<<<<< HEAD
 +
 The preceding example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
 
+=======
+The preceding example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
+>>>>>>> 93d9f4d... Updated with reviewer's feedback implemented.
 . Enter the following command to start the `kafka-console-producer` script.
 +
 --
@@ -178,9 +186,13 @@ The preceding example uses the `kafka-topics` script to create the `my-other-top
 $ ./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
 ----
 --
+<<<<<<< HEAD
 +
 The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic that you created.
 
+=======
+The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic that you created.
+>>>>>>> 93d9f4d... Updated with reviewer's feedback implemented.
 . With the `kafka-console-producer` script running, enter messages that you want to produce to the Kafka topic.
 +
 .Example messages to produce to the Kafka topic
@@ -215,6 +227,10 @@ You can use the `kafka-console-consumer` script to consume messages from Kafka t
 .Procedure
 . Open a second terminal window or tab, separate from the producer.
 
+<<<<<<< HEAD
+=======
+. Open a second terminal window or tab, separate from the producer.
+>>>>>>> 93d9f4d... Updated with reviewer's feedback implemented.
 . On the command line, enter the following command to start the `kafka-console-consumer` script.
 +
 --
@@ -229,8 +245,12 @@ Second message
 Third message
 ----
 --
+<<<<<<< HEAD
 The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
 
+=======
+This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
+>>>>>>> 93d9f4d... Updated with reviewer's feedback implemented.
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
 .Verification
