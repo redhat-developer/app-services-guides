@@ -10,13 +10,13 @@ You can use the `kafka-console-consumer` script to consume messages from Kafka t
 * You used the `kafka-console-producer` script to produce example messages to a topic.
 
 .Procedure
+. Open a second terminal window or tab, separate from the producer.
 
-. On the command line in a separate terminal from your producer, enter the following command to start the `kafka-console-consumer` script.
+. On the command line, enter the following command to start the `kafka-console-consumer` script.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
 
-.Starting the `kafka-console-consumer` script
+Starting the `kafka-console-consumer` script
 
 [source,subs="+quotes,+attributes"]
 ----
@@ -26,6 +26,7 @@ Second message
 Third message
 ----
 --
+The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
 
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 

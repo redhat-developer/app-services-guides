@@ -38,4 +38,4 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, the Kafka scripts do not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
 
 --
-. Save the file. You will use it in the next task to connect to your Kafka instance and produce messages.
+. Save the file. You'll use this file in the next task to connect to your Kafka instance and produce messages.

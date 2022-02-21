@@ -117,7 +117,7 @@ h|Operation
 
 (Any topic)
 |`Allow`
-|`Describe`
+|`Describe`, `Describe configs`
 
 |`All accounts`
 |`Consumer group is *`

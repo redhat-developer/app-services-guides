@@ -18,35 +18,38 @@ endif::[]
 . On the command line, from the `bin/` directory, enter the following command to create a Kafka topic.
 +
 --
-This example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
 
 ifdef::qs[]
 The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
 endif::[]
 
-.Using the `kafka-topics` script to create a Kafka topic
+Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-topics.sh --create --topic my-other-topic --partitions 1 --replication-factor 3 --bootstrap-server __<bootstrap_server>__ --command-config ../config/{property-file-name}
 Created topic my-other-topic.
 ----
 --
++
+The preceding example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
 
 . Enter the following command to start the `kafka-console-producer` script.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic that you created.
 
-.Starting the `kafka-console-producer` script
+Starting the `kafka-console-producer` script
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
 ----
 --
++
+The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic that you created.
 
 . With the `kafka-console-producer` script running, enter messages that you want to produce to the Kafka topic.
 +
-.Example messages to produce to the Kafka topic
+Example messages to produce to the Kafka topic
++
 [source]
 ----
 >First message
