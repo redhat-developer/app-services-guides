@@ -89,7 +89,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the link:{service-url-registry}[{registry} web console], click *Create {registry} instance*.
+. In the {service-url-registry}[{registry} web console], click *Create {registry} instance*.
 . Enter a unique *Instance name*, such as `my-service-registry-instance`.
 
 . Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
@@ -261,7 +261,7 @@ endif::[]
 
 [role="_additional-resources"]
 == Additional resources
-* link:{base-url}{access-mgmt-url-registry}[Managing account access in Red Hat OpenShift Service Registry^]
+* {base-url}{access-mgmt-url-registry}[Managing account access in Red Hat OpenShift Service Registry^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
 
