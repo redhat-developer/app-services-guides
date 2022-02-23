@@ -37,7 +37,7 @@ include::modules/guides/proc-setting-service-account-user-roles.adoc[leveloffset
 
 [role="_additional-resources"]
 == Additional resources
-* link:{base-url}{access-mgmt-url-registry}[Managing account access in Red Hat OpenShift Service Registry^]
+* {base-url}{access-mgmt-url-registry}[Managing account access in Red Hat OpenShift Service Registry^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
 

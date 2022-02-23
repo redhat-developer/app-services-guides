@@ -8,17 +8,16 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 
 .Prerequisites
 
-* You have created a {registry} instance, and it has a `ready` status.
+* You've created a {registry} instance, and it has a `ready` status.
 
 [NOTE]
 ====
 You can use `rhoas service-registry use` to switch to a specific {registry} instance.
 
 .Selecting a {registry} instance to use
-[source,shell,subs="attributes"]
+[source,shell]
 ----
 $ rhoas service-registry use --name=my-registry
-{registry} instance "my-registry" has been set as the current instance.
 ----
 ====
 
@@ -34,40 +33,16 @@ The artifact is an Apache Kafka Avro schema in JSON format.
 [source,shell]
 ----
 $ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
---2021-09-27 16:17:18--  https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 732 [text/plain]
-Saving to: ‘avro-userInfo.json’
-
-avro-userInfo.json  100%[==================>]     732  --.-KB/s    in 0.001s
-
-2021-09-27 16:17:18 (746 KB/s) - ‘avro-userInfo.json’ saved [732/732]
-
-
-$ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
-Using default artifacts group.
-Opening file: avro-userInfo.json
-Artifact created
-You can view or manage this artifact in your browser by accessing:
-https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/1
-
-{
-  "contentId": 29,
-  "createdBy": "User",
-  "createdOn": "2021-09-27T16:17:35+0000",
-  "globalId": 28,
-  "id": "my-artifact",
-  "modifiedBy": "User",
-  "modifiedOn": "2021-09-27T16:17:35+0000",
-  "name": "userInfo",
-  "state": "ENABLED",
-  "type": "AVRO",
-  "version": "1"
-}
 ----
 --
+
+. Create the {registry} artifact from the Avro schema that you uploaded.
++
+.Creating an artifact
+[source,shell]
+----
+$ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
+----
 
 . Verify that the artifact was registered.
 +
@@ -78,61 +53,24 @@ This example lists all artifacts belonging to the {registry} instance.
 [source,shell]
 ----
 $ rhoas service-registry artifact list
-Using default artifacts group.
-
-  ID            NAME      CREATED ON                 CREATED BY   TYPE   STATE
- ------------- --------- -------------------------- ------------ ------ --------
-  my-artifact   userInfo  2021-09-27T16:17:35+0000   User         AVRO   ENABLED
 ----
 --
 
-. Check the version and metadata information for the artifact.
+. Check the version information for the artifact.
 +
---
 .Checking the version information of an artifact
 [source,shell]
 ----
 $ rhoas service-registry artifact versions --artifact-id=my-artifact
-{
-  "count": 1,
-  "versions": [
-    {
-      "contentId": 29,
-      "createdBy": "User",
-      "createdOn": "2021-09-27T16:17:35+0000",
-      "globalId": 28,
-      "name": "userInfo",
-      "state": "ENABLED",
-      "type": "AVRO",
-      "version": "1"
-    }
-  ]
-}
 ----
 
+. Check the metadata information for the artifact.
++
+--
 .Checking the metadata information of an artifact
 [source,shell]
 ----
 $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
-Using default artifacts group.
-Fetching artifact metadata
-✔️ Successfully fetched artifact metadata
-You can view or manage this artifact in your browser by accessing:
-https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/1
-
-{
-  "contentId": 29,
-  "createdBy": "User",
-  "createdOn": "2021-09-27T16:17:35+0000",
-  "globalId": 28,
-  "id": "my-artifact",
-  "modifiedBy": "User",
-  "modifiedOn": "2021-09-27T16:17:35+0000",
-  "name": "userInfo",
-  "state": "ENABLED",
-  "type": "AVRO",
-  "version": "1"
-}
 ----
 
 [NOTE]

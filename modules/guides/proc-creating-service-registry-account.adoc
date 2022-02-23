@@ -9,34 +9,20 @@ which you can use to authenticate your application with your {registry} instance
 
 .Prerequisites
 
-* You have created a {registry} instance, and it has a `ready` status.
+* You've created a {registry} instance, and it has a `ready` status.
 
 .Procedure
 
-. Enter the following command to create a service account.
+. Create a service account.
 +
 --
 This example creates a service account and saves the credentials in a JSON file.
 
 .Creating a service account
-[source,shell,subs="attributes"]
+[source,shell]
 ----
 $ rhoas service-account create --short-description="rhoas-service-account" --file-format json
-Creating service account
-✔️ Service account created successfully with ID "04ba07d6-b08c-45fb-af53-3522c1b4c32f".
-✔️ Credentials saved to /home/developer/my-project/credentials.json
-
-You can now set access rules for your current services.
-To grant full access to produce and consume Kafka messages, enter this command:
-
- $ rhoas kafka acl grant-access --producer --consumer --service-account srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f --topic all --group all
-
-To grant read and write access to the currently selected {registry} instance, enter this command:
-
- $ rhoas service-registry role add --role=manager --service-account=srvc-acct-04ba07d6-b08c-45fb-af53-3522c1b4c32f
 ----
-
-Your service account credentials are created and saved to a JSON file.
 
 [NOTE]
 ====
@@ -49,17 +35,16 @@ For more information, see the `rhoas service-account create` command help.
 view the `credentials.json` file that you created.
 +
 --
-.Verifying service account credentials
-[source,shell]
+.Example `credentials.json` file
+[source,json]
 ----
-$ cat credentials.json
 {
 	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
 	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
     "oauthTokenUrl": "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 }
 ----
-You'll use these credentials and the {registry} URL to connect your applications and services to your {registry} instance.
+You use these credentials and the {registry} URL to connect your applications and services to your {registry} instance.
 
 [NOTE]
 ====
@@ -69,14 +54,12 @@ By connecting your applications to your {registry} instance, you can retrieve ar
 
 . Create a role for the new service account that can read and write artifacts.
 +
-This example creates a role called `manager` for the service account.
-+
 --
+This example creates a role called `manager` for the service account.
+
 .Creating a role for the service account
 [source,shell]
 ----
 $ rhoas service-registry role add --role=manager --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
-Creating new role for principal
-Role was successfully applied
 ----
 --

@@ -31,10 +31,10 @@ $ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/m
 The `rhoas` CLI is installed in `$HOME/.local/bin`.
 --
 
-. Verify that the `rhoas` installation directory is on your `$PATH`.
+. Verify that the `rhoas` installation directory is in a directory on your `PATH`.
 +
 --
-To check your `$PATH`, run the following command:
+To check your `PATH`, run the following command:
 
 [source,shell]
 ----
@@ -44,14 +44,10 @@ $ echo $PATH
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [discrete,id="rpm-installation_{context}"]
 === RPM installation
@@ -62,27 +58,19 @@ You can install `rhoas` as an RPM if you are using Red Hat Enterprise Linux (RHE
 
 . Navigate to the `rhoas` link:https://github.com/redhat-developer/app-services-cli/releases[Releases page^] and choose the version that you'd like to download.
 
-. Use `dnf`/`yum` to install the desired version of `rhoas`:
+. Use `dnf`/`yum` to install the desired version of `rhoas`.
 +
---
-This example installs `rhoas`:
-
 [source,shell,subs="+quotes"]
 ----
 $ sudo dnf install -y https://github.com/redhat-developer/app-services-cli/releases/download/v_<__version-num__>_/rhoas_<__version-num__>_linux_amd64.rpm
 ----
---
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [discrete,id="installing-rhoas-cli-macos_{context}"]
 == Installing the rhoas CLI on macOS
@@ -102,10 +90,10 @@ $ curl -o- https://raw.githubusercontent.com/redhat-developer/app-services-cli/m
 The `rhoas` CLI is installed in `$HOME/bin`.
 --
 
-. Verify that the `rhoas` installation directory is on your `$PATH`.
+. Verify that the `rhoas` installation directory is in a directory on your `PATH`.
 +
 --
-To check your `$PATH`, run the following command:
+To check your `PATH`, run the following command:
 
 [source,shell]
 ----
@@ -115,14 +103,10 @@ $ echo $PATH
 
 . Check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---
 
 [discrete,id="installing-rhoas-cli-windows_{context}"]
 == Installing the rhoas CLI on Windows
@@ -151,13 +135,9 @@ $ rhoas --version
 
 .. Click *OK* to save changes.
 
-. Check the `rhoas` version to verify that the CLI is installed.
+. Open a terminal and check the `rhoas` version to verify that the CLI is installed.
 +
---
-This example shows that `rhoas` is installed:
-
 [source,shell]
 ----
 $ rhoas --version
 ----
---

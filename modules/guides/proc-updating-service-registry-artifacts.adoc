@@ -7,7 +7,7 @@ You can update an artifact with content from a file or from standard input.
 
 .Prerequisites
 
-* You have created a {registry} instance with at least one artifact.
+* You've created a {registry} instance with at least one artifact.
 * The type of the updated content is compatible with the current artifact type.
 
 .Procedure
@@ -25,10 +25,7 @@ $ rhoas service-registry artifact update --artifact-id=my-artifact my-artifact.j
 
 [NOTE]
 ====
-If you want to update the artifact from standard input,
-enter the following command:
-
-`$ rhoas service-registry artifact update --artifact-id=my_artifact`
+To update the artifact from standard input, use the `rhoas service-registry artifact update --artifact-id=my_artifact` command.
 
 Paste the updated artifact content on the command line, and then press Ctrl+D to save.
 ====
@@ -41,24 +38,6 @@ Paste the updated artifact content on the command line, and then press Ctrl+D to
 [source,shell]
 ----
 $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
-Using default artifacts group.
-Fetching artifact metadata
-✔️ Successfully fetched artifact metadata
-You can view or manage this artifact in your browser by accessing:
-https://console.redhat.com/application-services/service-registry/t/63620903-4a29-4ba4-8229-7ab793bf73f3/artifacts/default/my-artifact/versions/2
-
-{
-  "contentId": 30,
-  "createdBy": "User",
-  "createdOn": "2021-09-27T16:17:35+0000",
-  "globalId": 29,
-  "id": "my-artifact",
-  "modifiedBy": "User",
-  "modifiedOn": "2022-01-17T12:19:56+0000",
-  "state": "ENABLED",
-  "type": "AVRO",
-  "version": "2"
-}
 ----
 
 [NOTE]
