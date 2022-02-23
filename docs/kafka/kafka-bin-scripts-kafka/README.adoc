@@ -158,7 +158,7 @@ ifdef::qs[]
 The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
 endif::[]
 
-Using the `kafka-topics` script to create a Kafka topic
+.Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-topics.sh --create --topic my-other-topic --partitions 1 --replication-factor 3 --bootstrap-server __<bootstrap_server>__ --command-config ../config/{property-file-name}
@@ -172,7 +172,7 @@ The preceding example uses the `kafka-topics` script to create the `my-other-top
 +
 --
 
-Starting the `kafka-console-producer` script
+.Starting the `kafka-console-producer` script
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
@@ -183,7 +183,7 @@ The preceding example uses the SASL/PLAIN authentication mechanism with the cred
 
 . With the `kafka-console-producer` script running, enter messages that you want to produce to the Kafka topic.
 +
-Example messages to produce to the Kafka topic
+.Example messages to produce to the Kafka topic
 +
 [source]
 ----
@@ -219,7 +219,7 @@ You can use the `kafka-console-consumer` script to consume messages from Kafka t
 +
 --
 
-Starting the `kafka-console-consumer` script
+.Starting the `kafka-console-consumer` script
 
 [source,subs="+quotes,+attributes"]
 ----
