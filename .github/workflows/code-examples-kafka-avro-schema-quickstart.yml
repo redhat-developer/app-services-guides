@@ -19,11 +19,21 @@ jobs:
         java-version: 11
         distribution: 'adopt' # See 'Supported distributions' for available options
     - name: Build and publish to quay
-      working-directory: code-examples/quarkus-kafka-quickstart
+      working-directory: code-examples/kafka-avro-schema-quickstart
       run: ./mvnw clean package --file pom.xml --no-transfer-progress 
                       -Dquarkus.container-image.build=true 
                       -Dquarkus.container-image.push=true 
                       -Dquarkus.container-image.username="${{ secrets.quay_robotaccount }}" 
                       -Dquarkus.container-image.password="${{ secrets.quay_robottoken }}"
                       -Dquarkus.container-image.tag=latest
-                      -Dquarkus.container-image.image=quay.io/rhoas/rhoas-quarkus-kafka-quickstart
+                      -Dquarkus.container-image.image=quay.io/rhoas/kafka-avro-schema-quickstart
+    - name: Build and publish native image to quay
+      working-directory: code-examples/kafka-avro-schema-quickstart
+      run: ./mvnw clean package -Pnative --file pom.xml --no-transfer-progress 
+                      -Dquarkus.container-image.build=true 
+                      -Dquarkus.native.container-build=true                      
+                      -Dquarkus.container-image.push=true 
+                      -Dquarkus.container-image.username="${{ secrets.quay_robotaccount }}" 
+                      -Dquarkus.container-image.password="${{ secrets.quay_robottoken }}"
+                      -Dquarkus.container-image.tag=native
+                      -Dquarkus.container-image.image=quay.io/rhoas/kafka-avro-schema-quickstart:native
