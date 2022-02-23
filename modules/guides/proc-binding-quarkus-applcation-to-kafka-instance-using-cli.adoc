@@ -6,15 +6,15 @@
 In this step of the tutorial, you use the RHOAS CLI to bind the example Quarkus application that you deployed on OpenShift to your Kafka instance. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka instance.
 
 .Prerequisites
-* You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See link:{base-url}{service-binding-url-kafka}#con-about-service-binding_{context}[About service binding].
-* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
-* You've deployed the example Quarkus application. See link:{base-url}{service-binding-url-kafka}#proc-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
-* You've created the topic required by the Quarkus application. See link:{base-url}{service-binding-url-kafka}#proc-creating-prices-topic-in-kafka-instance_{context}[Creating the prices topic in your Kafka instance].
+* You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See {base-url}{service-binding-url-kafka}#con-about-service-binding_{context}[About service binding].
+* The Service Binding Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
+* You've deployed the example Quarkus application. See {base-url}{service-binding-url-kafka}#proc-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
+* You've created the topic required by the Quarkus application. See {base-url}{service-binding-url-kafka}#proc-creating-prices-topic-in-kafka-instance_{context}[Creating the prices topic in your Kafka instance].
 
 .Procedure
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
 . Log in to the RHOAS CLI.
 +

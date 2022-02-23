@@ -11,9 +11,9 @@ To determine which shell you are using, run the `echo $0` command.
 
 You can enable command completion for each of the following shells:
 
-* link:{base-url}{rhoas-cli-installation-url}#enabling-command-completion-bash_installing-rhoas-cli[Bash]
-* link:{base-url}{rhoas-cli-installation-url}#enabling-command-completion-zsh_installing-rhoas-cli[Zsh]
-* link:{base-url}{rhoas-cli-installation-url}#enabling-command-completion-fish_installing-rhoas-cli[Fish]
+* {base-url}{rhoas-cli-installation-url}#enabling-command-completion-bash_installing-rhoas-cli[Bash]
+* {base-url}{rhoas-cli-installation-url}#enabling-command-completion-zsh_installing-rhoas-cli[Zsh]
+* {base-url}{rhoas-cli-installation-url}#enabling-command-completion-fish_installing-rhoas-cli[Fish]
 
 .Prerequisites
 

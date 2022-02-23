@@ -9,10 +9,10 @@ With the {product-long-rhoas} `rhoas` command-line interface (CLI), you can mana
 This guide describes how to set up `rhoas` by doing the following:
 
 --
-* link:{base-url}{rhoas-cli-installation-url}#proc-installing-rhoas_installing-rhoas-cli[Install `rhoas` on your operating system]
-* link:{base-url}{rhoas-cli-installation-url}#proc-configuring-rhoas_installing-rhoas-cli[Configure `rhoas` to enable command completion]
-* link:{base-url}{rhoas-cli-installation-url}#proc-logging-in-to-rhoas_installing-rhoas-cli[Log in to `rhoas`]
-* link:{base-url}{rhoas-cli-installation-url}#proc-logging-out-rhoas_installing-rhoas-cli[Log out of `rhoas`]
+* {base-url}{rhoas-cli-installation-url}#proc-installing-rhoas_installing-rhoas-cli[Install `rhoas` on your operating system]
+* {base-url}{rhoas-cli-installation-url}#proc-configuring-rhoas_installing-rhoas-cli[Configure `rhoas` to enable command completion]
+* {base-url}{rhoas-cli-installation-url}#proc-logging-in-to-rhoas_installing-rhoas-cli[Log in to `rhoas`]
+* {base-url}{rhoas-cli-installation-url}#proc-logging-out-rhoas_installing-rhoas-cli[Log out of `rhoas`]
 --
 
 //Additional line break to resolve mod docs generation error

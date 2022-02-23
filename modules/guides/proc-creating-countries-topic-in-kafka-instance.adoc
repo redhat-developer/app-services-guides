@@ -6,11 +6,11 @@
 In the previous step of this tutorial, you deployed an example application on OpenShift. The application is a Node.js application that uses a Kafka topic called `countries` to produce and consume messages. In this step, you'll create the `countries` topic in your Kafka instance.
 
 .Prerequisites
-* You've deployed the example Node.js application. See link:{base-url}{service-binding-url-kafka}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
-* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You've deployed the example Node.js application. See {base-url}{service-binding-url-kafka}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
+* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 
 .Procedure
-. On the link:{service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that you want to add a topic to.
+. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that you want to add a topic to.
 
 . Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the details of the `countries` topic. Click *Next* to complete each step and click *Finish* to complete the setup.
 +

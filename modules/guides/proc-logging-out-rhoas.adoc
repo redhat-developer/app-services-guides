@@ -12,7 +12,6 @@ You can log out from the `rhoas` CLI by using the `rhoas logout` command.
 [source,shell]
 -----
 $ rhoas logout
-Successfully logged out
 -----
 
 [role="_additional-resources"]

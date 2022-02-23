@@ -35,7 +35,7 @@ The following permission options are available:
 ** *Produce to a topic*: Predefined permission entry for producing to one or more specified topics
 ** *Manage access*: Predefined permission entry for allowing other user accounts or service accounts to access and alter the permissions in the Kafka instance
 
-For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set all resource identifiers and values to `Starts with *`. These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set all resource identifiers and values to `Is *`. These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
 
 These permission settings result in the following ACL permissions for the new service account:
 
@@ -50,21 +50,21 @@ h|Operation
 |`Topic`
 
 (For consuming)
-|`Starts with` = `*`
+|`Is` = `*`
 |`Allow`
 |`Read`, `Describe`
 
 |`Consumer group`
 
 (For consuming)
-|`Starts with` = `*`
+|`Is` = `*`
 |`Allow`
 |`Read`
 
 |`Topic`
 
 (For producing)
-|`Starts with` = `*`
+|`Is` = `*`
 |`Allow`
 |`Write`, `Create`, `Describe`
 |===

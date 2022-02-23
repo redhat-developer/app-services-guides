@@ -14,7 +14,7 @@ The example Quarkus application uses the `quarkus-kubernetes-service-binding` li
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
 . Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example.
 +

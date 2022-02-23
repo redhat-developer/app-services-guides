@@ -12,6 +12,6 @@ When you perform service binding, the Service Binding Operator automatically inj
 In general, this automatic injection and detection of connection parameters eliminates the need to manually configure an application to connect to a Kafka instance in {product-kafka}. This is a particular advantage if you have many applications in your project that you want to connect to a Kafka instance.
 
 == Prerequisites
-* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
+* The Service Binding Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka instance to a project in your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].

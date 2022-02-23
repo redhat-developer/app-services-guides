@@ -6,14 +6,14 @@
 When you've verified connection to your OpenShift cluster, you can connect a Kafka instance in {product-kafka} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
 
 .Prerequisites
-* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 * You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 * You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 
 . Log in to the RHOAS CLI.
 +
