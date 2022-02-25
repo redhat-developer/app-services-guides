@@ -67,7 +67,7 @@ endif::[]
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed.
 * https://maven.apache.org/[Apache Maven^] 3.6.2 or later is installed.
-* We recomend using latest LTS version of OpenJDK 17.
+* Latest LTS version of OpenJDK is recommended 
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
