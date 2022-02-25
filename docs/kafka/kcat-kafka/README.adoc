@@ -74,7 +74,6 @@ endif::[]
 //* You have a subscription to {product-long-kafka}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have a running Kafka instance in {product-kafka}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed.
-* We recomend using latest LTS version of OpenJDK 17.
 * You have installed the latest supported version of https://github.com/edenhill/kafkacat[Kafkacat^] for your operating system.
 +
 .Verifying Kafkacat installation
