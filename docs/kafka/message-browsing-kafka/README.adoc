@@ -65,9 +65,8 @@ When you select a topic in the console, you can use the *Messages* tab to view a
 * Specify a partition and offset. See the last ten messages sent to the partition from that offset.
 * Specify a partition and a date and time. See the last ten messages sent to the partition from that time.
 * Specify a partition and a Unix epoch timestamp value. See the last ten messages sent to the partition from that time.
-+
-NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
 
+//Additional line break to resolve mod docs generation error.
 
 [id="proc-browsing-messages-for-a-topic_{context}"]
 == Browsing messages for a topic
@@ -76,9 +75,7 @@ The following procedure shows how to filter and inspect a list of messages for a
 
 .Prerequisites
 
-* You have a Kafka instance with a topic that contains some messages.
-+
-To learn how to create your first Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
+* You have a Kafka instance with a topic that contains some messages. To learn how to create your _first_ Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
 +
 ** {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
 ** {base-url}{kafka-bin-scripts-url-kafka}[Configuring and connecting Kafka scripts with {product-long-kafka}^]
@@ -98,42 +95,50 @@ The table includes columns for the following topic and message properties:
 --
 * Partition
 * Offset
-* Timestamp
+* Time
 * Key
 * Value
 * Headers
-* Size
 --
 
-. To see complete data for a message, click the message in the table.
+. To see complete data for a message, click *Show more* in the *Value* or *Headers* column.
 +
-A side drawer opens. Additional information shown in the side drawer includes the complete message value, the message timestamp as an epoch value, and the timestamp type (`CreateTime` or `LogAppendTime`).
+A side drawer opens. Additional information shown in the side drawer includes the complete message value and header information, the message size, the message timestamp as an epoch value, and the timestamp type (that is, `Create time` or `Log append time`).
 
-. To copy the complete message value, click *Copy to clipboard* in the side drawer.
+. To copy the complete message value, click the copy icon in the side drawer.
 
-. To see messages for a different topic partition, type a new partition value in the *Select partition* field.
+. To see messages for a different topic partition, select a new value in the *Select partition* drop-down menu.
 
-. To further filter the list of messages in the table, use the controls at the top of the *Messages* page.
+. To further refine the list of messages in the table, use the filter controls at the top of the *Messages* page.
 +
 --
-.. To filter by partition and offset, perform the following actions:
-... In the *Select partition* field, type a partition value.
-... Ensure that the value of the drop-down menu is set to `Offset`. Type an offset value.
+.. To filter messages by topic partition and offset, perform the following actions:
+... In the *Select partition* field, select a topic partition.
+... In the drop-down menu that shows a default value of `Offset`, keep this default value.
+... In the *Select offset* drop-down menu, select an offset value.
+... To apply your filter settings, click the search (magnifying glass) icon.
 
-.. To filter by partition and date and time, perform the following actions:
-... In the *Select partition* field, type a partition value.
-... Ensure that the drop-down menu is set to `Time`.
+.. To filter messages by topic partition and date and time, perform the following actions:
+... In the *Select partition* field, select a topic partition.
+... In the drop-down menu that shows a default value of `Offset`, change the value to `Time`.
 +
 Additional selection tools appear.
 ... Use the additional selection tools to set date and time values.
+... To apply your filter settings, click the search (magnifying glass) icon.
 
-.. To filter by partition and timestamp, perform the following actions:
-... In the *Select partition* field, type a partition value.
-... Ensure that the value of the drop-down menu is set to `Timestamp`.
-... In the *Select timestamp* field, specify an epoch-based timestamp.
+.. To filter messages by topic partition and epcoh timestamp, perform the following actions:
+... In the *Select partition* field, select a topic partition.
+... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
+... In the *Select timestamp* field, type or paste an epoch timestamp value.
++
+NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
+... To apply your filter settings, click the search (magnifying glass) icon.
+
 --
 +
-Based on your filter settings, the *Messages* page auutomatically reloads the list of messsages in the table.
+Based on your filter settings, the *Messages* page automatically reloads the list of messsages in the table.
+
+. To clear any existing offset, time, or timestamp selections and revert to seeing the last ten messages sent to the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
