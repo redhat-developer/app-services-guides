@@ -69,8 +69,6 @@ This guide describes how to get started quickly by doing the following tasks:
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update {registry} artifacts]
-* {base-url}{rhoas-cli-getting-started-url-registry}#proc-viewing-service-registry-rules_getting-started-rhoas-service-registry[View {registry} rules]
-* {base-url}{rhoas-cli-getting-started-url-registry}#proc-enabling-disabling-service-registry-rules_getting-started-rhoas-service-registry[Enable or disable {registry} rules]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-updating-service-registry-rules_getting-started-rhoas-service-registry[Update {registry} rules]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your {registry} instance, service accounts, and artifacts]
 
@@ -291,7 +289,7 @@ After you register a {registry} artifact, you can download the artifact to updat
 
 .Procedure
 
-* Download the artifact by doing one of the following:
+* Download the artifact in one of the following ways:
 
 ** Use the `rhoas service-registry artifact get` command and specify the artifact ID.
 +
@@ -377,72 +375,7 @@ For more information about any of the options, view the command help `rhoas serv
 ====
 --
 
-[id="proc-viewing-service-registry-rules_{context}"]
-== Viewing {registry} rules
 
-[role="_abstract"]
-You can display a list of rules for a {registry} instance or artifact. You can also show configuration information for a specific rule.
-
-.Prerequisites
-
-* You've created a {registry} instance with at least one artifact.
-
-.Procedure
-
-. To display a list of global rules for artifacts in the current {registry} instance, run the following command:
-+
-[source,shell]
-----
-$ rhoas service-registry rule list
-----
-
-. To display a list of global rules for artifacts in a specified {registry} instance, run the following command:
-+
-[source,shell]
-----
-$ rhoas service-registry rule list --instance-id=8ecff228-1ffe-4cf5-b38b-55223885ee00
-----
-
-. To display a list of artifact-specific rules for a specified artifact, run the following command:
-+
-[source,shell]
-----
-$ rhoas service-registry rule list --artifact-id=my-artifact
-----
-
-. To display configuration details for the global validity rule for the current {registry} instance, run the following command:
-+
-[source,shell]
-----
-$ rhoas service-registry rule describe --rule-type=validity
-----
-
-. To display configuration details for the compatibility rule for a specified artifact, run the following command:
-+
-[source,shell]
-----
-$ rhoas service-registry rule describe --rule-type=compatibility --artifact-id=my-artifact
-----
-
-[NOTE]
-====
-You can use the additional option `--group` to specify the artifact.
-For more information about any of the options, view the command help `rhoas service-registry rule list -h` and `rhoas service-registry rule describe -h`. For more information about {registry} rule types and rule maturity, see {content-rules-registry}.
-====
-
-[id="proc-enabling-disabling-service-registry-rules_{context}"]
-== Enabling and disabling {registry} rules
-
-[role="_abstract"]
-You can manage the content stored in your {registry} instance by enabling or disabling global rules and artifact-specific rules. Artifact-specific rules override global rules.
-
-.Prerequisites
-
-* You've created a {registry} instance with at least one artifact.
-
-.Procedure
-
-. Enable a {registry} rule. WIP
 
 [id="proc-updating-service-registry-rules_{context}"]
 == Updating {registry} rules
@@ -456,7 +389,74 @@ You can update the global rules that apply to all artifacts in a particular {reg
 
 .Procedure
 
-. Update a {registry} rule. WIP
+. Identify the rule that you want to update.
++
+[source,shell]
+----
+$ rhoas service-registry rule list
+----
+
+. Update the {registry} rule by specifying the rule type and configuration.
++
+--
+This example updates the global compatibility rule for all artifacts in the current {registry} instance:
+
+[source,shell]
+----
+$ rhoas service-registry rule update --rule-type=compatibility --config=full
+----
+
+This example updates the validity rule for a specific artifact:
+
+[source,shell]
+----
+$ rhoas service-registry rule update --rule-type=validity --config=full --artifact-id=my-artifact
+----
+
+--
+
+. Verify that the rule updated correctly.
++
+--
+This example displays the details of the global compatibility rule that you updated in the previous step:
+
+[source,shell]
+----
+$ rhoas service-registry rule describe --rule-type=compatibility
+----
+
+This example displays the details of the artifact-specific validity rule that you updated in the previous step:
+
+[source,shell]
+----
+$ rhoas service-registry rule describe --rule-type=validity --artifact-id=my-artifact
+----
+--
+
+. Optional: Enable or disable individual rules.
++
+--
+This example enables a global compatibility rule:
+
+[source,shell]
+----
+$ rhoas service-registry rule enable --rule-type=compatibility --config=full
+----
+
+This example disables an artifact-specific validity rule:
+
+[source,shell]
+----
+$ rhoas service-registry rule disable --rule-type=validity --artifact-id=my-artifact
+----
+--
+
+[NOTE]
+====
+You can use additional options, such as `--group` and `--instance-id`, to specify the rule to update.
+For more information about any of the options, view the command help `rhoas service-registry rule describe -h`, `rhoas service-registry rule disable -h`, `rhoas service-registry rule enable -h`, `rhoas service-registry rule list -h`, and  `rhoas service-registry rule update -h`.
+====
+
 
 [id="proc-commands-managing-registry_{context}"]
 == Commands for managing {registry}
