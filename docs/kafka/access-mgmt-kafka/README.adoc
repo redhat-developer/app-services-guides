@@ -496,7 +496,7 @@ By assigning the role, users within the group are able to do the following:
 NOTE: If you want to add the `User Access principal viewer` role to a single user, create a new group for that user only.
 
 ifndef::community[]
-For more information on setting up user access in the web console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/2021[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
+For more information on setting up user access in the web console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
 endif::[]
 
 .Procedure
