@@ -84,6 +84,7 @@ If two or more permission settings in an ACL match a request being made to the K
 
 [role="_additional-resources"]
 .Additional resources
+* {base-url}{access-mgmt-url-kafka}[_Managing account access in {product-long-kafka}_^]
 * link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation
 
 === Supported ACL permissions in {product-kafka}
@@ -220,6 +221,8 @@ In {product-kafka}, you can create Access Control Lists (ACLs) in your Kafka ins
 
 .. Click *Manage access*.
 .. In the *Account* drop-down menu, select the new user account or service account that you want to set permissions for. You can also select *All accounts* to set permissions for all user accounts and service accounts in the organization.
++
+If you don't see users in the drop-down list, ask your organization administrator xref:{base-url}{access-mgmt-url-kafka}#proc-user-account-access-managing-access[to grant access to view other user accounts].
 .. Click *Next*.
 +
 --
@@ -474,6 +477,37 @@ h|Operations
 |`Describe`
 |===
 --
+
+[id="proc-user-account-access_{context}"]
+== Granting users access to view other user accounts
+
+[role="_abstract"]
+As an organization administrator, you can use Role-Based Access Control (RBAC) to allow users to view other users in a group.
+
+You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
+By assigning the role, users within the group are able to do the following:
+
+* View and select other users when changing owners and managing access to Kafka instances in the web console
+* Specify user names when updating the owner of a Kafka instance using the `rhoas kafka update` command of the `rhoas` CLI for {product-long-kafka}
+
+.Prerequisites
+* You're logged into the {org-name} web console as an organization administrator.
+* A user group contains the users to assign the role to.
+
+NOTE: If you want to add the `User Access principal viewer` role to a single user, create a new group for that user only.
+
+ifndef::community[]
+For more information on setting up user access in the web console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/2021[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
+endif::[]
+
+.Procedure
+
+. From the home page of the web console, click image:img-configuration-gear.png[] (*Settings*).
+. Navigate to *User Access* > *Groups* and click the name of the user.
+. From the *Roles* tab, click *Add role* and select `User Access principal viewer` to add the role to the group.
+. Click *Add to group* to add the role to the group.
++
+The role is added to the list of selected roles on the *Roles* tab.
 
 [role="_additional-resources"]
 .Additional resources
