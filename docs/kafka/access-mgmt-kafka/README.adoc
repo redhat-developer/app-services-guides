@@ -84,6 +84,7 @@ If two or more permission settings in an ACL match a request being made to the K
 
 [role="_additional-resources"]
 .Additional resources
+* {base-url}{access-mgmt-url-kafka}[_Managing account access in {product-long-kafka}_^]
 * link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation
 
 === Supported ACL permissions in {product-kafka}
