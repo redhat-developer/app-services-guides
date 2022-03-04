@@ -60,16 +60,16 @@ With the {product-long-rhoas} `rhoas` command-line interface (CLI), you can mana
 As a developer of applications and services,
 you can use `rhoas` to create {registry} instances and connect your applications and services to these instances.
 You can also manage artifacts.
-Artifacts are items stored in {registry}, like schemas and API specifications.
+Artifacts are items stored in {registry}, such as schemas and API specifications.
 
-This guide describes how to get started quickly by doing the following tasks:
+You can get started with {product-long-registry} by doing the following tasks:
 
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a {registry} instance]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update {registry} artifacts]
-* {base-url}{rhoas-cli-getting-started-url-registry}#proc-updating-service-registry-rules_getting-started-rhoas-service-registry[Update {registry} rules]
+* {base-url}{rhoas-cli-getting-started-url-registry}#proc-configuring-service-registry-rules_getting-started-rhoas-service-registry[Configure {registry} rules]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your {registry} instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
@@ -375,13 +375,11 @@ For more information about any of the options, view the command help `rhoas serv
 ====
 --
 
-
-
-[id="proc-updating-service-registry-rules_{context}"]
-== Updating {registry} rules
+[id="proc-configuring-service-registry-rules_{context}"]
+== Configuring {registry} rules
 
 [role="_abstract"]
-You can update the global rules that apply to all artifacts in a particular {registry} instance. You can also update the rules for a particular artifact. Artifact-specific rules override global rules.
+To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Global rules apply to all artifacts in a particular {registry} instance. Configured artifact-specific rules override any configured global rules. Before a new artifact version can be uploaded to the registry, all configured global rules or artifact-specific rules must pass.
 
 .Prerequisites
 
@@ -391,11 +389,22 @@ You can update the global rules that apply to all artifacts in a particular {reg
 
 . Identify the rule that you want to update.
 +
+--
+To show a list of global rules, run the following command:
+
 [source,shell]
 ----
 $ rhoas service-registry rule list
 ----
 
+To show a list of artifact-specific rules, specify the artifact ID as shown in the following example:
+
+[source,shell]
+----
+$ rhoas service-registry rule list --artifact-id=my-artifact
+----
+
+--
 . Update the {registry} rule by specifying the rule type and configuration.
 +
 --
@@ -413,19 +422,24 @@ This example updates the validity rule for a specific artifact:
 $ rhoas service-registry rule update --rule-type=validity --config=full --artifact-id=my-artifact
 ----
 
+[NOTE]
+====
+For more information about {registry} rule types and rule maturity, see {content-rules-registry}.
+====
+
 --
 
 . Verify that the rule updated correctly.
 +
 --
-This example displays the details of the global compatibility rule that you updated in the previous step:
+This example displays the details of the global compatibility rule:
 
 [source,shell]
 ----
 $ rhoas service-registry rule describe --rule-type=compatibility
 ----
 
-This example displays the details of the artifact-specific validity rule that you updated in the previous step:
+This example displays the details of the artifact-specific validity rule:
 
 [source,shell]
 ----
@@ -433,17 +447,17 @@ $ rhoas service-registry rule describe --rule-type=validity --artifact-id=my-art
 ----
 --
 
-. Optional: Enable or disable individual rules.
+. Optional: Enable or disable individual rules. When you enable a rule, you must specify the configuration value.
 +
 --
-This example enables a global compatibility rule:
+This example enables the global compatibility rule:
 
 [source,shell]
 ----
 $ rhoas service-registry rule enable --rule-type=compatibility --config=full
 ----
 
-This example disables an artifact-specific validity rule:
+This example disables the artifact-specific validity rule:
 
 [source,shell]
 ----
@@ -454,7 +468,7 @@ $ rhoas service-registry rule disable --rule-type=validity --artifact-id=my-arti
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--instance-id`, to specify the rule to update.
-For more information about any of the options, view the command help `rhoas service-registry rule describe -h`, `rhoas service-registry rule disable -h`, `rhoas service-registry rule enable -h`, `rhoas service-registry rule list -h`, and  `rhoas service-registry rule update -h`.
+For more information about any of the options, view the command help `rhoas service-registry rule -h`.
 ====
 
 
