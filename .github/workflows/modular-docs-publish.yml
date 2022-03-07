@@ -19,6 +19,8 @@ jobs:
               branch: modular-docs-rhosak
             - product: RHOSR
               branch: modular-docs-rhosr
+            - product: RHODA
+              branch: modular-docs-rhoda 
             # - product: RHOC
             #   branch: modular-docs-rhoc
     steps:
@@ -38,9 +40,9 @@ jobs:
         with:
           ruby-version: 2.6
 
-      - name: Install Node Dependencies 
+      - name: Install Node Dependencies
         run: npm --prefix .build install
-      
+
       - run: gem install asciidoctor tilt haml
         name: Install Asciidoctor
       - run: npm --prefix .build run generate:modular-docs
