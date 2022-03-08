@@ -17,3 +17,7 @@ products:
   RHOC:
     directories:
       - rhoas
+  RHODA:
+    directories:
+      - database-access
+      - rhoas
