@@ -109,7 +109,7 @@ A schema for `quickstart.yml` is provided in `quickstart.schema.json`. To load t
 
 === Previewing the quick starts locally
 
-You can preview the quick start catalog and the quick start pages locally. (Note that the preview shows _all_ of the quick starts in the `app-services-guides` repository, not just one quickstart.)
+You can preview the quick start catalog and the quick start pages locally. (Note that the preview shows _all_ of the quick starts in the `app-services-guides` repository, not just one quick start.)
 
 . Verify that you installed Node (`node`) and Node Version Manager (`nvm`) as  described in the *Prerequisites* section at the top of this page.
 . Make sure that your working directory is your local `app-services-guides` repository's `.build` directory, for example:
