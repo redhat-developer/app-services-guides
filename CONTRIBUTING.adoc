@@ -6,20 +6,20 @@
 
 The guides toolchain is heavily dependent on AsciiDoc and Node.
 
-. Install your favourite tool for editing AsciiDoc
-. Install link:https://nodejs.org/en/about/releases/[Node Active LTS] - support for link:https://github.com/nvm-sh/nvm[Node Version Manager] is present; having installed nvm run
+. Install your favourite tool for editing AsciiDoc (for example, Atom).
+. Install the latest Active long-term support (LTS) version of link:https://nodejs.org/en/about/releases/[Node] (`node`) .
+. Install link:https://github.com/nvm-sh/nvm[Node Version Manager] (`nvm`).
+. After you install `node` and `nvm`, run the following commands from your local  `app-services-guides` repository's top-level directory (for example, `C:/mylocalGitRepos/app-services-guides/`):
 +
 ----
 nvm install && nvm use
 ----
 +
-. Having installed Node, run
-+
 ----
 npm --prefix .build install
 ----
 +
-. If generating modular docs:
+. If you will be generating modular docs, install the following software:
 .. Java 15 or later
 .. link:https://maven.apache.org/install.html[Apache Maven 3.x]
 .. link:https://docs.asciidoctor.org/asciidoctor/latest/install/[Asciidoctor 2]
@@ -55,7 +55,7 @@ Sample code:: Many guides have associated code (and other artifacts such as buil
 
 There are a number of additional directories which don't contain guides. These all start with `.`.
 
-The `.build` directory contains a TypeScript project that is used to provide:
+The `app-services-guides` repository's `.build` directory contains a TypeScript project that is used to provide:
 
 * a local preview for quick starts
 * a production build
@@ -107,18 +107,18 @@ A schema for `quickstart.yml` is provided in `quickstart.schema.json`. To load t
 * Follow link:https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom[this guide for IntelliJ], use `**/quickstart.yml` as the file path pattern
 * Install link:https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml[the YAML extension for VS Code], follow the documentation to associate the schema to `**/quickstart.yml`
 
-=== Previewing the quick start locally
+=== Previewing the quick starts locally
 
-The quick start catalog and, the quick start pages can be previewed locally.
+You can preview the quick start catalog and the quick start pages locally. (Note that the preview shows _all_ of the quick starts in the `app-services-guides` repository, not just one quickstart.)
 
-. Change your working directory to `.build`
+. Verify that you installed Node (`node`) and Node Version Manager (`nvm`) as  described in the *Prerequisites* section at the top of this page.
+. Make sure that your working directory is your local `app-services-guides` repository's `.build` directory, for example:
 +
 ----
-cd .build
+cd app-services-guide/.build
 ----
 +
-. Install the latest version of link:https://nodejs.org/en/about/releases/[Node Active LTS]
-. Install the project dependencies
+. Install the project dependencies:
 +
 ----
 npm install
@@ -130,15 +130,17 @@ npm install
 npm run start:dev
 ----
 +
-. Your web browser should open automatically to http://localhost:9001 and show the quick start catalog
-. Hot reload is enabled meaning saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically
-
-If you want to run the local preview with custom attributes you can do that by providing an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document will be used), or a YAML file.
-
+(Optional) If you want to run the local preview with custom attributes you can do that by providing an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document will be used) or a YAML file.
++
 ----
 export ATTRIBUTES_FILE=<path to attributes file>
 npm run start:dev
 ----
+
+Your web browser should open automatically to http://localhost:9001 and show the quick start catalog.
+
+"Hot reload" is enabled which means that saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically.
+
 
 === Converting your guide into a quick start
 
