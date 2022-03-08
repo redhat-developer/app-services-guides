@@ -139,7 +139,7 @@ npm run start:dev
 
 Your web browser should open automatically to http://localhost:9001 and show the quick start catalog.
 
-"Hot reload" is enabled which means that saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically.
+"Hot reload" is enabled which means that saving a change to any `quickstart.yml` or `*.adoc` file will trigger a rebuild and reload the content in the browser automatically.
 
 
 === Converting your guide into a quick start
