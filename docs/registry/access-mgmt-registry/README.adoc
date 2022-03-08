@@ -77,9 +77,9 @@ The {registry} web console provides an *Access* tab on the {registry} instance p
 
 * *Administrator* - Can perform the following in this {registry} instance:
 ** View or write user roles
-** View or write schema and API artifacts 
+** View or write schema and API artifacts
 ** Configure global rules for compatibility and validity
-** Import/export {registry} data 
+** Import/export {registry} data
 * *Manager* - Can view or write schema and API artifacts in this {registry} instance
 * *Viewer* - Can view schema and API artifacts in this {registry} instance
 
@@ -88,7 +88,7 @@ IMPORTANT: The owner of a {registry} instance has the administrator role for tha
 In addition to the web console, the `rhoas` CLI provides commands to manage user roles, and the core {registry} REST API also provides Admin API endpoints for managing user roles.
 
 [id="proc-viewing-registry-roles_{context}"]
-== Viewing user roles in a {registry} instance 
+== Viewing user roles in a {registry} instance
 
 [role="_abstract"]
 You can view the user roles assigned to your {registry} instances that manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can view user roles and accounts only for instances that you create or for instances that the owner has assigned you access to.
@@ -105,7 +105,7 @@ You can view the user roles assigned to your {registry} instances that manage ho
 . Click *Clear all filters* when done.
 
 [id="proc-setting-registry-roles_{context}"]
-== Assigning user roles in a {registry} instance 
+== Assigning user roles in a {registry} instance
 
 [role="_abstract"]
 In {product-long-registry}, you can assign user roles in your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can assign user roles only for instances that you create or for instances that the owner has assigned you access to.
@@ -118,14 +118,16 @@ In {product-long-registry}, you can assign user roles in your {registry} instanc
 . In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to assign roles for.
 . Click the *Access* tab to view the accounts and roles already assigned for this instance.
 . Click *Grant access* to assign roles to accounts.
-. In the *Account* field, select or enter the service account or user account name that you want to assign the role to: 
+. In the *Account* field, select or enter the service account or user account name that you want to assign the role to:
 ** A service account enables your application or tool to connect securely to your instance
 ** A user account enables users in your organization to access instances
++
+If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Using RBAC to allow users to view other user accounts].
 . Select the *Role* that you want to assign to your account, for example, *Manager* for write access to this instance.
 . Click *Save*.
 
 [id="proc-remove-registry-roles_{context}"]
-== Editing or removing user roles in a {registry} instance 
+== Editing or removing user roles in a {registry} instance
 
 [role="_abstract"]
 You can edit or remove the user roles assigned in your {registry} instances that manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can edit or remove user roles only for the instances that you create or for instances that the owner has assigned you access to.
@@ -137,11 +139,39 @@ You can edit or remove the user roles assigned in your {registry} instances that
 .Procedure
 . In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to remove a user role for.
 . Click the *Access* tab to view the accounts and roles assigned for this instance.
-. Select the options menu (three vertical dots) next to the assigned *Role* name: 
-.. To change to a different role, click *Edit* and select the new user role, for example, *Viewer* for read-only access to this instance.  
+. Select the options menu (three vertical dots) next to the assigned *Role* name:
+.. To change to a different role, click *Edit* and select the new user role, for example, *Viewer* for read-only access to this instance.
 .. To remove the currently assigned role, click *Remove* and confirm in the dialog.
 
+[id="proc-user-account-access_{context}"]
+== Using RBAC to allow users to view other user accounts
 
+[role="_abstract"]
+As an organization administrator, you can use Role-Based Access Control (RBAC) to allow users to view other users in a group.
+
+You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
+By assigning the role, users within the group are able to do the following:
+
+* View and select other users when changing owners and managing access to Service Registry instances in the web console
+* Specify user names when managing the roles of Service Registry instances using the `rhoas service-registry role` commands of the `rhoas` CLI for {product-long-registry}
+
+.Prerequisites
+* You're logged into the {org-name} web console as an organization administrator.
+* A user group contains the users to assign the role to.
+
+NOTE: If you want to add the `User Access principal viewer` role to a single user, create a new group for that user only.
+
+ifndef::community[]
+For more information on setting up user access in the web console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
+endif::[]
+
+.Procedure
+
+. In the upper-right corner of the {registry} web console, go to *Settings* (gear icon) > *User Access* > *Groups* and click the name of the user.
+. From the *Roles* tab, click *Add role* and select `User Access principal viewer` to add the role to the group.
+. Click *Add to group* to add the role to the group.
++
+The role is added to the list of selected roles on the *Roles* tab.
 
 [role="_additional-resources"]
 .Additional resources
