@@ -115,7 +115,7 @@ You can preview the quick start catalog and the quick start pages locally. (Note
 . Make sure that your working directory is your local `app-services-guides` repository's `.build` directory, for example:
 +
 ----
-cd app-services-guide/.build
+cd app-services-guides/.build
 ----
 +
 . Install the project dependencies:
