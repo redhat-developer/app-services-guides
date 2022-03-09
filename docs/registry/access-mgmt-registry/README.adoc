@@ -122,7 +122,7 @@ In {product-long-registry}, you can assign user roles in your {registry} instanc
 ** A service account enables your application or tool to connect securely to your instance
 ** A user account enables users in your organization to access instances
 +
-If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Using RBAC to allow users to view other user accounts].
+NOTE: If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Using RBAC to allow users to view other user accounts].
 . Select the *Role* that you want to assign to your account, for example, *Manager* for write access to this instance.
 . Click *Save*.
 
@@ -147,13 +147,13 @@ You can edit or remove the user roles assigned in your {registry} instances that
 == Using RBAC to allow users to view other user accounts
 
 [role="_abstract"]
-As an organization administrator, you can use Role-Based Access Control (RBAC) to allow users to view other users in a group.
+As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} web console to allow users to view other users in a group.
 
 You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
 By assigning the role, users within the group are able to do the following:
 
-* View and select other users when changing owners and managing access to Service Registry instances in the web console
-* Specify user names when managing the roles of Service Registry instances using the `rhoas service-registry role` commands of the `rhoas` CLI for {product-long-registry}
+* View and select other users when changing owners and managing access to {registry} instances in the web console
+* Specify user names when managing the roles of {registry} instances using the `rhoas service-registry role` commands of the `rhoas` CLI for {product-long-registry}
 
 .Prerequisites
 * You're logged into the {org-name} web console as an organization administrator.
