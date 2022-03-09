@@ -487,7 +487,7 @@ You set up access by assigning a predefined role called `User Access principal v
 By assigning the role, users within the group are able to do the following:
 
 * View and select other users when changing owners and managing access to Kafka instances in the web console
-* Specify user names when updating the owners of Kafka instances using the `rhoas kafka update` command of the `rhoas` CLI for {product-long-kafka}
+* Specify user names when using the `rhoas` CLI for {product-long-kafka}
 
 .Prerequisites
 * You're logged into the {org-name} web console as an organization administrator.
