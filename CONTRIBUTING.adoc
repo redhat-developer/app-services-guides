@@ -130,7 +130,7 @@ npm install
 npm run start:dev
 ----
 +
-(Optional) If you want to run the local preview with custom attributes you can do that by providing an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document will be used) or a YAML file.
+(Optional) You can run the local preview with custom attributes by specifying an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document are used) or a YAML file.
 +
 ----
 export ATTRIBUTES_FILE=<path to attributes file>
