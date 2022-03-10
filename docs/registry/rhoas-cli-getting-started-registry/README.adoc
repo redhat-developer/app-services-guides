@@ -379,7 +379,7 @@ For more information about any of the options, view the command help `rhoas serv
 == Configuring {registry} rules
 
 [role="_abstract"]
-To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Global rules apply to all artifacts in a particular {registry} instance. Configured artifact-specific rules override any configured global rules. Before a new artifact version can be uploaded to the registry, all configured global rules or artifact-specific rules must pass.
+To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Artifact rules apply to the specified artifact only. Global rules apply to all artifacts in a particular {registry} instance. Configured artifact rules override any configured global rules. Before a new artifact version can be uploaded to the registry, all configured global rules or artifact rules must pass.
 
 .Prerequisites
 
@@ -397,7 +397,7 @@ To show a list of global rules, run the following command:
 $ rhoas service-registry rule list
 ----
 
-To show a list of artifact-specific rules, specify the artifact ID as shown in the following example:
+To show a list of artifact rules, specify the artifact ID as shown in the following example:
 
 [source,shell]
 ----
@@ -439,7 +439,7 @@ This example displays the details of the global compatibility rule:
 $ rhoas service-registry rule describe --rule-type=compatibility
 ----
 
-This example displays the details of the artifact-specific validity rule:
+This example displays the details of the artifact validity rule:
 
 [source,shell]
 ----
@@ -457,7 +457,7 @@ This example enables the global compatibility rule:
 $ rhoas service-registry rule enable --rule-type=compatibility --config=full
 ----
 
-This example disables the artifact-specific validity rule:
+This example disables the artifact validity rule:
 
 [source,shell]
 ----
@@ -467,7 +467,7 @@ $ rhoas service-registry rule disable --rule-type=validity --artifact-id=my-arti
 
 [NOTE]
 ====
-You can use additional options, such as `--group` and `--instance-id`, to specify the rule to update.
+You can use additional options, such as `--group` and `--instance-id`, to specify the {registry} group or instance to which the updated rules apply.
 For more information about any of the options, view the command help `rhoas service-registry rule -h`.
 ====
 
