@@ -71,7 +71,7 @@
     "generate:modular-docs": "npm-run-all generate:modular-docs-sources generate:modular-docs-output"
   },
   "dependencies": {
-    "@patternfly/quickstarts": "2.0.1",
+    "@patternfly/quickstarts": "2.1.0",
     "@patternfly/react-core": "4.135.0",
     "@patternfly/transform-adoc": "0.1.1",
     "@redhat-cloud-services/frontend-components-config": "4.3.5",
