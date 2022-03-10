@@ -1,25 +1,25 @@
 :product: App Services
 
-= Contributing to {Product} guides
+= Contributing to {product-kafka} guides
 
 == Prerequisites
 
 The guides toolchain is heavily dependent on AsciiDoc and Node.
 
-. Install your favourite tool for editing AsciiDoc
-. Install link:https://nodejs.org/en/about/releases/[Node Active LTS] - support for link:https://github.com/nvm-sh/nvm[Node Version Manager] is present; having installed nvm run
+. Install your favourite tool for editing AsciiDoc (for example, Atom).
+. Install the latest Active long-term support (LTS) version of link:https://nodejs.org/en/about/releases/[Node] (`node`) .
+. Install link:https://github.com/nvm-sh/nvm[Node Version Manager] (`nvm`).
+. After you install `node` and `nvm`, run the following commands from your local  `app-services-guides` repository's top-level directory (for example, `Users/myname/mylocalGitRepos/app-services-guides/`):
 +
 ----
 nvm install && nvm use
 ----
 +
-. Having installed Node, run
-+
 ----
 npm --prefix .build install
 ----
 +
-. If generating modular docs:
+. If you will be generating modular docs, install the following software:
 .. Java 15 or later
 .. link:https://maven.apache.org/install.html[Apache Maven 3.x]
 .. link:https://docs.asciidoctor.org/asciidoctor/latest/install/[Asciidoctor 2]
@@ -28,7 +28,7 @@ npm --prefix .build install
 
 To create a new guide:
 
-. Decide on the _identifier_ for your guide. The identifier should be concise and accurately describe the guide. For example the guide for using {Product} with `kafkacat` has the identifier `kafkacat`. The identifier must be written in lowercase link:https://en.wikipedia.org/wiki/Letter_case#Special_case_styles[kebab case].
+. Decide on the _identifier_ for your guide. The identifier should be concise and accurately describe the guide. For example the guide for using {product-kafka} with `kafkacat` has the identifier `kafkacat`. The identifier must be written in lowercase link:https://en.wikipedia.org/wiki/Letter_case#Special_case_styles[kebab case].
 . Create a new directory, using the _identifier_ as the name.
 . Use the content from one of `README.adoc` files in another existing guide folder as a template to modify and add documentation to the new file.
 . If you need to add attributes, don't add them directly to the document but put them in `_attributes.adoc` and then run
@@ -41,7 +41,7 @@ npm --prefix .build run generate:attributes
 
 == Repository structure
 
-This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in quick starts) in implementations of {Product}.
+This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in quick starts) in implementations of {product-kafka}.
 
 Each guide is contained in a separate directory. The directory must contain:
 
@@ -55,7 +55,7 @@ Sample code:: Many guides have associated code (and other artifacts such as buil
 
 There are a number of additional directories which don't contain guides. These all start with `.`.
 
-The `.build` directory contains a TypeScript project that is used to provide:
+The `app-services-guides` repository's `.build` directory contains a TypeScript project that is used to provide:
 
 * a local preview for quick starts
 * a production build
@@ -92,11 +92,11 @@ Anything between the start of the start block and the end of the end block will 
 
 A check exists in the continuous integration job that validates that generation is up to date. If generation is not up to date then continuous integration will fail.
 
-The file `.adocignore` contains a list of globs which will be ignored by the attribute injector (e.g. this file).
+The file `./doc/.adocignore` contains a list of globs which will be ignored by the attribute injector
 
 == Creating a quick start
 
-Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {Product} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
+Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {product-kafka} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
 
 We would always recommend starting with a guide and then adding the quick start metadata. This will allow your content to be accessible both in the Web UI and via GitHub.
 
@@ -107,18 +107,18 @@ A schema for `quickstart.yml` is provided in `quickstart.schema.json`. To load t
 * Follow link:https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom[this guide for IntelliJ], use `**/quickstart.yml` as the file path pattern
 * Install link:https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml[the YAML extension for VS Code], follow the documentation to associate the schema to `**/quickstart.yml`
 
-=== Previewing the quick start locally
+=== Previewing the quick starts locally
 
-The quick start catalog and, the quick start pages can be previewed locally.
+You can preview the quick start catalog and the quick start pages locally. (Note that the preview shows _all_ of the quick starts in the `app-services-guides` repository, not just one quick start.)
 
-. Change your working directory to `.build`
+. Verify that you installed Node (`node`) and Node Version Manager (`nvm`) as  described in the *Prerequisites* section at the top of this page.
+. Make sure that your working directory is your local `app-services-guides` repository's `.build` directory, for example:
 +
 ----
-cd .build
+cd app-services-guides/.build
 ----
 +
-. Install the latest version of link:https://nodejs.org/en/about/releases/[Node Active LTS]
-. Install the project dependencies
+. Install the project dependencies:
 +
 ----
 npm install
@@ -130,15 +130,17 @@ npm install
 npm run start:dev
 ----
 +
-. Your web browser should open automatically to http://localhost:9001 and show the quick start catalog
-. Hot reload is enabled meaning saving a change to any `quickstart.yml` or `.adoc` file will trigger a rebuild and reload the content in the browser automatically
-
-If you want to run the local preview with custom attributes you can do that by providing an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document will be used), or a YAML file.
-
+(Optional) You can run the local preview with custom attributes by specifying an attributes file on the command line. The attributes file can be either an AsciiDoc file (only the attributes declared in the document are used) or a YAML file.
++
 ----
 export ATTRIBUTES_FILE=<path to attributes file>
 npm run start:dev
 ----
+
+Your web browser should open automatically to http://localhost:9001 and show the quick start catalog.
+
+"Hot reload" is enabled, which means that saving a change to any `quickstart.yml` or `*.adoc` file will trigger a rebuild and reload the content in the browser automatically.
+
 
 === Converting your guide into a quick start
 
@@ -324,6 +326,13 @@ NOTE: If you check in out of date attributes the build will fail
 . Having create the PR, automated tests will run. If they fail, use the error log to determine the problem, and fix it
 . Once your build is passing ask for review from a Subject Matter Expert (who will check for accuracy), a writer (who will check that the content is up to expected quality for substance, formatting, style, structure and consistency), and a developer who will ensure the steps covered by the quick start are the end to end test suite.
 
+== Adding new product to repository
+
+. Go to ./docs/.product-mapping.yml file and add new product to the list of products.
+. Under directories please provide all directories with quickstarts that should be included in the product.
+. Go to .github/workflows/modular-docs-publish.yaml file and add new product values under "matrix.include" section
+This will push proper modular documentation to the modular-docs-"product_name" branch on release
+
 == Releases
 
 Guides are released by creating tag in format vx.x.x - where x is number representing semver version. 
@@ -338,4 +347,3 @@ link: https://github.com/redhat-developer/app-services-guides/releases/new
 . Select Create to create release
 
 NOTE: CICD process will automatically synchronize changes with downstream on release
-

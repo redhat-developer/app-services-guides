@@ -11,7 +11,7 @@ const { addReactConverter } = require('@patternfly/transform-adoc');
 addReactConverter(asciidoctor);
 
 const pantheonBaseUrl = process.env.PANTHEON_URL || "https://pantheon.corp.redhat.com/api";
-const attributesFile = process.env.ATTRIBUTES_FILE || "../_artifacts/document-attributes.adoc";
+const attributesFile = process.env.ATTRIBUTES_FILE || "../docs/_artifacts/document-attributes.adoc";
 
 const buildQuickStart = (content, filePath, basePath, asciidocOptions) => {
 

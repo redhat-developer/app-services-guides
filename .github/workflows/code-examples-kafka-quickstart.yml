@@ -4,10 +4,9 @@ name: Build and publish quickstarts to quay
 
 on:
   push:
-    branches: [ main ]
-    paths:
-     - "code-examples/**"
-     - ".github/**"
+    tags:
+      - 'v*'
+    #branches: [main]
 
 jobs:
   build:

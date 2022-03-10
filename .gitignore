@@ -7,4 +7,4 @@ tmp
 .DS_Store
 kafka-quarkus-sbo
 code-examples/nodejs-kafka-quickstart
-*/README.html
+**/README.html

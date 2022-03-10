@@ -1,0 +1,46 @@
+// ATTRIBUTES
+// These attributes are injected into each content file and override any edits made to the attriutes in the content files. To add or update attributes, edit this source file directly.
+// Attributes MUST appear below the document title
+// Do not delete attributes with identical values, such as :product-long: and :product:. These are intentional because although they are identical here, they are not in other renderings of this source file.
+
+//OpenShift Application Services
+:org-name: Application Services
+:product-long-rhoas: OpenShift Application Services
+:community:
+:imagesdir: ./images
+:property-file-name: app-services.properties
+:samples-git-repo: https://github.com/redhat-developer/app-services-guides
+:base-url: https://github.com/redhat-developer/app-services-guides/tree/main/docs/
+
+//OpenShift Application Services CLI
+:rhoas-cli-base-url: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
+:rhoas-cli-ref-url: commands
+:rhoas-cli-installation-url: rhoas/rhoas-cli-installation/README.adoc
+
+//OpenShift Streams for Apache Kafka
+:product-long-kafka: OpenShift Streams for Apache Kafka
+:product-kafka: Streams for Apache Kafka
+:product-version-kafka: 1
+:service-url-kafka: https://console.redhat.com/application-services/streams/
+:getting-started-url-kafka: kafka/getting-started-kafka/README.adoc
+:kafka-bin-scripts-url-kafka: kafka/kafka-bin-scripts-kafka/README.adoc
+:kafkacat-url-kafka: kafka/kcat-kafka/README.adoc
+:quarkus-url-kafka: kafka/quarkus-kafka/README.adoc
+:nodejs-url-kafka: kafka/nodejs-kafka/README.adoc
+:rhoas-cli-getting-started-url-kafka: kafka/rhoas-cli-getting-started-kafka/README.adoc
+:topic-config-url-kafka: kafka/topic-configuration-kafka/README.adoc
+:consumer-config-url-kafka: kafka/consumer-configuration-kafka/README.adoc
+:access-mgmt-url-kafka: kafka/access-mgmt-kafka/README.adoc
+:metrics-monitoring-url-kafka: kafka/metrics-monitoring-kafka/README.adoc
+:service-binding-url-kafka: kafka/service-binding-kafka/README.adoc
+
+//OpenShift Service Registry
+:product-long-registry: OpenShift Service Registry
+:product-registry: Service Registry
+:registry: Service Registry
+:product-version-registry: 1
+:service-url-registry: https://console.redhat.com/application-services/service-registry/
+:getting-started-url-registry: registry/getting-started-registry/README.adoc
+:quarkus-url-registry: registry/quarkus-registry/README.adoc
+:rhoas-cli-getting-started-url-registry: registry/rhoas-cli-getting-started-registry/README.adoc
+:access-mgmt-url-registry: registry/access-mgmt-registry/README.adoc
