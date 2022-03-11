@@ -51,7 +51,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-using-quarkus-registry"]
-= Using Quarkus applications with Kafka instances and {product-long-registry} 
+= Using Quarkus applications with Kafka instances and {product-long-registry}
 ifdef::context[:parent-context: {context}]
 :context: quarkus-service-registry
 
@@ -59,7 +59,7 @@ ifdef::context[:parent-context: {context}]
 [role="_abstract"]
 As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka} and {registry} instances in {product-long-registry}. This makes it easy for development teams to store and reuse schemas in event streaming architectures.
 
-https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. 
+https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments.
 
 Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
 
@@ -71,9 +71,8 @@ endif::[]
 * You have a running {registry} instance in {product-long-registry} (see {base-url}{getting-started-url-registry}[Getting started with {registry}^]).
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
-* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS.
+* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS. (The latest LTS version of OpenJDK is recommended.)
 * https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
-* For Windows, the latest version of https://www.oracle.com/java/technologies/javase-downloads.html[Oracle JDK^] is installed.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
@@ -110,13 +109,13 @@ endif::[]
 == Configuring the Quarkus application to connect to Kafka and {registry} instances
 
 [role="_abstract"]
-To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value. 
+To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value.
 
 Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. This example sets environment variables and references them in this file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For details on configuration options, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
-This Quarkus example application includes producer and consumer processes that serialize/deserialize Kafka messages using a schema stored in {registry}. 
+This Quarkus example application includes producer and consumer processes that serialize/deserialize Kafka messages using a schema stored in {registry}.
 
 .Prerequisites
 ifndef::qs[]
@@ -129,9 +128,9 @@ endif::[]
 .Procedure
 . On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace the values with your own server and credential information:
 +
-* The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. 
-* The `<core_registry_url>` is the Core Registry API endpoint for your {registry} instance. 
-* The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint. 
+* The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance.
+* The `<core_registry_url>` is the Core Registry API endpoint for your {registry} instance.
+* The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint.
 * The `<client_id>` and `<client_secret>` are the generated credentials for your service account.
 +
 .Setting environment variables for server and credentials
@@ -172,7 +171,7 @@ image::sak-create-topic.png[Image of wizard to create a topic]
 * *Topic name*: Enter `quotes` as the topic name.
 * *Partitions*: Set the number of partitions for this topic. This example sets the partition to `1` for a single partition. Partitions are distinct lists of messages in a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
 * *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `A week` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
-* *Replicas*: For this release of {product-kafka}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. 
+* *Replicas*: For this release of {product-kafka}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`.
 +
 Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 +
@@ -233,7 +232,7 @@ $ mvn quarkus:dev
 
 .What just happened?
 
-* The Quarkus application is configured to use the `io.apicurio.registry.serde.avro.AvroKafkaSerializer` Java class for serializing and the `io.apicurio.registry.serde.avro.AvroKafkaDeserializer` class for deserializing messages to Avro format. This SerDes is configured to use remote schemas in {product-long-registry} rather than the local schemas in the application. 
+* The Quarkus application is configured to use the `io.apicurio.registry.serde.avro.AvroKafkaSerializer` Java class for serializing and the `io.apicurio.registry.serde.avro.AvroKafkaDeserializer` class for deserializing messages to Avro format. This SerDes is configured to use remote schemas in {product-long-registry} rather than the local schemas in the application.
 
 * Because there are no schemas in the {registry} instance, the SerDes published the schema for the `quotes` topic. The name of the schema is managed by the `TopicRecordIdStrategy` class, which uses the `topic_name-value` convention. You can find this schema in the {registry} instance and configure compatability rules to govern how the schema can evolve for future versions.
 

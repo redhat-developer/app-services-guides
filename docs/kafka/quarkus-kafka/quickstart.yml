@@ -20,7 +20,7 @@ spec:
     - A command-line terminal application
     - Git
     - An IDE
-    - JDK 11 or later
+    - JDK 11 or later (the latest LTS version of OpenJDK is recommended)
     - Apache Maven 3.6.2 or later
     - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
