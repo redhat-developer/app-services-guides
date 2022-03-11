@@ -283,6 +283,9 @@ image::sak-create-topic.png[Image of wizard to create a topic]
 * *Replicas*: For this release of {product-kafka}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 
 After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now start producing and consuming messages to and from this topic using services that you connect to this instance.
+
+NOTE: If your topic creation is unsuccessful and you receive an error message, try to create your topic again later. This issue might be due to broker unavailability.
+
 --
 . In the topics table, on the right side of the Kafka topic, use the options icon (three vertical dots) to edit or delete the topic as needed.
 +
