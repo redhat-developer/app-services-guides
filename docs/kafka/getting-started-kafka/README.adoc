@@ -82,7 +82,7 @@ endif::[]
 == Creating a Kafka instance in {product-kafka}
 
 [role="_abstract"]
-Use the {product-kafka} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product-kafka} includes a Kafka cluster, bootstrap server, and the configurations needed to connect to producer and consumer services.
+Use the {product-kafka} web console to create and configure a Kafka instance for your applications or services. A Kafka instance in {product-kafka} includes a Kafka cluster, bootstrap server, and the configurations needed to allow you to connect from your producers and consumers.
 
 ifndef::qs[]
 .Prerequisites
