@@ -478,10 +478,10 @@ h|Operations
 --
 
 [id="proc-user-account-access_{context}"]
-== Using RBAC to allow users to view other user accounts
+== Allowing users to view other user accounts
 
 [role="_abstract"]
-As an organization administrator, you can use Role-Based Access Control (RBAC) to allow users to view other users in a group.
+As an organization administrator, you can use Role-Based Access Control (RBAC) to allow users to view other users in an organization.
 
 You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
 By assigning the role, users within the group are able to do the following:
@@ -501,7 +501,8 @@ endif::[]
 
 .Procedure
 
-. In the upper-right corner of the {product-kafka} web console, go to *Settings* (gear icon) > *User Access* > *Groups* and click the name of the user.
+. In the upper-right corner of the {product-kafka} web console, select the gear icon, and click *Settings* > *User Access* > *Groups*
+. Click the name of the user group.
 . From the *Roles* tab, click *Add role* and select `User Access principal viewer` to add the role to the group.
 . Click *Add to group* to add the role to the group.
 +
