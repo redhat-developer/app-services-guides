@@ -255,6 +255,7 @@ ifndef::qs[]
 
 [role="_additional-resources"]
 .Additional resources
+* {base-url}{access-mgmt-url-kafka}[_Managing account access in {product-long-kafka}_^]
 * link:https://kafka.apache.org/documentation/#security_authz[Authorization and ACLs^] in Kafka documentation
 endif::[]
 
