@@ -103,7 +103,7 @@ The table includes columns for the following topic and message properties:
 
 . To see complete data for a message, click *Show more* in the *Value* or *Headers* column.
 +
-A side drawer opens. The additional information shown in the side drawer is the full message value and header, the message size, the epoch timestamp value, and the timestamp type (that is, `Create time` or `Log append time`).
+A side drawer opens. Additional information shown in the side drawer is the full message value and header, the message size, the epoch timestamp value, and the timestamp type (that is, `Create time` or `Log append time`).
 +
 [NOTE]
 --
