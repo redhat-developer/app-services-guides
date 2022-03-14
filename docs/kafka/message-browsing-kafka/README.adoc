@@ -59,12 +59,12 @@ ifdef::context[:parent-context: {context}]
 
 As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality, for example, to verify that a client is producing messages to the expected topic partition, that your topic is storing messages correctly, or that messages have the expected content.
 
-When you select a topic in the console, you can use the *Messages* tab to view a list of messages. You can filter the list of messages in the following ways:
+When you select a topic in the console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
 
 * Specify a partition and see the last ten message sent to the partition.
 * Specify a partition and offset. See the last ten messages sent to the partition from that offset.
-* Specify a partition and a date and time. See the last ten messages sent to the partition from that time.
-* Specify a partition and a Unix epoch timestamp value. See the last ten messages sent to the partition from that time.
+* Specify a partition and a timestamp (that is, date and time) value. See the last ten messages sent to the partition from that date and time.
+* Specify a partition and a Unix epoch timestamp value. See the last ten messages sent to the partition from that epoch timestamp value.
 
 //Additional line break to resolve mod docs generation error.
 
@@ -95,7 +95,7 @@ The table includes columns for the following topic and message properties:
 --
 * Partition
 * Offset
-* Time
+* Timestamp (date and time)
 * Key
 * Value
 * Headers
@@ -103,11 +103,20 @@ The table includes columns for the following topic and message properties:
 
 . To see complete data for a message, click *Show more* in the *Value* or *Headers* column.
 +
-A side drawer opens. Additional information shown in the side drawer includes the complete message value and header information, the message size, the message timestamp as an epoch value, and the timestamp type (that is, `Create time` or `Log append time`).
+A side drawer opens. The additional information shown in the side drawer is the full message value and header, the message size, the epoch timestamp value, and the timestamp type (that is, `Create time` or `Log append time`).
++
+[NOTE]
+--
+If you're using a schema in {product-long-registry} with your topic, the *Messages* page does *not* deserialize messages that a producer application serialized to conform to that schema. To view such messages, you must configure a consumer application to use a Kafka deserializer. For more information, see https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html-single/service_registry_user_guide/index#configuring-kafka-client-serdes[Configuring Kafka serializers/deserializers in Java clients^].
 
-. To copy the complete message value, click the copy icon in the side drawer.
+Similarly, if a message is encoded (for example, in a format such as UTF-8 or Base64), the *Messages* page does not decode the message.
+--
+
+. To copy the full message value, click the copy icon in the side drawer.
 
 . To see messages for a different topic partition, select a new value in the *Select partition* drop-down menu.
++
+NOTE: If you have many partitions, you can filter the list shown in the drop-down menu by typing a value in the field.
 
 . To further refine the list of messages in the table, use the filter controls at the top of the *Messages* page.
 +
@@ -115,21 +124,21 @@ A side drawer opens. Additional information shown in the side drawer includes th
 .. To filter messages by topic partition and offset, perform the following actions:
 ... In the *Select partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, keep this default value.
-... In the *Select offset* drop-down menu, select an offset value.
+... In the *Select offset* field, type an offset value.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
 .. To filter messages by topic partition and date and time, perform the following actions:
 ... In the *Select partition* field, select a topic partition.
-... In the drop-down menu that shows a default value of `Offset`, change the value to `Time`.
+... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
 +
 Additional selection tools appear.
-... Use the additional selection tools to set date and time values.
+... Use the additional selection tools to set date and time values. Alternatively, type a date and time value in the format shown in the field.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
 .. To filter messages by topic partition and epcoh timestamp, perform the following actions:
 ... In the *Select partition* field, select a topic partition.
-... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
-... In the *Select timestamp* field, type or paste an epoch timestamp value.
+... In the drop-down menu that shows a default value of `Offset`, change the value to `Epoch timestamp`.
+... In the *Select epoch timestamp* field, type or paste an epoch timestamp value.
 +
 NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
 ... To apply your filter settings, click the search (magnifying glass) icon.
@@ -138,7 +147,7 @@ NOTE: You can easily convert a human-readable date and time to an epoch value us
 +
 Based on your filter settings, the *Messages* page automatically reloads the list of messsages in the table.
 
-. To clear any existing offset, time, or timestamp selections and revert to seeing the last ten messages sent to the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
+. To clear your existing offset, timestamp, or epoch timestamp selections and revert to seeing the last ten messages in the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
