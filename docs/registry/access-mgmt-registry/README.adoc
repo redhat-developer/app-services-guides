@@ -122,7 +122,7 @@ In {product-long-registry}, you can assign user roles in your {registry} instanc
 ** A service account enables your application or tool to connect securely to your instance
 ** A user account enables users in your organization to access instances
 +
-NOTE: If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Using RBAC to allow users to view other user accounts].
+NOTE: If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Allowing users to view other user accounts].
 . Select the *Role* that you want to assign to your account, for example, *Manager* for write access to this instance.
 . Click *Save*.
 
