@@ -6,6 +6,7 @@ on:
   push:
     tags:
       - 'v*'
+      - 'i*'
     #branches: [main]
 
 jobs:
@@ -27,13 +28,4 @@ jobs:
                       -Dquarkus.container-image.password="${{ secrets.quay_robottoken }}"
                       -Dquarkus.container-image.tag=latest
                       -Dquarkus.container-image.image=quay.io/rhoas/kafka-avro-schema-quickstart
-    - name: Build and publish native image to quay
-      working-directory: code-examples/kafka-avro-schema-quickstart
-      run: ./mvnw clean package -Pnative --file pom.xml --no-transfer-progress 
-                      -Dquarkus.container-image.build=true 
-                      -Dquarkus.native.container-build=true                      
-                      -Dquarkus.container-image.push=true 
-                      -Dquarkus.container-image.username="${{ secrets.quay_robotaccount }}" 
-                      -Dquarkus.container-image.password="${{ secrets.quay_robottoken }}"
-                      -Dquarkus.container-image.tag=native
-                      -Dquarkus.container-image.image=quay.io/rhoas/kafka-avro-schema-quickstart:native
+    
