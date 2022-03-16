@@ -203,10 +203,10 @@ Also, you can observe that the RHOAS Operator is installed in the `openshift-ope
 After you install the RHOAS Operator, you can verify that the Operator is working by using the RHOAS CLI to connect to your OpenShift cluster and retrieve the cluster status. The following example shows how to verify connection to your OpenShift cluster.
 
 .Prerequisites
-* The RHOAS Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-rhoas-operator_{context}[Installing the RHOAS Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-installing-rhoas-operator_{context}[Installing the RHOAS Operator on OpenShift].
 * You can access your OpenShift cluster with privileges to create a new project.
 * You've installed the OpenShift CLI. For more information, see link:https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html#installing-openshift-cli[Installing the OpenShift CLI^].
-* You've installed the latest version of the RHOAS CLI. For more information, see link:{base-url}{rhoas-cli-url}[Installing the RHOAS CLI^].
+* You've installed the latest version of the RHOAS CLI. For more information, see {base-url}{rhoas-cli-url}[Installing the RHOAS CLI^].
 
 .Procedure
 . On your computer, open a command-line window.
@@ -265,16 +265,16 @@ Before you can bind an application running on OpenShift to your Kafka and {regis
 ====
 
 .Prerequisites
-* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long-kafka}^].
-* If you intend to connect a {registry} instance, you've created an instance, and it's in the *Ready* state. To learn how to create a {registry} instance, see link:{base-url}{getting-started-service-registry-url}[Getting started with {product-long-registry}^].
+* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url}[Getting started with {product-long-kafka}^].
+* If you intend to connect a {registry} instance, you've created an instance, and it's in the *Ready* state. To learn how to create a {registry} instance, see {base-url}{getting-started-service-registry-url}[Getting started with {product-long-registry}^].
 * You have an API token to connect to your cloud services instances. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 * You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url}[Managing account access in {product-long-kafka}^].
 * You understand how Role-Based Access Control (RBAC) enables you to manage how user accounts and service accounts can access the {registry} instances you create and the artifacts they contain. For more information, see {base-url}{access-mgmt-service-registry-url}[Managing account access in {product-long-registry}^].
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 
 . Log in to the RHOAS CLI.
 +
@@ -427,9 +427,9 @@ When you perform service binding, the Service Binding Operator automatically inj
 In general, this automatic injection and detection of connection parameters eliminates the need to manually configure an application to connect to a Kafka or {registry} instance. This is a particular advantage if you have many applications in your project that you want to connect to these cloud services.
 
 === Prerequisites
-* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka and {registry} instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}[Connecting a Kafka or {registry} instance to your OpenShift cluster].
+* The Service Binding Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected a Kafka and {registry} instance to a project in your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}[Connecting a Kafka or {registry} instance to your OpenShift cluster].
 
 [id="proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}"]
 === Deploying an example Quarkus application on OpenShift
@@ -446,7 +446,7 @@ The example Quarkus application uses link:https://quarkus.io/guides/deploying-to
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
 . Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka and {registry} instances to, as shown in the following example.
 +
@@ -499,8 +499,8 @@ A new web page entitled *Last movie* opens.  Because you haven't yet connected t
 In the previous step of this tutorial, you deployed an example application on OpenShift. The application is a Quarkus application that uses a Kafka topic called `movies` to produce and consume messages. In this step, you create the `movies` topic in your Kafka instance.
 
 .Prerequisites
-* You've deployed the example Quarkus application. See link:{base-url}{service-binding-url}#proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
-* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see link:{base-url}{getting-started-url}[Getting started with {product-long-kafka}^].
+* You've deployed the example Quarkus application. See {base-url}{service-binding-url-registry}#proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
+* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url}[Getting started with {product-long-kafka}^].
 
 .Procedure
 . On the link:{service-url}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that you want to add a topic to.
@@ -527,15 +527,15 @@ After you complete the topic setup, the new Kafka topic is listed in the topics 
 In this step of the tutorial, you use the RHOAS CLI to bind the example Quarkus application that you deployed on OpenShift to your Kafka and {registry} instances. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka and {registry} instances.
 
 .Prerequisites
-* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. See link:{base-url}{service-binding-url}#con-about-service-binding_{context}[About service binding].
-* The Service Binding Operator is installed on your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected both a Kafka and {registry} instance to a project in your OpenShift cluster. See link:{base-url}{service-binding-url}#proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}[Connecting a Kafka or {registry} instance to your OpenShift cluster].
-* You've deployed the example Quarkus application. See link:{base-url}{service-binding-url}#proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
-* You've created the topic required by the Quarkus application. See link:{base-url}{service-binding-url}#proc-creating-movies-topic-in-kafka-instance_{context}[Creating the movies topic in your Kafka instance].
+* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. See {base-url}{service-binding-url-registry}#con-about-service-binding_{context}[About service binding].
+* The Service Binding Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You've connected both a Kafka and {registry} instance to a project in your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}[Connecting a Kafka or {registry} instance to your OpenShift cluster].
+* You've deployed the example Quarkus application. See {base-url}{service-binding-url-registry}#proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
+* You've created the topic required by the Quarkus application. See {base-url}{service-binding-url-registry}#proc-creating-movies-topic-in-kafka-instance_{context}[Creating the movies topic in your Kafka instance].
 
 .Procedure
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in link:{base-url}{service-binding-url}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
 . Log in to the RHOAS CLI.
 +
