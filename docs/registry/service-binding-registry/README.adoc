@@ -420,9 +420,9 @@ As indicated by this output, when you use the `rhoas cluster connect` command, t
 
 When the RHOAS Operator and Service Binding Operator are installed on your OpenShift cluster and you've connected a Kafka and {registry} instance to the cluster, you're ready to deploy an application and perform service binding. __Service binding__ means instructing the Service Binding Operator to automatically inject the application with the parameters required to connect to the Kafka and {registry} instances.
 
-The following tutorial shows how to use the RHOAS CLI to perform service binding. In the tutorial, you create an example Quarkus application and connect this to a Kafka and {registry} instance. link:https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
+The following tutorial shows how to use the RHOAS CLI to perform service binding. In the tutorial, you create an example Quarkus application and connect this to a Kafka and {registry} instance. link:https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments. The Quarkus application in the tutorial uses an Apache Avro schema to serialize and deserialize messages. The application automatically publishes the Avro schema that it uses to your {registry} instance.
 
-When you perform service binding, the Service Binding Operator automatically injects connection parameters as files into the pod for the application. The example Quarkus application in this tutorial uses link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[service binding extensions^] for Kafka, {registry}, and the Service Binding Operator. These extensions enable the application to automatically detect and use the injected connection parameters, eliminating the need for manual configuration of the application.
+When you perform service binding, the Service Binding Operator automatically injects connection parameters as files into the pod for the application. The Quarkus application uses link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[service binding extensions^] for Kafka, {registry}, and the Service Binding Operator. These extensions enable the application to automatically detect and use the injected connection parameters, eliminating the need for manual configuration of the application.
 
 In general, this automatic injection and detection of connection parameters eliminates the need to manually configure an application to connect to a Kafka or {registry} instance. This is a particular advantage if you have many applications in your project that you want to connect to these cloud services.
 
@@ -594,4 +594,4 @@ When service binding is complete, OpenShift redeploys the Quarkus application. W
 
 . To verify that the Quarkus application is using the Kafka topic, reopen the *Last movie* web page that you opened earlier in this tutorial.
 +
-On the *Last movie* web page, observe that the movie name is continuously updated. The updates show that the Quarkus application is now using the `movies` topic in your Kafka instance to produce and consume messages that correspond to updates.
+On the *Last movie* web page, observe that the movie name is continuously updated. The updates show that the Quarkus application is now using the `movies` topic in your Kafka instance to produce and consume messages.
