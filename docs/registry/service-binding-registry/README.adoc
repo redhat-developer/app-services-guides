@@ -267,7 +267,7 @@ Before you can bind an application running on OpenShift to your Kafka and {regis
 .Prerequisites
 * You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 * You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
-* If you intend to connect a {registry} instance, you've created an instance, and it's in the *Ready* state. To learn how to create a {registry} instance, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
+* You've created a {registry} instance, and it's in the *Ready* state. To learn how to create a {registry} instance, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 * You have an API token to connect to your cloud services instances. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 * You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 * You understand how Role-Based Access Control (RBAC) enables you to manage how user accounts and service accounts can access the {registry} instances you create and the artifacts they contain. For more information, see {base-url}{access-mgmt-url-registry}[Managing account access in {product-long-registry}^].
@@ -308,7 +308,7 @@ Based on the service you select, you're prompted to specify the Kafka or {regist
 
 .  If you have more than one Kafka or {registry} instance, use the up and down arrows on your keyboard to highlight the instance that you want to connect to OpenShift. Press *Enter*.
 +
-The following example shows connection details for a Kafka instance.
+The RHOAS CLI shows details for the connection that you'll create. The following example shows connection details for a Kafka instance.
 +
 .Example connection details
 [source,options="nowrap"]
@@ -331,9 +331,9 @@ You're prompted to provide an access token. The RHOAS Operator requires this tok
 
 . On the command line, right-click and select *Paste*. Press *Enter*.
 +
-The RHOAS Operator uses the API token to create a `KafkaConnection` or `ServiceRegistryConnection` object on your OpenShift cluster.
+Based on the cloud service that you previously selected, the RHOAS Operator uses the API token to create a `KafkaConnection` or `ServiceRegistryConnection` object on your OpenShift cluster.
 +
-The following example shows output from this command for a Kafka instance.
+The following example shows output for a Kafka instance.
 +
 .Example output from rhoas cluster connect command
 [source,options="nowrap"]
@@ -413,7 +413,7 @@ my-kafka-instance    2m35s
 +
 As indicated by this output, when you use the `rhoas cluster connect` command, the RHOAS Operator creates a `KafkaConnection` or `ServiceRegistryConnection` object that matches the name of your Kafka or {registry} instance. In the preceding example, the object name matches a Kafka instance called `my-kafka-instance`.
 
-. Repeat the procedure to ensure that *both* your {product-kafka} and {registry} instances are connected to your OpenShift cluster.
+. Repeat the preceding steps to ensure that *both* your {product-kafka} and {registry} instances are connected to your OpenShift cluster.
 
 [id="con-kafka-registry-binding-quarkus-application-using-cli_{context}"]
 == Binding a Quarkus application to {product-long-kafka} and {product-long-registry} using the RHOAS CLI
@@ -527,8 +527,8 @@ After you complete the topic setup, the new Kafka topic is listed in the topics 
 In this step of the tutorial, you use the RHOAS CLI to bind the example Quarkus application that you deployed on OpenShift to your Kafka and {registry} instances. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka and {registry} instances.
 
 .Prerequisites
-* You understand how the Service Binding Operator injects connection parameters as files into a client application pod. See {base-url}{service-binding-url-registry}#con-about-service-binding_{context}[About service binding].
 * The Service Binding Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
+* You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See {base-url}{service-binding-url-registry}#con-about-service-binding_{context}[About service binding].
 * The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 * You've connected both a Kafka and {registry} instance to a project in your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}[Connecting a Kafka and {registry} instance to your OpenShift cluster].
 * You've deployed the example Quarkus application. See {base-url}{service-binding-url-registry}#proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}[Deploying an example Quarkus application on OpenShift].
@@ -561,9 +561,9 @@ $ oc project my-project
 $ rhoas cluster bind
 ----
 +
-You're prompted to specify the cloud service that you want to connect to OpenShift.
+You're prompted to specify the cloud service that you want to bind to your OpenShift application.
 +
-IMPORTANT: Steps 5-8 that follow show how to bind a *Kafka* instance to the Quarkus application. Later, you're instructed to repeat the steps for your *{registry}* instance.
+IMPORTANT: Steps 5-8 that follow show how to bind a *Kafka* instance to the Quarkus application. Later in the procedure, you're instructed to repeat the steps for your *{registry}* instance.
 
 . Use the up and down arrows on your keyboard to highlight `kafka`. Press *Enter*.
 +
