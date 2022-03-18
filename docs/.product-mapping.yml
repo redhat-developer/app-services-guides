@@ -13,9 +13,9 @@ products:
     directories:
       - registry
       - rhoas
-  ## Adding early to support connectors
   RHOC:
     directories:
+      - connectors
       - rhoas
   RHODA:
     directories:
