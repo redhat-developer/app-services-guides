@@ -180,7 +180,7 @@ You use these credentials and the bootstrap server URL to connect your applicati
 . Set the permissions for your service account to access the Kafka instance resources.
 +
 --
-This example allows applications to produce and consume messages from topics starting with a specified prefix that belong to any consumer group. The service account information you input here is the clientID from the previous step.
+This example allows applications to produce and consume messages from topics starting with a specified prefix that belong to any consumer group. The service account information you input here is the 'clientID' from the previous step.
 
 .Assigning access permissions to a service account
 [source,shell]
