@@ -284,7 +284,7 @@ image::sak-create-topic.png[Image of wizard to create a topic]
 
 After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now start producing and consuming messages to and from this topic using services that you connect to this instance.
 
-NOTE: If your topic creation is unsuccessful and you receive an error message, try to create your topic again later. This  situation might occur, for example, if your selected cloud provider has a temporary availability problem that affects your Kafka instance.
+NOTE: If your topic creation is unsuccessful and you receive an error message, try to create your topic again later. This situation might occur, for example, if your selected cloud provider has a temporary availability problem that affects your Kafka instance.
 
 --
 . In the topics table, on the right side of the Kafka topic, use the options icon (three vertical dots) to edit or delete the topic as needed.
