@@ -2,7 +2,7 @@
 
 
 
-= {product-kafka} Guides and samples
+= {product} Guides and Samples
 
 == Guides
 

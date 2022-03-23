@@ -8,16 +8,15 @@ products:
     ## For example kafka/access-mgmt etc.
     directories:
       - kafka
-      - rhoas
   RHOSR:
     directories:
       - registry
-      - rhoas
   RHOC:
     directories:
       - connectors
-      - rhoas
   RHODA:
     directories:
       - database-access
+  RHOAS:
+    directories:
       - rhoas
