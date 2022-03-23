@@ -16,7 +16,7 @@ You can use the `kafka-console-consumer` script to consume messages from Kafka t
 +
 --
 
-Starting the `kafka-console-consumer` script
+.Starting the `kafka-console-consumer` script
 
 [source,subs="+quotes,+attributes"]
 ----

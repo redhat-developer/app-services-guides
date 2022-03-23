@@ -18,6 +18,8 @@ In {product-kafka}, you can create Access Control Lists (ACLs) in your Kafka ins
 
 .. Click *Manage access*.
 .. In the *Account* drop-down menu, select the new user account or service account that you want to set permissions for. You can also select *All accounts* to set permissions for all user accounts and service accounts in the organization.
++
+If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-kafka}#proc-user-account-access_managing-access[Allowing users to view other user accounts].
 .. Click *Next*.
 +
 --
