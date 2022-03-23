@@ -9,15 +9,16 @@ With the {product-long-rhoas} `rhoas` command-line interface (CLI), you can mana
 As a developer of applications and services,
 you can use `rhoas` to create {registry} instances and connect your applications and services to these instances.
 You can also manage artifacts.
-Artifacts are items stored in {registry}, like schemas and API specifications.
+Artifacts are items stored in {registry}, such as schemas and API specifications.
 
-This guide describes how to get started quickly by doing the following tasks:
+You can get started with {product-long-registry} by doing the following tasks:
 
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a {registry} instance]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update {registry} artifacts]
+* {base-url}{rhoas-cli-getting-started-url-registry}#proc-configuring-service-registry-rules_getting-started-rhoas-service-registry[Configure {registry} rules]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your {registry} instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
@@ -33,6 +34,8 @@ include::modules/guides/proc-uploading-service-registry-artifacts.adoc[leveloffs
 include::modules/guides/proc-downloading-service-registry-artifacts.adoc[leveloffset=+1]
 
 include::modules/guides/proc-updating-service-registry-artifacts.adoc[leveloffset=+1]
+
+include::modules/guides/proc-configuring-service-registry-rules.adoc[leveloffset=+1]
 
 include::modules/guides/proc-commands-managing-registry.adoc[leveloffset=+1]
 

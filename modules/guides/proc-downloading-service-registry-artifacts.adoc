@@ -11,7 +11,7 @@ After you register a {registry} artifact, you can download the artifact to updat
 
 .Procedure
 
-* Download the artifact by doing one of the following:
+* Download the artifact in one of the following ways:
 
 ** Use the `rhoas service-registry artifact get` command and specify the artifact ID.
 +
