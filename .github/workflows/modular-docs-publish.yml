@@ -19,6 +19,8 @@ jobs:
               branch: modular-docs-rhosak
             - product: RHOSR
               branch: modular-docs-rhosr
+            - product: RHOAS
+              branch: modular-docs-rhoas
             # - product: RHODA
             #  branch: modular-docs-rhoda 
             # - product: RHOC
