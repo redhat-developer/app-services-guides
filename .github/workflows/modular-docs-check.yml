@@ -16,6 +16,7 @@ jobs:
         include:
             - product: RHOSAK
             - product: RHOSR
+            - product: RHOAS
             #- product: RHOC
 
     steps:
