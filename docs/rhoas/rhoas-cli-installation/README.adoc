@@ -256,17 +256,14 @@ $ sudo mv rhoas_completions /etc/bash_completion.d/rhoas
 ----
 
 .macOS
-
-.Prerequisites
-
-* Bash completion installed and running with it's current login scripts.
-
-
 [source,shell]
 ----
 $ sudo mv rhoas_completions /usr/local/etc/bash_completion.d/rhoas
 ----
-NOTE: Consult you bash software for the location and usage of your bash-completions directory.
+* _Prerequisites_
+** Bash completion installed and running with its current login scripts.
+
+NOTE: Consult your bash software for the location and usage of your bash_completion directory.
 
 --
 
