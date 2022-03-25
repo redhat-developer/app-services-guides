@@ -25,7 +25,7 @@
 * link:./docs/registry/rhoas-cli-registry[Getting started with the rhoas CLI for {product-long-registry}]
 * link:./docs/registry/quarkus-registry[Using Quarkus applications with Kafka instances and {product-long-registry} instances]
 
-== Common guides
+== Core guides
 
 * link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the rhoas CLI]
 
