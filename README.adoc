@@ -16,7 +16,7 @@
 * link:./docs/kafka/topic-configuration-kafka[Configuring topics in {product-long-kafka}]
 * link:./docs/kafka/nodejs-kafka[Using Node.js applications with Kafka instances in {product-long-kafka}]
 * link:./docs/kafka/metrics-monitoring-kafka[Monitoring metrics in {product-long-kafka}]
-* link:./docs/docs/kafka/consumer-configuration-kafka[Configuring consumer groups in {product-long-kafka}]
+* link:./docs/kafka/consumer-configuration-kafka[Configuring consumer groups in {product-long-kafka}]
 
 == {product-long-registry} guides
 
