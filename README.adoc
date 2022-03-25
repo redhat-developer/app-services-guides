@@ -1,31 +1,39 @@
 :product: App Services
+:product-long-kafka: OpenShift Streams for Apache Kafka
+:product-long-registry: OpenShift Service Registry
 
+= {product} guides and samples
 
+== {product-long-kafka} guides
 
-= {product} Guides and Samples
+* link:./docs/kafka/getting-started-kafka[Getting started with {product-long-kafka}]
+* link:./docs/kafka/rhoas-cli-getting-started-kafka[Getting started with the `rhoas` CLI for {product-long-kafka}]
+* link:./docs/kafka/quarkus-kafka[Using Quarkus applications with Kafka instances in {product-long-kafka}]
+* link:./docs/kafka/kcat-kafka[Using Kafkacat with Kafka instances in {product-long-kafka}]
+* link:./docs/kafka/kafka-bin-scripts-kafka[Using Kafka bin scripts with {product-long-kafka}]
+* link:./docs/kafka/access-mgmt-kafka[Managing account access in {product-long-kafka}]
+* link:./docs/kafka/service-binding-kafka[Binding OpenShift applications to {product-long-kafka}]
+* link:./docs/kafka/topic-configuration-kafka[Configuring topics in {product-long-kafka}]
+* link:./docs/kafka/nodejs-kafka[Using Node.js applications with Kafka instances in {product-long-kafka}]
+* link:./docs/kafka/metrics-monitoring-kafka[Monitoring metrics in {product-long-kafka}]
+* link:./docs/docs/kafka/consumer-configuration-kafka[Configuring consumer groups in {product-long-kafka}]
 
-== Guides
+== {product-long-registry} guides
 
-* link:./docs/kafka/getting-started[Getting started with {product-kafka}]
-* link:./rhoas-cli[Installing and configuring the `rhoas` CLI]
-* link:./docs/service-discovery[Binding OpenShift applications to {product-kafka}]
+* link:./docs/registry/getting-started-registry/[Getting started with {product-long-registry}]
+* link:./docs/registry/access-mgmt-registry[Managing account access in {product-long-registry}]
+* link:./docs/registry/rhoas-cli-registry[Getting started with the `rhoas` CLI for {product-long-registry}]
+* link:./docs/registry/quarkus-registry[Using Quarkus applications with Kafka and {product-long-registry} instances]
 
-== OpenShift Streams For Apache Kafka Guides
+== Common guides
 
-* link:./docs/kafka/rhoas-cli-kafka[Getting started with the `rhoas` CLI for OpenShift Streams for Apache Kafka]
-* link:./docs/kafka/quarkus[Using Quarkus applications with Kafka instances in {product-kafka}]
-* link:./docs/kafka/kafkacat[Using Kafkacat with Kafka instances in {product-kafka}]
-* link:./docs/kafka/kafka-bin-scripts[Using Kafka bin scripts with {product-kafka}]
-
-== OpenShift Service Registry Guides
-
-* link:./docs/registry/rhoas-cli-service-registry[Getting started with the `rhoas` CLI for OpenShift Service Registry]
-* link:./docs/registry/getting-started-service-registry/[Getting started with Service Registry]
+* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the `rhoas` CLI]
 
 == Application examples used in guides
 
 * link:./code-examples/quarkus-kafka-quickstart[Quarkus Kafka quick start]
+* link:./code-examples/quarkus-service-registry-quickstart[Quarkus Kafka Service Registry quick start]
 
 == Contributing
 
-* link:./CONTRIBUTING.adoc[Contributing to {product-kafka} guides]
+* link:./CONTRIBUTING.adoc[Contributing to {product} guides]
