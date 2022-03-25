@@ -1,6 +1,9 @@
 :product: App Services
+:product-kafka: Streams for Apache Kafka
+:product-registry: Service Registry
 
-= Contributing to {product-kafka} guides
+= Contributing to {product} guides
+
 
 == Prerequisites
 
@@ -41,7 +44,7 @@ npm --prefix .build run generate:attributes
 
 == Repository structure
 
-This repository is designed to be usable for people browsing it on GitHub, as well as reusable (e.g. in quick starts) in implementations of {product-kafka}.
+This repository is designed to be usable for people browsing it on GitHub, as well as reusable (for example, in quick starts) in implementations of services such as {product-kafka} or {product-registry}.
 
 Each guide is contained in a separate directory. The directory must contain:
 
