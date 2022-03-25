@@ -27,7 +27,7 @@
 
 == Common guides
 
-* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the `rhoas` CLI]
+* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the rhoas CLI]
 
 == Application examples used in guides
 
