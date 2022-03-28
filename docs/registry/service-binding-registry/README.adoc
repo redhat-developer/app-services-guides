@@ -466,12 +466,21 @@ $ oc new-app quay.io/rhoas/kafka-avro-schema-quickstart
 imagestream.image.openshift.io "kafka-avro-schema-quickstart" created
 deploymentconfig.apps.openshift.io "kafka-avro-schema-quickstart" created
 service "kafka-avro-schema-quickstart" created
-route.route.openshift.io "kafka-avro-schema-quickstart" created
 ----
 +
-As shown in the output, when you deploy the application, OpenShift creates a service and route for access to the application.
+As shown in the output, when you deploy the application, OpenShift creates a service for the application. However, the service is *not* exposed by default. You must expose the service to create a route for clients to access the application.
 
-. Get the URL of the route created for the application.
+. Expose the previously created service to create a route to the application.
++
+.Creating a route to the Quarkus application
+[source,options="nowrap"]
+----
+$ oc expose svc/kafka-avro-schema-quickstart
+
+route.route.openshift.io/kafka-avro-schema-quickstart exposed
+----
+
+. Get the URL of the route created for the application. An example is shown below.
 +
 .Getting the route details for the Quarkus application
 [source,options="nowrap"]
