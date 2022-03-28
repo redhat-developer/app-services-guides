@@ -1,0 +1,32 @@
+[id='proc-logging-in-to-rhoas_{context}']
+= Logging in to rhoas
+:imagesdir: ../_images
+
+[role="_abstract"]
+After `rhoas` is installed, you can log in to access your application services.
+
+.Prerequisites
+
+* You must have an account to access Red Hat OpenShift Application Services.
+* You've installed the `rhoas` CLI.
+
+.Procedure
+
+. In a terminal, log in to `rhoas`.
++
+--
+[source,shell]
+----
+$ rhoas login
+----
+
+You are redirected to your web browser at https://sso.redhat.com[^].
+--
+
+. Enter your credentials to log in to your Red Hat account.
++
+--
+Welcome pages in the browser notify you that you've been logged in to `rhoas` successfully.
+
+In your terminal, the `rhoas login` command indicates that you're logged in.
+--

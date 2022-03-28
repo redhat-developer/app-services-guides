@@ -1,0 +1,28 @@
+[id='assembly-installing-rhoas-cli']
+= Installing and configuring the rhoas CLI
+:context: installing-rhoas-cli
+:imagesdir: _images
+
+[role="_abstract"]
+With the {product-long-rhoas} `rhoas` command-line interface (CLI), you can manage your application services from a terminal.
+
+This guide describes how to set up `rhoas` by doing the following:
+
+--
+* {base-url}{rhoas-cli-installation-url}#proc-installing-rhoas_installing-rhoas-cli[Install `rhoas` on your operating system]
+* {base-url}{rhoas-cli-installation-url}#proc-configuring-rhoas_installing-rhoas-cli[Configure `rhoas` to enable command completion]
+* {base-url}{rhoas-cli-installation-url}#proc-logging-in-to-rhoas_installing-rhoas-cli[Log in to `rhoas`]
+* {base-url}{rhoas-cli-installation-url}#proc-logging-out-rhoas_installing-rhoas-cli[Log out of `rhoas`]
+--
+
+//Additional line break to resolve mod docs generation error
+
+include::modules/guides/proc-installing-rhoas.adoc[leveloffset=+1]
+
+include::modules/guides/proc-configuring-rhoas.adoc[leveloffset=+1]
+
+include::modules/guides/proc-logging-in-to-rhoas.adoc[leveloffset=+1]
+
+include::modules/guides/proc-logging-out-rhoas.adoc[leveloffset=+1]
+
+
