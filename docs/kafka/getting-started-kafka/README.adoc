@@ -180,7 +180,7 @@ IMPORTANT: The generated credentials are displayed only one time, so ensure that
 NOTE: SASL/PLAIN authentication is also available for tools and libraries that don't support SASL/OAUTHBEARER, but SASL/OAUTHBEARER is recommended whenever possible. With SASL/PLAIN authentication, you use only the service account credentials to authenticate the connection to the Kafka instance.
 
 +
-You'll use the service account information that you saved to configure your application to connect to your Kafka instances when you're ready. For example, if you plan to use https://github.com/edenhill/kafkacat[Kafkacat^] to interact with your Kafka instance, you'll use this information to set your bootstrap server and client environment variables.
+You'll use the service account information that you saved to configure your application to connect to your Kafka instances when you're ready.
 . To review your service account information, reset your credentials, or delete the service account, use the left navigation menu to go to the *Service Accounts* page.
 
 .Verification
@@ -207,7 +207,7 @@ After you create a service account to connect to a Kafka instance, you must also
 . In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want the service account to access.
 . Click the *Access* tab to view the current ACL for this instance.
 . Click *Manage access*, use the *Account* drop-down menu to select the service account that you previously created, and click *Next*.
-. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers and values to `Is *`.
+. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers to `Is` and all identifier values to `*`.
 +
 --
 These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
@@ -244,7 +244,7 @@ h|Operation
 |`Write`, `Create`, `Describe`
 |===
 
-NOTE: Alternatively, you can click *Add permission* to individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permissions for the consumer group in a single entry. But you must configure these entries individually without using the predefined permission options.
+NOTE: Alternatively, you can click *Add permission* to create individual permissions as needed. For example, you can create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the specified topic in a single entry, and enables all permissions for the consumer group in another single entry. But you must configure these entries individually without using the predefined permission options.
 
 --
 . After you add these permissions for the service account, click *Save* to finish.
@@ -303,7 +303,7 @@ endif::[]
 
 [role="_additional-resources"]
 == Additional resources
-* https://kafka.apache.org/081/documentation.html#configuration[Configuration^] in Kafka
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5[_Configuring topics in {product-long-kafka}_^]
 * {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
 * {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 * {base-url}{kafkacat-url-kafka}[_Configuring and connecting Kafkacat with {product-long-kafka}_^]
