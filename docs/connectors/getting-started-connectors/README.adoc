@@ -70,7 +70,7 @@ ifdef::qs[]
 Learn how to create and set up connectors in {product-long-connectors}.
 
 [#introduction]
-Welcome to the quick start for {product-long-connectors}. In this quick start, you'll learn how to create a source connector and sink connector and send data to and from {product-kafka}. A source connector allows you to send data from an external system to {product-kafka}. A sink connector allows you to send data from {product-kafka} to an external system.
+Welcome to the quick start for {product-long-connectors}. In this quick start, you'll learn how to create a source connector and sink connector and send data to and from {product-kafka}. A source connector allows you to send data from an external system to {product-kafka}. A sink connector allows you to send data from {product-kafka} to an external system. 
 
 endif::[]
 
@@ -137,8 +137,8 @@ endif::[]
 In this step you create and configure a sink connector. A sink connector consumes events from an Kafka topic and sends them to an external system. In this quickstart you use the HTTP Sink connector which consumes the messages produced by the source connector configured in the previous step and calls a HTTP endpoint with the message payload.
 
 .Procedure
-. Before continuing with the setup of the source connector, you need to setup a HTTP endpoint for the sink connector. One way to do so is to use the free link:https://webhook.site[webhook.site^] service.
-In a new browser tab, navigate to the link:https://webhook.site[webhook.site^], where you will be given a unique URL that you can leverage as HTTP sink for the connector.
+. Before continuing with the setup of the source connector, you need to setup a HTTP endpoint for the sink connector. One way to do so is to use the free link:https://webhook.site[webhook.site^] service. 
+In a new browser tab, navigate to the link:https://webhook.site[webhook.site^], where you will be given a unique URL that you can leverage as HTTP sink for the connector. 
 . In the {service-url-connectors}[^] web console, go to *Connectors* and click *Create connector instance*. Follow the guided steps to define the connector details. Click *Next* to complete each step and click *Finish* to finish the setup.
 . In the first step you select the connector you want to use. You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
 +
