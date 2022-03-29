@@ -77,11 +77,26 @@ endif::[]
 == Configuring the {product-kafka} instance for use with {product-long-connectors}
 
 [role="_abstract"]
+As a prerequisite for using {product-long-connectors} you need a running {product-kafka} instance. P{lease refer to the Getting started with OpenShift Streams for Apache Kafka for instructions to create a Kafka instance.
+
 In this step you configure your {product-kafka} for use with {product-long-connectors}. This involves creating topics and setting up access rules for service accounts.
 
 .Procedure
-. First step
-. Second step
+. Create a topic for the connectors.
+.. In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want to add a topic to.
+.. Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup. +
+Choose a unique name for your topic. Leave the partitions and retention settings to the default settings.
+
+. Create a service account for the connectors. 
+.. In the *Service Accounts* page of the web console, click *Create service account* to create a new service account.
+.. Enter a unique service account name add an optional description, and click *Create*.
+.. Copy the generated *Client ID* and *Client Secret* to a secure location. These are the credentials that you'll use to connect to this Kafka instance.
+
+. Set the appropriate level of access for the new service account in the Access Control List (ACL) of the Kafka instance.
+.. In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want the service account to access.
+.. Click the *Access* tab to view the current ACL for this instance.
+.. Click *Manage access*, use the *Account* drop-down menu to select the service account that you previously created, and click *Next*.
+.. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers and values to `Is *`. 
 
 .Verification
 ifdef::qs[]
@@ -106,7 +121,7 @@ NOTE: From this screen you can also create a new Kafka instance by clicking the 
 
 . Select the OpenShift Dedicated cluster to host the connector instance. Select the OSD cluster by clicking the box representing the cluster, and click *Next* to complete the step.
 
-. In this step you configure the common configuration for your connector. Provide a unique name for the connector and select *Automatically create a service account for this connector*. As an alternative you can also provide the Client ID and Client Secret of an existing service account. If you did set up the {product-kafka} ACL as explained in the previous task of this quick start, the newly created service account has sufficient rights to produce messages to the topic associated with the connector. Click *Next* to complete the step.
+. In this step you configure the common configuration for your connector. Provide a unique name for the connector. Enter the Client ID and Client Secret of the service account you created in the previous task of this quick start in the *Client ID* and *Client secret* text boxes. If you did set up the {product-kafka} ACL as explained in the previous task, the service account has sufficient rights to produce messages to the topic associated with the connector. Click *Next* to complete the step.
 
 . In this step you provide the connector specific configuration.
 .. Leave the *Data shape Format* to `application/octet-stream`
@@ -147,7 +162,7 @@ Enter *http* in the search box. You should see only one connector, called *HTTP 
 
 . Select the OpenShift Dedicated cluster to host the connector instance. Select the OSD cluster by clicking the box representing the cluster, and click *Next* to complete the step.
 
-. In this step you configure the common configuration for your connector. Provide a unique name for the connector and select *Automatically create a service account for this connector*. As an alternative you can also provide the Client ID and Client Secret of an existing service account. If you did set up the {product-kafka} ACL as explained in the previous task of this quick start, the newly created service account has sufficient rights to consume messages from the topic associated with the connector. Click *Next* to complete the step.
+. In this step you configure the common configuration for your connector. Provide a unique name for the connector. Enter the Client ID and Client Secret of the service account you created in the first task of this quick start in the *Client ID* and *Client secret* text boxes. If you did set up the {product-kafka} ACL as explained in the first task, the service account has sufficient rights to consume messages from the topic associated with the connector. Click *Next* to complete the step.
 
 . In this step you provide the connector specific configuration.
 .. Leave the *Data shape Format* to `application/octet-stream`
@@ -163,7 +178,6 @@ Select `log`.
 After you complete the connector setup, the new connector is listed in the connectors table. After a couple of seconds, the connector moves to the *Ready* state. At this point the connector starts consuming messages from the Kafka topic associated with the connector and sending them to the HTTP sink.
 
 . In the browser tab pointing to link:https://webhook.site[webhook.site^] you should see the HTTP POST calls from the connector with the message contents as defined in the source connector.
-
 
 
 .Verification
