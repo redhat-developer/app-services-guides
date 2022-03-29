@@ -233,7 +233,7 @@ You can enable command completion for each of the following shells:
 .Prerequisites
 
 * You've installed the `rhoas` CLI.
-* To enable command completion on Bash for macOS you need to have Bash completion installed and running with its current login scripts.
+* If you're using macOS, you've installed `bash-completion` configured in your `.bash_profile` file.
 
 [discrete,id="enabling-command-completion-bash_{context}"]
 === Enabling command completion on Bash
@@ -262,7 +262,7 @@ $ sudo mv rhoas_completions /etc/bash_completion.d/rhoas
 $ sudo mv rhoas_completions /usr/local/etc/bash_completion.d/rhoas
 ----
 
-NOTE: For macOS consult your bash software for the location and usage of your bash_completion directory.
+NOTE: For macOS, to find the location of your `bash-completion` directory, check the `~/.bashrc` or `~/.bash_profile` file.
 
 --
 
