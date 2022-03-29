@@ -204,7 +204,7 @@ After you create a service account to connect to a Kafka instance, you must also
 . In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want the service account to access.
 . Click the *Access* tab to view the current ACL for this instance.
 . Click *Manage access*, use the *Account* drop-down menu to select the service account that you previously created, and click *Next*.
-. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers and values to `Is` and all identifier values to `*`.
+. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers to `Is` and all identifier values to `*`.
 +
 --
 These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
@@ -300,7 +300,7 @@ endif::[]
 
 [role="_additional-resources"]
 == Additional resources
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5[Configuration^] in Kafka
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5[_Configuring topics in {product-long-kafka}_^]
 * {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
 * {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 * {base-url}{kafkacat-url-kafka}[_Configuring and connecting Kafkacat with {product-long-kafka}_^]
