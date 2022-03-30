@@ -81,7 +81,7 @@ You can get started with {product-long-registry} by doing the following tasks:
 == Prerequisites
 
 [role="_abstract"]
-* You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-installation-url}[_Installing the rhoas CLI_^].
+* You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-installation-url}[_Installing and configuring the rhoas CLI_^].
 
 [id="proc-creating-service-registry-instance-cli_{context}"]
 == Creating a {registry} instance
