@@ -75,15 +75,24 @@ NOTE: The Kafka scripts are part of the open source community version of Apache 
 endif::[]
 
 //Additional line break to resolve mod docs generation error
+[id="con-consumer-group-list_{context}"]
+== Listing consumer groups
 
+[role="_abstract"]
+If you're using the `rhoas` command-line interface (CLI) to list the consumer groups defined for your Kafka instance use the command:
+
+
+[source,subs="+quotes,+attributes"]
+----
+rhoas kafka consumer-group list
+----
 [id="con-consumer-group-script_{context}"]
 == Connecting the Kafka consumer group script
 
 [role="_abstract"]
 If you're using the `kafka-consumer-groups.sh` script, or any other Kafka scripts,
-you'll need to use the `--bootstrap-server` and `--command-config` flags to connect to your Kafka instance.
+you'll need to use the `--bootstrap-server` and `--command-config` flags to connect to your Kafka instance using the command:
 
-.Command to list all consumer groups
 [source,subs="+quotes,+attributes"]
 ----
 ./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --list
