@@ -1,0 +1,70 @@
+[id='proc-kafka-registry-deploying-example-quarkus-application-on-openshift_{context}']
+= Deploying an example Quarkus application on OpenShift
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this step of the tutorial, you deploy an example Quarkus application in the OpenShift project that you previously connected your Kafka and {registry} instances to.
+
+The Quarkus application generates random movie names and produces those names to a Kafka topic. Another part of the application consumes the names from the Kafka topic. Finally, the application uses __server-sent events__ to expose the numbers as a REST UI. A web page in the application displays the exposed names.
+
+The example Quarkus application uses link:https://quarkus.io/guides/deploying-to-kubernetes#service-binding[service binding extensions^] for Kafka, {registry}, and the Service Binding Operator. These extensions enable the application to automatically detect and use the injected connection parameters, eliminating the need for manual configuration of the application.
+
+.Prerequisites
+* You have privileges to deploy applications in the OpenShift project that you connected your Kafka and {registry} instances to.
+
+.Procedure
+
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka and {registry} instances to, as shown in the following example.
++
+.Using the OpenShift CLI to specify the current OpenShift project
+[source]
+----
+$ oc project my-project
+----
+
+. To create the Quarkus application, deploy a container image provided by {org-name}.
++
+.Deploying an example Quarkus application
+[source,options="nowrap"]
+----
+$ oc new-app quay.io/rhoas/kafka-avro-schema-quickstart
+
+imagestream.image.openshift.io "kafka-avro-schema-quickstart" created
+deploymentconfig.apps.openshift.io "kafka-avro-schema-quickstart" created
+service "kafka-avro-schema-quickstart" created
+----
++
+As shown in the output, when you deploy the application, OpenShift creates a service for the application. However, the service is *not* exposed by default. You must expose the service to create a route for clients to access the application.
+
+. Expose the previously created service to create a route to the application.
++
+.Creating a route to the Quarkus application
+[source,options="nowrap"]
+----
+$ oc expose svc/kafka-avro-schema-quickstart
+
+route.route.openshift.io/kafka-avro-schema-quickstart exposed
+----
+
+. Get the URL of the route created for the application. An example is shown below.
++
+.Getting the route details for the Quarkus application
+[source,options="nowrap"]
+----
+$ oc get route
+
+NAME                            HOST/PORT
+kafka-avro-schema-quickstart    kafka-avro-schema-quickstart-my-project.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+----
+
+. On the command line, highlight the URL shown under *HOST/PORT*. Right-click and select *Copy*.
+
+. In your web browser, paste the URL for the route. Ensure that the URL includes `http://`.
++
+A web page for the Quarkus application opens.
+
+. In your web browser, append `/movies.html` to the URL.
++
+A new web page entitled *Last movie* opens.  Because you haven't yet connected the Quarkus application to your Kafka instance, the name value appears as `N/A`.

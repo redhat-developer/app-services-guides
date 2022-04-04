@@ -1,0 +1,164 @@
+[id='proc-connecting-kafka-registry-instance-to-openshift-cluster_{context}']
+= Connecting a Kafka and {registry} instance to your OpenShift cluster
+:imagesdir: ../_images
+
+[role="_abstract"]
+When you've verified connection to your OpenShift cluster, you can connect Kafka and {registry} instances to the current project in the cluster. You must establish these connections before you can bind applications running in the project to the Kafka and {registry} instances.
+
+The following procedure shows how to use the RHOAS CLI to connect a specified Kafka or {registry} instance to a project in your cluster.
+
+[IMPORTANT]
+====
+Before you can bind an application running on OpenShift to your Kafka and {registry} instances, you must connect *each* of these cloud services to your OpenShift cluster. Therefore, you must perform the following procedure for both services.
+====
+
+.Prerequisites
+* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You've created a {registry} instance, and it's in the *Ready* state. To learn how to create a {registry} instance, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
+* You have an API token to connect to your cloud services instances. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
+* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
+* You understand how Role-Based Access Control (RBAC) enables you to manage how user accounts and service accounts can access the {registry} instances you create and the artifacts they contain. For more information, see {base-url}{access-mgmt-url-registry}[Managing account access in {product-long-registry}^].
+
+.Procedure
+
+. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-registry}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+
+. Log in to the RHOAS CLI.
++
+.Logging in to the RHOAS CLI
+[source]
+----
+$ rhoas login
+----
+
+. Use the OpenShift CLI to specify the current OpenShift project. Specify the project that you created when verifying connection to your OpenShift cluster, as shown in the following example.
++
+.Using the OpenShift CLI to specify the current OpenShift project
+[source]
+----
+$ oc project my-project
+----
+
+. Use the RHOAS CLI to connect a Kafka or {registry} instance to the current project in your OpenShift cluster.
++
+.Using the RHOAS CLI to connect a Kafka or {registry} instance to your OpenShift cluster
+[source]
+----
+$ rhoas cluster connect
+----
++
+You're prompted to specify the cloud service that you want to connect to OpenShift.
+
+. Use the up and down arrows on your keyboard to highlight `kafka` or `service-registry`. Press *Enter*.
++
+Based on the service you select, you're prompted to specify the Kafka or {registry} instance that you want to connect to OpenShift.
+
+.  If you have more than one Kafka or {registry} instance, use the up and down arrows on your keyboard to highlight the instance that you want to connect to OpenShift. Press *Enter*.
++
+The RHOAS CLI shows details for the connection that you'll create. The following example shows connection details for a Kafka instance.
++
+.Example connection details
+[source,options="nowrap"]
+----
+Connection Details:
+
+Service Type: kafka
+Service Name: my-kafka-instance
+Kubernetes Namespace:  my-project
+Service Account Secret: rh-cloud-services-service-account
+----
+
+. Verify the connection details shown by the RHOAS CLI. When you're ready to continue, type `y` and then press *Enter*.
++
+You're prompted to provide an access token. The RHOAS Operator requires this token to connect to your Kafka or {registry} instance.
+
+. In your web browser, open the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
+
+. On the OpenShift Cluster Manager API Token page, click **Load token**. When the page is refreshed, copy the API token shown.
+
+. On the command line, right-click and select *Paste*. Press *Enter*.
++
+Based on the cloud service that you previously selected, the RHOAS Operator uses the API token to create a `KafkaConnection` or `ServiceRegistryConnection` object on your OpenShift cluster.
++
+The following example shows output for a Kafka instance.
++
+.Example output from rhoas cluster connect command
+[source,options="nowrap"]
+----
+Service Account Secret "rh-cloud-services-service-account" created successfully
+Client ID: srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+...
+KafkaConnection resource "my-kafka-instance" has been created
+Waiting for status from KafkaConnection resource.
+Created KafkaConnection can be injected into your application.
+...
+KafkaConnection successfully installed on your cluster.
+----
++
+As shown in the preceding example, the RHOAS Operator creates a new service account to access the Kafka or {registry} instance that you specified. The Operator stores the service account information in a secret.
++
+The RHOAS Operator also creates a `KafkaConnection` or `ServiceRegistryConnection` object for your Kafka or {registry} instance, which connects the instance to the OpenShift cluster. When you bind your Kafka or {registry} instance to an application on OpenShift, the Service Binding Operator uses the `KafkaConnection` or `ServiceRegistryConnection` object to provide the application with the necessary connection information for the instance. Binding an application to your Kafka or {registry} instance is described later in this guide.
+
+. Enable the new service account created by the RHOAS Operator to access the Kafka or {registry} instance that you specified.
+.. If you connected to a Kafka instance, set Access Control List (ACL) permissions to enable the new service account to access resources in the Kafka instance.
++
+.Setting Kafka access permissions for the service account
+[source,options="nowrap",subs="+quotes"]
+----
+$ rhoas kafka acl grant-access --consumer --producer --service-account __<my-client-id>__ --topic "\*" --group "*"
+----
++
+In the preceding command, replace __<my-client-id>__ with the `Client ID` value for the new service account. This value was previously shown on the command line.
++
+You should see output like the following example:
++
+.Example output when setting Kafka access permissions
+[source,options="nowrap"]
+----
+The following ACL rules are to be created:
+
+  PRINCIPAL (7)                                   PERMISSION         DESCRIPTION
+ ----------------------------------------------- ------------------ ---------------------------
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | DESCRIBE   TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | READ       TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | READ       GROUP is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | WRITE      TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | CREATE     TOPIC is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | WRITE      TRANSACTIONAL_ID is "*"
+  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | DESCRIBE   TRANSACTIONAL_ID is "*"
+
+? Are you sure you want to create the listed ACL rules (y/N) Yes
+✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
+----
++
+In this example, the permissions you create allow applications to use the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+
+.. If you connected to a {registry} instance, use Role-Based Access Control (RBAC) to enable the new service account to access the {registry} instance and the artifacts (such as schemas) that it contains.
++
+.Setting {registry} access permissions for the service account
+[source,options="nowrap",subs="+quotes"]
+----
+rhoas service-registry role add --role=manager --service-account __<my-client-id>__
+Updating role for principal
+Role was successfully applied
+----
++
+In the preceding command, replace __<my-client-id>__ with the `Client ID` value for the new service account. This value was previously shown on the command line.
++
+In this example, the `manager` role that you assign to the service account allows applications to use the service account to view and write to schemas in the {registry} instance.
+
+. Use the OpenShift CLI to verify that the RHOAS Operator successfully created the `KafkaConnection` or `ServiceRegistryConnection` object, as shown in the following example:
++
+.Using the OpenShift CLI to verify Operator connection to your cluster
+[source]
+----
+$ oc get KafkaConnection
+
+NAME   		         AGE
+my-kafka-instance    2m35s
+----
++
+As indicated by this output, when you use the `rhoas cluster connect` command, the RHOAS Operator creates a `KafkaConnection` or `ServiceRegistryConnection` object that matches the name of your Kafka or {registry} instance. In the preceding example, the object name matches a Kafka instance called `my-kafka-instance`.
+
+. Repeat the preceding steps to ensure that *both* your {product-kafka} and {registry} instances are connected to your OpenShift cluster.

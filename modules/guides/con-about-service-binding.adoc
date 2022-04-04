@@ -1,0 +1,60 @@
+[id='con-about-service-binding_{context}']
+= About service binding
+:imagesdir: ../_images
+
+You can use a specialized Operator called the Service Binding Operator to automatically provide an application on OpenShift with the parameters required to connect to a specified Kafka instance in {product-kafka}. If you're using a schema with your Kafka instance, you can also use the Service Binding Operator to provide the application with connection parameters for a {registry} instance. Using the Service Binding Operator to automatically generate connection parameters for these cloud services is called __service binding__.
+
+To perform service binding, you must also install the Red Hat OpenShift Application Services (RHOAS) Operator.
+The RHOAS Operator exposes a Kafka or {registry} instance to an OpenShift cluster. The Service Binding Operator then collects and shares the information required for an application running on the OpenShift cluster to connect to the Kafka or {registry} instance.
+
+When the RHOAS Operator and Service Binding Operator are installed, you can use the RHOAS CLI or OpenShift web console to perform service binding. When connection between your application and Kafka or {registry} instance is established, you can then work directly with the instance using standard OpenShift features and APIs.
+
+As part of the service binding process, the Service Binding Operator injects connection parameters for the Kafka or {registry} instance into the pod for your application, as files.
+
+When you bind to a Kafka instance in {product-kafka}, the Service Binding Operator creates the following directory and file structure in the application pod:
+
+.Files injected by the Service Binding Operator for a Kakfa instance
+[source, subs="+quotes"]
+----
+/bindings/__<kafka-instance-name>__
+├── bootstrapServers
+├── password
+├── provider
+├── saslMechanism
+├── securityProtocol
+├── type
+└── user
+----
+
+Each file that the Service Binding Operator injects into the application pod contains a single connection parameter, specified in plain text. The connection parameters that correspond to the injected files are described below.
+
+bootstrapServers:: Bootstrap server endpoint for the Kafka instance.
+password:: Password for connection to the Kafka instance.
+provider:: Cloud provider for the Kafka instance.
+saslMechanism:: Simple Authentication and Security Layer (SASL) mechanism used by the Kafka instance for client authentication.
+securityProtocol:: Protocol used by the Kafka instance to secure client connections.
+type:: Metadata that identifies the Red Hat OpenShift Application Services (RHOAS) service. For a Kafka instance in {product-kafka}, this is set to a value of `kafka`.
+user:: User name for connection to the Kafka instance.
+
+When you bind to a {registry} instance, the Service Binding Operator creates the following directory and file structure in the application pod:
+
+.Files injected by the Service Binding Operator for a {registry} instance
+[source, subs="+quotes"]
+----
+/bindings/__<registry-instance-name>__
+├── clientId
+├── clientSecret
+├── oauthRealm
+├── oauthTokenUrl
+├── registry
+└── type
+----
+
+Each file that the Service Binding Operator injects into the application pod contains a single connection parameter, specified in plain text. The connection parameters that correspond to the injected files are described below. Some of these parameters are required by the OAuth (Open Authorization) protocol, which is used to secure connections to {registry} instances.
+
+clientId:: Client ID used by OAuth to connect to the {registry} instance.
+clientSecret:: Name of the secret that contains the password used by OAuth to connect to the {registry} instance.
+oauthRealm:: Authentication realm used by OAuth to connect to the {registry} instance.
+oauthTokenUrl:: Endpoint for the access token used by OAuth to connect to the {registry} instance.
+registry:: Endpoint for the {registry} instance.
+type:: Metadata that identifies the Red Hat OpenShift Application Services (RHOAS) service. For a {registry} instance, this is set to a value of `service-registry`.
