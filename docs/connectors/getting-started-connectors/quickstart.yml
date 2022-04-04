@@ -16,7 +16,8 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - A Red Hat identity
-    - A running Kafka instance (see the Getting started with Kafka quick start)
+    - You've created a  {product-kafka} instance and the instance is in *Ready* state. See the _Getting started with OpenShift Streams for Apache Kafka_ quick start.
+    - For the example data sink, open the free https://webhook.site[webhook.site]in a browser window. The `webhook.site` page provides a unique URL that you can copy for use as an HTTP data sink.
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-configuring-kafka-for-connectors
