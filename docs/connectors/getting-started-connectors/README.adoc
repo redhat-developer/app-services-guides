@@ -72,7 +72,11 @@ ifdef::qs[]
 Learn how to create and set up connectors in {product-long-connectors}.
 
 [#introduction]
-Welcome to the quick start for {product-long-connectors}. In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}. A source connector allows you to send data from an external system to {product-kafka}. A sink connector allows you to send data from {product-kafka} to an external system. 
+Welcome to the quick start for {product-long-connectors}. 
+
+In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}. 
+
+A *source* connector allows you to send data from an external system to {product-kafka}. A *sink* connector allows you to send data from {product-kafka} to an external system. 
 
 endif::[]
 
@@ -94,12 +98,16 @@ endif::[]
 == Configuring the {product-kafka} instance for use with {product-long-connectors}
 
 [role="_abstract"]
-Configure your {product-kafka} for use with {product-long-connectors} by creating a Kafka topics, creating service accounts, and setting up access rules for the service accounts. The number of Kafka topics and service accounts that you create and the access rules for the service accounts depend on your application. For this quick start, you create one Kafka topic, named *test*, one service account, and you provide all permissions on the service account.
+Configure your {product-kafka} for use with {product-long-connectors} by creating  Kafka topics, creating service accounts, and setting up access rules for the service accounts. The number of Kafka topics, service accounts that you create, and the access rules for the service accounts depend on your application. 
+
+Kakfa topics store messages sent by producers (data sources) and make them available to consumers (data sinks). Service accounts allow you to connect and authenticate your Connectors with Kafka instances. Access rules for service accounts define how your Connectors accounts can access and use the associated Kafka instance and topics.
+
+For this quick start, you create one Kafka topic, named *test*, one service account, and you provide all permissions on the service account.
 
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the {service-url-connectors}[^] web console.
-* You've created a  {product-kafka} instance and the instance is in *Ready* state.
+* You've created a  {product-kafka} instance and the instance is in the *Ready* state.
 For instructions on how to create a Kafka instance, see _Getting started with OpenShift Streams for Apache Kafka_. 
 endif::[]
 
@@ -107,19 +115,20 @@ endif::[]
 . Create a topic for connectors:
 .. In the {service-url-connectors}[^] web console, select *Streams for Apache Kafka* > *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
 .. Select the *Topics* tab, and then click *Create topic*.
-.. Type a unique name for your topic. For the quick start example, type *test-topic* for the *Topic Name*. Accept the default settings for partitions and retention.
+.. Type a unique name for your topic. For the quick start example, type *test-topic* for the *Topic Name*. Accept the default settings for partitions and message retention, and replicas.
 . Create a service account for connectors: 
 .. In the web console, select *Service Accounts*, and then click *Create service account*.
-.. Type a unique service account name (for example, *test-service-acct* ), add an optional description, and then click *Create*.
+.. Type a unique service account name (for example, *test-service-acct* ) and then click *Create*.
 .. Copy the generated *Client ID* and *Client Secret* to a secure location. You'll use these credentials to configure connections to this service account.
+.. Select the *I have copied the client ID and secret* option, and then click *Close*.
 
-. Set the appropriate level of access for the new service account in the Access Control List (ACL) of the Kafka instance.
-.. In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want the service account to access.
-.. Click the *Access* tab to view the current ACL for this instance.
-.. Click *Manage access*, use the *Account* drop-down menu to select the service account that you previously created, and then click *Next*.
-.. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers and values to `Is *`. 
+. Set the level of access for your new service account in the Access Control List (ACL) of the Kafka instance:
+.. Select *Streams for Apache Kafka* > *Kafka Instances*, click the name of the Kafka instance that you want the service account to access.
+.. Click the *Access* tab to view the current ACL for this instance and then click *Manage access*.
+.. From the *Account* drop-down menu, select the service account that you previously created, and then click *Next*.
+.. Under *Assign Permissions*, use the drop-down menu to select the *Consume from a topic* and the *Produce to a topic* permission options, and then set all resource identifiers and values to `is "*"`. 
 +
-The `Is *` setting means that the service account has sufficient rights to produce and receive messages for the Kafka topic that you created for Connectors. 
+The `is "*"` settings mean that the service account has rights to produce and receive messages for the Kafka topic that you created for Connectors. 
 
 .Verification
 ifdef::qs[]
@@ -131,6 +140,7 @@ endif::[]
 
 [role="_abstract"]
 A source connector consumes events from an external data source and produces Kafka messages. For this quick start, you create an instance of the Data Generator Source connector. You configure the connector to listen for events from the data source and produce a Kafka message with a configurable payload for each event. The connector sends the messages at regular intervals to a Kafka topic on your {product-kafka} instance.
+
 
 ifndef::qs[]
 .Prerequisites
