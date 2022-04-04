@@ -22,9 +22,7 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 ./kafka-consumer-groups.sh --bootstrap-server __<bootstrap_server>__ --command-config __<authentication_properties>__ --describe --group my-consumer-group
 ----
 
-ifndef::community[]
-NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product-kafka} and are therefore not supported by Red Hat.
-endif::[]
+
 
 .Prerequisites
 * You're logged in to the {product-kafka} web console.

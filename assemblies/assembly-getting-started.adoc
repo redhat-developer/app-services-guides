@@ -37,7 +37,7 @@ include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 == Additional resources
-* https://kafka.apache.org/081/documentation.html#configuration[Configuration^] in Kafka
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5[_Configuring topics in {product-long-kafka}_^]
 * {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
 * {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
 * {base-url}{kafkacat-url-kafka}[_Configuring and connecting Kafkacat with {product-long-kafka}_^]
