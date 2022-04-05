@@ -154,7 +154,7 @@ This procedure follows the https://prometheus.io/docs/prometheus/latest/configur
 * You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
 
 .Procedure
-* In your Prometheus configuration file, add the following information. Replace `<kafka_instance_id>` with the ID of the Kafka instance. Replace `<client_id>` and `<client_secret>` with the generated credentials for your service account.
+. In your Prometheus configuration file, add the following information. Replace `<kafka_instance_id>` with the ID of the Kafka instance. Replace `<client_id>` and `<client_secret>` with the generated credentials for your service account.
 +
 --
 .Required information for Prometheus configuration file
@@ -220,6 +220,7 @@ spec:
 ====
 
 --
+. In the Prometheus instance that you previously installed in your monitoring environment, import the predefined https://grafana.com/grafana/dashboards/15835[{product-long-kafka} Grafana dashboard] to set up your metrics display. For import instructions, see https://grafana.com/docs/grafana/v7.5/dashboards/export-import/#importing-a-dashboard[Importing a dashboard] in the Grafana documentation.
 
 [role="_additional-resources"]
 .Additional resources
