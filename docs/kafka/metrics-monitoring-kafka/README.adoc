@@ -223,8 +223,6 @@ spec:
 ----
 ====
 
---
-
 [role="_additional-resources"]
 .Additional resources
 * {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
