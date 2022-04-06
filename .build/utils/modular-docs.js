@@ -81,10 +81,9 @@ function generateSplitterInput(dir) {
 
     readmes.forEach(p => {
         const id = path.dirname(p).replace(/\//g, '-');
-        console.info("id", id)
         const destFilename = `chap-${id}.adoc`;
         const srcFilePath = path.join(dir, p);
-        const srcImagesDir = path.join(dir, id, "images");
+        const srcImagesDir = path.join(srcFilePath.substring(0, srcFilePath.lastIndexOf("/")), "images");
         const destFilePath = path.join(destDir, destFilename);
         const destImagesDir = path.join(destDir, "_images", id);
         let data = fs.readFileSync(srcFilePath, "utf-8").toString();
