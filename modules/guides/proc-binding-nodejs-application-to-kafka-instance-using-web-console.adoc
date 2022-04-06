@@ -34,21 +34,21 @@ You should also see icons for the producer and consumer components of the Node.j
 . To start creating a service binding connection, hover the mouse pointer over the icon for the consumer component.
 +
 .Starting a service binding connection
-image::sak-service-binding-arrow.png[Image of arrow to create a binding connection]
+image::kafka-service-binding-kafka/sak-service-binding-arrow.png[Image of arrow to create a binding connection]
 +
 As shown in the figure, an arrow with a dotted line appears from the icon.
 
 . Left-click and drag the head of the arrow until it's directly over the icon for the `KafkaConnection` object.
 +
 .Creating the service binding connection
-image::sak-service-binding-tooltip.png[Image of service binding tooltip]
+image::kafka-service-binding-kafka/sak-service-binding-tooltip.png[Image of service binding tooltip]
 +
 As shown in the figure, a tooltip appears over the icon for the `KafkaConnection` object. The tooltip indicates that you're about to create a service binding connection.
 
 . To create the service binding connection, release the left mouse button.
 +
 .The completed service binding connection
-image::sak-service-binding-connection.png[Image of completed binding connection]
+image::kafka-service-binding-kafka/sak-service-binding-connection.png[Image of completed binding connection]
 +
 As shown in the figure, this action completes the connection.
 +

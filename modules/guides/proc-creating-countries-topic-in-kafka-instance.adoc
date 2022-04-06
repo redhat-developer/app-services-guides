@@ -15,7 +15,7 @@ In the previous step of this tutorial, you deployed an example application on Op
 . Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the details of the `countries` topic. Click *Next* to complete each step and click *Finish* to complete the setup.
 +
 .Guided steps to define topic
-image::sak-create-countries-topic.png[Image of wizard to create countries topic]
+image::kafka-service-binding-kafka/sak-create-countries-topic.png[Image of wizard to create countries topic]
 
 *Topic name*:: Enter `countries` as the topic name.
 *Partitions*:: Set the number of partitions for this topic. For this tutorial, set a value of `1`. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.

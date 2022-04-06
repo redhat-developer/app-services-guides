@@ -27,7 +27,7 @@ endif::[]
 --
 [.screencapture]
 .Kafka instance configuration details
-image::sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
+image::kafka-getting-started-kafka/sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
 
 The new Kafka instance is listed in the instances table. Typically, you need to wait a few minutes for the instance creation process to finish.
 
@@ -35,7 +35,7 @@ When the instance *Status* is *Ready*, you can start using the Kafka instance. Y
 
 [.screencapture]
 .Kafka instance options menu
-image::sak-kafka-instance-options.png[Image of Kafka instance options menu]
+image::kafka-getting-started-kafka/sak-kafka-instance-options.png[Image of Kafka instance options menu]
 
 NOTE: Although you can see Kafka instances created by other users in your organization, you might not be able to manage or connect to those instances. Only the instance owner or users with permissions to access the instance can edit or delete the instance, access the associated service account and topics, or connect to the instance.
 --
@@ -58,9 +58,9 @@ When you're in the {Product_short} environment, you will see a left menu panel. 
 
 In the lower left of the screen you'll see a lightbulb icon. This icon gives access to the `Resource Center`. Here you can find the latest information about the service, like product updates, upcoming events, etc.
 
-image::sak-crc-resource-center.png[Image of Resource Center in web console]
+image::kafka-getting-started-kafka/sak-crc-resource-center.png[Image of Resource Center in web console]
 
 The center of the page shows you the list of Kafka instances that are currently running within your organisation. If this is your, or your organisations, first interaction with {Product_short}, this list will be empty.
 
-image::sak-kafka-overview.png[Image of initial empty instances table]
+image::kafka-getting-started-kafka/sak-kafka-overview.png[Image of initial empty instances table]
 ////
