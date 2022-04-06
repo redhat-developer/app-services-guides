@@ -20,7 +20,7 @@ endif::[]
 
 [.screencapture]
 .{registry} instance options menu
-image::service-registry-instance-options.png[Image of {registry} instance options menu]
+image::registry-getting-started-registry/service-registry-instance-options.png[Image of {registry} instance options menu]
 
 .Verification
 ifdef::qs[]
