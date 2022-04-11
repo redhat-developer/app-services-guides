@@ -68,9 +68,6 @@ Consumers within a group don’t read data from the same partition, but can read
 As a developer of applications and services, you can view all the consumer groups that have access to a particular Kafka instance in {product-kafka}.
 If required, use the {product-kafka} web console to reset the offsets of consumer groups or delete consumer groups.
 
-As an alternative to using the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to review and update consumer groups.
-
-
 //Additional line break to resolve mod docs generation error
 [id="con-consumer-group-list_{context}"]
 == Listing consumer groups
