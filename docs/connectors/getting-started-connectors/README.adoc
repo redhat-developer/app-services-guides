@@ -181,7 +181,7 @@ NOTE: If you have not already configured a {product-kafka} instance for Connecto
 
 . On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
 +
-If you are using a trial cluster on your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in _https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors/TBD[Adding the OpenShift Connectors service to an OpenShift Dedicated trial cluster^]_.
+If you are using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in _https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors/TBD[Adding the OpenShift Connectors service to an OpenShift Dedicated trial cluster^]_.
 //need to update this link with correct URL
 +
 If you are using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
