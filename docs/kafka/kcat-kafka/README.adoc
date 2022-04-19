@@ -130,9 +130,9 @@ endif::[]
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
-$ export BOOTSTRAP_SERVER=__<bootstrap_server>__
-$ export USER=__<client_id>__
-$ export PASSWORD=__<client_secret>__
+$ export KAFKA_URL=__<bootstrap_server>__
+$ export RHOAS_CLIENT_ID=__<client_id>__
+$ export RHOAS_CLIENT_SECRET=__<client_secret>__
 ----
 --
 
@@ -156,10 +156,10 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 .Starting Kafkacat in producer mode
 [source]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$BOOTSTRAP_SERVER" \
+$ kafkacat -t my-first-kafka-topic -b "$KAFKA_URL" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username="$USER" \
- -X sasl.password="$PASSWORD" -P
+ -X sasl.username="$RHOAS_CLIENT_ID" \
+ -X sasl.password="$RHOAS_CLIENT_SECRET" -P
 ----
 
 NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, Kafkacat does not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
@@ -205,10 +205,10 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 .Starting Kafkacat in consumer mode
 [source]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$BOOTSTRAP_SERVER" \
+$ kafkacat -t my-first-kafka-topic -b "$KAFKA_URL" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username="$USER" \
- -X sasl.password="$PASSWORD" -C
+ -X sasl.username="$RHOAS_CLIENT_ID" \
+ -X sasl.password="$RHOAS_CLIENT_SECRET" -C
 
 First message
 Second message
