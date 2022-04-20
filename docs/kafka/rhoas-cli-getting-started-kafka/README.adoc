@@ -256,15 +256,16 @@ After creating a Kafka instance, you can generate a configuration file that your
 
 * You've created a Kafka instance, and it has a `ready` status.
 * The Kafka instance is set in the current context.
-* User and org have quota for creating service accounts
+* Your user account and org have quota for creating service accounts.
 
 .Procedure
 
-. Generate configurations for the current service context
+* Generate a configuration file for the current service context.
 +
 --
-This example generates a JSON file with configurations for the Kafka instance
+This example generates a JSON file with configurations for the Kafka instance you created.
 
+. Generating a configuration file
 [source,shell]
 ----
 $ rhoas generate-config --type json

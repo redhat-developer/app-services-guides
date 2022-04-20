@@ -108,7 +108,7 @@ This example creates a {registry} instance called `my-registry`.
 $ rhoas service-registry create --name my-registry
 ----
 
-CLI uses service contexts to group service instances against which commands are executed.
+The CLI uses service contexts to group service instances against which commands are executed.
 The created {registry} instance is set automatically in the current context.
 
 [NOTE]
@@ -134,7 +134,7 @@ because the `Status` field is `ready`.
 [NOTE]
 ====
 If you have multiple {registry} instances,
-you can make the current context switch to a different instance by using the `rhoas context use-service-registry` command.
+you can change the context to a different instance by using the `rhoas context use-service-registry` command.
 ====
 --
 
@@ -482,21 +482,22 @@ For more information about any of the options, view the command help `rhoas serv
 == Generating configurations for Service Registry instance
 
 [role="_abstract"]
-After creating a Service Registry instance, you can generate configurations to connect to the Service Registry instance from your applications.
+After creating a Service Registry instance, you can generate a configuration file that your applications can use to connect to your Service Registry instance.
 
 .Prerequisites
 
 * You've created a Service Registry instance.
 * The Service Registry instance is set in the current context.
-* User and org have quota for creating service accounts
+* Your user account and org have quota for creating service accounts.
 
 .Procedure
 
-. Generate configurations for the current service context
+* Generate a configuration file for the current service context.
 +
 --
-This example generates a JSON file with configurations for the Service Registry instance
+This example generates a JSON file with configurations for the Service Registry instance.
 
+.Generating a configuration file
 [source,shell]
 ----
 $ rhoas generate-config --type json
