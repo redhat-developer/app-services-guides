@@ -94,4 +94,3 @@ $ rhoas service-registry rule disable --rule-type=validity --artifact-id=my-arti
 You can use additional options, such as `--group` and `--instance-id`, to specify the {registry} group or instance to which the updated rules apply.
 For more information about any of the options, view the command help `rhoas service-registry rule -h`.
 ====
-

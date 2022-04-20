@@ -22,6 +22,9 @@ This example creates a {registry} instance called `my-registry`.
 $ rhoas service-registry create --name my-registry
 ----
 
+The CLI uses service contexts to group service instances against which commands are executed.
+The created {registry} instance is set automatically in the current context.
+
 [NOTE]
 ====
 If you do not want to use the default values,
@@ -36,7 +39,7 @@ You are prompted to enter the `Name` for the {registry} instance.
 .Reviewing details of a {registry} instance
 [source,shell]
 ----
-$ rhoas status service-registry
+$ rhoas context status service-registry
 ----
 
 This command shows that the {registry} instance is ready to use,
@@ -44,8 +47,7 @@ because the `Status` field is `ready`.
 
 [NOTE]
 ====
-When you created the {registry} instance, it was set as the current instance automatically.
 If you have multiple {registry} instances,
-you can switch to a different instance by using the `rhoas service-registry use` command.
+you can change the context to a different instance by using the `rhoas context use-service-registry` command.
 ====
 --
