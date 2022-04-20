@@ -9,7 +9,7 @@ To enable your Node.js application to access a Kafka instance, you must configur
 * The generated credentials for your {product-kafka} service account
 * The Simple Authentication and Security Layer (SASL) mechanism that the client will use to authenticate with the Kafka instance
 
-In this task, you'll create a new configuration file called `.env`. In this file, you'll set the required bootstrap server and client credentials as environment variables.
+In this task, you'll create a new configuration file called `rhoas.env`. In this file, you'll set the required bootstrap server and client credentials as environment variables.
 
 .Prerequisites
 ifndef::qs[]
@@ -20,16 +20,16 @@ endif::[]
 
 .Procedure
 
-. In your IDE, create a new file. Save the file with the name `.env`, at the root level of the `reactive-example` directory for the cloned repository.
+. In your IDE, create a new file. Save the file with the name `rhoas.env`, at the root level of the `reactive-example` directory for the cloned repository.
 
-. In the `.env` file, add the lines shown in the example. These lines set the bootstrap server and client credentials as environment variables to be used by the Node.js application.
+. In the `rhoas.env` file, add the lines shown in the example. These lines set the bootstrap server and client credentials as environment variables to be used by the Node.js application.
 +
-.Setting environment variables in the .env file
+.Setting environment variables in the rhoas.env file
 [source,subs="+quotes"]
 ----
-KAFKA_BOOTSTRAP_SERVER=__<bootstrap_server>__
-KAFKA_CLIENT_ID=__<client_id>__
-KAFKA_CLIENT_SECRET=__<client_secret>__
+KAFKA_HOST=__<bootstrap_server>__
+RHOAS_CLIENT_ID=__<client_id>__
+RHOAS_CLIENT_SECRET=__<client_secret>__
 KAFKA_SASL_MECHANISM=plain
 ----
 +
@@ -47,7 +47,7 @@ endif::[]
 +
 In this case, observe that the Node.js application uses the SASL/PLAIN authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
 
-. Save the `.env` file.
+. Save the `rhoas.env` file.
 
 ifdef::qs[]
 .Verification
