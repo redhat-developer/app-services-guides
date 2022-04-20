@@ -1,8 +1,0 @@
-[id='ref-kafka-cli-prereqs_{context}']
-= Prerequisites
-:imagesdir: ../_images
-
-[role="_abstract"]
-* You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-installation-url}[_Installing the rhoas CLI_^].
-
-//Additional line break to resolve mod docs generation error

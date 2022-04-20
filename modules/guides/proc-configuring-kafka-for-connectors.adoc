@@ -1,0 +1,53 @@
+[id='proc-configuring-kafka-for-connectors_{context}']
+= Configuring the {product-kafka} instance for use with {product-long-connectors}
+:imagesdir: ../_images
+
+[role="_abstract"]
+Configure your {product-kafka} instance for use with {product-long-connectors} by:
+
+* Creating *Kafka topics* to store messages sent by producers (data sources) and make them available to consumers (data sinks).
+* Creating *service accounts* that allow you to connect and authenticate your Connectors with Kafka instances.
+* Setting up *access rules* for the service accounts that define how your Connectors can access and use the associated Kafka instance topics.
+
+The number of Kafka topics and service accounts that you create, and the access rules for the service accounts, depend on your application.
+
+For this example, you create one Kafka topic, named *test*, one service account, and you define access for the service account.
+
+ifndef::qs[]
+.Prerequisites
+* You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
+* You've created a  {product-kafka} instance and the instance is in the *Ready* state.
+For instructions on how to create a Kafka instance, see _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_.
+endif::[]
+
+.Procedure
+. Create a Kafka topic for your connectors:
+.. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
+.. Click the name of the Kafka instance that you want to add a topic to.
+.. Select the *Topics* tab, and then click *Create topic*.
+.. Type a unique name for your topic. For example, type *test-topic* for the *Topic Name*.
+.. Accept the default settings for partitions, message retention, and replicas.
+. Create a service account for connectors:
+.. In the web console, select *Service Accounts*, and then click *Create service account*.
+.. Type a unique service account name (for example, *test-service-acct* ) and then click *Create*.
+.. Copy the generated *Client ID* and *Client Secret* to a secure location. You'll use these credentials to configure connections to this service account.
+.. Select the *I have copied the client ID and secret* option, and then click *Close*.
+
+. Set the level of access for your new service account in the Access Control List (ACL) of the Kafka instance:
+.. Select *Streams for Apache Kafka* > *Kafka Instances*.
+.. Click the name of the Kafka instance that you want the service account to access.
+.. Click the *Access* tab to view the current ACL for the Kafka instance and then click *Manage access*.
+.. From the *Account* drop-down menu, select the service account that you created in Step 2, and then click *Next*.
+.. Under *Assign Permissions*, click *Add permission*.
+.. From the drop-down menu, select *Consume from a topic*. Set all resource identifiers to `is` and all identifier values to `"*"`.
+.. From the *Add permission* drop-down menu, select *Produce to a topic*. Set all resource identifiers to `is` and all identifier values to `"*"`.
++
+The `is "*"` settings enable connectors that are configured with the service account credentials to produce and consume messages in any topic in the Kafka instance.
+
+ifdef::qs[]
+.Verification
+* Did you create a topic for connectors?
+* Did you create a service account and save the credentials to a secure location?
+* Did you set the *Consume from a topic* and *Produce to a topic* permissions for the service account?
+endif::[]
+
