@@ -247,10 +247,10 @@ For more information, use the command help `rhoas kafka topic create -h`.
 . If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.
 
 [id="proc-genearting-kafka-configs-cli_{context}"]
-== Generating configurations for Kafka instance
+== Generating configurations for a Kafka instance
 
 [role="_abstract"]
-After creating a Kafka instance, you can generate configurations to connect to the Kafka instance from your applications.
+After creating a Kafka instance, you can generate a configuration file that your applications can use to connect to your Kafka instance.
 
 .Prerequisites
 
