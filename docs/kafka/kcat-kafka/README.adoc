@@ -130,7 +130,7 @@ endif::[]
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
-$ export KAFKA_URL=__<bootstrap_server>__
+$ export KAFKA_HOST=__<bootstrap_server>__
 $ export RHOAS_CLIENT_ID=__<client_id>__
 $ export RHOAS_CLIENT_SECRET=__<client_secret>__
 ----
@@ -156,7 +156,7 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 .Starting Kafkacat in producer mode
 [source]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$KAFKA_URL" \
+$ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username="$RHOAS_CLIENT_ID" \
  -X sasl.password="$RHOAS_CLIENT_SECRET" -P
@@ -205,7 +205,7 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 .Starting Kafkacat in consumer mode
 [source]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$KAFKA_URL" \
+$ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username="$RHOAS_CLIENT_ID" \
  -X sasl.password="$RHOAS_CLIENT_SECRET" -C

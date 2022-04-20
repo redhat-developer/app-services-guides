@@ -140,8 +140,8 @@ endif::[]
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
-$ export KAFKA_URL=__<bootstrap_server>__
-$ export REGISTRY_URL=__<core_registry_url>__
+$ export KAFKA_HOST=__<bootstrap_server>__
+$ export SERVICE_REGISTRY_URL=__<core_registry_url>__
 $ export RHOAS_OAUTH_TOKEN_URL=__<oauth_token_endpoint_uri>__
 $ export RHOAS_CLIENT_ID=__<client_id>__
 $ export RHOAS_CLIENT_SECRET=__<client_secret>__

@@ -137,7 +137,7 @@ endif::[]
 .Setting environment variables in the rhoas.env file
 [source,subs="+quotes"]
 ----
-KAFKA_URL=__<bootstrap_server>__
+KAFKA_HOST=__<bootstrap_server>__
 RHOAS_CLIENT_ID=__<client_id>__
 RHOAS_CLIENT_SECRET=__<client_secret>__
 KAFKA_SASL_MECHANISM=plain
