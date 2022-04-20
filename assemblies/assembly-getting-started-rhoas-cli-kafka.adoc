@@ -16,6 +16,7 @@ This guide describes how to get started quickly by doing the following:
 * {base-url}{rhoas-cli-getting-started-url-kafka}#proc-creating-service-account-cli_getting-started-rhoas-kafka[Create a service account]
 * {base-url}{rhoas-cli-getting-started-url-kafka}#proc-creating-kafka-topic-cli_getting-started-rhoas-kafka[Create a Kafka topic]
 * {base-url}{rhoas-cli-getting-started-url-kafka}#proc-commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* {base-url}{rhoas-cli-getting-started-url-kafka}#proc-generating-kafka-configs-cli_getting-started-rhoas-kafka[Generate configurations for a Kafka instance]
 
 //Additional line break to resolve mod docs generation error
 
@@ -26,6 +27,8 @@ include::modules/guides/proc-creating-kafka-instance-cli.adoc[leveloffset=+1]
 include::modules/guides/proc-creating-service-account-cli.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-kafka-topic-cli.adoc[leveloffset=+1]
+
+include::modules/guides/proc-genearting-kafka-configs-cli.adoc[leveloffset=+1]
 
 include::modules/guides/proc-commands-managing-kafka.adoc[leveloffset=+1]
 

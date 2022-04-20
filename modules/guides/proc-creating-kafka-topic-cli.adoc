@@ -11,7 +11,7 @@ After creating a Kafka instance, you can create Kafka topics to start producing 
 
 [NOTE]
 ====
-You can use `rhoas kafka list` and `rhoas kafka use` to switch to a specific Kafka instance.
+You can use `rhoas kafka list` and `rhoas context use-kafka` to switch to a specific Kafka instance.
 
 .List Kafka instances
 [source,shell]
@@ -21,7 +21,7 @@ $ rhoas kafka list
 .Selecting a Kafka instance to use
 [source,shell]
 ----
-$ rhoas kafka use --name my-kafka
+$ rhoas context use-kafka --name my-kafka
 ----
 ====
 

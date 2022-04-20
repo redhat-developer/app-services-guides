@@ -22,6 +22,9 @@ This example creates a Kafka instance called `my-kafka`.
 $ rhoas kafka create --name my-kafka
 ----
 
+CLI uses service contexts to group service instances against which commands are executed.
+The created Kafka instance is set automatically in the current context.
+
 [NOTE]
 ====
 If you do not want to use the default values,
@@ -36,16 +39,13 @@ You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` f
 .Reviewing details of a Kafka instance
 [source,shell]
 ----
-$ rhoas status kafka
+$ rhoas context status kafka
 ----
 
-This command shows that the Kafka instance is ready to use,
-because the `Status` field is `ready`.
 
 [NOTE]
 ====
-When you created the Kafka instance, it was set as the current instance automatically.
 If you have multiple Kafka instances,
-you can switch to a different instance by using the `rhoas kafka use` command.
+you can make the current context switch to a different instance by using the `rhoas context use-kafka` command.
 ====
 --
