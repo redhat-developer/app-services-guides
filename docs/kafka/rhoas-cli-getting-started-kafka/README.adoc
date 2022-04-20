@@ -271,17 +271,6 @@ $ rhoas generate-config --type json
 ----
 --
 
-. Configurations can be generated for specified service context using the name flag
-+
---
-This example generates configurations for a context not set as current
-
-[source,shell]
-----
-$ rhoas generate-config --name my-context --type json
-----
-
---
 
 [id="proc-commands-managing-kafka_{context}"]
 == Commands for managing Kafka
