@@ -265,7 +265,6 @@ After creating a Kafka instance, you can generate configurations to connect to t
 --
 This example generates a JSON file with configurations for the Kafka instance
 
-.Creating a Kafka topic with default values
 [source,shell]
 ----
 $ rhoas generate-config --type json

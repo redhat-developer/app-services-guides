@@ -74,6 +74,7 @@ You can get started with {product-long-registry} by doing the following tasks:
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update {registry} artifacts]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-configuring-service-registry-rules_getting-started-rhoas-service-registry[Configure {registry} rules]
+* {base-url}{rhoas-cli-getting-started-url-registry}#proc-generating-registry-configs_getting-started-rhoas-service-registry[Generating {registry} configurations]
 * {base-url}{rhoas-cli-getting-started-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your {registry} instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
@@ -107,6 +108,9 @@ This example creates a {registry} instance called `my-registry`.
 $ rhoas service-registry create --name my-registry
 ----
 
+CLI uses service contexts to group service instances against which commands are executed.
+The created {registry} instance is set automatically in the current context.
+
 [NOTE]
 ====
 If you do not want to use the default values,
@@ -121,7 +125,7 @@ You are prompted to enter the `Name` for the {registry} instance.
 .Reviewing details of a {registry} instance
 [source,shell]
 ----
-$ rhoas status service-registry
+$ rhoas context status service-registry
 ----
 
 This command shows that the {registry} instance is ready to use,
@@ -129,9 +133,8 @@ because the `Status` field is `ready`.
 
 [NOTE]
 ====
-When you created the {registry} instance, it was set as the current instance automatically.
 If you have multiple {registry} instances,
-you can switch to a different instance by using the `rhoas service-registry use` command.
+you can make the current context switch to a different instance by using the `rhoas context use-service-registry` command.
 ====
 --
 
@@ -213,12 +216,12 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 
 [NOTE]
 ====
-You can use `rhoas service-registry use` to switch to a specific {registry} instance.
+You can use `rhoas context use-service-registry` to switch to a specific {registry} instance.
 
 .Selecting a {registry} instance to use
 [source,shell]
 ----
-$ rhoas service-registry use --name=my-registry
+$ rhoas context use-service-registry --name=my-registry
 ----
 ====
 
@@ -475,6 +478,42 @@ You can use additional options, such as `--group` and `--instance-id`, to specif
 For more information about any of the options, view the command help `rhoas service-registry rule -h`.
 ====
 
+[id="proc-generating-registry-configs_{context}"]
+== Generating configurations for Service Registry instance
+
+[role="_abstract"]
+After creating a Service Registry instance, you can generate configurations to connect to the Service Registry instance from your applications.
+
+.Prerequisites
+
+* You've created a Service Registry instance.
+* The Service Registry instance is set in the current context.
+* User and org have quota for creating service accounts
+
+.Procedure
+
+. Generate configurations for the current service context
++
+--
+This example generates a JSON file with configurations for the Service Registry instance
+
+[source,shell]
+----
+$ rhoas generate-config --type json
+----
+--
+
+. Configurations can be generated for specified service context using the name flag
++
+--
+This example generates configurations for a context not set as current
+
+[source,shell]
+----
+$ rhoas generate-config --name my-context --type json
+----
+
+--
 
 [id="proc-commands-managing-registry_{context}"]
 == Commands for managing {registry}
