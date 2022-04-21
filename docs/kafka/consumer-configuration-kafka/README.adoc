@@ -73,7 +73,7 @@ If required, use the {product-kafka} web console to reset the offsets of consume
 == Listing consumer groups
 
 [role="_abstract"]
-As an alternative to using the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to list consumer groups for your Kafka instance. The following subsections describe how to use these methods to list consumer groups.
+In addition to the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to list consumer groups for your Kafka instance. The following subsections describe how to use these methods to list consumer groups.
 
 ifndef::community[]
 NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product-kafka} and are therefore not supported by Red Hat.
