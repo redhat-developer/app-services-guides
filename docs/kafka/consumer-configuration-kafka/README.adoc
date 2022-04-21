@@ -291,7 +291,7 @@ Use the {product-kafka} web console to select consumer groups and reset partitio
 A reset changes the offset position from which consumers read from the message log of a topic partition.
 To reset an offset position, the consumer group must have _NO MEMBERS_ connected to a topic.
 
-Choose one of the following options for a *New offset*:
+Choose one of the following options for *New offset*:
 
 
 * *absolute* resets to a specific offset in the message log.
