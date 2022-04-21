@@ -139,6 +139,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 == Adding a consumer to a consumer group
 
 [role="_abstract"]
+Consumer groups are created by specifying a consumer group ID in the user's client application, and not from the CLI or web console.
+
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
 When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
