@@ -80,7 +80,7 @@ As an alternative to using the {product-kafka} web console, you can use the `rho
 .Example CLI command to update topic retention time
 [source]
 ----
-rhoas kafka topic update my-kafka-topic --retention-ms 704800000
+rhoas kafka topic update --name my-kafka-topic --retention-ms 704800000
 ----
 
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
