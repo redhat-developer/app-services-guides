@@ -280,7 +280,7 @@ Draft quick starts are hidden from end users. To set a quick start as draft, add
 ----
 metadata:
   name: my-quickstart
-  annotations:  
+  annotations:
     draft: true
     ...
 ----
@@ -338,7 +338,7 @@ This will push proper modular documentation to the modular-docs-"product_name" b
 
 == Releases
 
-Guides are released by creating tag in format vx.x.x - where x is number representing semver version. 
+Guides are released by creating tag in format vx.x.x - where x is number representing semver version.
 Releases should be created at major milestones based on the documented features being already published and available to users.
 
 . Use following link to create new release
@@ -347,6 +347,6 @@ link: https://github.com/redhat-developer/app-services-guides/releases/new
 . Please provide tag name. For example v0.1.0
 . Please provide the same value for release title (v0.1.0)
 . Please click on "Autogenerate Release Notes" to generate release notes
-. Select Create to create release
+. Select Publish release to create release
 
 NOTE: CICD process will automatically synchronize changes with downstream on release
