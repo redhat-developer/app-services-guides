@@ -113,11 +113,11 @@ The output from both components confirms that they successfully connected to the
 
 . In your IDE, in the `producer-backend` directory of the repository that you cloned, open the `producer.js` file.
 +
-Observe that the producer component is configured to process environment variables from the `rhoas.env` file that you created. The component used the bootstrap server endpoint and client credentials stored in this file to connect to the Kafka instance.
+Observe that the producer component is configured to process environment variables from the `.env` file that you created. The component used the bootstrap server endpoint and client credentials stored in this file to connect to the Kafka instance.
 
 . In the `consumer-backend` directory, open the `consumer.js` file.
 +
-Observe that the consumer component is also configured to process environment variables from the `rhoas.env` file that you created.
+Observe that the consumer component is also configured to process environment variables from the `.env` file that you created.
 
 ifdef::qs[]
 .Verification

@@ -27,8 +27,8 @@ endif::[]
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
-$ export KAFKA_HOST=__<bootstrap_server>__
-$ export RHOAS_CLIENT_ID=__<client_id>__
-$ export RHOAS_CLIENT_SECRET=__<client_secret>__
+$ export BOOTSTRAP_SERVER=__<bootstrap_server>__
+$ export USER=__<client_id>__
+$ export PASSWORD=__<client_secret>__
 ----
 --

@@ -1,0 +1,21 @@
+[id='con-consumer-group-list-using-CLI_{context}']
+= Listing consumer groups using the CLI
+:imagesdir: ../_images
+
+To use the `rhoas` command-line interface (CLI) to list the consumer groups defined for your Kafka instance, enter the following command:
+
+
+[source,subs="+quotes,+attributes"]
+----
+rhoas kafka consumer-group list
+----
+
+When you enter the preceding command, you should see output similar to the following example:
+
+[source,subs="+quotes,+attributes"]
+----
+CONSUMER GROUP ID    ACTIVE MEMBERS    PARTITIONS WITH LAG
+-------------------  ----------------  ---------------------
+consumergroup1                     2                     0
+consumergroup2                     1                     0
+----
