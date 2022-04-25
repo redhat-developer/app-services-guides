@@ -71,6 +71,7 @@ This guide describes how to get started quickly by doing the following:
 * {base-url}{rhoas-cli-getting-started-url-kafka}#proc-creating-service-account-cli_getting-started-rhoas-kafka[Create a service account]
 * {base-url}{rhoas-cli-getting-started-url-kafka}#proc-creating-kafka-topic-cli_getting-started-rhoas-kafka[Create a Kafka topic]
 * {base-url}{rhoas-cli-getting-started-url-kafka}#proc-commands-managing-kafka_getting-started-rhoas-kafka[Use `rhoas` to manage your Kafka instances, service accounts, and Kafka topics]
+* {base-url}{rhoas-cli-getting-started-url-kafka}#proc-generating-kafka-configs-cli_getting-started-rhoas-kafka[Generate configurations for a Kafka instance]
 
 //Additional line break to resolve mod docs generation error
 
@@ -105,6 +106,9 @@ This example creates a Kafka instance called `my-kafka`.
 $ rhoas kafka create --name my-kafka
 ----
 
+CLI uses service contexts to group service instances against which commands are executed.
+The created Kafka instance is set automatically in the current context.
+
 [NOTE]
 ====
 If you do not want to use the default values,
@@ -119,17 +123,14 @@ You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` f
 .Reviewing details of a Kafka instance
 [source,shell]
 ----
-$ rhoas status kafka
+$ rhoas context status kafka
 ----
 
-This command shows that the Kafka instance is ready to use,
-because the `Status` field is `ready`.
 
 [NOTE]
 ====
-When you created the Kafka instance, it was set as the current instance automatically.
 If you have multiple Kafka instances,
-you can switch to a different instance by using the `rhoas kafka use` command.
+you can make the current context switch to a different instance by using the `rhoas context use-kafka` command.
 ====
 --
 
@@ -208,7 +209,7 @@ After creating a Kafka instance, you can create Kafka topics to start producing 
 
 [NOTE]
 ====
-You can use `rhoas kafka list` and `rhoas kafka use` to switch to a specific Kafka instance.
+You can use `rhoas kafka list` and `rhoas context use-kafka` to switch to a specific Kafka instance.
 
 .List Kafka instances
 [source,shell]
@@ -218,7 +219,7 @@ $ rhoas kafka list
 .Selecting a Kafka instance to use
 [source,shell]
 ----
-$ rhoas kafka use --name my-kafka
+$ rhoas context use-kafka --name my-kafka
 ----
 ====
 
@@ -244,6 +245,33 @@ For more information, use the command help `rhoas kafka topic create -h`.
 --
 
 . If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.
+
+[id="proc-genearting-kafka-configs-cli_{context}"]
+== Generating configurations for a Kafka instance
+
+[role="_abstract"]
+After creating a Kafka instance, you can generate a configuration file that your applications can use to connect to your Kafka instance.
+
+.Prerequisites
+
+* You've created a Kafka instance, and it has a `ready` status.
+* The Kafka instance is set in the current context.
+* Your user account and org have quota for creating service accounts.
+
+.Procedure
+
+* Generate a configuration file for the current service context.
++
+--
+This example generates a JSON file with configurations for the Kafka instance you created.
+
+. Generating a configuration file
+[source,shell]
+----
+$ rhoas generate-config --type json
+----
+--
+
 
 [id="proc-commands-managing-kafka_{context}"]
 == Commands for managing Kafka
