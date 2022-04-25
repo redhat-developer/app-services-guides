@@ -62,10 +62,10 @@ As a developer or administrator, you can use the {product-long-kafka} web consol
 
 When you select a topic in the console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
 
-* Specify a partition and see the last ten message sent to the partition.
-* Specify a partition and offset. See the last ten messages sent to the partition from that offset.
-* Specify a partition and a timestamp (that is, date and time) value. See the last ten messages sent to the partition from that date and time.
-* Specify a partition and a Unix epoch timestamp value. See the last ten messages sent to the partition from that epoch timestamp value.
+* Specify a partition and see messages sent to the partition.
+* Specify a partition and offset. See messages sent to the partition from that offset.
+* Specify a partition and a timestamp (that is, date and time) value. See messages sent to the partition from that date and time.
+* Specify a partition and a Unix epoch timestamp value. See messages sent to the partition from that epoch timestamp value.
 
 //Additional line break to resolve mod docs generation error.
 
@@ -89,22 +89,22 @@ The following procedure shows how to filter and inspect a list of messages for a
 . In the topics table, click a Kafka topic that you want to inspect.
 . In your topic, click the *Messages* tab.
 +
-By default, the *Messages* page displays a table that shows the last ten messages in *partition 0* of your topic. You can change this partition value, as described later in the procedure.
+By default, the *Messages* page shows messages in *partition 0* of your topic. You can change this partition value, as described later in the procedure.
 +
-The table includes columns for the following topic and message properties:
+The messages table includes columns for the following topic and message properties:
 +
 --
 * Partition
 * Offset
 * Timestamp (date and time)
 * Key
-* Value
 * Headers
+* Value
 --
 
-. To see complete data for a message, click *Show more* in the *Value* or *Headers* column.
+. To see complete data for a message, click *Show more* in the *Value*, *Key*, or *Headers* column.
 +
-A side drawer opens. Additional information shown in the side drawer is the full message value and header, the message size, the epoch timestamp value, and the timestamp type (that is, `Create time` or `Log append time`).
+A side drawer opens to show the complete message data. The side drawer also shows the epoch timestamp value.
 +
 [NOTE]
 --
@@ -113,9 +113,9 @@ If you're using a schema in {product-long-registry} with your topic, the *Messag
 Similarly, if a message is encoded (for example, in a format such as UTF-8 or Base64), the *Messages* page does not decode the message.
 --
 
-. To copy the full message value, click the copy icon in the side drawer.
+. To copy the full message value or header data, click the copy icon next to the data in the side drawer.
 
-. To see messages for a different topic partition, select a new value in the *Select partition* drop-down menu.
+. To see messages for a different topic partition, select a new value in the *Partition* drop-down menu.
 +
 NOTE: If you have many partitions, you can filter the list shown in the drop-down menu by typing a value in the field.
 
@@ -123,13 +123,13 @@ NOTE: If you have many partitions, you can filter the list shown in the drop-dow
 +
 --
 .. To filter messages by topic partition and offset, perform the following actions:
-... In the *Select partition* field, select a topic partition.
+... In the *Partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, keep this default value.
-... In the *Select offset* field, type an offset value.
+... In the *Offset* field, type an offset value.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
 .. To filter messages by topic partition and date and time, perform the following actions:
-... In the *Select partition* field, select a topic partition.
+... In the *Partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
 +
 Additional selection tools appear.
@@ -137,9 +137,9 @@ Additional selection tools appear.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
 .. To filter messages by topic partition and epcoh timestamp, perform the following actions:
-... In the *Select partition* field, select a topic partition.
+... In the *Partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, change the value to `Epoch timestamp`.
-... In the *Select epoch timestamp* field, type or paste an epoch timestamp value.
+... In the *Epoch timestamp* field, type or paste an epoch timestamp value.
 +
 NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
 ... To apply your filter settings, click the search (magnifying glass) icon.
@@ -148,7 +148,7 @@ NOTE: You can easily convert a human-readable date and time to an epoch value us
 +
 Based on your filter settings, the *Messages* page automatically reloads the list of messsages in the table.
 
-. To clear your existing offset, timestamp, or epoch timestamp selections and revert to seeing the last ten messages in the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
+. To clear your existing offset, timestamp, or epoch timestamp selections and revert to seeing the latest messages in the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
