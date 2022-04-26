@@ -78,13 +78,17 @@ NOTE: Alternatively, for quick access, you can try OpenShift Connectors on the S
 +
 `jq`
 
+[id="proc-request-connectors-namespace"]
+== Request a Connectors namespace for your trial OSD cluster
+
+A Connectors namespace hosts your Connector instances.
+
 .Procedure
 
-. Request a Red Hat OpenShift Connectors namespace for your trial OSD cluster:
-.. Login to the Hybrid Cloud Console (https://console.redhat.com/openshift) and then navigate to the Downloads page.
-.. Scroll down to the bottom of the page and then click View API Token.
-.. Click Load Token and then follow the 'Using your token in the command line' instructions to install the ocm command-line tool and run the authentication command in a terminal window.
-.. In your terminal window, set the following environment variable to the URL for the Red Hat OpenShift Connecters API:
+. Login to the Hybrid Cloud Console (https://console.redhat.com/openshift) and then navigate to the Downloads page.
+. Scroll down to the bottom of the page and then click View API Token.
+. Click Load Token and then follow the 'Using your token in the command line' instructions to install the ocm command-line tool and run the authentication command in a terminal window.
+. In your terminal window, set the following environment variable to the URL for the Red Hat OpenShift Connecters API:
 +
 ----
 export CONNECTORS_CLUSTERS=<BASE_PATH>/api/connector_mgmt/v1/kafka_connector_clusters
@@ -109,8 +113,8 @@ The Red Hat OpenShift Connecters API creates a new Connectors Namespace (a logic
 }
 ----
 
-.. Copy the id value from the response.
-.. Retrieve the add-on parameters with the following command (replacing the <ID> with the id value that you copied in Step 6):
+. Copy the id value from the response.
+. Retrieve the add-on parameters with the following command (replacing the <ID> with the id value that you copied in Step 6):
 +
 ----
 curl --insecure --oauth2-bearer "$(ocm token)" -S -s "${CONNECTORS_CLUSTERS}"/<ID>/addon_parameters | jq
@@ -136,14 +140,21 @@ client-id            <connect-fleetshard-agent-ID>
 client-secret            <client-secret>
 ----
 
-.. Save these parameters and their values (for example, copy and paste them to a temporary text file). You need them in the next step. 
+. Save these parameters and their values (for example, copy and paste them to a temporary text file). You need them in the next step. 
 
-. Configure the Connectors add-on in your OSD trial cluster:
-.. In a web browser, login to the Hybrid Cloud console with cluster administrator permissions.
-.. Click Clusters and then click the name of your trial cluster.
-.. On the trial cluster’s page, click the Add-ons tab.
-.. Click the Red Hat OpenShift Connectors card and then click Install. The Configure Red Hat OpenShift Connectors page opens.
-.. Fill in the required configuration information by copying and pasting the values of the add-on parameters (that you obtained in Step 7 and saved in Step 8).
+
+[id="proc-configure-connectors-addon"]
+== Configure the {product-long-connectors} add-on in your OSD trial cluster
+
+Use the information about your Connectors namespace to configure the OpenShift Connectors add-on.
+
+.Procedure
+
+. In a web browser, login to the Hybrid Cloud console with cluster administrator permissions.
+. Click Clusters and then click the name of your trial cluster.
+. On the trial cluster’s page, click the Add-ons tab.
+. Click the Red Hat OpenShift Connectors card and then click Install. The Configure Red Hat OpenShift Connectors page opens.
+. Fill in the required configuration information by copying and pasting the values of the add-on parameters (that you obtained in Step 7 and saved in Step 8).
 +
 *Connectors Cluster ID* - The value of the cluster-id add-on parameter.
 +
@@ -157,15 +168,15 @@ client-secret            <client-secret>
 +
 *SSO Client Secret* - The value of the client-secret add-on parameter.
 
-.. Click *Install*.
+. Click *Install*.
 
-.. On the Add-ons page, the Red Hat OpenShift Connectors card indicates the status of the installation. Wait until the status is Installed.
+. On the Add-ons page, the Red Hat OpenShift Connectors card indicates the status of the installation. Wait until the status is Installed.
 
-.. At the top of the web console, click All Apps and Services > Connectors.
+. At the top of the web console, click All Apps and Services > Connectors.
 +
 You can now create Connectors instances.
 
-_If you heed help, send an email to rhosak-eval-support@redhat.com_
+If you heed help, send an email to rhosak-eval-support@redhat.com
 
 
 .Next Steps
