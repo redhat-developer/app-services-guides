@@ -133,7 +133,8 @@ endif::[]
 . On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace the values with your own server and credential information:
 +
 * The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance.
-* The `<core_registry_url>` is the Core Registry API endpoint for your {registry} instance.
+* The `<service_registry_url>` is the URL for your {registry} instance.
+* The `<service_registry_core_path>` is the constant we use to for setting proper API path for service registry
 * The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint.
 * The `<client_id>` and `<client_secret>` are the generated credentials for your service account.
 +
@@ -141,7 +142,8 @@ endif::[]
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
-$ export SERVICE_REGISTRY_URL=__<core_registry_url>__
+$ export SERVICE_REGISTRY_URL=__<service_registry_url>__
+$ export SERVICE_REGISTRY_CORE_PATH=/apis/registry/v2
 $ export RHOAS_OAUTH_TOKEN_URL=__<oauth_token_endpoint_uri>__
 $ export RHOAS_CLIENT_ID=__<client_id>__
 $ export RHOAS_CLIENT_SECRET=__<client_secret>__
