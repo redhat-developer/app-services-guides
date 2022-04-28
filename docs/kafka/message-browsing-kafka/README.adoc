@@ -126,13 +126,13 @@ NOTE: If you have many partitions, you can filter the list shown in the drop-dow
 . To further refine the list of messages in the table, use the filter controls at the top of the *Messages* page.
 +
 --
-.. To filter messages by topic partition and offset, perform the following actions:
+* To filter messages by topic partition and offset, perform the following actions:
 ... In the *Partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, keep this default value.
 ... In the *Offset* field, type an offset value.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
-.. To filter messages by topic partition and date and time, perform the following actions:
+* To filter messages by topic partition and date and time, perform the following actions:
 ... In the *Partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
 +
@@ -140,7 +140,7 @@ Additional selection tools appear.
 ... Use the additional selection tools to set date and time values. Alternatively, type a date and time value in the format shown in the field.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
-.. To filter messages by topic partition and epcoh timestamp, perform the following actions:
+* To filter messages by topic partition and epoch timestamp, perform the following actions:
 ... In the *Partition* field, select a topic partition.
 ... In the drop-down menu that shows a default value of `Offset`, change the value to `Epoch timestamp`.
 ... In the *Epoch timestamp* field, type or paste an epoch timestamp value.
