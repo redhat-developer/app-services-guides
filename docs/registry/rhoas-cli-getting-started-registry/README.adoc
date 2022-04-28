@@ -134,7 +134,7 @@ because the `Status` field is `ready`.
 [NOTE]
 ====
 If you have multiple {registry} instances,
-you can change the context to a different instance by using the `rhoas context use-service-registry` command.
+you can change the context to a different instance by using the `rhoas context set-service-registry` command.
 ====
 --
 
@@ -216,12 +216,12 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 
 [NOTE]
 ====
-You can use `rhoas context use-service-registry` to switch to a specific {registry} instance.
+You can use `rhoas context set-service-registry` to switch to a specific {registry} instance.
 
 .Selecting a {registry} instance to use
 [source,shell]
 ----
-$ rhoas context use-service-registry --name=my-registry
+$ rhoas context set-service-registry --name=my-registry
 ----
 ====
 

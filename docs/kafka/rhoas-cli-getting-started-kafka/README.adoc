@@ -130,7 +130,7 @@ $ rhoas context status kafka
 [NOTE]
 ====
 If you have multiple Kafka instances,
-you can make the current context switch to a different instance by using the `rhoas context use-kafka` command.
+you can make the current context switch to a different instance by using the `rhoas context set-kafka` command.
 ====
 --
 
@@ -209,7 +209,7 @@ After creating a Kafka instance, you can create Kafka topics to start producing 
 
 [NOTE]
 ====
-You can use `rhoas kafka list` and `rhoas context use-kafka` to switch to a specific Kafka instance.
+You can use `rhoas kafka list` and `rhoas context set-kafka` to switch to a specific Kafka instance.
 
 .List Kafka instances
 [source,shell]
@@ -219,7 +219,7 @@ $ rhoas kafka list
 .Selecting a Kafka instance to use
 [source,shell]
 ----
-$ rhoas context use-kafka --name my-kafka
+$ rhoas context set-kafka --name my-kafka
 ----
 ====
 
