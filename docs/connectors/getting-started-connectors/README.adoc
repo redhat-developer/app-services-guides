@@ -61,7 +61,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {product-long-connectors} to create and configure connections between OpenShift Streams for Apache Kafka and third-party systems.
+As a developer of applications and services, you can use {product-long-connectors} to create and configure connections between {product-long-kafka} and third-party systems.
 
 In this example, you connect a data source (a data generator) that creates Kafka messages and a data sink (an HTTP endpoint) that consumes the Kafka messages.
 
@@ -181,12 +181,14 @@ Click the card to select the connector, and then click *Next*.
 +
 NOTE: If you have not already configured a {product-kafka} instance for Connectors, you can create a new Kafka instance by clicking *Create Kafka instance*. You would also need to set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
-. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
-+
-If you are using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in _https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors/TBD[Adding the OpenShift Connectors service to an OpenShift Dedicated trial cluster^]_.
+. On the *Namespace* page, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
+
+//. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
+//+
+//If you are using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in _https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors/TBD[Adding the OpenShift Connectors service to an OpenShift Dedicated trial cluster^]_.
 //need to update this link with correct URL
-+
-If you are using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
+//+
+//If you are using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
 
 . Click *Next*.
 
@@ -253,11 +255,13 @@ endif::[]
 +
 For example, select *test*  and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
-+
-If you are using a trial cluster on your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster.
-+
-If you are using the evaluation OpenShift Dedicated environment, click the *eval namespace* that you created when you created the source connector.
+. On the *Namespace* page, click the *eval namespace* that you created when you created the source connector. 
+
+//. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
+//+
+//If you are using a trial cluster on your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster.
+//+
+//If you are using the evaluation OpenShift Dedicated environment, click the *eval namespace* that you created when you created the source connector.
 
 . Click *Next*.
 
