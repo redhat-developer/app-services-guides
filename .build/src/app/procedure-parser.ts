@@ -1,98 +1,44 @@
-import {QuickStart, QuickStartTask} from "@patternfly/quickstarts";
+/* eslint-disable */
 
-export type GuidesQuickStart = QuickStart & {
-    metadata?: {
-        annotations?: {
-            draft?: boolean,
-            order?: number
-        }
-    }
-    spec: {
-        tasks: undefined | QuickStartTask[] | string[]
-    }
-}
+import { QuickStart, QuickStartTask } from '@patternfly/quickstarts';
+import {ProcQuickStartParser} from "@app/patternfly-procedure-parser";
 
-
-export const ProcQuickStartParser = (
-    quickStart: GuidesQuickStart,
+export const ProcQuickStartParserWithImageSupport = (
+    quickStart: QuickStart & {
+        spec: {
+            tasks: undefined | QuickStartTask[] | string[];
+        };
+    },
     basePath: string,
-    environmentVariables?: { [name: string]: string }
+    environmentVariables?: { [name: string]: string },
 ) => {
-    const replaceEnvironmentVariables = (s: string | undefined) =>
-        s?.replace(/\${(\w+)}/, (substring, name) => {
-            return environmentVariables ? [name]
-                ? environmentVariables[name]
-                : substring : substring;
-        });
 
-    quickStart.spec.tasks = quickStart.spec.tasks?.map((task: QuickStartTask | string, index) => {
-        let proc: string;
-        let answer: QuickStartTask;
-        if (typeof task === "string") {
-            proc = task;
-            answer = {};
-        } else {
-            proc = task["proc"]
-            answer = task;
-            delete task["proc"];
+    // Use the upstream parser
+    const resource =  ProcQuickStartParser(quickStart, environmentVariables);
+
+    // add image path fixing
+    function fixImagePath(str: string): string;
+    function fixImagePath(str: undefined | string): undefined | string;
+    function fixImagePath (str: string | undefined): string | undefined {
+        return str === undefined ? undefined :str.replace("<img src=\"\./images", "<img src=\"" + basePath + "/images");
+    }
+
+    resource.spec.tasks = resource.spec.tasks?.map(task => {
+
+        task.description = fixImagePath(task.description);
+        if (task.summary !== undefined) {
+            task.summary.success = fixImagePath(task.summary.success);
+            task.summary.failed = fixImagePath(task.summary.failed);
         }
-
-        let procedure, verification, title, summaryFailed, success, reviewFailed: string | undefined;
-        let description = "";
-        if (proc) {
-            const parser = new DOMParser();
-            proc = proc.replace("<img src=\"\./images", "<img src=\"" + basePath + "/images");
-            const taskDOM = parser.parseFromString(proc, 'text/html');
-
-            // remove the screencapture images
-            taskDOM.querySelectorAll(".imageblock.screencapture").forEach(node => {
-                node.parentElement?.removeChild(node);
-            });
-
-            title = taskDOM.querySelector("h1:first-child,h2:first-child,h3:first-child,h4:first-child,h5:first-child")?.innerHTML.trim();
-            let sectionBody = taskDOM.querySelector(".sectionbody");
-            if (!sectionBody?.hasChildNodes()) {
-                // possibly in other templates, where we want to look for article
-                sectionBody = taskDOM.querySelector("article");
-            }
-            if (sectionBody) {
-                for (let i = 0; i < sectionBody.children.length || 0; i++) {
-                    const child = sectionBody.children.item(i);
-                    // find the title
-                    const title = child?.querySelector(".heading,.title");
-                    if (title) {
-                        switch (title?.textContent?.trim()) {
-                            case "Procedure":
-                                procedure = child?.querySelector(":not(.heading):not(.title)")?.outerHTML.trim();
-                                break;
-                            case "Verification":
-                                verification = child?.querySelector(":not(.heading):not(.title)")?.outerHTML.trim();
-                                break;
-                        }
-                    } else if (!procedure) {
-                        // Otherwise if it comes before a procedure it's part of the description
-                        description += child?.innerHTML.trim();
-                    }
-                }
-            }
-            success = taskDOM.querySelector(".qs-summary.success")?.innerHTML.trim();
-            reviewFailed = taskDOM.querySelector(".qs-review.failed")?.innerHTML.trim();
-            summaryFailed = taskDOM.querySelector(".qs-summary.failed")?.innerHTML.trim();
+        if (task.review !== undefined) {
+            task.review.failedTaskHelp = fixImagePath(task.review.failedTaskHelp);
+            task.review.instructions = fixImagePath(task.review.instructions);
         }
-
-
-        answer.title = replaceEnvironmentVariables(answer.title || title)
-        answer.description = replaceEnvironmentVariables(answer.description || `${description} ${procedure}`);
-        answer.review = answer.review || {};
-        answer.review.instructions = replaceEnvironmentVariables(answer.review?.instructions || verification || "Have you completed these steps?")
-        answer.review.failedTaskHelp = replaceEnvironmentVariables(answer.review.failedTaskHelp || reviewFailed || "This task isn’t verified yet. Try the task again.");
-        answer.summary = answer.summary || {};
-        answer.summary.success = replaceEnvironmentVariables(answer.summary.success ||
-            success
-            || "You have completed this task!");
-        answer.summary.failed = replaceEnvironmentVariables(answer.summary.failed || summaryFailed
-            || "Try the steps again.");
-        return answer;
+        task.title = fixImagePath(task.title);
+        return task;
     });
-    return quickStart;
+    resource.spec.description = fixImagePath(resource.spec.description)
+    resource.spec.introduction = fixImagePath(resource.spec.introduction)
+    resource.spec.conclusion = fixImagePath(resource.spec.conclusion);
+    return resource;
 };
