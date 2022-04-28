@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: connectors-getting-started
   annotations:
-    draft: true
+    draft: false
     order: 6
 spec:
   version: 0.1
