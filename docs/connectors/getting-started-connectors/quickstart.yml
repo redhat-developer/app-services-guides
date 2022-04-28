@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: connectors-getting-started
   annotations:
-    draft: true
+    draft: false
     order: 6
 spec:
   version: 0.1
@@ -18,7 +18,7 @@ spec:
   prerequisites:
     - A Red Hat identity
     - You've created a Kafka instance and the instance is in `Ready` state. See the _Getting started with OpenShift Streams for Apache Kafka_ quick start.
-    - For the data sink example, open the free Webhook.site (https://webhook.site) in a browser window. The Webhook.site page provides a unique URL that you copy. You use this URL as an HTTP data sink.
+    - For the data sink example, open the free <a href="https://webhook.site">Webhook.site</a> in a browser window. The Webhook.site page provides a unique URL that you copy. You use this URL as an HTTP data sink.
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-configuring-kafka-for-connectors
