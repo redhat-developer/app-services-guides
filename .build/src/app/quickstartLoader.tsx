@@ -1,4 +1,4 @@
-import { GuidesQuickStart, ProcQuickStartParser } from "@app/procedure-parser";
+import { GuidesQuickStart, ProcQuickStartParserWithImageSupport } from "@app/procedure-parser";
 import React, { useState, useEffect, FunctionComponent } from "react";
 import { QuickStart } from "@patternfly/quickstarts";
 import {useAssets} from "@rhoas/app-services-ui-shared";
@@ -35,7 +35,7 @@ export const loadJSONQuickStarts = async (
       }
       return true;
     })
-    .map((content) => ProcQuickStartParser(content, basePath));
+    .map((content) => ProcQuickStartParserWithImageSupport(content, basePath));
 };
 
 export interface QuickStartLoaderProps {
