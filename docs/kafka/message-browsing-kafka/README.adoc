@@ -67,9 +67,9 @@ As a developer or administrator, you can use the {product-long-kafka} web consol
 When you select a topic in the console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
 
 * Specify a partition and see messages sent to the partition.
-* Specify a partition and offset. See messages sent to the partition from that offset.
+* Specify a partition and offset and see messages sent to the partition from that offset.
 * Specify a partition and a timestamp (that is, date and time) value. See messages sent to the partition from that date and time.
-* Specify a partition and a Unix epoch timestamp value. See messages sent to the partition from that epoch timestamp value.
+* Specify a partition and a Unix epoch timestamp value and see messages sent to the partition from that epoch timestamp value.
 
 //Additional line break to resolve mod docs generation error.
 
@@ -82,8 +82,8 @@ The following procedure shows how to filter and inspect a list of messages for a
 
 * You have a Kafka instance with a topic that contains some messages. To learn how to create your _first_ Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
 +
-** {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
-** {base-url}{kafka-bin-scripts-url-kafka}[Configuring and connecting Kafka scripts with {product-long-kafka}^]
+** {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
+** {base-url}{kafka-bin-scripts-url-kafka}[_Configuring and connecting Kafka scripts with {product-long-kafka}_^]
 
 .Procedure
 
@@ -108,16 +108,16 @@ The messages table includes columns for the following topic and message properti
 
 . To see complete data for a message, click *Show more* in the *Value*, *Key*, or *Headers* column.
 +
-A side drawer opens to show the complete message data. The side drawer also shows the epoch timestamp value.
+A *Message* pane opens to show the complete message data. This pane also shows the epoch timestamp value.
 +
 [NOTE]
 --
-If you're using a schema in {product-long-registry} with your topic, the *Messages* page does *not* deserialize messages that a producer application serialized to conform to that schema. To view such messages, you must configure a consumer application to use a Kafka deserializer. For more information, see https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html-single/service_registry_user_guide/index#configuring-kafka-client-serdes[Configuring Kafka serializers/deserializers in Java clients^].
+If you're using a schema in {product-long-registry} with your topic, the *Messages* page does not deserialize messages that a producer application serialized to conform to that schema. To view such messages, you must configure a consumer application to use a Kafka deserializer. For more information, see https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html-single/service_registry_user_guide/index#configuring-kafka-client-serdes[Configuring Kafka serializers/deserializers in Java clients^].
 
 Similarly, if a message is encoded (for example, in a format such as UTF-8 or Base64), the *Messages* page does not decode the message.
 --
 
-. To copy the full message value or header data, click the copy icon next to the data in the side drawer.
+. To copy the full message value or header data, click the copy icon next to the data in the *Message* pane.
 
 . To see messages for a different topic partition, select a new value in the *Partition* drop-down menu.
 +
