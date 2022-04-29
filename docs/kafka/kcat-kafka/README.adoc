@@ -96,10 +96,14 @@ Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to use Kafkacat to interact with a Kafka instance in {product-long-kafka}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-kafka} with Kafkacat. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat^] to produce and consume messages for your Kafka instances in {product-kafka}.
+====
 endif::[]
 
 [id="proc-configuring-kafkacat_{context}"]
@@ -112,7 +116,7 @@ For more information about Kafkacat configuration options, see https://github.co
 
 NOTE: Kafkacat does not yet fully support SASL/OAUTHBEARER authentication, so connecting to a Kafka instance requires only the bootstrap server and the service account credentials for SASL/PLAIN authentication.
 
-NOTE: Kafkacat have been recently renamed to kcat. If you use latest version of kafkacat please replace all occurences referencing kafkacat binary to kcat 
+NOTE: Kafkacat have been recently renamed to kcat. If you use latest version of kafkacat please replace all occurences referencing kafkacat binary to kcat
 
 .Prerequisites
 ifndef::qs[]
@@ -234,7 +238,9 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Kafkacat quick start, and are now ready to produce and consume messages in the service.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]
