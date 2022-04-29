@@ -27,6 +27,8 @@ $ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
 
 NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, Kafkacat does not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
 
+NOTE: A Kafkacat producer might behave differently depending on the operating system. For example, on Mac operating systems, messages are sent by redirecting them to the Kafkacat binary in the format `echo "message" | kafkacat ...`.
+
 --
 . With Kafkacat running in producer mode, enter messages into Kafkacat that you want to produce to the Kafka topic.
 +
