@@ -1,12 +1,11 @@
 /* eslint-disable */
 
-import { QuickStart, QuickStartTask } from '@patternfly/quickstarts';
-import {ProcQuickStartParser} from "@app/patternfly-procedure-parser";
+import {ProcQuickStartParser, QuickStart, QuickStartTask} from '@patternfly/quickstarts';
 
 export const ProcQuickStartParserWithImageSupport = (
     quickStart: QuickStart & {
         spec: {
-            tasks: undefined | QuickStartTask[] | string[];
+            tasks: QuickStartTask[] | string[];
         };
     },
     basePath: string,

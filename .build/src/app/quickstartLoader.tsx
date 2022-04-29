@@ -1,6 +1,6 @@
-import { GuidesQuickStart, ProcQuickStartParserWithImageSupport } from "@app/procedure-parser";
+import { ProcQuickStartParserWithImageSupport } from "@app/procedure-parser";
 import React, { useState, useEffect, FunctionComponent } from "react";
-import { QuickStart } from "@patternfly/quickstarts";
+import {QuickStart, QuickStartTask} from "@patternfly/quickstarts";
 import {useAssets} from "@rhoas/app-services-ui-shared";
 
 const loadJSONQuickStartsFilesFromAssets = async (
@@ -22,7 +22,11 @@ export const loadJSONQuickStarts = async (
   showDrafts?: boolean
 ) => {
   const files = await loadJSONQuickStartsFilesFromAssets(basePath);
-  const result = [] as GuidesQuickStart[];
+  const result = new Array<QuickStart & {
+    spec: {
+      tasks: QuickStartTask[] | string[];
+    };
+  }>()
   for (let i = 0; i < files.length; i++) {
     await fetch(files[i]).then((response) =>
       response.json().then((data) => result.push(data))
