@@ -6,7 +6,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {product-long-connectors} to create and configure connections between OpenShift Streams for Apache Kafka and third-party systems.
+As a developer of applications and services, you can use {product-long-connectors} to create and configure connections between {product-long-kafka} and third-party systems.
 
 In this example, you connect a data source (a data generator) that creates Kafka messages and a data sink (an HTTP endpoint) that consumes the Kafka messages.
 
