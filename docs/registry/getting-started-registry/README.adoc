@@ -76,10 +76,14 @@ endif::[]
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to create and set up your first {registry} instance in {product-long-registry}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-registry}. In this quick start, you'll learn how to create and view a {registry} instance, create a schema in this instance, and create a service account to connect an application or service to this instance.
+====
 endif::[]
 
 [id="proc-creating-service-registry-instance_{context}"]
@@ -272,7 +276,9 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {registry} Getting Started quick start, and are now ready to use the service.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

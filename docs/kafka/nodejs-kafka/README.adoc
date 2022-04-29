@@ -81,10 +81,14 @@ The example Node.js application in this quick start uses the https://kafka.js.or
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to use Node.js applications to produce and consume messages using a Kafka instance in {product-long-kafka}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-kafka} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product-kafka}.
+====
 endif::[]
 
 
@@ -324,7 +328,9 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Node.js quick start. You're now ready to use your own Node.js applications with {product-kafka}.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

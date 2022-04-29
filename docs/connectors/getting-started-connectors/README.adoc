@@ -69,27 +69,30 @@ In this example, you connect a data source (a data generator) that creates Kafka
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to create and set up connectors in {product-long-connectors}.
+====
 
 [#introduction]
-Welcome to the quick start for {product-long-connectors}. 
+====
+Welcome to the quick start for {product-long-connectors}.
 
-In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}. 
+In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}.
 
-A *source* connector allows you to send data from an external system to {product-kafka}. A *sink* connector allows you to send data from {product-kafka} to an external system. 
-
+A *source* connector allows you to send data from an external system to {product-kafka}. A *sink* connector allows you to send data from {product-kafka} to an external system.
+====
 endif::[]
 
 ifndef::qs[]
 == Overview
 
-{product-long-kafka} is a cloud service that simplifies the process of running Apache Kafka. Apache Kafka is an open-source, distributed, publish-subscribe messaging system for creating fault-tolerant, real-time data feeds.  
+{product-long-kafka} is a cloud service that simplifies the process of running Apache Kafka. Apache Kafka is an open-source, distributed, publish-subscribe messaging system for creating fault-tolerant, real-time data feeds.
 
-You can use {product-long-connectors} to configure communication between {product-kafka} instances and external services and applications. {product-long-connectors} allow you to configure how data moves from one endpoint to another without writing code. 
+You can use {product-long-connectors} to configure communication between {product-kafka} instances and external services and applications. {product-long-connectors} allow you to configure how data moves from one endpoint to another without writing code.
 
 The following diagram illustrates how data flows from a data source through a data source connector to a Kafka topic. And how data flows from a Kafka topic to a data sink through a data sink connector.
 
- [.screencapture] 
+ [.screencapture]
 .{product-long-connectors} data flow
 image::connectors-diagram.png[Illustration of data flow from data source through Kafka to data sink]
 
@@ -101,11 +104,11 @@ endif::[]
 [role="_abstract"]
 Configure your {product-kafka} instance for use with {product-long-connectors} by:
 
-* Creating *Kafka topics* to store messages sent by producers (data sources) and make them available to consumers (data sinks). 
-* Creating *service accounts* that allow you to connect and authenticate your Connectors with Kafka instances. 
+* Creating *Kafka topics* to store messages sent by producers (data sources) and make them available to consumers (data sinks).
+* Creating *service accounts* that allow you to connect and authenticate your Connectors with Kafka instances.
 * Setting up *access rules* for the service accounts that define how your Connectors can access and use the associated Kafka instance topics.
 
-The number of Kafka topics and service accounts that you create, and the access rules for the service accounts, depend on your application. 
+The number of Kafka topics and service accounts that you create, and the access rules for the service accounts, depend on your application.
 
 For this example, you create one Kafka topic, named *test*, one service account, and you define access for the service account.
 
@@ -113,7 +116,7 @@ ifndef::qs[]
 .Prerequisites
 * You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
 * You've created a  {product-kafka} instance and the instance is in the *Ready* state.
-For instructions on how to create a Kafka instance, see _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_. 
+For instructions on how to create a Kafka instance, see _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_.
 endif::[]
 
 .Procedure
@@ -121,9 +124,9 @@ endif::[]
 .. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
 .. Click the name of the Kafka instance that you want to add a topic to.
 .. Select the *Topics* tab, and then click *Create topic*.
-.. Type a unique name for your topic. For example, type *test-topic* for the *Topic Name*. 
+.. Type a unique name for your topic. For example, type *test-topic* for the *Topic Name*.
 .. Accept the default settings for partitions, message retention, and replicas.
-. Create a service account for connectors: 
+. Create a service account for connectors:
 .. In the web console, select *Service Accounts*, and then click *Create service account*.
 .. Type a unique service account name (for example, *test-service-acct* ) and then click *Create*.
 .. Copy the generated *Client ID* and *Client Secret* to a secure location. You'll use these credentials to configure connections to this service account.
@@ -152,11 +155,11 @@ endif::[]
 == Creating a Connectors instance for a data source
 
 [role="_abstract"]
-A *source* connector consumes events from an external data source and produces Kafka messages. 
+A *source* connector consumes events from an external data source and produces Kafka messages.
 
-For this example, you create an instance of the *Data Generator* source connector. 
+For this example, you create an instance of the *Data Generator* source connector.
 
-You configure your connector to listen for events from the data source and produce a Kafka message for each event. 
+You configure your connector to listen for events from the data source and produce a Kafka message for each event.
 
 The connector sends the messages at regular intervals to the Kafka topic that you created for Connectors.
 
@@ -173,7 +176,7 @@ endif::[]
 +
 You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
 +
-For example, to find the *Data Generator* source connector, type *data* in the search box. The list filters to show only the *Data Generator Connector* card. 
+For example, to find the *Data Generator* source connector, type *data* in the search box. The list filters to show only the *Data Generator Connector* card.
 +
 Click the card to select the connector, and then click *Next*.
 
@@ -193,7 +196,7 @@ NOTE: If you have not already configured a {product-kafka} instance for Connecto
 . Click *Next*.
 
 . Configure the core configuration for your connector:
-.. Provide a name for the connector. 
+.. Provide a name for the connector.
 .. Type the *Client ID* and *Client Secret* of the service account that you created for Connectors and then click *Next*.
 
 . Provide connector-specific configuration. For the *Data Generator*, provide the following information:
@@ -203,11 +206,11 @@ NOTE: If you have not already configured a {product-kafka} instance for Connecto
 .. *Message*: Type the content of the message that you want the Connector instance to send to the Kafka topic. For example, type `Hello World!`.
 .. *Period*: Specify the interval (in milliseconds) at which you want the Connectors instance to send messages to the Kafka topic. For example, specify `10000`, to send a message every 10 seconds.
 
-. Optionally, configure the error handling policy for your Connectors instance. 
+. Optionally, configure the error handling policy for your Connectors instance.
 +
 The options are:
 +
-* *stop* - (the default) The Connectors instance shuts down when it encounters an error. 
+* *stop* - (the default) The Connectors instance shuts down when it encounters an error.
 * *log* - The Connectors instance sends errors to its log.
 * *dead letter queue* - The Connectors instance sends messages that it cannot handle to a dead letter topic that you define for the Connectors Kafka instance.
 +
@@ -232,7 +235,7 @@ In the next procedure, you can verify that the source Connectors instance is sen
 == Creating a Connectors instance for a data sink
 
 [role="_abstract"]
-A *sink* connector consumes messages from a Kafka topic and sends them to an external system. 
+A *sink* connector consumes messages from a Kafka topic and sends them to an external system.
 
 For this example, you use the *HTTP Sink* connector which consumes the Kafka messages (produced by the source Connectors instance) and sends the messages to an HTTP endpoint.
 
@@ -244,18 +247,18 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
- 
-. In the OpenShift Application Services web console, select *Connectors* and then click *Create Connectors instance*. 
+
+. In the OpenShift Application Services web console, select *Connectors* and then click *Create Connectors instance*.
 
 . Select the sink connector that you want to use:
-.. For example, type *http* in the search field. The list of connectors filters to show the *HTTP Sink* connector. 
-.. Click the *HTTP Sink connector* card and then click *Next*. 
+.. For example, type *http* in the search field. The list of connectors filters to show the *HTTP Sink* connector.
+.. Click the *HTTP Sink connector* card and then click *Next*.
 
-. Select the {product-kafka} instance for the connector to work with. 
+. Select the {product-kafka} instance for the connector to work with.
 +
 For example, select *test*  and then click *Next*.
 
-. On the *Namespace* page, click the *eval namespace* that you created when you created the source connector. 
+. On the *Namespace* page, click the *eval namespace* that you created when you created the source connector.
 
 //. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
 //+
@@ -266,7 +269,7 @@ For example, select *test*  and then click *Next*.
 . Click *Next*.
 
 . Provide the core configuration for your connector:
-.. Type a unique name for the connector. 
+.. Type a unique name for the connector.
 .. Type the *Client ID* and *Client Secret* of the service account that you created for Connectors and then click *Next*.
 
 . Provide the connector-specific configuration for your connector. For the *HTTP sink connector*, provide the following information:
@@ -280,7 +283,7 @@ For example, select *test*  and then click *Next*.
 
 . Review the summary of the configuration properties and then click *Create Connectors instance*.
 +
-Your Connectors instance is listed in the table of Connectors. 
+Your Connectors instance is listed in the table of Connectors.
 +
 After a couple of seconds, the status of your Connectors instance changes to the *Ready* state. It consumes messages from the associated Kafka topic and sends them to the data sink (for this example, the data sink is the HTTP URL that you provided).
 
@@ -291,7 +294,9 @@ Open the browser tab to your custom URL for the link:https://webhook.site[webhoo
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-long-connectors} Getting Started quick start.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]
