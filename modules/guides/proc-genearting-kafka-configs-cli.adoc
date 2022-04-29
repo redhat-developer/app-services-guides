@@ -18,10 +18,9 @@ After creating a Kafka instance, you can generate a configuration file that your
 --
 This example generates a JSON file with configurations for the Kafka instance you created.
 
-. Generating a configuration file
+.Generating a configuration file
 [source,shell]
 ----
 $ rhoas generate-config --type json
 ----
 --
-

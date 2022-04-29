@@ -47,14 +47,18 @@ include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Getting Started quick start, and are now ready to use the service.
 
-You can use Kafka scripts to check that you can connect with your Kafka instance.
+You can use either Kafkacat or the Kafka scripts to check that you can connect with your Kafka instance.
+====
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Getting Started quick start, and are now ready to use the service.
 
-You can use Kafka scripts to check that you can connect with your Kafka instance.
+You can use either Kafkacat or the Kafka scripts to check that you can connect with your Kafka instance.
+====
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

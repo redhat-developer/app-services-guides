@@ -1,0 +1,84 @@
+[id='proc-browsing-messages-for-a-topic_{context}']
+= Browsing messages for a topic
+:imagesdir: ../_images
+
+The following procedure shows how to filter and inspect a list of messages for a topic in the {product-kafka} web console.
+
+.Prerequisites
+
+* You have a Kafka instance with a topic that contains some messages. To learn how to create your _first_ Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
++
+** {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
+** {base-url}{kafka-bin-scripts-url-kafka}[_Configuring and connecting Kafka scripts with {product-long-kafka}_^]
+
+.Procedure
+
+. In the {product-kafka} web console, click *Kafka Instances* in the left navigation menu.
+. On the *Kafka Instances* page, click a Kafka instance.
+. In your Kafka instance, click the *Topics* tab.
+. In the topics table, click a Kafka topic that you want to inspect.
+. In your topic, click the *Messages* tab.
++
+By default, the *Messages* page shows messages in *partition 0* of your topic. You can change this partition value, as described later in the procedure.
++
+The messages table includes columns for the following topic and message properties:
++
+--
+* Partition
+* Offset
+* Timestamp (date and time)
+* Key
+* Headers
+* Value
+--
+
+. To see complete data for a message, click *Show more* in the *Value*, *Key*, or *Headers* column.
++
+A *Message* pane opens to show the complete message data. This pane also shows the epoch timestamp value.
++
+[NOTE]
+--
+If you're using a schema in {product-long-registry} with your topic, the *Messages* page does not deserialize messages that a producer application serialized to conform to that schema. To view such messages, you must configure a consumer application to use a Kafka deserializer. For more information, see https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q3/html-single/service_registry_user_guide/index#configuring-kafka-client-serdes[Configuring Kafka serializers/deserializers in Java clients^].
+
+Similarly, if a message is encoded (for example, in a format such as UTF-8 or Base64), the *Messages* page does not decode the message.
+--
+
+. To copy the full message value or header data, click the copy icon next to the data in the *Message* pane.
+
+. To see messages for a different topic partition, select a new value in the *Partition* drop-down menu.
++
+NOTE: If you have many partitions, you can filter the list shown in the drop-down menu by typing a value in the field.
+
+. To further refine the list of messages in the table, use the filter controls at the top of the *Messages* page.
++
+--
+* To filter messages by topic partition and offset, perform the following actions:
+... In the *Partition* field, select a topic partition.
+... In the drop-down menu that shows a default value of `Offset`, keep this default value.
+... In the *Offset* field, type an offset value.
+... To apply your filter settings, click the search (magnifying glass) icon.
+
+* To filter messages by topic partition and date and time, perform the following actions:
+... In the *Partition* field, select a topic partition.
+... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
++
+Additional selection tools appear.
+... Use the additional selection tools to set date and time values. Alternatively, type a date and time value in the format shown in the field.
+... To apply your filter settings, click the search (magnifying glass) icon.
+
+* To filter messages by topic partition and epoch timestamp, perform the following actions:
+... In the *Partition* field, select a topic partition.
+... In the drop-down menu that shows a default value of `Offset`, change the value to `Epoch timestamp`.
+... In the *Epoch timestamp* field, type or paste an epoch timestamp value.
++
+NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
+... To apply your filter settings, click the search (magnifying glass) icon.
+
+--
++
+Based on your filter settings, the *Messages* page automatically reloads the list of messsages in the table.
+
+. To clear your existing offset, timestamp, or epoch timestamp selections and revert to seeing the latest messages in the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

@@ -20,10 +20,10 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 .Starting Kafkacat in consumer mode
 [source]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$BOOTSTRAP_SERVER" \
+$ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username="$USER" \
- -X sasl.password="$PASSWORD" -C
+ -X sasl.username="$RHOAS_CLIENT_ID" \
+ -X sasl.password="$RHOAS_CLIENT_SECRET" -C
 
 First message
 Second message
