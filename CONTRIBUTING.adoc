@@ -110,7 +110,6 @@ A schema for `quickstart.yml` is provided in `quickstart.schema.json`. To load t
 * Follow link:https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom[this guide for IntelliJ], use `**/quickstart.yml` as the file path pattern
 * Install link:https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml[the YAML extension for VS Code], follow the documentation to associate the schema to `**/quickstart.yml`
 
-=== Previewing the quick starts locally
 
 You can preview the quick start catalog and the quick start pages locally. (Note that the preview shows _all_ of the quick starts in the `app-services-guides` repository, not just one quick start.)
 
@@ -157,7 +156,7 @@ kind: QuickStarts
 metadata:
   name: <identifier>
 ----
-. The `spec` associative array defines the quick start content. Start by defining the content type of the quickstart (Quick start / Documentation), the version of the quick start, the URL of an icon to use, and how long the quick start should take to complete.
+. The `spec` associative array defines the quick start content. Start by defining the content type of the quickstart (Quick start / Documentation), the version of the quick start, the base64 value of an icon to use, and how long the quick start should take to complete.
 +
 ----
 spec:
@@ -165,7 +164,7 @@ spec:
   type:
     text: Quick start // or Documentation if it has an external link
     color: green // orange for Documentation
-  icon: <icon url>
+  icon: data:image/svg+xml;base64,<base64-string> // you can find the base64 string here: https://base64.guru/converter/encode/image
   durationMinutes: <duration>
 ----
 +
