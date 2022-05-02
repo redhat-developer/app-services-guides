@@ -36,10 +36,14 @@ $ ./kafka-console-producer.sh --version
 
 ifdef::qs[]
 [#description]
+====
 Learn how to use Kafka scripts to interact with a Kafka instance in {product-long-kafka}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-kafka} with Kafka scripts. In this quick start, you'll learn how to use the Kafka scripts to produce and consume messages for your Kafka instances in {product-kafka}.
+====
 endif::[]
 
 include::modules/guides/proc-configuring-kafka-bin-scripts.adoc[leveloffset=+1]
@@ -50,7 +54,9 @@ include::modules/guides/proc-consuming-messages-kafka-bin-scripts.adoc[leveloffs
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Kafka scripts quick start, and are now ready to produce and consume messages in the service.
+====
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

@@ -45,7 +45,9 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Kafkacat quick start, and are now ready to produce and consume messages in the service.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

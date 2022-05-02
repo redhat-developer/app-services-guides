@@ -21,10 +21,14 @@ endif::[]
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to create and set up your first Apache Kafka instance in {product-long-kafka}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-kafka}. In this quick start, you'll learn how to create and inspect a Kafka instance, create a service account to connect an application or service to the instance, and create a topic in the instance.
+====
 endif::[]
 
 include::modules/guides/proc-creating-kafka-instance.adoc[leveloffset=+1]

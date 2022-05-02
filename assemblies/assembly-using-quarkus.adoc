@@ -22,10 +22,14 @@ endif::[]
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to use Quarkus applications to produce messages to and consume messages from a Kafka instance in {product-long-kafka}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-kafka} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product-kafka}.
+====
 endif::[]
 
 include::modules/guides/proc-importing-quarkus-sample-code.adoc[leveloffset=+1]
@@ -38,7 +42,9 @@ include::modules/guides/proc-running-quarkus-example-application.adoc[leveloffse
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} Quarkus quick start, and are now ready to use your own Quarkus applications with {product-kafka}.
+====
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
