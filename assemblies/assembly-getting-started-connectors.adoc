@@ -14,15 +14,18 @@ In this example, you connect a data source (a data generator) that creates Kafka
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
+====
 Learn how to create and set up connectors in {product-long-connectors}.
+====
 
 [#introduction]
+====
 Welcome to the quick start for {product-long-connectors}.
 
 In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}.
 
 A *source* connector allows you to send data from an external system to {product-kafka}. A *sink* connector allows you to send data from {product-kafka} to an external system.
-
+====
 endif::[]
 
 ifndef::qs[]
@@ -48,7 +51,9 @@ include::modules/guides/proc-creating-sink-connector.adoc[leveloffset=+1]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-long-connectors} Getting Started quick start.
+====
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

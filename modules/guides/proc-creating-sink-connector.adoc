@@ -62,7 +62,9 @@ Open the browser tab to your custom URL for the link:https://webhook.site[webhoo
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-long-connectors} Getting Started quick start.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]
