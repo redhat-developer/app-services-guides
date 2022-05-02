@@ -60,7 +60,9 @@ endif::[]
 
 ifdef::qs[]
 [#conclusion]
+====
 Congratulations! You successfully completed the {product-kafka} and {registry} Quarkus quick start, and are now ready to use your own Quarkus application with {product-kafka} and {registry}.
+====
 endif::[]
 
 ifdef::parent-context[:context: {parent-context}]

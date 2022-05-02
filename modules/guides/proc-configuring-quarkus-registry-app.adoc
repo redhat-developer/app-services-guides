@@ -12,12 +12,10 @@ Quarkus applications use https://github.com/eclipse/microprofile-reactive-messag
 This Quarkus example application includes producer and consumer processes that serialize/deserialize Kafka messages using a schema stored in {registry}.
 
 .Prerequisites
-ifndef::qs[]
 * You have a service account with write access to Kafka and {registry} instances and have stored your credentials securely (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^] and {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
 * You have the Kafka bootstrap server endpoint for the Kafka instance. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
 * You have the Core Registry API endpoint for the {registry} instance. You copied this information for the {registry} instance by selecting the options menu (three vertical dots) and clicking *Connection*. From the list of endpoints, you copied the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
 * You copied the *Token endpoint URL* value from the same list of endpoints to be used for the OAuth-based athentication method used in this example.
-endif::[]
 
 .Procedure
 . On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace the values with your own server and credential information:
