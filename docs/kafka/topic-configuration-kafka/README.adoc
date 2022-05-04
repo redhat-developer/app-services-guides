@@ -186,7 +186,7 @@ h|Kafka property name
 Minimum in-sync replicas::
 +
 --
-Minimum in-sync replicas is the minimum number of replicas that must acknowledge a write for the write to be considered successful. This property assumes that the producer requests acknowledgments from all replicas (`acks` set to `all`). If this minimum is not met, the producer raises an exception (`NotEnoughReplicas` or `NotEnoughReplicasAfterAppend`).
+Minimum in-sync replicas is the minimum number of replicas that must acknowledge a write for the write to be considered successful. For the minimum in-sync replicas to be enforced, producers must request acknowledgements from all replicas (set `acks` to `all`). If this minimum is not met, the producer raises an exception (`NotEnoughReplicas` or `NotEnoughReplicasAfterAppend`).
 
 .Property attributes
 [cols="25%,75%"]
