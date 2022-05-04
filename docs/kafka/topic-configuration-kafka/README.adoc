@@ -90,13 +90,13 @@ For a list of topic properties that you can update using the CLI, see the `rhoas
 * You have created a Kafka instance with at least one Kafka topic in {product-kafka}.
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topics that you want to configure.
-. In the *Topics* page, click the name of the topic that you want to 
-. Select the options icon (three vertical dots) for the relevant topic and click *Edit*.
-. Click *Edit properties*, review the current topic properties, and adjust any editable topic properties as needed.
+. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*.
+. Click the Kafka instance *Name* that contains the topic you want to configure.
+. Select the *Topics* page.
+. Select the options icon (three vertical dots) for the relevant topic *Name* and click *Edit* to review the current topic properties, and adjust any editable topic properties as needed.
 . Click *Save* to finish.
 
-NOTE: You can also edit a specific topic from your Kafka instance. Select the *Topics* page and then click the name of a topic. Click *Edit properties*, review the current topic properties, and adjust any editable topic properties as needed.
+NOTE: You can also edit a specific topic from your Kafka instance. Select the *Topics* page and click the name of the Kafka instance that contains the topic that you want to configure. Select the *Properties* page, and click *Edit properties*. Review the current topic properties, and adjust any editable topic properties and click *Save*.
 
 [role="_additional-resources"]
 .Additional resources
