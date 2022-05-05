@@ -3,6 +3,7 @@
 :product-long-rhoas: OpenShift Application Services
 :rhoas-cli-base-url: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
 :rhoas-cli-ref-url: commands
+:rhoas-cli-getting-started-url-context: cli-context/
 
 [id="chap-getting-started-rhoas-cli-context"]
 = Getting started with the rhoas CLI for context management
@@ -67,15 +68,18 @@ All the service based commands are executed against the service instances set in
 .Procedure
 
 . Setting Kafka Instance in the current context
-
++
+--
 .Set Kafka instance in the current context
 [source,shell]
 ----
 $ rhoas context set-kafka
 ----
+--
 
 . Setting Service Registry Instance in the current context
-
++
+--
 .Set Service Registry instance in the current context
 [source,shell]
 ----
@@ -86,30 +90,41 @@ $ rhoas context set-service-registry
 ====
 Creating a new service instance automatically sets it in the current context.
 ====
+--
 
 . Check status of the current context
-
++
+--
 After setting service(s) in the current context, their staus can be checked using the `rhoas context status` command
 .View status of the current context
 [source,shell]
 ----
 $ rhoas context status
 ----
+--
 
 
 [id="proc-switching-context-cli_{context}"]
 == Switching between contexts
 
-.List the service contexts
+.Procedure
+
+. List the service contexts
++
+--
 [source,shell]
 ----
 $ rhoas context list
 ----
+--
 
-.Set the current context
+. Set the current context
++
+--
 ----
 $ rhoas context use --name my-context
 ----
+--
 
 [id="proc-generating-config-cli_{context}"]
 == Generating application configurations for contexts
@@ -144,15 +159,23 @@ $ rhoas context delete
 [role="_abstract"]
 Contexts can be shared with other users.
 
+.Procedure
+
 . Use status command to view location of context file
++
+--
 ----
 $ rhoas context status
 ----
+--
 
 . Use copy command to copy the context file. Example(linux):
++
+--
 ----
 cp /home/username/.config/rhoas/contexts.json shared.json
 ----
+--
 
 [role="_additional-resources"]
 .Additional resources
