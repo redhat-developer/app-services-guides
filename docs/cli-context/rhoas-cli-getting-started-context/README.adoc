@@ -15,14 +15,19 @@ As a developer of applications and services,
 you can use `rhoas` to manage service contexts that can be used to generate application configurations.
 Contexts allow you to work with multiple projects using different services easily.
 
+[role="_abstract"]
+A service context is a group of application service instances and their service identifiers.
+By using service contexts, you can group together application service instances that you want to use together.
+
 This guide describes how to get started quickly by doing the following:
 
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-context-cli_getting-started-rhoas-context[Create a service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-setting-services-cli_getting-started-rhoas-context[Set services in service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-viewing-context-status-cli_getting-started-rhoas-context[View status of a context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-switching-context-cli_getting-started-rhoas-context[Switch between contests]
+* {base-url}{rhoas-cli-getting-started-url-context}#proc-switching-context-cli_getting-started-rhoas-context[Switch between contexts]
+* {base-url}{rhoas-cli-getting-started-url-context}#proc-generating-config-cli_getting-started-rhoas-context[Generating application configurations for contexts]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-unsetting-services-cli_getting-started-rhoas-context[Unset services in service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-deleting-context-cli_getting-started-rhoas-context[Delete a service context]
+* {base-url}{rhoas-cli-getting-started-url-context}#proc-sharing-context-cli_getting-started-rhoas-context[Sharing contexts]
 
 
 [id="ref-kafka-cli-prereqs_{context}"]
@@ -36,9 +41,9 @@ This guide describes how to get started quickly by doing the following:
 [id="proc-creating-context-cli_{context}"]
 == Creating a service context
 
-[role="_abstract"]
-A service context is a group of application service instances and their service identifiers.
-By using service contexts, you can group together application service instances that you want to use together.
+.Procedure
+
+Enter the following command to create a context named `my-context`
 
 .Creating a context
 [source,shell]
@@ -59,11 +64,17 @@ All the service based commands are executed against the service instances set in
 Context contains identifiers to service instances.
 All the service based commands are executed against the service instances set in the current context.
 
+.Procedure
+
+. Setting Kafka Instance in the current context
+
 .Set Kafka instance in the current context
 [source,shell]
 ----
 $ rhoas context set-kafka
 ----
+
+. Setting Service Registry Instance in the current context
 
 .Set Service Registry instance in the current context
 [source,shell]
@@ -71,19 +82,20 @@ $ rhoas context set-kafka
 $ rhoas context set-service-registry
 ----
 
-[id="proc-viewing-context-status-cli_{context}"]
-== Viewing status of a context
+[NOTE]
+====
+Creating a new service instance automatically sets it in the current context.
+====
 
+. Check status of the current context
+
+After setting service(s) in the current context, their staus can be checked using the `rhoas context status` command
 .View status of the current context
 [source,shell]
 ----
 $ rhoas context status
 ----
 
-[NOTE]
-====
-An error will be thrown if the context has an invalid instance ID.
-====
 
 [id="proc-switching-context-cli_{context}"]
 == Switching between contexts
@@ -99,6 +111,17 @@ $ rhoas context list
 $ rhoas context use --name my-context
 ----
 
+[id="proc-generating-config-cli_{context}"]
+== Generating application configurations for contexts
+
+`rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
+
+.Generating configurations for context named as my "my-context"
+source,shell
+----
+$ rhoas generate-config --name my-context
+----
+
 [id="proc-unsetting-services-cli_{context}"]
 == Services set in a context can be removed
 
@@ -110,9 +133,25 @@ $ rhoas context unset --services kafka,service-registry
 [id="proc-deleting-context-cli_{context}"]
 == Deleting a service context
 
-.Deleting current context
+.Deleting the current context
 ----
 $ rhoas context delete
+----
+
+[id="proc-sharing-context-cli_{context}"]
+== Sharing service contexts
+
+[role="_abstract"]
+Contexts can be shared with other users.
+
+. Use status command to view location of context file
+----
+$ rhoas context status
+----
+
+. Use copy command to copy the context file. Example(linux):
+----
+cp /home/username/.config/rhoas/contexts.json shared.json
 ----
 
 [role="_additional-resources"]
