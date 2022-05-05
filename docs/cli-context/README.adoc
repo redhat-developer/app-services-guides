@@ -37,8 +37,6 @@ This guide describes how to get started quickly by doing the following:
 [role="_abstract"]
 * You've installed the `rhoas` CLI. For more information, see {base-url}{rhoas-cli-installation-url}[_Installing the rhoas CLI_^].
 
-//Additional line break to resolve mod docs generation error
-
 [id="proc-creating-context-cli_{context}"]
 == Creating a service context
 
@@ -107,6 +105,8 @@ $ rhoas context status
 [id="proc-switching-context-cli_{context}"]
 == Switching between contexts
 
+User can switch between different contexts to work with different set of service instances.
+
 .Procedure
 
 . List the service contexts
@@ -138,7 +138,7 @@ $ rhoas generate-config --name my-context
 ----
 
 [id="proc-unsetting-services-cli_{context}"]
-== Services set in a context can be removed
+== Unsetting services from the context
 
 .Unsetting services from current context
 ----
