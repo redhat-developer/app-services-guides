@@ -37,7 +37,7 @@ You can use {product-long-connectors} to configure communication between {produc
 
 The following diagram illustrates how data flows from a data source through a data source connector to a Kafka topic. And how data flows from a Kafka topic to a data sink through a data sink connector.
 
- [.screencapture]
+[.screencapture]
 .{product-long-connectors} data flow
 image::connectors-getting-started-connectors/connectors-diagram.png[Illustration of data flow from data source through Kafka to data sink]
 
