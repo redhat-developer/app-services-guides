@@ -48,6 +48,6 @@ because the `Status` field is `ready`.
 [NOTE]
 ====
 If you have multiple {registry} instances,
-you can change the context to a different instance by using the `rhoas context use-service-registry` command.
+you can change the context to a different instance by using the `rhoas context set-service-registry` command.
 ====
 --
