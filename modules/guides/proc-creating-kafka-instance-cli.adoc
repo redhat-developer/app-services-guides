@@ -46,6 +46,6 @@ $ rhoas context status kafka
 [NOTE]
 ====
 If you have multiple Kafka instances,
-you can make the current context switch to a different instance by using the `rhoas context use-kafka` command.
+you can make the current context switch to a different instance by using the `rhoas context set-kafka` command.
 ====
 --
