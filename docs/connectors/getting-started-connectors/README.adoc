@@ -166,7 +166,7 @@ The connector sends the messages at regular intervals to the Kafka topic that yo
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
-* You configured a Kafka instance for Connectors as described in _{base-url}{getting-started-url-conectors}/proc-configuring-kafka-for-connectors_getting-started-connectors[Configuring the {product-kafka} instance for use with {product-long-connectors}^]_.
+* You configured a Kafka instance for Connectors as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
 endif::[]
 
@@ -185,7 +185,7 @@ Click the card to select the connector, and then click *Next*.
 NOTE: If you have not already configured a {product-kafka} instance for Connectors, you can create a new Kafka instance by clicking *Create Kafka instance*. You would also need to set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
 . On the *Namespace* page, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
-
++
 //. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
 //+
 //If you are using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in _https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors/TBD[Adding the OpenShift Connectors service to an OpenShift Dedicated trial cluster^]_.
@@ -242,8 +242,8 @@ For this example, you use the *HTTP Sink* connector which consumes the Kafka mes
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the OpenShift Application Services web console at {service-url-connectors}[^].
-* You created the source Connectors instance as described in _{base-url}{getting-started-url-conectors}/proc-creating-source-connector_getting-started-connectors[Creating a Connectors instance for a data source^]_.
-* For the data sink example, open the free https://webhook.site[Webhook.site^] in a browser window. The Webhook.site page provides a unique URL that you copy for use as an HTTP data sink.
+* You created the source Connectors instance as described in _Creating a Connectors instance for a data source_.
+* For the data sink example, open the free https://webhook.site[webhook.site^] in a browser window. The `webhook.site` page provides a unique URL that you copy for use as an HTTP data sink.
 endif::[]
 
 .Procedure
@@ -259,7 +259,7 @@ endif::[]
 For example, select *test*  and then click *Next*.
 
 . On the *Namespace* page, click the *eval namespace* that you created when you created the source connector.
-
++
 //. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
 //+
 //If you are using a trial cluster on your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster.
