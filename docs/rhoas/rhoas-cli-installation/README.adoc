@@ -303,7 +303,7 @@ Command completion is enabled.
 +
 [source,shell]
 ----
-$ rhoas completion -s fish > ~/.config/fish/completions/rhoas.fish
+$ rhoas completion fish > ~/.config/fish/completions/rhoas.fish
 ----
 
 . Open a new terminal window.
