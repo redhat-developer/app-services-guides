@@ -4,6 +4,8 @@
 :rhoas-cli-base-url: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
 :rhoas-cli-ref-url: commands
 :rhoas-cli-getting-started-url-context: cli-context/
+:samples-git-repo: https://github.com/redhat-developer/app-services-guides
+:product-kafka: Streams for Apache Kafka
 
 [id="chap-getting-started-rhoas-cli-context"]
 = Getting started with the rhoas CLI for context management
