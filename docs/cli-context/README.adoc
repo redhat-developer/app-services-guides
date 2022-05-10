@@ -109,9 +109,9 @@ $ rhoas context status
 `rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
 
 .Generating configurations for context named as my "my-context"
-source,shell
+[source,shell]
 ----
-$ rhoas generate-config --name my-context  -type json
+$ rhoas generate-config --name my-context --type json
 ----
 
 === Generating configurations for quarkus applications
