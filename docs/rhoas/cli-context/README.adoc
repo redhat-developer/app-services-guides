@@ -26,7 +26,7 @@ This guide describes how to get started quickly by doing the following:
 
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-context-cli_getting-started-rhoas-context[Create a service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-setting-services-cli_getting-started-rhoas-context[Set services in service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-generating-config-cli_getting-started-rhoas-context[Generating application configurations for Quarkus]
+* {base-url}{rhoas-cli-getting-started-url-context}#proc-generating-config-cli_getting-started-rhoas-context[Generating application configurations]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-switching-context-cli_getting-started-rhoas-context[Switch between contexts]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-unsetting-services-cli_getting-started-rhoas-context[Unset services in service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-deleting-context-cli_getting-started-rhoas-context[Delete a service context]
