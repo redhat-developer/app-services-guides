@@ -14,7 +14,7 @@ As an alternative to using the {product-kafka} web console, you can use the `rho
 rhoas kafka consumer-group describe [flags]
 ----
 
-For a list of consumer group commands that you can use with the CLI, see the {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^].
+For a list of consumer group commands that you can use with the CLI, see the {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^].
 
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to provide the same information:
 [source,subs="+quotes,+attributes"]
@@ -39,5 +39,5 @@ NOTE: You can also view consumer groups for a specific topic. In your Kafka inst
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
+* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
