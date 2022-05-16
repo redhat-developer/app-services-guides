@@ -12,4 +12,4 @@ use the following command help:
 
 [role="_additional-resources"]
 .Additional resources
-* {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
