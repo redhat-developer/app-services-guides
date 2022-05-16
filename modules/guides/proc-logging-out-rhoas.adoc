@@ -16,6 +16,6 @@ $ rhoas logout
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{rhoas-cli-getting-started-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {base-url}{rhoas-cli-getting-started-url-registry}[_Getting started with the rhoas CLI for OpenShift Service Registry_^]
-* {rhoas-cli-base-url}{rhoas-cli-ref-url}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
+* {base-url}{getting-started-rhoas-cli-url-registry}[_Getting started with the rhoas CLI for OpenShift Service Registry_^]
+* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
