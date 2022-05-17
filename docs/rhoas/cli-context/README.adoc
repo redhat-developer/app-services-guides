@@ -27,11 +27,6 @@ This guide describes how to get started quickly by doing the following:
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-context-cli_getting-started-rhoas-context[Create a service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-setting-services-cli_getting-started-rhoas-context[Set services in service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-generating-config-cli_getting-started-rhoas-context[Generating application configurations]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-switching-context-cli_getting-started-rhoas-context[Switch between contexts]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-unsetting-services-cli_getting-started-rhoas-context[Unset services in service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-deleting-context-cli_getting-started-rhoas-context[Delete a service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-sharing-context-cli_getting-started-rhoas-context[Sharing contexts]
-
 
 [id="ref-kafka-cli-prereqs_{context}"]
 == Prerequisites
@@ -107,6 +102,7 @@ $ rhoas context status
 == Generating application configurations for contexts
 
 `rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
+The configurations can be saved in yaml, json, env file or as kubernetes secret. 
 
 .Generating configurations for context named as my "my-context"
 [source,shell]
@@ -114,7 +110,7 @@ $ rhoas context status
 $ rhoas generate-config --name my-context --type json
 ----
 
-=== Generating configurations for quarkus applications
+=== Generating configurations for Quarkus applications
 
 [id="proc-importing-quarkus-sample-code_{context}"]
 ==== Importing the Quarkus sample code
@@ -170,70 +166,6 @@ The Quarkus application starts produces and consumes messages to and from the "p
 After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
 
 If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps to ensure that the Quarkus application and Kafka topic are configured correctly.
-
-[id="proc-switching-context-cli_{context}"]
-== Switching between contexts
-
-User can switch between different contexts to work with different set of service instances.
-
-.Procedure
-
-. List the service contexts
-+
---
-[source,shell]
-----
-$ rhoas context list
-----
---
-
-. Set the current context
-+
---
-----
-$ rhoas context use --name my-context
-----
---
-
-[id="proc-unsetting-services-cli_{context}"]
-== Unsetting services from the context
-
-.Unsetting services from current context
-----
-$ rhoas context unset --services kafka,service-registry
-----
-
-[id="proc-deleting-context-cli_{context}"]
-== Deleting a service context
-
-.Deleting the current context
-----
-$ rhoas context delete
-----
-
-[id="proc-sharing-context-cli_{context}"]
-== Sharing service contexts
-
-[role="_abstract"]
-Contexts can be shared with other users.
-
-.Procedure
-
-. Use status command to view location of context file
-+
---
-----
-$ rhoas context status
-----
---
-
-. Use copy command to copy the context file. Example(linux):
-+
---
-----
-cp /home/username/.config/rhoas/contexts.json shared.json
-----
---
 
 [role="_additional-resources"]
 .Additional resources
