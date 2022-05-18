@@ -64,7 +64,6 @@ All the service based commands are executed against the service instances set in
 . Setting Kafka Instance in the current context
 +
 --
-.Set Kafka instance in the current context
 [source,shell]
 ----
 $ rhoas context set-kafka
@@ -74,7 +73,6 @@ $ rhoas context set-kafka
 . Setting Service Registry Instance in the current context
 +
 --
-.Set Service Registry instance in the current context
 [source,shell]
 ----
 $ rhoas context set-service-registry
@@ -89,7 +87,7 @@ Creating a new service instance automatically sets it in the current context.
 . Check status of the current context
 +
 --
-After setting service(s) in the current context, their staus can be checked using the `rhoas context status` command
+After setting service(s) in the current context, their status can be checked using the `rhoas context status` command
 .View status of the current context
 [source,shell]
 ----
@@ -101,7 +99,7 @@ $ rhoas context status
 == Generating application configurations for contexts
 
 `rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
-The configurations can be saved in yaml, json, env file or as kubernetes secret. Connection configuration wconsists credentials and endpoints that will be used by applications to connect to the services.
+The configurations can be saved in yaml, json, env file or as kubernetes secret. Connection configuration consists credentials and endpoints that will be used by applications to connect to the services.
 
 .Generating configurations for context named as my "my-context"
 [source,shell]
@@ -158,7 +156,7 @@ $ rhoas kafka acl grant-access --producer --consumer --service-account <client_i
 --
 
 [role="_abstract"]
-The Quarkus application starts produces and consumes messages to and from the "prices" Kafka topic.
+The Quarkus application starts producing and consuming messages to and from the "prices" Kafka topic.
 After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
 
 If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps to ensure that the Quarkus application and Kafka topic are configured correctly.
