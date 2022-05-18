@@ -250,7 +250,7 @@ For more information, use the command help `rhoas kafka topic create -h`.
 
 . If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.
 
-[id="proc-genearting-kafka-configs-cli_{context}"]
+[id="proc-generating-kafka-configs-cli_{context}"]
 == Generating configurations for a Kafka instance
 
 [role="_abstract"]
