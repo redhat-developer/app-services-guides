@@ -12,15 +12,14 @@
 :context: getting-started-rhoas-context
 
 [role="_abstract"]
-With the {product-long-rhoas} `rhoas` command-line interface (CLI), you can manage service contexts.
-
 As a developer of applications and services,
-you can use `rhoas` to manage service contexts that can be used to generate application configurations.
-Contexts allow you to work with multiple projects using different services easily.
+you can use `rhoas` to group service instances for specific use-cases, projects or environments in contexts and generate connection configuration details to connect applications to the service instances.
 
 [role="_abstract"]
 A service context is a group of application service instances and their service identifiers.
 By using service contexts, you can group together application service instances that you want to use together.
+
+Service contexts contain references to service instances used for specific projects or environments. With the `generate-config` command you can generate connection configuration details for your applications to connect to the service instances. This gives you flexibility to quickly and seamlessly switch between sets of service instances and generate connection configurations.
 
 This guide describes how to get started quickly by doing the following:
 
@@ -102,7 +101,7 @@ $ rhoas context status
 == Generating application configurations for contexts
 
 `rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
-The configurations can be saved in yaml, json, env file or as kubernetes secret. 
+The configurations can be saved in yaml, json, env file or as kubernetes secret. Connection configuration wconsists credentials and endpoints that will be used by applications to connect to the services.
 
 .Generating configurations for context named as my "my-context"
 [source,shell]
@@ -112,12 +111,9 @@ $ rhoas generate-config --name my-context --type json
 
 === Generating configurations for Quarkus applications
 
-[id="proc-importing-quarkus-sample-code_{context}"]
-==== Importing the Quarkus sample code
-
 [role="_abstract"]
 For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
-After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product-kafka} in the same way.
+The quick start will walk you through how you can generate connection configurations for Quarkus applications using a single command.
 
 .Procedure
 . On the command line, clone the {product-kafka} {samples-git-repo}[Guides and Samples^] repository from GitHub.
