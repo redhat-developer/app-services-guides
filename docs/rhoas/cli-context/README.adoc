@@ -15,16 +15,12 @@
 As a developer of applications and services,
 you can use `rhoas` to group service instances for specific use-cases, projects or environments in contexts and generate connection configuration details to connect applications to the service instances.
 
-[role="_abstract"]
-A service context is a group of application service instances and their service identifiers.
-By using service contexts, you can group together application service instances that you want to use together.
-
-Service contexts contain references to service instances used for specific projects or environments. With the `generate-config` command you can generate connection configuration details for your applications to connect to the service instances. This gives you flexibility to quickly and seamlessly switch between sets of service instances and generate connection configurations.
+Service contexts contain references to service instances used for specific projects or environments. With the `generate-config` command you can generate connection configuration details for your applications to connect to the service instances. This gives you the flexibility to quickly and seamlessly switch between sets of service instances and generate connection configurations.
 
 This guide describes how to get started quickly by doing the following:
 
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-context-cli_getting-started-rhoas-context[Create a service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-setting-services-cli_getting-started-rhoas-context[Set services in service context]
+* {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-services-cli_getting-started-rhoas-context[Create services in service context]
 * {base-url}{rhoas-cli-getting-started-url-context}#proc-generating-config-cli_getting-started-rhoas-context[Generating application configurations]
 
 [id="ref-kafka-cli-prereqs_{context}"]
@@ -52,8 +48,8 @@ By default, the created context is set as the current context.
 All the service based commands are executed against the service instances set in the current context.
 ====
 
-[id="proc-setting-services-cli_{context}"]
-== Setting services in a context
+[id="proc-creating-services-cli_{context}"]
+== Creating services in a context
 
 [role="_abstract"]
 Context contains identifiers to service instances.
@@ -61,12 +57,12 @@ All the service based commands are executed against the service instances set in
 
 .Procedure
 
-. Setting Kafka Instance in the current context
+. Creating a Kafka Instance
 +
 --
 [source,shell]
 ----
-$ rhoas context set-kafka
+$ rhoas kafka create
 ----
 --
 
@@ -75,7 +71,7 @@ $ rhoas context set-kafka
 --
 [source,shell]
 ----
-$ rhoas context set-service-registry
+$ rhoas service-registry create
 ----
 
 [NOTE]
@@ -87,7 +83,7 @@ Creating a new service instance automatically sets it in the current context.
 . Check status of the current context
 +
 --
-After setting service(s) in the current context, their status can be checked using the `rhoas context status` command
+After creating service(s) in the current context, their status can be checked using the `rhoas context status` command
 .View status of the current context
 [source,shell]
 ----
@@ -99,7 +95,7 @@ $ rhoas context status
 == Generating application configurations for contexts
 
 `rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
-The configurations can be saved in yaml, json, env file or as kubernetes secret. Connection configuration consists credentials and endpoints that will be used by applications to connect to the services.
+The configurations can be saved in yaml, json, env file or as kubernetes secret. Connection configuration consists of credentials and endpoints that will be used by applications to connect to the services.
 
 .Generating configurations for context named as my "my-context"
 [source,shell]
@@ -122,7 +118,7 @@ The quick start will walk you through how you can generate connection configurat
 git clone {samples-git-repo} app-services-guides
 ----
 . In your IDE, open the `code-examples/quarkus-kafka-quickstart` directory from the repository that you cloned.
-. Generate the application configurations for the quarkus application.
+. Generate the application configurations for the Quarkus application.
 +
 --
 [source,shell]
@@ -159,7 +155,7 @@ $ rhoas kafka acl grant-access --producer --consumer --service-account <client_i
 The Quarkus application starts producing and consuming messages to and from the "prices" Kafka topic.
 After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
 
-If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps to ensure that the Quarkus application and Kafka topic are configured correctly.
+If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also, review the steps to ensure that the Quarkus application and Kafka topic are configured correctly.
 
 [role="_additional-resources"]
 .Additional resources
