@@ -24,9 +24,7 @@ spec:
     - !snippet/proc README.adoc#proc-importing-schema-api-design
     - !snippet/proc README.adoc#proc-editing-schema-api-design
     - !snippet/proc README.adoc#proc-validating-schema-api-design
-    - !snippet/proc README.adoc#proc-exporting-schema-api-design-locally
-    - !snippet/proc README.adoc#proc-exporting-schema-api-design-to-file
-    - !snippet/proc README.adoc#proc-exporting-schema-api-design-to-registry
+    - !snippet/proc README.adoc#proc-exporting-schema-api-design
     - !snippet/proc README.adoc#proc-deleting-schema-api-design
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
