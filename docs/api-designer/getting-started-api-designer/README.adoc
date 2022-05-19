@@ -103,7 +103,7 @@ endif::[]
 == Creating an {product-api-designer} schema or API design
 
 [role="_abstract"]
-Use the {product-long-api-designer} web console to create an {product-api-designer} schema or API design. ...
+Use the {product-long-api-designer} web console to create an {product-api-designer} schema or API design.
 
 ifndef::qs[]
 .Prerequisites
@@ -113,10 +113,11 @@ endif::[]
 .Procedure
 . In the {service-url-api-designer}[{product-api-designer} web console], click ...
 . Click ...
-
++
 [.screencapture]
-.{product-api-designer} placeholder image
-image::placeholder.png[Placeholder image for {product-api-designer} ]
+.Creating an {product-api-designer} design
+image::create-api-designer-design.png[Image of page to create an {product-api-designer} design]
+. Click ...
 
 .Verification
 ifdef::qs[]
@@ -132,8 +133,7 @@ endif::[]
 == Importing an {product-api-designer} schema or API design
 
 [role="_abstract"]
-You can import an {product-api-designer} schema or API design from a URL, from a file, or from a {registry} instance.
-...
+You can import an {product-api-designer} schema or API design from a URL, from a file, or from an {product-long-registry} instance.
 
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
@@ -141,7 +141,6 @@ You can import an {product-api-designer} schema or API design from a URL, from a
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, click ...
 . Click ...
-
 
 .Verification
 ifdef::qs[]
@@ -160,12 +159,11 @@ endif::[]
 After you create or import an {product-api-designer} design, you can edit the schema or API content.
 
 .Prerequisites
-* You've created or uploaded an {product-api-designer} design.
+* You've created or imported an {product-api-designer} design.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to edit.
 . Click ...
-
 
 .Verification
 ifdef::qs[]
@@ -179,16 +177,15 @@ endif::[]
 == Validating an {product-api-designer} schema or API design
 
 [role="_abstract"]
-After you edit an {product-api-designer} design, you can validate the schema or API content.
+You can validate the schema or API content in an {product-api-designer} design.
 
 .Prerequisites
-* You've created, uploaded, or edited an {product-api-designer} design.
+* You've created, imported, or edited an {product-api-designer} design.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to validate.
 . Click ...
 
-
 .Verification
 ifdef::qs[]
 * Is ...?
@@ -197,18 +194,17 @@ ifndef::qs[]
 * Verify that ...
 endif::[]
 
-[id="proc-exporting-schema-api-design-locally_{context}"]
-== Saving {product-api-designer} designs locally
+[id="proc-exporting-schema-api-design_{context}"]
+== Exporting {product-api-designer} designs
 
 [role="_abstract"]
-_*To confirm:* Not sure if we'll need this section -- perhaps the designs will be saved locally automatically: to the browser index.db in Phase 1, and to the backend database in later phases._
-To ...
+You can export an {product-api-designer} design to a file or to an {product-long-registry} instance.
 
 .Prerequisites
-* You've created, uploaded, or edited an {product-api-designer} design.
+* You've created or imported an {product-api-designer} design.
 
 .Procedure
-. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to save locally.
+. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
 . Click ...
 
 .Verification
@@ -218,62 +214,18 @@ endif::[]
 ifndef::qs[]
 * Verify that ...
 endif::[]
-
-[id="proc-exporting-schema-api-design-to-file_{context}"]
-== Exporting {product-api-designer} designs to a file
-
-[role="_abstract"]
-To ...
-
-.Prerequisites
-* You've created, uploaded, or edited an {product-api-designer} design.
-
-.Procedure
-. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to save to a file.
-. Click ...
-
-.Verification
-ifdef::qs[]
-* Is ...?
-endif::[]
-ifndef::qs[]
-* Verify that ...
-endif::[]
-
-[id="proc-exporting-schema-api-design-to-registry_{context}"]
-== Exporting {product-api-designer} designs to {registry}
-
-[role="_abstract"]
-To ...
-
-.Prerequisites
-* You've created, uploaded, or edited an {product-api-designer} design.
-*
-
-.Procedure
-. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to save to {registry}.
-. Click ...
-
-.Verification
-ifdef::qs[]
-* Did you ...?
-endif::[]
-ifndef::qs[]
-. Verify that ...
-endif::[]
-
 
 [id="proc-deleting-schema-api-design_{context}"]
 == Deleting {product-api-designer} designs
 
 [role="_abstract"]
-To ...
+You can delete one or more {product-api-designer} designs in a single action.
 
 .Prerequisites
-* You've created or uploaded an {product-api-designer} design.
+* You've created or imported an {product-api-designer} design.
 
 .Procedure
-. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to delete.
+. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} designs that you want to delete.
 . Click ...
 
 .Verification
