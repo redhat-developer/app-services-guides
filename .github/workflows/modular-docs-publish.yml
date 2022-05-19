@@ -22,9 +22,11 @@ jobs:
             - product: RHOAS
               branch: modular-docs-rhoas
             # - product: RHODA
-            #  branch: modular-docs-rhoda 
+            #  branch: modular-docs-rhoda
             - product: RHOC
               branch: modular-docs-rhoc
+            - product: RHOAD
+              branch: modular-docs-rhoad
     steps:
       - uses: actions/checkout@v2
         name: Checkout Source
