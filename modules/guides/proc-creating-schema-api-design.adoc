@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {product-long-api-designer} web console to create an {product-api-designer} schema or API design. ...
+Use the {product-long-api-designer} web console to create an {product-api-designer} schema or API design.
 
 ifndef::qs[]
 .Prerequisites
@@ -13,10 +13,11 @@ endif::[]
 .Procedure
 . In the {service-url-api-designer}[{product-api-designer} web console], click ...
 . Click ...
-
++
 [.screencapture]
-.{product-api-designer} placeholder image
-image::api-designer-getting-started-api-designer/placeholder.png[Placeholder image for {product-api-designer} ]
+.Creating an {product-api-designer} design
+image::api-designer-getting-started-api-designer/create-api-designer-design.png[Image of page to create an {product-api-designer} design]
+. Click ...
 
 .Verification
 ifdef::qs[]

@@ -3,15 +3,14 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-After you edit an {product-api-designer} design, you can validate the schema or API content.
+You can validate the schema or API content in an {product-api-designer} design.
 
 .Prerequisites
-* You've created, uploaded, or edited an {product-api-designer} design.
+* You've created, imported, or edited an {product-api-designer} design.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to validate.
 . Click ...
-
 
 .Verification
 ifdef::qs[]

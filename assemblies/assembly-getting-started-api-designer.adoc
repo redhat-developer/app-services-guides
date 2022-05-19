@@ -41,11 +41,7 @@ include::modules/guides/proc-editing-schema-api-design.adoc[leveloffset=+1]
 
 include::modules/guides/proc-validating-schema-api-design.adoc[leveloffset=+1]
 
-include::modules/guides/proc-exporting-schema-api-design-locally.adoc[leveloffset=+1]
-
-include::modules/guides/proc-exporting-schema-api-design-to-file.adoc[leveloffset=+1]
-
-include::modules/guides/proc-exporting-schema-api-design-to-registry.adoc[leveloffset=+1]
+include::modules/guides/proc-exporting-schema-api-design.adoc[leveloffset=+1]
 
 include::modules/guides/proc-deleting-schema-api-design.adoc[leveloffset=+1]
 

@@ -3,8 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can import an {product-api-designer} schema or API design from a URL, from a file, or from a {registry} instance.
-...
+You can import an {product-api-designer} schema or API design from a URL, from a file, or from an {product-long-registry} instance.
 
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
@@ -12,7 +11,6 @@ You can import an {product-api-designer} schema or API design from a URL, from a
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, click ...
 . Click ...
-
 
 .Verification
 ifdef::qs[]

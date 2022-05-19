@@ -6,12 +6,11 @@
 After you create or import an {product-api-designer} design, you can edit the schema or API content.
 
 .Prerequisites
-* You've created or uploaded an {product-api-designer} design.
+* You've created or imported an {product-api-designer} design.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to edit.
 . Click ...
-
 
 .Verification
 ifdef::qs[]

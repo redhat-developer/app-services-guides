@@ -3,13 +3,13 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-To ...
+You can delete one or more {product-api-designer} designs in a single action.
 
 .Prerequisites
-* You've created or uploaded an {product-api-designer} design.
+* You've created or imported an {product-api-designer} design.
 
 .Procedure
-. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to delete.
+. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} designs that you want to delete.
 . Click ...
 
 .Verification
