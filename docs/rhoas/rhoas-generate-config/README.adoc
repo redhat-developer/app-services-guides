@@ -15,6 +15,7 @@
 As a developer of applications and services, you can group service instances for specific use-cases, projects or environments and generate connection configuration details to connect applications to instances of managed services.
 
 For example, suppose you have the following applications running locally in your machine:
+
 * Application that publishes price updates for a variety of stocks
 * Application that consumes the price updates and publishes them on a web page
 
@@ -71,14 +72,11 @@ All the service based commands are executed against the service instances set in
 ----
 $ rhoas kafka create
 ----
---
-
 [NOTE]
 ====
 Creating a new service instance automatically sets it in the current context.
 ====
 --
-
 . Check status of the current context
 +
 --
@@ -140,7 +138,7 @@ $ rhoas kafka acl grant-access --producer --consumer --service-account <client_i
 ----
 ./mvnw quarkus:dev
 ----
----
+--
 
 [role="_abstract"]
 The Quarkus application starts producing and consuming messages to and from the "prices" Kafka topic.
