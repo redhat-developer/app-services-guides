@@ -3,25 +3,36 @@
 :product-long-rhoas: OpenShift Application Services
 :rhoas-cli-base-url: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
 :rhoas-cli-ref-url: commands
-:rhoas-cli-getting-started-url-context: cli-context/
+:rhoas-cli-getting-started-url-generate-config: cli-generate-config/
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
 :product-kafka: Streams for Apache Kafka
 
-[id="chap-getting-started-rhoas-cli-context"]
-= Getting started with the rhoas CLI for context management
-:context: getting-started-rhoas-context
+[id="chap-generate-configurations-rhoas"]
+= Generating configurations for managed services using RHOAS CLI
+:context: getting-started-generate-configurations
 
 [role="_abstract"]
-As a developer of applications and services,
-you can use `rhoas` to group service instances for specific use-cases, projects or environments in contexts and generate connection configuration details to connect applications to the service instances.
+As a developer of applications and services, you can group service instances for specific use-cases, projects or environments and generate connection configuration details to connect applications to instances of managed services.
 
-Service contexts contain references to service instances used for specific projects or environments. With the `generate-config` command you can generate connection configuration details for your applications to connect to the service instances. This gives you the flexibility to quickly and seamlessly switch between sets of service instances and generate connection configurations.
+For example, suppose you have the following applications running locally in your machine:
+* Application that publishes price updates for a variety of stocks
+* Application that consumes the price updates and publishes them on a web page
 
-This guide describes how to get started quickly by doing the following:
+In addition to the applications, you have a Kafka instance in Streams for Apache Kafka. Each time the first application produces a price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application.
 
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-context-cli_getting-started-rhoas-context[Create a service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-creating-services-cli_getting-started-rhoas-context[Create services in service context]
-* {base-url}{rhoas-cli-getting-started-url-context}#proc-generating-config-cli_getting-started-rhoas-context[Generating application configurations]
+You need to connect your applications to the Kafka Instance in OpenSift Streams for Apache Kafka.
+
+In this scenario, you can use the RHOAS CLI to generate the connection configuration details required to connect to the Kafka instance.
+
+== RHOAS Context
+
+Service context is an abstraction for which configurations are generated. A service context contains references to service instances used for specific projects or environments. With the `generate-config` command you can generate connection configuration details for your applications to connect to the service instances specified in the context. This gives you the flexibility to quickly and seamlessly switch between sets of service instances and generate connection configurations.
+
+This guide describes how to generate connection configurations to connect Quarkus application to Kafka Instance in OpenShift Streams for Apache Kafka:
+
+* {base-url}{rhoas-cli-getting-started-url-generate-config}#proc-creating-context-cli_getting-started-generate-config[Create a service context]
+* {base-url}{rhoas-cli-getting-started-url-generate-config}#proc-creating-services-cli_getting-started-generate-config[Create services in service context]
+* {base-url}{rhoas-cli-getting-started-url-generate-config}#proc-generating-config-cli_getting-started-generate-config[Generating application configurations]
 
 [id="ref-kafka-cli-prereqs_{context}"]
 == Prerequisites
@@ -51,10 +62,6 @@ All the service based commands are executed against the service instances set in
 [id="proc-creating-services-cli_{context}"]
 == Creating services in a context
 
-[role="_abstract"]
-Context contains identifiers to service instances.
-All the service based commands are executed against the service instances set in the current context.
-
 .Procedure
 
 . Creating a Kafka Instance
@@ -65,14 +72,6 @@ All the service based commands are executed against the service instances set in
 $ rhoas kafka create
 ----
 --
-
-. Setting Service Registry Instance in the current context
-+
---
-[source,shell]
-----
-$ rhoas service-registry create
-----
 
 [NOTE]
 ====
@@ -92,18 +91,10 @@ $ rhoas context status
 --
 
 [id="proc-generating-config-cli_{context}"]
-== Generating application configurations for contexts
+== Generating configurations for Quarkus applications
 
 `rhoas generate-config` command generates application configurations that can be used to connect to the services set in context.
 The configurations can be saved in yaml, json, env file or as kubernetes secret. Connection configuration consists of credentials and endpoints that will be used by applications to connect to the services.
-
-.Generating configurations for context named as my "my-context"
-[source,shell]
-----
-$ rhoas generate-config --name my-context --type json
-----
-
-=== Generating configurations for Quarkus applications
 
 [role="_abstract"]
 For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
@@ -149,7 +140,7 @@ $ rhoas kafka acl grant-access --producer --consumer --service-account <client_i
 ----
 ./mvnw quarkus:dev
 ----
---
+---
 
 [role="_abstract"]
 The Quarkus application starts producing and consuming messages to and from the "prices" Kafka topic.
