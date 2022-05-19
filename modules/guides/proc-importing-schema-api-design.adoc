@@ -1,0 +1,25 @@
+[id='proc-importing-schema-api-design_{context}']
+= Importing an {product-api-designer} schema or API design
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can import an {product-api-designer} schema or API design from a URL, from a file, or from a {registry} instance.
+...
+
+.Prerequisites
+* You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
+
+.Procedure
+. In the *{product-api-designer}* designs page of the web console, click ...
+. Click ...
+
+
+.Verification
+ifdef::qs[]
+* Is the imported {product-api-designer} design listed in the designs table?
+* Is ...
+endif::[]
+ifndef::qs[]
+. Verify that the imported {product-api-designer} design is listed in the designs table.
+. Verify that ...
+endif::[]

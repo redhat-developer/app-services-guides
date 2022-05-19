@@ -1,0 +1,22 @@
+[id='proc-validating-schema-api-design_{context}']
+= Validating an {product-api-designer} schema or API design
+:imagesdir: ../_images
+
+[role="_abstract"]
+After you edit an {product-api-designer} design, you can validate the schema or API content.
+
+.Prerequisites
+* You've created, uploaded, or edited an {product-api-designer} design.
+
+.Procedure
+. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to validate.
+. Click ...
+
+
+.Verification
+ifdef::qs[]
+* Is ...?
+endif::[]
+ifndef::qs[]
+* Verify that ...
+endif::[]

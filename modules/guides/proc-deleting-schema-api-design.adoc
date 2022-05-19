@@ -1,0 +1,21 @@
+[id='proc-deleting-schema-api-design_{context}']
+= Deleting {product-api-designer} designs
+:imagesdir: ../_images
+
+[role="_abstract"]
+To ...
+
+.Prerequisites
+* You've created or uploaded an {product-api-designer} design.
+
+.Procedure
+. In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to delete.
+. Click ...
+
+.Verification
+ifdef::qs[]
+* Is ...?
+endif::[]
+ifndef::qs[]
+* Verify that ...
+endif::[]

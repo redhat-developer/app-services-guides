@@ -1,0 +1,71 @@
+[id='assembly-getting-started-api-designer']
+= Getting started with {product-long-api-designer}
+ifdef::context[:parent-context: {context}]
+:context: getting-started-ad
+:imagesdir: _images
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer of applications and services, you can use {product-long-api-designer} to ...
+{product-long-api-designer} is a managed cloud service that enables you to design schema and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
+
+For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^]
+
+ifndef::community[]
+.Prerequisites
+* You have a {org-name} account.
+* You have a subscription to {product-long-kafka}.
+//For more information about signing up, see *<@SME: Where to link?>*.
+endif::[]
+
+// Condition out QS-only content so that it doesn't appear in docs.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
+ifdef::qs[]
+[#description]
+====
+Learn how to create your first {product-api-designer} design in {product-long-api-designer}.
+====
+
+[#introduction]
+====
+Welcome to the quick start for {product-long-api-designer}.
+In this quick start, you'll learn how to ...
+====
+endif::[]
+
+include::modules/guides/proc-creating-schema-api-design.adoc[leveloffset=+1]
+
+include::modules/guides/proc-importing-schema-api-design.adoc[leveloffset=+1]
+
+include::modules/guides/proc-editing-schema-api-design.adoc[leveloffset=+1]
+
+include::modules/guides/proc-validating-schema-api-design.adoc[leveloffset=+1]
+
+include::modules/guides/proc-exporting-schema-api-design-locally.adoc[leveloffset=+1]
+
+include::modules/guides/proc-exporting-schema-api-design-to-file.adoc[leveloffset=+1]
+
+include::modules/guides/proc-exporting-schema-api-design-to-registry.adoc[leveloffset=+1]
+
+include::modules/guides/proc-deleting-schema-api-design.adoc[leveloffset=+1]
+
+[role="_additional-resources"]
+== Additional resources
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_api_designer/1[{product-long-api-designer} user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
+
+ifdef::qs[]
+[#conclusion]
+====
+Congratulations! You successfully completed the {api-designer} Getting Started quick start, and are now ready to use the service.
+====
+ifdef::qs[]
+[#conclusion]
+====
+Congratulations! You successfully completed the {api-designer} Getting Started quick start, and are now ready to use the service.
+====
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+
