@@ -20,10 +20,14 @@ spec:
     - Access to the <a href="https://console.redhat.com/application-services/api-designer">Red Hat OpenShift API Designer web console</a>
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#proc-creating-api-design
-    - !snippet/proc README.adoc#proc-editing-api-design
-    - !snippet/proc README.adoc#proc-saving-api-design-locally
-    - !snippet/proc README.adoc#proc-saving-api-design-in-registry
+    - !snippet/proc README.adoc#proc-creating-schema-api-design
+    - !snippet/proc README.adoc#proc-importing-schema-api-design
+    - !snippet/proc README.adoc#proc-editing-schema-api-design
+    - !snippet/proc README.adoc#proc-validating-schema-api-design
+    - !snippet/proc README.adoc#proc-exporting-schema-api-design-locally
+    - !snippet/proc README.adoc#proc-exporting-schema-api-design-to-file
+    - !snippet/proc README.adoc#proc-exporting-schema-api-design-to-registry
+    - !snippet/proc README.adoc#proc-deleting-schema-api-design
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:
     - 'service-registry-quarkus-dev'
