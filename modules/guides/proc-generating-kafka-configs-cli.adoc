@@ -1,4 +1,4 @@
-[id='proc-genearting-kafka-configs-cli_{context}']
+[id='proc-generating-kafka-configs-cli_{context}']
 = Generating configurations for a Kafka instance
 :imagesdir: ../_images
 

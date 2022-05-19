@@ -28,7 +28,7 @@ include::modules/guides/proc-creating-service-account-cli.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-kafka-topic-cli.adoc[leveloffset=+1]
 
-include::modules/guides/proc-genearting-kafka-configs-cli.adoc[leveloffset=+1]
+include::modules/guides/proc-generating-kafka-configs-cli.adoc[leveloffset=+1]
 
 include::modules/guides/proc-commands-managing-kafka.adoc[leveloffset=+1]
 
