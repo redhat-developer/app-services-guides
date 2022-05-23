@@ -542,7 +542,7 @@ When service binding is complete, OpenShift redeploys the Quarkus application. W
 +
 On the *Last price* web page, observe that the price value is continuously updated. The updates show that the Quarkus application is now using the `prices` topic in your Kafka instance to produce and consume messages that correspond to price updates.
 +
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console].
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
 
 [id="con-binding-nodejs-application-using-web-console_{context}"]
 == Binding a Node.js application to {product-long-kafka} using the OpenShift web console
@@ -756,4 +756,4 @@ You should now see that the producer has connected to the Kafka instance. The pr
 +
 You should now see that the consumer has connected to the Kafka instance. The consumer displays the same country names that the producer sends to the `countries` Kafka topic, and in the same order.
 +
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console].
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
