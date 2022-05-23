@@ -33,6 +33,7 @@
 :access-mgmt-url-kafka: kafka/access-mgmt-kafka/README.adoc
 :metrics-monitoring-url-kafka: kafka/metrics-monitoring-kafka/README.adoc
 :service-binding-url-kafka: kafka/service-binding-kafka/README.adoc
+:message-browsing-url-kafka: kafka/message-browsing-kafka/README.adoc
 
 //OpenShift Service Registry
 :product-long-registry: OpenShift Service Registry
