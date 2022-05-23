@@ -2,7 +2,6 @@ apiVersion: console.openshift.io/v1
 kind: ConsoleQuickStart
 metadata:
   name: connecting-an-application-to-a-database-instance-using-the-topology-view
-  generation: 1
   annotations:
     categories: 'Database management'
 spec:

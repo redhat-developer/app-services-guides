@@ -2,7 +2,6 @@ apiVersion: console.openshift.io/v1
 kind: ConsoleQuickStart
 metadata:
   name: installing-the-red-hat-openshift-database-access-add-on
-  generation: 1
   annotations:
     categories: 'Database management'
 spec:
