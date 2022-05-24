@@ -162,13 +162,16 @@ This procedure follows the https://prometheus.io/docs/prometheus/latest/configur
 
 .Prerequisites
 * You have access to a Kafka instance that contains topics in {product-kafka}. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[_Managing account access in {product-long-kafka}_^].
+* You have the ID and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To relocate the Kafka instance ID and the token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account that has access to the Kafka instance. To regenerate and re-copy the credentials, use the *Service Accounts* page in the {product-kafka} web console to find your service account and update the credentials. For more information about service accounts, see {base-url}{getting-started-url-kafka}#proc-creating-service-account_getting-started[_Getting started with {product-long-kafka}_^].
 * You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
 
 .Procedure
-. In your Prometheus configuration file, add the following information. Replace `<kafka_instance_id>` with the ID of the Kafka instance. Replace `<client_id>` and `<client_secret>` with the generated credentials for your service account.
+. In your Prometheus configuration file, add the following information. Replace the variable values with your own Kafka instance and service account information.
 +
 --
+The `<kafka_instance_id>` is the ID of the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account that you copied previously. The `<token_url>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance.
+
 .Required information for Prometheus configuration file
 [source,yaml,subs="+quotes"]
 ----
@@ -180,7 +183,7 @@ This procedure follows the https://prometheus.io/docs/prometheus/latest/configur
   oauth2:
     client_id: "__<client_id>__"
     client_secret: "__<client_secret>__"
-    token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+    token_url: "__<token_url>__"
 ----
 
 The new scrape target becomes available after the configuration has reloaded.
@@ -210,7 +213,7 @@ If you use the Prometheus Operator in your monitoring environment, you can alter
   oauth2:
     client_id: "__<client_id>__"
     client_secret: "__<client_secret>__"
-    token_url: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+    token_url: "__<token_url>__"
 ----
 
 .Example command to create and apply a Kubernetes secret
