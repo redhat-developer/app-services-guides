@@ -113,7 +113,7 @@ endif::[]
 .Procedure
 . In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click *Create Kafka instance*.
 . Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
-. From the *Cloud region* drop-down menu, select the relevant option. The availability zones is preconfigured.
+. From the *Cloud region* drop-down menu, select the relevant option. The selection for availability zones is preconfigured.
 +
 ////
 //For post preview, when more options are available.
@@ -123,9 +123,14 @@ endif::[]
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
 ////
-. Use the slider to select an instance size. Instances with more streaming units have more capacity. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units, however, instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production.
-. Click *Create instance* to start the creation process for your Kafka instance.
+. If you have purchased a subscription for {product-kafka}, you can use the slider to select an instance size. Instances with more streaming units have more capacity.
 +
+NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units, however, instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production.
+
+
+. Click *Create instance* to start the creation process for your Kafka instance.
+
+
 --
 [.screencapture]
 .Kafka instance configuration details
