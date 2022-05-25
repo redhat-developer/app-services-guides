@@ -185,7 +185,7 @@ The connector sends the messages at regular intervals to the Kafka topic that yo
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
-* You configured a {product-kafka} instance for connectors as described in {base-url}{getting-started-url-connectors}/proc-configuring-kafka-for-connectors_getting-started-connectors[Configuring the {product-kafka} instance for use with {product-long-connectors}].
+* You configured a {product-kafka} instance for connectors as described _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
 endif::[]
 
