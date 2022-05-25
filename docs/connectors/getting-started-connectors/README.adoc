@@ -114,7 +114,7 @@ endif::[]
 == Configuring the {product-kafka} instance for use with {product-long-connectors}
 
 [role="_abstract"]
-Configure your {product-kafka} instance for use with {product-long-connectors} by:
+After you create a {product-kafka} instance, configure it for use with {product-long-connectors} by:
 
 * Creating *Kafka topics* to store messages sent by producers (data sources) and make them available to consumers (data sinks).
 * Creating *service accounts* that allow you to connect and authenticate your Connectors with Kafka instances.
@@ -124,17 +124,24 @@ The number of Kafka topics and service accounts that you create, and the access 
 
 For this example, you create one Kafka topic, named *test*, one service account, and you define access for the service account.
 
+ifdef::qs[]
+.Prerequisites
+* You've created a {product-kafka} instance and the instance is in the *Ready* state.
+endif::[]
+
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
-* You've created a  {product-kafka} instance and the instance is in the *Ready* state.
+* You've created a {product-kafka} instance and the instance is in the *Ready* state.
 For instructions on how to create a Kafka instance, see _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_.
 endif::[]
+
+You’ve created a Streams for Apache Kafka instance and the instance is in the Ready state.
 
 .Procedure
 . Create a Kafka topic for your connectors:
 .. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
-.. Click the name of the Kafka instance that you want to add a topic to.
+.. Click the name of the {product-kafka} instance that you created for Connectors.
 .. Select the *Topics* tab, and then click *Create topic*.
 .. Type a unique name for your topic. For example, type *test-topic* for the *Topic Name*.
 .. Accept the default settings for partitions, message retention, and replicas.
@@ -173,12 +180,12 @@ For this example, you create an instance of the *Data Generator* source connecto
 
 You configure your connector to listen for events from the data source and produce a Kafka message for each event.
 
-The connector sends the messages at regular intervals to the Kafka topic that you created for Connectors.
+The connector sends the messages at regular intervals to the Kafka topic that you created for connectors.
 
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
-* You configured a Kafka instance for Connectors as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
+* You configured a {product-kafka} instance for connectors as described in {base-url}{getting-started-url-connectors}/proc-configuring-kafka-for-connectors_getting-started-connectors[Configuring the {product-kafka} instance for use with {product-long-connectors}].
 
 endif::[]
 
@@ -192,9 +199,9 @@ For example, to find the *Data Generator* source connector, type *data* in the s
 +
 Click the card to select the connector, and then click *Next*.
 
-. For the *Kafka instance*, click the card for the {product-kafka} instance that you configured for Connectors, and then click *Next*.
+. For the *Kafka instance*, click the card for the {product-kafka} instance that you configured for connectors, and then click *Next*.
 +
-NOTE: If you have not already configured a {product-kafka} instance for Connectors, you can create a new Kafka instance by clicking *Create Kafka instance*. You would also need to set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
+NOTE: If you have not already configured a {product-kafka} instance for connectors, you can create a new Kafka instance by clicking *Create Kafka instance*. You would also need to set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
 . On the *Namespace* page, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
 +
@@ -209,13 +216,13 @@ NOTE: If you have not already configured a {product-kafka} instance for Connecto
 
 . Configure the core configuration for your connector:
 .. Provide a name for the connector.
-.. Type the *Client ID* and *Client Secret* of the service account that you created for Connectors and then click *Next*.
+.. Type the *Client ID* and *Client Secret* of the service account that you created for connectors and then click *Next*.
 
 . Provide connector-specific configuration. For the *Data Generator*, provide the following information:
 .. *Data shape Format*: Accept the default, `application/octet-stream`.
-.. *Topic Names*: Type the name of the topic that you created for Connectors. For example, type *test-topic*.
+.. *Topic Names*: Type the name of the topic that you created for connectors. For example, type *test-topic*.
 .. *Content Type*: Accept the default, `text/plain`.
-.. *Message*: Type the content of the message that you want the Connector instance to send to the Kafka topic. For example, type `Hello World!`.
+.. *Message*: Type the content of the message that you want the Connectors instance to send to the Kafka topic. For example, type `Hello World!`.
 .. *Period*: Specify the interval (in milliseconds) at which you want the Connectors instance to send messages to the Kafka topic. For example, specify `10000`, to send a message every 10 seconds.
 
 . Optionally, configure the error handling policy for your Connectors instance.
@@ -226,22 +233,25 @@ The options are:
 * *log* - The Connectors instance sends errors to its log.
 * *dead letter queue* - The Connectors instance sends messages that it cannot handle to a dead letter topic that you define for the Connectors Kafka instance.
 +
-For example, select *log*.
+For example, accept the default *stop* option.
 
 . Click *Next*.
 
 . Review the summary of the configuration properties and then click *Create Connectors instance*.
 +
-Your Connectors instance is listed in the table of Connectors. After a couple of seconds, the status of your Connectors instance changes to the *Ready* state and it starts producing messages and sending them to its associated Kafka topic.
+Your Connectors instance is listed in the table of connectors. After a couple of seconds, the status of your Connectors instance changes to the *Ready* state and it starts producing messages and sending them to its associated Kafka topic.
 +
 From the connectors table, you can stop, start, and delete your Connectors instance, as well as edit its configuration, by clicking the options icon (three vertical dots).
 
 .Verification
-ifdef::qs[]
-* Did you create an instance of the Data Generator connector?
-endif::[]
 
-In the next procedure, you can verify that the source Connectors instance is sending messages as expected by creating a sink Connectors instance that consumes the messages.
+* Does your source Connectors instance generate messages?
+
+.. In the OpenShift Application Services web console's left navigation bar, select *Applications and Data Services* > *Streams for Apache Kafka* > *Kafka Instances*.
+.. Click the Kafka instance that you created for connectors.
+.. Click the *Topics* tab and then click the topic that you specified for your source Connectors instance.
+.. Click the *Messages* tab to see a list of `Hello World!` messages.
+
 
 [id="proc-creating-sink-connector_{context}"]
 == Creating a Connectors instance for a data sink
@@ -301,7 +311,8 @@ After a couple of seconds, the status of your Connectors instance changes to the
 
 .Verification
 
-Open the browser tab to your custom URL for the link:https://webhook.site[webhook.site^] to see the HTTP POST calls with the `"Hello World!!"` messages (that you defined in the source connector).
+Open the browser tab to your custom URL for the link:https://webhook.site[webhook.site^].
+Do you see HTTP POST calls with `"Hello World!!"` messages (that you defined in the source connector)?
 
 
 ifdef::qs[]
