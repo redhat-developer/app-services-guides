@@ -107,7 +107,7 @@ Use the {product-kafka} web console to create and configure a Kafka instance for
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the {product-kafka} web console at {service-url-kafka}[^].
-* You're familiar with the different-sized Kafka instances that you can create in {product-kafka}, and the capacities that correspond to those sizes. For more information about the capacities and service limits of your Kafka instance, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
+* You're familiar with the different Kafka instance sizes that you can create in {product-kafka}, and the capacities that correspond to those sizes. For more information about the capacities and service limits of your Kafka instance, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 endif::[]
 
 .Procedure
@@ -123,9 +123,9 @@ endif::[]
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
 ////
-. If you have purchased a subscription for {product-kafka}, you can use the slider to select an instance size. Instances with more streaming units have more capacity.
+. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. Instances with more streaming units have more capacity.
 +
-NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units, however, instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production.
+NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. However, instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production.
 
 
 . Click *Create instance* to start the creation process for your Kafka instance.
