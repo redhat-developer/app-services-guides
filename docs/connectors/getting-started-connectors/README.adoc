@@ -114,11 +114,11 @@ endif::[]
 == Configuring the {product-kafka} instance for use with {product-long-connectors}
 
 [role="_abstract"]
-After you create a {product-kafka} instance, configure it for use with {product-long-connectors} by:
+After you create a {product-kafka} instance, configure it for use with {product-long-connectors} by performing the following tasks:
 
-* Creating *Kafka topics* to store messages sent by producers (data sources) and make them available to consumers (data sinks).
-* Creating *service accounts* that allow you to connect and authenticate your Connectors with Kafka instances.
-* Setting up *access rules* for the service accounts that define how your Connectors can access and use the associated Kafka instance topics.
+* Create *Kafka topics* to store messages sent by producers (data sources) and make them available to consumers (data sinks).
+* Create *service accounts* that allow you to connect and authenticate your Connectors with Kafka instances.
+* Set up *access rules* for the service accounts that define how your Connectors can access and use the associated Kafka instance topics.
 
 The number of Kafka topics and service accounts that you create, and the access rules for the service accounts, depend on your application.
 
@@ -131,19 +131,17 @@ endif::[]
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
+* You're logged in to the OpenShift Application Services web console at {service-url-connectors}[^].
 * You've created a {product-kafka} instance and the instance is in the *Ready* state.
 For instructions on how to create a Kafka instance, see _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_.
 endif::[]
 
-You’ve created a Streams for Apache Kafka instance and the instance is in the Ready state.
-
 .Procedure
 . Create a Kafka topic for your connectors:
 .. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
-.. Click the name of the {product-kafka} instance that you created for Connectors.
+.. Click the name of the {product-kafka} instance that you created for connectors.
 .. Select the *Topics* tab, and then click *Create topic*.
-.. Type a unique name for your topic. For example, type *test-topic* for the *Topic Name*.
+.. Type a unique name for your topic. For example, type *test-topic* for *Topic Name*.
 .. Accept the default settings for partitions, message retention, and replicas.
 . Create a service account for connectors:
 .. In the web console, select *Service Accounts*, and then click *Create service account*.
@@ -199,9 +197,9 @@ For example, to find the *Data Generator* source connector, type *data* in the s
 +
 Click the card to select the connector, and then click *Next*.
 
-. For the *Kafka instance*, click the card for the {product-kafka} instance that you configured for connectors, and then click *Next*.
+. For *Kafka instance*, click the card for the {product-kafka} instance that you configured for connectors, and then click *Next*.
 +
-NOTE: If you have not already configured a {product-kafka} instance for connectors, you can create a new Kafka instance by clicking *Create Kafka instance*. You would also need to set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
+NOTE: If you have not already configured a {product-kafka} instance for connectors, click *Create Kafka instance*. You also must set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
 . On the *Namespace* page, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
 +
@@ -247,7 +245,7 @@ From the connectors table, you can stop, start, and delete your Connectors insta
 
 * Does your source Connectors instance generate messages?
 
-.. In the OpenShift Application Services web console's left navigation bar, select *Applications and Data Services* > *Streams for Apache Kafka* > *Kafka Instances*.
+.. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
 .. Click the Kafka instance that you created for connectors.
 .. Click the *Topics* tab and then click the topic that you specified for your source Connectors instance.
 .. Click the *Messages* tab to see a list of `Hello World!` messages.
@@ -312,7 +310,7 @@ After a couple of seconds, the status of your Connectors instance changes to the
 .Verification
 
 Open the browser tab to your custom URL for the link:https://webhook.site[webhook.site^].
-Do you see HTTP POST calls with `"Hello World!!"` messages (that you defined in the source connector)?
+Do you see HTTP POST calls with `"Hello World!!"` messages?
 
 
 ifdef::qs[]
