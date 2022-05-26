@@ -30,6 +30,8 @@ The preceding example uses the SASL/PLAIN authentication mechanism with the cred
 
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+
 .Verification
 ifdef::qs[]
 * Is the `kafka-console-consumer` script running without any errors in the terminal?

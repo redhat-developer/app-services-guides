@@ -67,3 +67,5 @@ You should now see that the producer has connected to the Kafka instance. The pr
 . Open the logs for the pod of the consumer component, in the same way that you did for the producer component.
 +
 You should now see that the consumer has connected to the Kafka instance. The consumer displays the same country names that the producer sends to the `countries` Kafka topic, and in the same order.
++
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
