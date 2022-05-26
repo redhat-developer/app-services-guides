@@ -143,8 +143,7 @@ The Kafka instance type determines the maximum storage in the broker, as shown i
 
 * `kafka_broker_quota_totalstorageusedbytes`: Amount of storage, in bytes, that is currently used by partitions in the broker. The storage usage depends on the number and retention configurations of the partitions. This metric must stay below the `kafka_broker_quota_softlimitbytes` metric setting.
 
-* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions in the cluster. Only the broker that is the current controller in the cluster reports this metric. Any other brokers report `0`. This count includes partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`.
-This metric is similar to the `kafka_topic:kafka_topic_partitions:sum` cluster metric.
+* `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions in the cluster. Only the broker that is the current controller in the cluster reports this metric. Any other brokers report `0`. This count includes partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`. This metric is similar to the `kafka_topic:kafka_topic_partitions:sum` cluster metric.
 +
 The Kafka instance type determines the maximum storage in the broker, as shown in the following values:
 
