@@ -31,7 +31,8 @@ spec:
         7. Click **Add to Topology**.
         8. Select a previously configured **Provider Account** for this database instance from the dropdown menu.
         9. Select the database instance ID you want to use, and then click **Add to Topology**.
-           Upon successful connection, you are taken to the **Topology** page.
+        10. Click **Continue**.
+            Upon successful connection, you are taken to the **Topology** page.
       summary:
         success: Upon successful connection, you are taken to the **Topology** page.
         failed: Make note of any error messages, and try these steps again.
