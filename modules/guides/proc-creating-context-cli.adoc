@@ -1,0 +1,19 @@
+[id='proc-creating-context-cli_{context}']
+= Creating a service context
+:imagesdir: ../_images
+
+.Procedure
+
+Enter the following command to create a context named `my-context`
+
+.Creating a context
+[source,shell]
+----
+$ rhoas context create --name my-context
+----
+
+[NOTE]
+====
+By default, the created context is set as the current context.
+All the service based commands are executed against the service instances set in the current context.
+====

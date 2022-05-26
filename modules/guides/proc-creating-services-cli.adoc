@@ -1,0 +1,28 @@
+[id='proc-creating-services-cli_{context}']
+= Creating services in a context
+:imagesdir: ../_images
+
+.Procedure
+
+. Creating a Kafka Instance
++
+--
+[source,shell]
+----
+$ rhoas kafka create
+----
+[NOTE]
+====
+Creating a new service instance automatically sets it in the current context.
+====
+--
+. Check status of the current context
++
+--
+After creating service(s) in the current context, their status can be checked using the `rhoas context status` command
+.View status of the current context
+[source,shell]
+----
+$ rhoas context status
+----
+--
