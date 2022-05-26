@@ -23,9 +23,11 @@ spec:
       description: |-
         1. Click [Topology]{{highlight qs-nav-topology}}.
         2. Click and drag the arrow from the application to the new database instance to create a binding connector.
+        3. On the pop-up dialog, click **Create**.
+           Once the binding is created, the application pod restarts.
            After the application pod restarts, your application now has database connectivity.
            This binding visually represents the injection of database connection information and credentials into the application pod.
-        3. Use a service binding library based on your application’s framework to consume the service binding information and credentials.
+        4. Use a service binding library based on your application’s framework to consume the service binding information and credentials.
            See [Appendix E](https://access.redhat.com/documentation/en-us/red_hat_openshift_database_access/1/html/quick_start_guide/service-binding-libraries_rhoda-qsg) in the Red Hat OpenShift Database Access Quick Start Guide on the Customer Portal for more information regarding service binding libraries.
       summary:
         success: You have database connectivity to the application.
