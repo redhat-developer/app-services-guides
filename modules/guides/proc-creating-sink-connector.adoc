@@ -57,7 +57,8 @@ After a couple of seconds, the status of your Connectors instance changes to the
 
 .Verification
 
-Open the browser tab to your custom URL for the link:https://webhook.site[webhook.site^] to see the HTTP POST calls with the `"Hello World!!"` messages (that you defined in the source connector).
+Open the browser tab to your custom URL for the link:https://webhook.site[webhook.site^].
+Do you see HTTP POST calls with `"Hello World!!"` messages?
 
 
 ifdef::qs[]
