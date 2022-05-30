@@ -107,11 +107,15 @@ Use the {product-kafka} web console to create and configure a Kafka instance for
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the {product-kafka} web console at {service-url-kafka}[^].
+* You're familiar with the different Kafka instance sizes that you can create in {product-kafka}, and the capacities that correspond to those sizes. For more information about the capacities and service limits of your Kafka instance, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 endif::[]
 
 .Procedure
 . In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click *Create Kafka instance*.
-. Enter a unique *Name* for the Kafka instance, such as `my-first-kafka-instance`, and select the relevant *Cloud region* option. All other fields are preconfigured.
+. Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
+. From the *Cloud region* drop-down menu, select the relevant option. The selection for availability zones is preconfigured as *Single* for a trial instance and *Multi* for a production instance.
++
+NOTE: The cloud provider is preconfigured.
 +
 ////
 //For post preview, when more options are available.
@@ -121,8 +125,14 @@ endif::[]
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
 ////
-. Click *Create instance* to start the creation process for your Kafka instance.
+. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. Instances with more streaming units have more capacity.
 +
+NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. However, instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production. If you're creating a trial instance, the instance size is preconfigured.
+
+
+. Click *Create instance* to start the creation process for your Kafka instance.
+
+
 --
 [.screencapture]
 .Kafka instance configuration details
