@@ -127,7 +127,7 @@ NOTE: The cloud provider is preconfigured.
 ////
 . If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. Instances with more streaming units have more capacity.
 +
-NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. However, instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production. If you're creating a trial instance, the instance size is preconfigured.
+NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. Please note that instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production. If you're creating a trial instance, the instance size is preconfigured.
 
 
 . Click *Create instance* to start the creation process for your Kafka instance.
