@@ -177,6 +177,7 @@ You can import an event schema or API definition into {product-long-api-designer
 
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
+* You can access a running {product-registry} instance, if you want to import from Service Registry.
 
 .Procedure
 . In the {service-url-api-designer}[{product-api-designer} web console], click *Import a schema or API design*, and then click one of the following options:
@@ -204,6 +205,7 @@ After you create or import an {product-long-api-designer} event schema or API de
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
 * You've created or imported an {product-api-designer} design.
+* You can access a running {product-registry} instance, if you want to export to Service Registry.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
