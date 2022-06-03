@@ -187,6 +187,10 @@ Created topic my-other-topic.
 --
 +
 The preceding example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
++
+ifndef::community[]
+NOTE: If you try to create a topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. For more information about partition limits for Kafka instances, see https://access.redhat.com/articles/5979061[{product-long-kafka} service limits].
+endif::[]
 
 . Enter the following command to start the `kafka-console-producer` script.
 +
