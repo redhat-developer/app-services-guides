@@ -150,7 +150,7 @@ image::api-designer-editor.png[Image of {product-api-designer} design editor]
 . Click the *Source* tab to see a live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
 
-. Optional: In the left pane of the design editor, you can add a new resource path, define new data types, and define new responses.
+. Optional: In the left pane of the design editor, you can add a new resource path, define new data types, and create new responses.
 . Click *Save* to save all changes and close the design editor.
 
 The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
@@ -184,7 +184,8 @@ You can import an event schema or API definition into {product-long-api-designer
 .. *Import from file*: Click *Browse* and select a file, or drag and drop a file, and then click *Import*.
 .. *Import from URL*: Enter a valid and accessible URL, and then click *Import*.
 .. *Import from Service Registry*: From the instances list, select a registry instance to show a list of its artifacts. Select an artifact, and then click *Import*.
-. After you import the design, the design editor opens automatically. You can save your changes locally, download the content to a file, or export the updated design to Service Registry.
+. After you import the design, the design editor opens automatically.
+. When you have finished editing, you can save your changes locally, download the content to a file, or export the updated design to Service Registry.
 
 .Verification
 ifdef::qs[]
@@ -205,7 +206,7 @@ After you create or import an {product-long-api-designer} event schema or API de
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
 * You've created or imported an {product-api-designer} design.
-* You can access a running {product-registry} instance, if you want to export to Service Registry.
+* You can access a running {product-registry} instance.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
@@ -213,18 +214,18 @@ After you create or import an {product-long-api-designer} event schema or API de
 . From the *Save to* menu, click *Export to Service Registry*.
 . Complete the form to specify where the new design should be saved.
 +
-NOTE: If the design was originally imported from {product-registry}, the fields are prepopulated with the details of the original {product-registry} instance, but the *Version* is incremented.
+NOTE: If the design was originally imported from {product-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
 +
 .. *Registry instance*: Select the required instance from the list.
 .. *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
-NOTE:  Specifying a group is optional when using the web console, and a `default` group is automatically created.
+NOTE:  Specifying a group is optional when using the web console: {registry} generates a `default` group automatically.
 +
-.. *Artifact ID*: Enter an optional unique ID for this artifact such as `my-ID`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID.
+.. *Artifact ID*: Enter an optional unique ID for this artifact, such as `my-ID`. If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
 .. *Version*: Specify the version number.
 . Click *Save*.
 
-You can manage {product-long-api-designer} design versions in {product-long-registry}. You can also download {product-api-designer} designs to a file for local client code generation, or import the designs into {product-long-api-management}.
+You can manage {product-long-api-designer} design versions in {product-long-registry}. You can also download {product-api-designer} designs to a file, either for local client code generation or to import the designs into {product-long-api-management}.
 
 .Verification
 ifdef::qs[]
@@ -240,9 +241,9 @@ endif::[]
 [role="_additional-resources"]
 == Additional resources
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_api_designer/1[{product-long-api-designer} user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_api_management/1[{product-long-api-management} user documentation^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[{product-long-kafka} user documentation^]
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_api_management/1[{product-long-api-management} user documentation^]
 
 ifdef::qs[]
 [#conclusion]
