@@ -197,7 +197,7 @@ If you want to use the credentials of an _existing_ service account, you can ski
 endif::[]
 . Click *Create service account* to set up the account that you'll use to access this Kafka instance.
 . Enter a short description, such as `my-service-account`, and click *Create*.
-. Copy the generated *Client ID* and *Client secret* to a secure location. These are the credentials that you'll use to connect to this Kafka instance.
+. Copy the generated *Client ID* and *Client secret* values to a secure location. These are the credentials that you'll use to connect to this Kafka instance.
 +
 IMPORTANT: The generated credentials are displayed only one time, so ensure that you've successfully and securely saved the copied credentials before closing the credentials window.
 
@@ -310,7 +310,7 @@ image::sak-create-topic.png[Image of wizard to create a topic]
 * *Topic name*: Enter a unique topic name, such as `my-first-kafka-topic`.
 * *Partitions*: Set the number of partitions for this topic. This example sets the partition to `1` for a single partition. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
 * *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `A week` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
-* *Replicas*: For this release of {product-kafka}, the replicas are preconfigured. For a standard Kafka instance, the number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Topics in trial instances have the number of replicas and the minimum in-sync replica factor both set to a fixed value of `1`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
+* *Replicas*: Replicas are copies of partitions in a topic. For this release of {product-kafka}, the replicas are preconfigured. For a standard Kafka instance, the number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to a fixed value of `1`.  Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 
 After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now start producing and consuming messages to and from this topic using services that you connect to this instance.
 
