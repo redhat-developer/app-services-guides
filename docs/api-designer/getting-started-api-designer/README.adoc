@@ -79,7 +79,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {product-long-api-designer} to design standard event schemas and REST API definitions that comply with vendor-neutral and portable open specifications.
+As a developer of applications and services, you can use {product-long-api-designer} to design event schemas and REST API definitions that comply with vendor-neutral and portable open specifications.
 {product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
 
 For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^].
@@ -177,15 +177,15 @@ You can import an event schema or API definition into {product-long-api-designer
 
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
-* You can access a running {product-registry} instance, if you want to import from Service Registry.
+* You can access a running {product-registry} instance, if you want to import from {registry}.
 
 .Procedure
 . In the {service-url-api-designer}[{product-api-designer} web console], click *Import a schema or API design*, and then click one of the following options:
 .. *Import from file*: Click *Browse* and select a file, or drag and drop a file, and then click *Import*.
 .. *Import from URL*: Enter a valid and accessible URL, and then click *Import*.
-.. *Import from Service Registry*: From the instances list, select a registry instance to show a list of its artifacts. Select an artifact, and then click *Import*.
+.. *Import from {registry}*: From the instances list, select a registry instance to show a list of its artifacts. Select an artifact, and then click *Import*.
 . After you import the design, the design editor opens automatically.
-. When you have finished editing, you can save your changes locally, download the content to a file, or export the updated design to Service Registry.
+. When you have finished editing, you can save your changes locally, download the content to a file, or export the updated design to {registry}.
 
 .Verification
 ifdef::qs[]
@@ -211,7 +211,7 @@ After you create or import an {product-long-api-designer} event schema or API de
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
 . Click *Edit* to open the design editor.
-. From the *Save to* menu, click *Export to Service Registry*.
+. From the *Save to* menu, click *Export to {registry}*.
 . Complete the form to specify where the new design should be saved.
 +
 NOTE: If the design was originally imported from {product-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
