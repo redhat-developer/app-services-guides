@@ -20,7 +20,8 @@ spec:
     - If you want to export to Service Registry, a running Service Registry instance (see the Getting started with Service Registry quick start)
   introduction: !snippet README.adoc#introduction
   tasks:
-    - !snippet/proc README.adoc#proc-creating-schema-api-design
+    - !snippet/proc README.adoc#proc-creating-api-design
+    - !snippet/proc README.adoc#proc-creating-schema-design
     - !snippet/proc README.adoc#proc-importing-schema-api-design
     - !snippet/proc README.adoc#proc-exporting-schema-api-design
   conclusion: !snippet README.adoc#conclusion

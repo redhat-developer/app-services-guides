@@ -107,11 +107,11 @@ In this quick start, you'll learn how to ...
 ====
 endif::[]
 
-[id="proc-creating-schema-api-design_{context}"]
-== Creating a schema or API design with {product-long-api-designer}
+[id="proc-creating-api-design_{context}"]
+== Creating an API design
 
 [role="_abstract"]
-Use the {product-long-api-designer} web console to create an event schema or API definition.
+Use the {product-long-api-designer} web console to create an OpenAPI or AsyncAPI definition.
 
 ifndef::qs[]
 .Prerequisites
@@ -123,34 +123,37 @@ endif::[]
 . Complete the form to provide the details of the new design:
 .. *Name*: Enter a unique design name, such as `my-api-design`.
 .. *Summary*: Optional: Enter a short description of the design.
-.. *Type*: Accept the default value: *OpenAPI*.
-.. *Version*: Accept the default value: *3.0.2*.
-.. *Template*: Select the *Pet Store Example* template.
+.. *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
+.. *Version*: OpenAPI only: Accept the default value *3.0.2*, or select another version from the list.
+.. *Template*: Select the *Pet Store Example* template, or select another template from the list.
 +
 [.screencapture]
-.Creating an {product-api-designer} design
-image::create-api-designer-design.png[Image of page to create an {product-api-designer} design]
+.Creating an API design
+image::create-api-designer-design.png[Image of page to create an API design]
 +
 . Click *Create* to create the design. The design editor opens automatically.
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
 . Click the *Design* tab, and optionally edit the design as follows:
 .. Provide a version number and a description.
+.. AsyncAPI only: Define terms of service.
 .. Add your contact information (name, email address, and URL).
 .. Select a license.
-.. Define tags.
+.. OpenAPI only: Define tags.
 .. Define one or more servers.
 .. Configure a security scheme.
-.. Specify security requirements.
-.. Configure vendor extensions.
+.. OpenAPI only: Specify security requirements.
+.. OpenAPI only: Configure vendor extensions.
 +
 [.screencapture]
-.Editing an {product-api-designer} design
-image::api-designer-editor.png[Image of {product-api-designer} design editor]
+.Editing an API design
+image::api-designer-editor.png[Image of API design editor]
 +
 . Click the *Source* tab to see a live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
 
-. Optional: In the left pane of the design editor, you can add a new resource path, define new data types, and create new responses.
+. Optional: In the left pane of the design editor, you can add the following items:
+.. OpenAPI: Resource paths, data types, and responses
+.. AsyncAPI: Channels, data types, messages, operation traits, and message traits
 . Click *Save* to save all changes and close the design editor.
 
 The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
@@ -158,6 +161,49 @@ The new design is listed on the designs page. You can use the options icon (thre
 [.screencapture]
 .{product-api-designer} design options menu
 image::api-designer-design-options.png[Image of {product-api-designer} design options menu]
+
+.Verification
+ifdef::qs[]
+* Is the new design listed on the {product-api-designer} designs page?
+* Are the design details correct?
+endif::[]
+ifndef::qs[]
+. Verify that the new design is listed on the {product-api-designer} designs page.
+. Verify that the design details are correct.
+endif::[]
+
+[id="proc-creating-schema-design_{context}"]
+== Creating a schema design
+
+[role="_abstract"]
+Use the {product-long-api-designer} web console to create an Apache Avro, JSON, or Google Protocol Buffers (Protobuf) event schema.
+
+ifndef::qs[]
+.Prerequisites
+* You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
+endif::[]
+
+.Procedure
+. In the {service-url-api-designer}[{product-api-designer} web console], click *Create a schema or API design*.
+. Complete the form to provide the details of the new design:
+.. *Name*: Enter a unique design name, such as `my-schema-design`.
+.. *Summary*: Optional: Enter a short description of the design.
+.. *Type*: From the list, select *Apache Avro*, or select another schema type.
++
+[.screencapture]
+.Creating a schema design
+image::create-schema-design.png[Image of page to create a schema design]
++
+. Click *Create* to create the design. The design editor opens automatically.
+. Edit the design to provide your content.
++
+[.screencapture]
+.Editing a schema design
+image::api-designer-schema-editor.png[Image of schema design editor]
++
+. Click *Save* to save all changes and close the design editor.
+
+The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
 
 .Verification
 ifdef::qs[]
