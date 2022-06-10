@@ -113,11 +113,23 @@ When you enter the preceding command, you should see output similar to the follo
 
 [source,subs="+quotes,+attributes"]
 ----
-CONSUMER GROUP ID    ACTIVE MEMBERS    PARTITIONS WITH LAG
--------------------  ----------------  ---------------------
-consumergroup1                     2                     0
-consumergroup2                     1                     0
+Consumer group ID    Active members    Partitions with lag    State
+-------------------  ----------------  ---------------------  -------
+consumergroup1                     2                     0    Empty
+consumergroup2                     1                     0    Stable
 ----
+
+[id="con-consumer-group-state_{context}"]
+=== Consumer group states
+Consumer group states displayed in the OpenShift Streams for Apache Kafka web console and `rhoas` CLI can be one of the following values:
+
+* *Empty*: The group exists but has no members.
+* *Stable*: Rebalancing already occurred and consumers are consuming.
+* *PreparingRebalance*: The group is waiting for consumers to join, which requires the reassignment of partitions, so the Kafka instance is currently rebalancing.
+* *CompletingRebalance*: The Kafka instance is still rebalancing and reassigning partitions.
+* *Dead*: The group is due to be removed from this Kafka instance soon. This deletion might be due to inactivity, or the group is being migrated to a different group coordinator.
+* *Unknown*: The state is too new for it to be parsed.
+
 
 [id="con-consumer-group-script_{context}"]
 === Connecting the Kafka consumer group script
@@ -161,7 +173,7 @@ To create a consumer group, you specify a consumer group ID in your consumer app
 
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
-When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
+When you configure a consumer client application to access a Kafka instance, you assign a group ID to associate it with a consumer group.
 All consumers with the same group ID belong to the consumer group with that ID.
 
 Consumer groups connected to a Kafka instance are displayed in the {product-kafka} web console.
