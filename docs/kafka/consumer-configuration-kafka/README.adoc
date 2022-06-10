@@ -113,11 +113,23 @@ When you enter the preceding command, you should see output similar to the follo
 
 [source,subs="+quotes,+attributes"]
 ----
-CONSUMER GROUP ID    ACTIVE MEMBERS    PARTITIONS WITH LAG
--------------------  ----------------  ---------------------
-consumergroup1                     2                     0
-consumergroup2                     1                     0
+Consumer group ID    Active members    Partitions with lag    State
+-------------------  ----------------  ---------------------  -------
+consumergroup1                     2                     0    Empty
+consumergroup2                     1                     0    Stable
 ----
+
+[id="con-consumer-group-state_{context}"]
+==== States of consumer groups
+Consumer group states displayed in the OpenShift Streams for Apache Kafka web console and rhoas CLI can be one of the following values:
+
+* *Empty*: The group exists but has no members.
+* *Stable*: The rebalancing already occurred and consumers are consuming.
+* *PreparingRebalance*: The group is waiting for customers to join, which requires the reassignment of partitions, so Kafka is currently rebalancing.
+* *CompletingRebalance*: Kafka is still rebalancing and giving out a partition assignment.
+* *Dead*: The group is due to be removed from this Kafka node soon. It might be due to inactivity, or the group is being migrated to a different group coordinator.
+* *Unknown*: The state is too new for it to be parsed.
+
 
 [id="con-consumer-group-script_{context}"]
 === Connecting the Kafka consumer group script
