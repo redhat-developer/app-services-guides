@@ -120,14 +120,14 @@ consumergroup2                     1                     0    Stable
 ----
 
 [id="con-consumer-group-state_{context}"]
-==== States of consumer groups
-Consumer group states displayed in the OpenShift Streams for Apache Kafka web console and rhoas CLI can be one of the following values:
+=== Consumer group states
+Consumer group states displayed in the OpenShift Streams for Apache Kafka web console and `rhoas` CLI can be one of the following values:
 
 * *Empty*: The group exists but has no members.
-* *Stable*: The rebalancing already occurred and consumers are consuming.
-* *PreparingRebalance*: The group is waiting for customers to join, which requires the reassignment of partitions, so Kafka is currently rebalancing.
-* *CompletingRebalance*: Kafka is still rebalancing and giving out a partition assignment.
-* *Dead*: The group is due to be removed from this Kafka node soon. It might be due to inactivity, or the group is being migrated to a different group coordinator.
+* *Stable*: Rebalancing already occurred and consumers are consuming.
+* *PreparingRebalance*: The group is waiting for consumers to join, which requires the reassignment of partitions, so Kafka is currently rebalancing.
+* *CompletingRebalance*: Kafka is still rebalancing and reassigning partitions.
+* *Dead*: The group is due to be removed from this Kafka instance soon. This deletion might be due to inactivity, or the group is being migrated to a different group coordinator.
 * *Unknown*: The state is too new for it to be parsed.
 
 
