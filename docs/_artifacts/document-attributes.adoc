@@ -61,3 +61,9 @@
 :product-version-api-designer: 1
 :service-url-api-designer: https://console.redhat.com/application-services/api-designer/
 :getting-started-url-api-designer: api-designer/getting-started-api-designer/README.adoc
+
+//OpenShift API Management
+:product-long-api-management: OpenShift API Management
+:product-api-management: API Management
+:product-version-api-management: 1
+:service-url-api-management: https://console.redhat.com/application-services/api-management/
