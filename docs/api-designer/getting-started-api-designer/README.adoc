@@ -257,7 +257,7 @@ When you're happy with your changes to an {product-long-api-designer} event sche
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
 . Click *Edit* to open the design editor.
-. From the *Save to* menu, click *Export to {registry}*.
+. From the *Actions* menu, click *Export to {registry}*.
 . Complete the form to specify where the new design should be saved.
 +
 NOTE: If the design was originally imported from {product-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
@@ -269,7 +269,12 @@ NOTE:  Specifying a group is optional when using the web console: {registry} gen
 +
 .. *Artifact ID*: Enter an optional unique ID for this artifact, such as `my-ID`. If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
 .. *Version*: Specify the version number.
-. Click *Save*.
++
+[.screencapture]
+.Exporting an API design
+image::export-api-designer-design.png[Image of page to export an API design]
++
+. Click *Export*.
 
 You can manage {product-long-api-designer} design versions in {product-long-registry}. You can also download {product-api-designer} designs to a file, either for local client code generation or to import the designs into {product-long-api-management}.
 
