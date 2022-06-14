@@ -79,7 +79,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As an API owner, you can use {product-long-api-designer} to design event schemas and API definitions that comply with vendor-neutral and portable open specifications.
+As an API owner or developer, you can use {product-long-api-designer} to design event schemas and API definitions that comply with vendor-neutral and portable open specifications.
 {product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
 
 For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^].
@@ -131,7 +131,7 @@ endif::[]
 .Creating an API design
 image::create-api-designer-design.png[Image of page to create an API design]
 +
-. Click *Create* to create the design. The design editor opens automatically.
+. Click *Create*. The new API design opens in the design editor.
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
 . Click the *Design* tab, and optionally edit the design as follows:
 .. Provide a version number and a description.
@@ -154,7 +154,7 @@ The content of the *Source* tab automatically updates when you edit values on th
 . Optional: In the left pane of the design editor, you can add the following items:
 .. OpenAPI: Resource paths, data types, and responses
 .. AsyncAPI: Channels, data types, messages, operation traits, and message traits
-. Click *Save* to save all changes and close the design editor.
+. Click *Save*.
 
 The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
 
@@ -176,7 +176,7 @@ endif::[]
 == Creating a schema design
 
 [role="_abstract"]
-Use the {product-long-api-designer} web console to create an Apache Avro, JSON, or Google Protocol Buffers (Protobuf) event schema.
+Use the {product-long-api-designer} web console to create an Apache Avro, JSON Schema, or Google Protocol Buffers (Protobuf) event schema.
 
 ifndef::qs[]
 .Prerequisites
@@ -194,14 +194,14 @@ endif::[]
 .Creating a schema design
 image::create-schema-design.png[Image of page to create a schema design]
 +
-. Click *Create* to create the design. The design editor opens automatically.
-. Edit the design to provide your content.
+. Click *Create*. The new schema design opens in the design editor.
+. Edit the design source to provide your content.
 +
 [.screencapture]
 .Editing a schema design
 image::api-designer-schema-editor.png[Image of schema design editor]
 +
-. Click *Save* to save all changes and close the design editor.
+. Click *Save*.
 
 The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
 
@@ -223,15 +223,16 @@ You can import an event schema or API definition into {product-long-api-designer
 
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
-* You can access a running {product-registry} instance, if you want to import from {registry}.
+* You can access a running {product-registry} instance in your organization, if you want to import from {registry}.
 
 .Procedure
 . In the {service-url-api-designer}[{product-api-designer} web console], click *Import a schema or API design*, and then click one of the following options:
-.. *Import from file*: Click *Browse* and select a file, or drag and drop a file, and then click *Import*.
-.. *Import from URL*: Enter a valid and accessible URL, and then click *Import*.
-.. *Import from {registry}*: From the instances list, select a registry instance. Browse the list of artifacts for that instance, select an artifact, and then click *Import*.
-. After you import the design, the design editor opens automatically.
-. When you finish editing, you can export the updated design to {registry} as a new artifact or as a new version of the existing artifact. You can also save your changes locally, or download the content to a file.
+.. *Import from file*: Click *Browse* and select a file, or drag and drop a file.
+.. *Import from URL*: Enter a valid and accessible URL.
+.. *Import from {registry}*: From the instances list, select a {registry} instance. Browse the list of artifacts for that instance, and select an artifact.
+. Click *Import*. The design editor opens automatically.
+
+When you finish editing, you can export the updated design to {registry} as a new artifact or as a new version of the existing artifact. You can also save your changes locally, or download the content to a file.
 
 .Verification
 ifdef::qs[]
@@ -252,7 +253,7 @@ When you're happy with your changes to an {product-long-api-designer} event sche
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
 * You've created or imported an {product-api-designer} design.
-* You can access a running {product-registry} instance.
+* You can access a running {product-registry} instance in your organization.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
