@@ -195,7 +195,7 @@ Also, you can observe that the RHOAS Operator is installed in the `openshift-ope
 == Verifying connection to your OpenShift cluster
 
 [role="_abstract"]
-After you install the RHOAS Operator, you can verify that the Operator is working by using the RHOAS command-line interface (CLI) to connect to your OpenShift cluster and retrieve the cluster status. The following example shows how to verify connection to your OpenShift cluster.
+After you install the RHOAS Operator, you can verify that the Operator is working by using the RHOAS CLI to connect to your OpenShift cluster and retrieve the cluster status. The following example shows how to verify connection to your OpenShift cluster.
 
 .Prerequisites
 * The RHOAS Operator is installed on your OpenShift cluster.
@@ -216,7 +216,7 @@ A new page opens.
 +
 You see output confirming that you are logged in to your OpenShift cluster and the current project that you are using.
 
-. On the command line, use the OpenShift CLI to create a new project, as shown in the following example.
+. On the command line, use the OpenShift CLI to create a new project, as shown in the following example:
 +
 .Example OpenShift CLI command to create new project
 [source, subs="+quotes"]
@@ -250,7 +250,7 @@ As shown in the output, the RHOAS CLI indicates that the RHOAS Operator was succ
 == Connecting a Kafka instance to your OpenShift cluster
 
 [role="_abstract"]
-When you have verified connection to your OpenShift cluster, you can connect a Kafka instance in {product-long-kafka} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS command-line interface (CLI) to connect a specified Kafka instance to a project in your cluster.
+When you have verified connection to your OpenShift cluster, you can connect a Kafka instance in {product-long-kafka} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
 
 .Prerequisites
 * You have installed the RHOAS Operator and verified connection to your OpenShift cluster.
@@ -270,7 +270,7 @@ When you have verified connection to your OpenShift cluster, you can connect a K
 $ rhoas login
 ----
 
-. Use the OpenShift CLI to specify the current OpenShift project. Specify the project that you created when verifying connection to your OpenShift cluster, as shown in the following example.
+. Use the OpenShift CLI to specify the current OpenShift project. Specify the project that you created when verifying connection to your OpenShift cluster, as shown in the following example:
 +
 .Example OpenShift CLI command to specify current project
 [source]
@@ -383,7 +383,7 @@ As shown in the output, when you use the `rhoas cluster connect` command, the RH
 == Binding a Quarkus application to {product-long-kafka} using the RHOAS CLI
 
 [role="_abstract"]
-When the RHOAS Operator is installed on your OpenShift cluster and you have connected a Kafka instance to the cluster, you can use the RHOAS command-line interface (CLI) to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. This process is called __service binding__.
+When the RHOAS Operator is installed on your OpenShift cluster and you have connected a Kafka instance to the cluster, you can use the RHOAS CLI to instruct the Service Binding Operator to automatically inject an application running on the cluster with the parameters required to connect to the Kafka instance. This process is called __service binding__.
 
 The following tutorial shows how to use the RHOAS CLI to perform service binding. In the tutorial, you create an example Quarkus application and connect this to a Kafka instance. link:https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
 
@@ -413,7 +413,7 @@ The example Quarkus application uses the `quarkus-kubernetes-service-binding` li
 
 . If you are not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
-. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example.
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example:
 +
 .Example OpenShift CLI command to specify current OpenShift project
 [source]
@@ -490,7 +490,7 @@ After you complete the topic setup, the new Kafka topic is listed in the topics 
 === Binding the Quarkus application to your Kafka instance using the RHOAS CLI
 
 [role="_abstract"]
-In this step of the tutorial, you use the RHOAS command-line interface (CLI) to bind the example Quarkus application that you deployed on OpenShift to your Kafka instance. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka instance.
+In this step of the tutorial, you use the RHOAS CLI to bind the example Quarkus application that you deployed on OpenShift to your Kafka instance. When you perform this binding, the Service Binding Operator injects connection parameters as files into the pod for the application. The Quarkus application automatically detects and uses the connection parameters to bind to the Kafka instance.
 
 .Prerequisites
 * You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See {base-url}{service-binding-url-kafka}#con-about-service-binding_{context}[About service binding].
@@ -511,7 +511,7 @@ In this step of the tutorial, you use the RHOAS command-line interface (CLI) to 
 $ rhoas login
 ----
 
-. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example.
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example:
 +
 .Example OpenShift CLI command to specify current OpenShift project
 [source]
