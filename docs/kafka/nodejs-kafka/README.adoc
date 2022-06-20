@@ -74,13 +74,17 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-using-nodejs"]
-= Using Node.js applications with Kafka instances in {product-long-kafka}
+= Manually connecting Node.js applications to Kafka instances in {product-long-kafka}
 ifdef::context[:parent-context: {context}]
 :context: using-nodejs
 
 // Purpose statement for the assembly
 [role="_abstract"]
 As a developer of applications and services, you can connect Node.js applications to Kafka instances in {product-long-kafka}. https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that is designed to build scalable network applications. Node.js provides an I/O model that is based on events and non-blocking operations, which enables efficient applications.
+
+In this quick start, you'll use the {product-kafka} web console to collect connection information for a Kafka instance. You'll then manually configure a connection to the Kafka instance from an example Node.js application and start producing and consuming messages.
+
+NOTE: When you've completed this quick start and understand the required connection configuration for a Kafka instance, you can use the {product-long-rhoas} command-line interface (CLI) to generate this type of configuration in a more automated way. To learn more, see {base-url}{service-contexts-url-cli}[Connecting client applications to {product-long-rhoas} using the rhoas CLI^].
 
 .Prerequisites
 ifndef::community[]
@@ -91,22 +95,20 @@ endif::[]
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
 
-[NOTE]
-====
-The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer, or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
-====
+NOTE: The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer, or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
+
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
 ====
-Learn how to use Node.js applications to produce and consume messages using a Kafka instance in {product-long-kafka}.
+Learn how to manually connect a Node.js application to a Kafka instance in {product-long-kafka} and then produce and consume messages.
 ====
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-kafka} with Node.js. In this quick start, you'll learn how to use the https://nodejs.org/en/about/[Node.js^] runtime to produce messages to and consume messages from your Kafka instances in {product-kafka}.
+Welcome to the quick start for {product-long-kafka} with Node.js. In this quick start, you'll use the web console to collect connection information for a Kafka instance in {product-kafka}. You'll then manually configure a connection to the Kafka instance from an example https://nodejs.org/en/about/[Node.js^] application and start producing and consuming messages.
 ====
 endif::[]
 
