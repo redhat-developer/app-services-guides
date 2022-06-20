@@ -124,7 +124,7 @@ The Kafka instance type determines the maximum connection creation rate, as show
 ** 100 per second for a production instance with a size of 1 streaming unit
 ** 200 per second for a production instance with a size of 2 streaming units
 
-* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the cluster. This does not include internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`. The maximum number of topics is 1000 for all Kafka instances.
+* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the cluster. This does not include internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`. 
 
 * `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the cluster. This does not include partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`.
 +
