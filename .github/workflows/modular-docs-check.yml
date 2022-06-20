@@ -18,11 +18,12 @@ jobs:
             - product: RHOSR
             - product: RHOAS
             - product: RHOC
+            - product: RHOAD
 
     steps:
     - uses: actions/checkout@v2
       name: Checkout Source
-    - name: Use Node.js 
+    - name: Use Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 16.6.2
@@ -38,7 +39,7 @@ jobs:
 
     - run: npm --prefix .build install
       name: Install Node Dependencies
-    
+
     - run: gem install asciidoctor tilt haml
       name: Install Asciidoctor
     - run: npm --prefix .build run generate:modular-docs
