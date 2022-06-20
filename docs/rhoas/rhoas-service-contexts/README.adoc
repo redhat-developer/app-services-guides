@@ -202,7 +202,7 @@ $ rhoas context set-kafka --name my-kafka-instance
 +
 The Kafka instance is now part of both of the service contexts that you created.
 
-. To remove _all_ instances of a particular service from a context, use the `context unset` command with the `--services` flag and specify the service name, for example, `kafka` or `service-registry`. An example is shown.
+. To remove a particular service from a context, use the `context unset` command with the `--services` flag and specify the service name, for example, `kafka` or `service-registry`. An example is shown.
 +
 .Example command to remove all Kafka instances from context
 [source,shell]
