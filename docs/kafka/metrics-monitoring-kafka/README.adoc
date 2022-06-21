@@ -108,6 +108,7 @@ The Kafka instance type determines the maximum connection creation rate.
 
 * `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the cluster. This does not include partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`.
 The Kafka instance type determines the maximum number of partitions.
+--
 
 Broker metrics::
 +
