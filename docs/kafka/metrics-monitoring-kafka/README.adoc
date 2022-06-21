@@ -87,76 +87,39 @@ As a developer or administrator, you can view metrics in {product-kafka} to visu
 == Supported metrics in {product-kafka}
 
 [role="_abstract"]
-{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance.
+{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, the *Dashboard* page of a Kafka instance displays a subset of these metrics. To learn more about the limits associated with both trial and production Kafka instance types, refer to https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
+
 
 Cluster metrics::
 +
 --
-* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Number of incoming bytes per second for the cluster in the last five minutes. This metric represents all the data that producers are sending to topics in the cluster.
-+
-The Kafka instance type determines the maximum incoming byte rate, as shown in the following values:
+* `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Number of incoming bytes per second for the cluster in the last five minutes. This ingress metric represents all the data that producers are sending to topics in the cluster.
+The Kafka instance type determines the maximum incoming byte rate.
 
-** 1 MiB per second for a trial instance
-** 50 MiB per second for a production instance with a size of 1 streaming unit
-** 100 MiB per second for a production instance with a size of 2 streaming units
-
-* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes per second for the cluster in the last five minutes. This metric represents all the data that producers are receiving from topics in the cluster.
-+
-The Kafka instance type determines the maximum outgoing byte rate, as shown in the following values:
-
-** 1 MiB per second for a trial instance
-** 100 MiB per second for a production instance with a size of 1 streaming unit
-** 200 MiB per second for a production instance with a size of 2 streaming units
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes per second for the cluster in the last five minutes. This egress metric represents all the data that consumers are receiving from topics in the cluster.
+The Kafka instance type determines the maximum outgoing byte rate.
 
 * `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of current client connections to the cluster. Kafka clients use persistent connections to interact with brokers in the cluster. For example, a consumer holds a connection to each broker it is receiving data from and a connection to its group coordinator.
-+
-The Kafka instance type determines the maximum number of active connections, as shown in the following values:
-
-** 100 for a trial instance
-** 3000 for a production instance with a size of 1 streaming unit
-** 6000 for a production instance with a size of 2 streaming units
-
+The Kafka instance type determines the maximum number of active connections.
 * `kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum`: Number of client connection creations per second for the cluster. Kafka clients use persistent connections to interact with brokers in the cluster. A constant high number of connection creations might indicate a client issue.
-+
-The Kafka instance type determines the maximum connection creation rate, as shown in the following values:
+The Kafka instance type determines the maximum connection creation rate.
 
-** 50 per second for a trial instance
-** 100 per second for a production instance with a size of 1 streaming unit
-** 200 per second for a production instance with a size of 2 streaming units
-
-* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the cluster. This does not include internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`. The maximum number of topics is 1000 for all Kafka instances.
+* `kafka_topic:kafka_topic_partitions:count`: Number of topics in the cluster. This does not include internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`.
 
 * `kafka_topic:kafka_topic_partitions:sum`: Number of partitions across all topics in the cluster. This does not include partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`.
-+
-The Kafka instance type determines the maximum number of partitions, as shown in the following values:
-
-** 100 for a trial instance
-** 1500 for a production instance with a size of 1 streaming unit
-** 3000 for a production instance with a size of 2 streaming units
+The Kafka instance type determines the maximum number of partitions.
 --
 
 Broker metrics::
 +
 --
 * `kafka_broker_quota_softlimitbytes`: Maximum amount of storage, in bytes, for this broker before producers are throttled. When this limit is reached, the broker starts throttling producers to prevent them from sending additional data.
-+
-The Kafka instance type determines the maximum storage in the broker, as shown in the following values:
-
-** 10 GiB for a trial instance
-** 1000 GiB for a production instance with a size of 1 streaming unit
-** 2000 GiB for a production instance with a size of 2 streaming units
-
+The Kafka instance type determines the maximum storage in the broker.
 
 * `kafka_broker_quota_totalstorageusedbytes`: Amount of storage, in bytes, that is currently used by partitions in the broker. The storage usage depends on the number and retention configurations of the partitions. This metric must stay below the `kafka_broker_quota_softlimitbytes` metric setting.
 
 * `kafka_controller_kafkacontroller_global_partition_count`: Number of partitions in the cluster. Only the broker that is the current controller in the cluster reports this metric. Any other brokers report `0`. This count includes partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`. This metric is similar to the `kafka_topic:kafka_topic_partitions:sum` cluster metric.
-+
-The Kafka instance type determines the maximum storage in the broker, as shown in the following values:
-
-** 100 for a trial instance
-** 1500 for a production instance with a size of 1 streaming unit
-** 3000 for a production instance with a size of 2 streaming units  +
-
+The Kafka instance type determines the maximum storage in the broker.
 
 * `kafka_controller_kafkacontroller_offline_partitions_count`: Number of partitions in the cluster that are currently offline. Offline partitions cannot be used by clients for producing or consuming data. Only the broker that is the current controller in the cluster reports this metric. Any other brokers report `0`.
 
@@ -167,7 +130,7 @@ The Kafka instance type determines the maximum storage in the broker, as shown i
 
 Topic metrics::
 +
---
+
 * `kafka_server_brokertopicmetrics_bytes_in_total`: Number of incoming bytes to topics in the instance.
 
 * `kafka_server_brokertopicmetrics_bytes_out_total`: Number of outgoing bytes from topics in the instance.
@@ -181,7 +144,7 @@ Topic metrics::
 * `kafka_topic:kafka_server_brokertopicmetrics_messages_in_total:rate5m`: Number of messages per second received by one or more topics in the instance in the last five minutes.
 
 * `kafka_topic:kafka_log_log_size:sum`: Log size of each topic and replica, in bytes, across all brokers in the cluster.
---
+
 
 [id="proc-viewing-metrics_{context}"]
 == Viewing metrics for a Kafka instance in {product-kafka}
@@ -195,12 +158,11 @@ After you produce and consume messages in your services using methods such as li
 .Procedure
 * In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
 +
---
 When you create a Kafka instance and add new topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url-kafka}[_Configuring and connecting Kafka scripts with {product-long-kafka}_^].
 
 NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
 
---
+
 
 [id="proc-configuring-metrics-prometheus_{context}"]
 == Configuring metrics monitoring for a Kafka instance in Prometheus
