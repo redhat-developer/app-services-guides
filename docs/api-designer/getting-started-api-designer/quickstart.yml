@@ -23,6 +23,7 @@ spec:
     - !snippet/proc README.adoc#proc-creating-api-design
     - !snippet/proc README.adoc#proc-creating-schema-design
     - !snippet/proc README.adoc#proc-importing-schema-api-design
+    - !snippet/proc README.adoc#proc-testing-schema-api-design
     - !snippet/proc README.adoc#proc-exporting-schema-api-design
   conclusion: !snippet README.adoc#conclusion
   nextQuickStart:

@@ -118,12 +118,12 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {service-url-api-designer}[{product-long-api-designer} web console], click *Create a schema or API design*.
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create a schema or API design*.
 . Complete the form to provide the details of the new design:
 .. *Name*: Enter a unique design name, such as `my-api-design`.
-.. *Summary*: Optional: Enter a short description of the design.
+.. *Summary*: _Optional:_ Enter a short description of the design.
 .. *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
-.. *Version*: OpenAPI only: Accept the default value *3.0.2*, or select another version from the list.
+.. *Version*: _OpenAPI only:_ Accept the default value *3.0.2*, or select another version from the list.
 .. *Template*: Select the *Pet Store Example* template, or select another template from the list.
 +
 [.screencapture]
@@ -134,14 +134,14 @@ image::create-api-designer-design.png[Image of page to create an API design]
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
 . Click the *Design* tab, and optionally edit the design as follows:
 .. Provide a version number and a description.
-.. AsyncAPI only: Define terms of service.
+.. _AsyncAPI only:_ Define terms of service.
 .. Add your contact information (name, email address, and URL).
 .. Select a license.
-.. OpenAPI only: Define tags.
+.. _OpenAPI only:_ Define tags.
 .. Define one or more servers.
 .. Configure a security scheme.
-.. OpenAPI only: Specify security requirements.
-.. OpenAPI only: Configure vendor extensions.
+.. _OpenAPI only:_ Specify security requirements.
+.. _OpenAPI only:_ Configure vendor extensions.
 +
 [.screencapture]
 .Editing an API design
@@ -149,25 +149,10 @@ image::api-designer-editor.png[Image of API design editor]
 +
 . Click the *Source* tab to see a live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
-
-. Optional: In the left pane of the design editor, you can add the following items:
-.. OpenAPI: Resource paths, data types, and responses
-.. AsyncAPI: Channels, data types, messages, operation traits, and message traits
-. Optional: You can test your design content against {registry} rules:
-.. From the *Actions* menu, click *Test using Service Registry*.
-.. From the *Registry instance* list, select a {registry} instance.
-* To test your design content against the global rules for the instance, leave the *Group* and *Artifact ID* fields blank.
-* To test your design content against the rules for a specific artifact, specify the artifact details in the *Group* and *Artifact ID* fields.
-.. Click *Test*.
-+
-NOTE: Breda asks: Not sure if the above interpretation of the functionality is correct? Do you test against global rules at the instance level, or do you test against artifact rules? Note also that the UI text is in flux and might change.
-+
-. Optional: You can compare this version of the design with an older version:
-.. From the *Actions* menu, click *Compare versions*.
-.. From the versions list, select a version to compare against.
-.. Click *Compare*.
-+
-NOTE: Breda asks: Not sure if you must save before comparing the latest design with an older version? Also not sure if you can compare two older versions, or if you must always compare the latest version with an older version? Note that this functionality is not yet implemented, so it has been documented by guesswork :)
+. _Optional:_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _Optional:_ In the left pane of the design editor, you can add the following items:
+.. _OpenAPI only_: Resource paths, data types, and responses
+.. _AsyncAPI only_: Channels, data types, messages, operation traits, and message traits
 . Click *Save*.
 
 The new design is listed on the *API and Schema Designs* page.
@@ -199,10 +184,10 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {service-url-api-designer}[{product-long-api-designer} web console], click *Create a schema or API design*.
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create a schema or API design*.
 . Complete the form to provide the details of the new design:
 .. *Name*: Enter a unique design name, such as `my-schema-design`.
-.. *Summary*: Optional: Enter a short description of the design.
+.. *Summary*: _Optional:_ Enter a short description of the design.
 .. *Type*: From the list, select *Apache Avro*, or select another schema type.
 +
 [.screencapture]
@@ -216,6 +201,7 @@ image::create-schema-design.png[Image of page to create a schema design]
 .Editing a schema design
 image::api-designer-schema-editor.png[Image of schema design editor]
 +
+. _Optional:_ To see the changes that you made since the last save, click *Actions > Show changes*.
 . Click *Save*.
 
 The new design is listed on the *API and Schema Designs* page.
@@ -239,15 +225,16 @@ You can import an event schema or API definition into {product-long-api-designer
 
 .Prerequisites
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
-* You can access a running {product-registry} instance in your organization, if you want to import from {registry}.
+* You can access a running {product-registry} instance in your organization, if you want to import from {product-long-registry}.
+For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the {service-url-api-designer}[{product-long-api-designer} web console], click *Import a schema or API design*, and then click one of the following options:
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Import a schema or API design*, and then click one of the following options:
 .. *Import from file*: Click *Browse* and select a file, or drag and drop a file.
 .. *Import from URL*: Enter a valid and accessible URL.
 .. *Import from {registry}*: From the instances list, select a {registry} instance.
 Browse the list of artifacts for that instance, and select an artifact.
-. If prompted, depending on the source and the detected design type, provide additional information such as version (OpenAPI only), name, type, and summary in the import dialog. You can overwrite any autopopulated values.
+. When prompted, provide additional information such as version (_OpenAPI only_), name, type, and summary in the import dialog. You can overwrite any autopopulated values.
 . Click *Import*.
 The design editor opens automatically.
 
@@ -265,6 +252,46 @@ ifndef::qs[]
 . Verify that the design details are correct.
 endif::[]
 
+[id="proc-testing-schema-api-design_{context}"]
+== Testing a schema or API design
+
+[role="_abstract"]
+You can test that your schema or API design content is valid and compatible with existing content by applying the rules of an existing {product-long-registry} instance.
+You can test the design while working in the {product-long-api-designer} editor, without exporting the design to {product-long-registry}.
+
+.Prerequisites
+* You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
+* You've created or imported an {product-api-designer} design.
+* You can access a running {product-registry} instance in your organization.
+Within that instance, you know the artifact ID of an artifact with the required rules configured.
+For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
+
+.Procedure
+. In the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to test.
+. Click *Edit* to open the design editor.
+. From the *Actions* menu, click *Test using Service Registry*.
+. From the *Registry instance* list, select a {registry} instance.
+. Specify the artifact details in the *Group* and *Artifact ID* fields.
+. Click *Test*.
++
+NOTE: Note that the UI text is in flux and might change.
+
+The test results are shown in a new pane in the design editor window:
+
+* If the results page is blank, the content obeys the specified rules.
+
+* If the results page provides details of any issues, resolve the issues and click *Retry* to retest the content using the same rules.
+
+.Verification
+ifdef::qs[]
+* Is the test results pane shown in the design editor?
+* Are the test results correct?
+endif::[]
+ifndef::qs[]
+. Verify that the test results pane is shown in the design editor.
+. Verify that the test results are correct.
+endif::[]
+
 [id="proc-exporting-schema-api-design_{context}"]
 == Exporting a schema or API design
 
@@ -275,23 +302,25 @@ When you're happy with your changes to an {product-long-api-designer} event sche
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
 * You've created or imported an {product-api-designer} design.
 * You can access a running {product-registry} instance in your organization.
+For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console], select the design that you want to export.
+. In the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to export.
 . Click the options icon (three vertical dots), and click *Export to {registry}*.
-. Complete the form to specify where the new design should be saved.
+. Complete the form to specify where to save the new design.
 +
 NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
 +
 .. *Registry instance*: Select the required instance from the list.
-.. *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection.
+.. *Group*: _Optional:_ Enter a unique group name such as `my-org` to organize the artifact in a named collection.
 Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
 NOTE:  Specifying a group is optional when using the web console: {registry} generates a `default` group automatically.
 +
-.. *Artifact ID*: Enter an optional unique ID for this artifact, such as `my-ID`.
+.. *Artifact ID*: _Optional:_ Enter a unique ID for this artifact, such as `my-ID`.
 If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
-.. *Version*: Specify the version number.
+.. *Version*:  _Optional:_ Specify the version number.
+If you don't specify a version number, {registry} sets the version to 1.
 +
 [.screencapture]
 .Exporting an API design
