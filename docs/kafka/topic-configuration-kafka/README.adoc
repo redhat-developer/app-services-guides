@@ -581,10 +581,10 @@ h|Type
 |Integer
 
 h|Default value
-|`1073741824` (bytes, 1 GB)
+|`1073741824` (bytes)
 
 h|Supported values
-| 52428800 bytes (50 MB) or greater
+| 52428800 bytes or greater
 
 h|Kafka property name
 |`segment.bytes`
@@ -723,7 +723,7 @@ h|Type
 |Integer
 
 h|Default value
-|`10485760` (bytes, 10 MB)
+|`10485760` (bytes)
 
 h|Kafka property name
 |`segment.index.bytes`
