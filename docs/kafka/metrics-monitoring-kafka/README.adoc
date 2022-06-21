@@ -87,7 +87,7 @@ As a developer or administrator, you can view metrics in {product-kafka} to visu
 == Supported metrics in {product-kafka}
 
 [role="_abstract"]
-{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, a subset of these metrics is displayed in the *Dashboard* page of each Kafka instance. To learn more about the limits associated with both trial and production Kafka instances, refer to https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
+{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, the *Dashboard* page of a Kafka instance displays a subset of these metrics. To learn more about the limits associated with both trial and production Kafka instance types, refer to https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 
 
 Cluster metrics::
@@ -96,7 +96,7 @@ Cluster metrics::
 * `kafka_namespace:haproxy_server_bytes_in_total:rate5m`: Number of incoming bytes per second for the cluster in the last five minutes. This ingress metric represents all the data that producers are sending to topics in the cluster.
 The Kafka instance type determines the maximum incoming byte rate.
 
-* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes per second for the cluster in the last five minutes. This egress metric represents all the data that producers are receiving from topics in the cluster.
+* `kafka_namespace:haproxy_server_bytes_out_total:rate5m`: Number of outgoing bytes per second for the cluster in the last five minutes. This egress metric represents all the data that consumers are receiving from topics in the cluster.
 The Kafka instance type determines the maximum outgoing byte rate.
 
 * `kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum`: Number of current client connections to the cluster. Kafka clients use persistent connections to interact with brokers in the cluster. For example, a consumer holds a connection to each broker it is receiving data from and a connection to its group coordinator.
