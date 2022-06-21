@@ -143,7 +143,7 @@ Topic metrics::
 * `kafka_topic:kafka_server_brokertopicmetrics_messages_in_total:rate5m`: Number of messages per second received by one or more topics in the instance in the last five minutes.
 
 * `kafka_topic:kafka_log_log_size:sum`: Log size of each topic and replica, in bytes, across all brokers in the cluster.
---
+
 
 [id="proc-viewing-metrics_{context}"]
 == Viewing metrics for a Kafka instance in {product-kafka}
@@ -157,12 +157,9 @@ After you produce and consume messages in your services using methods such as li
 .Procedure
 * In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
 +
---
 When you create a Kafka instance and add new topics, the *Dashboard* page is initially empty. After you start producing and consuming messages in your services, you can return to this page to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url-kafka}[_Configuring and connecting Kafka scripts with {product-long-kafka}_^].
 
 NOTE: In some cases, after you start producing and consuming messages, you might need to wait several minutes for the latest metrics to appear. You might also need to wait until your instance and topics contain enough data for metrics to appear.
-
---
 
 [id="proc-configuring-metrics-prometheus_{context}"]
 == Configuring metrics monitoring for a Kafka instance in Prometheus
