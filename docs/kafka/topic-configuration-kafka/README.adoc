@@ -81,9 +81,9 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 --
-As a developer of applications and services, you can refer to the properties of your topics in {product-kafka} to better understand how the Kafka implementation is managed for your services. You can edit certain topic properties according to the needs and goals of your services. Kafka topics contain the data (events) that applications produce or consume, so the way the topics are configured affects how data is stored and exchanged between applications.
+As a developer of applications and services, you can refer to the properties of your topics in {product-long-kafka} to better understand how the Kafka implementation is managed for your services. You can edit certain topic properties according to the needs and goals of your services. Kafka topics contain the data (events) that applications produce or consume, so the way the topics are configured affects how data is stored and exchanged between applications.
 
-In addition, as a developer, you can use the {product-kafka} web console to check Kafka topics in {product-kafka} for matching schemas in {product-long-registry}. When you use a schema with your Kafka topic, the schema ensures that producers publish data that conforms to a certain structure and compatibility policy. The schema also helps consumers parse and interpret the data from a topic as it is meant to be read. Using the web console to quickly identify matches between Kafka topics and schemas means that you or others in your organization don't need to inspect client application code to check for schema usage. If you don’t have any {registry} instances, or don’t have a schema that matches your topic, the console provides links to {product-registry}, where you can create instances and schemas.
+In addition, as a developer, you can use the {product-kafka} web console to check Kafka topics in {product-kafka} for matching schemas in {product-long-registry}. When you use a schema with your Kafka topic, the schema ensures that producers publish data that conforms to a certain structure and compatibility policy. The schema also helps consumers parse and interpret the data from a topic as it is meant to be read. Using the web console to quickly identify matches between Kafka topics and schemas means that you or others in your organization do not need to inspect client application code to check for schema usage. If you don’t have any {registry} instances, or don’t have a schema that matches your topic, the console provides links to {product-registry}, where you can create instances and schemas.
 --
 
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
@@ -92,7 +92,7 @@ In addition, as a developer, you can use the {product-kafka} web console to chec
 == Reviewing and editing topic properties in {product-kafka}
 
 [role="_abstract"]
-Use the {product-kafka} web console to select a topic in your Kafka instance and review the topic properties. You can adjust the editable topic properties as needed.
+Use the {product-long-kafka} web console to select a topic in your Kafka instance and review the topic properties. You can adjust the editable topic properties as needed.
 
 As an alternative to using the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) to update certain topic properties, as shown in the following example command:
 
@@ -102,15 +102,13 @@ As an alternative to using the {product-kafka} web console, you can use the `rho
 rhoas kafka topic update --name my-kafka-topic --retention-ms 704800000
 ----
 
-For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^].
+For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
 
 .Prerequisites
-* You are logged in to the {product-kafka} web console.
-* You have created a Kafka instance with at least one Kafka topic in {product-kafka}.
+* You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*.
-. Click the Kafka instance that contains the topic you want to configure.
+. In the {product-kafka} {service-url-kafka}[web console], click *Kafka Instances* and select the Kafka instance that contains the topic you want to configure.
 . Select the *Topics* tab.
 . Select the options icon (three vertical dots) for the relevant topic and click *Edit* to review the current topic properties, and adjust any editable topic properties as needed.
 . Click *Save* to finish.
@@ -119,20 +117,20 @@ NOTE: You can also edit topic properties by selecting the *Properties* tab withi
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
-* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
 
 
 [id="ref-supported-topic-properties_{context}"]
 == Supported topic properties in {product-kafka}
 
 [role="_abstract"]
-The following Kafka topic properties are supported in {product-kafka}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
+The following Kafka topic properties are supported in {product-long-kafka}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
 
 === Core configuration
 
-These properties determine the identity and core behavior of the topic. Before deploying your topic, enter all core configuration properties.
+The following topic properties determine the identity and core behavior of the topic. Before deploying your topic, enter all core configuration properties.
 
 Name::
 +
@@ -283,7 +281,7 @@ h|Kafka property name
 
 === Messages
 
-These properties control how your messages are handled in the Kafka instance.
+The following topic properties control how your messages are handled in the Kafka instance.
 
 Maximum message bytes::
 +
@@ -420,7 +418,7 @@ h|Kafka property name
 
 === Log
 
-These properties define how your log is handled.
+The following topic properties define how your log is handled.
 
 NOTE: Messages are continually appended to the partition log and are assigned their offset.
 
@@ -539,7 +537,7 @@ h|Kafka property name
 
 === Replication
 
-These properties control the behavior of your replicas. Each of these properties impacts every replica created in the topic.
+The following topic properties control the behavior of your replicas. Each of these properties impacts every replica created in the topic.
 
 Unclean leader election::
 +
@@ -565,7 +563,7 @@ h|Kafka property name
 
 === Cleanup
 
-These properties control the cleanup processing of the log.
+The following topic properties control the cleanup processing of the log.
 
 Log segment size::
 +
@@ -685,7 +683,7 @@ h|Kafka property name
 
 === Index
 
-These properties control the indexing of the log.
+The following topic properties control the indexing of the log.
 
 Index interval size::
 +
@@ -733,7 +731,7 @@ h|Kafka property name
 
 === Flush
 
-These properties control the frequency of the flushing of the log.
+The following topic properties control the frequency of the flushing of the log.
 
 Flush interval messages::
 +
@@ -784,10 +782,10 @@ h|Kafka property name
 * https://kafka.apache.org/documentation/#topicconfigs[Topic-Level Configs^] in Kafka documentation
 
 [id="con-using-kafka-topics-with-registry-schemas_{context}"]
-== Using topics in {product-long-kafka} with schemas in {product-long-registry}
+== Schemas in {product-registry} for topics in {product-kafka}
 
 [role="_abstract"]
-By default, a Kafka topic that you create in {product-long-kafka} can store any kind of data. The topic doesn't validate the structures of messages that it stores. However, as a developer of applications and services, you might want to define the structure of the data for messages stored in a given topic, and ensure that producers and consumers use this structure. To achieve this goal, you can use schemas that you upload to registry instances in {product-long-registry} with your Kafka topics. {product-registry} is a cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own registry instances.
+By default, a Kafka topic that you create in {product-long-kafka} can store any kind of data. The topic does not validate the structures of messages that it stores. However, as a developer of applications and services, you might want to define the structure of the data for messages stored in a given topic, and ensure that producers and consumers use this structure. To achieve this goal, you can use schemas that you upload to registry instances in {product-long-registry} with your Kafka topics. {product-registry} is a cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own registry instances.
 
 When you use a schema with your Kafka topic, the schema ensures that producers publish data that conforms to a certain structure and compatibility policy. The schema also helps consumers parse and interpret the data from a topic as it is meant to be read.
 
@@ -795,44 +793,43 @@ To use a schema, a client application can directly publish a new schema to a {re
 
 However, to identify schema usage for Kafka topics in {product-kafka}, it might not always be convenient for you or others in your organization to inspect client application code. Instead, to quickly identify schemas that match your topics, you can use the {product-kafka} web console.
 
-For a given Kafka topic, you can use the console to check {registry} instances for value or key schemas registered to those instances that match the name of the topic. If you don't have access to any {registry} instances, or don't have value or key schemas registered to your instances that match your topic, the console provides links to {product-registry}, where you can create instances and schemas. The console also shows you the naming format you need to use when creating a new value or key schema, so that it matches the topic.
+For a given Kafka topic, you can use the console to check {registry} instances for value or key schemas registered to those instances that match the name of the topic. If you do not have access to any {registry} instances, or you do not have value or key schemas registered to your instances that match your topic, the console provides links to {product-registry}, where you can create instances and schemas. The console also shows you the naming format you need to use when creating a new value or key schema, so that it matches the topic.
 
 [id="proc-checking-topic-for-existing-schema-matches_{context}"]
 === Checking a topic for existing schema matches
 
 [role="_abstract"]
-The following procedure shows how to use the web console to select a Kafka topic and then check an existing {registry} instance for value or key schemas that have IDs that match the name of the topic.
+The following procedure shows how to use the {product-long-kafka} web console to select a Kafka topic and then check an existing {product-long-registry} instance for value or key schemas that have IDs that match the name of the topic.
 
 Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url-kafka}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new registry instance and matching schema for a topic].
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
-* You've created a Kafka instance with at least one topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have created a Kafka instance with at least one topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 * You have access to at least one instance in {registry} that you can check for schemas that match your topic.
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
+. In the {product-kafka} {service-url-kafka}[web console], click *Kafka Instances* and select the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
 . On the *Topics* page, click the name of the topic that you want to check.
 . Click the *Schemas* tab.
-. In the *{registry} instance* drop-down menu, select a {registry} instance to check for schemas that have IDs that match the name of the topic.
+. In the *{registry} instance* list, select a {registry} instance to check for schemas that have IDs that match the name of the topic.
 +
 The *Schemas* tab shows any schemas registered to the selected {registry} instance that match the topic.
 +
-NOTE: Although the drop-down menu shows all {registry} instances in your organization, you can see schema information *only* for instances that you own or have been granted access to.
+NOTE: Although the instance list shows all {registry} instances in your organization, you can see schema information only for instances that you own or have been granted access to.
 
-. If the *Schemas* tab shows the schema types that you want associated with your topic, you're done. You don't need to complete the remainder of this procedure.
+. If the *Schemas* tab shows the schema types that you want associated with your topic, you do not need to complete the remainder of this procedure.
 +
 However, to see the details for a matching schema, or to manage it, click *View details*.
 
-. If the *Schemas* tab doesn't show a matching value or key schema that you want associated with your topic, you can start creating the schema using one of these options:
+. If the *Schemas* tab doesn't show a matching value or key schema that you want associated with your topic, you can start creating the schema using one of the following options:
 +
 --
-*** If {product-kafka} found *either* a value or key schema that matches your topic (but not both), the *Schemas* tab displays `No matching schema` next to the schema type that it couldn't find.
+*** If {product-kafka} found either a value or key schema that matches your topic (but not both), the *Schemas* tab displays `No matching schema` next to the schema type that it couldn't find.
 +
 To create this type of schema in your {registry} instance, click the question mark icon. In the resulting pop-up window, copy the required naming format, and click *Go to {registry} instance*.
 
-*** If {product-kafka} found *no* schemas that match your topic, the *Schemas* tab displays `No matching schema exists for the selected instance`.
+*** If {product-kafka} found no schemas that match your topic, the *Schemas* tab displays `No matching schema exists for the selected instance`.
 +
 For the type of schema that you want to associate with your topic, copy the required naming format, and click *Go to {registry} instance*.
 --
@@ -854,29 +851,28 @@ The *Schemas* tab now shows the name of the matching schema that you uploaded.
 === Creating a new registry instance and matching schema for a topic
 
 [role="_abstract"]
-The following procedure shows how to use the web console to select a Kafka topic, and then create a new {registry} instance with a value or key schema that matches the topic.
+The following procedure shows how to use the web console to select a Kafka topic, and then create a new {product-long-registry} instance with a value or key schema that matches the topic.
 
 Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url-kafka}#proc-checking-topic-for-existing-schema-matches_{context}[Checking a topic for existing schema matches].
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
-* You've created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*. Click the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
+. In the {product-kafka} {service-url-kafka}[web console], click *Kafka Instances* and select the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
 . On the *Topics* page, click the name of the topic that you want to check.
 . Click the *Schemas* tab.
-. Based on what the *Schemas* tab shows, start creating a new {registry} instance using one of these options:
+. Based on what the *Schemas* tab shows, start creating a new {registry} instance using one of the following options:
 +
 --
-** If there are no existing {registry} instances in your organization, the drop-down menu is empty and the *Schemas* tab displays `No {registry} instances`.
+** If there are no existing {registry} instances in your organization, the instance list is empty and the *Schemas* tab displays `No {registry} instances`.
 +
 For the type of schema that you want to associate with your topic, copy the required naming format shown on the *Schemas* tab. To start creating a new {registry} instance and schema, click *Go to {registry}*.
 
-** Even if there are existing {registry} instances in the drop-down menu, you can still create and select a new instance.
+** Even if there are existing {registry} instances in the list, you can still create and select a new instance.
 +
-Before you start, take note of your topic name. To match the topic, the ID of a schema that you add to a new {registry} instance must be in the format of `_<topic-name>_-value`, or  `_<topic-name>_-key`. When you're ready to start creating a new {registry} instance and schema, below the drop-down menu, click *Create {registry} instance*.
+Before you start, take note of your topic name. To match the topic, the ID of a schema that you add to a new {registry} instance must be in the format of `_<topic-name>_-value`, or  `_<topic-name>_-key`. When you are ready to start creating a new {registry} instance and schema, below the list, click *Create {registry} instance*.
 --
 +
 The {registry} section of the web console opens.
@@ -886,7 +882,7 @@ The {registry} section of the web console opens.
 . In the `ID of the artifact` field, specify a schema ID in the format of `_<topic-name>_-value`, or  `_<topic-name>_-key`. For example, `my-topic-value` or `my-topic-key`. If you previously copied this required naming format, you can paste it in the `ID of the artifact` field.
 . Finish creating the schema in the normal way.
 . When you have finished creating the new {registry} instance and schema, in the web console, click *Streams for Apache Kafka*. Navigate to the *Schemas* tab for your topic, as you did previously.
-. In the *{registry} instance* drop-down menu, select the new {registry} instance that you created.
+. In the *{registry} instance* list, select the new {registry} instance that you created.
 +
 The *Schemas* tab shows the name of the schema that you uploaded when you created the new {registry} instance.
 . To see details for the schema, or to manage it, click *View details*.
