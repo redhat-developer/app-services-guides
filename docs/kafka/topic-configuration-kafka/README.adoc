@@ -108,7 +108,7 @@ For a list of topic properties that you can update using the CLI, see the `rhoas
 * You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 
 .Procedure
-. In the {product-kafka} {service-url-kafka}[web console], click *Kafka Instances* and select the Kafka instance that contains the topic you want to configure.
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select the Kafka instance that contains the topic you want to configure.
 . Select the *Topics* tab.
 . Select the options icon (three vertical dots) for the relevant topic and click *Edit* to review the current topic properties, and adjust any editable topic properties as needed.
 . Click *Save* to finish.
@@ -281,7 +281,7 @@ h|Kafka property name
 
 === Messages
 
-The following topic properties control how your messages are handled in the Kafka instance.
+The following topic properties control how the Kafka instance handles messages.
 
 Maximum message bytes::
 +
@@ -418,7 +418,7 @@ h|Kafka property name
 
 === Log
 
-The following topic properties define how your log is handled.
+The following topic properties define how the Kafka instance handles the message log.
 
 NOTE: Messages are continually appended to the partition log and are assigned their offset.
 
@@ -782,7 +782,7 @@ h|Kafka property name
 * https://kafka.apache.org/documentation/#topicconfigs[Topic-Level Configs^] in Kafka documentation
 
 [id="con-using-kafka-topics-with-registry-schemas_{context}"]
-== Schemas in {product-registry} for topics in {product-kafka}
+== Using topics in {product-long-kafka} with schemas in {product-long-registry}
 
 [role="_abstract"]
 By default, a Kafka topic that you create in {product-long-kafka} can store any kind of data. The topic does not validate the structures of messages that it stores. However, as a developer of applications and services, you might want to define the structure of the data for messages stored in a given topic, and ensure that producers and consumers use this structure. To achieve this goal, you can use schemas that you upload to registry instances in {product-long-registry} with your Kafka topics. {product-registry} is a cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own registry instances.
@@ -809,7 +809,7 @@ Alternatively, to learn how to create a _new_ {registry} instance with a value o
 * You have access to at least one instance in {registry} that you can check for schemas that match your topic.
 
 .Procedure
-. In the {product-kafka} {service-url-kafka}[web console], click *Kafka Instances* and select the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
 . On the *Topics* page, click the name of the topic that you want to check.
 . Click the *Schemas* tab.
 . In the *{registry} instance* list, select a {registry} instance to check for schemas that have IDs that match the name of the topic.
@@ -860,7 +860,7 @@ Alternatively, to learn how to check an _existing_ {registry} instance for schem
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the {product-kafka} {service-url-kafka}[web console], click *Kafka Instances* and select the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select the name of the Kafka instance that contains the topic that you want to check for matching schemas in {product-registry}.
 . On the *Topics* page, click the name of the topic that you want to check.
 . Click the *Schemas* tab.
 . Based on what the *Schemas* tab shows, start creating a new {registry} instance using one of the following options:
