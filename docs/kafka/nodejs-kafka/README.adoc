@@ -95,7 +95,7 @@ endif::[]
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
 
-NOTE: The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer, or use Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
+NOTE: The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer or use a container runtime such as Podman or Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
 
 
 // Condition out QS-only content so that it doesn't appear in docs.
