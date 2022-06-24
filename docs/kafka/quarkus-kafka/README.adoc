@@ -74,13 +74,17 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-using-quarkus"]
-= Using Quarkus applications with Kafka instances in {product-long-kafka}
+= Manually connecting Quarkus applications to Kafka instances in {product-long-kafka}
 ifdef::context[:parent-context: {context}]
 :context: using-quarkus
 
 // Purpose statement for the assembly
 [role="_abstract"]
 As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
+
+In this quick start, you'll use the {product-kafka} web console to collect connection information for a Kafka instance. Then you'll manually configure a connection to the Kafka instance from an example Quarkus application and start producing and consuming messages.
+
+NOTE: When you've completed this quick start and understand the required connection configuration for a Kafka instance, you can use the {product-long-rhoas} command-line interface (CLI) to generate this type of configuration in a more automated way. To learn more, see {base-url}{service-contexts-url-cli}[Connecting client applications to {product-long-rhoas} using the rhoas CLI^].
 
 .Prerequisites
 ifndef::community[]
@@ -97,12 +101,12 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to use Quarkus applications to produce messages to and consume messages from a Kafka instance in {product-long-kafka}.
+Learn how to manually connect a Quarkus application to a Kafka instance in {product-long-kafka} and then produce and consume messages.
 ====
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-kafka} with Quarkus. In this quick start, you'll learn how to use https://quarkus.io/[Quarkus^] to produce messages to and consume messages from your Kafka instances in {product-kafka}.
+Welcome to the quick start for {product-long-kafka} with Quarkus. In this quick start, you'll use the web console to collect connection information for a Kafka instance in {product-kafka}. Then you'll manually configure a connection to the Kafka instance from an example https://quarkus.io/[Quarkus^] application and start producing and consuming messages.
 ====
 endif::[]
 
@@ -110,7 +114,7 @@ endif::[]
 == Importing the Quarkus sample code
 
 [role="_abstract"]
-For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product-kafka} in the same way.
+For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
 
 .Procedure
 . On the command line, clone the {product-kafka} {samples-git-repo}[Guides and Samples^] repository from GitHub.
@@ -238,7 +242,7 @@ endif::[]
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-kafka} Quarkus quick start, and are now ready to use your own Quarkus applications with {product-kafka}.
+Congratulations! You successfully completed the {product-kafka} Quarkus quick start, and are now ready to connect your own Quarkus applications to {product-kafka}.
 ====
 endif::[]
 
