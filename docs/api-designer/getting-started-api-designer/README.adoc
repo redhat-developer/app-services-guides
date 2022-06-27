@@ -118,10 +118,10 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create a schema or API design*.
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create design*.
 . Complete the form to provide the following details for the new design:
 * *Name*: Enter a unique design name, such as `my-api-design`.
-* *Summary* _(Optional)_: Enter a short description of the design.
+* *Description* _(Optional)_: Enter a short description of the design.
 * *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
 * *Version* _(OpenAPI only)_: Accept the default value *3.0.2*, or select another version from the list.
 * *Template*: Select the *Pet Store Example* template, or select another template from the list.
@@ -146,7 +146,7 @@ The content of the *Source* tab automatically updates when you edit values on th
 . Click *Save*.
 
 The new design is listed on the *API and Schema Designs* page.
-You can use the options icon (three vertical dots) to open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
+You can use the options icon (three vertical dots) to view details about the design (including export and import events, and the edit history), rename the design, open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
 
 .Verification
 ifdef::qs[]
@@ -170,18 +170,19 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create a schema or API design*.
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create design*.
 . Complete the form to provide the following details for the new design:
 * *Name*: Enter a unique design name, such as `my-schema-design`.
-* *Summary* _(Optional)_: Enter a short description of the design.
+* *Description* _(Optional)_: Enter a short description of the design.
 * *Type*: From the list, select *Apache Avro*, or select another schema type.
 . Click *Create*. The new schema design opens in the design editor.
 . Edit the design source to provide your content.
 . _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _(Optional)_ For Apache Avro or JSON Schema designs, you can click *Actions > Format content* to insert spaces and tabs that align your design content correctly.
 . Click *Save*.
 
 The new design is listed on the *API and Schema Designs* page.
-You can use the options icon (three vertical dots) to open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
+You can use the options icon (three vertical dots) to view details about the design (including export and import events, and the edit history), rename the design, open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
 
 .Verification
 ifdef::qs[]
@@ -205,12 +206,12 @@ You can import an event schema or API definition into {product-long-api-designer
 For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Import a schema or API design*, and then click one of the following options:
-* *Import from file*: Click *Browse* and select a file, or drag and drop a file.
-* *Import from URL*: Enter a valid and accessible URL.
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Import design*, and then click one of the following options:
 * *Import from {registry}*: From the instances list, select a {registry} instance.
 Browse the list of artifacts for that instance, and select an artifact.
-. When prompted, provide additional information such as version (_OpenAPI only_), name, type, and summary in the import dialog. You can overwrite any autopopulated values.
+* *Import from URL*: Enter a valid and accessible URL, and click *Fetch*.
+* *Import from file*: Click *Browse* and select a file, or drag and drop a file.
+. When prompted, provide additional information such as version (_OpenAPI only_), name, type, and description in the import dialog. You can overwrite any autopopulated values.
 . Click *Import*.
 The design editor opens automatically.
 
@@ -247,22 +248,23 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 . Click *Edit* to open the design editor.
 . From the *Actions* menu, click *Test using Service Registry*.
 . From the *Registry instance* list, select a {registry} instance.
-. In the *Group* and *Artifact ID* fields, specify the artifact details.
+. In the *Group* and *ID* fields, specify the artifact details.
 . Click *Test*.
 
-A new pane in the design editor window shows the test results:
+A new pane in the design editor window shows the registration issues found by the test:
 
-* If the results page is blank, the content obeys the specified rules.
+* If the design content obeys the specified rules, the registration issues pane contains the following text:
+`Registry Test completed with no issues`
 
-* If the results page provides details of any issues, resolve the issues and click *Retry* to retest the content using the same rules.
+* If the registration issues pane provides details of any issues, resolve the issues and click *Retry* to retest the content using the same rules.
 
 .Verification
 ifdef::qs[]
-* Is the test results pane shown in the design editor?
+* Is the registration issues pane shown in the design editor?
 * Are the test results correct?
 endif::[]
 ifndef::qs[]
-. Verify that the test results pane is shown in the design editor.
+. Verify that the registration issues pane is shown in the design editor.
 . Verify that the test results are correct.
 endif::[]
 
@@ -285,13 +287,13 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 +
 NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
 +
-* *Registry instance*: Select the required instance from the list.
+* *Registry Instance*: Select the required instance from the list.
 * *Group* _(Optional)_: Enter a unique group name such as `my-org` to organize the artifact in a named collection.
 Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
 NOTE:  Specifying a group is optional when using the web console: {registry} generates a `default` group automatically.
 +
-* *Artifact ID* _(Optional)_: Enter a unique ID for this artifact, such as `my-ID`.
+* *ID* _(Optional)_: Enter a unique ID for this artifact, such as `my-ID`.
 If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
 * *Version* _(Optional)_: Specify the version number.
 If you don't specify a version number, {registry} sets the version to 1.
