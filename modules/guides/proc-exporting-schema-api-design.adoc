@@ -1,21 +1,46 @@
 [id='proc-exporting-schema-api-design_{context}']
-= Exporting {product-api-designer} designs
+= Exporting a schema or API design
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can export an {product-api-designer} design to a file or to an {product-long-registry} instance.
+When you're happy with your changes to an {product-long-api-designer} event schema or API definition, and you want to use the design in your application, you can export the content to an existing {product-long-registry} instance.
 
 .Prerequisites
+* You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
 * You've created or imported an {product-api-designer} design.
+* You can access a running {product-registry} instance in your organization.
 
 .Procedure
 . In the *{product-api-designer}* designs page of the web console, select the {product-api-designer} design that you want to export.
-. Click ...
+. Click *Edit* to open the design editor.
+. From the *Actions* menu, click *Export to {registry}*.
+. Complete the form to specify where the new design should be saved.
++
+NOTE: If the design was originally imported from {product-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
++
+.. *Registry instance*: Select the required instance from the list.
+.. *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
++
+NOTE:  Specifying a group is optional when using the web console: {registry} generates a `default` group automatically.
++
+.. *Artifact ID*: Enter an optional unique ID for this artifact, such as `my-ID`. If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
+.. *Version*: Specify the version number.
++
+[.screencapture]
+.Exporting an API design
+image::api-designer-getting-started-api-designer/export-api-designer-design.png[Image of page to export an API design]
++
+. Click *Export*.
+
+You can manage {product-long-api-designer} design versions in {product-long-registry}. You can also download {product-api-designer} designs to a file, either for local client code generation or to import the designs into {product-long-api-management}.
 
 .Verification
 ifdef::qs[]
-* Is ...?
+* Is the design listed as an artifact in {product-long-registry}?
+* Are the artifact details correct?
 endif::[]
 ifndef::qs[]
-* Verify that ...
+* Verify that the design is listed as an artifact in {product-long-registry}.
+* Verify that the artifact details are correct.
 endif::[]
+

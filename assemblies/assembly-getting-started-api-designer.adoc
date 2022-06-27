@@ -6,15 +6,16 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {product-long-api-designer} to ...
-{product-long-api-designer} is a managed cloud service that enables you to design schema and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
+As an API owner or developer, you can use {product-long-api-designer} to design event schemas and API definitions that comply with vendor-neutral and portable open specifications.
+{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
 
-For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^]
+For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^].
 
 ifndef::community[]
 .Prerequisites
 * You have a {org-name} account.
 * You have a subscription to {product-long-kafka}.
+* If you plan to store your designs in {product-long-registry}, you have a running {registry} instance (see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
 //For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]
 
@@ -33,23 +34,20 @@ In this quick start, you'll learn how to ...
 ====
 endif::[]
 
-include::modules/guides/proc-creating-schema-api-design.adoc[leveloffset=+1]
+include::modules/guides/proc-creating-api-design.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-schema-design.adoc[leveloffset=+1]
 
 include::modules/guides/proc-importing-schema-api-design.adoc[leveloffset=+1]
 
-include::modules/guides/proc-editing-schema-api-design.adoc[leveloffset=+1]
-
-include::modules/guides/proc-validating-schema-api-design.adoc[leveloffset=+1]
-
 include::modules/guides/proc-exporting-schema-api-design.adoc[leveloffset=+1]
-
-include::modules/guides/proc-deleting-schema-api-design.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 == Additional resources
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_api_designer/1[{product-long-api-designer} user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_api_management/1[{product-long-api-management} user documentation^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[{product-long-kafka} user documentation^]
 
 ifdef::qs[]
 [#conclusion]

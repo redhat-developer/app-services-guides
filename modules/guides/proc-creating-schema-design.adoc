@@ -1,0 +1,43 @@
+[id='proc-creating-schema-design_{context}']
+= Creating a schema design
+:imagesdir: ../_images
+
+[role="_abstract"]
+Use the {product-long-api-designer} web console to create an Apache Avro, JSON Schema, or Google Protocol Buffers (Protobuf) event schema.
+
+ifndef::qs[]
+.Prerequisites
+* You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
+endif::[]
+
+.Procedure
+. In the {service-url-api-designer}[{product-api-designer} web console], click *Create a schema or API design*.
+. Complete the form to provide the details of the new design:
+.. *Name*: Enter a unique design name, such as `my-schema-design`.
+.. *Summary*: Optional: Enter a short description of the design.
+.. *Type*: From the list, select *Apache Avro*, or select another schema type.
++
+[.screencapture]
+.Creating a schema design
+image::api-designer-getting-started-api-designer/create-schema-design.png[Image of page to create a schema design]
++
+. Click *Create*. The new schema design opens in the design editor.
+. Edit the design source to provide your content.
++
+[.screencapture]
+.Editing a schema design
+image::api-designer-getting-started-api-designer/api-designer-schema-editor.png[Image of schema design editor]
++
+. Click *Save*.
+
+The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
+
+.Verification
+ifdef::qs[]
+* Is the new design listed on the {product-api-designer} designs page?
+* Are the design details correct?
+endif::[]
+ifndef::qs[]
+. Verify that the new design is listed on the {product-api-designer} designs page.
+. Verify that the design details are correct.
+endif::[]

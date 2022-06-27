@@ -1,23 +1,29 @@
 [id='proc-importing-schema-api-design_{context}']
-= Importing an {product-api-designer} schema or API design
+= Importing a schema or API design
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can import an {product-api-designer} schema or API design from a URL, from a file, or from an {product-long-registry} instance.
+You can import an event schema or API definition into {product-long-api-designer} from a URL, from a file, or from an {product-long-registry} instance.
 
 .Prerequisites
 * You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
+* You can access a running {product-registry} instance in your organization, if you want to import from {registry}.
 
 .Procedure
-. In the *{product-api-designer}* designs page of the web console, click ...
-. Click ...
+. In the {service-url-api-designer}[{product-api-designer} web console], click *Import a schema or API design*, and then click one of the following options:
+.. *Import from file*: Click *Browse* and select a file, or drag and drop a file.
+.. *Import from URL*: Enter a valid and accessible URL.
+.. *Import from {registry}*: From the instances list, select a {registry} instance. Browse the list of artifacts for that instance, and select an artifact.
+. Click *Import*. The design editor opens automatically.
+
+When you finish editing, you can export the updated design to {registry} as a new artifact or as a new version of the existing artifact. You can also save your changes locally, or download the content to a file.
 
 .Verification
 ifdef::qs[]
-* Is the imported {product-api-designer} design listed in the designs table?
-* Is ...
+* Is the imported design listed on the {product-api-designer} designs page?
+* Are the design details correct?
 endif::[]
 ifndef::qs[]
-. Verify that the imported {product-api-designer} design is listed in the designs table.
-. Verify that ...
+. Verify that the imported design is listed on the {product-api-designer} designs page.
+. Verify that the design details are correct.
 endif::[]
