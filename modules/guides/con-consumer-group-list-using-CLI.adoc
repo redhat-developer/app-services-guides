@@ -14,8 +14,8 @@ When you enter the preceding command, you should see output similar to the follo
 
 [source,subs="+quotes,+attributes"]
 ----
-CONSUMER GROUP ID    ACTIVE MEMBERS    PARTITIONS WITH LAG
--------------------  ----------------  ---------------------
-consumergroup1                     2                     0
-consumergroup2                     1                     0
+Consumer group ID    Active members    Partitions with lag    State
+-------------------  ----------------  ---------------------  -------
+consumergroup1                     2                     0    Empty
+consumergroup2                     1                     0    Stable
 ----

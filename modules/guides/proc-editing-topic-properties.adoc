@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {product-kafka} web console to select a topic in your Kafka instance and review the topic properties. You can adjust the editable topic properties as needed.
+Use the {product-long-kafka} web console to select a topic in your Kafka instance and review the topic properties. You can adjust the editable topic properties as needed.
 
 As an alternative to using the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) to update certain topic properties, as shown in the following example command:
 
@@ -13,15 +13,13 @@ As an alternative to using the {product-kafka} web console, you can use the `rho
 rhoas kafka topic update --name my-kafka-topic --retention-ms 704800000
 ----
 
-For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^].
+For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
 
 .Prerequisites
-* You are logged in to the {product-kafka} web console.
-* You have created a Kafka instance with at least one Kafka topic in {product-kafka}.
+* You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances*.
-. Click the Kafka instance that contains the topic you want to configure.
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select the Kafka instance that contains the topic you want to configure.
 . Select the *Topics* tab.
 . Select the options icon (three vertical dots) for the relevant topic and click *Edit* to review the current topic properties, and adjust any editable topic properties as needed.
 . Click *Save* to finish.
@@ -30,7 +28,7 @@ NOTE: You can also edit topic properties by selecting the *Properties* tab withi
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
-* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
 

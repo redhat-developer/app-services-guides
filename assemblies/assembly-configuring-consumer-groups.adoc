@@ -17,6 +17,8 @@ include::modules/guides/con-consumer-group-list.adoc[leveloffset=+1]
 
 include::modules/guides/con-consumer-group-list-using-CLI.adoc[leveloffset=+2]
 
+include::modules/guides/con-consumer-group-state.adoc[leveloffset=+2]
+
 include::modules/guides/con-consumer-group-script.adoc[leveloffset=+2]
 
 include::modules/guides/proc-adding-consumer-group-id.adoc[leveloffset=+1]

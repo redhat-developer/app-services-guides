@@ -9,54 +9,52 @@ The example Node.js application uses the `kube-service-bindings` link:https://ww
 
 .Prerequisites
 * You understand how the Service Binding Operator injects connection parameters as files into the pod for a client application. See {base-url}{service-binding-url-kafka}#con-about-service-binding_{context}[About service binding].
-* The Service Binding Operator is installed on your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-installing-service-binding-operator_{context}[Installing the Service Binding Operator on OpenShift].
-* The RHOAS Operator is installed on your OpenShift cluster and you've verified connection to the cluster. See {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You've connected a Kafka instance to a project in your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-connecting-kafka-instance-to-openshift-cluster_{context}[Connecting a Kafka instance to your OpenShift cluster].
-* You've deployed the example Node.js application. See {base-url}{service-binding-url-kafka}#proc-deploying-example-nodejs-application-on-openshift_{context}[Deploying an example Node.js application on OpenShift].
-* You've created the topic required by the Node.js application. See {base-url}{service-binding-url-kafka}#proc-creating-countries-topic-in-kafka-instance_{context}[Creating the countries topic in your Kafka instance].
+* The Service Binding Operator is installed on your OpenShift cluster.
+* The RHOAS Operator is installed on your OpenShift cluster and you have verified connection to the cluster.
+* You have connected a Kafka instance to a project in your OpenShift cluster.
+* You have deployed the example Node.js application.
+* You have created the Kafka topic required by the Node.js application.
 
 .Procedure
 
-. Ensure that you're logged in to the OpenShift web console as the same user who deployed the Node.js application earlier in this tutorial.
+. Ensure that you are logged in to the OpenShift web console as the same user who deployed the Node.js application earlier in this tutorial.
 
 . Click the perspective switcher in the upper-left corner. Switch to the *Developer* perspective.
 +
 The *Topology* page opens.
 
 . Ensure that the current OpenShift project is the one you previously connected your Kafka instance to.
-.. At the top of the *Topology* page, click the *Project* drop-down menu.
+.. At the top of the *Topology* page, click the *Project* list.
 .. Select the project that you previously connected your Kafka instance to.
 +
 On the *Topology* page for your project, you should see an icon for the `KafkaConnection` object that was created when you connected a Kafka instance to the project. The icon for the `KafkaConnection` object is labelled `AKC`. The name of the object matches the name of the Kafka instance that you connected to the project.
 +
 You should also see icons for the producer and consumer components of the Node.js application that you deployed. Each component is a `DeploymentConfig` object and is labelled `DC`.
 
-. To start creating a service binding connection, hover the mouse pointer over the icon for the consumer component.
+. To start creating a service binding connection, hover the mouse pointer over the icon for the consumer component, as shown in the figure.
 +
-.Starting a service binding connection
+.Action to start service binding connection
 image::kafka-service-binding-kafka/sak-service-binding-arrow.png[Image of arrow to create a binding connection]
 +
-As shown in the figure, an arrow with a dotted line appears from the icon.
+An arrow with a dotted line appears from the icon.
 
-. Left-click and drag the head of the arrow until it's directly over the icon for the `KafkaConnection` object.
+. Left-click and drag the head of the arrow until it's directly over the icon for the `KafkaConnection` object, as shown in the figure.
 +
-.Creating the service binding connection
+.Tooltip indicating type of connection to be created
 image::kafka-service-binding-kafka/sak-service-binding-tooltip.png[Image of service binding tooltip]
 +
-As shown in the figure, a tooltip appears over the icon for the `KafkaConnection` object. The tooltip indicates that you're about to create a service binding connection.
+A tooltip appears over the icon for the `KafkaConnection` object. The tooltip indicates that you are about to create a service binding connection.
 
-. To create the service binding connection, release the left mouse button.
+. To create the service binding connection, release the left mouse button, as shown in the figure.
 +
-.The completed service binding connection
+.Completed service binding connection
 image::kafka-service-binding-kafka/sak-service-binding-connection.png[Image of completed binding connection]
-+
-As shown in the figure, this action completes the connection.
 +
 When you create the binding connection, the Service Binding Operator injects connection parameters as files into the pod for the consumer component. The `kube-service-bindings` link:https://www.npmjs.com/package/kube-service-bindings[package^] used by the consumer component automatically detects these files and converts the information into the format required by the KafkaJS client that the component uses by default.
 
 . To bind the producer component to the `KafkaConnection` object, drag a connection to the `KafkaConnection` object, in the same way that you did for the consumer component.
 
-. When you've made a connection to the `KafkaConnection` object, click the icon for the producer component.
+. When you have made a connection to the `KafkaConnection` object, click the icon for the producer component.
 +
 A sidebar opens with the *Resources* tab displayed. Under *Pods*, you still see a single pod corresponding to the component.
 
@@ -68,4 +66,4 @@ You should now see that the producer has connected to the Kafka instance. The pr
 +
 You should now see that the consumer has connected to the Kafka instance. The consumer displays the same country names that the producer sends to the `countries` Kafka topic, and in the same order.
 +
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console^].

@@ -7,7 +7,7 @@ To create a consumer group, you specify a consumer group ID in your consumer app
 
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
-When you configure a consumer client application to access Kafka, you assign a group ID to associate it with a consumer group.
+When you configure a consumer client application to access a Kafka instance, you assign a group ID to associate it with a consumer group.
 All consumers with the same group ID belong to the consumer group with that ID.
 
 Consumer groups connected to a Kafka instance are displayed in the {product-kafka} web console.

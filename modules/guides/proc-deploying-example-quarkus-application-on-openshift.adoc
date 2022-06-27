@@ -14,11 +14,11 @@ The example Quarkus application uses the `quarkus-kubernetes-service-binding` li
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
+. If you are not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster]. Log in as the same user who verified connection to the cluster.
 
-. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example.
+. Use the OpenShift CLI to ensure that the current OpenShift project is the one that you previously connected your Kafka instance to, as shown in the following example:
 +
-.Using the OpenShift CLI to specify the current OpenShift project
+.Example OpenShift CLI command to specify current OpenShift project
 [source]
 ----
 $ oc project my-project
@@ -26,7 +26,7 @@ $ oc project my-project
 
 . To deploy the Quarkus application, apply an example application template provided by {product-kafka}.
 +
-.Deploying an example Quarkus application
+.OpenShift CLI command to deploy example Quarkus application
 [source,options="nowrap"]
 ----
 $ oc apply -f https://raw.githubusercontent.com/redhat-developer/app-services-guides/main/code-examples/quarkus-kafka-quickstart/.kubernetes/kubernetes.yml
@@ -40,7 +40,7 @@ As shown in the output, when you deploy the application, OpenShift creates a ser
 
 . Get the URL of the route created for the application.
 +
-.Getting the route details for the Quarkus application
+.OpenShift CLI command to get route for application
 [source,options="nowrap"]
 ----
 $ oc get route

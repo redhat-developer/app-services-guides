@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product-kafka} in the same way.
+For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
 
 .Procedure
 . On the command line, clone the {product-kafka} {samples-git-repo}[Guides and Samples^] repository from GitHub.

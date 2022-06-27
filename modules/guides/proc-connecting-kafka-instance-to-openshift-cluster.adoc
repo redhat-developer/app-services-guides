@@ -3,29 +3,29 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-When you've verified connection to your OpenShift cluster, you can connect a Kafka instance in {product-kafka} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
+When you have verified connection to your OpenShift cluster, you can connect a Kafka instance in {product-long-kafka} to the current project in the cluster. You must establish this connection before you can bind applications running in the project to the Kafka instance. The following example shows how to use the RHOAS CLI to connect a specified Kafka instance to a project in your cluster.
 
 .Prerequisites
-* You've installed the RHOAS Operator and verified connection to your OpenShift cluster. See {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
-* You’ve created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have installed the RHOAS Operator and verified connection to your OpenShift cluster.
+* You have created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 * You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
-* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. For more information, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
+* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. See {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 
-. If you're not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
+. If you are not already logged in to the OpenShift CLI, log in using a token, as described in {base-url}{service-binding-url-kafka}#proc-verifying-connection-to-openshift-cluster_{context}[Verifying connection to your OpenShift cluster].
 
 . Log in to the RHOAS CLI.
 +
-.Logging in to the RHOAS CLI
+.RHOAS CLI login command
 [source]
 ----
 $ rhoas login
 ----
 
-. Use the OpenShift CLI to specify the current OpenShift project. Specify the project that you created when verifying connection to your OpenShift cluster, as shown in the following example.
+. Use the OpenShift CLI to specify the current OpenShift project. Specify the project that you created when verifying connection to your OpenShift cluster, as shown in the following example:
 +
-.Using the OpenShift CLI to specify the current OpenShift project
+.Example OpenShift CLI command to specify current project
 [source]
 ----
 $ oc project my-project
@@ -33,21 +33,21 @@ $ oc project my-project
 
 . Use the RHOAS CLI to connect a Kafka instance in {product-kafka} to the current project in your OpenShift cluster.
 +
-.Using the RHOAS CLI to connect a Kafka instance to your OpenShift cluster
+.RHOAS CLI command to connect Kafka instance to OpenShift cluster
 [source]
 ----
 $ rhoas cluster connect
 ----
 +
-You're prompted to specify the service that you want to connect to OpenShift.
+You are prompted to specify the service that you want to connect to OpenShift.
 
 . Use the up and down arrows on your keyboard to highlight the `kafka` service. Press *Enter*.
 +
-You're prompted to specify the Kafka instance that you want to connect to OpenShift.
+You are prompted to specify the Kafka instance that you want to connect to OpenShift.
 
 .  If you have more than one Kafka instance, use the up and down arrows on your keyboard to highlight the instance that you want to connect to OpenShift. Press *Enter*.
 +
-You should see output like the following:
+You see output like the following example:
 +
 .Example connection details
 [source,options="nowrap"]
@@ -60,9 +60,9 @@ Kubernetes Namespace:  my-project
 Service Account Secret: rh-cloud-services-service-account
 ----
 
-. Verify the connection details shown by the RHOAS CLI. When you're ready to continue, type `y` and then press *Enter*.
+. Verify the connection details shown by the RHOAS CLI. When you are ready to continue, type `y` and then press *Enter*.
 +
-You're prompted to provide an access token. The RHOAS Operator requires this token to connect to your Kafka instance.
+You are prompted to provide an access token. The RHOAS Operator requires this token to connect to your Kafka instance.
 
 . In your web browser, open the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 
@@ -70,7 +70,7 @@ You're prompted to provide an access token. The RHOAS Operator requires this tok
 
 . On the command line, right-click and select *Paste*. Press *Enter*.
 +
-The RHOAS Operator uses the API token to create a `KafkaConnection` object on your OpenShift cluster. When this process is complete, you should see lines like the following:
+The RHOAS Operator uses the API token to create a `KafkaConnection` object on your OpenShift cluster. When this process is complete, you see output like the following example:
 +
 .Example output from rhoas cluster connect command
 [source,options="nowrap"]
@@ -85,13 +85,13 @@ Created KafkaConnection can be injected into your application.
 KafkaConnection successfully installed on your cluster.
 ----
 +
-As shown in the preceding output, the RHOAS Operator creates a new service account to access your Kafka instance in {product-kafka}. The Operator stores the service account information in a secret.
+As shown in the output, the RHOAS Operator creates a new service account to access your Kafka instance in {product-kafka}. The Operator stores the service account information in a secret.
 +
 The RHOAS Operator also creates a `KafkaConnection` object for your Kafka instance, which connects the instance to the OpenShift cluster. When you bind your Kafka instance to an application on OpenShift, the Service Binding Operator uses the `KafkaConnection` object to provide the application with the necessary connection information for the instance. Binding an application to your Kafka instance is described later in this guide.
 
 . Set Access Control List (ACL) permissions to enable the new service account created by the RHOAS Operator to access resources in your Kafka instance. To set permissions, use the `Client ID` value for the service account.
 +
-.Setting access permissions for the service account
+.RHOAS CLI command to set access permissions for service account
 [source]
 ----
 $ rhoas kafka acl grant-access --consumer --producer \
@@ -117,7 +117,7 @@ The command you entered allows applications to create and delete topics in the i
 
 . Use the OpenShift CLI to verify that the RHOAS Operator successfully created the connection.
 +
-.Using the OpenShift CLI to verify Operator connection to your cluster
+.OpenShift CLI command to verify Operator connection to cluster
 [source]
 ----
 $ oc get KafkaConnection
@@ -127,3 +127,7 @@ my-kafka-instance    2m35s
 ----
 +
 As shown in the output, when you use the `rhoas cluster connect` command, the RHOAS Operator creates a `KafkaConnection` object that matches the name of your Kafka instance. In this example, the object name matches a Kafka instance called `my-kafka-instance`.
+
+[role="_additional-resources"]
+.Additional resources
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/2f4bf7cf-5de2-4254-8274-6bf71673f407[ Managing account access in {product-long-kafka}^]

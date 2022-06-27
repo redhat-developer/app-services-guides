@@ -3,11 +3,11 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following Kafka topic properties are supported in {product-kafka}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
+The following Kafka topic properties are supported in {product-long-kafka}. Each listed topic property indicates whether the property is editable or read only, and includes other relevant property attributes for your reference.
 
 == Core configuration
 
-These properties determine the identity and core behavior of the topic. Before deploying your topic, enter all core configuration properties.
+The following topic properties determine the identity and core behavior of the topic. Before deploying your topic, enter all core configuration properties.
 
 Name::
 +
@@ -40,7 +40,7 @@ Partitions are distinct lists of messages within a topic. Partitions are the mai
 [cols="25%,75%"]
 |===
 h|Editable
-|Yes (increase only)
+|Yes
 
 h|Type
 |Integer
@@ -49,7 +49,7 @@ h|Default value
 |`1`
 
 h|Supported values
-|[`1,...`]
+|1 or greater
 
 h|Kafka property name
 |`num.partitions`
@@ -81,6 +81,8 @@ h|Type
 h|Default value
 |`3`
 
+(For trial Kafka instances, the default value is `1`.)
+
 h|Kafka property name
 |`replication.factor`
 |===
@@ -103,6 +105,8 @@ h|Type
 h|Default value
 |`2`
 
+(For trial Kafka instances, the default value is `1`.)
+
 h|Kafka property name
 |`min.insync.replicas`
 |===
@@ -123,10 +127,7 @@ h|Type
 |Long
 
 h|Default value
-|`604800000 ms` (7 days)
-
-h|Supported values
-| `milliseconds`, `seconds`, `days`, `months`, `years`, `Unlimited`
+|`604800000` (milliseconds, 7 days)
 
 h|Kafka property name
 |`retention.ms`
@@ -148,10 +149,7 @@ h|Type
 |Long
 
 h|Default value
-|`Unlimited`
-
-h|Supported values
-| `bytes`, `kilobytes`, `megabytes`, `gigabytes`, `terabytes`, `Unlimited`
+|`-1` (no retention size limit)
 
 h|Kafka property name
 |`retention.bytes`
@@ -160,7 +158,7 @@ h|Kafka property name
 
 == Messages
 
-These properties control how your messages are handled in the Kafka instance.
+The following topic properties control how the Kafka instance handles messages.
 
 Maximum message bytes::
 +
@@ -177,7 +175,7 @@ h|Type
 |Integer
 
 h|Default value
-|`1 MB`
+|`1048588` (bytes)
 
 h|Kafka property name
 |`max.message.bytes`
@@ -221,10 +219,54 @@ h|Type
 |Long
 
 h|Default value
-|`9223372036854775807 ms`
+|`9223372036854775807` (milliseconds)
 
 h|Kafka property name
 |`message.timestamp.difference.max.ms`
+|===
+--
+
+Message format version::
++
+--
+Message format version is the `ApiVersion` value that the broker uses to append messages to topics. This value must be a valid `ApiVersion` value, such as 0.10.0, 1.1, 2.8, or 3.0.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|No
+
+h|Type
+|String
+
+h|Default value
+|`3.0-IV1`
+
+h|Kafka property name
+|`message.format.version`
+|===
+--
+
+Message down-conversion::
++
+--
+Message down-conversion determines whether the broker can convert the `message.format.version` property value to an older version for consumers that require an older message format version. By default, this property is enabled in order to avoid an `UNSUPPORTED_VERSION` error for consumption requests from older clients. If this property adds excessive load to your broker, you can disable it.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes
+
+h|Type
+|Boolean
+
+h|Default value
+|`true`
+
+h|Kafka property name
+|`message.downconversion.enable`
 |===
 --
 
@@ -251,33 +293,9 @@ h|Kafka property name
 |===
 --
 
-
-Message format version::
-+
---
-Message format version is the `ApiVersion` value that the broker uses to append messages to topics. This value must be a valid `ApiVersion` value, such as 0.8.2, 0.9.0.0, or 0.10.0.
-
-.Property attributes
-[cols="25%,75%"]
-|===
-h|Editable
-|No
-
-h|Type
-|String
-
-h|Default value
-|`2.7-IV2`
-
-h|Kafka property name
-|`message.format.version`
-|===
---
-
-
 == Log
 
-These properties define how your log is handled.
+The following topic properties define how the Kafka instance handles the message log.
 
 NOTE: Messages are continually appended to the partition log and are assigned their offset.
 
@@ -315,13 +333,13 @@ Delete retention time is the amount of time that deletion tombstone markers are 
 [cols="25%,75%"]
 |===
 h|Editable
-|No
+|Yes
 
 h|Type
 |Long
 
 h|Default value
-|`86400000 ms` (1 day)
+|`86400000` (milliseconds, 1 day)
 
 h|Kafka property name
 |`delete.retention.ms`
@@ -359,22 +377,44 @@ Minimum compaction lag time is the minimum time a message remains uncompacted in
 [cols="25%,75%"]
 |===
 h|Editable
-|No
+|Yes
 
 h|Type
 |Long
 
 h|Default value
-|`0 seconds`
+|`0` (milliseconds)
 
 h|Kafka property name
 |`min.compaction.lag.ms`
 |===
 --
 
+Maximum compaction lag time::
++
+--
+Maximum compaction lag time is the maximum time a message remains uncompacted in a log. This property applies only when the topic cleanup policy is set to `Compact` or `Compact, Delete`.
+
+.Property attributes
+[cols="25%,75%"]
+|===
+h|Editable
+|Yes
+
+h|Type
+|Long
+
+h|Default value
+|`9223372036854775807` (milliseconds)
+
+h|Kafka property name
+|`max.compaction.lag.ms`
+|===
+--
+
 == Replication
 
-These properties control the behavior of your replicas. Each of these properties impacts every replica created in the topic.
+The following topic properties control the behavior of your replicas. Each of these properties impacts every replica created in the topic.
 
 Unclean leader election::
 +
@@ -391,7 +431,7 @@ h|Type
 |Boolean
 
 h|Default value
-|`Disabled`
+|`false`
 
 h|Kafka property name
 |`unclean.leader.election.enable`
@@ -400,7 +440,7 @@ h|Kafka property name
 
 == Cleanup
 
-These properties control the cleanup processing of the log.
+The following topic properties control the cleanup processing of the log.
 
 Log segment size::
 +
@@ -411,13 +451,16 @@ Log segment size is the size of the log segment files that constitute the log. L
 [cols="25%,75%"]
 |===
 h|Editable
-|No
+|Yes
 
 h|Type
 |Integer
 
 h|Default value
-|`1 GB`
+|`1073741824` (bytes)
+
+h|Supported values
+| 52428800 bytes or greater
 
 h|Kafka property name
 |`segment.bytes`
@@ -433,13 +476,16 @@ Segment time is the amount of time after which the current log segment is rolled
 [cols="25%,75%"]
 |===
 h|Editable
-|No
+|Yes
 
 h|Type
 |Long
 
 h|Default value
-|`604800000 ms` (7 days)
+|`604800000` (milliseconds, 7 days)
+
+h|Supported values
+|600000 ms (10 mins) or greater
 
 h|Kafka property name
 |`segment.ms`
@@ -461,7 +507,7 @@ h|Type
 |Long
 
 h|Default value
-|`0 seconds`
+|`0` (milliseconds)
 
 h|Kafka property name
 |`segment.jitter.ms`
@@ -483,7 +529,7 @@ h|Type
 |Long
 
 h|Default value
-|`60000 ms` (1 minute)
+|`60000` (milliseconds, 1 minute)
 
 h|Kafka property name
 |`file.delete.delay.ms`
@@ -505,7 +551,7 @@ h|Type
 |Boolean
 
 h|Default value
-|`Disabled`
+|`false`
 
 h|Kafka property name
 |`preallocate`
@@ -514,7 +560,7 @@ h|Kafka property name
 
 == Index
 
-These properties control the indexing of the log.
+The following topic properties control the indexing of the log.
 
 Index interval size::
 +
@@ -531,7 +577,7 @@ h|Type
 |Integer
 
 h|Default value
-|`4 KB`
+|`4000` (bytes, 4 KB)
 
 h|Kafka property name
 |`index.interval.bytes`
@@ -553,7 +599,7 @@ h|Type
 |Integer
 
 h|Default value
-|`10 MB`
+|`10485760` (bytes)
 
 h|Kafka property name
 |`segment.index.bytes`
@@ -562,7 +608,7 @@ h|Kafka property name
 
 == Flush
 
-These properties control the frequency of the flushing of the log.
+The following topic properties control the frequency of the flushing of the log.
 
 Flush interval messages::
 +
@@ -579,7 +625,7 @@ h|Type
 |Long
 
 h|Default value
-|`9223372036854775807 messages`
+|`9223372036854775807` (messages)
 
 h|Kafka property name
 |`flush.messages`
@@ -601,7 +647,7 @@ h|Type
 |Long
 
 h|Default value
-|`9223372036854775807 ms`
+|`9223372036854775807` (milliseconds)
 
 h|Kafka property name
 |`flush.ms`

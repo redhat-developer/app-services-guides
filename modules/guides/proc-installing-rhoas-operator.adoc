@@ -14,7 +14,7 @@ Before you can bind Kafka instances in {product-long-kafka} to applications on O
 . In the left menu, click *Operators* > *OperatorHub*.
 . In the *Filter by keyword* field, enter `RHOAS`.
 . In the filtered results, select the *OpenShift Application Services (RHOAS)* Operator.
-. If you see a dialog box entitled *Show community Operator*, review the included information. When you've finished, click *Continue*.
+. If you see a dialog box entitled *Show community Operator*, review the included information. When you have finished, click *Continue*.
 +
 An information sidebar for the RHOAS Operator opens.
 
