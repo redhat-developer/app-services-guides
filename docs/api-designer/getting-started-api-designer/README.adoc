@@ -119,48 +119,34 @@ endif::[]
 
 .Procedure
 . In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create a schema or API design*.
-. Complete the form to provide the details of the new design:
-.. *Name*: Enter a unique design name, such as `my-api-design`.
-.. *Summary*: _Optional:_ Enter a short description of the design.
-.. *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
-.. *Version*: _OpenAPI only:_ Accept the default value *3.0.2*, or select another version from the list.
-.. *Template*: Select the *Pet Store Example* template, or select another template from the list.
-+
-[.screencapture]
-.Creating an API design
-image::create-api-designer-design.png[Image of page to create an API design]
-+
+. Complete the form to provide the following details for the new design:
+* *Name*: Enter a unique design name, such as `my-api-design`.
+* *Summary* _(Optional)_: Enter a short description of the design.
+* *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
+* *Version* _(OpenAPI only)_: Accept the default value *3.0.2*, or select another version from the list.
+* *Template*: Select the *Pet Store Example* template, or select another template from the list.
 . Click *Create*. The new API design opens in the design editor.
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
 . Click the *Design* tab, and optionally edit the design as follows:
-.. Provide a version number and a description.
-.. _AsyncAPI only:_ Define terms of service.
-.. Add your contact information (name, email address, and URL).
-.. Select a license.
-.. _OpenAPI only:_ Define tags.
-.. Define one or more servers.
-.. Configure a security scheme.
-.. _OpenAPI only:_ Specify security requirements.
-.. _OpenAPI only:_ Configure vendor extensions.
-+
-[.screencapture]
-.Editing an API design
-image::api-designer-editor.png[Image of API design editor]
-+
-. Click the *Source* tab to see a live preview of the design.
+* Provide a version number and a description.
+* _(AsyncAPI only)_ Define terms of service.
+* Add your contact information: name, email address, and URL.
+* Select a license.
+* _(OpenAPI only)_ Define tags.
+* Define one or more servers.
+* Configure a security scheme.
+* _(OpenAPI only)_ Specify security requirements.
+* _(OpenAPI only)_ Configure vendor extensions.
+. Click the *Source* tab, and review the live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
-. _Optional:_ To see the changes that you made since the last save, click *Actions > Show changes*.
-. _Optional:_ In the left pane of the design editor, you can add the following items:
-.. _OpenAPI only_: Resource paths, data types, and responses
-.. _AsyncAPI only_: Channels, data types, messages, operation traits, and message traits
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _(Optional)_ In the left pane of the design editor, you can add the following items:
+* _(OpenAPI only)_ Resource paths, data types, and responses
+* _(AsyncAPI only)_ Channels, data types, messages, operation traits, and message traits
 . Click *Save*.
 
 The new design is listed on the *API and Schema Designs* page.
 You can use the options icon (three vertical dots) to open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
-
-[.screencapture]
-.{product-api-designer} design options menu
-image::api-designer-design-options.png[Image of {product-api-designer} design options menu]
 
 .Verification
 ifdef::qs[]
@@ -185,23 +171,13 @@ endif::[]
 
 .Procedure
 . In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create a schema or API design*.
-. Complete the form to provide the details of the new design:
-.. *Name*: Enter a unique design name, such as `my-schema-design`.
-.. *Summary*: _Optional:_ Enter a short description of the design.
-.. *Type*: From the list, select *Apache Avro*, or select another schema type.
-+
-[.screencapture]
-.Creating a schema design
-image::create-schema-design.png[Image of page to create a schema design]
-+
+. Complete the form to provide the following details for the new design:
+* *Name*: Enter a unique design name, such as `my-schema-design`.
+* *Summary* _(Optional)_: Enter a short description of the design.
+* *Type*: From the list, select *Apache Avro*, or select another schema type.
 . Click *Create*. The new schema design opens in the design editor.
 . Edit the design source to provide your content.
-+
-[.screencapture]
-.Editing a schema design
-image::api-designer-schema-editor.png[Image of schema design editor]
-+
-. _Optional:_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
 . Click *Save*.
 
 The new design is listed on the *API and Schema Designs* page.
@@ -230,9 +206,9 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 
 .Procedure
 . In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Import a schema or API design*, and then click one of the following options:
-.. *Import from file*: Click *Browse* and select a file, or drag and drop a file.
-.. *Import from URL*: Enter a valid and accessible URL.
-.. *Import from {registry}*: From the instances list, select a {registry} instance.
+* *Import from file*: Click *Browse* and select a file, or drag and drop a file.
+* *Import from URL*: Enter a valid and accessible URL.
+* *Import from {registry}*: From the instances list, select a {registry} instance.
 Browse the list of artifacts for that instance, and select an artifact.
 . When prompted, provide additional information such as version (_OpenAPI only_), name, type, and summary in the import dialog. You can overwrite any autopopulated values.
 . Click *Import*.
@@ -267,16 +243,14 @@ Within that instance, you know the artifact ID of an artifact with the required 
 For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to test.
+. On the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to test.
 . Click *Edit* to open the design editor.
 . From the *Actions* menu, click *Test using Service Registry*.
 . From the *Registry instance* list, select a {registry} instance.
-. Specify the artifact details in the *Group* and *Artifact ID* fields.
+. In the *Group* and *Artifact ID* fields, specify the artifact details.
 . Click *Test*.
-+
-NOTE: Note that the UI text is in flux and might change.
 
-The test results are shown in a new pane in the design editor window:
+A new pane in the design editor window shows the test results:
 
 * If the results page is blank, the content obeys the specified rules.
 
@@ -305,27 +279,22 @@ When you're happy with your changes to an {product-long-api-designer} event sche
 For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to export.
+. On the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to export.
 . Click the options icon (three vertical dots), and click *Export to {registry}*.
-. Complete the form to specify where to save the new design.
+. Complete the form to specify where to save the new design. Provide the following details:
 +
 NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
 +
-.. *Registry instance*: Select the required instance from the list.
-.. *Group*: _Optional:_ Enter a unique group name such as `my-org` to organize the artifact in a named collection.
+* *Registry instance*: Select the required instance from the list.
+* *Group* _(Optional)_: Enter a unique group name such as `my-org` to organize the artifact in a named collection.
 Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
 NOTE:  Specifying a group is optional when using the web console: {registry} generates a `default` group automatically.
 +
-.. *Artifact ID*: _Optional:_ Enter a unique ID for this artifact, such as `my-ID`.
+* *Artifact ID* _(Optional)_: Enter a unique ID for this artifact, such as `my-ID`.
 If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
-.. *Version*:  _Optional:_ Specify the version number.
+* *Version* _(Optional)_: Specify the version number.
 If you don't specify a version number, {registry} sets the version to 1.
-+
-[.screencapture]
-.Exporting an API design
-image::export-api-designer-design.png[Image of page to export an API design]
-+
 . Click *Export*.
 The exported design is listed on the artifacts page of the specified {registry} instance.
 
