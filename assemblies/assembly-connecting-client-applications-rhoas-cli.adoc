@@ -1,0 +1,33 @@
+[id='assembly-connecting-client-applications-rhoas-cli']
+= Connecting client applications to {product-long-rhoas} using the rhoas CLI
+:context: connecting-client-applications-rhoas-cli
+:imagesdir: _images
+
+[role="_abstract"]
+As a developer of applications and services, you might need to connect client applications to instances in cloud services such as {product-long-kafka} and {product-long-registry}.
+
+For example, suppose you have the following applications running locally on your computer:
+
+* One application that is designed to publish a stream of stock price updates
+* A second application that is designed to consume the stock price updates and chart them on a dashboard
+
+In addition, suppose you have the following instances in {product-long-rhoas}:
+
+* A Kafka instance in {product-kafka}
+* A {registry} instance in {product-registry}
+
+Each time the first application produces a stock price update, you want to use the Kafka instance to forward the update as an event to the second, consuming application. In addition, you want each of the applications to use a schema in the {registry} instance to validate that messages conform to a particular format.
+
+In this scenario, you need to connect your applications to your Kafka and {registry} instances. To achieve this, you can use the {product-long-rhoas} (`rhoas`) command-line interface (CLI) to create a _context_ for your service instances. You can then use another CLI command to generate the required connection information for each service instance in the context.
+
+This guide describes how to use the `rhoas` CLI to create contexts and then generate the connection configuration information that client applications need to connect to service instances in those contexts.
+
+//Additional line break to resolve mod docs generation error
+
+include::modules/guides/con-about-service-contexts.adoc[leveloffset=+1]
+
+include::modules/guides/proc-creating-new-service-contexts.adoc[leveloffset=+1]
+
+include::modules/guides/proc-generating-connection-information-quarkus.adoc[leveloffset=+1]
+
+

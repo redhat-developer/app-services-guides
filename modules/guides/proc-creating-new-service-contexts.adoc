@@ -1,0 +1,110 @@
+[id='proc-creating-new-service-contexts_{context}']
+= Creating new service contexts
+:imagesdir: ../_images
+
+The following example shows how to use the CLI to create contexts in {product-long-rhoas} and then manage the service instances that are defined in those contexts.
+
+
+.Prerequisites
+* You have installed the {product-long-rhoas} (`rhoas`) CLI. For more information, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/bb30ee92-9e0a-4fd6-a67f-aed8910d7da3#proc-installing-rhoas_installing-rhoas-cli[Installing the rhoas CLI^].
+
+.Procedure
+
+. Log in to the CLI.
++
+[source,shell]
+----
+$ rhoas login
+----
++
+The login command opens a sign-in process in your web browser.
+
+. Use the CLI to create a new service context.
++
+[source,shell]
+----
+$ rhoas context create --name development-context
+----
++
+The new context becomes the _current_ (that is, active) context by default.
+
+. Create a new Kafka instance in {product-long-kafka}.
++
+[source,shell]
+----
+$ rhoas kafka create --name my-kafka-instance
+----
++
+The CLI automatically adds the Kafka instance to the current context.
+
+. Create a new {registry} instance in {product-long-registry}.
++
+[source,shell]
+----
+$ rhoas service-registry create --name my-registry-instance
+----
++
+The CLI also automatically adds the {registry} instance to the current context.
+
+. Confirm that the Kafka and {registry} instances are in the current context and are running.
++
+.Command to view status of service instances in current context
+[source,shell]
+----
+$ rhoas context status
+----
++
+You see output that looks like the following example:
++
+.Status of example context with single Kafka and {registry} instances
+[source,shell,subs="+quotes",options="nowrap"]
+----
+Service Context Name:	development-context
+Context File Location:	/home/_<user-name>_/.config/rhoas/contexts.json
+
+Kafka
+-----------------------------------------------------------------------------
+ID:                cafkr2jma40lhulbl1c0
+Name:              my-kafka-instance
+Status:            ready
+Bootstrap URL:     kafka-inst-cafkr-jma--lhulbl-ca.bf2.kafka.rhcloud.com:443
+
+Service Registry
+------------------------------------------------------------------------------
+ID:                0aa1dd8b-63d5-466c-9de8-7c03320a81c2
+Name:              my-registry-instance
+Status:            ready
+Registry URL:      https://bu98.serviceregistry.rhcloud.com/t/0aa1dd8b-63d5-466c-9de8-7c03320a81c2
+----
+
+. Create another service context.
++
+[source,shell]
+----
+$ rhoas context create --name production-context
+----
++
+The new service context becomes the current context.
+
+. Add the Kafka instance that you created earlier in the procedure to the new service context.
++
+[source,shell]
+----
+$ rhoas context set-kafka --name my-kafka-instance
+----
++
+The Kafka instance is now part of both of the service contexts that you created.
+
+[NOTE]
+====
+To remove a particular service from a context, use the `context unset` command with the `--services` flag and specify the service name, for example, `kafka` or `service-registry`. An example is shown.
+
+[source,shell]
+----
+$ rhoas context unset --name development-context --services kafka
+----
+====
+
+[role="_additional-resources"]
+.Additional resources
+* To learn more about the `context` commands that you can use to manage service contexts, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/8bd088a6-b7b7-4e5d-832a-b0f0494f9070[CLI command reference (rhoas)^]
