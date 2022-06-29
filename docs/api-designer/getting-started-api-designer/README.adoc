@@ -81,7 +81,7 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 As an API owner or developer, you can use {product-long-api-designer} to design event schemas and API definitions that comply with vendor-neutral and portable open specifications.
-{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
+{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} infrastructure.
 
 For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^].
 
@@ -103,7 +103,7 @@ Learn how to create your first API or schema design in {product-long-api-designe
 [#introduction]
 ====
 Welcome to the quick start for {product-long-api-designer}.
-In this quick start, you'll learn how to create an API definition or event schema from a blank page or from a template, import an existing design to edit it, and export a finished design to {product-registry}.
+In this quick start, you'll learn how to create an API definition or event schema from a simple or detailed template, import an existing design to edit it, test a design against rules configured in {product-long-registry}, and export a finished design to {product-registry}.
 ====
 endif::[]
 
@@ -121,7 +121,7 @@ endif::[]
 .Procedure
 . In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create design*.
 . Complete the form to provide the following details for the new design:
-* *Name*: Enter a unique design name, such as `my-api-design`.
+* *Name*: Enter a unique design name, such as `My API Design`.
 * *Description* _(Optional)_: Enter a short description of the design.
 * *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
 * *Version* _(OpenAPI only)_: Accept the default value *3.0.2*, or select another version from the list.
@@ -173,7 +173,7 @@ endif::[]
 .Procedure
 . In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create design*.
 . Complete the form to provide the following details for the new design:
-* *Name*: Enter a unique design name, such as `my-schema-design`.
+* *Name*: Enter a unique design name, such as `My Schema Design`.
 * *Description* _(Optional)_: Enter a short description of the design.
 * *Type*: From the list, select *Apache Avro*, or select another schema type.
 . Click *Create*. The new schema design opens in the design editor.
@@ -257,7 +257,7 @@ A new pane in the design editor window shows the registration issues found by th
 * If the design content obeys the specified rules, the registration issues pane contains the following text:
 `Registry Test completed with no issues`
 
-* If the registration issues pane provides details of any issues, resolve the issues and click *Retry* to retest the content using the same rules.
+* If the registration issues pane provides details of any issues, resolve the issues and click *Retry* to retest the content using the same artifact rules.
 
 .Verification
 ifdef::qs[]
@@ -286,18 +286,18 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 . Click the options icon (three vertical dots), and click *Export to {registry}*.
 . Complete the form to specify where to save the new design. Provide the following details:
 +
-NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* is incremented.
+NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* field is blank.
 +
 * *Registry Instance*: Select the required instance from the list.
 * *Group* _(Optional)_: Enter a unique group name such as `my-org` to organize the artifact in a named collection.
 Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
-NOTE:  Specifying a group is optional when using the web console: {registry} generates a `default` group automatically.
+NOTE:  Specifying a group is optional when using the web console. If no group is specified, {registry} uses the `default` group.
 +
 * *ID* _(Optional)_: Enter a unique ID for this artifact, such as `my-ID`.
 If you don't specify a unique artifact ID, {registry} generates one automatically as a UUID.
 * *Version* _(Optional)_: Specify the version number.
-If you don't specify a version number, {registry} sets the version to 1.
+If you don't specify a version number, {registry} sets the version to 1 for the first version, or increments the latest version by 1 for subsequent versions.
 . Click *Export*.
 The exported design is listed on the artifacts page of the specified {registry} instance.
 
