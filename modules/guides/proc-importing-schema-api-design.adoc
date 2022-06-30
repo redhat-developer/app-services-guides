@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can import an event schema or API definition into {product-long-api-designer} from a URL, from a file, or from an {product-long-registry} instance.
+You can import an event schema or API definition into {product-long-api-designer} from a URL, from a file, or from a running {product-long-registry} instance.
 
 .Prerequisites
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].

@@ -8,7 +8,7 @@ You can test the design while working in the {product-long-api-designer} editor,
 
 .Prerequisites
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
-* You've created or imported an {product-api-designer} design.
+* You've created or imported a design in {product-api-designer}.
 * You can access a running {product-registry} instance in your organization.
 Within that instance, you know the artifact ID of an artifact with the required rules configured.
 For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
