@@ -199,7 +199,7 @@ endif::[]
 == Importing a schema or API design
 
 [role="_abstract"]
-You can import an event schema or API definition into {product-long-api-designer} from a URL, from a file, or from an {product-long-registry} instance.
+You can import an event schema or API definition into {product-long-api-designer} from a URL, from a file, or from a running {product-long-registry} instance.
 
 .Prerequisites
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
@@ -239,7 +239,7 @@ You can test the design while working in the {product-long-api-designer} editor,
 
 .Prerequisites
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
-* You've created or imported an {product-api-designer} design.
+* You've created or imported a design in {product-api-designer}.
 * You can access a running {product-registry} instance in your organization.
 Within that instance, you know the artifact ID of an artifact with the required rules configured.
 For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
@@ -273,11 +273,11 @@ endif::[]
 == Exporting a schema or API design
 
 [role="_abstract"]
-When you're happy with your changes to an {product-long-api-designer} event schema or API definition, and you want to use the design in your application, you can export the content to an existing {product-long-registry} instance.
+When you're happy with the changes to your {product-long-api-designer} event schema or API definition, and you want to use the design in your application, you can export the content to an existing {product-long-registry} instance.
 
 .Prerequisites
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
-* You've created or imported an {product-api-designer} design.
+* You've created or imported a design in {product-api-designer}.
 * You can access a running {product-registry} instance in your organization.
 For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
@@ -301,8 +301,8 @@ If you don't specify a version number, {registry} sets the version to 1 for the 
 . Click *Export*.
 The exported design is listed on the artifacts page of the specified {registry} instance.
 
-You can manage {product-long-api-designer} design versions in {product-long-registry}.
-You can also download {product-api-designer} designs to a file, either for local client code generation or to import the designs into {product-long-api-management}.
+You can use {product-long-registry} to manage the versions of a design from {product-long-api-designer}.
+You can also download a design from {product-api-designer} to a file, either for local client code generation or to import the design into {product-long-api-management}.
 
 .Verification
 ifdef::qs[]
