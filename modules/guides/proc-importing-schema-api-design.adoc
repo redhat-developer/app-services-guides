@@ -6,24 +6,30 @@
 You can import an event schema or API definition into {product-long-api-designer} from a URL, from a file, or from an {product-long-registry} instance.
 
 .Prerequisites
-* You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
-* You can access a running {product-registry} instance in your organization, if you want to import from {registry}.
+* You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
+* You can access a running {product-registry} instance in your organization, if you want to import from {product-long-registry}.
+For more information, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
-. In the {service-url-api-designer}[{product-api-designer} web console], click *Import a schema or API design*, and then click one of the following options:
-.. *Import from file*: Click *Browse* and select a file, or drag and drop a file.
-.. *Import from URL*: Enter a valid and accessible URL.
-.. *Import from {registry}*: From the instances list, select a {registry} instance. Browse the list of artifacts for that instance, and select an artifact.
-. Click *Import*. The design editor opens automatically.
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Import design*, and then click one of the following options:
+* *Import from {registry}*: From the instances list, select a {registry} instance.
+Browse the list of artifacts for that instance, and select an artifact.
+* *Import from URL*: Enter a valid and accessible URL, and click *Fetch*.
+* *Import from file*: Click *Browse* and select a file, or drag and drop a file.
+. When prompted, provide additional information such as version (_OpenAPI only_), name, type, and description in the import dialog. You can overwrite any autopopulated values.
+. Click *Import*.
+The design editor opens automatically.
 
-When you finish editing, you can export the updated design to {registry} as a new artifact or as a new version of the existing artifact. You can also save your changes locally, or download the content to a file.
+When you finish editing, you can export the updated design to {registry} as a new artifact or as a new version of the existing artifact.
+You can export the design from the design editor or from the *API and Schema Designs* page.
+You can also save your changes locally, or download the content to a file.
 
 .Verification
 ifdef::qs[]
-* Is the imported design listed on the {product-api-designer} designs page?
+* Is the imported design listed on the designs page?
 * Are the design details correct?
 endif::[]
 ifndef::qs[]
-. Verify that the imported design is listed on the {product-api-designer} designs page.
+. Verify that the imported design is listed on the designs page.
 . Verify that the design details are correct.
 endif::[]

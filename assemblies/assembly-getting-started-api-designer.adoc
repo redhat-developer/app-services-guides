@@ -7,14 +7,13 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 As an API owner or developer, you can use {product-long-api-designer} to design event schemas and API definitions that comply with vendor-neutral and portable open specifications.
-{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} clusters.
+{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} infrastructure.
 
 For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^].
 
 ifndef::community[]
 .Prerequisites
 * You have a {org-name} account.
-* You have a subscription to {product-long-kafka}.
 * If you plan to store your designs in {product-long-registry}, you have a running {registry} instance (see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
 //For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]
@@ -24,13 +23,13 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to create your first {product-api-designer} design in {product-long-api-designer}.
+Learn how to create your first API or schema design in {product-long-api-designer}.
 ====
 
 [#introduction]
 ====
 Welcome to the quick start for {product-long-api-designer}.
-In this quick start, you'll learn how to ...
+In this quick start, you'll learn how to create an API definition or event schema from a simple or detailed template, import an existing design to edit it, test a design against rules configured in {product-long-registry}, and export a finished design to {product-registry}.
 ====
 endif::[]
 
@@ -39,6 +38,8 @@ include::modules/guides/proc-creating-api-design.adoc[leveloffset=+1]
 include::modules/guides/proc-creating-schema-design.adoc[leveloffset=+1]
 
 include::modules/guides/proc-importing-schema-api-design.adoc[leveloffset=+1]
+
+include::modules/guides/proc-testing-schema-api-design.adoc[leveloffset=+1]
 
 include::modules/guides/proc-exporting-schema-api-design.adoc[leveloffset=+1]
 
@@ -52,12 +53,12 @@ include::modules/guides/proc-exporting-schema-api-design.adoc[leveloffset=+1]
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-api-designer} Getting Started quick start, and are now ready to use the service.
+Congratulations! You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
 ====
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-api-designer} Getting Started quick start, and are now ready to use the service.
+Congratulations! You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
 ====
 endif::[]
 ifdef::parent-context[:context: {parent-context}]

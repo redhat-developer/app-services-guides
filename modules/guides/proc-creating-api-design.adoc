@@ -7,59 +7,46 @@ Use the {product-long-api-designer} web console to create an OpenAPI or AsyncAPI
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the {product-api-designer} web console at {service-url-api-designer}[^].
+* You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
 endif::[]
 
 .Procedure
-. In the {service-url-api-designer}[{product-api-designer} web console], click *Create a schema or API design*.
-. Complete the form to provide the details of the new design:
-.. *Name*: Enter a unique design name, such as `my-api-design`.
-.. *Summary*: Optional: Enter a short description of the design.
-.. *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
-.. *Version*: OpenAPI only: Accept the default value *3.0.2*, or select another version from the list.
-.. *Template*: Select the *Pet Store Example* template, or select another template from the list.
-+
-[.screencapture]
-.Creating an API design
-image::api-designer-getting-started-api-designer/create-api-designer-design.png[Image of page to create an API design]
-+
+. In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create design*.
+. Complete the form to provide the following details for the new design:
+* *Name*: Enter a unique design name, such as `My API Design`.
+* *Description* _(Optional)_: Enter a short description of the design.
+* *Type*: Accept the default value *OpenAPI*, or select another API type from the list.
+* *Version* _(OpenAPI only)_: Accept the default value *3.0.2*, or select another version from the list.
+* *Template*: Select the *Pet Store Example* template, or select another template from the list.
 . Click *Create*. The new API design opens in the design editor.
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
 . Click the *Design* tab, and optionally edit the design as follows:
-.. Provide a version number and a description.
-.. AsyncAPI only: Define terms of service.
-.. Add your contact information (name, email address, and URL).
-.. Select a license.
-.. OpenAPI only: Define tags.
-.. Define one or more servers.
-.. Configure a security scheme.
-.. OpenAPI only: Specify security requirements.
-.. OpenAPI only: Configure vendor extensions.
-+
-[.screencapture]
-.Editing an API design
-image::api-designer-getting-started-api-designer/api-designer-editor.png[Image of API design editor]
-+
-. Click the *Source* tab to see a live preview of the design.
+* Provide a version number and a description.
+* _(AsyncAPI only)_ Define terms of service.
+* Add your contact information: name, email address, and URL.
+* Select a license.
+* _(OpenAPI only)_ Define tags.
+* Define one or more servers.
+* Configure a security scheme.
+* _(OpenAPI only)_ Specify security requirements.
+* _(OpenAPI only)_ Configure vendor extensions.
+. Click the *Source* tab, and review the live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
-
-. Optional: In the left pane of the design editor, you can add the following items:
-.. OpenAPI: Resource paths, data types, and responses
-.. AsyncAPI: Channels, data types, messages, operation traits, and message traits
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _(Optional)_ In the left pane of the design editor, you can add the following items:
+* _(OpenAPI only)_ Resource paths, data types, and responses
+* _(AsyncAPI only)_ Channels, data types, messages, operation traits, and message traits
 . Click *Save*.
 
-The new design is listed on the designs page. You can use the options icon (three vertical dots) to open the design editor, download the design to a file, or delete the design.
-
-[.screencapture]
-.{product-api-designer} design options menu
-image::api-designer-getting-started-api-designer/api-designer-design-options.png[Image of {product-api-designer} design options menu]
+The new design is listed on the *API and Schema Designs* page.
+You can use the options icon (three vertical dots) to view details about the design (including export and import events, and the edit history), rename the design, open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
 
 .Verification
 ifdef::qs[]
-* Is the new design listed on the {product-api-designer} designs page?
+* Is the new design listed on the designs page?
 * Are the design details correct?
 endif::[]
 ifndef::qs[]
-. Verify that the new design is listed on the {product-api-designer} designs page.
+. Verify that the new design is listed on the designs page.
 . Verify that the design details are correct.
 endif::[]
