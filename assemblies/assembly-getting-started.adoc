@@ -47,7 +47,7 @@ include::modules/guides/proc-creating-kafka-topic.adoc[leveloffset=+1]
 * {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
 * {base-url}{kafkacat-url-kafka}[Configuring and connecting Kafkacat with {product-long-kafka}^]
 * {base-url}{kafka-bin-scripts-url-kafka}[Configuring and connecting Kafka scripts with {product-long-kafka}^]
-* {base-url}{quarkus-url-kafka}[Manually connecting Quarkus applications to Kafka instances in {product-long-kafka}^]
+* {base-url}{quarkus-url-kafka}[Using Quarkus applications with Kafka instances in {product-long-kafka}^]
 
 ifdef::qs[]
 [#conclusion]

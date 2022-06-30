@@ -1,5 +1,5 @@
 [id='assembly-using-nodejs']
-= Manually connecting Node.js applications to Kafka instances in {product-long-kafka}
+= Using Node.js applications with Kafka instances in {product-long-kafka}
 ifdef::context[:parent-context: {context}]
 :context: using-nodejs
 :imagesdir: _images
@@ -8,7 +8,7 @@ ifdef::context[:parent-context: {context}]
 [role="_abstract"]
 As a developer of applications and services, you can connect Node.js applications to Kafka instances in {product-long-kafka}. https://nodejs.org/en/about/[Node.js^] is a server-side JavaScript runtime that is designed to build scalable network applications. Node.js provides an I/O model that is based on events and non-blocking operations, which enables efficient applications.
 
-In this quick start, you'll use the {product-kafka} web console to collect connection information for a Kafka instance. Then you'll manually configure a connection to the Kafka instance from an example Node.js application and start producing and consuming messages.
+In this quick start, you'll use the {product-kafka} web console to collect connection information for a Kafka instance. Then you'll manually configure a connection from an example Node.js application to the Kafka instance and start producing and consuming messages.
 
 NOTE: When you've completed this quick start and understand the required connection configuration for a Kafka instance, you can use the {product-long-rhoas} command-line interface (CLI) to generate this type of configuration in a more automated way. To learn more, see {base-url}{service-contexts-url-cli}[Connecting client applications to {product-long-rhoas} using the rhoas CLI^].
 
@@ -34,7 +34,7 @@ Learn how to manually connect a Node.js application to a Kafka instance in {prod
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-kafka} with Node.js. In this quick start, you'll use the web console to collect connection information for a Kafka instance in {product-kafka}. Then you'll manually configure a connection to the Kafka instance from an example https://nodejs.org/en/about/[Node.js^] application and start producing and consuming messages.
+Welcome to the quick start for {product-long-kafka} with Node.js. In this quick start, you'll use the web console to collect connection information for a Kafka instance in {product-kafka}. Then you'll manually configure a connection from an example https://nodejs.org/en/about/[Node.js^] application to the Kafka instance and start producing and consuming messages.
 ====
 endif::[]
 
