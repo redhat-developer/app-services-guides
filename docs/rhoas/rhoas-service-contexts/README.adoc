@@ -304,7 +304,7 @@ SERVICE_REGISTRY_COMPAT_PATH=/apis/ccompat/v6
 ## Authentication Configuration
 RHOAS_CLIENT_ID=srvc-acct-14295e3c-f72d-4bae-876c-3172a96eb7eb
 RHOAS_CLIENT_SECRET=5c3a20e0-d946-4edf-94d2-35db41f3b2ad
-RHOAS_OAUTH_TOKEN_URL=https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token
+RHOAS_OAUTH_TOKEN_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
 ----
 +
 As shown in the example, the file that you generate contains the endpoints for your service instances, and the credentials required to connect to those instances. The CLI automatically created a service account (under the environment variable name `RHOAS_CLIENT_ID`) that client applications can use to authenticate with the Kafka and {registry} instances.
