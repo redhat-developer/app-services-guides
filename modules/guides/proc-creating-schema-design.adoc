@@ -21,9 +21,9 @@ endif::[]
 . _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
 . _(Optional)_ For Apache Avro or JSON Schema designs, you can click *Actions > Format content* to insert spaces and tabs that align your design content correctly.
 . Click *Save*.
-
++
 The new design is listed on the *API and Schema Designs* page.
-You can use the options icon (three vertical dots) to view details about the design (including export and import events, and the edit history), rename the design, open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
+You can use the options icon (three vertical dots) to view or edit the design details, edit the design content, export the design to {product-long-registry}, download the design to a file, or delete the design.
 
 .Verification
 ifdef::qs[]

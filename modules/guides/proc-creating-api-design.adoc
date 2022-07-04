@@ -10,6 +10,7 @@ ifndef::qs[]
 * You're logged in to the {product-long-api-designer} web console at {service-url-api-designer}[^].
 endif::[]
 
+
 .Procedure
 . In the {service-url-api-designer}[{product-long-api-designer} web console^], click *Create design*.
 . Complete the form to provide the following details for the new design:
@@ -37,9 +38,9 @@ The content of the *Source* tab automatically updates when you edit values on th
 * _(OpenAPI only)_ Resource paths, data types, and responses
 * _(AsyncAPI only)_ Channels, data types, messages, operation traits, and message traits
 . Click *Save*.
-
++
 The new design is listed on the *API and Schema Designs* page.
-You can use the options icon (three vertical dots) to view details about the design (including export and import events, and the edit history), rename the design, open the design editor, download the design to a file, export the design to {product-long-registry}, or delete the design.
+You can use the options icon (three vertical dots) to view or edit the design details, edit the design content, export the design to {product-long-registry}, download the design to a file, or delete the design.
 
 .Verification
 ifdef::qs[]

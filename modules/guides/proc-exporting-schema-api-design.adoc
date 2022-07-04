@@ -13,7 +13,7 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 
 .Procedure
 . On the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to export.
-. Click the options icon (three vertical dots), and click *Export to {registry}*.
+. Click the options icon (three vertical dots), and click *Export design to {registry}*.
 . Complete the form to specify where to save the new design. Provide the following details:
 +
 NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* field is blank.
