@@ -11,6 +11,7 @@
 :property-file-name: app-services.properties
 :samples-git-repo: https://github.com/redhat-developer/app-services-guides
 :base-url: https://github.com/redhat-developer/app-services-guides/tree/main/docs/
+:sso-token-url: https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
 
 //OpenShift Application Services CLI
 :base-url-cli: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
