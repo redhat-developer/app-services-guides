@@ -250,7 +250,32 @@ spec:
         name: additional-scrape-configs
         key: kafka-federate.yaml
 ----
+
 ====
+
+=== Creating a PrometheusRule CR with alerts defined for the service limits of a Kafka instance
+
+If you are using the Prometheus Operator in your monitoring environment, you can create a PrometheusRule CR with alerts defined for the limits of a Kafka instance and apply that to the cluster that you are federating the metrics to. For more information about configuring alerting rules, see https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/[Alerting Rules] in the Prometheus documentation.
+
+.Example of a PrometheusRule CR for a broker storage limit alert
+[source,subs="+quotes"]
+----
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+spec:
+  groups:
+    - name: limits
+      rules:
+        - alert: KafkaBrokerStorageFillingUp
+          expr: predict_linear(kubelet_volume_stats_available_bytes{persistentvolumeclaim=~"data-(.+)-kafka-[0-9]+"}[1h], 4 * 3600)
+          labels:
+            severity: <SOME_SEVERITY>
+          annotations:
+            summary: 'Broker PersistentVolume is filling up.'
+            description: 'Based on recent sampling, the Broker PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} is expected to fill up within four days.
+----
+
+
 
 [role="_additional-resources"]
 .Additional resources
