@@ -253,11 +253,11 @@ spec:
 
 ====
 
-=== Creating a PrometheusRule CR with alerts defined for the service limits of a Kafka instance
+=== Configuring Prometheus alerts for Kafka instance limits
 
-If you are using the Prometheus Operator in your monitoring environment, you can create a PrometheusRule CR with alerts defined for the limits of a Kafka instance and apply that to the cluster that you are federating the metrics to. For more information about configuring alerting rules, see https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/[Alerting Rules] in the Prometheus documentation.
+If you use the Prometheus Operator in your monitoring environment, you can create a PrometheusRule custom resource with alerts defined for the https://access.redhat.com/articles/5979061[capacity of a Kafka instance]. You can then apply that rule to the cluster that you are federating the metrics to. For more information about configuring alerting rules, see https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/alerting.md/[Alerting] in the Prometheus Operator documentation.
 
-.Example of a PrometheusRule CR for a broker storage limit alert
+.Example PrometheusRule custom resource for a Kafka broker storage limit alert
 [source,subs="+quotes"]
 ----
 apiVersion: monitoring.coreos.com/v1
