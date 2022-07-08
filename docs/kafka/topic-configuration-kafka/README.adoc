@@ -180,11 +180,11 @@ h|Kafka property name
 |===
 
 ifdef::community[]
-NOTE: If you try to create a new topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. If you try to increase the number of partitions for an existing topic this would cause the partition limit of the Kafka instance to be exceeded and you would see an error message stating that topic authorization failed.
+NOTE: If you try to create a new topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. If you try to increase the number of partitions for an existing topic this increase would cause the partition limit of the Kafka instance to be exceeded and you would see an error message stating that topic authorization failed.
 endif::[]
 
 ifndef::community[]
-NOTE: If you try to create a new topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. If you try to increase the number of partitions for an existing topic and this would cause the cause the partition limit of the Kafka instance to be exceeded, you see an error message stating that topic authorization failed. For more information about partition limits for Kafka instances, see https://access.redhat.com/articles/5979061[{product-long-kafka} service limits].
+NOTE: If you try to create a new topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. If you try to increase the number of partitions for an existing topic and this would cause the partition limit of the Kafka instance to be exceeded, you see an error message stating that topic authorization failed. For more information about partition limits for Kafka instances, see https://access.redhat.com/articles/5979061[{product-long-kafka} service limits].
 endif::[]
 --
 
