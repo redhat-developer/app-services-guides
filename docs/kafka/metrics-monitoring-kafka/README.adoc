@@ -283,7 +283,6 @@ spec:
             summary: 'Broker PersistentVolume is filling up.'
             description: 'Based on recent sampling, the Broker PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} is expected to fill up within four days.
 ----
---
 
 
 
