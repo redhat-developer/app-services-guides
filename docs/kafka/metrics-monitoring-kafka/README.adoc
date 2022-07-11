@@ -253,11 +253,20 @@ spec:
 
 ====
 
-=== Configuring Prometheus alerts for Kafka instance limits
+[id="proc-configuring-prometheus-alerts_{context}"]
+== Configuring Prometheus alerts for Kafka instance limits
 
-If you use the Prometheus Operator in your monitoring environment, you can create a PrometheusRule custom resource with alerts defined for the https://access.redhat.com/articles/5979061[capacity of a Kafka instance]. You can then apply that rule to the cluster that you are federating the metrics to. For more information about configuring alerting rules, see https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/alerting.md/[Alerting] in the Prometheus Operator documentation.
+.Prerequisites
+* You have successfully configured metrics monitoring for a Kafka instance in Prometheus.
+* You use the Prometheus Operator in your monitoring environment.
+* You can define https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/[alerting rules] in Prometheus and can deploy an https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/alerting.md/[Alertmanager cluster] in Prometheus Operator.
 
-.Example PrometheusRule custom resource for a Kafka broker storage limit alert
+
+.Procedure
+. Create a `PrometheusRule` custom resource with alerts defined for the https://access.redhat.com/articles/5979061[capacity of your Kafka instance].
+. Apply the `PrometheusRule` to the cluster that you are federating the metrics to.
+
+.Example `PrometheusRule` custom resource for a Kafka broker storage limit alert
 [source,subs="+quotes"]
 ----
 apiVersion: monitoring.coreos.com/v1
@@ -274,6 +283,8 @@ spec:
             summary: 'Broker PersistentVolume is filling up.'
             description: 'Based on recent sampling, the Broker PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} is expected to fill up within four days.
 ----
+--
+
 
 
 
