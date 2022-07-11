@@ -195,11 +195,11 @@ view the `credentials.json` file that you created.
 +
 --
 .Example `credentials.json` file
-[source,json,subs="+attributes"]
+[source,json,subs="+attributes,+quotes"]
 ----
 {
-	"clientID":"srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1",
-	"clientSecret":"facf3df1-ab97-2253-aa87-ab97",
+	"clientID":"_<client-id>_",
+	"clientSecret":"_<client-secret>_",
     "oauthTokenUrl": "{sso-token-url}"
 }
 ----
@@ -217,9 +217,9 @@ By connecting your applications to your {registry} instance, you can retrieve ar
 This example creates a role called `manager` for the service account.
 
 .Creating a role for the service account
-[source,shell]
+[source,shell,subs="+quotes"]
 ----
-$ rhoas service-registry role add --role=manager --service-account=srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+$ rhoas service-registry role add --role=manager --service-account=_<client-id>_
 ----
 --
 
