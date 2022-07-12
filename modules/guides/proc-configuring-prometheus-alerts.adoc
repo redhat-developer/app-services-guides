@@ -1,0 +1,46 @@
+[id='proc-configuring-prometheus-alerts_{context}']
+= Configuring Prometheus alerts for Kafka instance limits
+:imagesdir: ../_images
+
+.Prerequisites
+* You have successfully configured metrics monitoring for a Kafka instance in Prometheus.
+* You use the Prometheus Operator in your monitoring environment.
+* You can define https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/[alerting rules] in Prometheus and can deploy an https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/alerting.md/[Alertmanager cluster] in Prometheus Operator.
+
+
+.Procedure
+. Create a `PrometheusRule` custom resource with alerts defined for the https://access.redhat.com/articles/5979061[capacity of your Kafka instance].
+. Apply the `PrometheusRule` to the cluster that you are federating the metrics to.
+
+.Example `PrometheusRule` custom resource for a Kafka broker storage limit alert
+[source,subs="+quotes"]
+----
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+spec:
+  groups:
+    - name: limits
+      rules:
+        - alert: KafkaBrokerStorageFillingUp
+          expr: predict_linear(kubelet_volume_stats_available_bytes{persistentvolumeclaim=~"data-(.+)-kafka-[0-9]+"}[1h], 4 * 3600)
+          labels:
+            severity: <SOME_SEVERITY>
+          annotations:
+            summary: 'Broker PersistentVolume is filling up.'
+            description: 'Based on recent sampling, the Broker PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} is expected to fill up within four days.
+----
+
+
+
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
+* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation
+* https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus]
+* https://grafana.com/docs/grafana/latest/datasources/prometheus/[Prometheus Data Source] in the Grafana documentation
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
