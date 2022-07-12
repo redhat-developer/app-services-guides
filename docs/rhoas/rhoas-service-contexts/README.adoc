@@ -234,7 +234,7 @@ In addition, the producer and consumer components serialize and deserialize Kafk
 ifndef::community[]
 * You have a Red Hat account.
 endif::[]
-* You have a service context with a Kafka and {registry} instance. For an example of creating this, see xref:con-about-service-contexts_{context}[Creating new service contexts].
+* You have a service context with a Kafka and {registry} instance.
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS. (The latest LTS version of OpenJDK is recommended.)
