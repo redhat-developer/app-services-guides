@@ -359,10 +359,10 @@ Based on the cloud service that you previously selected, the RHOAS Operator uses
 The following example shows output for a Kafka instance.
 +
 .Example output from rhoas cluster connect command
-[source,options="nowrap"]
+[source,subs="+quotes",options="nowrap"]
 ----
 Service Account Secret "rh-cloud-services-service-account" created successfully
-Client ID: srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1
+Client ID: _<client_id>_
 ...
 KafkaConnection resource "my-kafka-instance" has been created
 Waiting for status from KafkaConnection resource.
@@ -381,27 +381,25 @@ The RHOAS Operator also creates a `KafkaConnection` or `ServiceRegistryConnectio
 .Setting Kafka access permissions for the service account
 [source,options="nowrap",subs="+quotes"]
 ----
-$ rhoas kafka acl grant-access --consumer --producer --service-account __<my-client-id>__ --topic "\*" --group "*"
+$ rhoas kafka acl grant-access --consumer --producer --service-account _<client_id>_ --topic "\*" --group "*"
 ----
-+
-In the preceding command, replace __<my-client-id>__ with the `Client ID` value for the new service account. This value was previously shown on the command line.
 +
 You should see output like the following example:
 +
 .Example output when setting Kafka access permissions
-[source,options="nowrap"]
+[source,subs="+quotes",options="nowrap"]
 ----
 The following ACL rules are to be created:
 
-  PRINCIPAL (7)                                   PERMISSION         DESCRIPTION
- ----------------------------------------------- ------------------ ---------------------------
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | DESCRIBE   TOPIC is "*"
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | READ       TOPIC is "*"
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | READ       GROUP is "*"
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | WRITE      TOPIC is "*"
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | CREATE     TOPIC is "*"
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | WRITE      TRANSACTIONAL_ID is "*"
-  srvc-acct-8c95ca5e1225-94a-41f1-ab97-aacf3df1   ALLOW | DESCRIBE   TRANSACTIONAL_ID is "*"
+  PRINCIPAL (7)  PERMISSION         DESCRIPTION
+  -------------- ----------------   -------------
+  _<client_id>_    ALLOW | DESCRIBE   TOPIC is "\*"
+  _<client_id>_    ALLOW | READ       TOPIC is "*"
+  _<client_id>_    ALLOW | READ       GROUP is "\*"
+  _<client_id>_    ALLOW | WRITE      TOPIC is "*"
+  _<client_id>_    ALLOW | CREATE     TOPIC is "\*"
+  _<client_id>_    ALLOW | WRITE      TRANSACTIONAL_ID is "*"
+  _<client_id>_    ALLOW | DESCRIBE   TRANSACTIONAL_ID is "*"
 
 ? Are you sure you want to create the listed ACL rules (y/N) Yes
 ✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
@@ -414,12 +412,10 @@ In this example, the permissions you create allow applications to use the servic
 .Setting {registry} access permissions for the service account
 [source,options="nowrap",subs="+quotes"]
 ----
-rhoas service-registry role add --role=manager --service-account __<my-client-id>__
+rhoas service-registry role add --role=manager --service-account _<client_id>_
 Updating role for principal
 Role was successfully applied
 ----
-+
-In the preceding command, replace __<my-client-id>__ with the `Client ID` value for the new service account. This value was previously shown on the command line.
 +
 In this example, the `manager` role that you assign to the service account allows applications to use the service account to view and write to schemas in the {registry} instance.
 
