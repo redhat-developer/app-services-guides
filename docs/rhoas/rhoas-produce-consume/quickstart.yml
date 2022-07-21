@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: Produce and consume in Rhoas Cli
   annotations:
-    draft: false
+    draft: true
     order: 6
 spec:
   version: 0.1
