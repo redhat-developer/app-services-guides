@@ -22,7 +22,8 @@ spec:
     - title: Connecting an application to a database instance using the topology view
       description: |-
         1. Click [Topology]{{highlight qs-nav-topology}}.
-        2. Click and drag the arrow from the application to the new database instance to create a binding connector.
+        2. By hovering your cursor over the deployment node, you can drag the arrow from the application to the new database instance to create a binding connector.
+           You can also right-click on the deployment node, and click **Create Service Binding**.
         3. On the pop-up dialog, click **Create**.
            Once the binding is created, the application pod restarts.
            After the application pod restarts, your application now has database connectivity.
