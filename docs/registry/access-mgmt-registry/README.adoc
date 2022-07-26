@@ -100,10 +100,11 @@ An account in {product-long-registry} is either a user account or a service acco
 
 The {registry} web console provides an *Access* tab on the {registry} instance page. {registry} instance owners, instance administrators, and organization administrators can use this tab to manage the following user roles:
 
-* *Administrator* - Can perform the following in this {registry} instance:
-** View or write user roles
+* *Administrator* - Can perform the following tasks in this {registry} instance:
 ** View or write schema and API artifacts
-** Configure global rules for compatibility and validity
+** Configure user roles for access
+** Configure {registry} settings
+** Configure global rules for artifact compatibility and validity
 ** Import/export {registry} data
 * *Manager* - Can view or write schema and API artifacts in this {registry} instance
 * *Viewer* - Can view schema and API artifacts in this {registry} instance

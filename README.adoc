@@ -22,7 +22,7 @@
 
 * link:./docs/registry/getting-started-registry/[Getting started with {product-long-registry}]
 * link:./docs/registry/access-mgmt-registry[Managing account access in {product-long-registry}]
-* link:./docs/registry/rhoas-cli-registry[Getting started with the rhoas CLI for {product-long-registry}]
+* link:./docs/registry/rhoas-cli-getting-started-registry[Getting started with the rhoas CLI for {product-long-registry}]
 * link:./docs/registry/quarkus-registry[Using Quarkus applications with Kafka instances and {product-long-registry} instances]
 
 == Core guides
