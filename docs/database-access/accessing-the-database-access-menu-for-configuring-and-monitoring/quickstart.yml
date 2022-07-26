@@ -20,10 +20,10 @@ spec:
   tasks:
     - title: Accessing the database access menu for configuring and monitoring
       description: |-
-        1. From the OpenShift console, expand the **Database Access** navigation menu, and click **Database Access**.
+        1. Select the **Administrator** [Perspective switcher]{{highlight qs-perspective-switcher}}.
+        2. Expand the **Data Services** navigation menu, and click **Database Access**.
 
            **NOTE**: You might need to scroll down the navigation menu.
-        2. Select the **Administrator** [Perspective switcher]{{highlight qs-perspective-switcher}}.
         3. Click the **Project** dropdown menu and then enable the **Show default projects** switch.
         4. Type **dbaas** in the search field..
         5. Select **redhat-dbaas-operator** or **openshift-dbaas-operator** project namespace.
