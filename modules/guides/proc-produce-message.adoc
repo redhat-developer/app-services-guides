@@ -1,0 +1,33 @@
+[id='proc-produce-message_{context}']
+= Producing a message to a {product-kafka} instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can produce your own message from the Cli instead of using an application. This is very useful for testing and debuging your {product-kafka} instance.
+
+.Prerequisites
+. You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
+. You configured a {product-kafka} instance for connectors as described _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
+. You are logged into the Rhoas Cli with your OpenShift Application Services account using `rhoas login`.
+
+.Procedure
+. To produce a message to your kafka topic use the following command `rhoas kafka topic produce --name=test-topic` and enter a value when prompted, for example enter `Hello world!`.
+
+. Read the message
+.. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
+.. Click the name of the {product-kafka} instance that you created.
+.. Select the *Topics* tab, and then click the name of your topic.
+.. Select the *Messages* tab, and see the message you create from the Rhoas Cli
+
+. By default any message you create is sent to the *0* partition. To create a message for the *1* partition run the following and enter another value `rhoas kafka topic produce --name=test-topic --partition=0`.
+
+. Go back to the messages tab in the topic and see if your message is now on a different partition.
+
+.Verification
+* Does running the commands produce messages?
+
+.. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
+.. Click the Kafka instance that you created.
+.. Click the *Topics* tab and then click the topic that you specified for your {product-kafka} instance.
+.. Click the *Messages* tab to see a `Hello World!` message.
+
