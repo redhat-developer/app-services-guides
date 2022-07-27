@@ -93,61 +93,65 @@ As a {registry} instance owner, an instance administrator, or an organization ad
 [role="_abstract"]
 {product-long-registry} uses Role-Based Access Control (RBAC) to manage how other user accounts and service accounts access the {registry} instances that you create and the artifacts that they contain. You can manage access for only the {registry} instances that you create or for instances that the owner has allowed you to access and change.
 
-An account in {product-long-registry} is either a user account or a service account. A user account enables users in your organization to access your {registry} instances. A service account enables your client application or tool to connect securely and to access your {registry} instances.
+An account in {product-long-registry} is either a user account or a service account. A user account enables users in your organization to access your {registry} instances. A service account enables client applications or tools to connect securely to your {registry} instances.
 
 
 === User roles in {product-long-registry}
 
 The {registry} web console provides an *Access* tab on the {registry} instance page. {registry} instance owners, instance administrators, and organization administrators can use this tab to manage the following user roles:
 
-* *Administrator* - Can perform the following in this {registry} instance:
-** View or write user roles
-** View or write schema and API artifacts
-** Configure global rules for compatibility and validity
-** Import/export {registry} data
-* *Manager* - Can view or write schema and API artifacts in this {registry} instance
-* *Viewer* - Can view schema and API artifacts in this {registry} instance
+Administrator:: Users with the Administrator role can perform the following tasks in this {registry} instance:
+* View or write schema and API artifacts
+* Configure user roles for access
+* Configure {registry} settings
+* Configure global rules for artifact compatibility and validity
+* Import or export {registry} data
+Manager:: Users with the Manager role can view or write schema and API artifacts in this {registry} instance.
+Viewer:: Users with the Viewer role can view schema and API artifacts in this {registry} instance.
 
-IMPORTANT: The owner of a {registry} instance has the administrator role for that instance by default, and can assign roles in the same organization. Other user accounts or service accounts in the organization have no access to that instance by default.
+IMPORTANT: The owner of a {registry} instance has the Administrator role for that instance by default, and can assign roles in the same organization. Other user accounts or service accounts in the organization have no access to that instance by default.
 
-In addition to the web console, the `rhoas` CLI provides commands to manage user roles, and the core {registry} REST API also provides Admin API endpoints for managing user roles.
+In addition to the web console, the `rhoas` CLI provides commands to manage user roles. The core {registry} REST API also provides Admin API endpoints for managing user roles.
 
 [id="proc-viewing-registry-roles_{context}"]
 == Viewing user roles in a {registry} instance
 
 [role="_abstract"]
-You can view the user roles assigned to your {registry} instances that manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can view user roles and accounts only for instances that you create or for instances that the owner has assigned you access to.
+You can view the user roles assigned to your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can view user roles and accounts only for instances that you create or for instances that the owner has assigned you access to.
 
 .Prerequisites
-* The {registry} instance has been created and is in *Ready* state.
-* The user accounts or service accounts that you want to view have been created in the organization and have already been assigned user roles.
+* You're logged in to the {registry} web console at {service-url-registry}[^].
+* The {registry} instance is created and is in *Ready* state.
+* The user accounts or service accounts that you want to view are created in the organization and are assigned user roles.
+
 
 .Procedure
-. In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to view roles and accounts for.
+. In the {service-url-registry}[{registry} web console], click the name of the {registry} instance that you want to view roles and accounts for.
 . Click the *Access* tab to view the roles and accounts assigned for this instance:
 .. To view specific accounts, click *Account*, enter the user account or service account name, and click the search button.
-.. To view accounts with a specific role, click *Role*, select *Filter by role* and then the role you want (for example, *Administrator*), and click the search button.
-. Click *Clear all filters* when done.
+.. To view accounts with a specific role, click *Role*, click *Filter by role*, and select the role you want (for example, *Administrator*), and then click the search button.
+. When you are finished, click *Clear all filters*.
 
 [id="proc-setting-registry-roles_{context}"]
 == Assigning user roles in a {registry} instance
 
 [role="_abstract"]
-In {product-long-registry}, you can assign user roles in your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can assign user roles only for instances that you create or for instances that the owner has assigned you access to.
+In {product-long-registry}, you can assign user roles for your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can assign user roles only for instances that you create or for instances that the owner has assigned you access to.
 
 .Prerequisites
-* The {registry} instance has been created and is in *Ready* state.
-* The user accounts or service accounts that you're assigning roles to have been created in the organization.
+* You're logged in to the {registry} web console at {service-url-registry}[^].
+* The {registry} instance is created and is in *Ready* state.
+* The user accounts or service accounts that you're assigning roles to are created in the organization.
 
 .Procedure
-. In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to assign roles for.
-. Click the *Access* tab to view the accounts and roles already assigned for this instance.
+. In the {service-url-registry}[{registry} web console], click the name of the {registry} instance that you want to assign roles for.
+. Click the *Access* tab to view the accounts and roles assigned for this instance.
 . Click *Grant access* to assign roles to accounts.
 . In the *Account* field, select or enter the service account or user account name that you want to assign the role to:
-** A service account enables your application or tool to connect securely to your instance
-** A user account enables users in your organization to access instances
+** A service account enables your application or tool to connect securely to your instance.
+** A user account enables users in your organization to access instances.
 +
-NOTE: If you don't see users in the drop-down list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Allowing users to view other user accounts].
+NOTE: If you don't see users in the list, ask your organization administrator to grant access to view other user accounts. For more information, see {base-url}{access-mgmt-url-registry}#proc-user-account-access_managing-access-service-registry[Allowing users to view other user accounts].
 . Select the *Role* that you want to assign to your account, for example, *Manager* for write access to this instance.
 . Click *Save*.
 
@@ -155,49 +159,51 @@ NOTE: If you don't see users in the drop-down list, ask your organization admini
 == Editing or removing user roles in a {registry} instance
 
 [role="_abstract"]
-You can edit or remove the user roles assigned in your {registry} instances that manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can edit or remove user roles only for the instances that you create or for instances that the owner has assigned you access to.
+You can edit or remove the user roles assigned in your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can edit or remove user roles only for the instances that you create or for instances that the owner has assigned you access to.
 
 .Prerequisites
-* The {registry} instance has been created and is in *Ready* state.
-* The user accounts or service accounts have been created in the organization and the user roles have already been assigned.
+* You're logged in to the {registry} web console at {service-url-registry}[^].
+* The {registry} instance is created and is in *Ready* state.
+* The user accounts or service accounts are created in the organization and the user roles are assigned.
 
 .Procedure
-. In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to remove a user role for.
+. In the {service-url-registry}[{registry} web console], click the name of the {registry} instance that you want to remove a user role for.
 . Click the *Access* tab to view the accounts and roles assigned for this instance.
-. Select the options menu (three vertical dots) next to the assigned *Role* name:
-.. To change to a different role, click *Edit* and select the new user role, for example, *Viewer* for read-only access to this instance.
-.. To remove the currently assigned role, click *Remove* and confirm in the dialog.
+. Click the options menu (three vertical dots) next to the assigned *Role* name:
+.. To change to a different role, click *Edit*, select the new user role, for example, *Viewer* for read-only access, and then click *Save*.
+.. To remove the currently assigned role, click *Remove*, and then click *Remove* again to confirm.
 
 [id="proc-user-account-access_{context}"]
 == Allowing users to view other user accounts
 
 [role="_abstract"]
-As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} web console to allow users to view other users in an organization.
+As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} Hybrid Cloud Console  to allow users to view other users in an organization.
 
 You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
-By assigning the role, users within the group are able to do the following:
+By assigning the role, users in the group can do the following tasks:
 
-* View and select other users when changing owners and managing access to {registry} instances in the web console
-* Specify user names when managing {registry} instances using the `rhoas` CLI for {product-long-registry}
+* View and select other users when changing owners and managing access to {registry} instances in the {registry} web console.
+* Specify user names when managing {registry} instances using the `rhoas` CLI for {product-long-registry}.
 
 .Prerequisites
-* You're logged into the {org-name} web console as an organization administrator.
-* A user group contains the users to assign the role to.
+* You're logged in to the {registry} web console at {service-url-registry}[^] as an organization administrator.
+* A user group is created that contains the users to assign the role to.
 
 NOTE: If you want to add the `User Access principal viewer` role to a single user, create a new group for that user only.
 
 ifndef::community[]
-For more information on setting up user access in the web console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
+For more information on setting up user access in the {org-name} Hybrid Cloud Console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
 endif::[]
 
 .Procedure
 
-. In the upper-right corner of the {registry} web console, select the gear icon, and click *Settings* > *User Access* > *Groups*
+. At the top of the {service-url-registry}[{registry} web console], select the gear icon. 
+. Click *Settings*, then *User Access*, and then *Groups*.
 . Click the name of the user group.
-. From the *Roles* tab, click *Add role* and select `User Access principal viewer` to add the role to the group.
-. Click *Add to group* to add the role to the group.
+. From the *Roles* tab, click *Add role*, and select `User Access principal viewer`.
+. Click *Add to group*.
 +
-The role is added to the list of selected roles on the *Roles* tab.
+The role is also added to the list of selected roles on the *Roles* tab.
 
 [role="_additional-resources"]
 .Additional resources
