@@ -3,15 +3,16 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can edit or remove the user roles assigned in your {registry} instances that manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can edit or remove user roles only for the instances that you create or for instances that the owner has assigned you access to.
+You can edit or remove the user roles assigned in your {registry} instances to manage how other user accounts or service accounts interact with the instance and the artifacts that it contains. You can edit or remove user roles only for the instances that you create or for instances that the owner has assigned you access to.
 
 .Prerequisites
-* The {registry} instance has been created and is in *Ready* state.
-* The user accounts or service accounts have been created in the organization and the user roles have already been assigned.
+* You're logged in to the {registry} web console at {service-url-registry}[^].
+* The {registry} instance is created and is in *Ready* state.
+* The user accounts or service accounts are created in the organization and the user roles are assigned.
 
 .Procedure
-. In the web console, go to *{registry}* > *{registry} Instances* and click the name of the {registry} instance that you want to remove a user role for.
+. In the {service-url-registry}[{registry} web console], click the name of the {registry} instance that you want to remove a user role for.
 . Click the *Access* tab to view the accounts and roles assigned for this instance.
-. Select the options menu (three vertical dots) next to the assigned *Role* name:
-.. To change to a different role, click *Edit* and select the new user role, for example, *Viewer* for read-only access to this instance.
-.. To remove the currently assigned role, click *Remove* and confirm in the dialog.
+. Click the options menu (three vertical dots) next to the assigned *Role* name:
+.. To change to a different role, click *Edit*, select the new user role, for example, *Viewer* for read-only access, and then click *Save*.
+.. To remove the currently assigned role, click *Remove*, and then click *Remove* again to confirm.
