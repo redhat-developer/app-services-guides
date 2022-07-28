@@ -115,12 +115,11 @@ endif::[]
 == Importing the Quarkus sample code
 
 [role="_abstract"]
-For this quick start, you'll use the Quarkus sample code from the {product-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
+For this quick start, you'll use the Quarkus sample code from the {product-long-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
 
 .Procedure
 . On the command line, clone the {product-kafka} {samples-git-repo}[Guides and Samples^] repository from GitHub.
 +
-.Cloning the guides and samples repository
 [source,subs="+attributes"]
 ----
 git clone {samples-git-repo} app-services-guides
@@ -136,14 +135,14 @@ endif::[]
 == Configuring the Quarkus example application to connect to a Kafka instance
 
 [role="_abstract"]
-To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product-kafka} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
+To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product-long-kafka} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
 .Prerequisites
 ifndef::qs[]
-* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To relocate the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
-* You have the generated credentials for your service account. To regenerate the credentials, use the *Service Accounts* page in the {product-kafka} web console to find your service account and update the credentials.
+* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To get the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the generated credentials for your service account. To regenerate the credentials, use the https://console.redhat.com/application-services/service-accounts[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console to find your service account and update the credentials.
 * You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
 endif::[]
 
@@ -172,35 +171,37 @@ ifdef::qs[]
 endif::[]
 
 [id="proc-create-prices-topic_{context}"]
-== Creating the prices Kafka topic in {product-kafka}
+== Creating a Kafka topic in {product-kafka}
 
 [role="_abstract"]
-For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product-kafka} so that the Quarkus application can interact with it.
+For this quick start, the Kafka topic that the Quarkus example application references is called `prices`. You need to create this topic in {product-long-kafka} so that the Quarkus application can interact with it.
 
 .Prerequisites
-* You've created a Kafka instance in {product-kafka} and the instance is in *Ready* state.
+* You've created a Kafka instance in {product-kafka} and the instance is in the *Ready* state.
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to add a topic to.
-. Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the topic details. Click *Next* to complete each step and click *Finish* to complete the setup.
+. In the {product-kafka} web console, select *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
+. Select the *Topics* tab, click *Create topic*, and follow the guided steps to define the topic details, as shown in the figure.
 +
 [.screencapture]
 .Guided steps to define topic details
 image::sak-create-topic.png[Image of wizard to create a topic]
++
+You must specify the following topic properties:
 
 * *Topic name*: Enter `prices` as the topic name.
 * *Partitions*: Set the number of partitions for this topic. This example sets the partition to `1` for a single partition. Partitions are distinct lists of messages within a topic and enable parts of a topic to be distributed over multiple brokers in the cluster. A topic can contain one or more partitions, enabling producer and consumer loads to be scaled.
 * *Message retention*: Set the message retention time and size to the relevant value and increment. This example sets the retention time to `A week` and the retention size to `Unlimited`. Message retention time is the amount of time that messages are retained in a topic before they are deleted or compacted, depending on the cleanup policy. Retention size is the maximum total size of all log segments in a partition before they are deleted or compacted.
 * *Replicas*: For this release of {product-kafka}, the replicas are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. Replicas are copies of partitions in a topic. Partition replicas are distributed over multiple brokers in the cluster to ensure topic availability if a broker fails. When a follower replica is in sync with a partition leader, the follower replica can become the new partition leader if needed.
 +
-After you complete the topic setup, the new Kafka topic is listed in the topics table. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
+After you complete the setup, the new topic appears on the *Topics* page. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
 
 .Verification
 ifdef::qs[]
-* Is the new Kafka topic `prices` listed in the topics table?
+* Does the `prices` topic appear on the *Topics* page?
 endif::[]
 ifndef::qs[]
-* Verify that the new Kafka topic `prices` is listed in the topics table.
+* Verify that the `prices` topic appears on the *Topics* page.
 endif::[]
 
 [id="proc-running-quarkus-example-application_{context}"]
@@ -209,15 +210,15 @@ endif::[]
 [role="_abstract"]
 After you configure your Quarkus application to connect to a Kafka instance and you create the Kafka topic, you can run the Quarkus application to start producing and consuming messages to and from the topic.
 
-The Quarkus example application in this quick start has three application-scoped Java classes:
+The Quarkus example application in this quick start has the following application-scoped Java classes:
 
-* One class generates a random number between 0 and 100 and produces it to a Kafka topic.
-* Another class consumes the number from the Kafka topic.
-* A final class exposes the number as a REST UI (using Server Sent events).
+* A class that generates a random number between 0 and 100 and produces it to a Kafka topic.
+* Another class that consumes the number from the Kafka topic.
+* A final class that exposes the number as a REST UI (using Server Sent events).
 
 .Prerequisites
 * You've configured the Quarkus example application to connect to the Kafka instance.
-* You've created the `prices` example Kafka topic.
+* You've created the `prices` topic.
 
 .Procedure
 . On the command line, navigate to the `code-examples/quarkus-kafka-quickstart` directory that you imported and run the Quarkus example application in developer mode.
@@ -228,9 +229,9 @@ The Quarkus example application in this quick start has three application-scoped
 $ cd ~/code-examples/quarkus-kafka-quickstart
 $ ./mvnw quarkus:dev
 ----
-. After the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` is updated.
+. When the application is running, in a web browser, go to http://localhost:8080/prices.html[^] and verify that the `Last price` value is updated.
 +
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console^].
 +
 If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
 
