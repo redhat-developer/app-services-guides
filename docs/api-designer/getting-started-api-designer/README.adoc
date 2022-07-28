@@ -98,13 +98,13 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to create your first API or schema design in {product-long-api-designer}. Breda adding test text in GitHub first.
+Learn how to create your first API or schema design in {product-long-api-designer}.
 ====
 
 [#introduction]
 ====
 Welcome to the quick start for {product-long-api-designer}.
-In this quick start, you'll learn how to create an API definition or event schema from a simple or detailed template, import an existing design to edit it, test a design against rules configured in {product-long-registry}, and export a finished design to {product-registry}. Breda adding test text in GitHub first.
+In this quick start, you'll learn how to create an API definition or event schema from a simple or detailed template, import an existing design to edit it, test a design against rules configured in {product-long-registry}, and export a finished design to {product-registry}.
 ====
 endif::[]
 
