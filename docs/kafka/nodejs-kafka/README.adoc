@@ -164,8 +164,8 @@ endif::[]
 [source,subs="+quotes"]
 ----
 KAFKA_HOST=__<bootstrap_server>__
-RHOAS_CLIENT_ID=__<client_id>__
-RHOAS_CLIENT_SECRET=__<client_secret>__
+RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
+RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 KAFKA_SASL_MECHANISM=plain
 ----
 +

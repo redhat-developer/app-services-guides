@@ -275,11 +275,25 @@ $ rhoas context use --name development-context
 $ cd ~/app-services-guides/code-examples/quarkus-service-registry-quickstart/
 ----
 
+. Generate an environment variables file that contains the credentials for service account.
++
+[source,shell]
+----
+$ rhoas service-account create --type env --output-file ./producer/.env
+----
+
 . Generate an environment variables file that contains the connection configuration information required by the producer component.
 +
 [source,shell]
 ----
-$ rhoas generate-config --type env --output-file ./producer/.env
+$ rhoas generate-config --type env --output-file ./producer/rhoas.env
+----
+
+. Append the contents of connection configuration file to the service account environment variables file.
++
+[source,shell]
+----
+$ cat ./producer/rhoas.env >> ./producer/.env
 ----
 
 . Copy the `.env` file to the directory for the consumer component, as shown in the following Linux example:
@@ -301,14 +315,9 @@ KAFKA_HOST=kafka-inst-cafkr-jma--lhulbl-ca.bf2.kafka.rhcloud.com:443
 SERVICE_REGISTRY_URL=https://bu98.serviceregistry.rhcloud.com/t/0aa1dd8b-63d5-466c-9de8-7c03320a81c2
 SERVICE_REGISTRY_CORE_PATH=/apis/registry/v2
 SERVICE_REGISTRY_COMPAT_PATH=/apis/ccompat/v6
-
-## Authentication Configuration
-RHOAS_CLIENT_ID=_<client-id>_
-RHOAS_CLIENT_SECRET=_<client-secret>_
-RHOAS_OAUTH_TOKEN_URL={sso-token-url}
 ----
 +
-As shown in the example, the file that you generate contains the endpoints for your service instances, and the credentials required to connect to those instances. The CLI automatically created a service account (under the environment variable name `RHOAS_CLIENT_ID`) that client applications can use to authenticate with the Kafka and {registry} instances.
+As shown in the example, the file that you generate contains the endpoints for your service instances, and the credentials required to connect to those instances. The CLI automatically created a service account (under the environment variable name `RHOAS_SERVICE_ACCOUNT_CLIENT_ID`) that client applications can use to authenticate with the Kafka and {registry} instances.
 
 . Set Access Control List (ACL) permissions to enable the new service account to access resources in the Kafka instance.
 +

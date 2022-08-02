@@ -157,8 +157,8 @@ endif::[]
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
-$ export RHOAS_CLIENT_ID=__<client_id>__
-$ export RHOAS_CLIENT_SECRET=__<client_secret>__
+$ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
+$ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 ----
 --
 
@@ -184,8 +184,8 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 ----
 $ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username="$RHOAS_CLIENT_ID" \
- -X sasl.password="$RHOAS_CLIENT_SECRET" -P
+ -X sasl.username="$RHOAS_SERVICE_ACCOUNT_CLIENT_ID" \
+ -X sasl.password="$RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET" -P
 ----
 
 NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, Kafkacat does not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
@@ -235,8 +235,8 @@ This example uses the SASL/PLAIN authentication mechanism with the server and cr
 ----
 $ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
- -X sasl.username="$RHOAS_CLIENT_ID" \
- -X sasl.password="$RHOAS_CLIENT_SECRET" -C
+ -X sasl.username="$RHOAS_SERVICE_ACCOUNT_CLIENT_ID" \
+ -X sasl.password="$RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET" -C
 
 First message
 Second message
