@@ -239,7 +239,7 @@ In {product-kafka}, you can create Access Control Lists (ACLs) in your Kafka ins
 * The user account or service account that you're setting permissions for has been created in the organization.
 
 .Procedure
-. In the {cloud-console-url}[_Red Hat Hybrid Cloud Console_^], go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to set permissions for.
+. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web console, click the name of the Kafka instance that you want to set permissions for.
 . Click the *Access* tab to view the current ACL permissions for this instance.
 . Use this *Access* page to set permissions for a new account, add permissions to an existing account, or delete account permissions in this instance.
 +
@@ -256,7 +256,7 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you previously selected a specific account, you can delete only permission entries that apply to individual accounts. If you previously selected *All accounts*, you can delete only permission entries that apply to all accounts.
 --
-.. Under *Assign Permissions*, select and define the permissions for the specified account or all accounts for a resource type, such as a topic, from the list.
+.. From the list under *Assign Permissions*, select and define the permissions for the specified account or all accounts for a resource type, such as a topic.
 +
 --
 The following permission options are available:
@@ -314,7 +314,7 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you selected a permission entry that applies to a specific account, you can delete only permission entries that apply to individual accounts. If you selected a permission entry that applies to all accounts, you can delete only permission entries that apply to all accounts.
 --
-.. Under *Assign Permissions*, select and define the permissions for the specified account or all accounts for a resource type, such as a topic, from the list. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
+.. From the list under *Assign Permissions*, select and define the permissions for the specified account or all accounts for a resource type, such as a topic. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
 .. Click *Save* to finish.
 
 * To delete existing account permissions in this instance, use the following options:

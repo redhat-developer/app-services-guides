@@ -95,7 +95,7 @@ If required, use the {product-kafka} web console to reset the offsets of consume
 == Listing consumer groups
 
 [role="_abstract"]
-In addition to the {service-url-kafka}[_Openshift Streams for Apache Kafka_^] web console, you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to list consumer groups for your Kafka instance. The following subsections describe how to use these methods to list consumer groups.
+In addition to the {product-kafka} {service-url-kafka}[_web console_^], you can use the `rhoas` command-line interface (CLI) or the Kafka `kafka-consumer-groups.sh` script to list consumer groups for your Kafka instance. The following subsections describe how to use these methods to list consumer groups.
 
 ifndef::community[]
 NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product-kafka} and are therefore not supported by Red Hat.
@@ -113,7 +113,7 @@ To use the `rhoas` command-line interface (CLI) to list the consumer groups defi
 rhoas kafka consumer-group list
 ----
 
-When you enter the preceding command, you see output similar to the following example:
+You now see output similar to the following example:
 
 [source,subs="+quotes,+attributes"]
 ----
@@ -173,7 +173,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 == Adding a consumer to a consumer group
 
 [role="_abstract"]
-To create a consumer group, you specify a consumer group ID in your consumer application. You do *not* create consumer groups in the {product-kafka} web console, or using the CLI.
+To create a consumer group, you specify a consumer group ID in your consumer application. You do *not* create consumer groups in the {product-kafka} {service-url-kafka}[_web console_^], or using the CLI.
 
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
@@ -230,13 +230,11 @@ If you add more consumers than the number of partitions in a consumer group, the
 == Reviewing consumer group properties in {product-kafka}
 
 [role="_abstract"]
-Use the {product-kafka} web console to select a consumer group and review the consumer properties.
+Use the {product-kafka} {service-url-kafka}[_web console_^] to select a consumer group and review the consumer properties.
 You can examine the consumer groups associated with a Kafka instance or a specific topic of the instance.
 
 As an alternative to using the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) to return information about a consumer group, as shown in the following example command:
 
-.Example CLI command to return consumer group information
-[source]
 ----
 rhoas kafka consumer-group describe [flags]
 ----
@@ -252,12 +250,11 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
 * You've created a Kafka instance with at least one Kafka topic in {product-kafka}.
 * Consumer client applications connected to the Kafka instance have a consumer group ID.
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer groups that you want to review.
+. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the consumer groups that you want to review.
 . Select the *Consumer groups* page.
 . Select the options icon (three vertical dots) for the relevant consumer group and click *View partition offsets*.
 
@@ -316,7 +313,7 @@ The difference (delta) between the consumer and producer offset positions in the
 Consumer lag for a given consumer group indicates the delay between the last message added in a partition and the message currently being picked up by that consumer.
 The lag reflects the position of the consumer offset in relation to the end of the partition log.
 
-When you're reviewing consumer group properties in the {product-kafka} web console, look for the differences between *Current offset* and *Log end offset*.
+When you're reviewing consumer group properties in the {product-kafka} {service-url-kafka}[_web console_^], look for the differences between *Current offset* and *Log end offset*.
 The difference shows as the *Offset lag* value.
 
 For applications that rely on the processing of (near) real-time data, it’s critical that consumer lag doesn't become too big.
@@ -341,7 +338,7 @@ For more information about increasing topic retention time, see {base-url}{topic
 == Resetting consumer group offset positions
 
 [role="_abstract"]
-Use the {product-kafka} web console to select consumer groups and reset partition offsets for a particular topic.
+Use the {product-kafka} {service-url-kafka}[_web console_^] to select consumer groups and reset partition offsets for a particular topic.
 A reset changes the offset position from which consumers read from the message log of a topic partition.
 To reset an offset position, the consumer group must have _NO MEMBERS_ connected to a topic.
 
@@ -383,17 +380,16 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 You can specify the reset for `--all-topics` or a single specified `--topic`.
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
 * The consumer group you select must have no active members connected to the topic.
 * Consumers in the consumer group must be shut down (not consuming partitions).
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer group you're updating.
+. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the consumer group you're updating.
 +
 Alternatively, select a consumer group for a specific topic.
 +
 --
-.. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topic.
+.. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the topic.
 .. On the *Topics* page, click the name of the topic.
 --
 . On the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Reset Offset*.
@@ -412,7 +408,7 @@ Alternatively, select a consumer group for a specific topic.
 == Deleting a consumer group
 
 [role="_abstract"]
-Use the {product-kafka} web console to delete consumer groups.
+Use the {product-kafka} {service-url-kafka}[_web console_^] to delete consumer groups.
 The consumer group must have no active members connected to a topic.
 By deleting the consumer group, you remove the current state associated with the group.
 
@@ -433,17 +429,16 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 ----
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
 * The consumer group you select must have no active members.
 * Consumers in the consumer group must be shut down (not consuming partitions).
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer group you're updating.
+. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web consoleclick the name of the Kafka instance that contains the consumer group you're updating.
 +
 Alternatively, select a consumer group for a specific topic.
 +
 --
-.. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topic.
+.. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the topic.
 .. On the *Topics* page, click the name of the topic.
 --
 . On the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Delete*.
