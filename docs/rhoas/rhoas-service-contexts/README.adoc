@@ -275,7 +275,7 @@ $ rhoas context use --name development-context
 $ cd ~/app-services-guides/code-examples/quarkus-service-registry-quickstart/
 ----
 
-. Create a service account and save the credentials in an environment variables file.
+. Create a service account for the Quarkus application to authenticate with the Kafka and {registry} instances in the context. Save the credentials in an environment variables file in the directory for the producer component.
 +
 [source,shell]
 ----
@@ -296,7 +296,7 @@ $ rhoas generate-config --type env --output-file ./producer/rhoas.env
 $ cat ./producer/rhoas.env >> ./producer/.env
 ----
 
-. Copy the `.env` file to the directory for the consumer component, as shown in the following Linux example:
+. Copy the updated `.env` file to the directory for the consumer component, as shown in the following Linux example:
 +
 [source,shell]
 ----
