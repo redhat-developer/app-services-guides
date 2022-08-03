@@ -131,7 +131,7 @@ To enable the Kafka scripts to access a Kafka instance, you must configure the c
 
 .Prerequisites
 ifndef::qs[]
-* You have the generated credentials for your service account. To regenerate the credentials, use the *Service Accounts* page in the {product-kafka} web console to find your service account and update the credentials.
+* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
 * You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
 endif::[]
 

@@ -185,10 +185,10 @@ image::sak-kafka-overview.png[Image of initial empty instances table]
 ////
 
 [id="proc-creating-service-account_{context}"]
-== Creating a service account to connect to a Kafka instance in {product-kafka}
+== Creating a service account to connect to a Kafka instance in {product-long-kafka}
 
 [role="_abstract"]
-To connect your applications or services to a Kafka instance in the {product-kafka} web console, you need to create a service account that's associated with the instance. You also need to save the bootstrap server endpoint for the instance, the generated service account credentials, and the authentication token endpoint to a secure location. You'll use the service account and Kafka instance information later when you configure your application.
+To connect your applications or services to a Kafka instance in {product-long-kafka}, you need to create a service account that's associated with the instance. You also need to save the bootstrap server endpoint for the instance, the generated service account credentials, and the authentication token endpoint to a secure location. You'll use the service account and Kafka instance information later when you configure your application.
 
 .Prerequisites
 * You've created a Kafka instance and the instance is in *Ready* state.
@@ -216,9 +216,7 @@ IMPORTANT: The generated credentials are displayed only one time, so ensure that
 +
 NOTE: SASL/PLAIN authentication is also available for tools and libraries that don't support SASL/OAUTHBEARER, but SASL/OAUTHBEARER is recommended whenever possible. With SASL/PLAIN authentication, you use only the service account credentials to authenticate the connection to the Kafka instance.
 
-+
-You'll use the service account information that you saved to configure your application to connect to your Kafka instances when you're ready.
-. To review your service account information, reset your credentials, or delete the service account, use the left navigation menu to go to the *Service Accounts* page.
+. To review, reset, or delete the service account, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
 
 .Verification
 ifdef::qs[]
