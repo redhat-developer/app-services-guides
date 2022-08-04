@@ -83,7 +83,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As an owner of a Kafka instance in {product-kafka}, you can manage the level of access that other user accounts and service accounts have to your instance. You can allow or deny access to your instance for specific accounts or for all accounts in your organization. You can also allow other users or service accounts to manage the level of access to your instance for you.
+As an owner of a Kafka instance in {product-long-kafka}, you can manage the level of access that other user accounts and service accounts have to your instance. You can allow or deny access to your instance for specific accounts or for all accounts in your organization. You can also allow other users or service accounts to manage the level of access to your instance for you.
 
 You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
 
@@ -93,7 +93,7 @@ You can manage access for only the Kafka instances that you create or for instan
 == Access management in {product-kafka}
 
 [role="_abstract"]
-{product-kafka} uses Access Control Lists (ACLs) provided by Apache Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
+{product-long-kafka} uses Access Control Lists (ACLs) provided by Apache Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
 
 An account in {product-kafka} is either a user account or a service account. A user account enables users in your organization to access your resources. A service account enables your application or tool to connect securely to your instance and access your resources.
 
@@ -232,14 +232,14 @@ https://kafka.apache.org/documentation/#security_authz_primitives[Authorization 
 == Setting account permissions in a Kafka instance in {product-kafka}
 
 [role="_abstract"]
-In {product-kafka}, you can create Access Control Lists (ACLs) in your Kafka instances and set permissions for how other user accounts or service accounts can interact with an instance and its resources. You can manage access for only the Kafka instances that you create or for the instances that the owner has enabled you to access and alter.
+In {product-long-kafka}, you can create Access Control Lists (ACLs) in your Kafka instances and set permissions for how other user accounts or service accounts can interact with an instance and its resources. You can manage access for only the Kafka instances that you create or for the instances that the owner has enabled you to access and alter.
 
 .Prerequisites
 * You've created a Kafka instance and the instance is in the *Ready* state.
 * The user account or service account that you're setting permissions for has been created in the organization.
 
 .Procedure
-. On the {service-url-kafka}[_Kafka Instances_^] page of the {product-kafka} web console, click the name of the Kafka instance that you want to set permissions for.
+. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that you want to set permissions for.
 . Click the *Access* tab to view the current ACL permissions for this instance.
 . Use this *Access* page to set permissions for a new account, add permissions to an existing account, or delete account permissions in this instance.
 +
@@ -256,7 +256,7 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you previously selected a specific account, you can delete only permission entries that apply to individual accounts. If you previously selected *All accounts*, you can delete only permission entries that apply to all accounts.
 --
-.. From the list under *Assign Permissions*, select and define the permissions for the specified account or all accounts for a resource type, such as a topic.
+.. Under *Assign Permissions*, use the list to select and define the permissions for the specified account or all accounts for a resource type, such as a topic.
 +
 --
 The following permission options are available:
@@ -314,7 +314,7 @@ The *Review existing permissions* section lists any permission settings in this 
 
 If you selected a permission entry that applies to a specific account, you can delete only permission entries that apply to individual accounts. If you selected a permission entry that applies to all accounts, you can delete only permission entries that apply to all accounts.
 --
-.. From the list under *Assign Permissions*, select and define the permissions for the specified account or all accounts for a resource type, such as a topic. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
+.. Under *Assign Permissions*, use the list to select and define the permissions for the specified account or all accounts for a resource type, such as a topic. You can click *Add permission* to add permissions individually, or you can select from the predefined permission options as described previously.
 .. Click *Save* to finish.
 
 * To delete existing account permissions in this instance, use the following options:
@@ -323,7 +323,7 @@ If you selected a permission entry that applies to a specific account, you can d
  ** For the account that you want to delete, select the options icon (three vertical dots) for that entry and click *Delete*.
 
 +
-IMPORTANT: If you delete a user account or service account, you also need to delete any ACL permissions associated with that account. If you don't delete unused ACL permissions, then a future account with the same ID of a previously deleted account could inherit the ACL permissions and have automatic access to a Kafka instance.
+IMPORTANT: If you delete a user account or service account, you must also delete any ACL permissions associated with that account. If you don't delete unused ACL permissions, then a future account with the same ID of a previously deleted account could inherit the ACL permissions and have automatic access to a Kafka instance.
 
 
 [role="_additional-resources"]
@@ -334,7 +334,7 @@ IMPORTANT: If you delete a user account or service account, you also need to del
 == Example account access scenarios in {product-kafka}
 
 [role="_abstract"]
-The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-kafka}. Some examples differ from the predefined permissions in {product-kafka} to demonstrate various possible ACL scenarios. Use these examples as a guide for your own ACLs.
+The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-long-kafka}. Some examples differ from the predefined permissions in {product-kafka} to demonstrate various possible ACL scenarios. Use these examples as a guide for your own ACLs.
 
 Access for a new service account in a Kafka instance::
 +
@@ -511,19 +511,19 @@ h|Operations
 As an organization administrator, you can use Role-Based Access Control (RBAC) to allow users to view other users in an organization.
 
 You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
-By assigning the role, users within the group are able to do the following actions:
+By assigning the role, users within the group are able to perform the following actions:
 
-* View and select other users when changing owners and managing access to Kafka instances in the {service-url-kafka}[_Openshift Streams for Apache Kafka_^] web console.
+* View and select other users when changing owners and managing access to Kafka instances in the {service-url-kafka}[Openshift Streams for Apache Kafka] web console.
 * Specify user names when using the `rhoas` CLI for {product-long-kafka}.
 
 .Prerequisites
-* You're logged into the {cloud-console-url} as an organization administrator.
+* You're logged into the {cloud-console-url}[Red Hat Hybrid Cloud Console] as an organization administrator.
 * A user group contains the users to assign the role to.
 
 NOTE: If you want to add the `User Access principal viewer` role to a single user, create a new group for that user only.
 
 ifndef::community[]
-For more information on setting up user access in the {cloud-console-url}, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/[_User Access Configuration Guide for Role-based Access Control (RBAC)_^].
+For more information on setting up user access in the Red Hat Hybrid Cloud Console, see the link:https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/[User Access Configuration Guide for Role-based Access Control (RBAC)^].
 endif::[]
 
 .Procedure
@@ -537,9 +537,9 @@ The role is added to the list of selected roles on the *Roles* tab.
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
-* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the `rhoas` CLI for {product-long-kafka}^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
