@@ -235,7 +235,7 @@ endif::[]
 After you create a service account to connect to a Kafka instance, you must also set the appropriate level of access for that new account in the Access Control List (ACL) of the Kafka instance. {product-kafka} uses ACLs provided by Kafka that enable you to manage how other user accounts and service accounts are permitted to interact with the Kafka resources that you create.
 
 .Prerequisites
-* You've created a Kafka instance and the instance is in *Ready* state.
+* You've created a Kafka instance and the instance is in the *Ready* state.
 * You've created a service account that you want to allow to access the running Kafka instance.
 
 .Procedure
@@ -304,7 +304,7 @@ endif::[]
 After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
 
 .Prerequisites
-* You've created a Kafka instance and the instance is in *Ready* state.
+* You've created a Kafka instance and the instance is in the *Ready* state.
 
 .Procedure
 . In the *Kafka Instances* page of the web console, click the name of the Kafka instance that you want to add a topic to.
