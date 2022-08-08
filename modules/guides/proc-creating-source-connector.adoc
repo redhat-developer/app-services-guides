@@ -32,14 +32,11 @@ Click the card to select the connector, and then click *Next*.
 +
 NOTE: If you have not already configured a {product-kafka} instance for connectors, click *Create Kafka instance*. You also must set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
 
-. On the *Namespace* page, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
+. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
 +
-//. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
-//+
-//If you are using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in _https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors/TBD[Adding the OpenShift Connectors service to an OpenShift Dedicated trial cluster^]_.
-//need to update this link with correct URL
-//+
-//If you are using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
+If you're using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding and removing the Red Hat OpenShift Connectors add-on on your OpenShift Dedicated trial cluster^].
++
+If you're using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
 
 . Click *Next*.
 
