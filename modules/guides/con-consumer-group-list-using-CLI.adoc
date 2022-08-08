@@ -10,7 +10,7 @@ To use the `rhoas` command-line interface (CLI) to list the consumer groups defi
 rhoas kafka consumer-group list
 ----
 
-When you enter the preceding command, you should see output similar to the following example:
+You now see output similar to the following example:
 
 [source,subs="+quotes,+attributes"]
 ----

@@ -1,7 +1,7 @@
 [id='con-consumer-group-state_{context}']
 = Consumer group states
 :imagesdir: ../_images
-Consumer group states displayed in the OpenShift Streams for Apache Kafka web console and `rhoas` CLI can be one of the following values:
+Consumer group states displayed in the {product-kafka} web console and `rhoas` CLI can be one of the following values:
 
 * *Empty*: The group exists but has no members.
 * *Stable*: Rebalancing already occurred and consumers are consuming.

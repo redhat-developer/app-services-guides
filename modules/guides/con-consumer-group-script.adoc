@@ -30,5 +30,5 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_] describes how to create a Kafka instance and service account, and how to set permissions in the instance for a service account.
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}] describes how to create a Kafka instance and service account, and how to set permissions in the instance for a service account.
 

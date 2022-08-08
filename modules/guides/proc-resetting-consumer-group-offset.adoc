@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {product-kafka} web console to select consumer groups and reset partition offsets for a particular topic.
+Use the {product-kafka} {service-url-kafka}[web console^] to select consumer groups and reset partition offsets for a particular topic.
 A reset changes the offset position from which consumers read from the message log of a topic partition.
 To reset an offset position, the consumer group must have _NO MEMBERS_ connected to a topic.
 
@@ -34,7 +34,7 @@ The `reset-offset` CLI command has an additional reset option. You can use a tim
 rhoas kafka consumer-group reset-offset --id my-consumer-group --offset timestamp --value "2021-06-23T09:07:21-07:00"
 ----
 
-For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^].
+For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
 
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to reset offsets:
 [source,subs="+quotes,+attributes"]
@@ -45,20 +45,19 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 You can specify the reset for `--all-topics` or a single specified `--topic`.
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
 * The consumer group you select must have no active members connected to the topic.
 * Consumers in the consumer group must be shut down (not consuming partitions).
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer group you're updating.
+. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the consumer group you're updating.
 +
 Alternatively, select a consumer group for a specific topic.
 +
 --
-.. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topic.
-.. In the *Topics* page, click the name of the topic.
+.. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the topic.
+.. On the *Topics* page, click the name of the topic.
 --
-. In the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Reset Offset*.
+. On the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Reset Offset*.
 . Select a topic.
 . Choose a new offset position from *Absolute*, *Latest*, or *Earliest*.
 . Select one or more partitions to apply the offset reset.
@@ -67,5 +66,5 @@ Alternatively, select a consumer group for a specific topic.
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]

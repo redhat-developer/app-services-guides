@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-To create a consumer group, you specify a consumer group ID in your consumer application. You do *not* create consumer groups in the {product-kafka} web console, or using the CLI.
+To create a consumer group, you specify a consumer group ID in your consumer application. You do *not* create consumer groups in the {product-kafka} {service-url-kafka}[web console^], or using the CLI.
 
 A group ID is required for a consumer to be able to join a consumer group.
 The group ID is the name of the consumer group.
@@ -53,5 +53,5 @@ If you add more consumers than the number of partitions in a consumer group, the
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
 * https://kafka.apache.org/documentation/#consumerconfigs[Consumer Configs^] in Kafka documentation

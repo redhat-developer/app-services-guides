@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-{product-kafka} uses Access Control Lists (ACLs) provided by Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
+{product-long-kafka} uses Access Control Lists (ACLs) provided by Apache Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
 
 An account in {product-kafka} is either a user account or a service account. A user account enables users in your organization to access your resources. A service account enables your application or tool to connect securely to your instance and access your resources.
 

@@ -3,12 +3,12 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-kafka}. Some examples differ from the predefined permissions in {product-kafka} to demonstrate various possible ACL scenarios. Use these examples as a guide for your own ACLs.
+The following example Access Control Lists (ACLs) illustrate common scenarios for managing the level of access for user accounts or service accounts in {product-long-kafka}. Some examples differ from the predefined permissions in {product-kafka} to demonstrate various possible ACL scenarios. Use these examples as a guide for your own ACLs.
 
 Access for a new service account in a Kafka instance::
 +
 --
-I’ve created a new service account and I want to allow it to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+You’ve created a new service account and you want to allow it to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
@@ -36,7 +36,7 @@ h|Operation
 Access for all accounts in a Kafka instance::
 +
 --
-I want this Kafka instance to be fully accessible to all accounts in the organization. I want any user to be able to read all topics, write to all topics, use any consumer group, and use any producer.
+You want this Kafka instance to be fully accessible to all accounts in the organization. You want any user to be able to read all topics, write to all topics, use any consumer group, and use any producer.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
@@ -64,7 +64,7 @@ h|Operations
 Access for a specific user in a Kafka instance::
 +
 --
-I want this Kafka instance to be fully accessible to a specific user. I don't know which topics or consumer groups the user will use, so I want the user to be able to read any topic, write to any topic, and join any consumer group in the instance.
+You want this Kafka instance to be fully accessible to a specific user. You don't know which topics or consumer groups the user will use, so you want the user to be able to read any topic, write to any topic, and join any consumer group in the instance.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
@@ -92,7 +92,7 @@ h|Operations
 Access for a specific producer to write to a topic::
 +
 --
-I want to allow a user account with a producer that is associated with a specific `transactional.id` value to produce messages to a specific topic in this Kafka instance.
+You want to allow a user account with a producer that is associated with a specific `transactional.id` value to produce messages to a specific topic in this Kafka instance.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
@@ -120,7 +120,7 @@ h|Operations
 Access for specific consumer groups to consume from a topic::
 +
 --
-I want to allow a service account with consumers from consumer groups whose names start with `app` to consume messages from a specific topic in this Kafka instance.
+You want to allow a service account with consumers from consumer groups whose names start with `app` to consume messages from a specific topic in this Kafka instance.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
@@ -148,7 +148,7 @@ h|Operations
 Access for a specific user to manage all permissions in the ACL of a Kafka instance::
 +
 --
-I want to allow a user account to manage all permissions in the ACL for this Kafka instance. I've removed all other permissions from this instance so that the new authorized user can define the new ACL as needed.
+You want to allow a user account to manage all permissions in the ACL for this Kafka instance. You've removed all other permissions from this instance so that the new authorized user can define the new ACL as needed.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]

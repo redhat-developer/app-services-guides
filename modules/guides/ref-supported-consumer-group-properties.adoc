@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following consumer group properties are displayed in {product-kafka}.
+The following consumer group properties are displayed in {product-long-kafka}.
 Consumer group properties are used for monitoring in the {product-kafka} web console and are not editable.
 
 == Consumer groups
@@ -13,7 +13,7 @@ The consumer group ID is the unique identifier for the consumer group within the
 
 Active Members::
 Active members shows the number of consumers in the group that are assigned to a topic partition in the Kafka instance.
-If you're viewing information on consumer groups for a topic, these are the active members for the topic.
+If you're viewing information about consumer groups for a topic, these are the active members for the topic.
 
 Partitions with lag::
 Partitions with lag shows the number of partitions where the assigned consumer has not caught up with the last message in the partition.

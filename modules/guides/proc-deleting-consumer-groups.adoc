@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-Use the {product-kafka} web console to delete consumer groups.
+Use the {product-kafka} {service-url-kafka}[web console^] to delete consumer groups.
 The consumer group must have no active members connected to a topic.
 By deleting the consumer group, you remove the current state associated with the group.
 
@@ -15,7 +15,7 @@ As an alternative to using the {product-kafka} web console, you can use the `rho
 rhoas kafka consumer-group delete my-consumer-group
 ----
 
-For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^].
+For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
 
 If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool to delete consumer groups:
 [source,subs="+quotes,+attributes"]
@@ -24,26 +24,25 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 ----
 
 .Prerequisites
-* You're logged in to the {product-kafka} web console.
 * The consumer group you select must have no active members.
 * Consumers in the consumer group must be shut down (not consuming partitions).
 
 .Procedure
-. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the consumer group you're updating.
+. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the consumer group you're updating.
 +
 Alternatively, select a consumer group for a specific topic.
 +
 --
-.. In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that contains the topic.
-.. In the *Topics* page, click the name of the topic.
+.. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the name of the Kafka instance that contains the topic.
+.. On the *Topics* page, click the name of the topic.
 --
-. In the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Delete*.
+. On the *Consumer groups* page, select the options icon (three vertical dots) for the relevant consumer group and click *Delete*.
 . Confirm the deletion by clicking *Delete*.
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

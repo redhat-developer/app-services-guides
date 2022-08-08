@@ -35,9 +35,9 @@ spec:
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
-* {base-url}{getting-started-rhoas-cli-url-kafka}[_Getting started with the `rhoas` CLI for {product-long-kafka}_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the `rhoas` CLI for {product-long-kafka}^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
 * https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation
 * https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus]
 * https://grafana.com/docs/grafana/latest/datasources/prometheus/[Prometheus Data Source] in the Grafana documentation
