@@ -30,7 +30,7 @@ endif::[]
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
-$ export RHOAS_CLIENT_ID=__<client_id>__
-$ export RHOAS_CLIENT_SECRET=__<client_secret>__
+$ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
+$ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 ----
 --
