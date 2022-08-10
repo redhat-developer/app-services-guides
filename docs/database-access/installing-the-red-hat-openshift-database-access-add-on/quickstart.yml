@@ -4,6 +4,7 @@ metadata:
   name: installing-the-red-hat-openshift-database-access-add-on
   annotations:
     categories: 'Database management'
+    draft: false
 spec:
   version: 0.1
   type:
