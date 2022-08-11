@@ -1,0 +1,48 @@
+[id='assembly-producing-consuming-rhoas-cli']
+= Producing and consuming messages using the rhoas CLI
+ifdef::context[:parent-context: {context}]
+:context: produce-consume-rhoas-cli
+:imagesdir: _images
+
+// Purpose statement for the assembly
+[role="_abstract"]
+As a developer of applications and services, you can use the `rhoas` command-line interface (CLI) to produce and consume messages for Kafka instances in {product-long-kafka}. This is a useful way to test and debug your Kafka instances.
+
+.Prerequisites
+ifndef::community[]
+* You have a Red Hat account.
+endif::[]
+* You have a running Kafka instance in {product-kafka}.
+* You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
+
+// Condition out QS-only content so that it doesn't appear in docs.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
+ifdef::qs[]
+[#description]
+====
+Learn how to use the `rhoas` command-line interface (CLI) to produce and consume messages for a Kafka instance.
+====
+
+[#introduction]
+====
+Welcome to the quick start for producing and consuming Kafka messages using the `rhoas` command-line interface (CLI).
+
+In this quick start, you'll use a CLI command to produce messages to different topic partitions in a Kafka instance. You'll then use the {product-long-kafka} web console to inspect the messages. When you're ready, you'll use another CLI command to consume the messages.
+====
+endif::[]
+
+include::modules/guides/proc-creating-kafka-topic-for-cli-production-consumption.adoc[leveloffset=+1]
+
+include::modules/guides/proc-producing-messages.adoc[leveloffset=+1]
+
+include::modules/guides/proc-consuming-messages.adoc[leveloffset=+1]
+
+ifdef::qs[]
+[#conclusion]
+====
+Congratulations! You successfully completed the quick start for producing and consuming messages using the `rhoas` CLI.
+====
+endif::[]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+

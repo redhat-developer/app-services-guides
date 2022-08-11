@@ -1,0 +1,53 @@
+[id='proc-consuming-messages_{context}']
+= Consuming messages from your Kafka instance
+:imagesdir: ../_images
+[role="_abstract"]
+When you've produced messages to your Kafka instance and verified them using the {product-long-kafka} web console, you're ready to consume the messages. In this task, you'll use the CLI to consume the messages.
+
+.Prerequisites
+* You've produced messages to `test-topic` in your Kafka instance.
+* You're logged in to the `rhoas` CLI.
+
+.Procedure
+. Specify the Kafka instance that you want to consume messages from.
++
+[source,subs="+quotes"]
+----
+$ rhoas kafka use --name=_<my-kafka-instance>_
+----
+
+. Consume the messages on partition `0` of `test-topic`.
++
+[source]
+----
+rhoas kafka topic consume --name=test-topic --partition=0
+----
++
+The CLI displays the messages. Observe that because you didn't specify an offset value, the CLI displays *all* of the messages on partition `0`.
+
+. Consume the third message that you produced by specifying the appropriate partition and offset values.
++
+[source]
+----
+rhoas kafka topic consume --name=test-topic --partition=0 --offset=2
+----
+
+. Consume the fourth message, which you produced to partition `1` of the topic.
++
+[source]
+----
+rhoas kafka topic consume --name=test-topic --partition=1
+----
+
+.Verification
+* When you entered the `kafka topic consume` command, did you see the expected messages?
+
+ifdef::qs[]
+[#conclusion]
+====
+Congratulations! You successfully completed the quick start for producing and consuming messages using the `rhoas` CLI.
+====
+endif::[]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

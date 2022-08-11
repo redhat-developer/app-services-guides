@@ -1,0 +1,66 @@
+[id='proc-producing-messages_{context}']
+= Producing messages to your Kafka instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+When you have a Kafka instance with a topic, you're ready to use the CLI to produce messages. In this task, you'll produce four messages to your Kafka instance.
+
+.Prerequisites
+* You've created `test-topic` on your Kafka instance.
+
+.Procedure
+. Log in to the `rhoas` CLI.
++
+[source]
+----
+$ rhoas login
+----
+
+. Specify the Kafka instance that you want to produce messages to.
++
+[source,subs="+quotes"]
+----
+$ rhoas kafka use --name=_<my-kafka-instance>_
+----
+
+. Produce your first message to `test-topic`.
++
+[source]
+----
+rhoas kafka topic produce --name=test-topic
+----
++
+You're prompted to enter a message value.
+
+. Enter `First message` as the message value.
+
+. Repeat the previous steps to produce your second and third messages to `test-topic`. Enter `Second message` and `Third message` as the message values.
+
+. Produce your fourth and final message to `test-topic`. This time, specify a partition value of `1` and a custom message key. An example is shown below.
++
+[source]
+----
+rhoas kafka topic produce --name=test-topic --partition=1 --key="{'location': 'us-east-1'}"
+----
+
+. Enter `Fourth message` as the value of the final message.
+
+. To view the messages in the {product-long-kafka} {service-url-kafka}[web console^], perform the following actions:
+.. On the *Kafka Instances* page, click the name of your Kafka instance.
+.. Select the *Topics* tab, and then click `test-topic`.
+.. Select the *Messages* tab.
++
+The messages table shows the messages you produced.
+.. Observe the following details about the messages you produced:
++
+* Because you didn't specify a partition value when producing the first three messages, these messages all went to partition `0` by default.
+* The three messages on partition `0` have offset values of `0`, `1`, and `2`.
+* The final message is on partition `1` and has the custom key value that you specified.
+
+.Verification
+ifdef::qs[]
+* Does the messages table show the four messages that you produced?
+endif::[]
+ifndef::qs[]
+* Verify that the messages table shows the four messages you produced.
+endif::[]

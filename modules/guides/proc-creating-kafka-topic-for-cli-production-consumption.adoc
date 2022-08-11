@@ -1,0 +1,31 @@
+[id='proc-creating-kafka-topic-for-cli-production-consumption_{context}']
+= Creating a Kafka topic in {product-kafka}
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this task, you'll create a new topic in your Kafka instance. You'll use this topic in later tasks to produce and consume messages.
+
+.Prerequisites
+* You've created a Kafka instance in {product-long-kafka} and the instance is in the *Ready* state.
+
+.Procedure
+. On the {service-url-kafka}[Kafka Instances^] page of the {product-kafka} web console, click the Kafka instance that you want to add a topic to.
+. Select the *Topics* tab.
+. Click *Create topic* and follow the guided steps to define the topic details.
++
+You must specify the following topic properties:
+
+* *Topic name*: For this quick start, enter `test-topic` as the topic name.
+* *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `2`.
+* *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`.
+* *Replicas*: For this release of {product-kafka}, replica values are preconfigured. The number of partition replicas and the minimum number of follower replicas that must be in sync with a partition leader are both set to `1`.
++
+After you complete the setup, the new topic appears on the *Topics* page.
+
+.Verification
+ifdef::qs[]
+* Does `test-topic` appear on the *Topics* page?
+endif::[]
+ifndef::qs[]
+* Verify that `test-topic` appears on the *Topics* page.
+endif::[]
