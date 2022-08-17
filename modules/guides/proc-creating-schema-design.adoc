@@ -18,8 +18,8 @@ endif::[]
 * *Type*: From the list, select *Apache Avro*, or select another schema type.
 . Click *Create*. The new schema design opens in the design editor.
 . Edit the design source to provide your content.
-. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
-. _(Optional)_ For Apache Avro or JSON Schema designs, you can click *Actions > Format content* to insert spaces and tabs that align your design content correctly.
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show design changes*.
+. _(Optional)_ For Apache Avro or JSON Schema designs, you can click *Actions > Format design content* to insert spaces and tabs that align your design content correctly.
 . Click *Save*.
 +
 The new design is listed on the *API and Schema Designs* page.

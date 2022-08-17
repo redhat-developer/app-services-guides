@@ -21,6 +21,9 @@ endif::[]
 * *Template*: Select the *Pet Store Example* template, or select another template from the list.
 . Click *Create*. The new API design opens in the design editor.
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
++
+NOTE: Editing the design _title_ does not change the design _name_. To rename a design, click *Actions > Edit design metadata*, edit the design name, and click *Save*.
++
 . Click the *Design* tab, and optionally edit the design as follows:
 * Provide a version number and a description.
 * _(AsyncAPI only)_ Define terms of service.
@@ -33,7 +36,7 @@ endif::[]
 * _(OpenAPI only)_ Configure vendor extensions.
 . Click the *Source* tab, and review the live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
-. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show design changes*.
 . _(Optional)_ In the left pane of the design editor, you can add the following items:
 * _(OpenAPI only)_ Resource paths, data types, and responses
 * _(AsyncAPI only)_ Channels, data types, messages, operation traits, and message traits

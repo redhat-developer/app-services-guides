@@ -16,7 +16,7 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 .Procedure
 . On the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to test.
 . Click the options icon (three vertical dots), and click *Edit design content* to open the design editor.
-. From the *Actions* menu, click *Test using Service Registry*.
+. From the *Actions* menu, click *Run {registry} check*.
 . From the *Registry instance* list, select a {registry} instance.
 . In the *Group* and *ID* fields, specify the artifact details.
 . Click *Test*.
