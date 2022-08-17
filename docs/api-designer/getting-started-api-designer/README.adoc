@@ -132,6 +132,9 @@ endif::[]
 * *Template*: Select the *Pet Store Example* template, or select another template from the list.
 . Click *Create*. The new API design opens in the design editor.
 . Select the design title and click the pen icon. Change the design title to *Orders* and click the *Save changes* icon.
++
+NOTE: Editing the design _title_ does not change the design _name_. To rename a design, click *Actions > Edit design metadata*, edit the design name, and click *Save*.
++
 . Click the *Design* tab, and optionally edit the design as follows:
 * Provide a version number and a description.
 * _(AsyncAPI only)_ Define terms of service.
@@ -144,7 +147,7 @@ endif::[]
 * _(OpenAPI only)_ Configure vendor extensions.
 . Click the *Source* tab, and review the live preview of the design.
 The content of the *Source* tab automatically updates when you edit values on the editor page.
-. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show design changes*.
 . _(Optional)_ In the left pane of the design editor, you can add the following items:
 * _(OpenAPI only)_ Resource paths, data types, and responses
 * _(AsyncAPI only)_ Channels, data types, messages, operation traits, and message traits
@@ -182,8 +185,8 @@ endif::[]
 * *Type*: From the list, select *Apache Avro*, or select another schema type.
 . Click *Create*. The new schema design opens in the design editor.
 . Edit the design source to provide your content.
-. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show changes*.
-. _(Optional)_ For Apache Avro or JSON Schema designs, you can click *Actions > Format content* to insert spaces and tabs that align your design content correctly.
+. _(Optional)_ To see the changes that you made since the last save, click *Actions > Show design changes*.
+. _(Optional)_ For Apache Avro or JSON Schema designs, you can click *Actions > Format design content* to insert spaces and tabs that align your design content correctly.
 . Click *Save*.
 +
 The new design is listed on the *API and Schema Designs* page.
@@ -251,7 +254,7 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 .Procedure
 . On the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to test.
 . Click the options icon (three vertical dots), and click *Edit design content* to open the design editor.
-. From the *Actions* menu, click *Test using Service Registry*.
+. From the *Actions* menu, click *Run {registry} check*.
 . From the *Registry instance* list, select a {registry} instance.
 . In the *Group* and *ID* fields, specify the artifact details.
 . Click *Test*.
@@ -288,6 +291,9 @@ For more information, see {base-url}{getting-started-url-registry}[Getting start
 .Procedure
 . On the *API and Schema Designs* page of the {service-url-api-designer}[{product-long-api-designer} web console^], select the design that you want to export.
 . Click the options icon (three vertical dots), and click *Export design to {registry}*.
++
+NOTE: You can also select *Export design to {registry}* from the *Actions* menu in the design editor.
++
 . Complete the form to specify where to save the new design. Provide the following details:
 +
 NOTE: If the design was originally imported from {product-long-registry}, the fields are prepopulated with the details of the original {product-registry} instance, and the *Version* field is blank.
