@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: getting-started-api-designer
   annotations:
-    draft: true
+    draft: false
     order: 1
 spec:
   version: 0.1
