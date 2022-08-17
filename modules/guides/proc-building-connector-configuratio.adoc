@@ -1,0 +1,39 @@
+[id='proc-building-connector-configuratio_{context}']
+= Building a connectors configuration
+:imagesdir: ../_images
+
+[role="_abstract"]
+In this task you will create a configuration file that can be used to create a {product-long-connectors} instance.
+
+.Procedure
+. Log in to the `rhoas` CLI.
++
+[source]
+----
+$ rhoas login
+----
+
+. Start building a configuration for a {{product-long-connectors} instance.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector build --type=data_generator_0.1
+----
+
+You're prompted to enter details based on the Connectors instance type provided.
+
+. Enter `my-topic` as the topic names value.
+
+. Accept the default Content Type by pressing enter when prompted.
+
+. Enter `Hello World!` as the message value.
+
+. Accept the default Period.
+
+.Verification
+ifdef::qs[]
+* Is there a file called `connector.json` in the current working directory?
+endif::[]
+ifndef::qs[]
+* Verify that the connector specific configuration is set in the `connector.json` file.
+endif::[]
