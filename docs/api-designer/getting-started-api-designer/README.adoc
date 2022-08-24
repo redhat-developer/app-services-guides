@@ -100,7 +100,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to create your first API design or schema design in {product-long-api-designer}.
+Learn how to create your first API or schema design in {product-long-api-designer}.
 ====
 
 [#introduction]
