@@ -135,7 +135,7 @@ endif::[]
 * *Availability zones*: The selection for availability zones is preconfigured as *Single* for a trial instance and *Multi* for a production instance.
 * *Size*: If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. Instances with more streaming units have more capacity. If you're creating a trial instance, the instance size is preconfigured.
 +
-NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. Instances larger than 1 streaming unit are currently available only as a Technology Preview and cannot be used in production.
+NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. Instances larger than 1 streaming unit are currently available only as a Technology Preview. Red Hat does not recommend using these larger instances in production.
 +
 ////
 //For post preview, when more options are available.
