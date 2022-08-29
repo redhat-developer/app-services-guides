@@ -86,7 +86,7 @@ ifdef::context[:parent-context: {context}]
 [role="_abstract"]
 As a developer of {product-connectors}, you can use the `rhoas` command-line interface (CLI) to create and configure connections between {product-long-kafka} and third-party systems.
 
-A *source* connector allows you to send data from an external system to {product-kafka}. A *sink* connector allows you to send data from {product-kafka} to an external system.
+You can use a *source* connector to send data from an external system to {product-kafka}. You can use a *sink* connector to send data from {product-kafka} to an external system.
 
 For the example in this guide, you create a source connector that sends data from a simple data generator to a Kafka topic. You also create a sink connector that sends data from the Kafka topic to an HTTP site.
 
