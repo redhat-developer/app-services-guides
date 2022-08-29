@@ -100,7 +100,7 @@ Use this guide to complete the following tasks:
 
 * You have a Red Hat account.
 * You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
-* You have completed the following tasks:
+* You've completed the following tasks:
 +
 *Note:* You can find detailed instructions for these tasks in {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for {product-long-kafka}^].
 
