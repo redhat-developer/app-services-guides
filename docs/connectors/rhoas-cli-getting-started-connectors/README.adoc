@@ -132,7 +132,7 @@ $ rhoas kafka topic create --name test-topic
 $ rhoas service-account create --file-format json --short-description="test-service-account" 
 ----
 
-** For your Kafka instance, set the *Consume from a topic* and *Produce to a topic* permissions for the service account to `ls \*`. The `is \*` settings enable Connectors instances that are configured with the service account credentials to produce and consume messages in any topic in the Kafka instance.
+** For your Kafka instance, set the *Consume from a topic* and *Produce to a topic* permissions for the service account to `ls \*`. The `is \*` settings enable {product-connectors} instances that are configured with the service account credentials to produce and consume messages in any topic in the Kafka instance.
 +
 [source,subs="+quotes"]
 ----
