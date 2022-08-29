@@ -393,7 +393,7 @@ $ rhoas connector list
 [role="_additional-resources"]
 .Additional resources
 * To access the `rhoas connector` help page, type `rhoas connector -h`
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+{base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
