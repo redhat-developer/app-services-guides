@@ -94,7 +94,7 @@ Use this guide to complete the following tasks:
 
 * {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-namespace_connectors-rhoas-cli[Create a namespace to host your {product-connectors} instances.]
 * {base-url}{getting-started-rhoas-cli-url-connectors}#proc-building-connector-configuration-cli_connectors-rhoas-cli[Build a configuration file for each type of connector that you want to create]
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-building-connector-configuration-cli_connectors-rhoas-cli[Create a Connectors instances] by specifying a configuration file.
+* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-instances_connectors-rhoas-cli[Create a {product-connectors} instance by specifying a configuration file]
 
 .Prerequisites
 
