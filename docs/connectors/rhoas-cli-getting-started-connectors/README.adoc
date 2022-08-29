@@ -147,7 +147,7 @@ A Connectors namespace hosts your Connectors instances.
 
 The namespace that you use depends on your OpenShift Dedicated environment.
 
-* *If you're using a trial cluster in your own OpenShift Dedicated environment*, the namespace is created when you add the Connectors service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding and removing the Red Hat OpenShift Connectors add-on on your OpenShift Dedicated trial cluster^]. Your OSD trial cluster namespace is active for 60 days.
+* If you're using a trial cluster in your own OpenShift Dedicated environment:: The namespace is created when you add the {product-connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding and removing the Red Hat OpenShift Connectors add-on on your OpenShift Dedicated trial cluster^]. Your OSD trial cluster namespace is active for 60 days.
 
 * *If you're using the OpenShift Connectors evaluation site*, you must create an evaluation namespace before you can create Connectors instances. An evaluation namespace is active for 48 hours.
 
@@ -182,30 +182,30 @@ $ rhoas connector namespace list
 == Building connector configuration files
 
 [role="_abstract"]
-Before you can create a Connectors instance, you need to build a configuration file that is based on a supported connector type that is listed in the {product-connectors} catalog. 
+Before you can create a Connectors instance, you must build a configuration file that is based on a supported connector type that is listed in the {product-connectors} catalog. 
 
 For this example, you want to create two types of connectors: a data generator (a source connector) and an HTTP sink connector.
 
-You must build a configuration file for each connector type that you want to create. When you build a configuration file, the default filename is `connector.json`. Optionally, you can specify a different configuration filename. 
+You must build a configuration file for each connector type that you want to create. When you build a configuration file, the default file name is `connector.json`. Optionally, you can specify a different configuration file name. 
 
 .Prerequisites
 
-* Your current local directory is the place where you want to save your Connectors configuration files. For example. if you want to save your configuration files in a directory named `my-connectors`, make it the current directory.
+* Your current local directory is the place where you want to save your Connectors configuration files. For example, if you want to save your configuration files in a directory named `my-connectors`, ensure that the `my-connectors` directory is your current directory.
 +
 [source]
 ----
 $ cd my-connectors
 ----
 
-* You are logged in to `rhoas`.
+* You're logged in to `rhoas`.
 
-* For the sink connector example, open the free link:https://webhook.site[Webhook.site^] in a browser window. The Webhook site page provides a unique URL that you can for the exampe HTTP data sink.
+* For the sink connector example, open the free https://webhook.site[Webhook.site^] page in a browser window. The Webhook.site page provides a unique URL that you can use for the example HTTP data sink.
 
 .Procedure
 
 . Decide which type of connector you want to create.
 
-.. View a list of the supported connector types that are available in the Connectors catalog. The default number of connector types is set to 10. To see all connectors types, specify a limit value of 100.
+.. View a list of the supported connector types that are available in the Connectors catalog. The default number of connector types listed is set to 10. To see all connectors types, specify a limit value of 100.
 +
 [source,subs="+quotes"]
 ----
@@ -232,7 +232,7 @@ $ rhoas connector type list --limit=100
 $ rhoas connector type list --search=%Generator%
 ----
 +
-The result is:
+The result is as follows:
 +
 [source,subs="+quotes"]
 ----
@@ -257,7 +257,7 @@ The first result is the HTTP sink.
 {
   "name": "HTTP sink",
   "id": "http_sink_0.1",
-  "description": "Send data to a HTTP endpoint."
+  "description": "Send data to an HTTP endpoint."
 }
 ----
 
@@ -299,11 +299,11 @@ You're prompted to enter details based on the HTTP sink connector type.
 
 .. For *Method*, accept the default (`POST`).
 
-.. For *URL*, paste your unique URL that you copied from the link:https://webhook.site[Webhook.site^]. 
+.. For *URL*, paste your unique URL that you copied from the https://webhook.site[Webhook.site^] page. 
 
 .. For *Topic Names*, type `test-topic`.
 
-. Verify that the configuration files were built
+. Verify that the configuration files were built.
 +
 [source]
 ----
@@ -314,7 +314,7 @@ The result shows the `test-generator.json` and `test-http.json` files.
 
 . Optionally, you can edit a configuration file in an editor of your choice.
 +
-*Note:* To keep sensitive data from being saved to disk, the values for the service account or the namespace are left empty in the configuration file. You are prompted to specify those values when you create a Connectors instance.
+*Note:* To prevent saving sensitive data to disk, the values for the service account and the namespace are not included in the configuration file. You're prompted to specify those values when you create a {product-connectors} instance.
 
 [id="proc-create-connector-instances_{context}"]
 == Creating Connectors instances
@@ -328,12 +328,12 @@ For this example, you create two Connectors instances: a data generator source C
 
 * You have built a Connectors configuration files based on each type of connector that you want to create and the configuration files are saved in your current directory.
 * You have a Connectors namespace.
-* You have a {product-long-kafka} instance running and have a topic called `test-topic`.
+* You have an {product-long-kafka} instance running and have a topic called `test-topic`.
 * You have a service account created that has read and write access to the Kafka topic and you know the credentials (ID and secret).
 
 .Procedure
 
-. Create a source Connectors instance by specify the source connector's configuration file. For example, the data generator configuration file is `test-generator.json`.
+. Create a source Connectors instance by specifying the source connector's configuration file. For example, the data generator configuration file is `test-generator.json`.
 +
 [source,subs="+quotes"]
 ----
