@@ -375,7 +375,7 @@ You're prompted to provide details for the Connectors instance.
 .. For *Service Account Client ID*, type or paste your ID.
 
 .. For *Service Account Client Secret*, type or paste your secret.
-
++
 A message states "Successfully created the Connectors instance".
 
 . Wait until the status of the Connectors instance is *Ready*. 
