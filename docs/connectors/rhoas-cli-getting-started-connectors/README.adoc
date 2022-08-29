@@ -125,7 +125,7 @@ $ rhoas context status kafka
 $ rhoas kafka topic create --name test-topic 
 ----
 
-** Create a service account and copy the service account ID and secret. The service account allows you to connect and authenticate your Connectors instances with your Kafka instance.
+** Create a service account and copy the service account ID and secret. You can use the service account to connect and authenticate your {product-connectors} instances with your Kafka instance.
 +
 [source,subs="+quotes"]
 ----
