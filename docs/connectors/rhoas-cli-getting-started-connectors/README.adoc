@@ -153,7 +153,7 @@ The namespace that you use depends on your OpenShift Dedicated environment.
 
 .Prerequisites
 
-* You are logged in to `rhoas`.
+* You're logged in to `rhoas`.
 +
 [source]
 ----
@@ -329,7 +329,7 @@ For this example, you create two Connectors instances: a data generator source C
 * You have built a Connectors configuration files based on each type of connector that you want to create and the configuration files are saved in your current directory.
 * You have a Connectors namespace.
 * You have an {product-long-kafka} instance running and have a topic called `test-topic`.
-* You have a service account created that has read and write access to the Kafka topic and you know the credentials (ID and secret).
+* You have a service account created that has read and write access to the Kafka topic, and you know the credentials (ID and secret).
 
 .Procedure
 
