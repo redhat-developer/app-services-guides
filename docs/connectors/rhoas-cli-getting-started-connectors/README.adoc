@@ -378,7 +378,7 @@ You're prompted to provide details for the Connectors instance.
 +
 A message states "Successfully created the Connectors instance".
 
-. Wait until the status of the Connectors instance is *Ready*. 
+.. Wait until the status of the Connectors instance is *Ready*. 
 +
 To check the status:
 +
