@@ -361,7 +361,7 @@ $ rhoas connector list
 
 .. Verify that the your source Connectors instance is producing messages.
 
-. Create a sink Connectors instance by specify the sink connector's configuration file. For example, the HTTP sink configuration file is `test-http.json`.
+. Create a sink Connectors instance by specifying the sink connector's configuration file. For example, the HTTP sink configuration file is `test-http.json`.
 +
 [source,subs="+quotes"]
 ----
