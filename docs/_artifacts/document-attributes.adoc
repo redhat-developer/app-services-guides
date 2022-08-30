@@ -1,5 +1,5 @@
 // ATTRIBUTES
-// These attributes are injected into each content file and override any edits made to the attriutes in the content files. To add or update attributes, edit this source file directly.
+// These attributes are injected into each content file and override any edits made to the attributes in the content files. To add or update attributes, edit this source file directly.
 // Attributes MUST appear below the document title
 // Do not delete attributes with identical values, such as :product-long: and :product:. These are intentional because although they are identical here, they are not in other renderings of this source file.
 
@@ -58,6 +58,7 @@
 :product-version-connectors: 1
 :service-url-connectors: https://console.redhat.com/application-services/connectors
 :getting-started-url-connectors: connectors/getting-started-connectors/README.adoc
+:getting-started-rhoas-cli-url-connectors: connectors/rhoas-cli-getting-started-connectors/README.adoc
 
 //OpenShift API Designer
 :product-long-api-designer: OpenShift API Designer
