@@ -400,7 +400,7 @@ h|Kafka property name
 Compression type::
 +
 --
-Compression type determines the final compression for the topic. The standard compression types are `gzip`, `snappy`, `lz4`, and `zstd`. Additional compression types include `Uncompressed`, which does not compress the topic, and `Producer`, which retains the original compression type set by the producer. By default, the compression type is set to `Producer`.
+Compression type determines the final compression for the topic. The only supported value for this property is `Producer`, which retains the original compression type set by the producer.
 
 
 .Property attributes
