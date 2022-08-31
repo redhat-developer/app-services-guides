@@ -1,0 +1,19 @@
+[id='proc-commands-managing-connectors_{context}']
+= Commands for managing {connectors} instances
+:imagesdir: ../_images
+
+[role="_abstract"]
+For more information about the `rhoas connector` commands that you can use to manage your {connectors} instances, use the following command help:
+
+* `rhoas connector namespace -h` for managing {connectors} namespaces
+* `rhoas connector type -h` for viewing the available types of connectors
+* `rhoas connector list -h`` for listing {connectors} instances
+* `rhoas connector build -h` for building configuration files
+* `rhoas connector create -h` for creating {connectors} instances
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

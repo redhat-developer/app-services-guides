@@ -1,0 +1,138 @@
+[id='proc-building-connector-configuration-cli_{context}']
+= Building connector configuration files
+:imagesdir: ../_images
+
+[role="_abstract"]
+Before you can create a {connectors} instance, you must build a configuration file that is based on a supported connector type that is listed in the {product-connectors} catalog.
+
+For this example, you want to create two types of connectors: a data generator (a source connector) and an HTTP sink connector.
+
+You must build a configuration file for each connector type that you want to create. When you build a configuration file, the default file name is `connector.json`. Optionally, you can specify a different configuration file name.
+
+.Prerequisites
+
+* Your current local directory is the place where you want to save your {connectors} configuration files. For example, if you want to save your configuration files in a directory named `my-connectors`, ensure that the `my-connectors` directory is your current directory.
++
+[source]
+----
+$ cd my-connectors
+----
+
+* You're logged in to `rhoas`.
+
+* For the sink connector example, open the free https://webhook.site[Webhook.site^] page in a browser window. The `Webhook.site` page provides a unique URL that you can use for the example HTTP data sink.
+
+.Procedure
+
+. Decide which type of connector you want to create.
+
+.. View a list of the supported connector types that are available in the {connectors} catalog. The default number of connector types listed is set to *10*. To see all {connectors} types, specify a limit value of *100*.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector type list --limit=100
+----
+// .. Filter the list to show only sink connectors:
+// +
+// [source,subs="+quotes"]
+// ----
+// rhoas connector type list --limit=70 --search=%sink%
+// ----
+//
+// .. Filter the list to show only source connectors:
+// +
+// [source,subs="+quotes"]
+// ----
+// rhoas connector type list --limit=70 --search=%source%
+// ----
+
+.. For this example, find the data generator source connector by specifying "Generator" in the `search` flag.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector type list --search=%Generator%
+----
++
+The result is as follows:
++
+[source,subs="+quotes"]
+----
+{
+  "name": "Data Generator source",
+  "id": "data_generator_0.1",
+  "description": "A data generator (for development and testing purposes)."
+}
+----
+
+.. For this example, find the HTTP sink connector by specifying "HTTP" in the `search` flag.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector type list --search=%HTTP%
+----
++
+The first result is the HTTP sink.
++
+[source,subs="+quotes"]
+----
+{
+  "name": "HTTP sink",
+  "id": "http_sink_0.1",
+  "description": "Send data to an HTTP endpoint."
+}
+----
+
+. Build a configuration file for the `data_generator_0.1` connector type. Specify `test-generator` as the {connectors} instance name and `test-generator.json` as the configuration file name.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector build --name=test-generator --type=data_generator_0.1 --output-file=test-generator.json
+----
++
+*Note:* By default, the configuration file is in JSON format. Optionally, you can specify YAML format by adding `-o yaml` to the `connector build` command.
+
+. Answer the prompts for configuration values.
+
+.. For *Format*, press *ENTER* to accept the default (`application/octet-stream`).
+
+.. For *Error handling method*, select `stop`. The {connectors} instance stops running if it encounters an error.
+
+.. For *Topic Names*, type `test-topic`.
+
+.. For *Content Type*, accept the default.
+
+.. For *Message*, type `Hello World!`.
+
+.. For *Period*, accept the default (`1000`).
+
+. Build a configuration file for the `http_sink_0.1` connector type and specify `test-http` as the configuration file name.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector build --name=test-http --type=http_sink_0.1 --output-file=test-http.json
+----
+
+. Answer the prompts for configuration values.
+
+.. For *Format*, press *ENTER* to accept the default (`application/octet-stream`).
+
+.. For *Error handling method*, select `stop`.
+
+.. For *Method*, accept the default (`POST`).
+
+.. For *URL*, paste your unique URL that you copied from the https://webhook.site[Webhook.site^] page.
+
+.. For *Topic Names*, type `test-topic`.
+
+. Verify that the configuration files were built.
++
+[source]
+----
+$ ls
+----
++
+The result shows the `test-generator.json` and `test-http.json` files.
+
+. Optionally, you can edit a configuration file in an editor of your choice.
++
+*Note:* To prevent saving sensitive data to disk, the values for the service account and the namespace are not included in the configuration file. You're prompted to specify those values when you create a {product-connectors} instance.

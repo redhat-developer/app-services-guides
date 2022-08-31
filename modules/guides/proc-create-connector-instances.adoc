@@ -1,0 +1,79 @@
+[id='proc-create-connector-instances_{context}']
+= Creating {connectors} instances
+:imagesdir: ../_images
+[role="_abstract"]
+
+After you build a configuration file based on a connector type, you can use the configuration file to create a {connectors} instance.
+
+For this example, you create two {connectors} instances: a data generator source {connectors} instance and an HTTP sink {connectors} instance.
+
+.Prerequisites
+
+* You have built configuration files based on each type of connector that you want to create.
+* The configuration files are saved in your current directory.
+* You have a {connectors} namespace.
+* You have an {product-long-kafka} instance running and have a topic called `test-topic`.
+* You have a service account created that has read and write access to the Kafka topic, and you know the credentials (ID and secret).
+
+.Procedure
+
+. Create a source {connectors} instance by specifying the source connector's configuration file. For example, the data generator configuration file is `test-generator.json`.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector create --file=test-generator.json
+----
+
+. Answer the prompts for details about the {connectors} instance.
+
+.. For *Set the {connectors} namespace*, select your namespace from the list. For example, select `eval-namespace`.
+
+.. For *Service Account Client ID*, type or paste your ID.
+
+.. For *Service Account Client Secret*, type or paste your secret.
++
+A message states "Successfully created the {connectors} instance".
+
+. Wait until the status of the {connectors} instance is *Ready*.
++
+To check the status:
++
+[source,subs="+quotes"]
+----
+$ rhoas connector list
+----
+
+. Verify that your source {connectors} instance is producing messages.
++
+[source,subs="+quotes"]
+----
+$ rhoas kafka topic consume --name=test-topic --partition=0 --wait
+----
+
+. Create a sink {connectors} instance by specifying the sink connector's configuration file. For example, the HTTP sink configuration file is `test-http.json`.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector create --file=test-http.json
+----
+
+. Answer the prompts for details about the {connectors} instance.
+
+.. For *Set the {connectors} namespace*, select your namespace from the list. For example, select `eval-namespace`.
+
+.. For *Service Account Client ID*, type or paste your ID.
+
+.. For *Service Account Client Secret*, type or paste your secret.
++
+A message states "Successfully created the {connectors} instance".
+
+. Wait until the status of the {connectors} instance is *Ready*.
++
+To check the status:
++
+[source,subs="+quotes"]
+----
+$ rhoas connector list
+----
+
+. Verify that your sink {connectors} instance is receiving messages by viewing your https://webhook.site[Webhook.site^] page in a web browser.

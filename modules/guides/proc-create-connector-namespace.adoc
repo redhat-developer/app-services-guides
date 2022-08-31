@@ -1,0 +1,39 @@
+[id='proc-create-connector-namespace_{context}']
+= Creating a namespace to host your {connectors} instances
+:imagesdir: ../_images
+[role="_abstract"]
+
+A {connectors} namespace hosts your {connectors} instances.
+
+The namespace that you use depends on your OpenShift Dedicated environment.
+
+If you're using a trial cluster in your own OpenShift Dedicated environment:: The namespace is created when you add the {product-connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift Dedicated trial cluster^]. Your OpenShift Dedicated trial cluster namespace is active for 60 days.
+
+If you're using the OpenShift {connectors} evaluation site:: You must create an evaluation namespace before you can create {connectors} instances. An evaluation namespace is active for 48 hours.
+
+.Prerequisites
+
+* You're logged in to `rhoas`.
++
+[source]
+----
+$ rhoas login
+----
+
+.Procedure
+
+. If you're using a trial cluster in your own OpenShift Dedicated environment, skip to Step 2.
++
+If you're using the {product-connectors} evaluation site, create an evaluation namespace.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector namespace create --name=eval-namespace
+----
+
+. Verify that your namespace is listed.
++
+[source,subs="+quotes"]
+----
+$ rhoas connector namespace list
+----

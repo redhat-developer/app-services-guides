@@ -1,40 +1,74 @@
 [id='assembly-connectors-rhoas-cli']
-= Interacting with {product-long-connectors} the rhoas CLI
+= Getting started with the rhoas CLI for {product-long-connectors}
 ifdef::context[:parent-context: {context}]
 :context: connectors-rhoas-cli
 :imagesdir: _images
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of {product-connectors}, you can use the `rhoas` command-line interface (CLI) to control and manage your Connectors instances and namespaces.
+As a developer of {product-long-connectors}, you can use the `rhoas` command-line interface (CLI) to create and configure connections between {product-long-kafka} and third-party systems.
+
+You can use a *source* connector to send data from an external system to {product-kafka}. You can use a *sink* connector to send data from {product-kafka} to an external system.
+
+For the example in this guide, you create a source connector that sends data from a simple data generator to a Kafka topic. You also create a sink connector that sends data from the Kafka topic to an HTTP site.
+
+Use this guide to complete the following tasks:
+
+* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-namespace_connectors-rhoas-cli[Create a namespace to host your {product-connectors} instances]
+* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-building-connector-configuration-cli_connectors-rhoas-cli[Build a configuration file for each type of connector that you want to create]
+* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-instances_connectors-rhoas-cli[Create {connectors} instances]
 
 .Prerequisites
-ifndef::community[]
+
 * You have a Red Hat account.
-endif::[]
-* You have a running Kafka instance in {product-kafka} with a topic called `my-topic`.
 * You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
+* You've completed the following tasks:
++
+*Note:* You can find detailed instructions for these tasks in {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for {product-long-kafka}^].
 
-// Condition out QS-only content so that it doesn't appear in docs.
-// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
-ifdef::qs[]
-[#description]
-====
-Learn how to use the `rhoas` command-line interface (CLI) to produce and consume messages for a Kafka instance.
-====
+** Create a Kafka instance.
+[source,subs="+quotes"]
++
+----
+$ rhoas kafka create --name=my-kafka-instance
+----
 
-[#introduction]
-====
-Welcome to the quick start for producing and consuming Kafka messages using the `rhoas` command-line interface (CLI).
+** Verify that the Kafka instance is in the *Ready* state.
++
+[source,subs="+quotes"]
+----
+$ rhoas context status kafka
+----
 
-In this quick start, you'll use a CLI command to produce messages to different topic partitions in a Kafka instance. You'll then use the {product-long-kafka} web console to inspect the messages. When you're ready, you'll use another CLI command to consume the messages.
-====
-endif::[]
+** Create a service account and copy the service account ID and secret. You must use a service account to connect and authenticate your {product-connectors} instances with your Kafka instance.
++
+[source,subs="+quotes"]
+----
+$ rhoas service-account create --file-format=json --short-description=test-service-account
+----
 
-ifdef::qs[]
-[#conclusion]
-====
-Congratulations! You successfully completed the quick start for creating a connectors instance with the `rhoas` CLI.
-====
-endif::[]
+** For your Kafka instance, set the permissions for the service account to enable {connectors} instances (that are configured with the service account credentials) to produce and consume messages in any topic in the Kafka instance.
++
+[source,subs="+quotes"]
+----
+$ rhoas kafka acl grant-access --producer --consumer --service-account=<service-acct-id> --topic all --group all
+----
+
+** Create a Kafka topic named `test-topic`. The Kafka topic stores messages sent by producers (data sources) and makes them available to consumers (data sinks).
++
+[source,subs="+quotes"]
+----
+$ rhoas kafka topic create --name=test-topic
+----
+
+include::modules/guides/proc-create-connector-namespace.adoc[leveloffset=+1]
+
+include::modules/guides/proc-building-connector-configuration-cli.adoc[leveloffset=+1]
+
+include::modules/guides/proc-create-connector-instances.adoc[leveloffset=+1]
+
+include::modules/guides/proc-commands-managing-connectors.adoc[leveloffset=+1]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 
