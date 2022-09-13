@@ -377,7 +377,7 @@ $ oc apply -f ./rhoas-secrets.yaml
 +
 [source,shell]
 ----
-$ oc apply -f ./rhoas-services.yaml
+$ helm install . --generate-name --set-string rhoas.config=my-context-3-configuration,rhoas.secret=service-account-credentials
 ----
 
 . Get the URL of the deployed service.
