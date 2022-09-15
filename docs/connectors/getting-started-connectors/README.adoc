@@ -220,9 +220,9 @@ If you're using the evaluation OpenShift Dedicated environment, click *Register 
 +
 The options are:
 +
-* *stop* - (the default) The {connectors} instance shuts down when it encounters an error.
-* *log* - The {connectors} instance sends errors to its log.
-* *dead letter queue* - The {connectors} instance sends messages that it cannot handle to a dead letter topic that you define for the {connectors} Kafka instance.
+* *stop*: (the default) The {connectors} instance shuts down when it encounters an error.
+* *log*: The {connectors} instance sends errors to its log.
+* *dead letter queue*: The {connectors} instance sends messages that it cannot handle to a dead letter topic that you define for the {connectors} Kafka instance.
 +
 For example, accept the default *stop* option.
 
