@@ -15,9 +15,8 @@ spec:
   icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOCIgaGVpZ2h0PSIzOCIgdmlld0JveD0iMCAwIDM4IDM4Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDojZmZmO30uYntmaWxsOiNlMDA7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik0yOCwxSDEwYTksOSwwLDAsMC05LDlWMjhhOSw5LDAsMCwwLDksOUgyOGE5LDksMCwwLDAsOS05VjEwYTksOSwwLDAsMC05LTlaIi8+PHBhdGggY2xhc3M9ImEiIGQ9Ik0yMiwyNS42MjVIMTNhLjYyNS42MjUsMCwwLDEsMC0xLjI1aDlhMi4zNzUsMi4zNzUsMCwwLDAsMC00Ljc1SDE1YTMuNjI1LDMuNjI1LDAsMCwxLDAtNy4yNUgyNWEuNjI1LjYyNSwwLDAsMSwwLDEuMjVIMTVhMi4zNzUsMi4zNzUsMCwwLDAsMCw0Ljc1aDdhMy42MjUsMy42MjUsMCwwLDEsMCw3LjI1WiIvPjxwYXRoIGNsYXNzPSJiIiBkPSJNMjUsMTYuNjI1QTMuNjI1LDMuNjI1LDAsMSwxLDI4LjYyNSwxMywzLjYyODg2LDMuNjI4ODYsMCwwLDEsMjUsMTYuNjI1Wm0wLTZBMi4zNzUsMi4zNzUsMCwxLDAsMjcuMzc1LDEzLDIuMzc3NywyLjM3NzcsMCwwLDAsMjUsMTAuNjI1WiIvPjxwYXRoIGNsYXNzPSJiIiBkPSJNMTMsMjguNjI1QTMuNjI1LDMuNjI1LDAsMSwxLDE2LjYyNSwyNSwzLjYyODg2LDMuNjI4ODYsMCwwLDEsMTMsMjguNjI1Wm0wLTZBMi4zNzUsMi4zNzUsMCwxLDAsMTUuMzc1LDI1LDIuMzc3NywyLjM3NzcsMCwwLDAsMTMsMjIuNjI1WiIvPjwvc3ZnPg==
   description: !snippet README.adoc#description
   prerequisites:
-    - A Red Hat identity
-    - You've created a Kafka instance and the instance is in `Ready` state. See the _Getting started with OpenShift Streams for Apache Kafka_ quick start.
-    - For the data sink example, open the free <a href="https://webhook.site">Webhook.site</a> in a browser window. The Webhook.site page provides a unique URL that you copy. You use this URL as an HTTP data sink.
+    - A Red Hat account to access the web console.
+    - Complete the <a href="https://console.redhat.com/application-services/learning-resources?quickstart=getting-started">Getting started with OpenShift Streams for Apache Kafka</a> quick start.
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-configuring-kafka-for-connectors
