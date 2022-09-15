@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: docs-ds-launch
   annotations:
-    order: 9
+    order: 11
 spec:
   version: 0.1
   type:
