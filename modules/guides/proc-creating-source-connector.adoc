@@ -1,5 +1,5 @@
 [id='proc-creating-source-connector_{context}']
-= Creating a Connectors instance for a data source
+= Creating a {connectors} instance for a data source
 :imagesdir: ../_images
 
 [role="_abstract"]
@@ -9,18 +9,16 @@ For this example, you create an instance of the *Data Generator* source connecto
 
 You configure your connector to listen for events from the data source and produce a Kafka message for each event.
 
-The connector sends the messages at regular intervals to the Kafka topic that you created for connectors.
+The connector sends the messages at regular intervals to the Kafka topic that you created for your {connectors} instances.
 
 ifndef::qs[]
 .Prerequisites
-* You're logged in to the  OpenShift Application Services web console at {service-url-connectors}[^].
-* You configured a {product-kafka} instance for connectors as described _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
-
+* You're logged in to the {product-long-connectors} web console at {service-url-connectors}[^].
 endif::[]
 
 .Procedure
-. In the OpenShift Application Services web console, select *Connectors* and then click *Create Connectors instance*.
-. Select the connector that you want to use for a data source.
+. In the {product-long-connectors} web console, select *Connectors* and then click *Create {connectors} instance*.
+. Select the connector that you want to use for connecting to a data source.
 +
 You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
 +
@@ -28,53 +26,54 @@ For example, to find the *Data Generator* source connector, type *data* in the s
 +
 Click the card to select the connector, and then click *Next*.
 
-. For *Kafka instance*, click the card for the {product-kafka} instance that you configured for connectors, and then click *Next*.
-+
-NOTE: If you have not already configured a {product-kafka} instance for connectors, click *Create Kafka instance*. You also must set up and define access for a service account as described in _Configuring the {product-kafka} instance for use with {product-long-connectors}_.
+. For *Kafka instance*, click the card for the {product-kafka} instance that you configured for {connectors}, and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment.
+. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
-If you're using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the Connectors service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding and removing the Red Hat OpenShift Connectors add-on on your OpenShift Dedicated trial cluster^].
+If you're using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift Connectors add-on to your OpenShift Dedicated trial cluster^].
 +
-If you're using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the Connectors instances that you create.
+If you're using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the {connectors} instances that you create.
 
 . Click *Next*.
 
-. Configure the core configuration for your connector:
-.. Provide a name for the connector.
-.. Type the *Client ID* and *Client Secret* of the service account that you created for connectors and then click *Next*.
-
+. Configure the core configuration for your {connectors} instance:
+.. Type a name for your {connectors} instance.
+.. Type the *Client ID* and *Client Secret* of the service account that you created for {connectors} and then click *Next*.
 . Provide connector-specific configuration. For the *Data Generator*, provide the following information:
 .. *Data shape Format*: Accept the default, `application/octet-stream`.
-.. *Topic Names*: Type the name of the topic that you created for connectors. For example, type *test-topic*.
+.. *Topic Names*: Type the name of the topic that you created for {connectors}. For example, type *test-topic*.
 .. *Content Type*: Accept the default, `text/plain`.
-.. *Message*: Type the content of the message that you want the Connectors instance to send to the Kafka topic. For example, type `Hello World!`.
-.. *Period*: Specify the interval (in milliseconds) at which you want the Connectors instance to send messages to the Kafka topic. For example, specify `10000`, to send a message every 10 seconds.
+.. *Message*: Type the content of the message that you want the {connectors} instance to send to the Kafka topic. For example, type `Hello World!`.
+.. *Period*: Specify the interval (in milliseconds) at which you want the {connectors} instance to send messages to the Kafka topic. For example, specify `10000`, to send a message every 10 seconds.
 
-. Optionally, configure the error handling policy for your Connectors instance.
+. Optionally, configure the error handling policy for your {connectors} instance.
 +
 The options are:
 +
-* *stop* - (the default) The Connectors instance shuts down when it encounters an error.
-* *log* - The Connectors instance sends errors to its log.
-* *dead letter queue* - The Connectors instance sends messages that it cannot handle to a dead letter topic that you define for the Connectors Kafka instance.
+* *stop*: (the default) The {connectors} instance shuts down when it encounters an error.
+* *log*: The {connectors} instance sends errors to its log.
+* *dead letter queue*: The {connectors} instance sends messages that it cannot handle to a dead letter topic that you define for the {connectors} Kafka instance.
 +
 For example, accept the default *stop* option.
 
 . Click *Next*.
 
-. Review the summary of the configuration properties and then click *Create Connectors instance*.
+. Review the summary of the configuration properties and then click *Create {connectors} instance*.
 +
-Your Connectors instance is listed in the table of connectors. After a couple of seconds, the status of your Connectors instance changes to the *Ready* state and it starts producing messages and sending them to its associated Kafka topic.
+Your {connectors} instance is listed in the table of {connectors}. After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state and it starts producing messages and sending them to its associated Kafka topic.
 +
-From the connectors table, you can stop, start, and delete your Connectors instance, as well as edit its configuration, by clicking the options icon (three vertical dots).
+From the {connectors} table, you can stop, start, and delete your {connectors} instance, as well as edit its configuration, by clicking the options icon (three vertical dots).
 
 .Verification
-
-* Does your source Connectors instance generate messages?
+ifdef::qs[]
+* Does your source {connectors} instance generate messages?
+endif::[]
+ifndef::qs[]
+* Verify that your source {connectors} instance generate messages.
+endif::[]
 
 .. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
 .. Click the Kafka instance that you created for connectors.
-.. Click the *Topics* tab and then click the topic that you specified for your source Connectors instance.
+.. Click the *Topics* tab and then click the topic that you specified for your source {connectors} instance.
 .. Click the *Messages* tab to see a list of `Hello World!` messages.
 

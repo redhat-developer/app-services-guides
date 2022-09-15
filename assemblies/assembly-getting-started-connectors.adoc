@@ -15,7 +15,7 @@ In this example, you connect a data source (a data generator) that creates Kafka
 ifdef::qs[]
 [#description]
 ====
-Learn how to create and set up connectors in {product-long-connectors}.
+Learn how to configure connections between {product-long-kafka} and third-party systems by using {product-long-connectors}.
 ====
 
 [#introduction]
@@ -24,7 +24,9 @@ Welcome to the quick start for {product-long-connectors}.
 
 In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}.
 
-A *source* connector allows you to send data from an external system to {product-kafka}. A *sink* connector allows you to send data from {product-kafka} to an external system.
+A *source* connector allows you to send data from an external system to {product-kafka}.
+
+A *sink* connector allows you to send data from {product-kafka} to an external system.
 ====
 endif::[]
 
