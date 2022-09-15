@@ -183,11 +183,6 @@ The values can be set without using any file, by using the “--set-string” fl
 $ helm install . --generate-name --set-string rhoas.config=my-context-3-configuration
 ----
 
-
-
-
-
-
 [id="proc-generating-credentials-for-application-services_{context}"]
 == Generate Credentials for Application Service Instances
 
@@ -216,12 +211,12 @@ For this example, we will be encrypting the secret values. Run the following com
 +
 [source,shell]
 ----
-$ echo -n “srvc-acct-0f1af126-3d0b-4f41-8d91-5b94f496af6e” | base64
+$ echo -n <client-id> | base64
 ----
 +
 [source,shell]
 ----
-$ echo -n “0abdc549-a281-4ec2-b744-95391eb70f32” | base64
+$ echo -n <client-secret> | base64
 ----
 +
 . Copy the obtained base64 values and paste it in the rhoas-secrets.yaml file.
@@ -349,7 +344,7 @@ $ rhoas kafka topic create --name prices
 +
 [source,shell]
 ----
-$ rhoas kafka acl grant-access --producer --consumer --service-account srvc-acct-0f1af126-3d0b-4f41-8d91-5b94f496af6e --topic all --group all
+$ rhoas kafka acl grant-access --producer --consumer --service-account <client-id> --topic all --group all
 ----
 
 . Create an OpenShift cluster using Red Hat Developer Sandbox. Once activated, copy the command to login using the OpenShift CLI.
