@@ -184,7 +184,7 @@ $ helm install . --generate-name --set-string rhoas.config=my-context-3-configur
 ----
 
 [id="proc-generating-credentials-for-application-services_{context}"]
-== Generate Credentials for Application Service Instances
+== Generate credentials for Application Service Instances
 
 Applications make use of service-accounts to authenticate with the Kafka and Service Registry instances. RHOAS CLI can create a service-account and save the credentials as a Kubernetes secret object.
 
