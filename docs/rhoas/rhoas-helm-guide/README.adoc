@@ -85,11 +85,11 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-In this guide we are going to explain how to configure Application services in your Helm deployment. For more information about helm, please refer to the official docs.
+In this guide we are going to explain how to configure Application Services in your Helm deployment. For more information about helm, please refer to the official docs.
 
-A developer can have his application deployed in a Kubernetes platform such as Red Hat OpenShift in various ways - application deployed as a Kubernetes deployment or application packaged as a helm chart. We will walk through how to connect the applications to Managed Services for both the scenarios.
+A developer can have his application deployed in a Kubernetes platform such as Red Hat OpenShift in various ways - application deployed as a Kubernetes deployment or application packaged as a Helm chart. We will walk through how to connect the applications to Application Services for both the scenarios.
 
-To connect an application deployed in OpenShift to the Managed Services, we need to supply connection configurations and credentials. RHOAS CLI simplifies this task for us by generating connection configurations and credentials as Kubernetes objects.
+To connect an application deployed in OpenShift to the Application Services, we need to supply connection configurations and credentials. RHOAS CLI simplifies this task for us by generating connection configurations and credentials as Kubernetes objects.
 
 .Prerequisites
 ifndef::community[]
@@ -101,15 +101,15 @@ endif::[]
 * You've installed https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html:[OpenShift CLI] version 4.8.5 or above
 
 [id="proc-generating-configmap-for-application-services_{context}"]
-== Generate ConfigMap for Application Service Instances
+== Generating a ConfigMap for Application Services instances
 
-The application deployed in the Kubernetes platform needs to connect to the Kafka instance. To achieve this, one needs to supply the URL to the Kafka Instance. The URLs being non-confidential data can be supplied as Kubernetes ConfigMap. The helm chart can refer to the ConfigMap deployed in the OpenShift cluster which will henceforth connect the application to the Kafka Instance.
+The application deployed in the Kubernetes platform needs to connect to the Kafka instance. To achieve this, one needs to supply the URL to the Kafka instance. The URLs being non-confidential data can be supplied as Kubernetes ConfigMap. The Helm chart can refer to the ConfigMap deployed in the Kubernetes cluster which will henceforth connect the application to the Kafka instance.
 
-This is implemented by RHOAS CLI using service contexts. In OpenShift Application Services, a service context is a defined set of instances running in cloud services such as OpenShift Streams for Apache Kafka and OpenShift Service Registry. You might create different contexts for specific use cases, projects, or environments. To learn more about contexts, you can go through this https://github.com/redhat-developer/app-services-guides/tree/main/docs/rhoas/rhoas-service-contexts:[guide].
+This is implemented by RHOAS CLI using service contexts. In OpenShift Application Services, a service context is a defined set of instances running in Application Services such as OpenShift Streams for Apache Kafka and OpenShift Service Registry. You might create different contexts for specific use cases, projects, or environments. To learn more about contexts, see "https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/12b72a70-22b9-44a4-a7f3-6977759bfc67":[Connecting client applications to Red Hat OpenShift Application Services using the rhoas CLI].
 
 .Procedure
 
-. Confirm that the Managed Service instances are set in the current context and are running.
+. Confirm that the Application Service instances are set in the current context and are running.
 
 +
 [source,shell]
@@ -117,7 +117,7 @@ This is implemented by RHOAS CLI using service contexts. In OpenShift Applicatio
 $ rhoas context status
 ----
 
-. Generate a yaml file that contains the connection configuration as a Kubernetes ConfigMap object.
+. Generate a YAML file that contains the connection configuration as a Kubernetes ConfigMap object.
 +
 [source,shell]
 ----
@@ -151,7 +151,7 @@ env:
 ----
 . Consuming ConfigMap in a Helm Chart.
 +
-Helm charts support templating which implies ConfigMap values can be passed into templates. This will allow developers to quickly deploy their applications to OpenShift clusters. All one will need is - the Helm chart, Kubernetes ConfigMap and Kubernetes Secret. The helm chart needs to follow the naming standards set by RHOAS CLI. 
+Helm charts support templating whichmeans that you can pass the ConfigMap values into a template. This enables you to to quickly deploy applications to Kubernetes clusters.  To do this, you need a Helm chart, a Kubernetes ConfigMap and a Kubernetes secret. The Helm chart needs to follow the naming standards set by the RHOAS CLI. 
 +
 [source,shell]
 ----
@@ -169,7 +169,7 @@ env:
 ----
 +
 Helm renders the value for ConfigMap name and generates the manifest file for the deployment.
-The values can be fetched from the Values.yaml file which is native to helm, or a different file can be used by passing the file name to “--values” flag:
+The values can be fetched from the Values.yaml file which is native to Helm, or a different file can be used by passing the file name to “--values” flag:
 +
 [source,shell]
 ----
@@ -186,11 +186,11 @@ $ helm install . --generate-name --set-string rhoas.config=my-context-3-configur
 [id="proc-generating-credentials-for-application-services_{context}"]
 == Generate Credentials for Application Service Instances
 
-Applications make use of service-accounts to authenticate with the Kafka and Service Registry instances. RHOAS CLI can create a service-account and save the credentials as a Kubernetes Secret object.
+Applications make use of service-accounts to authenticate with the Kafka and Service Registry instances. RHOAS CLI can create a service-account and save the credentials as a Kubernetes secret object.
 
 .Procedure
 
-. Create a service account and save the credentials in a Kubernetes Secret object.
+. Create a service account and save the credentials in a Kubernetes secret object.
 +
 [source,shell]
 ----
@@ -203,8 +203,8 @@ Unlike ConfigMap objects that contain URLs to connect to the instances, Secrets 
 +
 The generated secret can be stored securely using:
 
-* The helm-secrets plug-in
-* Encrypting and pushing the secret in helm chart
+* The `helm-secrets` plug-in
+* Encrypting and pushing the secret in Helm chart
 * A secret-management solution such as Hashicorp Vault
 +
 For this example, we will be encrypting the secret values. Run the following commands to obtain the hashed values of credentials.
@@ -250,7 +250,7 @@ env:
 ----
 . Consuming secret in a Helm Chart.
 +
-Similar to ConfiGmaps, Secrets can be passed to helm templates. Here too, the helm chart needs to follow the naming standards set by RHOAS CLI.
+Similar to ConfiGmaps, Secrets can be passed to Helm templates. Here too, the Helm chart needs to follow the naming standards set by RHOAS CLI.
 +
 [source,shell]
 ----
@@ -276,11 +276,11 @@ $ helm install . --generate-name --set-string rhoas.secret=service-account-crede
 
 
 [id="proc-connecting-helm-chart-with-application-services_{context}"]
-== Connecting A Helm Chart with Managed Application services
+== Connecting a Helm chart to Application Services
 
-The following example shows how to connect an https://github.com/rkpattnaik780/rhoas-helm-example:[example Helm chart] to the service instances defined in a context in OpenShift Application Services. The example Helm chart contains Kubernetes resources required to deploy the application used in https://github.com/redhat-developer/app-services-guides/tree/main/code-examples/quarkus-kafka-quickstart:[Quarkus Kafka quickstart] in an OpenShift cluster. 
+The following example shows how to connect an https://github.com/rkpattnaik780/rhoas-helm-example:[example Helm chart] to the service instances defined in a context in OpenShift Application Services. The example Helm chart contains Kubernetes resources required to deploy the application used in https://github.com/redhat-developer/app-services-guides/tree/main/code-examples/quarkus-kafka-quickstart:[Quarkus Kafka quickstart] in a Kubernetes cluster. 
  
-Once we have the files for connection configuration and credentials. We can use it with an example helm chart that uses the values.
+Once we have the files for connection configuration and credentials. We can use it with an example Helm chart that uses the values.
 Now we will be using the generated configurations and credentials with the Helm example.
 
 .Procedure
@@ -367,7 +367,7 @@ $ oc apply -f ./rhoas-services.yaml
 $ oc apply -f ./rhoas-secrets.yaml
 ----
 
-. Deploy the helm chart setting the appropriate values:
+. Deploy the Helm chart setting the appropriate values:
 
 +
 [source,shell]
