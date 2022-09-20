@@ -1,0 +1,119 @@
+[id='proc-connecting-helm-chart-with-application-services_{context}']
+= Connecting a Helm chart to Application Services
+:imagesdir: ../_images
+
+The following example shows how to connect an https://github.com/rkpattnaik780/rhoas-helm-example:[example Helm chart] to the service instances defined in a context in OpenShift Application Services. The example Helm chart contains Kubernetes resources required to deploy the application used in https://github.com/redhat-developer/app-services-guides/tree/main/code-examples/quarkus-kafka-quickstart:[Quarkus Kafka quickstart] in a Kubernetes cluster.
+
+Once we have the files for connection configuration and credentials. We can use it with an example Helm chart that uses the values.
+Now we will be using the generated configurations and credentials with the Helm example.
+
+.Procedure
+
+. On the command line, clone the example repository from GitHub.
++
+[source,shell]
+----
+$ git clone https://github.com/rkpattnaik780/rhoas-helm-example.git
+----
+
+. Log in to the CLI.
++
+[source,shell]
+----
+$ rhoas login
+----
++
+The login command opens a sign-in process in your web browser.
+
+. Use the CLI to create a new service context.
++
+[source,shell]
+----
+$ rhoas context create --name helm-context
+----
++
+The new context becomes the current (that is, active) context by default.
+
+. Use the CLI to create a new service context.
++
+[source,shell]
+----
+$ rhoas context create --name helm-context
+----
++
+The new context becomes the current (that is, active) context by default.
+
+. Create a Kafka instance in the current context.
++
+[source,shell]
+----
+$ rhoas kafka create --name my-kafka-instance
+----
+
+. Generate connection configuration for the context as a ConfigMap.
++
+[source,shell]
+----
+$ rhoas generate-config --type configmap --output-file ./rhoas-services.yaml
+----
+
+. Create a topic “prices” for the Kafka instance.
++
+[source,shell]
+----
+$ rhoas kafka topic create --name prices
+----
+
+. Grant permission to the created service account to consume and produce messages to topics in the created Kafka instance.
++
+[source,shell]
+----
+$ rhoas kafka acl grant-access --producer --consumer --service-account <client-id> --topic all --group all
+----
+
+. Create an OpenShift cluster using Red Hat Developer Sandbox. Once activated, copy the command to login using the OpenShift CLI.
++
+[source,shell]
+----
+$ oc login --token=sha256~WMj84YiOuzVTUp7dIYajetZM2FG-rTAIEJrriPTQJpo --server=https://api.sandbox-m2.ll6k.p8.openshiftapps.com:6443
+----
+
+. Apply the generated connection configuration and credential to the OpenShift cluster.
+
++
+[source,shell]
+----
+$ oc apply -f ./rhoas-services.yaml
+----
++
+[source,shell]
+----
+$ oc apply -f ./rhoas-secrets.yaml
+----
+
+. Deploy the Helm chart setting the appropriate values:
+
++
+[source,shell]
+----
+$ helm install . --generate-name --set-string rhoas.config=my-context-3-configuration,rhoas.secret=service-account-credentials
+----
+
+. Get the URL of the deployed service.
+
+
++
+[source,shell]
+----
+$ oc get service
+
+NAME                                TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)          AGE
+rhoas-quarkus-kafka-quickstart      LoadBalancer   172.30.128.12    a81b115a35629488685b6ed3cf322fbf-1904626303.us-east-2.elb.amazonaws.com   8080:31110/TCP   11m
+workspacef396ea393cc746aa-service   ClusterIP      172.30.133.190   <none>                                                                    4444/TCP         5d18h
+----
+
+Thus now we have the Quarkus application up and running in the OpenShift cluster. To check the application in your browser, navigate to the URL:
+
+```
+<external-IP>:8080/prices.html
+```

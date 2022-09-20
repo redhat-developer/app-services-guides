@@ -1,0 +1,30 @@
+[id='assembly-helm-guide-rhoas-cli']
+= Configuring OpenShift Application Services in Helm
+ifdef::context[:parent-context: {context}]
+:context: helm-guide-rhoas-cli
+:imagesdir: _images
+
+// Purpose statement for the assembly
+[role="_abstract"]
+In this guide we are going to explain how to configure Application Services in your Helm deployment. For more information about helm, please refer to the official docs.
+
+A developer can have his application deployed in a Kubernetes platform such as Red Hat OpenShift in various ways - application deployed as a Kubernetes deployment or application packaged as a Helm chart. We will walk through how to connect the applications to Application Services for both the scenarios.
+
+To connect an application deployed in OpenShift to the Application Services, we need to supply connection configurations and credentials. RHOAS CLI simplifies this task for us by generating connection configurations and credentials as Kubernetes objects.
+
+.Prerequisites
+ifndef::community[]
+* You have a Red Hat account.
+endif::[]
+* You have a running Kafka instance in {product-kafka}.
+* You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
+* You've installed https://helm.sh/docs/intro/quickstart/:[Helm CLI^] version 3.9.0 or above
+* You've installed https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html:[OpenShift CLI] version 4.8.5 or above
+
+include::modules/guides/proc-generating-configmap-for-application-services.adoc[leveloffset=+1]
+
+include::modules/guides/proc-generating-credentials-for-application-services.adoc[leveloffset=+1]
+
+include::modules/guides/proc-connecting-helm-chart-with-application-services.adoc[leveloffset=+1]
+
+

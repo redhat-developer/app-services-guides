@@ -1,0 +1,83 @@
+[id='proc-generating-configmap-for-application-services_{context}']
+= Generating a ConfigMap for Application Services instances
+:imagesdir: ../_images
+
+The application deployed in the Kubernetes platform needs to connect to the Kafka instance. To achieve this, one needs to supply the URL to the Kafka instance. The URLs being non-confidential data can be supplied as Kubernetes ConfigMap. The Helm chart can refer to the ConfigMap deployed in the Kubernetes cluster which will henceforth connect the application to the Kafka instance.
+
+This is implemented by RHOAS CLI using service contexts. In OpenShift Application Services, a service context is a defined set of instances running in Application Services such as OpenShift Streams for Apache Kafka and OpenShift Service Registry. You might create different contexts for specific use cases, projects, or environments. To learn more about contexts, see "https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/12b72a70-22b9-44a4-a7f3-6977759bfc67":[Connecting client applications to Red Hat OpenShift Application Services using the rhoas CLI].
+
+.Procedure
+
+. Confirm that the Application Service instances are set in the current context and are running.
+
++
+[source,shell]
+----
+$ rhoas context status
+----
+
+. Generate a YAML file that contains the connection configuration as a Kubernetes ConfigMap object.
++
+[source,shell]
+----
+$ rhoas generate-config --type configmap --output-file ./rhoas-services.yaml
+----
++
+. Apply the generated ConfigMap file.
++
+[source,shell]
+----
+$ oc apply -f “./rhoas-services.yaml”
+----
++
+. Consuming ConfigMap in a Kubernetes deployment.
++
+An application deployed as a Kubernetes deployment can have the ConfigMap values injected as environment variables.
++
+[source,shell]
+----
+env:
+  - name: KAFKA_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: my-context-3-configuration
+        key: kafka_host
+  - name: SERVICE_REGISTRY_URL
+    valueFrom:
+      configMapKeyRef:
+        name: my-context-3-configuration
+        key: service_registry_url
+----
+. Consuming ConfigMap in a Helm Chart.
++
+Helm charts support templating whichmeans that you can pass the ConfigMap values into a template. This enables you to to quickly deploy applications to Kubernetes clusters.  To do this, you need a Helm chart, a Kubernetes ConfigMap and a Kubernetes secret. The Helm chart needs to follow the naming standards set by the RHOAS CLI.
++
+[source,shell]
+----
+env:
+  - name: KAFKA_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: {{ .Values.rhoas.config }}
+        key: kafka_host
+	- name: SERVICE_REGISTRY_URL
+    valueFrom:
+    configMapKeyRef:
+      name: {{ .Values.rhoas.config }}
+      key: service_registry_url
+----
++
+Helm renders the value for ConfigMap name and generates the manifest file for the deployment.
+The values can be fetched from the Values.yaml file which is native to Helm, or a different file can be used by passing the file name to “--values” flag:
++
+[source,shell]
+----
+$ helm install . --generate-name --values my-values.yaml
+----
++
+The values can be set without using any file, by using the “--set-string” flag:
++
+[source,shell]
+----
+$ helm install . --generate-name --set-string rhoas.config=my-context-3-configuration
+----
