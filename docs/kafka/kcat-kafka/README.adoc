@@ -79,22 +79,19 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-using-kafkacat"]
-= Configuring and connecting Kafkacat with {product-long-kafka}
+= Configuring and connecting Kcat with {product-long-kafka}
 ifdef::context[:parent-context: {context}]
 :context: using-kafkacat
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use https://github.com/edenhill/kafkacat[Kafkacat^] to test and debug your Kafka instances in {product-long-kafka}.
-Kafkacat is a command-line utility for messaging in Apache Kafka 0.8 and later.
-With Kafkacat, you can produce and consume messages for your Kafka instances directly from the command line,
-and list topic and partition information for your Kafka instances.
+As a developer of applications and services, you can use https://github.com/edenhill/kcat[Kcat^] to test and debug your Kafka instances in {product-long-kafka}.
+Kcat is a command-line utility for messaging in Apache Kafka 0.8 and later.
+With Kcat, you can produce and consume messages directly from the command line. You can also list topic and partition information for your Kafka instances.
 
 ifndef::community[]
-NOTE: Kafkacat is an open source community tool. Kafkacat is not a part of {product-kafka} and is therefore not supported by Red Hat.
+NOTE: Kcat is an open source community tool. Kcat is not a part of {product-kafka} and is therefore not supported by Red Hat.
 endif::[]
-
-You can install and use Kafkacat to test and debug your Kafka instances in {product-kafka}.
 
 .Prerequisites
 ifndef::community[]
@@ -103,17 +100,21 @@ endif::[]
 //* You have a subscription to {product-long-kafka}. For more information about signing up, see *<@SME: Where to link?>*.
 * You have a running Kafka instance in {product-kafka}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
-* You have installed the latest supported version of https://github.com/edenhill/kafkacat[Kafkacat^] for your operating system.
+* You've installed the latest supported version of https://github.com/edenhill/kcat[Kcat^] for your operating system. To verify your Kafakcat version, enter the following command:
 +
-.Verifying Kafkacat installation
 [source]
 ----
-$ kafkacat -V
-
-kafkacat - Apache Kafka producer and consumer tool
-https://github.com/edenhill/kafkacat
-Copyright (c) 2014-2019, Magnus Edenhill
-Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer)
+$ kcat -V
+----
++
+You see output like the following:
++
+[source]
+----
+kcat - Apache Kafka producer and consumer tool
+https://github.com/edenhill/kcat
+Copyright (c) 2014-2021, Magnus Edenhill
+Version 1.7.0 (librdkafka 1.3.0 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer)
 ----
 
 // Condition out QS-only content so that it doesn't appear in docs.
@@ -121,43 +122,43 @@ Version 1.6.0 (JSON, Avro, Transactions, librdkafka 1.6.1 builtin.features=gzip,
 ifdef::qs[]
 [#description]
 ====
-Learn how to use Kafkacat to interact with a Kafka instance in {product-long-kafka}.
+Learn how to use Kcat to interact with a Kafka instance in {product-long-kafka}.
 ====
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-kafka} with Kafkacat. In this quick start, you'll learn how to use https://github.com/edenhill/kafkacat[Kafkacat^] to produce and consume messages for your Kafka instances in {product-kafka}.
+Welcome to the quick start for {product-long-kafka} with Kcat. In this quick start, you'll learn how to use https://github.com/edenhill/kcat[Kcat^] to produce and consume messages for your Kafka instances in {product-kafka}.
 ====
 endif::[]
 
 [id="proc-configuring-kafkacat_{context}"]
-== Configuring Kafkacat to connect to a Kafka instance
+== Configuring Kcat to connect to a Kafka instance
 
 [role="_abstract"]
-To enable Kafkacat to access a Kafka instance, configure the connection using the bootstrap server endpoint for the instance and the generated credentials for your {product-kafka} service account. For Kafkacat, you can configure connection information either by passing options to the `kafkacat` command or by using a configuration file. The example in this task sets environment variables and then passes them to the `kafkacat` command.
+To enable Kcat to access a Kafka instance, you must configure a connection. The configuration must include the bootstrap server endpoint for the Kafka instance and the credentials for your {product-long-kafka} service account.
 
-For more information about Kafkacat configuration options, see https://github.com/edenhill/kafkacat#configuration[Configuration^] in the Kafkacat documentation.
+For Kcat, you can either pass these values to the `kcat` command or use a configuration file. In this task, you set environment variable values and then pass them to the `kcat` command.
 
-NOTE: Kafkacat does not yet fully support SASL/OAUTHBEARER authentication, so connecting to a Kafka instance requires only the bootstrap server and the service account credentials for SASL/PLAIN authentication.
+For more information about Kcat configuration options, see https://github.com/edenhill/kcat#configuration[Configuration^] in the Kcat documentation.
 
-NOTE: Kafkacat have been recently renamed to kcat. If you use latest version of kafkacat please replace all occurences referencing kafkacat binary to kcat
+NOTE: Kcat does not yet fully support SASL/OAUTHBEARER authentication, so connecting to a Kafka instance requires only the bootstrap server and the service account credentials for SASL/PLAIN authentication.
 
 .Prerequisites
 ifndef::qs[]
-* You have the bootstrap server endpoint for your Kafka instance. To relocate the server endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, on the {service-url-kafka}[Kakfa instances^] page of the {product-kafka} web console click a Kafka instance. Select the options icon (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
+* You've set permissions for your service account to access resources in the Kafka instance. For an example of setting permissions for a service account, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 endif::[]
 
 .Procedure
-* On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kafkacat or other applications. Replace the values with your own server and credential information.
+* On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Kcat. Replace the values with your own server and credential information.
 +
 --
 ifdef::qs[]
-The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
+The `<bootstrap_server>` value is the bootstrap server endpoint for your Kafka instance. The `<client_id>` and `<client_secret>` values are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options icon (three vertical dots) and clicking *Connection*.
 endif::[]
 
-.Setting environment variables for server and credentials
+.Setting environment variables for bootstrap server and client credentials
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
@@ -167,46 +168,49 @@ $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 --
 
 [id="proc-producing-messages-kafkacat_{context}"]
-== Producing messages in Kafkacat
+== Producing messages in Kcat
 
 [role="_abstract"]
-You can use Kafkacat to produce messages to Kafka topics in several ways, such as reading them from standard input (`stdin`) directly on the command line or from a file. This example produces messages from input on the command line. For more examples of Kafkacat producer messaging, see the https://github.com/edenhill/kafkacat#examples[Examples^] in the Kafkacat documentation.
+You can use Kcat to produce messages to Kafka topics in several ways, such as reading them from standard input (`stdin`) on the command line, or from a file. In this task, you produce messages from input on the command line. For more examples of Kcat producer messaging, see https://github.com/edenhill/kcat#examples[Examples^] in the Kcat documentation.
 
 .Prerequisites
-* Kafkacat is installed.
-* You have a running Kafka instance in {product-kafka}.
+* Kcat is installed.
+* You have a running Kafka instance in {product-long-kafka}.
+* You have a topic in your Kafka instance that you can use to produce and consume messages.
 * You've set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
 
 .Procedure
-. On the command line, enter the following commands to start Kafkacat in _producer_ mode. This mode enables you to produce messages to your Kafka topic.
+. On the command line, enter the following command to start Kcat in producer mode. This mode enables you to produce messages to your Kafka topic. Replace `_<kafka-topic>_` with your own topic name.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example produces messages to a topic in {product-kafka} named `my-first-kafka-topic`. Replace the topic name with the relevant topic as needed. The topic that you use in this command must already exist in {product-kafka}.
-
-.Starting Kafkacat in producer mode
-[source]
+.Starting Kcat in producer mode
+[source,subs="+quotes"]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
+$ kcat -t _<kafka-topic>_ -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username="$RHOAS_SERVICE_ACCOUNT_CLIENT_ID" \
  -X sasl.password="$RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET" -P
 ----
 
-NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, Kafkacat does not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
+The example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously.
 
-NOTE: A Kafkacat producer might behave differently depending on the operating system. For example, on Mac operating systems, messages are sent by redirecting them to the Kafkacat binary in the format `echo "message" | kafkacat ...`.
+NOTE: The recommended authentication mechanism for {product-kafka} is SASL/OAUTHBEARER, which means that you must also specify an access token. However, Kcat does not yet fully support OAUTHBEARER. Therefore, the previous example uses SASL/PLAIN authentication.
+
+NOTE: A Kcat producer might behave differently depending on the operating system. For example, on Mac operating systems, messages are sent by redirecting them to the Kcat binary in the format `echo "message" | kcat ...`.
 
 --
-. With Kafkacat running in producer mode, enter messages into Kafkacat that you want to produce to the Kafka topic.
+. With Kcat running in producer mode, enter messages that you want to produce to the Kafka topic, as shown in the following example:
 +
-.Example messages to produce to the Kafka topic
 [source]
 ----
 First message
 Second message
 Third message
 ----
-. Keep this producer running to use later when you create a consumer.
+. To finish producing the messages you entered, press `CTRL+D`.
+. Keep the producer running to use later, when you create a consumer.
++
+NOTE: On Mac operating systems, pressing `CTRL+D` produces the messages you entered and then stops the producer. To use the producer again, you must restart it, as shown earlier in this task.
 
 .Verification
 ifdef::qs[]
@@ -217,55 +221,58 @@ ifndef::qs[]
 endif::[]
 
 [id="proc-consuming-messages-kafkacat_{context}"]
-== Consuming messages in Kafkacat
+== Consuming messages in Kcat
 
 [role="_abstract"]
-You can use Kafkacat to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with Kafkacat.
+You can also use Kcat to consume messages from Kafka topics. In this task, you use Kcat to consume the messages that you previously produced to your topic.
 
 .Prerequisites
-* Kafkacat is installed.
-* You have a running Kafka instance in {product-kafka}.
-* You've set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
-* You used a producer to produce example messages to a topic.
+* Kcat is installed.
+* You have a running Kafka instance in {product-long-kafka}.
+* You used Kcat to produce example messages to a topic in your Kafka instance.
 
 .Procedure
-. On the command line in a separate terminal from your producer, enter the following commands to start Kafkacat in _consumer_ mode. This mode enables you to consume messages from your Kafka topic.
+. Open a second terminal window or tab, separate from your producer.
+. On the command line, enter the following command to start Kcat in _consumer_ mode. This mode enables you to consume messages from your Kafka topic. Replace `_<kafka-topic>_` with the name of the topic that you previously produced messages to.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example consumes and displays the messages from the `my-first-kafka-topic` example topic, and states that it reached the end of partition `0` in the topic.
-
-.Starting Kafkacat in consumer mode
-[source]
+.Starting Kcat in consumer mode
+[source,subs="+quotes"]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
+$ kcat -t _<kafka-topic>_ -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username="$RHOAS_SERVICE_ACCOUNT_CLIENT_ID" \
  -X sasl.password="$RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET" -C
+----
 
+You see output that looks like the following example. The message values are the ones you previously sent using the producer.
+
+[source,subs="+quotes"]
+----
 First message
 Second message
 Third message
-% Reached end of topic my-first-kafka-topic [0] at offset 3
+% Reached end of topic _<kafka-topic>_ [0] at offset 3
 ----
 --
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+NOTE: You can also use the {product-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console^].
 
 .Verification
 ifdef::qs[]
 * Is your consumer running without any errors in the terminal?
-* Did the consumer display the messages from the `my-first-kafka-topic` example topic?
+* Did the consumer display the messages from your Kafka topic?
 endif::[]
 ifndef::qs[]
 . Verify that your consumer is running without any errors in the terminal.
-. Verify that the consumer displays the messages from the `my-first-kafka-topic` example topic.
+. Verify that the consumer displays the messages from your Kafka topic.
 endif::[]
 
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-kafka} Kafkacat quick start, and are now ready to produce and consume messages in the service.
+Congratulations! You successfully completed the {product-kafka} Kcat quick start, and are now ready to produce and consume messages in the service.
 ====
 endif::[]
 
