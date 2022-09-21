@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhoas-quarkus-kafka-quickstart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: rhoas-quarkus-kafka-quickstart
+      version: 1.0-SNAPSHOT
+  template:
+    metadata:
+      labels:
+        name: rhoas-quarkus-kafka-quickstart
+        version: 1.0-SNAPSHOT
+    spec:
+      containers:
+        - env:
+            - name: KAFKA_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.rhoas.config }}
+                  key: kafka_host
+            - name: RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL
+              valueFrom:
+                secretKeyRef:
+                  name:  {{ .Values.rhoas.secret }}
+                  key: RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL
+            - name: RHOAS_SERVICE_ACCOUNT_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name:  {{ .Values.rhoas.secret }}
+                  key: RHOAS_SERVICE_ACCOUNT_CLIENT_ID
+            - name: RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET  
+              valueFrom:
+                secretKeyRef:
+                  name:  {{ .Values.rhoas.secret }}
+                  key: RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET
+          image: rkpattnaik/quarkus-kafka-quickstart:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          name: rhoas-quarkus-kafka-quickstart
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
