@@ -1,0 +1,4 @@
+## RHOAS Config
+rhoas: 
+   config: my-context-3-configuration
+   secret: service-account-credentials
