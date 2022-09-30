@@ -85,7 +85,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer or administrator, you can view metrics in {product-kafka} to visualize the performance and data usage for Kafka instances and topics that you have access to. You can view metrics directly in the {product-kafka} web console, or use the metrics API endpoint provided by {product-kafka} to import the data into your own metrics monitoring tool, such as Prometheus.
+As a developer or administrator, you can view metrics in {product-long-kafka} to visualize the performance and data usage for Kafka instances and topics that you have access to. You can view metrics directly in the {product-kafka} web console, or use the metrics API endpoint provided by {product-kafka} to import the data into your own metrics monitoring tool, such as Prometheus.
 
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
 
@@ -93,7 +93,7 @@ As a developer or administrator, you can view metrics in {product-kafka} to visu
 == Supported metrics in {product-kafka}
 
 [role="_abstract"]
-{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, the *Dashboard* page of a Kafka instance displays a subset of these metrics. To learn more about the limits associated with both trial and production Kafka instance types, refer to https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
+{product-long-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, the *Dashboard* page of a Kafka instance displays a subset of these metrics. To learn more about the limits associated with both trial and production Kafka instance types, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 
 
 Cluster metrics::
@@ -156,7 +156,7 @@ Topic metrics::
 == Viewing metrics for a Kafka instance in {product-kafka}
 
 [role="_abstract"]
-After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka] scripts, link:https://github.com/edenhill/kcat[Kafkacat], or a link:https://quarkus.io/[Quarkus] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
+After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka^] scripts, link:https://github.com/edenhill/kcat[Kcat^], or a link:https://quarkus.io/[Quarkus^] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites
 * You have access to a Kafka instance in {product-kafka} that contains topics. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
@@ -174,15 +174,15 @@ NOTE: In some cases, after you start producing and consuming messages, you might
 == Configuring metrics monitoring for a Kafka instance in Prometheus
 
 [role="_abstract"]
-As an alternative to viewing metrics for a Kafka instance in the {product-kafka} web console, you can export your metrics to https://prometheus.io/docs/introduction/overview/[Prometheus] and integrate the metrics with your own metrics monitoring platform. {product-kafka} provides a `kafkas/{id}/metrics/federate` API endpoint that you can configure as a scrape target for Prometheus to use to collect and store metrics. You can then access the metrics in the https://prometheus.io/docs/visualization/browser/[Prometheus expression browser] or in a data-graphing tool such as https://prometheus.io/docs/visualization/grafana/[Grafana].
+As an alternative to viewing metrics for a Kafka instance in the {product-long-kafka} web console, you can export your metrics to https://prometheus.io/docs/introduction/overview/[Prometheus^] and integrate the metrics with your own metrics monitoring platform. {product-kafka} provides a `kafkas/{id}/metrics/federate` API endpoint that you can configure as a scrape target for Prometheus to use to collect and store metrics. You can then access the metrics in the https://prometheus.io/docs/visualization/browser/[Prometheus expression browser^] or in a data-graphing tool such as https://prometheus.io/docs/visualization/grafana/[Grafana^].
 
-This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] method.
+This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File^] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration^] method.
 
 .Prerequisites
 * You have access to a Kafka instance that contains topics in {product-kafka}. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 * You have the ID and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To relocate the Kafka instance ID and the token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account that has access to the Kafka instance. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation.
+* You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started^] in the Prometheus documentation.
 
 .Procedure
 . In your Prometheus configuration file, add the following information. Replace the variable values with your own Kafka instance and service account information.
@@ -206,10 +206,10 @@ The `<kafka_instance_id>` is the ID of the Kafka instance. The `<client_id>` and
 
 The new scrape target becomes available after the configuration has reloaded.
 --
-. View your collected metrics in the Prometheus expression browser at `http://__<host>__:__<port>__/graph`, or integrate your Prometheus data source with a data-graphing tool such as Grafana. For information about Prometheus metrics in Grafana, see https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus] in the Grafana documentation.
+. View your collected metrics in the Prometheus expression browser at `http://__<host>__:__<port>__/graph`, or integrate your Prometheus data source with a data-graphing tool such as Grafana. For information about Prometheus metrics in Grafana, see https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus^] in the Grafana documentation.
 +
 --
-If you use Grafana with your Prometheus instance, you can import the predefined https://grafana.com/grafana/dashboards/15835[{product-long-kafka} Grafana dashboard] to set up your metrics display. For import instructions, see https://grafana.com/docs/grafana/v7.5/dashboards/export-import/#importing-a-dashboard[Importing a dashboard] in the Grafana documentation.
+If you use Grafana with your Prometheus instance, you can import the predefined https://grafana.com/grafana/dashboards/15835[{product-long-kafka} Grafana dashboard^] to set up your metrics display. For import instructions, see https://grafana.com/docs/grafana/v7.5/dashboards/export-import/#importing-a-dashboard[Importing a dashboard^] in the Grafana documentation.
 --
 
 When you create a Kafka instance and add new topics, the metrics are initially empty. After you start producing and consuming messages in your services, you can return to your monitoring tool to view related metrics. For example, to use Kafka scripts to produce and consume messages, see {base-url}{kafka-bin-scripts-url-kafka}[Configuring and connecting Kafka scripts with {product-long-kafka}^].
@@ -218,7 +218,7 @@ NOTE: In some cases, after you start producing and consuming messages, you might
 
 [NOTE]
 ====
-If you use the Prometheus Operator in your monitoring environment, you can alternatively create a `kafka-federate.yaml` file as an additional scrape configuration in your Prometheus custom resource as shown in the following example commands. For more information about this method, see https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration] in the Prometheus documentation.
+If you use the Prometheus Operator in your monitoring environment, you can alternatively create a `kafka-federate.yaml` file as an additional scrape configuration in your Prometheus custom resource as shown in the following example commands. For more information about this method, see https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration^] in the Prometheus documentation.
 
 .Example `kafka-federate.yaml` file
 [source,yaml,subs="+quotes"]
@@ -263,7 +263,7 @@ spec:
 .Prerequisites
 * You have successfully configured metrics monitoring for a Kafka instance in Prometheus.
 * You use the Prometheus Operator in your monitoring environment.
-* You can define https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/[alerting rules] in Prometheus and can deploy an https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/alerting.md/[Alertmanager cluster] in Prometheus Operator.
+* You can define https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/[alerting rules^] in Prometheus and can deploy an https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/alerting.md/[Alertmanager cluster^] in Prometheus Operator.
 
 
 .Procedure
@@ -296,9 +296,9 @@ spec:
 * {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
 * {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the `rhoas` CLI for {product-long-kafka}^]
 * {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
-* https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started] in the Prometheus documentation
-* https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus]
-* https://grafana.com/docs/grafana/latest/datasources/prometheus/[Prometheus Data Source] in the Grafana documentation
+* https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started^] in the Prometheus documentation
+* https://prometheus.io/docs/visualization/grafana/[Grafana Support for Prometheus^]
+* https://grafana.com/docs/grafana/latest/datasources/prometheus/[Prometheus Data Source^] in the Grafana documentation
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
