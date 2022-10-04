@@ -86,11 +86,7 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 
-As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality to verify the state of the following elements:
-
-* Clients are producing messages to the expected topic partition
-* Topics are storing messages correctly
-* Messages have the expected content
+As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality to verify that a client is producing messages to the expected topic partition or that messages have the expected content.
 
 When you select a topic in the web console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
 
@@ -156,13 +152,13 @@ NOTE: If you have many partitions, you can filter the values shown in the *Parti
 --
 * To filter messages by topic partition and offset, perform the following actions:
 ... In the *Partition* field, select a topic partition.
-... Click the arrow next to the default value of `Latest messages` and select `Offset` from the list.
+... Click the arrow next to `Latest messages` and select `Offset` from the list.
 ... In the *Specify offset* field, type an offset value.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
 * To filter messages by topic partition and date and time, perform the following actions:
 ... In the *Partition* field, select a topic partition.
-... Click the arrow next to the default value of `Latest messages` and select `Timestamp` from the list.
+... Click the arrow next to `Latest messages` and select `Timestamp` from the list.
 +
 Additional selection tools appear.
 ... Use the additional selection tools to set date and time values. Alternatively, type a date and time value in the format shown in the field.
@@ -170,7 +166,7 @@ Additional selection tools appear.
 
 * To filter messages by topic partition and epoch timestamp, perform the following actions:
 ... In the *Partition* field, select a topic partition.
-... Click the arrow next to the default value of `Latest messages` and select `Epoch timestamp` from the list.
+... Click the arrow next to `Latest messages` and select `Epoch timestamp` from the list.
 ... In the *Epoch timestamp* field, type or paste an epoch timestamp value.
 +
 NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
