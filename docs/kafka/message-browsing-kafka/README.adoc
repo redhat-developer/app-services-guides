@@ -86,9 +86,9 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 
-As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality, for example, to verify that a client is producing messages to the expected topic partition, that your topic is storing messages correctly, or that messages have the expected content.
+As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality to verify that a client is producing messages to the expected topic partition or that messages have the expected content.
 
-When you select a topic in the console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
+When you select a topic in the web console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
 
 * Specify a partition and see messages sent to the partition.
 * Specify a partition and offset and see messages sent to the partition from that offset.
@@ -100,14 +100,14 @@ When you select a topic in the console, you can use the *Messages* tab to view a
 [id="proc-browsing-messages-for-a-topic_{context}"]
 == Browsing messages for a topic
 
-The following procedure shows how to filter and inspect a list of messages for a topic in the {product-kafka} web console.
+The following procedure shows how to filter and inspect a list of messages for a topic in the {product-long-kafka} web console.
 
 .Prerequisites
 
 * You have a Kafka instance with a topic that contains some messages. To learn how to create your _first_ Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
 +
-** {base-url}{getting-started-url-kafka}[_Getting started with {product-long-kafka}_^]
-** {base-url}{kafka-bin-scripts-url-kafka}[_Configuring and connecting Kafka scripts with {product-long-kafka}_^]
+** {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+** {base-url}{kafka-bin-scripts-url-kafka}[Configuring and connecting Kafka scripts with {product-long-kafka}^]
 
 .Procedure
 
@@ -143,22 +143,22 @@ Similarly, if a message is encoded (for example, in a format such as UTF-8 or Ba
 
 . To copy the full message value or header data, click the copy icon next to the data in the *Message* pane.
 
-. To see messages for a different topic partition, select a new value in the *Partition* drop-down menu.
+. To see messages for a different topic partition, select a new value in the *Partition* list.
 +
-NOTE: If you have many partitions, you can filter the list shown in the drop-down menu by typing a value in the field.
+NOTE: If you have many partitions, you can filter the values shown in the *Partition* list by typing a value in the field.
 
 . To further refine the list of messages in the table, use the filter controls at the top of the *Messages* page.
 +
 --
 * To filter messages by topic partition and offset, perform the following actions:
 ... In the *Partition* field, select a topic partition.
-... In the drop-down menu that shows a default value of `Offset`, keep this default value.
-... In the *Offset* field, type an offset value.
+... Click the arrow next to `Latest messages` and select `Offset` from the list.
+... In the *Specify offset* field, type an offset value.
 ... To apply your filter settings, click the search (magnifying glass) icon.
 
 * To filter messages by topic partition and date and time, perform the following actions:
 ... In the *Partition* field, select a topic partition.
-... In the drop-down menu that shows a default value of `Offset`, change the value to `Timestamp`.
+... Click the arrow next to `Latest messages` and select `Timestamp` from the list.
 +
 Additional selection tools appear.
 ... Use the additional selection tools to set date and time values. Alternatively, type a date and time value in the format shown in the field.
@@ -166,7 +166,7 @@ Additional selection tools appear.
 
 * To filter messages by topic partition and epoch timestamp, perform the following actions:
 ... In the *Partition* field, select a topic partition.
-... In the drop-down menu that shows a default value of `Offset`, change the value to `Epoch timestamp`.
+... Click the arrow next to `Latest messages` and select `Epoch timestamp` from the list.
 ... In the *Epoch timestamp* field, type or paste an epoch timestamp value.
 +
 NOTE: You can easily convert a human-readable date and time to an epoch value using a https://www.epochconverter.com/[timestamp conversion tool^].
@@ -174,9 +174,8 @@ NOTE: You can easily convert a human-readable date and time to an epoch value us
 
 --
 +
-Based on your filter settings, the *Messages* page automatically reloads the list of messsages in the table.
+Based on your filter settings, the *Messages* page automatically reloads the list of messages in the table.
 
-. To clear your existing offset, timestamp, or epoch timestamp selections and revert to seeing the latest messages in the selected partition, select `Latest messages` in the drop-down menu that has a default value of `Offset`.
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
