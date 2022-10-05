@@ -1,0 +1,24 @@
+# Tags to be kept empty for now. Tags will specify where in the app descriptions will be available.
+# Titles are "dictionary" articles titles.
+# Links to be external only. We don't know yet whether referencing to other side panels will be supported but referencing to in-depth docs is expected to be supported.
+
+- name: kafka-connection-reauthentication
+  tags:
+  title: Connection re-authentication
+  content: |-
+    When a client connects to a Kafka instance, the session lasts for five minutes. At that point, the client must reauthenticate to stay connected. Many Kafka clients automatically reauthenticate to remain connected, but some Kafka clients do not.
+
+    If you use a Kafka client that does not support connection reauthentication, the client is disconnected when the five-minute session expires. To prevent the client from being disconnected every five minutes, disable the **Connection re-authentication** setting.
+
+    Before disabling connection re-authentication, you should be aware of the security risks. If you disable connection re-authentication, and then an attacker obtains credentials to your Kafka instance, they will be able to stay connected indefinitely. Deactivating the user account or service account will not close the connections that the attacker has opened. In this scenario, you would need to add Access Control List rules (ACLs) to prevent the unauthorized connections from performing any operations.
+
+    You could also contact Red Hat Support for assistance.
+
+    >**NOTE:** Disabling connection re-authentication will restart your Kafka instance.
+  # This array has currently required due to an internal quickstart bug. It always expect the array to be defined. https://github.com/patternfly/patternfly-quickstarts/pull/162
+  links:
+    - text: 'Managing account access in Red Hat OpenShift Streams for Apache Kafka'
+      href: https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/2f4bf7cf-5de2-4254-8274-6bf71673f407
+      isExternal: true
+
+# Add additional kafka instance settings here.
