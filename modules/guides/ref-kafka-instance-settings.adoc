@@ -1,0 +1,34 @@
+[id='ref-kafka-instance-settings_{context}']
+= Kafka instance settings in {product-kafka}
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can edit the following Kafka instance settings in {product-long-kafka}.
+
+Connection re-authentication::
++
+--
+When a client connects to a Kafka instance, the session lasts for five minutes.
+At that point, the client must reauthenticate to stay connected.
+Many Kafka clients automatically reauthenticate to remain connected,
+but some Kafka clients do not.
+
+If you use a Kafka client that does not support connection reauthentication,
+the client is disconnected when the five-minute session expires.
+To prevent the client from being disconnected every five minutes,
+disable the `Connection re-authentication` setting.
+
+Before disabling connection re-authentication,
+you should be aware of the security risks.
+If you disable connection re-authentication,
+and then an attacker obtains credentials to your Kafka instance,
+they will be able to stay connected indefinitely.
+Deactivating the user account or service account will not close the connections that the attacker has opened.
+In this scenario, you would need to add Access Control List rules (ACLs) to prevent the unauthorized connections from performing any operations
+(see {base-url}{access-mgmt-url-kafka}[Managing account access in OpenShift Streams for Apache Kafka^]).
+ifndef::community[]
+You could also contact Red Hat Support for assistance.
+endif::[]
+
+NOTE: Disabling connection re-authentication will restart your Kafka instance.
+--

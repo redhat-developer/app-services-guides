@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-{product-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, the *Dashboard* page of a Kafka instance displays a subset of these metrics. To learn more about the limits associated with both trial and production Kafka instance types, refer to https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
+{product-long-kafka} supports the following metrics for Kafka instances and topics. In the {product-kafka} web console, the *Dashboard* page of a Kafka instance displays a subset of these metrics. To learn more about the limits associated with both trial and production Kafka instance types, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 
 
 Cluster metrics::

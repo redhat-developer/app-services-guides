@@ -1,0 +1,18 @@
+[id='assembly-configuring-kafka-instance-settings']
+= Configuring Kafka instance settings in {product-long-kafka}
+ifdef::context[:parent-context: {context}]
+:context: configuring-kafka-instance-settings
+:imagesdir: _images
+
+// Purpose statement for the assembly
+[role="_abstract"]
+--
+As a developer of applications and services, you can review and modify settings for your Kafka instances. By modifying these settings, you can configure your Kafka instances to suit your particular environment.
+--
+
+
+include::modules/guides/proc-editing-kafka-instance-settings.adoc[leveloffset=+1]
+
+include::modules/guides/ref-kafka-instance-settings.adoc[leveloffset=+1]
+
+

@@ -1,0 +1,31 @@
+[id='proc-editing-kafka-instance-settings_{context}']
+= Reviewing and editing Kafka instance settings in {product-kafka}
+:imagesdir: ../_images
+
+[role="_abstract"]
+Use the {product-long-kafka} web console to review and adjust settings for a Kafka instance.
+
+As an alternative to using the {product-kafka} web console, you can use the `rhoas` command-line interface (CLI) to update certain Kafka instance settings, as shown in the following example command:
+
+.Example CLI command to disable connection reauthentication
+[source]
+----
+rhoas kafka update --reauthentication false
+----
+
+For a list of Kafka instance settings that you can update using the CLI, see the `rhoas kafka update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
+
+.Prerequisites
+* You have created a Kafka instance. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+
+.Procedure
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select a Kafka instance.
+. Select the *Settings* tab.
+. Adjust any of the settings as needed.
+
+[role="_additional-resources"]
+.Additional resources
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+* {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for OpenShift Streams for Apache Kafka^]
+* {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^]
+

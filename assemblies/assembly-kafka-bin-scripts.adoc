@@ -6,32 +6,26 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use Kafka scripts to manage your Kafka instances in {product-long-kafka}.
+As a developer of applications and services, you can use Kafka scripts to produce and consume messages for Kafka instances in {product-long-kafka}. This is a useful way to test and debug your Kafka instances.
 The Kafka scripts are a set of shell scripts that are included with the https://kafka.apache.org/downloads[Apache Kafka distribution^].
-With these scripts, you can produce and consume messages for your Kafka instances.
 
 ifndef::community[]
 NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product-kafka} and are therefore not supported by Red Hat.
 endif::[]
 
-When you download and extract the Apache Kafka distribution, the `bin/` directory (or the `bin\windows\` directory if you're using Windows) of the distribution contains a set of shell scripts that enable you to interact with your Kafka instance.
+When you download and extract the Apache Kafka distribution, the `bin/` directory of the distribution (or the `bin\windows\` directory if you're using Windows) contains a set of shell scripts that enable you to interact with your Kafka instance.
 With the scripts, you can produce and consume messages using your Kafka instances. You can also perform various other operations against the Kafka APIs to administer topics, consumer groups, and other resources.
 
-NOTE: The command examples in this quick start demonstrate how to use the Kafka scripts on Linux and macOS. If you're using Windows, use the Windows versions of the scripts. For example, instead of the `__<Kafka-distribution-dir>__/bin/kafka-console-producer.sh` script, use the `__<Kafka-distribution-dir>__\bin\windows\kafka-console-producer.bat` script.
+NOTE: The command examples in this quick start show how to use the Kafka scripts on Linux and macOS. If you're using Windows, use the Windows versions of the scripts. For example, instead of the `__<Kafka-distribution-dir>__/bin/kafka-console-producer.sh` script, use the `__<Kafka-distribution-dir>__\bin\windows\kafka-console-producer.bat` script.
 
 .Prerequisites
-ifndef::community[]
-* You have a Red Hat account.
-endif::[]
 * You have a running Kafka instance in {product-kafka}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
-* You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^]. You can check your version using the following command.
+* You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^]. You can check your Kafka version using the following command:
 +
-.Verifying Kafka scripts
 [source]
 ----
 $ ./kafka-console-producer.sh --version
-3.0.0 (Commit:8cb0a5e9d3441962)
 ----
 
 ifdef::qs[]

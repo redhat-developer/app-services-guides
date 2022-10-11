@@ -7,9 +7,9 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 
-As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality, for example, to verify that a client is producing messages to the expected topic partition, that your topic is storing messages correctly, or that messages have the expected content.
+As a developer or administrator, you can use the {product-long-kafka} web console to view and inspect messages for a Kafka topic. You might use this functionality to verify that a client is producing messages to the expected topic partition or that messages have the expected content.
 
-When you select a topic in the console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
+When you select a topic in the web console, you can use the *Messages* tab to view a list of messages for that topic. You can filter the list of messages in the following ways:
 
 * Specify a partition and see messages sent to the partition.
 * Specify a partition and offset and see messages sent to the partition from that offset.

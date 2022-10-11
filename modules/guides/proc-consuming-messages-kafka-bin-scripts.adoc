@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can use the `kafka-console-consumer` script to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with the `kafka-console-producer` script.
+In this task, you use the `kafka-console-consumer` script to consume the messages that you previously produced with the `kafka-console-producer` script.
 
 .Prerequisites
 
@@ -11,26 +11,31 @@ You can use the `kafka-console-consumer` script to consume messages from Kafka t
 
 .Procedure
 . Open a second terminal window or tab, separate from the producer.
+. On the command line, navigate to the `bin/` directory of your Kafka distribution.
 
-. On the command line, enter the following command to start the `kafka-console-consumer` script.
+. Start the `kafka-console-consumer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command consumes and displays messages from the `my-other-topic` topic.
 +
 --
-
 .Starting the `kafka-console-consumer` script
 
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-console-consumer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --from-beginning --consumer.config ../config/{property-file-name}
+----
+
+You see output like the following example:
+
+[source]
+----
 First message
 Second message
 Third message
 ----
 --
-The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
 
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console^].
 
 .Verification
 ifdef::qs[]
