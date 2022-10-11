@@ -85,32 +85,26 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use Kafka scripts to manage your Kafka instances in {product-long-kafka}.
+As a developer of applications and services, you can use Kafka scripts to produce and consume messages for Kafka instances in {product-long-kafka}. This is a useful way to test and debug your Kafka instances.
 The Kafka scripts are a set of shell scripts that are included with the https://kafka.apache.org/downloads[Apache Kafka distribution^].
-With these scripts, you can produce and consume messages for your Kafka instances.
 
 ifndef::community[]
 NOTE: The Kafka scripts are part of the open source community version of Apache Kafka. The scripts are not a part of {product-kafka} and are therefore not supported by Red Hat.
 endif::[]
 
-When you download and extract the Apache Kafka distribution, the `bin/` directory (or the `bin\windows\` directory if you're using Windows) of the distribution contains a set of shell scripts that enable you to interact with your Kafka instance.
+When you download and extract the Apache Kafka distribution, the `bin/` directory of the distribution (or the `bin\windows\` directory if you're using Windows) contains a set of shell scripts that enable you to interact with your Kafka instance.
 With the scripts, you can produce and consume messages using your Kafka instances. You can also perform various other operations against the Kafka APIs to administer topics, consumer groups, and other resources.
 
-NOTE: The command examples in this quick start demonstrate how to use the Kafka scripts on Linux and macOS. If you're using Windows, use the Windows versions of the scripts. For example, instead of the `__<Kafka-distribution-dir>__/bin/kafka-console-producer.sh` script, use the `__<Kafka-distribution-dir>__\bin\windows\kafka-console-producer.bat` script.
+NOTE: The command examples in this quick start show how to use the Kafka scripts on Linux and macOS. If you're using Windows, use the Windows versions of the scripts. For example, instead of the `__<Kafka-distribution-dir>__/bin/kafka-console-producer.sh` script, use the `__<Kafka-distribution-dir>__\bin\windows\kafka-console-producer.bat` script.
 
 .Prerequisites
-ifndef::community[]
-* You have a Red Hat account.
-endif::[]
 * You have a running Kafka instance in {product-kafka}.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
-* You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^]. You can check your version using the following command.
+* You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^]. You can check your Kafka version using the following command:
 +
-.Verifying Kafka scripts
 [source]
 ----
 $ ./kafka-console-producer.sh --version
-3.0.0 (Commit:8cb0a5e9d3441962)
 ----
 
 ifdef::qs[]
@@ -129,13 +123,11 @@ endif::[]
 == Configuring the Kafka scripts to connect to a Kafka instance
 
 [role="_abstract"]
-To enable the Kafka scripts to access a Kafka instance, you must configure the connection using the generated credentials for your {product-kafka} service account. For the Kafka scripts, you will create a configuration file that defines these values.
+To enable the Kafka scripts to access a Kafka instance, you must configure a connection using the generated credentials for your {product-long-rhoas} service account. In this task, you create a configuration file that specifies these credential values.
 
 .Prerequisites
-ifndef::qs[]
-* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
-endif::[]
+* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page.
+* You've set permissions for your service account to access resources in the Kafka instance. To verify the current permissions, select your Kafka instance in the {product-long-kafka} web console and click the *Access* tab. To learn more about setting permissions, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 
@@ -143,13 +135,9 @@ endif::[]
 
 . Create a file called `{property-file-name}`.
 
-. In the `{property-file-name}` file, set the SASL connection mechanism and the Kafka instance client credentials. Replace the values with your own credential information.
+. In the `{property-file-name}` file, set the SASL connection mechanism and the Kafka instance client credentials as shown in the following configuration. Replace the values with your own credential information.
 +
 --
-ifdef::qs[]
-The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots), clicking *Connection*, and creating the service account.
-endif::[]
-
 .Setting server and credential values
 [source,subs="+quotes"]
 ----
@@ -170,52 +158,38 @@ NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentic
 == Producing messages using Kafka scripts
 
 [role="_abstract"]
-You can use the `kafka-console-producer` script to produce messages to Kafka topics.
+In this task, you use the `kafka-console-producer` script to produce messages to a Kafka topic.
 
 .Prerequisites
 
-* You have a running Kafka instance in {product-kafka}.
-ifndef::qs[]
-* You have the bootstrap server endpoint for your Kafka instance. To relocate the server endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
-endif::[]
+* You have a running Kafka instance in {product-long-kafka}.
+* You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, select your Kafka instance in the {product-long-kafka} web console, select the options icon (three vertical dots), and click *Connection*.
 * You've created the `{property-file-name}` file to store your service account credentials.
 
 .Procedure
-. On the command line, from the `bin/` directory, enter the following command to create a Kafka topic.
+. On the command line, navigate to the `bin/` directory of your Kafka distribution.
+. Use the `kafka-topics` script to create a Kafka topic, as shown in the following example. The example creates a topic called `my-other-topic` with the default settings. Replace _<bootstrap_server>_ with the bootstrap server endpoint for your own Kafka instance.
 +
 --
-
-ifdef::qs[]
-The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
-endif::[]
-
 .Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-topics.sh --create --topic my-other-topic --partitions 1 --replication-factor 3 --bootstrap-server __<bootstrap_server>__ --command-config ../config/{property-file-name}
-Created topic my-other-topic.
 ----
 --
-+
-The preceding example uses the `kafka-topics` script to create the `my-other-topic` Kafka topic with the default settings.
 +
 ifndef::community[]
 NOTE: If you try to create a topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. For more information about partition limits for Kafka instances, see https://access.redhat.com/articles/5979061[{product-long-kafka} service limits].
 endif::[]
 
-. Enter the following command to start the `kafka-console-producer` script.
+. Start the `kafka-console-producer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command prepares a producer to send messages to the `my-other-topic` topic that you previously created.
 +
---
-
 .Starting the `kafka-console-producer` script
++
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-console-producer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --producer.config ../config/{property-file-name}
 ----
---
-+
-The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example produces messages to the `my-other-topic` example topic that you created.
 
 . With the `kafka-console-producer` script running, enter messages that you want to produce to the Kafka topic.
 +
@@ -228,7 +202,7 @@ The preceding example uses the SASL/PLAIN authentication mechanism with the cred
 >Third message
 ----
 
-. Keep the producer running to use later when you create a consumer.
+. Keep the producer running so that you can use it again later, when you create a consumer.
 
 .Verification
 ifdef::qs[]
@@ -242,7 +216,7 @@ endif::[]
 == Consuming messages using Kafka scripts
 
 [role="_abstract"]
-You can use the `kafka-console-consumer` script to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with the `kafka-console-producer` script.
+In this task, you use the `kafka-console-consumer` script to consume the messages that you previously produced with the `kafka-console-producer` script.
 
 .Prerequisites
 
@@ -250,26 +224,31 @@ You can use the `kafka-console-consumer` script to consume messages from Kafka t
 
 .Procedure
 . Open a second terminal window or tab, separate from the producer.
+. On the command line, navigate to the `bin/` directory of your Kafka distribution.
 
-. On the command line, enter the following command to start the `kafka-console-consumer` script.
+. Start the `kafka-console-consumer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command consumes and displays messages from the `my-other-topic` topic.
 +
 --
-
 .Starting the `kafka-console-consumer` script
 
 [source,subs="+quotes,+attributes"]
 ----
 $ ./kafka-console-consumer.sh --topic my-other-topic --bootstrap-server "__<bootstrap_server>__" --from-beginning --consumer.config ../config/{property-file-name}
+----
+
+You see output like the following example:
+
+[source]
+----
 First message
 Second message
 Third message
 ----
 --
-The preceding example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. This example consumes and displays the messages from the `my-other-topic` example topic.
 
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console^].
 
 .Verification
 ifdef::qs[]
