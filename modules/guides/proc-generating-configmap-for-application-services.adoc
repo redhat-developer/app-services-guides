@@ -68,7 +68,7 @@ env:
 ----
 +
 Helm renders the value for ConfigMap name and generates the manifest file for the deployment.
-The values can be fetched from the Values.yaml file which is native to Helm, or a different file can be used by passing the file name to “--values” flag:
+The values can be fetched from the `values.yaml` file which is native to Helm, or a different file can be used by passing the file name to “--values” flag:
 +
 [source,shell]
 ----

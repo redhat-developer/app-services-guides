@@ -2,19 +2,21 @@
 = Connecting a Helm chart to Application Services
 :imagesdir: ../_images
 
-The following example shows how to connect an https://github.com/rkpattnaik780/rhoas-helm-example:[example Helm chart] to the service instances defined in a context in OpenShift Application Services. The example Helm chart contains Kubernetes resources required to deploy the application used in https://github.com/redhat-developer/app-services-guides/tree/main/code-examples/quarkus-kafka-quickstart:[Quarkus Kafka quickstart] in a Kubernetes cluster.
+The following example shows how to connect an https://github.com/redhat-developer/app-services-guides/tree/main/code-examples/helm-kafka-example:[example Helm chart] to the service instances defined in a context in OpenShift Application Services. The example Helm chart contains Kubernetes resources required to deploy the application used in https://github.com/redhat-developer/app-services-guides/tree/main/code-examples/quarkus-kafka-quickstart:[Quarkus Kafka quickstart] in a Kubernetes cluster.
 
 Once we have the files for connection configuration and credentials. We can use it with an example Helm chart that uses the values.
 Now we will be using the generated configurations and credentials with the Helm example.
 
 .Procedure
 
-. On the command line, clone the example repository from GitHub.
+. On the command line, clone the {product-kafka} {samples-git-repo}[Guides and Samples^] repository from GitHub.
 +
 [source,shell]
 ----
-$ git clone https://github.com/rkpattnaik780/rhoas-helm-example.git
+git clone https://github.com/redhat-developer/app-services-guides app-services-guides
 ----
+
+. In your IDE, open the `code-examples/helm-kafka-example` directory from the repository that you cloned.
 
 . Log in to the CLI.
 +
