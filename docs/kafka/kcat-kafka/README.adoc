@@ -103,7 +103,7 @@ endif::[]
 $ kcat -V
 ----
 +
-You see output like the following:
+You see output like the following example:
 +
 [source]
 ----
@@ -133,7 +133,7 @@ endif::[]
 [role="_abstract"]
 To enable Kcat to access a Kafka instance, you must configure a connection. The configuration must include the bootstrap server endpoint for the Kafka instance and the credentials for your {product-long-kafka} service account.
 
-For Kcat, you can either pass these values to the `kcat` command or use a configuration file. In this task, you set environment variable values and then pass them to the `kcat` command.
+You can either pass these values to the `kcat` command or use a configuration file. In this task, you set environment variable values and then pass them to the `kcat` command.
 
 For more information about Kcat configuration options, see https://github.com/edenhill/kcat#configuration[Configuration^] in the Kcat documentation.
 
@@ -182,9 +182,9 @@ $ kcat -t _<kafka-topic>_ -b "$KAFKA_HOST" \
 
 The example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously.
 
-NOTE: The recommended authentication mechanism for {product-kafka} is SASL/OAUTHBEARER, which means that you must also specify an access token. However, Kcat does not yet fully support OAUTHBEARER. Therefore, the previous example uses SASL/PLAIN authentication.
+NOTE: The recommended authentication mechanism for {product-kafka} is SASL/OAUTHBEARER, which means that you must also specify an access token. However, Kcat does not yet fully support OAUTHBEARER. Therefore, the preceding example uses SASL/PLAIN authentication.
 
-NOTE: A Kcat producer might behave differently depending on the operating system. For example, on Mac operating systems, messages are sent by redirecting them to the Kcat binary in the format `echo "message" | kcat ...`.
+NOTE: A Kcat producer might behave differently based on the operating system. For example, on Mac operating systems, messages are sent by redirecting them to the Kcat binary in the format `echo "message" | kcat ...`.
 
 --
 . With Kcat running in producer mode, enter messages that you want to produce to the Kafka topic, as shown in the following example:
