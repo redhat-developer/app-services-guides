@@ -247,8 +247,10 @@ rhoas kafka topic consume --name=test-topic --partition=0 --offset=2
 rhoas kafka topic consume --name=test-topic --partition=1
 ----
 
+ifdef::qs[]
 .Verification
 * When you entered the `kafka topic consume` command, did you see the expected messages?
+endif::[]
 
 ifdef::qs[]
 [#conclusion]
