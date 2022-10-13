@@ -117,7 +117,6 @@ When you have created a service context, you can use a single CLI command to gen
 
 The following example shows how to use the CLI to create contexts in {product-long-rhoas} and then manage the service instances that are defined in those contexts.
 
-
 .Prerequisites
 * You have installed the {product-long-rhoas} (`rhoas`) CLI. For more information, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/bb30ee92-9e0a-4fd6-a67f-aed8910d7da3#proc-installing-rhoas_installing-rhoas-cli[Installing the rhoas CLI^].
 
@@ -223,27 +222,22 @@ $ rhoas context unset --name development-context --services kafka
 * To learn more about the `context` commands that you can use to manage service contexts, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/8bd088a6-b7b7-4e5d-832a-b0f0494f9070[CLI command reference (rhoas)^]
 
 [id="proc-generating-connection-information-quarkus_{context}"]
-== Generating connection configuration information for a Quarkus application
-The following example shows how to connect an example Quarkus application to the service instances defined in a context in {product-long-rhoas}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
+== Generating connection configuration information for a local Quarkus application
+The following example shows how to connect an example Quarkus application running locally on your computer to the service instances defined in a context in {product-long-rhoas}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
 
 The Quarkus application uses a topic in a Kafka instance to produce and consume a stream of quote values and display these on a web page. The application consists of two components:
 
 * A producer component that periodically produces a new quote value and publishes this to a Kafka topic called `quotes`.
-* A consumer component that streams quote values from the Kafka topic. This component also has a minimal front end that uses Server-Sent Events to show the quote values on a web page.
+* A consumer component that streams quote values from the Kafka topic. This component also has a minimal front end that uses server-sent events to show the quote values on a web page.
 
 In addition, the producer and consumer components serialize and deserialize Kafka messages using an Avro schema stored in {registry}. Use of the schema ensures that message values conform to a defined format.
 
 .Prerequisites
-
-ifndef::community[]
-* You have a Red Hat account.
-endif::[]
 * You have a service context with a Kafka and {registry} instance.
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
 * https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS. (The latest LTS version of OpenJDK is recommended.)
 * https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
-
 
 .Procedure
 
@@ -408,3 +402,260 @@ You see that the consumer component displays the stream of quote values on the w
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/8bd088a6-b7b7-4e5d-832a-b0f0494f9070#_b7f033ec-6f0c-4b3c-89b0-cb1801de19f9[CLI command reference (rhoas)^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/2f4bf7cf-5de2-4254-8274-6bf71673f407[ Managing account access in {product-long-kafka}^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1/guide/7717db0b-9fad-4fff-91b7-b311b63290a4[Managing account access in {product-long-registry}^]
+
+[id="proc-generating-connection-information-helm_{context}"]
+== Generating connection configuration information for a Helm-based OpenShift application
+The following example shows how to use Helm to deploy an example Quarkus application on Kubernetes and then connect the Quarkus application to a Kafka instance in {product-long-kafka}. https://helm.sh/[Helm^] is an open source utility for creating, configuring, and deploying applications on Kubernetes. The Kubernetes platform referred to in the remainder of this example is Red Hat OpenShift.
+
+One part of the example Quarkus application is designed to generate random price values and produce these to a Kafka topic. Another part of the application consumes the numbers from the Kafka topic. The application uses server-sent events to expose the values as a REST UI. Finally, a web page in the application displays the exposed values.
+
+To connect the Quarkus application to a Kafka instance in {product-kafka}, you define a service context that includes the Kafka instance. You then generate connection configuration information for the service context as an OpenShift ConfigMap object and provide this to the application.
+
+.Prerequisites
+* You have a running Kafka instance in {product-kafka}.
+* You created a service context for your Kafka instance.
+* You have installed the latest version of the `rhoas` command-line interface (CLI). See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
+* You have installed version 3.9.0 or greater of the https://helm.sh/docs/intro/install/[Helm CLI^].
+* You have installed version 4.8.5 or greater of the https://docs.openshift.com/container-platform/4.11/cli_reference/openshift_cli/getting-started-cli.html[OpenShift CLI^].
+* https://github.com/git-guides/[Git^] is installed.
+* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
+
+
+.Procedure
+. On the command line, clone the {product-long-rhoas} {samples-git-repo}[Guides and Samples^] repository in GitHub.
++
+[source,shell,options="nowrap"]
+----
+git clone https://github.com/redhat-developer/app-services-guides app-services-guides
+----
+
+. Log in to the rhoas CLI.
++
+[source,shell]
+----
+$ rhoas login
+----
++
+The login command opens a sign-in process in your web browser.
+
+. Check the service context that is currently in use.
++
+[source,shell]
+----
+$ rhoas context list
+----
++
+The CLI shows a check mark next to the service context that is currently in use.
+
+. (Optional) To switch to a different service context that includes your Kafka instance, use the following command. Replace `_<service-context>_` with your service context name.
++
+[source,shell,subs="+quotes"]
+----
+$ rhoas context use --name _<service-context>_
+----
+
+. Generate connection configuration information for the service context as an OpenShift `ConfigMap` and save this in a YAML file, as shown in the following example:
++
+.Generating ConfigMap from service context
+[source,shell]
+----
+$ rhoas generate-config --type configmap --output-file ./rhoas-services.yaml
+----
++
+For a service context with a single Kafka instance, the contents of the `ConfigMap` file look like the following example:
++
+.Example ConfigMap file generated from service context
+[source,yaml,subs="+quotes"]
+----
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: _<service-context>_-configuration
+data:
+    ## Kafka Configuration
+    kafka_host: __<host>__:__<port>__
+----
++
+As indicated in the example, the name of the generated `ConfigMap` object has a format of `_<service-context>_-configuration`.
+
+. On the command line, create the `prices` topic required by the Quarkus application.
++
+[source,shell]
+----
+$ rhoas kafka topic create --name prices
+----
+
+. Create a service account for the Quarkus application to authenticate with your Kafka instance by performing the following actions.
+.. Create a new service account as an OpenShift secret and save this in a YAML file, as shown in the following example:
++
+[source,shell]
+----
+$ rhoas service-account create --file-format secret --output-file ./rhoas-secrets.yaml
+----
+.. Open the YAML file for the secret in your IDE.
++
+The contents of the file look like the following example:
++
+.Example secret file for service account credentials
+[source,yaml,subs="+quotes"]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: service-account-credentials
+type: Opaque
+stringData:
+  RHOAS_SERVICE_ACCOUNT_CLIENT_ID: _<client-id>_
+  RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET: _<client-secret>_
+  RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL: _<oauth-token-endpoint-uri>_
+----
++
+As indicated in the example, the generated secret has a default name of `service-account-credentials`.
+
+.. Set Access Control List (ACL) permissions to enable the new service account to access resources in the Kafka instance.
++
+.Example command for granting access to Kafka instance
+[source,shell,subs="+quotes"]
+----
+$ rhoas kafka acl grant-access --producer --consumer --service-account _<client-id>_ --topic prices --group all
+----
++
+The command you entered allows applications to use the service account to produce and consume messages in the `prices` topic. Applications can use any consumer group and producer.
+
+.. To secure the sensitive credential information that is stored in the secret file, encode the client ID and client secret values from the file, as shown in the following commands:
++
+.Encoding credential information in Base64
+[source,shell,subs="+quotes"]
+----
+$ echo -n _<client-id>_ | base64
+$ echo -n _<client-secret>_ | base64
+----
++
+On the command line, you see Base64-encoded values of the client ID and client secret.
+
+.. In the secret file, overwrite the original client ID and client secret values with the corresponding Base64-encoded values shown on the command line. Save the secret file.
+
+. Log in to the OpenShift CLI using a token by performing the following actions.
+.. Log in to the OpenShift web console as a user who has privileges to create a new project in the cluster.
+.. In the upper-right corner of the console, click your user name. Select *Copy login command*.
++
+A new page opens.
+.. Click the *Display Token* link.
+.. In the *Log in with this token* section, copy the full `oc login` command shown.
+.. On the command line, right-click and select *Paste*.
++
+You see output confirming that you are logged in to your OpenShift cluster and the current project that you are using. By default, this is the project in which you will deploy the Quarkus application.
+.. (Optional) To change to another, existing project, use the following command:
++
+[source,shell,subs="+quotes"]
+----
+$ oc project _<project>_
+----
+
+.. (Optional) To create a _new_ project in which to deploy the Quarkus application, use the following command:
++
+[source,shell,subs="+quotes"]
+----
+$ oc new-project _<project>_
+----
+
+. Use the OpenShift CLI to apply the `ConfigMap` and secret files to the current project in your OpenShift cluster.
++
+.Applying ConfigMap and secret files to OpenShift project
+[source,shell]
+----
+$ oc apply -f ./rhoas-services.yaml
+$ oc apply -f ./rhoas-secrets.yaml
+----
++
+When you apply the YAML files, the OpenShift CLI shows the names of the `ConfigMap` and `Secret` objects that it creates in your OpenShift project, as shown in the following example output:
++
+[source,shell]
+----
+configmap/my-service-context-configuration created
+secret/service-account-credentials created
+----
+
+. In your IDE, open the `deployment.yaml` file in the `code-examples/helm-kafka-example/templates` directory of the repository that you cloned.
++
+The `deployment.yaml` file is a template file that is part of the Helm chart for the example Quarkus application. The template defines environment variables for the connection information required to connect to your Kafka instance. The environment variables (`KAFKA_HOST`,`RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL`, `RHOAS_SERVICE_ACCOUNT_CLIENT_ID`, and `RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET`) are shown in the following sample from the template file:
++
+.Example Helm template file for application deployment
+[source,yaml]
+----
+spec:
+  containers:
+    - env:
+        - name: KAFKA_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.rhoas.config }}
+              key: kafka_host
+        - name: RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL
+          valueFrom:
+            secretKeyRef:
+              name:  {{ .Values.rhoas.secret }}
+              key: RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL
+        - name: RHOAS_SERVICE_ACCOUNT_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name:  {{ .Values.rhoas.secret }}
+              key: RHOAS_SERVICE_ACCOUNT_CLIENT_ID
+        - name: RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name:  {{ .Values.rhoas.secret }}
+              key: RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET
+----
++
+The template uses parameters called `rhoas.config` and `rhoas.secret` to reference the names of your `ConfigMap` and `Secret` objects. You specify the names of your `ConfigMap` and `Secret` objects as values for these parameters in a later step, when you install the Helm chart. Also, as you saw previously, the `ConfigMap` and `Secret` objects that you created contain parameters that correspond directly to the key values defined in the template.
+
+. On the command line, navigate to the `code-examples/helm-kafka-example` directory of the repository that you cloned.
++
+[source,shell]
+----
+$ cd app-services-guides/code-examples/helm-kafka-example
+----
+
+. Deploy the Helm chart, specifying the names of the `ConfigMap` and `Secret` objects that you created in your OpenShift project.
++
+.Deploying the Helm chart
+[source,shell,subs="+quotes"]
+----
+$ helm install . --generate-name --set-string rhoas.config=_<configmap>_,rhoas.secret=service-account-credentials
+----
++
+You use the `--set-string` option to specify the names of the `ConfigMap` and `Secret` objects directly in the `helm install` command. You pass these values to the `rhoas.config` and `rhoas.secret` parameters that are defined in the template for the Helm chart.
++
+NOTE: An alternative way to pass values from the `ConfigMap` and `Secret` objects to the Helm template is to create a YAML file that contains the names of the `ConfigMap` and `Secret` objects. This approach also works for Deployment-based OpenShift applications. For an example of doing this, see the https://github.com/redhat-developer/app-services-guides/blob/main/code-examples/helm-kafka-example/README.md[README file^] that accompanies the Quarkus application used in this example.
++
+When you install the Helm chart, Helm automatically processes the contents of the chart `/templates` directory. Helm uses the templates to generate manifests for deployment of the application and creation of a service for the application. Helm provides these manifests to OpenShift.
+
+. When the Helm chart is installed, get the service endpoint for the application on OpenShift.
++
+[source,shell]
+----
+$ oc get service
+----
++
+You see output like the following example:
++
+.Service information for running Quarkus application on OpenShift
+[source,shell,options="nowrap"]
+----
+NAME                                TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)          AGE
+rhoas-quarkus-kafka-quickstart      LoadBalancer   172.30.128.12    a81b115a35629488685b6ed3cf322fbf-1904626303.us-east-2.elb.amazonaws.com   8080:31110/TCP   11m
+workspacef396ea393cc746aa-service   ClusterIP      172.30.133.190   <none>                                                                    4444/TCP         5d18h
+----
++
+The output indicates that the Quarkus application is successfully running on your OpenShift cluster.
+
+. On the command line, copy the value shown under *EXTERNAL-IP*.
+. In a web browser, go to `_<external-ip-value>_:8080/prices.html`.
++
+You see that the web page continuously updates the `Last price` value. The continuously updating output shows that the Quarkus application is using the connection configuration information that you generated to connect to the Kafka instance defined in your service context. The application uses the `prices` topic that you created to produce and consume messages.
+
+[role="_additional-resources"]
+.Additional resources
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/8bd088a6-b7b7-4e5d-832a-b0f0494f9070#_b7f033ec-6f0c-4b3c-89b0-cb1801de19f9[CLI command reference (rhoas)^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/2f4bf7cf-5de2-4254-8274-6bf71673f407[ Managing account access in {product-long-kafka}^]
