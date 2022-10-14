@@ -135,21 +135,24 @@ To enable the Kafka scripts to access a Kafka instance, you must configure a con
 
 . Create a file called `{property-file-name}`.
 
-. In the `{property-file-name}` file, set the SASL connection mechanism and the Kafka instance client credentials as shown in the following configuration. Replace the values with your own credential information.
+. In the `{property-file-name}` file, set the SASL connection mechanism and the Kafka instance client credentials as shown in the following configuration. Replace the values with your own credential information. {product-kafka}  supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use.
 +
 --
 .Setting server and credential values
-[source,subs="+quotes"]
+[source,subs="+quotes,attributes"]
 ----
-sasl.mechanism=PLAIN
+sasl.mechanism=OAUTHBEARER
 security.protocol=SASL_SSL
 
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
-  username="__<client_id>__" \
-  password="__<client_secret>__" ;
+sasl.oauthbearer.token.endpoint.url= {sso-token-url}
+
+sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required \
+clientId="<client-id>" \
+clientSecret="<client-secret>" ;
+
+sasl.login.callback.handler.class=org.apache.kafka.common.security.oauthbearer.secured.OAuthBearerLoginCallbackHandler
 ----
 
-NOTE: {product-kafka} also supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use. However, the Kafka scripts do not yet fully support OAUTHBEARER, so this example uses SASL/PLAIN.
 
 --
 . Save the file. You'll use this file in the next task to connect to your Kafka instance and produce messages.
@@ -170,6 +173,9 @@ In this task, you use the `kafka-console-producer` script to produce messages to
 . On the command line, navigate to the `bin/` directory of your Kafka distribution.
 . Use the `kafka-topics` script to create a Kafka topic, as shown in the following example. The example creates a topic called `my-other-topic` with the default settings. Replace _<bootstrap_server>_ with the bootstrap server endpoint for your own Kafka instance.
 +
+NOTE: For trial Kafka instances, the default value for the replication factor is 1.
++
+
 --
 .Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
@@ -182,7 +188,7 @@ ifndef::community[]
 NOTE: If you try to create a topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. For more information about partition limits for Kafka instances, see https://access.redhat.com/articles/5979061[{product-long-kafka} service limits].
 endif::[]
 
-. Start the `kafka-console-producer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command prepares a producer to send messages to the `my-other-topic` topic that you previously created.
+. Start the `kafka-console-producer` script, as shown in the following example. The example uses the SASL/OAUTHBEARER authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command prepares a producer to send messages to the `my-other-topic` topic that you previously created.
 +
 .Starting the `kafka-console-producer` script
 +
@@ -226,7 +232,7 @@ In this task, you use the `kafka-console-consumer` script to consume the message
 . Open a second terminal window or tab, separate from the producer.
 . On the command line, navigate to the `bin/` directory of your Kafka distribution.
 
-. Start the `kafka-console-consumer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command consumes and displays messages from the `my-other-topic` topic.
+. Start the `kafka-console-consumer` script, as shown in the following example. The example uses the SASL/OAUTHBEARER authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command consumes and displays messages from the `my-other-topic` topic.
 +
 --
 .Starting the `kafka-console-consumer` script
