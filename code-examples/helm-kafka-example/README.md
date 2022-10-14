@@ -33,26 +33,34 @@ $ oc apply -f ./rhoas-secrets.yaml
 $ oc apply -f ./rhoas-services.yaml
 ```
 
-5. Deploy the helm chart with the appropriate values:
+5. Deploy the Helm chart with the appropriate values:
 
 `helm install` command is used to install a chart to the OpenShift cluster.
 `Values` is a built-in object that provides access to values passed in the chart.
 
 The Helm chart uses the follwing values in the templates:
 
-`rhoas.config` - Name of the ConfigMap object containing configurations deployed in the OpenShift cluster
-`rhoas.secret` - Name of the Secret object containing service-account credentials deployed in the OpenShift cluster
+* `rhoas.config` - Name of the ConfigMap object containing configurations deployed in the OpenShift cluster
+* `rhoas.secret` - Name of the Secret object containing service-account credentials deployed in the OpenShift cluster
 
 
 
 There are various ways to provide values:
 
-    1. The default method is specifying values in the `values.yaml` file.
-    2. Specifying a yaml file with defined values using the `--values` flag:
+* The default method is specifying values in the `values.yaml` file. An example is shown below:
+
+```
+## Example values.yaml file
+rhoas: 
+   config: my-service-context-configuration
+   secret: service-account-credentials
+```
+
+* Specifying a YAML file of another name using the the --values flag:
     ```
     helm install . --generate-name --values my-values.yaml
     ```
-    3. Passing values from the command line using the `--set-string` flag:
+* Passing values directly from the command line using the `--set-string` flag:
     ```
     helm install . --generate-name --set-string rhoas.config=my-context-3-configuration
     ```
