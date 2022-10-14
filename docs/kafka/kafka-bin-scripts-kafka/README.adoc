@@ -139,12 +139,12 @@ To enable the Kafka scripts to access a Kafka instance, you must configure a con
 +
 --
 .Setting server and credential values
-[source,subs="+quotes"]
+[source,subs="+quotes,attributes"]
 ----
 sasl.mechanism=OAUTHBEARER
 security.protocol=SASL_SSL
 
-sasl.oauthbearer.token.endpoint.url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+sasl.oauthbearer.token.endpoint.url= {sso-token-url}
 
 sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required \
 clientId="<client-id>" \
