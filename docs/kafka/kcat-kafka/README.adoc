@@ -137,7 +137,7 @@ You can either pass these values to the `kcat` command or use a configuration fi
 
 For more information about Kcat configuration options, see https://github.com/edenhill/kcat#configuration[Configuration^] in the Kcat documentation.
 
-NOTE: Kcat does not yet fully support SASL/OAUTHBEARER authentication, so connecting to a Kafka instance requires only the bootstrap server and the service account credentials for SASL/PLAIN authentication.
+NOTE: Kcat does not yet fully support SASL/OAUTHBEARER authentication, which requires you to specify an access token in addition to service account credentials. Therefore, you use SASL/PLAIN authentication to connect to your Kafka instance with just service account credentials.
 
 .Prerequisites
 * You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, select your Kafka instance in the {product-long-kafka} web console, select the options icon (three vertical dots), and click *Connection*.
@@ -180,9 +180,7 @@ $ kcat -t _<kafka-topic>_ -b "$KAFKA_HOST" \
  -X sasl.password="$RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET" -P
 ----
 
-The example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously.
-
-NOTE: The recommended authentication mechanism for {product-kafka} is SASL/OAUTHBEARER, which means that you must also specify an access token. However, Kcat does not yet fully support OAUTHBEARER. Therefore, the preceding example uses SASL/PLAIN authentication.
+NOTE: Kcat does not yet fully support SASL/OAUTHBEARER authentication, which requires you to specify an access token in addition to service account credentials. Therefore, you use SASL/PLAIN authentication to connect to your Kafka instance with just service account credentials.
 
 NOTE: A Kcat producer might behave differently based on the operating system. For example, on Mac operating systems, messages are sent by redirecting them to the Kcat binary in the format `echo "message" | kcat ...`.
 
