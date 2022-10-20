@@ -137,9 +137,11 @@ NOTE: The cloud provider is preconfigured.
 * *Cloud region*: Select `US East, N. Virginia`.
 * *Availability zones*: Select `Multi`.
 ////
-. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. Instances with more streaming units have more capacity.
+. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. Instances with more streaming units have more capacity. If you're creating a trial instance, the instance size is preconfigured.
 +
-NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. Instances larger than 1 streaming unit are currently available only as a Technology Preview and should not be used in production. If you're creating a trial instance, the instance size is preconfigured.
+NOTE: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. Instances larger than 1 streaming unit are currently available as a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling
+customers to test functionality and provide feedback during the development process.
+For more information about the support scope of Red Hat Technology Preview features, see https://access.redhat.com/support/offerings/techpreview/.
 
 
 . Click *Create instance* to start the creation process for your Kafka instance.
