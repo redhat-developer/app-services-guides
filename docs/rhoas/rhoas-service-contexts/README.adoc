@@ -240,7 +240,7 @@ ifndef::community[]
 endif::[]
 * You have a service context with a Kafka and {registry} instance.
 * https://github.com/git-guides/[Git^] is installed.
-* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[VSCode^].
+* You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
 * https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS. (The latest LTS version of OpenJDK is recommended.)
 * https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
 
