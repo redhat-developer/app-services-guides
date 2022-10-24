@@ -16,7 +16,7 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - You have a Red Hat identity
-    - You've created a Kafka instance and the instance is in the `Ready` state. See the _Getting started with OpenShift Streams for Apache Kafka_ quick start.
+    - You've created a Kafka instance and the instance is in the `Ready` state. See the <a href="https://console.redhat.com/application-services/learning-resources?quickstart=getting-started">Getting started with OpenShift Streams for Apache Kafka</a> quick start.
     - You've installed the latest version of the rhoas CLI. See <a href="https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/bb30ee92-9e0a-4fd6-a67f-aed8910d7da3">Installing and configuring the rhoas CLI</a>.
   introduction: !snippet README.adoc#introduction
   tasks:
