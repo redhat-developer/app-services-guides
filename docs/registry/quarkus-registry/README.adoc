@@ -197,7 +197,7 @@ For this quick start, the Kafka topic that the Quarkus example application uses 
 
 .Prerequisites
 * You're logged in to the {product-kafka} web console at {service-url-kafka}[^].
-* You've created a Kafka instance in {product-kafka} and the instance is in *Ready* state.
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 
 .Procedure
 . In the {product-kafka} web console, go to *Streams for Apache Kafka* > *Kafka Instances* and click the name of the Kafka instance that you want to add a topic to.

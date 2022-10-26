@@ -98,7 +98,11 @@ NOTE: Kcat is an open source community tool. Kcat is not a part of {product-kafk
 endif::[]
 
 .Prerequisites
-* You have a running Kafka instance in {product-kafka}.
+ifndef::community[]
+* You have a Red Hat account.
+endif::[]
+//* You have a subscription to {product-long-kafka}. For more information about signing up, see *<@SME: Where to link?>*.
+* You have a running Kafka instance in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You have a command-line terminal application.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
 * You've installed the latest supported version of https://github.com/edenhill/kcat[Kcat^] for your operating system. To verify your Kcat version, enter the following command:
@@ -108,7 +112,7 @@ endif::[]
 $ kcat -V
 ----
 +
-You see output like the following example:
+You see output similar to the following example:
 +
 [source]
 ----
@@ -168,7 +172,7 @@ You can use Kcat to produce messages to Kafka topics in several ways, such as re
 
 .Prerequisites
 * Kcat is installed.
-* You have a running Kafka instance in {product-long-kafka}.
+* You have a running Kafka instance in {product-long-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You have a topic in your Kafka instance that you can use to produce and consume messages.
 * You've set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
 
@@ -219,7 +223,7 @@ You can also use Kcat to consume messages from Kafka topics. In this task, you u
 
 .Prerequisites
 * Kcat is installed.
-* You have a running Kafka instance in {product-long-kafka}.
+* You have a running Kafka instance in {product-long-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You used Kcat to produce example messages to a topic in your Kafka instance.
 
 .Procedure

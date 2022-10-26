@@ -102,7 +102,7 @@ With the scripts, you can produce and consume messages using your Kafka instance
 NOTE: The command examples in this quick start show how to use the Kafka scripts on Linux and macOS. If you're using Windows, use the Windows versions of the scripts. For example, instead of the `__<Kafka-distribution-dir>__/bin/kafka-console-producer.sh` script, use the `__<Kafka-distribution-dir>__\bin\windows\kafka-console-producer.bat` script.
 
 .Prerequisites
-* You have a running Kafka instance in {product-kafka}.
+* You have a running Kafka instance in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You have a command-line terminal application.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
 * You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^]. You can check your Kafka version using the following command:
@@ -170,7 +170,7 @@ In this task, you use the `kafka-console-producer` script to produce messages to
 
 .Prerequisites
 
-* You have a running Kafka instance in {product-long-kafka}.
+* You have a running Kafka instance in {product-long-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, select your Kafka instance in the {product-long-kafka} web console, select the options icon (three vertical dots), and click *Connection*.
 * You've created the `{property-file-name}` file to store your service account credentials.
 

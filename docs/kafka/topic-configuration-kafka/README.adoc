@@ -114,7 +114,7 @@ rhoas kafka topic update --name my-kafka-topic --retention-ms 704800000
 For a list of topic properties that you can update using the CLI, see the `rhoas kafka topic update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
 
 .Prerequisites
-* You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 
 .Procedure
 . In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select the Kafka instance that contains the topic you want to configure.
@@ -813,7 +813,7 @@ The following procedure shows how to use the {product-long-kafka} web console to
 Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url-kafka}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new registry instance and matching schema for a topic].
 
 .Prerequisites
-* You have created a Kafka instance with at least one topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 * You have access to at least one instance in {registry} that you can check for schemas that match your topic.
 
@@ -865,7 +865,7 @@ The following procedure shows how to use the web console to select a Kafka topic
 Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url-kafka}#proc-checking-topic-for-existing-schema-matches_{context}[Checking a topic for existing schema matches].
 
 .Prerequisites
-* You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure
