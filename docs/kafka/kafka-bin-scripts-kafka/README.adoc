@@ -103,6 +103,7 @@ NOTE: The command examples in this quick start show how to use the Kafka scripts
 
 .Prerequisites
 * You have a running Kafka instance in {product-kafka}.
+* You have a command-line terminal application.
 * https://adoptopenjdk.net/[JDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
 * You've downloaded the latest supported binary version of the https://kafka.apache.org/downloads[Apache Kafka distribution^]. You can check your Kafka version using the following command:
 +

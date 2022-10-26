@@ -102,6 +102,7 @@ ifndef::community[]
 * You have a Red Hat account.
 endif::[]
 * You have a running Kafka instance in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
+* You have a command-line terminal application.
 * You have a running {registry} instance in {product-long-registry} (see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
