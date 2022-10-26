@@ -98,7 +98,7 @@ endif::[]
 * You have a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}].
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
-* https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
+* https://nodejs.org/en/download/[Node.js 16^] is installed.
 
 NOTE: The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer or use a container runtime such as Podman or Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
 
@@ -225,6 +225,40 @@ endif::[]
 ifndef::qs[]
 * Verify that the `countries` topic appears on the *Topics* page.
 endif::[]
+
+[id="configuring-access-on-kafka-topic_{context}"]
+== Configuring access on Kafka topic
+
+[role="_abstract"]
+The application in order to produce and consume messages from Kafka topic, needs to have proper permissions. In this task you will configure access to your Kafka topic.
+
+.Procedure
+. In the {product-kafka} web console, select *Kafka Instances* and then click the name of the Kafka instance that you want to manage access.
+. Select the *Access* tab.
+. Click on *Manage access* button
+. Select your service account and click on *next*.
++
+[.screencapture]
+.Overlay for managing access to Kafka Topic
+image::kafka-topic-manage-access.png[Image of overlay for managing access of kafka topic]
++
+. On the *Assign Permissions section,* on the dropdown menu select *Consume from a topic*:
++
+[.screencapture]
+.Overlay for managing access to Kafka Topic as a consumer
+image::consumer-permissions-for-kafka-topic.png[Image of overlay for managing cosumer's permissions]
++
+.. On the first dropdown menu of *Topic* select `Starts with` and on the second dropdown menu, select the `countries` topic
+.. On the first dropdown menu of *Consumer group* select `Starts with` and on the second dropdown menu enter the value `consumer-test`
+
+. On the *Assign Permissions section,* on the dropdown menu select *Consume from a topic*:
++
+[.screencapture]
+.Overlay for managing access to Kafka Topic for the producer
+image::producer-permissions-for-kafka-topic.png[Image of overlay for managing producer's permissions]
++
+.. On the first dropdown menu of *Topic* select `Starts with` and on the second dropdown menu, select the `countries` topic
+
 
 [id="proc-running-nodejs-example-application_{context}"]
 == Running the Node.js example application
