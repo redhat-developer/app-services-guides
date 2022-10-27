@@ -237,6 +237,10 @@ The Quarkus application uses a topic in a Kafka instance to produce and consume 
 In addition, the producer and consumer components serialize and deserialize Kafka messages using an Avro schema stored in {registry}. Use of the schema ensures that message values conform to a defined format.
 
 .Prerequisites
+
+ifndef::community[]
+* You have a {org-name} account.
+endif::[]
 * You have a service context with a Kafka and {registry} instance.
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].

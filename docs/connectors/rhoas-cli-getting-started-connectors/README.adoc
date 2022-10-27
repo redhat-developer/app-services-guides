@@ -103,7 +103,7 @@ Use this guide to complete the following tasks:
 
 .Prerequisites
 
-* You have a Red Hat account.
+* You have a {org-name} account.
 * You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
 * You've completed the following tasks:
 +
@@ -113,42 +113,42 @@ Use this guide to complete the following tasks:
 [source,subs="+quotes"]
 +
 ----
-$ rhoas kafka create --name=my-kafka-instance 
+$ rhoas kafka create --name=my-kafka-instance
 ----
 
 ** Verify that the Kafka instance is in the *Ready* state.
 +
 [source,subs="+quotes"]
 ----
-$ rhoas context status kafka 
+$ rhoas context status kafka
 ----
 
 ** Create a service account and copy the service account ID and secret. You must use a service account to connect and authenticate your {product-connectors} instances with your Kafka instance.
 +
 [source,subs="+quotes"]
 ----
-$ rhoas service-account create --file-format=json --short-description=test-service-account 
+$ rhoas service-account create --file-format=json --short-description=test-service-account
 ----
 
 ** For your Kafka instance, set the permissions for the service account to enable {connectors} instances (that are configured with the service account credentials) to produce and consume messages in any topic in the Kafka instance.
 +
 [source,subs="+quotes"]
 ----
-$ rhoas kafka acl grant-access --producer --consumer --service-account=<service-acct-id> --topic all --group all 
+$ rhoas kafka acl grant-access --producer --consumer --service-account=<service-acct-id> --topic all --group all
 ----
 
 ** Create a Kafka topic named `test-topic`. The Kafka topic stores messages sent by producers (data sources) and makes them available to consumers (data sinks).
 +
 [source,subs="+quotes"]
 ----
-$ rhoas kafka topic create --name=test-topic 
+$ rhoas kafka topic create --name=test-topic
 ----
 
 [id="proc-create-connector-namespace_{context}"]
 == Creating a namespace to host your {connectors} instances
 [role="_abstract"]
 
-A {connectors} namespace hosts your {connectors} instances. 
+A {connectors} namespace hosts your {connectors} instances.
 
 The namespace that you use depends on your OpenShift Dedicated environment.
 
@@ -187,11 +187,11 @@ $ rhoas connector namespace list
 == Building connector configuration files
 
 [role="_abstract"]
-Before you can create a {connectors} instance, you must build a configuration file that is based on a supported connector type that is listed in the {product-connectors} catalog. 
+Before you can create a {connectors} instance, you must build a configuration file that is based on a supported connector type that is listed in the {product-connectors} catalog.
 
 For this example, you want to create two types of connectors: a data generator (a source connector) and an HTTP sink connector.
 
-You must build a configuration file for each connector type that you want to create. When you build a configuration file, the default file name is `connector.json`. Optionally, you can specify a different configuration file name. 
+You must build a configuration file for each connector type that you want to create. When you build a configuration file, the default file name is `connector.json`. Optionally, you can specify a different configuration file name.
 
 .Prerequisites
 
@@ -220,9 +220,9 @@ $ rhoas connector type list --limit=100
 // +
 // [source,subs="+quotes"]
 // ----
-// rhoas connector type list --limit=70 --search=%sink% 
+// rhoas connector type list --limit=70 --search=%sink%
 // ----
-// 
+//
 // .. Filter the list to show only source connectors:
 // +
 // [source,subs="+quotes"]
@@ -300,11 +300,11 @@ $ rhoas connector build --name=test-http --type=http_sink_0.1 --output-file=test
 
 .. For *Format*, press *ENTER* to accept the default (`application/octet-stream`).
 
-.. For *Error handling method*, select `stop`. 
+.. For *Error handling method*, select `stop`.
 
 .. For *Method*, accept the default (`POST`).
 
-.. For *URL*, paste your unique URL that you copied from the https://webhook.site[Webhook.site^] page. 
+.. For *URL*, paste your unique URL that you copied from the https://webhook.site[Webhook.site^] page.
 
 .. For *Topic Names*, type `test-topic`.
 
@@ -343,7 +343,7 @@ For this example, you create two {connectors} instances: a data generator source
 +
 [source,subs="+quotes"]
 ----
-$ rhoas connector create --file=test-generator.json 
+$ rhoas connector create --file=test-generator.json
 ----
 
 . Answer the prompts for details about the {connectors} instance.
@@ -353,10 +353,10 @@ $ rhoas connector create --file=test-generator.json
 .. For *Service Account Client ID*, type or paste your ID.
 
 .. For *Service Account Client Secret*, type or paste your secret.
-+ 
++
 A message states "Successfully created the {connectors} instance".
 
-. Wait until the status of the {connectors} instance is *Ready*. 
+. Wait until the status of the {connectors} instance is *Ready*.
 +
 To check the status:
 +
@@ -376,7 +376,7 @@ $ rhoas kafka topic consume --name=test-topic --partition=0 --wait
 +
 [source,subs="+quotes"]
 ----
-$ rhoas connector create --file=test-http.json 
+$ rhoas connector create --file=test-http.json
 ----
 
 . Answer the prompts for details about the {connectors} instance.
@@ -389,7 +389,7 @@ $ rhoas connector create --file=test-http.json
 +
 A message states "Successfully created the {connectors} instance".
 
-. Wait until the status of the {connectors} instance is *Ready*. 
+. Wait until the status of the {connectors} instance is *Ready*.
 +
 To check the status:
 +
