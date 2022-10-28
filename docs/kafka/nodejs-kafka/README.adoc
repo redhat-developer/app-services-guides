@@ -183,6 +183,8 @@ The values are described as follows:
 endif::[]
 +
 In this case, observe that the Node.js application uses the SASL/PLAIN authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
++
+In case you would like to use SASL/OAUTHBEARER as an authentication method, on the forementioned env variables set the value of `KAFKA_SASL_MECHANISM` to `oauthbearer` and add and extra env variablae called `RHOAS_TOKEN_ENDPOINT_URL` with a valid `Token endpoint URL`. 
 
 . Save the `rhoas.env` file.
 
