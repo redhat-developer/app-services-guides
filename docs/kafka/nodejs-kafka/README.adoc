@@ -195,7 +195,7 @@ endif::[]
 == Creating a Kafka topic in {product-kafka}
 
 [role="_abstract"]
-The Node.js application in this quick start uses a Kafka topic called `countries` to produce and consume messages. In this task, you'll create the topic in your Kafka instance.
+The Node.js application in this quick start uses a Kafka topic called `countries` to produce and consume messages. In this task, you'll create the `countries` topic in your Kafka instance.
 
 .Prerequisites
 * You have a running Kafka instance in {product-long-kafka}.
