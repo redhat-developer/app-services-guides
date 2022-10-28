@@ -15,6 +15,9 @@ In this task, you use the `kafka-console-producer` script to produce messages to
 . On the command line, navigate to the `bin/` directory of your Kafka distribution.
 . Use the `kafka-topics` script to create a Kafka topic, as shown in the following example. The example creates a topic called `my-other-topic` with the default settings. Replace _<bootstrap_server>_ with the bootstrap server endpoint for your own Kafka instance.
 +
+NOTE: For trial Kafka instances, the default value for the replication factor is 1.
++
+
 --
 .Using the `kafka-topics` script to create a Kafka topic
 [source,subs="+quotes,+attributes"]
@@ -27,7 +30,7 @@ ifndef::community[]
 NOTE: If you try to create a topic with a number of partitions that would cause the partition limit of the Kafka instance to be exceeded, you see an error message indicating this. For more information about partition limits for Kafka instances, see https://access.redhat.com/articles/5979061[{product-long-kafka} service limits].
 endif::[]
 
-. Start the `kafka-console-producer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command prepares a producer to send messages to the `my-other-topic` topic that you previously created.
+. Start the `kafka-console-producer` script, as shown in the following example. The example uses the SASL/OAUTHBEARER authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command prepares a producer to send messages to the `my-other-topic` topic that you previously created.
 +
 .Starting the `kafka-console-producer` script
 +

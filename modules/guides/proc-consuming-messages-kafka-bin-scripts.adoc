@@ -13,7 +13,7 @@ In this task, you use the `kafka-console-consumer` script to consume the message
 . Open a second terminal window or tab, separate from the producer.
 . On the command line, navigate to the `bin/` directory of your Kafka distribution.
 
-. Start the `kafka-console-consumer` script, as shown in the following example. The example uses the SASL/PLAIN authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command consumes and displays messages from the `my-other-topic` topic.
+. Start the `kafka-console-consumer` script, as shown in the following example. The example uses the SASL/OAUTHBEARER authentication mechanism with the credentials that you saved in the `{property-file-name}` file. The command consumes and displays messages from the `my-other-topic` topic.
 +
 --
 .Starting the `kafka-console-consumer` script
