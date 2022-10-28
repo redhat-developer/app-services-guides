@@ -97,7 +97,7 @@ ifndef::community[]
 endif::[]
 
 // Condition out QS-only content so that it doesn't appear in docs.
-// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the AsciiDoc Splitter tool relies on the other format `[id="anchor-id"]` to generate module files.
+// All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
 ifdef::qs[]
 [#description]
 ====
