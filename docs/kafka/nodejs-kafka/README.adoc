@@ -237,7 +237,7 @@ The application in order to produce and consume messages from Kafka topic, needs
 .Procedure
 . In the {product-kafka} web console, select *Kafka Instances* and then click the name of the Kafka instance that you want to manage access.
 . Select the *Access* tab.
-. Click on *Manage access* button
+. Click *Manage access*.
 . Select your service account and click on *next*.
 +
 [.screencapture]
