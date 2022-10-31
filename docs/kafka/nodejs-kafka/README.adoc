@@ -235,7 +235,7 @@ endif::[]
 The application in order to produce and consume messages from Kafka topic, needs to have proper permissions. In this task you will configure access to your Kafka topic.
 
 .Procedure
-. In the {product-kafka} web console, select *Kafka Instances* and then click the name of the Kafka instance that you want to manage access.
+. In the {product-long-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and then click the name of the Kafka instance that you want to manage the access of.
 . Select the *Access* tab.
 . Click *Manage access*.
 . Select your service account from the *Account* list and click *Next*.
