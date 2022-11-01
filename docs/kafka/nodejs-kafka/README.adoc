@@ -242,13 +242,13 @@ Applications must have assigned permissions to produce and consume messages from
 +
 [.screencapture]
 .Overlay for managing access to Kafka Topic
-image::kafka-topic-manage-access.png[Image of overlay for managing access of kafka topic]
+image::kafka-topic-manage-access.png[Image of access configuration details for managing access of kafka topic]
 +
-. On the *Assign Permissions section,* on the dropdown menu select *Consume from a topic*:
+. Under *Assign Permissions*, use the list to select *Consume from a topic*:
 +
 [.screencapture]
 .Overlay for managing access to Kafka Topic as a consumer
-image::consumer-permissions-for-kafka-topic.png[Image of overlay for managing cosumer's permissions]
+image::consumer-permissions-for-kafka-topic.png[Image of access configuration details for managing consumer permissions]
 +
 .. In the first list for *Topic* select `Starts with` and in the second list, select the `countries` topic.
 .. In the first list of *Consumer group* select `Starts with` and for the second field, enter the value `consumer-test`.
@@ -257,11 +257,17 @@ image::consumer-permissions-for-kafka-topic.png[Image of overlay for managing co
 +
 [.screencapture]
 .Overlay for managing access to Kafka Topic for the producer
-image::producer-permissions-for-kafka-topic.png[Image of overlay for managing producer's permissions]
+image::producer-permissions-for-kafka-topic.png[Image of access configuration details for managing producer permissions]
 +
-.. On the first dropdown menu of *Topic* select `Starts with` and on the second dropdown menu, select the `countries` topic
-
-
+..  In the first list for *Topic* select `Starts with` and in the second list, select the `countries` topic.
+. Click *Save*.
+.Verification
+ifdef::qs[]
+* Are the accounts listed on the *Access* page?
+endif::[]
+ifndef::qs[]
+* Verify that the accounts are listed on the *Access* page.
+endif::[]
 [id="proc-running-nodejs-example-application_{context}"]
 == Running the Node.js example application
 
