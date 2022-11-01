@@ -8,7 +8,7 @@ To enable your Quarkus application to access a Kafka instance, configure the con
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To get the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To get the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], select the options icon (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
 * You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
 
