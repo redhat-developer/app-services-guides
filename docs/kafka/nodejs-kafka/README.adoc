@@ -232,7 +232,7 @@ endif::[]
 == Configuring access on Kafka topic
 
 [role="_abstract"]
-The application in order to produce and consume messages from Kafka topic, needs to have proper permissions. In this task you will configure access to your Kafka topic.
+Applications must have assigned permissions to produce and consume messages from a Kafka topic. {product-long-kafka} uses Access Control Lists (ACLs) provided by Apache Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. In this task you will configure access to your `countries` Kafka topic. To learn more about managing permissions, see {base-url}{message-browsing-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 . In the {product-long-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and then click the name of the Kafka instance that you want to manage the access of.
