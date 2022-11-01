@@ -251,7 +251,7 @@ image::kafka-topic-manage-access.png[Image of overlay for managing access of kaf
 image::consumer-permissions-for-kafka-topic.png[Image of overlay for managing cosumer's permissions]
 +
 .. In the first list for *Topic* select `Starts with` and in the second list, select the `countries` topic.
-.. On the first dropdown menu of *Consumer group* select `Starts with` and on the second dropdown menu enter the value `consumer-test`
+.. In the first list of *Consumer group* select `Starts with` and for the second field, enter the value `consumer-test`.
 
 . On the *Assign Permissions section,* on the dropdown menu select *Consume from a topic*:
 +
