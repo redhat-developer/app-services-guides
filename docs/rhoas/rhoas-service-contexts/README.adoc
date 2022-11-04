@@ -522,19 +522,6 @@ $ rhoas kafka acl grant-access --producer --consumer --service-account _<client-
 +
 The command you entered allows applications to use the service account to produce and consume messages in the `prices` topic. Applications can use any consumer group and producer.
 
-.. To secure the sensitive credential information that is stored in the secret file, encode the client ID and client secret values from the file, as shown in the following commands:
-+
-.Encoding credential information in Base64
-[source,shell,subs="+quotes"]
-----
-$ echo -n _<client-id>_ | base64
-$ echo -n _<client-secret>_ | base64
-----
-+
-On the command line, you see Base64-encoded values of the client ID and client secret.
-
-.. In the secret file, overwrite the original client ID and client secret values with the corresponding Base64-encoded values shown on the command line. Save the secret file.
-
 . Log in to the OpenShift CLI using a token by performing the following actions.
 .. Log in to the OpenShift web console as a user who has privileges to create a new project in the cluster.
 .. In the upper-right corner of the console, click your user name and select *Copy login command*.
@@ -620,7 +607,7 @@ $ cd app-services-guides/code-examples/helm-kafka-example
 . Deploy the Helm chart, specifying the names of the `ConfigMap` and `Secret` objects that you created in your OpenShift project.
 +
 .Deploying the Helm chart
-[source,shell,subs="+quotes"]
+[source,shell,subs="+quotes",options="nowrap"]
 ----
 $ helm install . --generate-name --set-string rhoas.config=_<configmap>_,rhoas.secret=service-account-credentials
 ----
@@ -645,7 +632,6 @@ You see output like the following example:
 ----
 NAME                                TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)          AGE
 rhoas-quarkus-kafka-quickstart      LoadBalancer   172.30.128.12    a81b115a35629488685b6ed3cf322fbf-1904626303.us-east-2.elb.amazonaws.com   8080:31110/TCP   11m
-workspacef396ea393cc746aa-service   ClusterIP      172.30.133.190   <none>                                                                    4444/TCP         5d18h
 ----
 +
 The output indicates that the Quarkus application is successfully running on your OpenShift cluster.
