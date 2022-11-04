@@ -4,7 +4,6 @@
 
 The following example shows how to use the CLI to create contexts in {product-long-rhoas} and then manage the service instances that are defined in those contexts.
 
-
 .Prerequisites
 * You have installed the {product-long-rhoas} (`rhoas`) CLI. For more information, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/bb30ee92-9e0a-4fd6-a67f-aed8910d7da3#proc-installing-rhoas_installing-rhoas-cli[Installing the rhoas CLI^].
 

@@ -1,26 +1,21 @@
 [id='proc-generating-connection-information-quarkus_{context}']
-= Generating connection configuration information for a Quarkus application
+= Generating connection configuration information for a local Quarkus application
 :imagesdir: ../_images
-The following example shows how to connect an example Quarkus application to the service instances defined in a context in {product-long-rhoas}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
+The following example shows how to connect an example Quarkus application running locally on your computer to the service instances defined in a context in {product-long-rhoas}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework that is optimized for serverless, cloud, and Kubernetes environments.
 
 The Quarkus application uses a topic in a Kafka instance to produce and consume a stream of quote values and display these on a web page. The application consists of two components:
 
 * A producer component that periodically produces a new quote value and publishes this to a Kafka topic called `quotes`.
-* A consumer component that streams quote values from the Kafka topic. This component also has a minimal front end that uses Server-Sent Events to show the quote values on a web page.
+* A consumer component that streams quote values from the Kafka topic. This component also has a minimal front end that uses server-sent events to show the quote values on a web page.
 
 In addition, the producer and consumer components serialize and deserialize Kafka messages using an Avro schema stored in {registry}. Use of the schema ensures that message values conform to a defined format.
 
 .Prerequisites
-
-ifndef::community[]
-* You have a Red Hat account.
-endif::[]
 * You have a service context with a Kafka and {registry} instance.
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
 * https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS. (The latest LTS version of OpenJDK is recommended.)
 * https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
-
 
 .Procedure
 

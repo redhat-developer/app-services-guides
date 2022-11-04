@@ -30,4 +30,6 @@ include::modules/guides/proc-creating-new-service-contexts.adoc[leveloffset=+1]
 
 include::modules/guides/proc-generating-connection-information-quarkus.adoc[leveloffset=+1]
 
+include::modules/guides/proc-generating-connection-information-helm.adoc[leveloffset=+1]
+
 
