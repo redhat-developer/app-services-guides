@@ -154,7 +154,6 @@ In this task, you'll create a new configuration file called `rhoas.env`. In the 
 ifndef::qs[]
 * You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
 endif::[]
 
 .Procedure
@@ -225,46 +224,6 @@ ifndef::qs[]
 * Verify that the `countries` topic appears on the *Topics* page.
 endif::[]
 
-[id="configuring-access-on-kafka-topic_{context}"]
-== Configuring access to Kafka topics
-
-[role="_abstract"]
-Applications must have assigned permissions to produce and consume messages from a Kafka topic. {product-long-kafka} uses Access Control Lists (ACLs) provided by Apache Kafka that enable you to manage how other user accounts and service accounts are permitted to access the Kafka resources that you create. In this task you will configure access to your `countries` Kafka topic. To learn more about managing permissions, see {base-url}{message-browsing-url-kafka}[Managing account access in {product-long-kafka}^].
-
-.Procedure
-. In the {product-long-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and then click the name of the Kafka instance that you want to manage the access of.
-. Select the *Access* tab.
-. Click *Manage access*.
-. Select your service account from the *Account* list and click *Next*.
-+
-[.screencapture]
-.Overlay for managing access to Kafka Topic
-image::kafka-topic-manage-access.png[Image of access configuration details for managing access of kafka topic]
-+
-. Under *Assign Permissions*, use the list to select *Consume from a topic*:
-+
-[.screencapture]
-.Overlay for managing access to Kafka Topic as a consumer
-image::consumer-permissions-for-kafka-topic.png[Image of access configuration details for managing consumer permissions]
-+
-.. In the first list for *Topic* select `Starts with` and in the second list, select the `countries` topic.
-.. In the first list of *Consumer group* select `Starts with` and for the second field, enter the value `consumer-test`.
-
-. On the *Assign Permissions section,* on the dropdown menu select *Consume from a topic*:
-+
-[.screencapture]
-.Overlay for managing access to Kafka Topic for the producer
-image::producer-permissions-for-kafka-topic.png[Image of access configuration details for managing producer permissions]
-+
-..  In the first list for *Topic* select `Starts with` and in the second list, select the `countries` topic.
-. Click *Save*.
-.Verification
-ifdef::qs[]
-* Are the accounts listed on the *Access* page?
-endif::[]
-ifndef::qs[]
-* Verify that the accounts are listed on the *Access* page.
-endif::[]
 [id="proc-running-nodejs-example-application_{context}"]
 == Running the Node.js example application
 
@@ -279,6 +238,7 @@ In this task, you'll run the following components of the Node.js application:
 .Prerequisites
 * You've configured the Node.js example application to connect to a Kafka instance.
 * You've created the `countries` topic.
+* You've set permissions for your service account to produce and consume messages in the `countries` topic. For the Node.js application in this example, the consumer group you must specify in your permissions is called `consumer-test`. To learn how to configure access permissions for a Kafka instance, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 . On the command line, navigate to the `reactive-example` directory of the repository that you cloned.
