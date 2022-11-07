@@ -98,7 +98,7 @@ endif::[]
 * You have a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}].
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
-* https://nodejs.org/en/download/[Node.js 16^] is installed.
+* https://nodejs.org/en/download/[Node.js 14^] or later is installed.
 
 NOTE: The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer or use a container runtime such as Podman or Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
 
@@ -160,16 +160,16 @@ endif::[]
 
 . In your IDE, create a new file. Save the file with the name `rhoas.env`, at the root level of the `reactive-example` directory for the cloned repository.
 
-. In the rhoas.env file, set the SASL connection mechanism and the Kafka instance client credentials as shown in the following configuration. Replace the values with your own credential information. {product-kafka} supports the SASL/OAUTHBEARER mechanism for authentication, which is the recommended authentication mechanism to use.
+. In the `rhoas.env` file, set the SASL authentication mechanism and the Kafka instance client credentials as shown in the following configuration. Replace the client ID and client secret values with your own credential information. The configuration uses SASL/OAUTHBEARER authentication, which is the recommended authentication mechanism to use in {product-kafka}.
 +
 .Setting environment variables in the rhoas.env file
-[source,subs="+quotes"]
+[source,subs="+attributes,+quotes"]
 ----
 KAFKA_HOST=__<bootstrap_server>__
 RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 KAFKA_SASL_MECHANISM=oauthbearer
-RHOAS_TOKEN_ENDPOINT_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+RHOAS_TOKEN_ENDPOINT_URL={sso-token-url}
 ----
 ifdef::qs[]
 +
