@@ -9,7 +9,7 @@
 * link:./docs/kafka/getting-started-kafka[Getting started with {product-long-kafka}]
 * link:./docs/kafka/rhoas-cli-getting-started-kafka[Getting started with the rhoas CLI for {product-long-kafka}]
 * link:./docs/kafka/quarkus-kafka[Using Quarkus applications with Kafka instances in {product-long-kafka}]
-* link:./docs/kafka/kcat-kafka[Configuring and connecting Kafkacat with {product-long-kafka}]
+* link:./docs/kafka/kcat-kafka[Configuring and connecting Kcat with {product-long-kafka}]
 * link:./docs/kafka/kafka-bin-scripts-kafka[Configuring and connecting Kafka scripts with {product-long-kafka}]
 * link:./docs/kafka/access-mgmt-kafka[Managing account access in {product-long-kafka}]
 * link:./docs/kafka/service-binding-kafka[Binding OpenShift applications to {product-long-kafka}]
