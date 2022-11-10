@@ -1,54 +1,57 @@
 [id='proc-consuming-messages-kafkacat_{context}']
-= Consuming messages in Kafkacat
+= Consuming messages in Kcat
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can use Kafkacat to consume messages from Kafka topics. This example consumes the messages that you sent previously with the producer that you created with Kafkacat.
+You can also use Kcat to consume messages from Kafka topics. In this task, you use Kcat to consume the messages that you previously produced to your topic.
 
 .Prerequisites
-* Kafkacat is installed.
-* You have a running Kafka instance in {product-kafka}.
-* You've set the Kafka bootstrap server endpoint and your service account credentials as environment variables.
-* You used a producer to produce example messages to a topic.
+* Kcat is installed.
+* You have a running Kafka instance in {product-long-kafka}.
+* You used Kcat to produce example messages to a topic in your Kafka instance.
 
 .Procedure
-. On the command line in a separate terminal from your producer, enter the following commands to start Kafkacat in _consumer_ mode. This mode enables you to consume messages from your Kafka topic.
+. Open a second terminal window or tab, separate from your producer.
+. On the command line, enter the following command to start Kcat in _consumer_ mode. This mode enables you to consume messages from your Kafka topic. Replace `_<kafka-topic>_` with the name of the topic that you previously produced messages to.
 +
 --
-This example uses the SASL/PLAIN authentication mechanism with the server and credential environment variables that you set previously. This example consumes and displays the messages from the `my-first-kafka-topic` example topic, and states that it reached the end of partition `0` in the topic.
-
-.Starting Kafkacat in consumer mode
-[source]
+.Starting Kcat in consumer mode
+[source,subs="+quotes"]
 ----
-$ kafkacat -t my-first-kafka-topic -b "$KAFKA_HOST" \
+$ kcat -t _<kafka-topic>_ -b "$KAFKA_HOST" \
  -X security.protocol=SASL_SSL -X sasl.mechanisms=PLAIN \
  -X sasl.username="$RHOAS_SERVICE_ACCOUNT_CLIENT_ID" \
  -X sasl.password="$RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET" -C
+----
 
+You see output that looks like the following example. The message values are the ones you previously sent using the producer.
+
+[source,subs="+quotes"]
+----
 First message
 Second message
 Third message
-% Reached end of topic my-first-kafka-topic [0] at offset 3
+% Reached end of topic _<kafka-topic>_ [0] at offset 3
 ----
 --
 . If your producer is still running in a separate terminal, continue entering messages in the producer terminal and observe the messages being consumed in the consumer terminal.
 
-NOTE: You can also use the {product-long-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[_Browsing messages in the {product-long-kafka} web console_^].
+NOTE: You can also use the {product-kafka} web console to browse messages in the Kafka topic. For more information, see {base-url}{message-browsing-url-kafka}[Browsing messages in the {product-long-kafka} web console^].
 
 .Verification
 ifdef::qs[]
 * Is your consumer running without any errors in the terminal?
-* Did the consumer display the messages from the `my-first-kafka-topic` example topic?
+* Did the consumer display the messages from your Kafka topic?
 endif::[]
 ifndef::qs[]
 . Verify that your consumer is running without any errors in the terminal.
-. Verify that the consumer displays the messages from the `my-first-kafka-topic` example topic.
+. Verify that the consumer displays the messages from your Kafka topic.
 endif::[]
 
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-kafka} Kafkacat quick start, and are now ready to produce and consume messages in the service.
+Congratulations! You successfully completed the {product-kafka} Kcat quick start, and are now ready to produce and consume messages in the service.
 ====
 endif::[]
 
