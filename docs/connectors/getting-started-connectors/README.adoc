@@ -110,12 +110,12 @@ A *sink* connector allows you to send data from {product-kafka} to an external s
 endif::[]
 
 
-[id="proc-configuring-kafka-for-connectors_{context}"]
-== Verifying that you met the prerequisites for using {product-long-connectors}
+[id="proc-verifying-prerequisites-for-connectors_{context}"]
+== Verifying the prerequisites for using {product-long-connectors}
 
 [role="_abstract"]
 
-Before you can use {product-connectors}, you should complete the following prerequisites: 
+Before you use {product-connectors}, you should complete the following prerequisites: 
 
 * Determine which OpenShift environment to use for deploying your Connectors instances.
 +
@@ -123,16 +123,16 @@ For Service Preview, you have two choices:
 
 ** *Evaluation*
 +
-*** Hosted on a Red Hat-owned, multi-tenant OpenShift Dedicated cluster.
+*** The Connectors instances are hosted on a multitenant OpenShift Dedicated cluster that is owned by Red Hat.
 *** You can create four Connectors instances at a time.
-*** The evaluation environment involves 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat OpenShift Connectors Service Preview evaluation guidelines^].
+*** The evaluation environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat OpenShift Connectors Service Preview evaluation guidelines^].
 
 ** *OpenShift Dedicated trial*
 
 *** You have access to your own OpenShift Dedicated trial environment.
 *** You can create an unlimited number of Connectors instances.
 *** Your OpenShift Dedicated trial cluster expires after 60 days
-*** Requires a cluster administrator to install the Connectors addon, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift Connectors add-on to your OpenShift Dedicated trial cluster^].
+*** A cluster administrator must install the Connectors addon as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift Connectors add-on to your OpenShift Dedicated trial cluster^].
 
 ifdef::qs[]
 * Complete the steps in link:https://console.redhat.com/application-services/learning-resources?quickstart=getting-started[Getting started with {product-long-kafka}] quick start to set up the following components:
@@ -157,9 +157,9 @@ ifdef::qs[]
 Make sure that you have set up the prerequisite components.
 
 .Verification
-* If you want to use a 60-day OpenShift Dedicated trial cluster to deploy your Connectors instances, did a cluster administrator add the Connectors addon to your trial cluster?
-* Is the Kafka instance listed in the Kafka instances table and is it in the *Ready* state?
-* Did you verify that your service account was successfully created in the *Service Accounts* page?
+* If you plan to use a 60-day OpenShift Dedicated trial cluster to deploy your Connectors instances, has a cluster administrator added the Connectors add-on to your trial cluster?
+* Is the Kafka instance listed in the Kafka instances table and is the Kafka instance in the *Ready* state?
+* Is your service account created in the *Service Accounts* page?
 * Did you save your service account credentials to a secure location?
 * Are the permissions for your service account listed in the *Access* page of the Kafka instance?
 * Is the Kafka topic that you created for {product-connectors} listed in the topics table of the Kafka instance?
@@ -168,7 +168,7 @@ endif::[]
 
 ifndef::qs[]
 .Verification
-* If you want to use a 60-day OpenShift Dedicated trial cluster to deploy your Connectors instances, verify that a cluster administrator added the Connectors addon to your trial cluster.
+* If you plan to use a 60-day OpenShift Dedicated trial cluster to deploy your Connectors instances, verify that a cluster administrator added the Connectors add-on to your trial cluster.
 * Verify that the Kafka instance is listed in the Kafka instances table and that the state of the Kafka instance is shown as *Ready*.
 * Verify that your service account was successfully created in the *Service Accounts* page.
 * Verify that you saved your service account credentials to a secure location.
