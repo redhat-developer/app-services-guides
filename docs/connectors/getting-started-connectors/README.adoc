@@ -123,34 +123,40 @@ endif::[]
 Before you use {product-connectors}, you should complete the following prerequisites: 
 
 * Determine which {openshift} environment to use for deploying your Connectors instances.
-+
+
+* Configure {product-long-kafka} for use with Connectors.
+
+*Determining which {openshift} environment to use for deploying your Connectors instances*
+
 For Service Preview, you have two choices:
 
-** *The hosted evaluation environment*
+* *The hosted evaluation environment*
 
-*** The Connectors instances are hosted on a multitenant {openshift-dedicated} cluster that is owned by Red Hat.
-*** You can create four Connectors instances at a time.
-*** The evaluation environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} Connectors Service Preview evaluation guidelines^].
+** The Connectors instances are hosted on a multitenant {openshift-dedicated} cluster that is owned by Red Hat.
+** You can create four Connectors instances at a time.
+** The evaluation environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} Connectors Service Preview evaluation guidelines^].
 
-** *Your own trial environment*
+* *Your own trial environment*
 
-*** You have access to your own {openshift-dedicated} trial environment.
-*** You can create an unlimited number of Connectors instances.
-*** Your {openshift-dedicated} trial cluster expires after 60 days.
-*** A cluster administrator must install the Connectors add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift Connectors add-on to your {openshift-dedicated} trial cluster^].
+** You have access to your own {openshift-dedicated} trial environment.
+** You can create an unlimited number of Connectors instances.
+** Your {openshift-dedicated} trial cluster expires after 60 days.
+** A cluster administrator must install the Connectors add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift Connectors add-on to your {openshift-dedicated} trial cluster^].
 
-ifdef::qs[]
-* Complete the steps in link:https://console.redhat.com/application-services/learning-resources?quickstart=getting-started[Getting started with {product-long-kafka}] quick start to set up the following components:
-endif::[]
+*Configuring {product-long-kafka} for use with Connectors*
 
 ifndef::qs[]
-* Complete the steps in _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_ to set up the following components:
+Complete the steps in _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_ to set up the following components:
 endif::[]
 
-** A *Kafka instance* that you can use for {product-connectors}.
-** A *Kafka topic* to store messages sent by data sources and make the messages available to data sinks.
-** A *service account* that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
-** *Access rules* for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
+ifdef::qs[]
+Complete the steps in the link:https://console.redhat.com/application-services/learning-resources?quickstart=getting-started[Getting started with {product-long-kafka}] quick start to set up the following components:
+endif::[]
+
+* A *Kafka instance* that you can use for {product-connectors}.
+* A *Kafka topic* to store messages sent by data sources and make the messages available to data sinks.
+* A *service account* that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
+* *Access rules* for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
 
 ifdef::qs[]
 .Procedure
