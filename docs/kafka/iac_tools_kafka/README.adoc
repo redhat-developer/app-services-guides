@@ -91,20 +91,29 @@ This guide describes how to use different IaC tools to provision and manage your
 
 //Additional line break to resolve mod docs generation error
 
-[id="Ansible_{context}"]
+[id="con-ansible_{context}"]
 == Ansible
 
 [role="_abstract"]
-Ansible is an open source configuration management and automation tool. To learn more about Ansible, including how to install it, see Learning Ansible Basics.
+Ansible is an open source configuration management and automation tool. To learn more about Ansible, including how to install it, see https://www.redhat.com/en/topics/automation/learning-ansible-tutorial[Learning Ansible Basics^].
 
-Ansible uses modules to execute tasks. One or more Ansible modules can be combined to make a play. Two or more plays can be combined to create an Ansible Playbook. Ansible Playbooks are lists of tasks (written in YAML) that automatically execute against hosts. Groups of hosts form your Ansible inventory.
+Ansible automates the management of remote systems and controls their desired state. You need three main components to create a basic Ansible environment :
 
-Use the Ansible Playbook from the RHOAS Ansible collection to fully manage your Kafka environment by completing the following tasks:
+* Control node
++
+A system on which Ansible is installed. You run Ansible commands such as `ansible` or `ansible-inventory` on a control node.
 
-* Create and delete OpenShift Streams instance from your Ansible Automation or GitOps workflow.
-* Create and delete service accounts using an Ansible module.
-* Create, configure, and delete Kafka topics.
-* Create, retrieve info on, and delete Access Control Lists (ACLs) on your Kafka instance.
+* Managed node
++
+A remote system, or host, that Ansible controls.
+
+* Inventory
++
+A list of managed nodes that are logically organized. You create an inventory on the control node to describe host deployments to Ansible.
+
+Ansible works by connecting to your nodes and pushing out small programs—called modules—to these nodes. Ansible then uses modules to execute tasks. The output of one module can be the input for the next one or they can be independent of each other. One or more Ansible modules can be combined to make a play. Two or more plays can be combined to create an Ansible Playbook, a list of sequential tasks (written in YAML) that automatically executes against hosts. Groups of hosts form your Ansible inventory. You can use an Ansible Playbook to describe the desired state of your infrastructure and then have Ansible provision it.
+
+Ansible roles are a special kind of playbook that is fully self-contained and portable with the tasks, variables, configuration templates, and other supporting files that are needed to complete a complex orchestration. Multiple roles can exist inside a collection allowing easy sharing of content through Automation Hub and Ansible Galaxy.
 
 //Additional line break to resolve mod docs generation error
 
@@ -112,11 +121,17 @@ Use the Ansible Playbook from the RHOAS Ansible collection to fully manage your 
 === Installing the RHOAS Ansible collection
 
 [role="_abstract"]
-The RHOAS Ansible collection is available on Ansible Galaxy.
+You can use the RHOAS Ansible collection to fully manage your Kafka environment with Ansible. You can create, retrieve info, configure, deploy, and delete the following OpenShift Streams for Apache Kafka resources :
+
+* Kafka instances
+* Service accounts
+* Kafka topics
+* Access Control Lists (ACLs)
+
 
 .Prerequisites
 
-* You have installed the latest supported version of Ansible for your operating system.
+* You have installed the latest supported version of https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC[Ansible^] for your operating system.
 
 .Procedure
 
@@ -124,22 +139,33 @@ The RHOAS Ansible collection is available on Ansible Galaxy.
 +
 [source,shell]
 ----
-$ ansible-galaxy collection install redhat_cloud.services
+$ ansible-galaxy collection install rhoas.rhoas
 ----
++
+By default, ansible-galaxy collection install uses https://galaxy.ansible.com as the Galaxy server (as listed in the ansible.cfg file under GALAXY_SERVER). You do not need any further configuration. The install command automatically appends the path ansible_collections to the one specified with the -p option unless the parent directory is already in a folder called ansible_collections.
 
-. This collection works best if used in a Python virtual environment. To create and activate a Python virtual environment, enter the following command:
+. This collection works best when used in a Python virtual environment. To create and activate a Python virtual environment, enter the following command:
 +
 [source,shell]
 ----
 $ python3 -m venv rhoas
 rhoas/bin/activate
 ----
-. This collection requires some additional dependencies to be installed. Enter the following command to make sure that the most up to date version of the SDKs are installed.
 +
+. This collection requires some additional dependencies to be installed. To do this, enter the following command.
++
+NOTE: You only need to use this command to ensure that the most up to date versions of the SDKs are installed.
++
+
 [source,shell]
 ----
 $ pip install rhoas-sdks --force-reinstall
 ----
++
+. Once installed, you can reference a collection content by its fully qualified collection name (FQCN).
+
+NOTE: The `create_kafka` command in the task needs to be the FQCN of the module for collection development, for example
+`redhat_developer.rhoas.create_kafka`.
 
 === Using the RHOAS Ansible collection
 
@@ -150,31 +176,66 @@ $ pip install rhoas-sdks --force-reinstall
 [NOTE]
 The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for Red Hat OpenShift Application Services to authenticate the user. The token is an OpenShift Cluster Manager API Token and can be found at https://cloud.redhat.com/openshift/token. If the token is not passed in as an argument per task, the module attempts to read it from the environment variable OFFLINE_TOKEN.
 
+* This collection requires some additional dependencies to be installed:
+[source,shell]
+----
+$ pip install rhoas-sdks --force-reinstall
+pip install python-dotenv
+----
+
 * Two further environment variables are used for the collection to work. These environment variables can be placed in a `.env` file. If neither of these environment variables are set, the collection will default to the URLs shown in the examples.
 - API_BASE_HOST - The base host for the API. This is the base URL for the API. For example, https://api.openshift.com.
-- SSO_BASE_HOST - The base host for the SSO. This is the base URL for the SSO. For example, https://sso.redhat.com/auth/realms/redhat-external
+- SSO_BASE_HOST - The base host for the SSO. This is the base URL for the SSO. For example, https://sso.redhat.com/auth/realms/redhat-external.
 
 .Procedure
 
-. Create a
+. Open your IDE of choice and enter the following command:
++
+[source,shell]
+----
+ansible-playbook run_rhosak_test.yml
+----
++
+This playbook is run as is will run through the following modules:
++
+* create_kafka resource
++
+----
+- name: Create_kafka test
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Create kafka
+    dimakis.rhosak_test.create_kafka:
+      name: "unique-kafka-name"
+      cloud_provider: "aws"
+      region: "us-east-1"
+      plan: "developer.x1"
+      billing_model: "standard"
+      billing_cloud_account_id: "billing_cloud_account_id"
+      # openshift_offline_token: "OFFLINE_TOKEN"
+    register:
+      kafka_req_resp_obj
+----
 
-[id="Terraform_{context}"]
+[id="con-terraform_{context}"]
 == Terraform
 
 link:https://www.terraform.io/[Terraform^] is an infrastructure as code tool that lets you build, change, and version infrastructure safely and efficiently through human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle.
 
-The link:https://registry.terraform.io/providers/redhat-developer/rhoas/latest[RHOAS Terraform^] provider is available in the official link:https://www.terraform.io/[Terraform provider registry^] provider registry and includes resources to interact with Red Hat OpenShift Application Services.
+The link:https://registry.terraform.io/providers/redhat-developer/rhoas/latest[RHOAS Terraform^] provider is available in the official link:https://www.terraform.io/[Terraform provider registry^] and includes resources to interact with Red Hat OpenShift Application Services.
 
-Streams for Apache Kafka provides two REST APIs, one for accessing the Kafka instance and one for managing resources such as Kafka instances and services accounts. The RHOAS Terraform provider takes information from these REST APIs. You can fully manage your Kafka environment through your Terraform system using the RHOAS Terraform provider to complete the following tasks:
+{product-long-kafka} provides two REST APIs, one for accessing the Kafka instance and one for managing resources such as Kafka instances and services accounts. You can fully manage your Kafka environment through your Terraform system using the RHOAS Terraform provider. You can create, retrieve info, configure, deploy, and delete the following {product-kafka} resources:
 
-* Create, configure, deploy, and delete multiple OpenShift for Apache Kafka Streams instances.
-* Create, retrieve info on,  and delete service accounts.
-* Reference a Kafka instance to create, configure, and delete Kafka topics.
-* Create, retrieve info on, and delete ACLs on your Kafka instance.
+* Kafka instances
+* Service accounts
+* Kafka topics
+* Access Control Lists (ACLs)
 
 
 [id="proc-using-rhoas-terraform-provider_{context}"]
-=== Using the RHOAS Terraform provider
+=== Installing the RHOAS Terraform provider
 
 .Prerequisites
 * You have a Red Hat account.
@@ -197,7 +258,7 @@ $ terraform {
   required_providers {
     rhoas = {
       source = "redhat-developer/rhoas"
-      version = "0.2.1"
+      version = "0.3.0"
     }
   }
 }
@@ -206,10 +267,10 @@ provider "rhoas" {
   offline_token = "<offline_token>"
 }
 ----
-. Open your IDE of choice and paste the code into it.  Replace <offline_token> with your own offline token.
+. Open your IDE of choice and paste the code into it. You can specify configuration options here including the offline token.
 +
 [NOTE]
-You can also enter the offline token through the environment variables in the terminal when running terraform apply with OFFLINE_TOKEN.
+As the offline token is a sensitive value that varies between environments it is best specified through the environment variable in the terminal when running `terraform apply` with OFFLINE_TOKEN. You can also enter the offline token in the provider settings using the "offline_token" field.
 +
 
 . Save the file as a .tf file.
@@ -221,7 +282,10 @@ $ terraform init
 ----
 This command initializes the working directory containing Terraform configuration files and installs any required plug-ins.
 
-The next steps show what resources you can add to your Terraform configuration file to provision your Kafka instance.
+[id="con-resources-terraform_{context}"]
+=== Resources
+
+Resources are the most important element in the Terraform language. Each resource block describes one or more infrastructure objects. Terraform has error messages that help with minor typing errors by suggesting a resource close to what is typed. The next steps show what resources you can add to your Terraform configuration file to provision your Kafka instance.
 
 [id="proc-creating-kafka-instance-terraform_{context}"]
 === Creating a Kafka instance
@@ -232,24 +296,25 @@ To manage a Kafka instance using Terraform, use the `rhoas_kafka` resource.
 .Prerequisites
 
 * You have an offline token that is accessible to Terraform.
+* You have a Red Hat account.
 
 .Procedure
 
-. Enter the following command to create a Kafka instance. This example creates a Kafka instance called `my-instance`. The `name`, `plan`, and `billing model` fields are required fields. The following are default fields:
+. Open your IDE of choice and enter the example rhoas_kafka resource. This example uses the “instance”  identifier and creates a Kafka instance called `my-instance`. The only required fields are the ‘name’, ‘billing_model’ and plan fields. The following values are set by default when you run `terraform apply`. All other information for the instance is provided by the Kafka APIs.
 +
 .. `cloud provider`: A list of available cloud providers can be obtained using `data.rhoas_cloud_providers`.
 .. `region`: A list of available regions can be obtained using
 `data.rhoas_cloud_providers_regions`
 
 +
-.Creating a Kafka instance
+.Example rhoas_kafka resource
 [source,shell]
 ----
 $ terraform {
   required_providers {
     rhoas = {
       source  = "registry.terraform.io/redhat-developer/rhoas"
-      version = "0.1"
+      version = "0.3.0"
     }
   }
 }
@@ -276,25 +341,28 @@ $ terraform init
 ----
 $ terraform apply
 ----
-. Verify that the instance has been created in the the table on the *Kafka Instances* page {product-long-kafka}{service-url-kafka}[web console^].
+. Terraform displays a message that rhoas_kafka.my-instance will be created. Enter *yes*.
+. Verify that the instance has been created in the the table on the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^].
 
 [id="proc-creating-service-account-terraform_{context}"]
 === Creating a service account
 
 [role="_abstract"]
-To connect your applications or services to a Kafka instance in Red Hat OpenShift Streams for Apache Kafka, you need to create a service account...
+After creating your Kafka instance, you create a service account. To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials.
+
+Use the `rhoas_service_account` resource to manage a service account. Terraform populates the credentials when the resource is applied. This example uses the ‘srvaccnt’ identifier and creates a service account called my-service-account.
 
 .Prerequisites
 
 * You have an offline token that is accessible to Terraform.
-*  You have a running Kafka instance in {product-kafka}.
+* You have a running Kafka instance in {product-kafka}.
 
 .Procedure
 
 . Enter the following command to create a service account.
 +
 
-.Creating a service account
+.Example rhoas_service_account resource
 [source,shell]
 ----
 $ resource "rhoas_service_account" "my-instance" {
@@ -308,28 +376,34 @@ $ resource "rhoas_service_account" "my-instance" {
 ----
 $ terraform apply
 ----
-these values are just populated after apply in the client_id and client_secret field., w
+Terraform populates the generated service account credentials in the `client_id` and `client_secret` fields.
+. Apply the changes by entering the following command.
++
+[source,shell]
+----
+$ terraform apply
+----
+. Terraform displays a message that rhoas_kafka.my-instance will be created. Enter *yes*.
+. Verify that the service account has been created in the the table on the *Service Accounts* page of the {product-kafka} {service-url-kafka}[web console^].
 
-[id="proc-creating-kafka-topic-cli_{context}"]
+[id="proc-creating-kafka-topic-terraform_{context}"]
 === Creating a Kafka topic
 
 [role="_abstract"]
-After creating a Kafka instance, you can create Kafka topics to start producing and consuming messages in your services.
+Use the rhoas_topic resource to create a Kafka topic with default values. This example uses the ‘topic’ identifier and creates the my-topic Kafka topic. You set the Kafka ID directly in the resource.
 
 .Prerequisites
 
 * You have an offline token that is accessible to Terraform.
 * You have created a Kafka instance.
 
-
 .Procedure
 
-. Create a Kafka topic with default values.
+* Use the following example to create the `my-topic` Kafka topic with default values.
 +
 --
-This example creates the `my-topic` Kafka topic.
 
-.Creating a Kafka topic with default values
+.Example rhoas_topic resource with default values
 [source,shell]
 ----
 $ resource ‘rhoas_topic’ “topic” {
@@ -339,21 +413,20 @@ $ resource ‘rhoas_topic’ “topic” {
 	}
 
 ----
-
-[NOTE]
-====
-If you do not want to use the default values,
-you can specify the number of partitions (`--partitions`) and message retention time (`--retention-
-====
 --
 
-. If necessary, you can edit or delete the topic by using the `rhoas kafka topic update` and `rhoas kafka topic delete` commands.
-
 [id="proc-creating-acl-binding-terraform_{context}"]
-=== Creating an ACL binding
+==== Creating an ACL binding
 
 [role="_abstract"]
-Use the `rhoas_acl` resource to manage an ACL binding for a Kafka instance.
+Use the `rhoas_acl` resource to create a ACL binding. This example uses the `acl` identifier. You set the Kafka id directly in the resource along with the topic name. The following is a description of each field in an ACL binding resource.
+
+* Resource_type: the type of resource you want access to. This example uses “TOPIC”.
+* Resource_name: the name of resource you want to access to. This example uses the name passed when creating the topic.
+* Principale: the user that this binding applies to, we use the service account client id
+* Operation: What type of operation are allowed for the given user on this resource
+* Permission: Whether you give permission or take it away.
+
 
 .Prerequisites
 
@@ -363,10 +436,10 @@ Use the `rhoas_acl` resource to manage an ACL binding for a Kafka instance.
 
 .Procedure
 
-. Enter the following command to create an ACL binding.
+* Enter the following command to create an ACL binding.
 
 +
-.Creating an ACL binding
+.Example ACL binding resource
 [source,shell]
 ----
 $ resource "resource_acl" "acl" {
@@ -380,7 +453,7 @@ $ resource "resource_acl" "acl" {
 }
 
 ----
-. Verify that the instance has been created in the the table on the *Kafka Instances* page {product-long-kafka}{service-url-kafka}[web console^].
+
 
 [id="proc-performing-all-actions_{context}"]
 === Performing all actions
@@ -395,7 +468,7 @@ $ terraform {
   required_providers {
     rhoas = {
         source  = "registry.terraform.io/redhat-developer/rhoas"
-        version = "0.1.0"
+        version = "0.3.0"
     }
   }
 }
@@ -455,6 +528,21 @@ data "rhoas_service_account" "srvcaccnt_data" {
 }
 
 ----
+[id="ref-data-sources-terraform_{context}"]
+=== Data Sources
+
+[role="_abstract"]
+Data sources in Terraform are used to obtain information about resources external to Terraform, defined by another separate Terraform configuration, or modified by functions using the data block. For example, the `rhoas_kafkas` data source provides a list of the Kafka instances accessible to your organization in Red Hat OpenShift Streams for Apache Kafka.
+
+.List of available rhoas Data Sources
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/cloud_provider_regions[rhoas_cloud_provider_regions (Data source)^]
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/cloud_providers[rhoas_cloud_providers (Data source)^]
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/kafka[rhoas_kafka (Data source)^]
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/kafkas[rhoas_kafkas (Data source)^]
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/service_account[rhoas_service_account (Data source)^]
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/service_accounts[rhoas_service_accounts (Data source)^]
+* https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs/data-sources/topic[rhoas_topic (Data source)^]
+
 
 .Additional resources
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
