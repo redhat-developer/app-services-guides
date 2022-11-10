@@ -80,6 +80,7 @@ END GENERATED ATTRIBUTES
 
 [id="chap-using-iac-tools"]
 = Using Infrastructure as Code tools with Kafka instances in {product-long-kafka}
+ifdef::context[:parent-context: {context}]
 :context: using-iac-tools
 
 [role="_abstract"]
@@ -167,6 +168,7 @@ $ pip install rhoas-sdks --force-reinstall
 NOTE: The `create_kafka` command in the task needs to be the FQCN of the module for collection development, for example
 `redhat_developer.rhoas.create_kafka`.
 
+[id="proc-using-rhoas-ansible-collection_{context}"]
 === Using the RHOAS Ansible collection
 
 .Prerequisites
@@ -526,8 +528,8 @@ data "rhoas_kafka" "instance_data" {
 data "rhoas_service_account" "srvcaccnt_data" {
   id = rhoas_service_account.srvcaccnt.id
 }
-
 ----
+
 [id="ref-data-sources-terraform_{context}"]
 === Data Sources
 
@@ -546,3 +548,6 @@ Data sources in Terraform are used to obtain information about resources externa
 
 .Additional resources
 * {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
