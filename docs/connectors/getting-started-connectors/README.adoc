@@ -125,22 +125,22 @@ Before you use {product-connectors}, you must complete the following prerequisit
 
 * Configure {product-long-kafka} for use with {product-connectors}.
 
-*Determining which {openshift} environment to use for deploying your {product-connectors} instances*
+*Determining which {openshift} environment to use for deploying your {connectors} instances*
 
 For Service Preview, you have two choices:
 
 * *The hosted evaluation environment*
 
-** The {product-connectors} instances are hosted on a multitenant {openshift-dedicated} cluster that is owned by Red Hat.
-** You can create four {product-connectors} instances at a time.
-** The evaluation environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {product-connectors} Service Preview evaluation guidelines^].
+** The {connectors} instances are hosted on a multitenant {openshift-dedicated} cluster that is owned by Red Hat.
+** You can create four {connectors} instances at a time.
+** The evaluation environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Service Preview evaluation guidelines^].
 
 * *Your own trial environment*
 
 ** You have access to your own {openshift-dedicated} trial environment.
-** You can create an unlimited number of {product-connectors} instances.
+** You can create an unlimited number of {connectors} instances.
 ** Your {openshift-dedicated} trial cluster expires after 60 days.
-** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {product-long-connectors} add-on to your {openshift-dedicated} trial cluster^].
+** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift-dedicated} trial cluster^].
 
 *Configuring {product-long-kafka} for use with {product-connectors}*
 
@@ -166,7 +166,7 @@ Make sure that you have set up the prerequisite components.
 * Is your service account created in the *Service Accounts* page?
 * Did you save your service account credentials to a secure location?
 * Are the permissions for your service account listed in the *Access* page of the Kafka instance?
-* Is the Kafka topic that you created for {product-connectors} listed in the topics table of the Kafka instance?
+* Is the Kafka topic that you created for {connectors} listed in the topics table of the Kafka instance?
 * If you plan to use a 60-day {openshift-dedicated} trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
 
 endif::[]
@@ -201,7 +201,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {product-long-connectors} web console, select *{product-connectors}* and then click *Create {connectors} instance*.
+. In the {product-long-connectors} web console, select *{connectors} * and then click *Create {connectors} instance*.
 . Select the connector that you want to use for connecting to a data source.
 +
 You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
@@ -214,7 +214,7 @@ Click the card to select the connector, and then click *Next*.
 
 . On the *Namespace* page, the namespace that you select depends on your {openshift-dedicated} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
-If you're using a trial cluster in your own {openshift-dedicated} environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {product-long-connectors} add-on to your {openshift-dedicated} trial cluster^].
+If you're using a trial cluster in your own {openshift-dedicated} environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift-dedicated} trial cluster^].
 +
 If you're using the evaluation {openshift-dedicated} environment, click *Register eval namespace* to provision a namespace for hosting the {connectors} instances that you create.
 
@@ -256,7 +256,7 @@ ifndef::qs[]
 * Verify that your source {connectors} instance generates messages.
 endif::[]
 
-.. In the {product-long-rhoas} web console, select *Streams for Apache Kafka* > *Kafka Instances*.   
+.. In the {product-long-rhoas} web console, select *Streams for Apache Kafka* > *Kafka Instances*.
 .. Click the Kafka instance that you created for connectors.
 .. Click the *Topics* tab and then click the topic that you specified for your source {connectors} instance.
 .. Click the *Messages* tab to see a list of `Hello World!` messages.
@@ -312,7 +312,7 @@ If you're using the evaluation {openshift-dedicated} environment, click the *eva
 
 . Review the summary of the configuration properties and then click *Create {connectors} instance*.
 +
-Your {connectors} instance is listed in the table of {product-connectors}.
+Your {connectors} instance is listed in the table of {connectors} .
 +
 After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state. It consumes messages from the associated Kafka topic and sends them to the data sink (for this example, the data sink is the HTTP URL that you provided).
 
