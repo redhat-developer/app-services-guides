@@ -17,7 +17,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {product-long-connectors} web console, select *Connectors* and then click *Create {connectors} instance*.
+. In the {product-long-connectors} web console, select *{connectors}* and then click *Create {connectors} instance*.
 . Select the connector that you want to use for connecting to a data source.
 +
 You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
@@ -28,11 +28,11 @@ Click the card to select the connector, and then click *Next*.
 
 . For *Kafka instance*, click the card for the {product-kafka} instance that you configured for {connectors}, and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment. The namespace is the deployment space that hosts your {connectors} instances.
+. On the *Namespace* page, the namespace that you select depends on your {openshift-dedicated} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
-If you're using a trial cluster in your own OpenShift Dedicated environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift Connectors add-on to your OpenShift Dedicated trial cluster^].
+If you're using a trial cluster in your own {openshift-dedicated} environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift-dedicated} trial cluster^].
 +
-If you're using the evaluation OpenShift Dedicated environment, click *Register eval namespace* to provision a namespace for hosting the {connectors} instances that you create.
+If you're using the evaluation {openshift-dedicated} environment, click *Register eval namespace* to provision a namespace for hosting the {connectors} instances that you create.
 
 . Click *Next*.
 
@@ -69,10 +69,10 @@ ifdef::qs[]
 * Does your source {connectors} instance generate messages?
 endif::[]
 ifndef::qs[]
-* Verify that your source {connectors} instance generate messages.
+* Verify that your source {connectors} instance generates messages.
 endif::[]
 
-.. In the OpenShift Application Services web console, select *Streams for Apache Kafka* > *Kafka Instances*.
+.. In the {product-long-rhoas} web console, select *Streams for Apache Kafka* > *Kafka Instances*.
 .. Click the Kafka instance that you created for connectors.
 .. Click the *Topics* tab and then click the topic that you specified for your source {connectors} instance.
 .. Click the *Messages* tab to see a list of `Hello World!` messages.

@@ -26,11 +26,11 @@ endif::[]
 +
 For example, select *test* and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your OpenShift Dedicated environment. The namespace is the deployment space that hosts your {connectors} instances.
+. On the *Namespace* page, the namespace that you select depends on your {openshift-dedicated} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
-If you're using a trial cluster on your own OpenShift Dedicated environment, select the card for the namespace that was created when you added the {connectors} service to your trial cluster.
+If you're using a trial cluster on your own {openshift-dedicated} environment, select the card for the namespace that was created when you added the {connectors} service to your trial cluster.
 +
-If you're using the evaluation OpenShift Dedicated environment, click the *eval namespace* that you created when you created the source connector.
+If you're using the evaluation {openshift-dedicated} environment, click the *eval namespace* that you created when you created the source connector.
 
 . Click *Next*.
 
@@ -49,7 +49,7 @@ If you're using the evaluation OpenShift Dedicated environment, click the *eval 
 
 . Review the summary of the configuration properties and then click *Create {connectors} instance*.
 +
-Your {connectors} instance is listed in the table of Connectors.
+Your {connectors} instance is listed in the table of {connectors}.
 +
 After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state. It consumes messages from the associated Kafka topic and sends them to the data sink (for this example, the data sink is the HTTP URL that you provided).
 
@@ -60,7 +60,7 @@ ifdef::qs[]
 endif::[]
 
 ifndef::qs[]
-* Verify that you see HTTP POST calls with `"Hello World!!"` messages by opening a web browser tab to your custom URL for the link:https://webhook.site[webhook.site^].
+* Verify that you see HTTP POST calls with `"Hello World!!"` messages. Open a web browser tab to your custom URL for the link:https://webhook.site[webhook.site^].
 endif::[]
 
 

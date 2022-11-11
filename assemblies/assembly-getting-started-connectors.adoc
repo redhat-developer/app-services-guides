@@ -30,22 +30,8 @@ A *sink* connector allows you to send data from {product-kafka} to an external s
 ====
 endif::[]
 
-ifndef::qs[]
-== Overview
 
-{product-long-kafka} is a cloud service that simplifies the process of running Apache Kafka. Apache Kafka is an open-source, distributed, publish-subscribe messaging system for creating fault-tolerant, real-time data feeds.
-
-You can use {product-long-connectors} to configure communication between {product-kafka} instances and external services and applications. {product-long-connectors} allow you to configure how data moves from one endpoint to another without writing code.
-
-The following diagram illustrates how data flows from a data source through a data source connector to a Kafka topic. And how data flows from a Kafka topic to a data sink through a data sink connector.
-
-[.screencapture]
-.{product-long-connectors} data flow
-image::connectors-getting-started-connectors/connectors-diagram.png[Illustration of data flow from data source through Kafka to data sink]
-
-endif::[]
-
-include::modules/guides/proc-configuring-kafka-for-connectors.adoc[leveloffset=+1]
+include::modules/guides/proc-verifying-prerequisites-for-connectors.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-source-connector.adoc[leveloffset=+1]
 
