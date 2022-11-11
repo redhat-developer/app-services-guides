@@ -89,7 +89,9 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As an owner of a Kafka instance in {product-long-kafka}, you can manage the level of access that other user accounts and service accounts have to your instance. You can allow or deny access to your instance for specific accounts or for all accounts in your organization. You can also allow other users or service accounts to manage the level of access to your instance for you.
+As an owner of a Kafka instance in {product-long-kafka}, you control immutable access permissions on all resources within that Kafka instance including topics, groups, transactional IDs, and Access Control Lists (ACLs). These permissions are implicit meaning that other users do not see them listed in the {product-long-kafka} web console or from Kafka APIs.
+
+You can use these permissions to manage the level of access that other user accounts and service accounts have to your instance. You can allow or deny access to your instance for specific accounts or for all accounts in your organization. You can also allow other users or service accounts to manage the level of access to your instance for you.
 
 You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
 
