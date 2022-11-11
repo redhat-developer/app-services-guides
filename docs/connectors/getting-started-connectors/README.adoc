@@ -201,7 +201,7 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {product-long-connectors} web console, select *{connectors} * and then click *Create {connectors} instance*.
+. In the {product-long-connectors} web console, select *{connectors}* and then click *Create {connectors} instance*.
 . Select the connector that you want to use for connecting to a data source.
 +
 You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
@@ -312,7 +312,7 @@ If you're using the evaluation {openshift-dedicated} environment, click the *eva
 
 . Review the summary of the configuration properties and then click *Create {connectors} instance*.
 +
-Your {connectors} instance is listed in the table of {connectors} .
+Your {connectors} instance is listed in the table of {connectors}.
 +
 After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state. It consumes messages from the associated Kafka topic and sends them to the data sink (for this example, the data sink is the HTTP URL that you provided).
 
