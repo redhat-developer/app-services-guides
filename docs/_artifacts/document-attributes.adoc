@@ -15,9 +15,9 @@
 :cloud-console-url: https://console.redhat.com/
 :service-accounts-url: https://console.redhat.com/application-services/service-accounts
 
-//to avoid typos
+//OpenShift
 :openshift: OpenShift
-:openshift-dedicated: OpenShift Dedicated
+:osd-name-short: OpenShift Dedicated
 
 //OpenShift Application Services CLI
 :base-url-cli: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
