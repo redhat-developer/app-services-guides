@@ -102,7 +102,7 @@ endif::[]
 * You have a running Kafka instance in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
-* https://nodejs.org/en/download/[Node.js 14^] is installed. The https://github.com/blizzard/node-rdkafka[node-rdkafka^] client can't run on later versions.
+* https://nodejs.org/en/download/[Node.js 14^] or later is installed.
 
 NOTE: The example Node.js application in this quick start uses the https://kafka.js.org/[KafkaJS^] client by default. If you want to use the https://github.com/blizzard/node-rdkafka[node-rdkafka^] client, you must install some development tools locally on your computer or use a container runtime such as Podman or Docker to run a specified container image and configure a development environment. To learn more, see the https://github.com/nodeshift-starters/reactive-example/tree/node-rdkafka#node-rdkafka-and-kafkajs[documentation] for the example Node.js application.
 
@@ -158,22 +158,22 @@ In this task, you'll create a new configuration file called `rhoas.env`. In the 
 ifndef::qs[]
 * You have the bootstrap server endpoint for your Kafka instance. To get the server endpoint, select your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], select the options icon (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
 endif::[]
 
 .Procedure
 
 . In your IDE, create a new file. Save the file with the name `rhoas.env`, at the root level of the `reactive-example` directory for the cloned repository.
 
-. In the `rhoas.env` file, add the lines shown in the example. These lines set the bootstrap server and client credentials as environment variables to be used by the Node.js application.
+. In the `rhoas.env` file, set the SASL authentication mechanism and the Kafka instance client credentials as shown in the following configuration. Replace the client ID and client secret values with your own credential information. The configuration uses SASL/OAUTHBEARER authentication, which is the recommended authentication mechanism to use in {product-kafka}.
 +
 .Setting environment variables in the rhoas.env file
-[source,subs="+quotes"]
+[source,subs="+attributes,+quotes"]
 ----
 KAFKA_HOST=__<bootstrap_server>__
 RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
-KAFKA_SASL_MECHANISM=plain
+KAFKA_SASL_MECHANISM=oauthbearer
+RHOAS_TOKEN_ENDPOINT_URL={sso-token-url}
 ----
 ifdef::qs[]
 +
@@ -185,8 +185,6 @@ The values are described as follows:
 * *client_secret*: A client credential generated when you create a service account in {product-kafka}. You're prompted to copy and store this credential when you create the service account.
 --
 endif::[]
-+
-In this case, observe that the Node.js application uses the SASL/PLAIN authentication method (that is, the value of `KAFKA_SASL_MECHANISM` is set to `plain`). This means that the application uses only the client ID and client secret to authenticate with the Kafka instance. The application doesn't require an authentication token.
 
 . Save the `rhoas.env` file.
 
@@ -244,6 +242,7 @@ In this task, you'll run the following components of the Node.js application:
 .Prerequisites
 * You've configured the Node.js example application to connect to a Kafka instance.
 * You've created the `countries` topic.
+* You've set permissions for your service account to produce and consume messages in the `countries` topic. For the Node.js application in this example, the consumer group you must specify in your permissions is called `consumer-test`. To learn how to configure access permissions for a Kafka instance, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 . On the command line, navigate to the `reactive-example` directory of the repository that you cloned.
