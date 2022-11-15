@@ -129,7 +129,7 @@ endif::[]
 .Procedure
 . In the {product-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and click *Create Kafka instance*.
 +
-The instance creation pane opens, as shown in the figure.
+The instance creation pane opens.
 +
 [.screencapture]
 .Kafka instance creation pane
