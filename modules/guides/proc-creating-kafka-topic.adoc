@@ -12,13 +12,18 @@ After you create a Kafka instance, you can create Kafka topics to start producin
 
 . In the {product-long-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
 . Select the *Topics* tab.
+ifdef::qs[]
+. Click *Create topic* and follow the guided steps to define the topic details.
+endif::[]
+ifndef::qs[]
 . Click *Create topic* and follow the guided steps to define the topic details, as shown in the figure.
 +
---
 [.screencapture]
 .Guided steps to define topic details
 image::kafka-getting-started-kafka/sak-create-topic.png[Image of wizard to create a topic]
-
+endif::[]
++
+--
 You must specify the following topic properties:
 
 * *Topic name*: Enter a unique topic name, such as `my-first-kafka-topic`.
@@ -35,11 +40,12 @@ endif::[]
 NOTE: If the topic creation is unsuccessful and you see a `400 Bad Request` error message, try to create your topic again later. This situation might occur, for example, if your selected cloud provider has a temporary availability problem that affects your Kafka instance.
 --
 
+ifdef::qs[]
+. (Optional) To edit or delete the topic, click the options icon (three vertical dots) next to the topic name.
+endif::[]
+ifndef::qs[]
 . (Optional) To edit or delete the topic, click the options icon (three vertical dots) next to the topic name, as shown in the figure.
-+
-[.screencapture]
-.Edit or delete Kafka topic
-image::kafka-getting-started-kafka/sak-edit-topic.png[Image of topic options to edit or delete]
+endif::[]
 
 .Verification
 ifdef::qs[]

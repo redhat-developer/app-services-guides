@@ -10,6 +10,8 @@ As an owner of a Kafka instance in {product-long-kafka}, you can manage the leve
 
 You can manage access for only the Kafka instances that you create or for instances that the owner has enabled you to access and alter.
 
+As an instance owner, you automatically have a set of permissions for all resources within a Kafka instance including topics, groups, transactional IDs, and Access Control Lists (ACLs). This set of permissions cannot be changed and cannot be seen by you or any other user in the *Permission* list in the {product-long-kafka} web console or from Kafka APIs.
+
 //Additional line break to resolve mod docs generation error, not sure why. Leaving for now. (Stetson, 20 May 2021)
 
 include::modules/guides/con-access-management.adoc[leveloffset=+1]

@@ -13,6 +13,7 @@ In this task, you'll run the following components of the Node.js application:
 .Prerequisites
 * You've configured the Node.js example application to connect to a Kafka instance.
 * You've created the `countries` topic.
+* You've set permissions for your service account to produce and consume messages in the `countries` topic. For the Node.js application in this example, the consumer group you must specify in your permissions is called `consumer-test`. To learn how to configure access permissions for a Kafka instance, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 . On the command line, navigate to the `reactive-example` directory of the repository that you cloned.
