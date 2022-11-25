@@ -251,7 +251,7 @@ After you create a service account to connect to a Kafka instance, you must also
 . Under *Assign Permissions*, use the list to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers to `Is` and all identifier values to `*`.
 +
 --
-These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+These permissions enable applications associated with the service account to create topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 These permission settings result in the following ACL permissions for the new service account:
 

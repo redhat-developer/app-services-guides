@@ -370,7 +370,7 @@ The following ACL rules are to be created:
 ✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
 ----
 +
-The command you entered allows applications to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+The command you entered allows applications to create topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 . Use the OpenShift CLI to verify that the RHOAS Operator successfully created the connection.
 +

@@ -413,7 +413,7 @@ The following ACL rules are to be created:
 ✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
 ----
 +
-In this example, the permissions you create allow applications to use the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+In this example, the permissions you create allow applications to use the service account to create topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 .. If you connected to a {registry} instance, use Role-Based Access Control (RBAC) to enable the new service account to access the {registry} instance and the artifacts (such as schemas) that it contains.
 +
