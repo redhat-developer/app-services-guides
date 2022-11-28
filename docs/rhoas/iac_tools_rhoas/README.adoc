@@ -397,7 +397,7 @@ You can fully manage your Kafka environment through your Terraform system using 
 * Access Control Lists (ACLs)
 
 
-[id="proc-using-rhoas-terraform-provider_{context}"]
+[id="proc-install-rhoas-terraform-provider_{context}"]
 === Installing the RHOAS Terraform provider
 
 .Prerequisites
@@ -447,7 +447,7 @@ $ terraform init
 ----
 When the Terraform provider has been initialized, you see a confirmation message.
 
-[id="pro-using-terraform_{context}"]
+[id="proc-using-terraform_{context}"]
 === Using the RHOAS Terraform provider
 
 Resources are the most important element in the Terraform language. Each resource block in a Terraform provider describes one or more infrastructure objects. For {product-long-kafka}, such infrastructure objects might include Kafka instances, service accounts, Access Control Lists (ACLs), and topics. The procedure that followS show what resources you can add to your Terraform configuration file to create a Kafka instance and its associated resources such as service accounts and topics.
@@ -572,6 +572,7 @@ Running `terraform apply` also creates the Terraform state file. Terraform logs 
 $ terraform destroy
 ----
 
+[id="con-data-sources_{context}"]
 === Data Sources
 
 [role="_abstract"]
