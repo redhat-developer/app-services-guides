@@ -161,18 +161,9 @@ $ ansible-galaxy collection install rhoas.rhoas
 By default, the `ansible-galaxy collection install` command uses https://galaxy.ansible.com as the Galaxy server URL. The URL is specified as the value of the `GALAXY_SERVER` parameter in the `ansible.cfg` configuration file.
 . Once installed, you can reference a collection content by its fully qualified collection name (FQCN). For example the `create_kafka` command in a task needs to be the FQCN of the module for collection development, for example
 `rhoas.rhoas.create_kafka`.
-+
-[NOTE]
-====
-To find documentation for each module, open a terminal window, enter `ansible-doc rhoas.rhoas.<module_name>` and replace <module_name> with the name of the module in the terminal. The following example outputs the documentation for the `create_kafka` module. The documentation shows required parameters (denoted by `=`) and optional parameters (denoted by `-`) for the module, as well as examples of how to use the module and the output.
-
-[source,shell]
-----
-$ ansible-doc rhoas.rhoas.create_kafka
-----
-====
 
 [id="proc-using-rhoas-ansible-collection_{context}"]
+
 === Using the RHOAS Ansible collection
 
 .Prerequisites
