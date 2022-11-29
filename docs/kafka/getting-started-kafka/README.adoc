@@ -154,7 +154,7 @@ NOTE: The cloud provider is preconfigured to the same value for both trial and p
 * *Availability zones*: Select `Multi`.
 ////
 
-. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units. Instances with more streaming units have more capacity. If you're creating a trial instance, the instance size is preconfigured.
+. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. If you're creating a trial instance, the instance size is preconfigured.
 . Click *Create instance* to start the creation process for your Kafka instance.
 +
 --
