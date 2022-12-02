@@ -200,7 +200,7 @@ a|
 * `Describe`
 |===
 
-By default, new Kafka instances contain the permissions shown in the following table. These permissions allow all accounts in the organization to view the instance permissions and to view topics in the instance, but not to produce or consume messages.
+By default, new Kafka instances have the permissions shown in the following table. These permissions allow all accounts in the organization to view the instance permissions and to view topics in the instance, but not to produce or consume messages.
 
 .Default ACL permissions for new Kafka instances
 [cols="25%,25%,25%,25%"]
@@ -274,9 +274,9 @@ The following permission options are available:
 ** *Produce to a topic*: Predefined permission entry for producing to one or more specified topics
 ** *Manage access*: Predefined permission entry for allowing other user accounts or service accounts to access and alter the permissions in the Kafka instance
 
-For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set all resource identifiers and values to `Is *`. These permissions enable applications associated with the service account to create topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
+For example, when you create a new service account, select the *Consume from a topic* and *Produce to a topic* predefined options and set all resource identifiers and values to `Is *`.
 
-These permission settings result in the following ACL permissions for the new service account:
+These permission settings are shown in the following table:
 
 .Example ACL permissions for a new service account
 [cols="25%,25%,25%,25%"]
@@ -307,6 +307,8 @@ h|Operation
 |`Allow`
 |`Write`, `Create`, `Describe`
 |===
+
+The permissions shown in the table enable applications associated with the service account to create topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 NOTE: Alternatively, you can click *Add permission* to individually create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the topic in a single entry, and enables all permissions for the consumer group in a single entry. But you must configure these entries individually without using the predefined permission options.
 
