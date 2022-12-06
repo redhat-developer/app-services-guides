@@ -244,12 +244,10 @@ After you create a service account to connect to a Kafka instance, you must also
 . Click the *Access* tab to view the current ACL for this instance.
 . To modify the ACL, click *Manage access*.
 . In the *Manage access* dialog box, use the *Account* list to select the service account that you previously created, and click *Next*.
-. Under *Assign Permissions*, use the list to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers to `Is` and all identifier values to `*`.
+. Under *Assign Permissions*, use the list to select the *Consume from a topic* and the *Produce to a topic* permission options, and set all resource identifiers to `Is` and all identifier values to `*`. 
 +
 --
-These permissions enable applications associated with the service account to create and delete topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
-
-These permission settings result in the following ACL permissions for the new service account:
+These settings result in the following ACL permissions for the new service account:
 
 .Example ACL permissions for a new service account
 [cols="25%,25%,25%,25%"]
@@ -280,6 +278,8 @@ h|Operation
 |`Allow`
 |`Write`, `Create`, `Describe`
 |===
+
+The permissions shown in the table enable applications associated with the service account to create topics in the Kafka instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 NOTE: Alternatively, you can click *Add permission* to create individual permissions as needed. For example, you can create one `Topic` entry and one `Consumer group` entry, both with `Allow` access to `All` operations. This enables both consuming and producing for the specified topic in a single entry, and enables all permissions for the consumer group in another single entry. But you must configure these entries individually without using the predefined permission options.
 

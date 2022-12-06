@@ -333,7 +333,7 @@ As shown in the example, the file that you generate contains the endpoints for y
 $ rhoas kafka acl grant-access --producer --consumer --service-account _<client-id>_ --topic quotes --group all
 ----
 +
-The command you entered allows applications to use the service account to produce and consume messages in the `quotes` topic. Applications can use any consumer group and producer.
+The command you entered allows applications to use the service account to produce and consume messages in the `quotes` topic. Applications can use any consumer group.
 
 . Use Role-Based Access Control (RBAC) to enable the new service account to access the {registry} instance and the artifacts (such as schemas) that it contains.
 +
@@ -524,7 +524,7 @@ As indicated in the example, the generated secret has a default name of `service
 $ rhoas kafka acl grant-access --producer --consumer --service-account _<client-id>_ --topic prices --group all
 ----
 +
-The command you entered allows applications to use the service account to produce and consume messages in the `prices` topic. Applications can use any consumer group and producer.
+The command you entered allows applications to use the service account to produce and consume messages in the `prices` topic. Applications can use any consumer group.
 
 . Log in to the OpenShift CLI using a token by performing the following actions.
 .. Log in to the OpenShift web console as a user who has privileges to create a new project in the cluster.
