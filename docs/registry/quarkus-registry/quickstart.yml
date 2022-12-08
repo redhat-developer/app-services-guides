@@ -21,8 +21,8 @@ spec:
     - A command-line terminal application
     - Git
     - An IDE
-    - OpenJDK 11 or later for Linux or MacOS (the latest LTS version of OpenJDK is recommended)
-    - Apache Maven 3.8.x or later
+    - OpenJDK 11 or later (the latest LTS version of OpenJDK is recommended)
+    - Apache Maven 3.8.x or later 3.x
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-importing-quarkus-registry-sample-code

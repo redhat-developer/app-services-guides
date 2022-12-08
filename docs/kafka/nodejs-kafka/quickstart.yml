@@ -20,7 +20,7 @@ spec:
     - A command-line terminal application
     - Git
     - An IDE
-    - Node.js 14.x
+    - Node.js 14.x or later
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-importing-nodejs-sample-code

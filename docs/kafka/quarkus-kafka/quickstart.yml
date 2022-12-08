@@ -21,7 +21,7 @@ spec:
     - Git
     - An IDE
     - JDK 11 or later (the latest LTS version of OpenJDK is recommended)
-    - Apache Maven 3.6.2 or later
+    - Apache Maven 3.6.2 or later 3.x
     - For Windows, the latest version of Oracle JDK
   introduction: !snippet README.adoc#introduction
   tasks:
