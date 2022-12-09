@@ -108,7 +108,7 @@ endif::[]
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
 * https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
 
-* https://maven.apache.org/[Apache Maven^] 3.8.x or later 3.x is installed.
+* https://maven.apache.org/[Apache Maven^] 3.8 (or a later Maven 3 release) is installed.
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
