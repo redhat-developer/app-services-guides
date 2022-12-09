@@ -16,13 +16,13 @@ spec:
     data:image/svg+xml;base64,PHN2ZyBpZD0iZTA1M2ZiYWQtY2I0Ny00OGNiLThiNDMtZDczY2RmMzQyNGJjIiBkYXRhLW5hbWU9IkxheWVyIDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDM3IDM3Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmE0NjBjMWU3LWMyNjAtNDc5MS1iZjc0LTI0ZmE4OGU4MTcwZSB7CiAgICAgICAgZmlsbDogI2UwMDsKICAgICAgfQoKICAgICAgLmU4YTQ2MmQ1LTgzYWUtNGRjMi04OTVlLWE3NDU3ZjY2MDNjYSB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggZD0iTTI3LjUuNUg5LjVhOSw5LDAsMCwwLTksOXYxOGE5LDksMCwwLDAsOSw5aDE4YTksOSwwLDAsMCw5LTlWOS41YTksOSwwLDAsMC05LTlaIi8+CiAgPHBhdGggY2xhc3M9ImE0NjBjMWU3LWMyNjAtNDc5MS1iZjc0LTI0ZmE4OGU4MTcwZSIgZD0iTTI2LjUsMjcuMTI1aC02YS42MjUuNjI1LDAsMCwxLS42MjUtLjYyNXYtNmEuNjI1LjYyNSwwLDAsMSwuNjI1LS42MjVoNmEuNjI1LjYyNSwwLDAsMSwuNjI1LjYyNXY2QS42MjUuNjI1LDAsMCwxLDI2LjUsMjcuMTI1Wm0tNS4zNzUtMS4yNWg0Ljc1di00Ljc1aC00Ljc1WiIvPgogIDxwYXRoIGNsYXNzPSJhNDYwYzFlNy1jMjYwLTQ3OTEtYmY3NC0yNGZhODhlODE3MGUiIGQ9Ik0yNi41LDE3LjEyNWgtNmEuNjI1LjYyNSwwLDAsMS0uNjI1LS42MjV2LTZhLjYyNS42MjUsMCwwLDEsLjYyNS0uNjI1aDZhLjYyNS42MjUsMCwwLDEsLjYyNS42MjV2NkEuNjI1LjYyNSwwLDAsMSwyNi41LDE3LjEyNVptLTUuMzc1LTEuMjVoNC43NXYtNC43NWgtNC43NVoiLz4KICA8cGF0aCBjbGFzcz0iYTQ2MGMxZTctYzI2MC00NzkxLWJmNzQtMjRmYTg4ZTgxNzBlIiBkPSJNMTYuNSwxNy4xMjVoLTZhLjYyNS42MjUsMCwwLDEtLjYyNS0uNjI1di02YS42MjUuNjI1LDAsMCwxLC42MjUtLjYyNWg2YS42MjUuNjI1LDAsMCwxLC42MjUuNjI1djZBLjYyNS42MjUsMCwwLDEsMTYuNSwxNy4xMjVabS01LjM3NS0xLjI1aDQuNzV2LTQuNzVoLTQuNzVaIi8+CiAgPHBhdGggY2xhc3M9ImU4YTQ2MmQ1LTgzYWUtNGRjMi04OTVlLWE3NDU3ZjY2MDNjYSIgZD0iTTE2LjUsMTkuODc1aC01YS42MjUuNjI1LDAsMCwwLDAsMS4yNWgzLjQ5MWwtNC45MzMsNC45MzNhLjYyNS42MjUsMCwwLDAsLjg4NC44ODRsNC45MzMtNC45MzNWMjUuNWEuNjI1LjYyNSwwLDAsMCwxLjI1LDB2LTVBLjYyNS42MjUsMCwwLDAsMTYuNSwxOS44NzVaIi8+Cjwvc3ZnPgo=
   description: !snippet README.adoc#description
   prerequisites:
-    - A running Kafka instance (see the Getting started with Kafka quick start)
-    - A running Service Registry instance (see the Getting started with Service Registry quick start)
+    - A running Kafka instance (see <a href="https://console.redhat.com/application-services/learning-resources?quickstart=getting-started">Getting started with OpenShift Streams for Apache Kafka</a>)
+    - A running Service Registry instance (see <a href="https://console.redhat.com/application-services/learning-resources?quickstart=getting-started-service-registry">Getting started with Service Registry</a>)
     - A command-line terminal application
     - Git
     - An IDE
-    - OpenJDK 11 or later for Linux or MacOS (the latest LTS version of OpenJDK is recommended)
-    - Apache Maven 3.8.x or later (for Quarkus 2.2.x)
+    - OpenJDK 11 or later (the latest LTS version of OpenJDK is recommended)
+    - Apache Maven 3.8 (or a later Maven 3 release)
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-importing-quarkus-registry-sample-code

@@ -97,9 +97,10 @@ NOTE: When you've completed this quick start and understand the required connect
 
 .Prerequisites
 ifndef::community[]
-* You have a Red Hat account.
+* You have a {org-name} account.
 endif::[]
 * You have a running Kafka instance in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
+* You have a command-line terminal application.
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
 * https://nodejs.org/en/download/[Node.js 14^] or later is installed.

@@ -261,6 +261,7 @@ You can enable command completion for each of the following shells:
 
 .Prerequisites
 
+* You have a command-line terminal application.
 * You've installed the `rhoas` CLI.
 * If you're using macOS, you've installed `bash-completion` configured in your `.bash_profile` file.
 
@@ -346,7 +347,7 @@ After `rhoas` is installed, you can log in to access your application services.
 
 .Prerequisites
 
-* You must have an account to access Red Hat OpenShift Application Services.
+* You have a {org-name} account.
 * You've installed the `rhoas` CLI.
 
 .Procedure

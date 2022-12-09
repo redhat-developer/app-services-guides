@@ -163,7 +163,7 @@ Topic metrics::
 After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka^] scripts, link:https://github.com/edenhill/kcat[Kcat^], or a link:https://quarkus.io/[Quarkus^] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites
-* You have access to a Kafka instance in {product-kafka} that contains topics. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
+* You have access to a running Kafka instance in {product-kafka} that contains topics. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 * In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
@@ -183,7 +183,7 @@ As an alternative to viewing metrics for a Kafka instance in the {product-long-k
 This procedure follows the https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file[Configuration File^] method defined by Prometheus for integrating third-party metrics. If you use the Prometheus Operator in your monitoring environment, you can also follow the https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/additional-scrape-config.md#additional-scrape-configuration[Additional Scrape Configuration^] method.
 
 .Prerequisites
-* You have access to a Kafka instance that contains topics in {product-kafka}. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
+* You have access to a running Kafka instance that contains topics in {product-kafka}. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 * You have the ID and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To relocate the Kafka instance ID and the token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
 * You have the generated credentials for your service account that has access to the Kafka instance. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
 * You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started^] in the Prometheus documentation.

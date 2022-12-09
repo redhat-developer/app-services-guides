@@ -96,7 +96,7 @@ For more overview information, see the https://access.redhat.com/documentation/e
 ifndef::community[]
 .Prerequisites
 * You have a {org-name} account.
-* You have a subscription to {product-long-kafka}.
+* You have a subscription to {product-long-kafka} or {product-long-api-management}.
 //For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]
 
