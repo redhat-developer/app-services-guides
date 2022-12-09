@@ -141,12 +141,17 @@ NOTE: Use the `pip install rhoas-sdks --force reinstall` command to ensure that 
 
 .Procedure
 . Open a new terminal window.
-. Create and activate a Python virtual environment.
+. Create a Python virtual environment.
 +
 [source,shell]
 ----
 $ python3 -m venv rhoas/
-. rhoas/bin/activate
+----
+. Activate the virtual environment.
++
+[source,shell]
+----
+$ . rhoas/bin/activate
 ----
 . Install the {product-long-rhoas} (RHOAS) Ansible collection.
 +
@@ -164,7 +169,7 @@ When installed, you can reference collection content by the fully qualified coll
 +
 [NOTE]
 ====
-To find documentation for each module, open a terminal window, enter `ansible-doc rhoas.rhoas._<module_name>_` and replace _<module_name>_ with the name of the module in the terminal. The following example outputs the documentation for the `create_kafka` module. The documentation shows required parameters (denoted by `=`) and optional parameters (denoted by `-`) for the module, as well as examples of how to use the module and the output.
+To find documentation for each module, open a terminal window, enter `ansible-doc rhoas.rhoas._<module_name>_` and replace _<module_name>_ with the name of the module in the terminal. The following example outputs the documentation for the `create_kafka` module. The documentation shows required parameters (denoted by `=`) and optional parameters (denoted by `-`) for the module, as well as examples of how to use the module and the output. If you do not pass in any values for optional fields, Ansible uses the default values from the Kafka APIs.
 
 [source, shell]
 ----
@@ -225,7 +230,7 @@ $ cd rhoas
 ----
 
 . Open the `rhoas_test` example playbook. You can also open a web browser and navigate to https://github.com/redhat-developer/app-services-ansible/blob/main/rhoas_test.yml to open the `rhoas_test` playbook.
-. Inspect the contents of the example playbook. In particular, observe that the playbook has modules for certain tasks. You will use these modules, which are also shown below, to create a new playbook that performs the following tasks:
+. Inspect the contents of the example playbook. In particular, observe that the playbook has modules for certain tasks. You will use these modules to create a new playbook that performs the following tasks:
 +
 * Create and delete a Kafka instance
 * Create and delete a service account
@@ -233,7 +238,7 @@ $ cd rhoas
 * Create, update, and delete a topic
 +
 [NOTE]
-The playbook uses your offline token to authenticate with the Kafka Management API. If you do not specify the token as an argument for a given task, the module attempts to read it from the _`OFFLINE_TOKEN`_ environment variable.
+The playbook uses your offline token to authenticate with the Kafka Management API. If you do not specify the token as an argument for a given task, the module attempts to read it from the `OFFLINE_TOKEN` environment variable.
 +
 [NOTE]
 ====
@@ -245,10 +250,10 @@ kafka_id: __<kafka_id>__
 ----
 ====
 +
-. In your IDE, create a new playbook file and save it as `rhoas_kafka.yaml` in the `rhoas` directory.
-. At the top of the new playbook, you define the name of the playbook and the group of hosts on which to run it. In the following example, the host is a local host and the connection is local because you are in a virtual environment. Copy the top section example and paste it into the `rhoas_kafka.yml` file.
+. In your IDE, create a new playbook file and save it as `rhoas_kafka.yml` in the `rhoas` directory.
+. At the start of the new playbook, you define the name of the playbook and the group of hosts on which to run it. Copy the following example and paste it into the `rhoas_kafka.yml` file. In this example, the host is a local host and the connection is local because you are in a virtual environment.
 +
-.Example top section for `rhoas_kafka` playbook
+.Example first section for `rhoas_kafka` playbook
 [source,yaml]
 ----
 - name: RHOAS kafka
@@ -258,7 +263,7 @@ kafka_id: __<kafka_id>__
   tasks:
 ----
 
-. To add a module that creates a new Kafka instance, copy the `create_kafka` module shown below from the example playbook and paste it into the `tasks:` section of your `rhoas_kafka.yml` file.
+. To add a module that creates a new Kafka instance, copy the `create_kafka` module shown in the following example and paste it into the `tasks:` section of your `rhoas_kafka.yml` file.
 
 +
 .Example `create_kafka` module
@@ -285,7 +290,7 @@ All other information for the instance is provided by the Kafka APIs.
 +
 When you run the `create_kafka_` module as part of the playbook at the end of this procedure, Ansible saves the output of that command in a variable in the `register` field. In the preceding example, Ansible saves the created Kafka instance as `kafka_req_resp`.
 
-. To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. To add a module that creates a service account, copy the `create_service_account` module shown below from the example playbook and paste it into the `rhoas_kafka.yml` file.
+. To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. To add a module that creates a service account, copy the `create_service_account` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
 +
 .Example `create_service_account` module
 [source,yaml]
@@ -301,7 +306,7 @@ When you run the `create_kafka_` module as part of the playbook at the end of th
 . Enter values for the `name`, `short description`, and `openshift_offline_token` fields.
 +
 When you run the `create_service_account` module as part of the playbook at the end of this procedure, Ansible populates the generated service account credentials in the `client_id` and `client_secret` fields in the terminal after it creates the service account.
-. To create Access Control List (ACL) permissions for the service account and bind that ACL to the Kafka instance, copy the `create_kafka_acl_binding` module shown below from the example playbook and paste it in your `rhoas_kafka.yml` file.
+. To create Access Control List (ACL) permissions for the service account and bind that ACL to the Kafka instance, copy the `create_kafka_acl_binding` module shown in the following example and paste it in your `rhoas_kafka.yml` file.
 +
 .Example `create_kafka_acl_binding` module
 [source,yaml]
@@ -331,11 +336,11 @@ The following list is a description of each field that must have a value in an A
 `principal`:: The user that this binding applies to. This example uses the service account client ID.
 `resource_name`:: The name of the resource you want access to. This example uses the name that is passed when creating the topic.
 `resource_type`:: The type of resource you want access to. This example uses *Topic*.
-`pattern_type`:: The type of pattern of the ACL. The below example uses the `PREFIXED` pattern type meaning that Kafka will try to match the prefix of the resource name with the resource specified in the ACL.
+`pattern_type`:: The type of pattern of the ACL. This example uses the `PREFIXED` pattern type meaning that Kafka will try to match the prefix of the resource name with the resource specified in the ACL.
 `operation_type`:: The type of operation (an action performed on a resource) that is allowed for the given user on this module.
 `permission_type`:: Whether permission is given to the user or taken away.
 
-. To create a Kafka topic, copy the contents of the `create_kafka_topic` module shown below from the example playbook and paste it into the `rhoas_kafka.yml` file.
+. To create a Kafka topic, copy the contents of the `create_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
 +
 .Example `create_kafka_topic` module
 [source,yaml]
@@ -356,7 +361,7 @@ The following list is a description of each field that must have a value in an A
 ----
 . You can allow Ansible to get the Kafka ID from the `kafka_req_resp.id` variable or enter it in the `kafka_id` field.
 . In the `openshift_offline_token` field, enter your OpenShift offline token.
-. To update the configuration of the topic, copy the `update_kafka_topic` module shown below from the example playbook and paste it into the `rhoas_kafka` file. In the following example, the cleanup policy has been updated from compact to delete by replacing `"compact"` with `"delete"` in the `cleanup_policy` field.
+. To update the configuration of the topic, copy the `update_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka` file. In the following example, the cleanup policy has been updated from compact to delete by replacing `"compact"` with `"delete"` in the `cleanup_policy` field.
 +
 .Example `update_kafka_topic` module
 [source,yaml]
@@ -377,7 +382,7 @@ The following list is a description of each field that must have a value in an A
 ----
 . You can allow Ansible to get the Kafka ID from the `kafka_req_resp.id` variable or enter it in the `kafka_id` field.
 . (Optional) You can modify the values in the `retention_period_ms` and `retention_size_bytes` fields instead of accepting the default values.
-. To delete the topic, copy the `delete_kafka_topic` module shown below from the example playbook and paste it into the `rhoas_kafka.yml` file.
+. To delete the topic, copy the `delete_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
 +
 .Example `delete_kafka_topic` module
 [source,yaml]
@@ -392,7 +397,7 @@ The following list is a description of each field that must have a value in an A
 ----
 . In the `openshift_offline_token` field, enter your OpenShift offline token.
 . You can allow Ansible to get the Kafka ID from the `kafka_req_resp.id` variable or enter it in the `kafka_id` field.
-. To delete the service account, copy the `delete_service_account_by_id` module shown below from the example playbook and paste it into the `rhoas_kafka.yml` file.
+. To delete the service account, copy the `delete_service_account_by_id` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
 . Ansible can get the service account ID from the `srvce_acc_resp_obj` variable or you can enter it into the `service_account_id` field.
 +
 .Example `delete_service_account_by_id` module
@@ -406,7 +411,7 @@ The following list is a description of each field that must have a value in an A
   # openshift_offline_token: "OFFLINE_TOKEN"
 ----
 
-. To deprovision and delete the {product-kafka} instance, copy the `delete_kafka_by_id` module shown below from the example playbook and paste it into the `rhoas_kafka.yml` file.
+. To deprovision and delete the {product-kafka} instance, copy the `delete_kafka_by_id` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
 +
 .Example `delete_kafka_by_id` module
 [source,yaml]
@@ -460,7 +465,7 @@ A pane opens that shows the configuration you need to use the RHOAS Terraform pr
 .Example RHOAS provider configuration
 [source,shell]
 ----
-$ terraform {
+terraform {
   required_providers {
     rhoas = {
       source = "redhat-developer/rhoas"
@@ -477,8 +482,8 @@ provider "rhoas" {
 . In your IDE, open a new file and paste the configuration you copied. You can specify configuration options in the provider section.
 +
 
-. Save the file as a Terraform configuration  file called `main.tf` in a directory called `Terraform`.
-. Open a terminal and navigate to the Terraform directory.
+. Save the file as a Terraform configuration file called `main.tf` in a directory of your choice. This procedure uses a directory called `Terraform`.
+. Open a terminal and navigate to the `Terraform` directory.
 +
 [source,shell]
 ----
@@ -514,8 +519,12 @@ export OFFLINE_TOKEN=<offline_token>
 .Procedure
 
 . Open the `main.tf` file in your IDE for editing.
-. Copy the example `rhoas_kafka` resource shown below and paste it into the `main.tf` file after the provider configuration. This example uses the `"my-instance"`  identifier and creates a Kafka instance called `my-instance`.
+. Copy the `rhoas_kafka` resource shown in the following example and paste it into the `main.tf` file after the provider configuration. This example uses the `"my-instance"` identifier and creates a Kafka instance called `my-instance`.
 +
+[NOTE]
+In the following examples, the identifier and the name of the infrastructure object are the same for demonstration purposes only. You can choose different values for each field.
++
+
 .Example `rhoas_kafka` resource
 [source]
 ----
@@ -530,14 +539,7 @@ resource "rhoas_kafka" "my-instance" {
 
 ----
 . Save your changes.
-. Open a terminal and initialize Terraform by entering the following command:
-+
-[source, shell]
-----
-$ terraform init
-----
-
-. Apply the changes you made to your Terraform provider configuration.
+. Open a terminal and apply the changes you made to your Terraform provider configuration.
 +
 [source, shell]
 ----
@@ -551,7 +553,7 @@ In the terminal, Terraform displays a message that `rhoas_kafka.my-instance` wil
 Running `terraform apply` for the first time also creates the Terraform state file. Terraform logs information about the resources it has created in this state file. This allows Terraform to know which resources are under its control and when to update and delete them. The Terraform state file is named `terraform.tfstate` by default and is kept in the same directory where Terraform is run. Sensitive information such as the offline token, client ID, and client secret can be found in the `terraform.tfstate` file. Running `terraform apply` again updates this file.
 
 . To verify Terraform successfully created your Kafka instance, in your web browser, open the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^].
-. To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. To create a service account, copy and paste the example `rhoas_service_account` resource shown below into the `main.tf` file. This example uses the `"my-service-account"` identifier and creates a service account called my-service-account.
+. To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. To create a service account, copy and paste the  `rhoas_service_account` resource shown in the following example into the `main.tf` file. This example uses the `"my-service-account"` identifier and creates a service account called my-service-account.
 +
 
 .Example `rhoas_service_account` resource
@@ -582,7 +584,7 @@ $ terraform apply
 In the terminal, Terraform displays a message that `rhoas_service_account.my-service-account` will be created.
 . When you're ready to create your service account, type *yes*. The generated client ID appears in the terminal as an output. The client secret does not appear because it is marked as a sensitive value.
 . To verify Terraform successfully created your service account, in your web browser, open the *Service Accounts* page of the {product-kafka} {service-url-kafka}[web console^].
-. To create a Kafka topic with default values, copy and paste the example `rhoas_topic` resource shown below into the `main.tf` file. This example uses the `topic` identifier and creates the `"my-topic"` Kafka topic. As you have already created the Kafka instance, Terraform can check dependencies for this new topic resource and knows the Kafka ID when you run this example resource.
+. To create a Kafka topic with default values, copy and paste the `rhoas_topic` resource shown in the following example into the `main.tf` file. This example uses the `topic` identifier and creates the `"my-topic"` Kafka topic. As you have already created the Kafka instance, Terraform can check dependencies for this new topic resource and knows the Kafka ID when you run this example resource.
 +
 .Example `rhoas_topic` resource with default values
 [source]
@@ -605,11 +607,11 @@ $ terraform apply
 In the terminal, Terraform displays a message that `rhoas_topic.my-topic` will be created.
 . When you're ready to create your topic, type *yes*.
 . To verify Terraform successfully created your topic, in your web browser, open the *Topics* page of the {product-kafka} {service-url-kafka}[web console^].
-. To create Access Control List (ACL) permissions with some default values, copy and paste the `rhoas_acl` resource shown below into the `main.tf` file. This example uses the `"acl"` identifier. The following list describes each field in an ACL binding resource.
+. To create Access Control List (ACL) permissions with some default values, copy and paste the `rhoas_acl` resource shown in the following example into the `main.tf` file. This example uses the `"acl"` identifier. The following list describes each field in an ACL binding resource.
 
-`resource_type`:: The type of resource you want access to. This example uses ``“TOPIC”`.
+`resource_type`:: The type of resource you want access to. This example uses `“TOPIC”`.
 `resource_name`:: The name of the resource you want access to. This example uses the name that is passed when creating the topic.
-`pattern_type`:: The type of pattern of the ACL. The below example uses the `LITERAL` pattern type meaning that Kafka will try to match the match the full resource name (the topic) with the resource specified in the ACL.
+`pattern_type`:: The type of pattern of the ACL. This example uses the `LITERAL` pattern type meaning that Kafka will try to match the match the full resource name (the topic) with the resource specified in the ACL.
 `principal`:: The user that this binding applies to. This example uses the service account client ID.
 `operation_type`:: The type of operation (an action performed on a resource) that is allowed for the given user on this resource.
 `permission_type`:: Whether permission is given or taken away.
@@ -619,7 +621,7 @@ In the terminal, Terraform displays a message that `rhoas_topic.my-topic` will b
 [source]
 ----
 resource "rhoas_acl" "acl" {
-  kafka_id = rhoas_kafka.instance.id
+  kafka_id = rhoas_kafka.my-instance.id
   resource_type = "TOPIC"
   resource_name = "my-topic"
   pattern_type = "LITERAL"
@@ -677,7 +679,6 @@ output "all_kafkas" {
 == Additional resources
 * {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5[Configuring topics in {product-long-kafka}^]
-* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
 * {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^]
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#playbooks-tips-and-tricks[Playbooks Best Practices]
 
