@@ -20,7 +20,7 @@ Use this guide to complete the following tasks:
 
 .Prerequisites
 
-* You have a Red Hat account.
+* You have a {org-name} account.
 * You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
 * You've completed the following tasks:
 +
