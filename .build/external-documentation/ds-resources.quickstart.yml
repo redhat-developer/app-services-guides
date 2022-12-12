@@ -4,6 +4,9 @@ metadata:
   name: docs-ds-resources
   annotations:
     order: 10
+  labels:
+    serviceCategory: Data Services
+    product: rhods
 spec:
   version: 0.1
   type:
