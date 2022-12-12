@@ -7,7 +7,7 @@ When you have verified connection to your OpenShift cluster, you can connect a K
 
 .Prerequisites
 * You have installed the RHOAS Operator and verified connection to your OpenShift cluster.
-* You have created a Kafka instance in {product-kafka} and the instance is in the *Ready* state. To learn how to create a Kafka instance, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You have an API token to connect to your Kafka instance. To get a token, see the link:https://console.redhat.com/openshift/token[OpenShift Cluster Manager API Token^] page.
 * You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. See {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
@@ -113,7 +113,7 @@ The following ACL rules are to be created:
 ✔️ ACLs successfully created in the Kafka instance "my-kafka-instance"
 ----
 +
-The command you entered allows applications to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+The command you entered allows applications to create topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 . Use the OpenShift CLI to verify that the RHOAS Operator successfully created the connection.
 +

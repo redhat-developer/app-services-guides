@@ -8,7 +8,7 @@ The following procedure shows how to use the {product-long-kafka} web console to
 Alternatively, to learn how to create a _new_ {registry} instance with a value or key schema that matches a topic, see {base-url}{topic-config-url-kafka}#proc-creating-registry-instance-and-matching-schema-for-topic_{context}[Creating a new registry instance and matching schema for a topic].
 
 .Prerequisites
-* You have created a Kafka instance with at least one topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 * You have access to at least one instance in {registry} that you can check for schemas that match your topic.
 

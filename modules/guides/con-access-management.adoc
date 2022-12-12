@@ -102,7 +102,7 @@ a|
 * `Describe`
 |===
 
-By default, new Kafka instances contain the permissions shown in the following table. These permissions allow all accounts in the organization to view the instance permissions and to view topics in the instance, but not to produce or consume messages.
+By default, new Kafka instances have the permissions shown in the following table. These permissions allow all accounts in the organization to view the instance permissions and to view topics in the instance, but not to produce or consume messages.
 
 .Default ACL permissions for new Kafka instances
 [cols="25%,25%,25%,25%"]

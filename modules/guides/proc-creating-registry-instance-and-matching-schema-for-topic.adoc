@@ -8,7 +8,7 @@ The following procedure shows how to use the web console to select a Kafka topic
 Alternatively, to learn how to check an _existing_ {registry} instance for schemas that match a topic, see {base-url}{topic-config-url-kafka}#proc-checking-topic-for-existing-schema-matches_{context}[Checking a topic for existing schema matches].
 
 .Prerequisites
-* You have created a Kafka instance with at least one Kafka topic in {product-kafka}. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * You understand how to create a {registry} instance and upload a schema to be used by client applications. To learn how to do this, see {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^].
 
 .Procedure

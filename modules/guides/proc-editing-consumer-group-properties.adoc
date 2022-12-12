@@ -23,7 +23,7 @@ If you're using Kafka scripts, you can use the `kafka-consumer-groups.sh` tool t
 
 
 .Prerequisites
-* You've created a Kafka instance with at least one Kafka topic in {product-kafka}.
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 * Consumer client applications connected to the Kafka instance have a consumer group ID.
 
 .Procedure

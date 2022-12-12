@@ -16,7 +16,7 @@ rhoas kafka update --reauthentication false
 For a list of Kafka instance settings that you can update using the CLI, see the `rhoas kafka update` entry in the {base-url-cli}{command-ref-url-cli}[CLI command reference (rhoas)^].
 
 .Prerequisites
-* You have created a Kafka instance. To learn how to do this, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+* You have a running Kafka instance with at least one Kafka topic in {product-kafka} (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]).
 
 .Procedure
 . In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and select a Kafka instance.

@@ -6,7 +6,7 @@ The following procedure shows how to filter and inspect a list of messages for a
 
 .Prerequisites
 
-* You have a Kafka instance with a topic that contains some messages. To learn how to create your _first_ Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
+* You have a running Kafka instance with a topic that contains some messages. To learn how to create your _first_ Kafka instance and topic and then send messages to the topic that will appear on the *Messages* page, see the following guides:
 +
 ** {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
 ** {base-url}{kafka-bin-scripts-url-kafka}[Configuring and connecting Kafka scripts with {product-long-kafka}^]

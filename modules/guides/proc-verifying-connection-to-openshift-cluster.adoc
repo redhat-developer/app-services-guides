@@ -9,7 +9,7 @@ After you install the RHOAS Operator, you can verify that the Operator is workin
 * The RHOAS Operator is installed on your OpenShift cluster.
 * You can access your OpenShift cluster with privileges to create a new project.
 * You have installed the OpenShift CLI.
-* You have installed the latest version of the RHOAS CLI.
+* You have installed the latest version of the RHOAS CLI (see {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^]).
 
 .Procedure
 . On your computer, open a command-line window.

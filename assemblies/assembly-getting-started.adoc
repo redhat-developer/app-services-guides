@@ -13,7 +13,7 @@ As a developer of applications and services, you can use {product-long-kafka} to
 
 ifndef::community[]
 .Prerequisites
-* You have a Red Hat account.
+* You have a {org-name} account.
 //* You have a subscription to {product-long-kafka}. For more information about signing up, see *<@SME: Where to link?>*.
 endif::[]
 

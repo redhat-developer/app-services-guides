@@ -8,7 +8,7 @@ The following example Access Control Lists (ACLs) illustrate common scenarios fo
 Access for a new service account in a Kafka instance::
 +
 --
-You’ve created a new service account and you want to allow it to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group and any producer.
+You’ve created a new service account and you want to allow it to create and delete topics in the instance, to produce and consume messages in any topic in the instance, and to use any consumer group.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]
@@ -36,7 +36,7 @@ h|Operation
 Access for all accounts in a Kafka instance::
 +
 --
-You want this Kafka instance to be fully accessible to all accounts in the organization. You want any user to be able to read all topics, write to all topics, use any consumer group, and use any producer.
+You want this Kafka instance to be fully accessible to all accounts in the organization. You want any user to be able to read all topics, write to all topics, and use any consumer group.
 
 .Example ACL permissions
 [cols="25%,22%,23%,15%,15%"]

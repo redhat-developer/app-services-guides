@@ -3,6 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
+* You have a command-line terminal application.
 * You've installed the `rhoas` CLI. For more information, see {base-url}{installation-guide-url-cli}[_Installing the rhoas CLI_^].
 
 //Additional line break to resolve mod docs generation error

@@ -6,7 +6,7 @@
 After you produce and consume messages in your services using methods such as link:https://kafka.apache.org/downloads[Kafka^] scripts, link:https://github.com/edenhill/kcat[Kcat^], or a link:https://quarkus.io/[Quarkus^] application, you can return to the Kafka instance in the web console and use the *Dashboard* page to view metrics for the instance and topics. The metrics help you understand the performance and data usage for your Kafka instance and topics.
 
 .Prerequisites
-* You have access to a Kafka instance in {product-kafka} that contains topics. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
+* You have access to a running Kafka instance in {product-kafka} that contains topics. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
 
 .Procedure
 * In the *Kafka Instances* page of the web console, click the name of the Kafka instance and select the *Dashboard* tab.
