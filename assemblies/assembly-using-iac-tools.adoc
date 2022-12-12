@@ -1,0 +1,43 @@
+[id='assembly-using-iac-tools']
+= Automating deployment and management of Kafka instances in {product-long-kafka}
+ifdef::context[:parent-context: {context}]
+:context: using-iac-tools
+:imagesdir: _images
+
+[role="_abstract"]
+As a system administrator of applications and services, you can use Infrastructure as Code (IaC) tools to automate deployment and management of architectures.
+
+This guide describes how to use different IaC tools to provision and manage Kafka instances in {product-long-kafka}. To interact with Kafka instances, the IaC tools use two REST APIs that are available in {product-kafka} - a _management_ API and an _instance_ API.
+
+ifndef::community[]
+For more information about these APIs, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/2409253a-45ee-470e-bdc9-5db4bfcf9d0f.
+endif::[]
+
+For more information about creating and setting up Kafka instances, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
+
+
+//Additional line break to resolve mod docs generation error
+
+include::modules/guides/con-ansible.adoc[leveloffset=+1]
+
+include::modules/guides/proc-install-rhoas-ansible-collection.adoc[leveloffset=+2]
+
+include::modules/guides/con-terraform.adoc[leveloffset=+1]
+
+include::modules/guides/proc-install-rhoas-terraform-provider.adoc[leveloffset=+2]
+
+include::modules/guides/proc-using-terraform.adoc[leveloffset=+2]
+
+include::modules/guides/con-data-sources.adoc[leveloffset=+2]
+
+[role="_additional-resources"]
+== Additional resources
+* {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/7d28aec8-e146-44db-a4a5-fafc1f426ca5[Configuring topics in {product-long-kafka}^]
+* {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+

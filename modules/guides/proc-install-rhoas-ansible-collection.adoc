@@ -1,0 +1,66 @@
+[id='proc-install-rhoas-ansible-collection_{context}']
+= Installing the OpenShift Application Services Ansible collection
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can use the OpenShift Application Services Ansible (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
+
+* Kafka instances
+* Service accounts
+* Kafka topics
+* Access Control Lists (ACLs)
+
+.Prerequisites
+
+* https://www.python.org/downloads/[Python 3.9^] or later is installed.
+* https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC[Ansible 2.9^] or later is installed.
+* Some additional dependencies required by this collection are installed. To install these, enter the following commands:
++
+[source,shell]
+----
+$ pip install rhoas-sdks
+$ pip install python-dotenv
+----
+NOTE: Use the `pip install rhoas-sdks --force reinstall` command to ensure that the most up to date versions of the SDKs are installed.
+
+.Procedure
+. Open a new terminal window.
+. Create a Python virtual environment.
++
+[source,shell]
+----
+$ python3 -m venv rhoas
+----
+. Activate the virtual environment.
++
+[source,shell]
+----
+$ . rhoas/bin/activate
+----
+. Install the RHOAS Ansible collection.
++
+[source,shell]
+----
+$ ansible-galaxy collection install rhoas.rhoas
+----
++
+By default, the `ansible-galaxy collection install` command uses `\https://galaxy.ansible.com` as the Galaxy server URL. The URL is specified as the value of the `GALAXY_SERVER` parameter in the `ansible.cfg` configuration file.
++
+A message states that the RHOAS collection was installed successfully to the following path: `home/_<usr>_/.ansible/collections/ansible_collections/rhoas/rhoas`. All modules for the collection can be found in this location.
++
+When installed, you can reference collection content by the fully qualified collection name (FQCN) of the collection. The command in a task needs to include the FQCN of the module so it always points to the intended collection. For example, the FQCN for the `create_kafka` command is
+`rhoas.rhoas.create_kafka`.
++
+[NOTE]
+====
+To find documentation for each module, open a terminal window, enter `ansible-doc rhoas.rhoas._<module_name>_` and replace _<module_name>_ with the name of the module in the terminal. The following example outputs the documentation for the `create_kafka` module. The documentation shows required parameters (denoted by `=`) and optional parameters (denoted by `-`) for the module, as well as examples of how to use the module and the output. If you do not pass in any values for optional fields, Ansible uses the default values from the Kafka APIs.
+
+[source, shell]
+----
+$ ansible-doc rhoas.rhoas.create_kafka
+----
+====
++
+
+
+[id="proc-using-rhoas-ansible-collection_{context}"]

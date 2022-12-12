@@ -1,0 +1,14 @@
+[id='con-ansible_{context}']
+= Ansible
+:imagesdir: ../_images
+
+[role="_abstract"]
+https://www.ansible.com/overview/how-ansible-works[Ansible^] is an open source configuration management and automation tool.
+
+Ansible uses _modules_ to execute tasks. The output of one module can be the input for the next one or they can be independent of each other.
+
+You can combine one or more Ansible modules to make a play. Combine two or more plays to create an Ansible playbook, a list of sequential tasks (written in YAML) that automatically executes when you run the `ansible-playbook` command. You can use an Ansible playbook to describe the desired state of your infrastructure and then have Ansible provision it.
+
+An Ansible role is a special kind of playbook that is fully self-contained and portable with the tasks, variables, configuration templates, and other supporting files that are needed to complete your chosen tasks. Multiple roles can exist inside a collection, allowing easy sharing of content through Automation Hub and https://galaxy.ansible.com[Ansible Galaxy^].
+
+//Additional line break to resolve mod docs generation error

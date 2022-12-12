@@ -7,7 +7,7 @@ After `rhoas` is installed, you can log in to access your application services.
 
 .Prerequisites
 
-* You must have an account to access Red Hat OpenShift Application Services.
+* You have a {org-name} account.
 * You've installed the `rhoas` CLI.
 
 .Procedure

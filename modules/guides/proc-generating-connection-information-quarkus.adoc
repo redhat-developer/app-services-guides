@@ -11,11 +11,15 @@ The Quarkus application uses a topic in a Kafka instance to produce and consume 
 In addition, the producer and consumer components serialize and deserialize Kafka messages using an Avro schema stored in {registry}. Use of the schema ensures that message values conform to a defined format.
 
 .Prerequisites
+
+ifndef::community[]
+* You have a {org-name} account.
+endif::[]
 * You have a service context with a Kafka and {registry} instance.
 * https://github.com/git-guides/[Git^] is installed.
 * You have an IDE such as https://www.jetbrains.com/idea/download/[IntelliJ IDEA^], https://www.eclipse.org/downloads/[Eclipse^], or https://code.visualstudio.com/Download[Visual Studio Code^].
-* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed on Linux or MacOS. (The latest LTS version of OpenJDK is recommended.)
-* https://maven.apache.org/[Apache Maven^] 3.8.x or later is installed (for Quarkus 2.2.x).
+* https://adoptopenjdk.net/[OpenJDK^] 11 or later is installed. (The latest LTS version of OpenJDK is recommended.)
+* https://maven.apache.org/[Apache Maven^] 3.8 (or a later Maven 3 release) is installed.
 
 .Procedure
 
@@ -107,7 +111,7 @@ As shown in the example, the file that you generate contains the endpoints for y
 $ rhoas kafka acl grant-access --producer --consumer --service-account _<client-id>_ --topic quotes --group all
 ----
 +
-The command you entered allows applications to use the service account to produce and consume messages in the `quotes` topic. Applications can use any consumer group and producer.
+The command you entered allows applications to use the service account to produce and consume messages in the `quotes` topic. Applications can use any consumer group.
 
 . Use Role-Based Access Control (RBAC) to enable the new service account to access the {registry} instance and the artifacts (such as schemas) that it contains.
 +

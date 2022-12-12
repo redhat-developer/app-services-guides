@@ -1,0 +1,28 @@
+[id='con-data-sources_{context}']
+= Data sources
+:imagesdir: ../_images
+
+[role="_abstract"]
+In Terraform, you can use data sources to obtain information about resources external to Terraform, defined by another separate Terraform configuration, or modified by functions using the data block. Apply data sources in the same way that you add resources to the configuration file. The following `rhoas_kafkas` https://registry.terraform.io/providers/redhat-developer/rhoas/latest/docs[data source] example provides a list of the Kafka instances accessible to your organization in {product-long-kafka}.
+
+.Example `rhoas_kafkas` data source
+[source]
+----
+terraform {
+  required_providers {
+    rhoas = {
+      source  = "registry.terraform.io/redhat-developer/rhoas"
+      version = "0.4.0"
+    }
+  }
+}
+
+provider "rhoas" {}
+
+data "rhoas_kafkas" "all" {
+}
+
+output "all_kafkas" {
+  value = data.rhoas_kafkas.all
+}
+----

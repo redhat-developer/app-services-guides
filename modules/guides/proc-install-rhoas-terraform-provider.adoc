@@ -1,0 +1,50 @@
+[id='proc-install-rhoas-terraform-provider_{context}']
+= Installing the {product-long-rhoas} Terraform provider
+:imagesdir: ../_images
+
+.Prerequisites
+* You have a Red Hat account.
+* https://www.terraform.io/downloads[Terraform^] v1.3.4 or later is installed.
+
+.Procedure
+. In your web browser, open the {product-long-rhoas} (RHOAS) Terraform provider at https://registry.terraform.io/providers/redhat-developer/rhoas/latest.
+. In the upper-right corner of Terraform provider registry, click *Use Provider*.
++
+A pane opens that shows the configuration you need to use the RHOAS Terraform provider.
+. In the pane that opened, copy the configuration shown. The following lines show an example of the configuration.
++
+
+.Example RHOAS provider configuration
+[source,shell]
+----
+terraform {
+  required_providers {
+    rhoas = {
+      source = "redhat-developer/rhoas"
+      version = "0.4.0"
+    }
+  }
+}
+
+provider "rhoas" {
+  #configuration options
+}
+----
+
+. In your IDE, open a new file and paste the configuration you copied. You can specify configuration options in the `provider` section.
++
+
+. Save the file as a Terraform configuration file called `main.tf` in a directory of your choice. This procedure uses a directory called `Terraform`.
+. Open a terminal and navigate to the `Terraform` directory.
++
+[source,shell]
+----
+$ cd Terraform
+----
+. Enter the following command. This command initializes the working directory that contains Terraform configuration files and installs any required plug-ins.
++
+[source,shell]
+----
+$ terraform init
+----
+When the Terraform provider has been initialized, you see a confirmation message.
