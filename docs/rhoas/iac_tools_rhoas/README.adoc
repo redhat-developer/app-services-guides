@@ -93,7 +93,7 @@ As a system administrator of applications and services, you can use Infrastructu
 This guide describes how to use different IaC tools to provision and manage Kafka instances in {product-long-kafka}. To interact with Kafka instances, the IaC tools use two REST APIs that are available in {product-kafka} - a _management_ API and an _instance_ API.
 
 ifndef::community[]
-For more information about these APIs, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/2409253a-45ee-470e-bdc9-5db4bfcf9d0f.
+For more information about these APIs, see https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/2409253a-45ee-470e-bdc9-5db4bfcf9d0f[Interacting with Red Hat OpenShift Application Services using APIs].
 endif::[]
 
 For more information about creating and setting up Kafka instances, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
