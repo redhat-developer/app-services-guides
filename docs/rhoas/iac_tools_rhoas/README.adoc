@@ -116,7 +116,7 @@ An Ansible role is a special kind of playbook that is fully self-contained and p
 //Additional line break to resolve mod docs generation error
 
 [id="proc-install-rhoas-ansible-collection_{context}"]
-=== Installing the OpenShift Application Services Ansible collection
+=== Installing the {product-long-rhoas} Ansible collection
 
 [role="_abstract"]
 You can use the OpenShift Application Services Ansible (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
