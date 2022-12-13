@@ -178,6 +178,7 @@ $ ansible-doc rhoas.rhoas.create_kafka
 ====
 +
 
+
 [id="proc-using-rhoas-ansible-collection_{context}"]
 === Using the {product-long-rhoas} Ansible collection
 
