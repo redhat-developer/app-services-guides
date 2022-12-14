@@ -1,5 +1,5 @@
 [id='proc-install-rhoas-terraform-provider_{context}']
-= Installing the {product-long-rhoas} Terraform provider
+= Installing the OpenShift Application Services Terraform provider
 :imagesdir: ../_images
 
 .Prerequisites

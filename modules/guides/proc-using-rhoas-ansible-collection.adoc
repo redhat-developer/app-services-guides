@@ -1,15 +1,8 @@
 [id='proc-using-rhoas-ansible-collection_{context}']
-= Using the {product-long-rhoas} Ansible collection
+= Using the OpenShift Application Services Ansible collection
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can use the OpenShift Application Services (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
-
-* Kafka instance
-* Service accounts
-* Topics
-* ACLS
-
 The procedure in this section shows how to create and run an example playbook. The example playbook includes modules for creating a Kafka instance, topic, and service account, and assigning permissions to the service account. You also configure modules to delete the resources that you previously created.
 
 .Prerequisites
@@ -17,11 +10,11 @@ The procedure in this section shows how to create and run an example playbook. T
 * You have an offline token used to authenticate the Ansible modules with the {product-long-rhoas} API.
 
 [NOTE]
-The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for {product-long-rhoas} to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token.
+The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for OpenShift Application Services to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token.
 
 
 .Procedure
-. In your IDE, create a new enviornment variables (`.env`) file.
+. In your IDE, create a new environment variables (`.env`) file.
 . In the `.env` file, add the following variables required by the Ansible collection:
 +
 `API_BASE_HOST`:: This is the base URL for the API. For example, `\https://api.openshift.com`.

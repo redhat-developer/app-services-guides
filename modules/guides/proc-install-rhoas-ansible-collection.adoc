@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can use the OpenShift Application Services Ansible (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
+You can use the {product-long-rhoas} (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
 
 * Kafka instances
 * Service accounts
@@ -60,7 +60,3 @@ To find documentation for each module, open a terminal window, enter `ansible-do
 $ ansible-doc rhoas.rhoas.create_kafka
 ----
 ====
-+
-
-
-[id="proc-using-rhoas-ansible-collection_{context}"]

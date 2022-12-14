@@ -22,6 +22,8 @@ include::modules/guides/con-ansible.adoc[leveloffset=+1]
 
 include::modules/guides/proc-install-rhoas-ansible-collection.adoc[leveloffset=+2]
 
+include::modules/guides/proc-using-rhoas-ansible-collection.adoc[leveloffset=+2]
+
 include::modules/guides/con-terraform.adoc[leveloffset=+1]
 
 include::modules/guides/proc-install-rhoas-terraform-provider.adoc[leveloffset=+2]
