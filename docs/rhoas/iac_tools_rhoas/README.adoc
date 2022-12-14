@@ -116,7 +116,7 @@ An Ansible role is a special kind of playbook that is fully self-contained and p
 //Additional line break to resolve mod docs generation error
 
 [id="proc-install-rhoas-ansible-collection_{context}"]
-=== Installing the {product-rhoas} Ansible collection
+=== Installing the OpenShift Application Services Ansible collection
 
 [role="_abstract"]
 You can use the {product-long-rhoas} (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
@@ -178,7 +178,7 @@ $ ansible-doc rhoas.rhoas.create_kafka
 ====
 
 [id="proc-using-rhoas-ansible-collection_{context}"]
-=== Using the {product-rhoas} Ansible collection
+=== Using the OpenShift Application Services Ansible collection
 
 [role="_abstract"]
 The procedure in this section shows how to create and run an example playbook. The example playbook includes modules for creating a Kafka instance, topic, and service account, and assigning permissions to the service account. You also configure modules to delete the resources that you previously created.
@@ -188,7 +188,7 @@ The procedure in this section shows how to create and run an example playbook. T
 * You have an offline token used to authenticate the Ansible modules with the {product-long-rhoas} API.
 
 [NOTE]
-The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for {product-rhoas} to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token.
+The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for OpenShift Application Services to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token.
 
 
 .Procedure
@@ -431,7 +431,7 @@ You can fully manage your Kafka environment through your Terraform system using 
 
 
 [id="proc-install-rhoas-terraform-provider_{context}"]
-=== Installing the {product-rhoas} Terraform provider
+=== Installing the OpenShift Application Services Terraform provider
 
 .Prerequisites
 * You have a Red Hat account.
@@ -481,7 +481,7 @@ $ terraform init
 When the Terraform provider has been initialized, you see a confirmation message.
 
 [id="proc-using-terraform_{context}"]
-=== Using the {product-rhoas} Terraform provider
+=== Using the OpenShift Application Services Terraform provider
 
 Resources are the most important element in the Terraform language. Each resource block in a Terraform provider describes one or more infrastructure objects. For {product-long-kafka}, such infrastructure objects might include Kafka instances, service accounts, Access Control Lists (ACLs), and topics. The procedure that follows shows what resources you can add to your Terraform configuration file to create a Kafka instance and its associated resources such as service accounts and topics.
 
@@ -492,7 +492,7 @@ Resources are the most important element in the Terraform language. Each resourc
 
 [NOTE]
 ====
-The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for {product-rhoas} to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token. Because the offline token is a sensitive value that varies between environments it is best specified as an `OFFLINE_TOKEN` environment variable when running `terraform apply` in a terminal. To set this environment variable, enter the following command in a terminal window, replacing _<offline_token>_ with the value of the offline token:
+The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for OpenShift Application Services to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token. Because the offline token is a sensitive value that varies between environments it is best specified as an `OFFLINE_TOKEN` environment variable when running `terraform apply` in a terminal. To set this environment variable, enter the following command in a terminal window, replacing _<offline_token>_ with the value of the offline token:
 [source, subs="+quotes"]
 ----
 export OFFLINE_TOKEN=<offline_token>
