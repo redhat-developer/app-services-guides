@@ -147,10 +147,13 @@ endif::[]
 
 +
 
-. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. If you're creating a trial instance, the instance size is preconfigured.
 . Click *Create instance* to start the creation process for your Kafka instance.
 +
 --
+[.screencapture]
+.Kafka production instance configuration details
+image::sak-configure-kafka-instance.png[Image of instance configuration details in Create Kafka instance window]
+
 The new Kafka instance is listed on the *Kafka Instances* page. Typically, you need to wait a few minutes for the instance creation process to finish.
 
 ifdef::qs[]
