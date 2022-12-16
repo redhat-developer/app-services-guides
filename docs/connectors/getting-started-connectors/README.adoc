@@ -191,7 +191,7 @@ A *source* connector consumes events from an external data source and produces K
 
 You configure your {connectors} instance to listen for events from the data source and produce a Kafka message for each event. Your {connectors} instance sends the messages at regular intervals to the Kafka topic that you created for {connectors}.
 
-For this example, you create an instance of the *Data Generator* source connector. The *Data Generator* is provided for development and testing purposes. You specify the text for a message and how often to send the message.
+For this example, you create an instance of the Data Generator source connector. The Data Generator is provided for development and testing purposes. You specify the text for a message and how often to send the message.
 
 ifndef::qs[]
 .Prerequisites
@@ -199,12 +199,12 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {product-long-connectors} web console, select *{connectors}* and then click *Create a {connectors} instance*.
+. In the {product-long-connectors} web console, click *Create a {connectors} instance*.
 . Select the connector that you want to use for connecting to a data source.
 +
 You can browse through the catalog of available connectors. You can also search for a particular connector by name, and filter for sink or source connectors.
 +
-For example, to find the *Data Generator* source connector, type *data* in the search box. The list filters to show only the *Data Generator source* card.
+For example, to find the Data Generator source connector, type `data` in the search box. The list is filtered to show only the *Data Generator source* card.
 +
 Click the card to select the connector, and then click *Next*.
 
@@ -219,10 +219,10 @@ If you're using the hosted preview environment, click *Create preview namespace*
 . Click *Next*.
 
 . Configure the core configuration for your {connectors} instance:
-.. Type a name for your {connectors} instance. For example, type *hello world generator*.
+.. Type a name for your {connectors} instance. For example, type `hello world generator`.
 .. Type the *Client ID* and *Client Secret* of the service account that you created for {connectors} and then click *Next*.
-. Provide connector-specific configuration. For the *Data Generator*, provide the following information:
-.. *Topic Name*: Type the name of the Kafka topic that you created for {connectors}. For example, type *test-topic*.
+. Provide connector-specific configuration. For the Data Generator, provide the following information:
+.. *Topic Name*: Type the name of the Kafka topic that you created for {connectors}. For example, type `test-topic`.
 .. *Content Type*: Accept the default, `text/plain`.
 .. *Message*: Type the content of the message that you want the {connectors} instance to send to the Kafka topic. For example, type `Hello World!!`.
 .. *Period*: Specify the interval (in milliseconds) at which you want the {connectors} instance to send messages to the Kafka topic. For example, specify `10000`, to send a message every 10 seconds.
@@ -280,7 +280,7 @@ endif::[]
 . In the {product-long-connectors} web console, click *Create {connectors} instance*.
 
 . Select the sink connector that you want to use:
-.. For example, type *http* in the search field. The list of {connectors} filters to show the *HTTP sink* connector.
+.. For example, type `http` in the search field. The list of {connectors} is filtered to show the *HTTP sink* connector.
 .. Click the *HTTP sink* card and then click *Next*.
 
 . On the *Kafka instance* page, select the {product-kafka} instance for the connector to work with.
@@ -296,11 +296,11 @@ If you're using the hosted preview environment, click the *preview namespace* th
 . Click *Next*.
 
 . Provide the core configuration for your connector:
-.. Type a unique name for the connector. For example, type *hello world receiver*.
-.. Type the *Client ID* and *Client Secret* of the service account that you created for {connectors} and then click *Next*.
+.. Type a unique name for the connector. For example, type `hello world receiver`.
+.. In the *Client ID* and *Client Secret* fields, type the credentials for the service account that you created for {connectors} and then click *Next*.
 
 . Provide the connector-specific configuration for your *HTTP sink* {connectors} instance:
-.. *Topic Names*: Type the name of the topic that you used for the source {connectors} instance. For example, type *test-topic*.
+.. *Topic Names*: Type the name of the topic that you used for the source {connectors} instance. For example, type `test-topic`.
 .. *Method*: Accept the default, `POST`.
 .. *URL*: Type your unique URL from the link:https://webhook.site[webhook.site^].
 .. *Data Shape Consumes Format*: Accept the default, `application/octet-stream`.
