@@ -14,56 +14,56 @@ Before you use {product-connectors}, you must complete the following prerequisit
 
 For Service Preview, you have two choices:
 
-* *The hosted evaluation environment*
+* *The hosted preview environment*
 
-** The {connectors} instances are hosted on a multitenant {openshift-dedicated} cluster that is owned by Red Hat.
+** The {connectors} instances are hosted on a multitenant {osd-name-short} cluster that is owned by Red Hat.
 ** You can create four {connectors} instances at a time.
-** The evaluation environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Service Preview evaluation guidelines^].
+** The preview environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Service Preview guidelines^].
 
 * *Your own trial environment*
 
-** You have access to your own {openshift-dedicated} trial environment.
+** You have access to your own {osd-name-short} trial environment.
 ** You can create an unlimited number of {connectors} instances.
-** Your {openshift-dedicated} trial cluster expires after 60 days.
-** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift-dedicated} trial cluster^].
+** Your {osd-name-short} trial cluster expires after 60 days.
+** A cluster administrator has installed the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {osd-name-short} trial cluster^].
 
 *Configuring {product-long-kafka} for use with {product-connectors}*
 
 ifndef::qs[]
-Complete the steps in _{base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^]_ to set up the following components:
+Complete the steps in {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^] to set up the following components:
 endif::[]
 
 ifdef::qs[]
 Complete the steps in the link:https://console.redhat.com/application-services/learning-resources?quickstart=getting-started[Getting started with {product-long-kafka}] quick start to set up the following components:
 endif::[]
 
-* A *Kafka instance* that you can use for {product-connectors}.
-* A *Kafka topic* to store messages sent by data sources and make the messages available to data sinks.
-* A *service account* that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
-* *Access rules* for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
+* A _Kafka instance_ that you can use for {product-connectors}.
+* A _Kafka topic_ to store messages sent by data sources and make the messages available to data sinks.
+* A _service account_ that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
+* _Access rules_ for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
 
 ifdef::qs[]
 .Procedure
 Make sure that you have set up the prerequisite components.
 
 .Verification
-* Is the Kafka instance listed in the Kafka instances table and is the Kafka instance in the *Ready* state?
-* Is your service account created in the *Service Accounts* page?
+* Is the Kafka instance listed on the *Kafka Instances* page and is the Kafka instance in the *Ready* state?
+* Is your service account created on the *Service Accounts* page?
 * Did you save your service account credentials to a secure location?
-* Are the permissions for your service account listed in the *Access* page of the Kafka instance?
-* Is the Kafka topic that you created for {connectors} listed in the topics table of the Kafka instance?
-* If you plan to use a 60-day {openshift-dedicated} trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
+* Are the permissions for your service account listed on the *Access* page of the Kafka instance?
+* Is the Kafka topic that you created for {connectors} listed on the *Topics* page of the Kafka instance?
+* If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
 
 endif::[]
 
 ifndef::qs[]
 .Verification
-* Verify that the Kafka instance is listed in the Kafka instances table and that the state of the Kafka instance is shown as *Ready*.
-* Verify that your service account was successfully created in the *Service Accounts* page.
+* Verify that the Kafka instance is listed on the *Kafka Instances* page and that the state of the Kafka instance is shown as *Ready*.
+* Verify that your service account was successfully created on the *Service Accounts* page.
 * Verify that you saved your service account credentials to a secure location.
-* Verify that the permissions for your service account are listed in the *Access* page of the Kafka instance.
-* Verify that the Kafka topic that you created for {product-connectors} is listed in the Kafka instance's topics table.
-* If you plan to use a 60-day {openshift-dedicated} trial cluster to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your trial cluster.
+* Verify that the permissions for your service account are listed on the *Access* page of the Kafka instance.
+* Verify that the Kafka topic that you created for {product-connectors} is listed on the *Topics* page of the Kafka instance.
+* If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your trial cluster.
 
 endif::[]
 

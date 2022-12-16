@@ -24,9 +24,9 @@ Welcome to the quick start for {product-long-connectors}.
 
 In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}.
 
-A *source* connector allows you to send data from an external system to {product-kafka}.
+A _source_ connector allows you to send data from an external system to {product-kafka}.
 
-A *sink* connector allows you to send data from {product-kafka} to an external system.
+A _sink_ connector allows you to send data from {product-kafka} to an external system.
 ====
 endif::[]
 

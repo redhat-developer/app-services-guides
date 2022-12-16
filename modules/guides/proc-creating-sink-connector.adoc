@@ -3,53 +3,56 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-A *sink* connector consumes messages from a Kafka topic and sends them to an external system.
+A _sink_ connector consumes messages from a Kafka topic and sends them to an external system.
 
-For this example, you use the *HTTP Sink* connector which consumes the Kafka messages (produced by the source {connectors} instance) and sends the messages to an HTTP endpoint.
+For this example, you use the *HTTP Sink* connector which consumes the Kafka messages (produced by your Data Generator source {connectors} instance) and sends the messages to an HTTP endpoint.
+
+.Prerequisites
 
 ifndef::qs[]
-.Prerequisites
 * You're logged in to the {product-long-connectors} web console at {service-url-connectors}[^].
-* You created the source {connectors} instance as described in _Creating a {connectors} instance for a data source_.
-* For the data sink example, open the free https://webhook.site[webhook.site^] in a browser window. The `webhook.site` page provides a unique URL that you copy for use as an HTTP data sink.
 endif::[]
+* You created a Data Generator source {connectors} instance.
+* For the data sink example, open the free https://webhook.site[webhook.site^] in a browser window. The `webhook.site` page provides a unique URL that you copy for use as an HTTP data sink.
+
 
 .Procedure
 
 . In the {product-long-connectors} web console, click *Create {connectors} instance*.
 
 . Select the sink connector that you want to use:
-.. For example, type *http* in the search field. The list of {connectors} filters to show the *HTTP Sink* connector.
-.. Click the *HTTP Sink connector* card and then click *Next*.
+.. For example, type `http` in the search field. The list of {connectors} is filtered to show the *HTTP sink* connector.
+.. Click the *HTTP sink* card and then click *Next*.
 
-. Select the {product-kafka} instance for the connector to work with.
+. On the *Kafka Instance* page, select the {product-kafka} instance for the connector to work with.
 +
 For example, select *test* and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your {openshift-dedicated} environment. The namespace is the deployment space that hosts your {connectors} instances.
+. On the *Namespace* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
-If you're using a trial cluster on your own {openshift-dedicated} environment, select the card for the namespace that was created when you added the {connectors} service to your trial cluster.
+If you're using a trial cluster on your own {osd-name-short} environment, select the card for the namespace that was created when you added the {connectors} service to your trial cluster.
 +
-If you're using the evaluation {openshift-dedicated} environment, click the *eval namespace* that you created when you created the source connector.
+If you're using the hosted preview environment, click the *preview namespace* that you provisioned when you created the source connector.
 
 . Click *Next*.
 
 . Provide the core configuration for your connector:
-.. Type a unique name for the connector.
-.. Type the *Client ID* and *Client Secret* of the service account that you created for {connectors} and then click *Next*.
+.. Type a unique name for the connector. For example, type `hello world receiver`.
+.. In the *Client ID* and *Client Secret* fields, type the credentials for the service account that you created for {connectors} and then click *Next*.
 
-. Provide the connector-specific configuration for your {connectors} instance. For the *HTTP sink connector*, provide the following information:
-
-.. *Data shape Format*: Accept the default, `application/octet-stream`.
+. Provide the connector-specific configuration for your HTTP sink {connectors} instance:
+.. *Topic Names*: Type the name of the topic that you used for the source {connectors} instance. For example, type `test-topic`.
 .. *Method*: Accept the default, `POST`.
 .. *URL*: Type your unique URL from the link:https://webhook.site[webhook.site^].
-.. *Topic Names*: Type the name of the topic that you used for the source {connectors} instance. For example, type *test-topic*.
+.. *Data Shape Consumes Format*: Accept the default, `application/octet-stream`.
 
-. Optionally, configure the error handling policy for your {connectors} instance. For example, select *log* and then click *Next*.
+. Click *Next*.
+
+. Select an error handling policy for your {connectors} instance. For example, select *Stop* and then click *Next*.
 
 . Review the summary of the configuration properties and then click *Create {connectors} instance*.
 +
-Your {connectors} instance is listed in the table of {connectors}.
+Your {connectors} instance is added to the *{connectors} Instances* page.
 +
 After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state. It consumes messages from the associated Kafka topic and sends them to the data sink (for this example, the data sink is the HTTP URL that you provided).
 
