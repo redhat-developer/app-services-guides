@@ -107,9 +107,9 @@ Welcome to the quick start for {product-long-connectors}.
 
 In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}.
 
-A *source* connector allows you to send data from an external system to {product-kafka}. 
+A _source_ connector allows you to send data from an external system to {product-kafka}. 
 
-A *sink* connector allows you to send data from {product-kafka} to an external system.
+A _sink_ connector allows you to send data from {product-kafka} to an external system.
 ====
 endif::[]
 
@@ -152,10 +152,10 @@ ifdef::qs[]
 Complete the steps in the link:https://console.redhat.com/application-services/learning-resources?quickstart=getting-started[Getting started with {product-long-kafka}] quick start to set up the following components:
 endif::[]
 
-* A *Kafka instance* that you can use for {product-connectors}.
-* A *Kafka topic* to store messages sent by data sources and make the messages available to data sinks.
-* A *service account* that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
-* *Access rules* for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
+* A _Kafka instance_ that you can use for {product-connectors}.
+* A _Kafka topic_ to store messages sent by data sources and make the messages available to data sinks.
+* A _service account_ that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
+* _Access rules_ for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
 
 ifdef::qs[]
 .Procedure
@@ -187,7 +187,7 @@ endif::[]
 == Creating a {connectors} instance for a data source
 
 [role="_abstract"]
-A *source* connector consumes events from an external data source and produces Kafka messages.
+A _source_ connector consumes events from an external data source and produces Kafka messages.
 
 You configure your {connectors} instance to listen for events from the data source and produce a Kafka message for each event. Your {connectors} instance sends the messages at regular intervals to the Kafka topic that you created for {connectors}.
 
@@ -208,7 +208,7 @@ For example, to find the Data Generator source connector, type `data` in the sea
 +
 Click the card to select the connector, and then click *Next*.
 
-. On the *Kafka instance* page, click the card for the {product-kafka} instance that you configured for {connectors}, and then click *Next*.
+. On the *Kafka Instance* page, click the card for the {product-kafka} instance that you configured for {connectors}, and then click *Next*.
 
 . On the *Namespace* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
@@ -218,21 +218,21 @@ If you're using the hosted preview environment, click *Create preview namespace*
 
 . Click *Next*.
 
-. Configure the core configuration for your {connectors} instance:
+. Specify the core configuration for your {connectors} instance:
 .. Type a name for your {connectors} instance. For example, type `hello world generator`.
-.. Type the *Client ID* and *Client Secret* of the service account that you created for {connectors} and then click *Next*.
+.. In the *Client ID* and *Client Secret* fields, type the credentials for the service account that you created for {connectors} and then click *Next*.
 . Provide connector-specific configuration. For the Data Generator, provide the following information:
 .. *Topic Name*: Type the name of the Kafka topic that you created for {connectors}. For example, type `test-topic`.
 .. *Content Type*: Accept the default, `text/plain`.
 .. *Message*: Type the content of the message that you want the {connectors} instance to send to the Kafka topic. For example, type `Hello World!!`.
-.. *Period*: Specify the interval (in milliseconds) at which you want the {connectors} instance to send messages to the Kafka topic. For example, specify `10000`, to send a message every 10 seconds.
+.. *Period*: Specify the interval (in milliseconds) at which you want the {connectors} instance to send messages to the Kafka topic. For example, to send a message every 10 seconds, specify `10000`.
 .. *Data Shape Produces Format*: Accept the default, `application/octet-stream`.
 
 . Click *Next*.
 
-. Select an error handling policy for your {connectors} instance. The options are:
+. Select one of the following error handling policy for your {connectors} instance:
 +
-* *Stop*: If a message fails to send, the {connectors} instance stops running and changes its status to `Failed` state. You can view the error message. 
+* *Stop*: If a message fails to send, the {connectors} instance stops running and changes its status to *Failed* state. You can view the error message. 
 * *Ignore*: If a message fails to send, the {connectors} instance ignores the error and continues to run. No error message is logged.
 * *Dead letter queue*: If a message fails to send, the {connectors} instance sends error details to the Kafka topic that you specify.
 
@@ -262,7 +262,7 @@ endif::[]
 == Creating a {connectors} instance for a data sink
 
 [role="_abstract"]
-A *sink* connector consumes messages from a Kafka topic and sends them to an external system.
+A _sink_ connector consumes messages from a Kafka topic and sends them to an external system.
 
 For this example, you use the *HTTP Sink* connector which consumes the Kafka messages (produced by your Data Generator source {connectors} instance) and sends the messages to an HTTP endpoint.
 
@@ -271,7 +271,7 @@ For this example, you use the *HTTP Sink* connector which consumes the Kafka mes
 ifndef::qs[]
 * You're logged in to the {product-long-connectors} web console at {service-url-connectors}[^].
 endif::[]
-* You created the source {connectors} instance as described in _Creating a {connectors} instance for a data source_.
+* You created a Data Generator source {connectors} instance.
 * For the data sink example, open the free https://webhook.site[webhook.site^] in a browser window. The `webhook.site` page provides a unique URL that you copy for use as an HTTP data sink.
 
 
@@ -283,7 +283,7 @@ endif::[]
 .. For example, type `http` in the search field. The list of {connectors} is filtered to show the *HTTP sink* connector.
 .. Click the *HTTP sink* card and then click *Next*.
 
-. On the *Kafka instance* page, select the {product-kafka} instance for the connector to work with.
+. On the *Kafka Instance* page, select the {product-kafka} instance for the connector to work with.
 +
 For example, select *test* and then click *Next*.
 
@@ -299,7 +299,7 @@ If you're using the hosted preview environment, click the *preview namespace* th
 .. Type a unique name for the connector. For example, type `hello world receiver`.
 .. In the *Client ID* and *Client Secret* fields, type the credentials for the service account that you created for {connectors} and then click *Next*.
 
-. Provide the connector-specific configuration for your *HTTP sink* {connectors} instance:
+. Provide the connector-specific configuration for your HTTP sink {connectors} instance:
 .. *Topic Names*: Type the name of the topic that you used for the source {connectors} instance. For example, type `test-topic`.
 .. *Method*: Accept the default, `POST`.
 .. *URL*: Type your unique URL from the link:https://webhook.site[webhook.site^].
