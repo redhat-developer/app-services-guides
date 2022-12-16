@@ -12,24 +12,15 @@ ifndef::qs[]
 endif::[]
 
 .Procedure
-. In the {product-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and click *Create Kafka instance*.
+. On the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^], click *Create Kafka instance*.
+. Complete the *Create a Kafka instance* form to define the following instance details. Some instance details currently have only one option.
+* *Instance name*: Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
+* *Cloud provider*: For a production Kafka instance, accept the default value of *Amazon Web Services*. If you're creating a trial instance, you also have the option to select *Google Cloud Platform*.
+* *Cloud region*: Select a cloud provider region from the list.
+* *Availability zones*: The selection for availability zones is preconfigured as *Multi* for a production instance and *Single* for a trial instance.
+* *Size*: If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. If you're creating a trial instance, the instance size is preconfigured.
 +
-ifdef::qs[]
-The instance creation pane opens.
-endif::[]
-ifndef::qs[]
-The instance creation pane opens, as shown in the figure.
-+
-[.screencapture]
-.Kafka instance creation pane
-image::kafka-getting-started-kafka/sak-configure-kafka-instance.png[Image of Create Kafka instance pane]
-endif::[]
 
-. Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
-. In the *Cloud region* list, select the relevant option.
-+
-NOTE: The cloud provider is preconfigured to the same value for both trial and production instances. The availability zone value is preconfigured as *Single* for a trial instance and *Multi* for a production instance.
-+
 ////
 //For post preview, when more options are available.
 . In the *Streams for Apache Kafka* page of the web console, click *Create Kafka instance* and define the following instance details. Some values currently have only one option.
@@ -39,7 +30,8 @@ NOTE: The cloud provider is preconfigured to the same value for both trial and p
 * *Availability zones*: Select `Multi`.
 ////
 
-. If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. If you're creating a trial instance, the instance size is preconfigured.
++
+
 . Click *Create instance* to start the creation process for your Kafka instance.
 +
 --
