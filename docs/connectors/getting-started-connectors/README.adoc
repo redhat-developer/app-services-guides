@@ -166,7 +166,7 @@ Make sure that you have set up the prerequisite components.
 * Is your service account created on the *Service Accounts* page?
 * Did you save your service account credentials to a secure location?
 * Are the permissions for your service account listed on the *Access* page of the Kafka instance?
-* Is the Kafka topic that you created for {connectors} listed on the page for the Kafka instance?
+* Is the Kafka topic that you created for {connectors} listed on the *Topics* page of the Kafka instance?
 * If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
 
 endif::[]
@@ -177,7 +177,7 @@ ifndef::qs[]
 * Verify that your service account was successfully created on the *Service Accounts* page.
 * Verify that you saved your service account credentials to a secure location.
 * Verify that the permissions for your service account are listed on the *Access* page of the Kafka instance.
-* Verify that the Kafka topic that you created for {product-connectors} is listed on the page for the Kafka instance.
+* Verify that the Kafka topic that you created for {product-connectors} is listed on the *Topics* page of the Kafka instance.
 * If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your trial cluster.
 
 endif::[]
