@@ -4,6 +4,9 @@ metadata:
   name: getting-started
   annotations:
     order: 1
+  labels:
+    serviceCategory: Application Services
+    product: rhosak  
 spec:
   version: 0.1
   type:
