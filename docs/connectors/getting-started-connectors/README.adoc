@@ -95,6 +95,12 @@ In this example, you connect a data source (a data generator) that creates Kafka
 
 // Condition out QS-only content so that it doesn't appear in docs.
 // All QS anchor IDs must be in this alternate anchor ID format `[#anchor-id]` because the ascii splitter relies on the other format `[id="anchor-id"]` to generate module files.
+
+ifndef::qs[]
+.Example flow of messages from a data source to a data sink
+image::connectors-ex-diagram.png[Image of data flowing from a data source to a data sink]
+endif::[]
+
 ifdef::qs[]
 [#description]
 ====
@@ -121,26 +127,32 @@ endif::[]
 
 Before you use {product-connectors}, you must complete the following prerequisites: 
 
-* Determine which {openshift} environment to use for deploying your {product-connectors} instances.
+* Determine which {openshift} environment to use for your _{connectors} namespace_. The {connectors} namespace is where your {product-connectors} instances will be deployed.
 
 * Configure {product-long-kafka} for use with {product-connectors}.
 
-*Determining which {openshift} environment to use for deploying your {connectors} instances*
+*Determining which {openshift} environment to use for your {connectors} namespace*
 
-For Service Preview, you have two choices:
+You have three choices:
 
 * *The hosted preview environment*
 
 ** The {connectors} instances are hosted on a multitenant {osd-name-short} cluster that is owned by Red Hat.
 ** You can create four {connectors} instances at a time.
-** The preview environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Service Preview guidelines^].
+** The preview environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Preview guidelines^].
 
-* *Your own trial environment*
+* *Your own trial {osd-name-short} environment*
 
 ** You have access to your own {osd-name-short} trial environment.
 ** You can create an unlimited number of {connectors} instances.
 ** Your {osd-name-short} trial cluster expires after 60 days.
-** A cluster administrator has installed the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {osd-name-short} trial cluster^].
+** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
+
+* *Your own Red Hat OpenShift Service for AWS (ROSA) cluster*
+
+** You have access to a Red Hat {openshift} Service for AWS (ROSA) environment.
+** You can create {connectors} instances depending on your subscription, as described in https://access.redhat.com/articles/6990631[Red Hat OpenShift Connectors Tiers^].
+** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
 
 *Configuring {product-long-kafka} for use with {product-connectors}*
 
@@ -167,7 +179,7 @@ Make sure that you have set up the prerequisite components.
 * Did you save your service account credentials to a secure location?
 * Are the permissions for your service account listed on the *Access* page of the Kafka instance?
 * Is the Kafka topic that you created for {connectors} listed on the *Topics* page of the Kafka instance?
-* If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
+* If you plan to use your own {openshift} cluster (OSD trial or ROSA) to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
 
 endif::[]
 
@@ -178,7 +190,7 @@ ifndef::qs[]
 * Verify that you saved your service account credentials to a secure location.
 * Verify that the permissions for your service account are listed on the *Access* page of the Kafka instance.
 * Verify that the Kafka topic that you created for {product-connectors} is listed on the *Topics* page of the Kafka instance.
-* If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your trial cluster.
+* If you plan to use your own {openshift} cluster (OSD trial or ROSA) to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your trial cluster.
 
 endif::[]
 
@@ -193,8 +205,11 @@ You configure your {connectors} instance to listen for events from the data sour
 
 For this example, you create an instance of the Data Generator source connector. The Data Generator is provided for development and testing purposes. You specify the text for a message and how often to send the message.
 
-ifndef::qs[]
 .Prerequisites
+
+* If you want to use a dead letter queue (DLQ) to handle any messaging errors, create a Kafka topic to use for the DLQ.
+
+ifndef::qs[]
 * You're logged in to the {product-long-connectors} web console at {service-url-connectors}[^].
 endif::[]
 
@@ -273,7 +288,7 @@ ifndef::qs[]
 endif::[]
 * You created a Data Generator source {connectors} instance.
 * For the data sink example, open the free https://webhook.site[webhook.site^] in a browser window. The `webhook.site` page provides a unique URL that you copy for use as an HTTP data sink.
-
+* If you want to use a dead letter queue (DLQ) to handle any messaging errors, create a Kafka topic to use for the DLQ.
 
 .Procedure
 

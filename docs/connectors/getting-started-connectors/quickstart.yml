@@ -16,7 +16,7 @@ spec:
   description: !snippet README.adoc#description
   prerequisites:
     - Complete the <a href="https://console.redhat.com/application-services/learning-resources?quickstart=getting-started">Getting started with OpenShift Streams for Apache Kafka</a> quick start.
-    - If you plan to use a 60-day OpenShift Dedicated trial cluster to deploy your Connectors instances, a cluster administrator must install the Connectors add-on as described in <a href="https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01">Adding the Red Hat OpenShift Connectors add-on to your OpenShift Dedicated trial cluster</a>.
+    - If you plan to use your own OpenShift cluster to deploy your Connectors instances, a cluster administrator must install the Connectors add-on as described in <a href="https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01">Adding the Red Hat OpenShift Connectors add-on to your OpenShift cluster</a>.
   introduction: !snippet README.adoc#introduction
   tasks:
     - !snippet/proc README.adoc#proc-verifying-prerequisites-for-connectors
