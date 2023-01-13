@@ -145,16 +145,16 @@ You have three choices:
 ** You can create four {connectors} instances at a time.
 ** The preview environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Preview guidelines^].
 
-* *Your own {product-osd-long} Trial environment*
+* *Your own {product-long-osd} Trial environment*
 
-** You have access to an {product-osd-long} Trial environment.
+** You have access to your own {product-long-osd} Trial environment.
 ** You can create an unlimited number of {connectors} instances.
 ** Your {product-osd} Trial cluster expires after 60 days.
 ** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
 
 * *Your own {product-long-rosa} cluster*
 
-** You have access to a {product-long-rosa} (ROSA) environment.
+** You have access to your own {product-long-rosa} (ROSA) environment.
 ** You can create {connectors} instances depending on your subscription, as described in https://access.redhat.com/articles/6990631[Red Hat OpenShift Connectors Tiers^].
 ** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
 
@@ -229,9 +229,9 @@ Click the card to select the connector, and then click *Next*.
 
 . On the *Kafka Instance* page, click the card for the {product-kafka} instance that you configured for {connectors}, and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your {product-osd} environment.
+. On the *Namespace* page, the namespace that you select depends on your {openshift} environment.
 +
-If you're using a Trial cluster in your own {product-osd} environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your Trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {product-osd} Trial cluster^].
+If you're using your own {openshift} environment (ROSA or {product-osd} Trial), select the card for the namespace that was created when a cluster administrator added the {connectors} service to your cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {product-osd} Trial cluster^].
 +
 If you're using the hosted preview environment, click *Create preview namespace* to provision a namespace for hosting the {connectors} instances that you create.
 
@@ -306,9 +306,9 @@ endif::[]
 +
 For example, select *test* and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your {product-osd} environment.
+. On the *Namespace* page, the namespace that you select depends on your {openshift} environment.
 +
-If you're using a Trial cluster on your own {product-osd} environment, select the card for the namespace that was created when you added the {connectors} service to your Trial cluster.
+If you're using your own {openshift} environment (ROSA or {product-osd} Trial), select the card for the namespace that was created when a cluster administrator added the {connectors} service to your cluster.
 +
 If you're using the hosted preview environment, click the *preview namespace* that you provisioned when you created the source connector.
 
