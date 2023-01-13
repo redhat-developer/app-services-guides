@@ -17,11 +17,10 @@
 
 //OpenShift
 :openshift: OpenShift
-:product-osd: OpenShift Dedicated
-//including product-long-x for downstream use - here they are the same as product-x
-:product-long-osd: OpenShift Dedicated
-:product-rosa: OpenShift Service for AWS
-:product-long-rosa: OpenShift Service for AWS
+:osd-name: OpenShift Dedicated
+:osd-name-short: OpenShift Dedicated
+:rosa-name: OpenShift Service for AWS
+:rosa-name-short: OpenShift Service for AWS
 
 //OpenShift Application Services CLI
 :base-url-cli: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
