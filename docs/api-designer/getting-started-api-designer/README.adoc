@@ -341,7 +341,8 @@ endif::[]
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
+Congratulations!
+You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
 ====
 endif::[]
 
