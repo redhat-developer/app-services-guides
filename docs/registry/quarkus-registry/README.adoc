@@ -163,7 +163,7 @@ This Quarkus example application includes producer and consumer processes that s
 * You have the SASL/OAUTHBEARER token endpoint used by the {registry} and Kafka instances. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Token endpoint URL* value.
 
 .Procedure
-. On the command line, enter the following commands. These commands set environment variables that enable you to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information. The environment variables that you set are described as follows:
+. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information.
 +
 * The `<bootstrap_server>` value is the bootstrap server endpoint for your Kafka instance.
 * The `<service_registry_url>` value is the URL for your {registry} instance.
@@ -182,7 +182,7 @@ $ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 ----
 
-. In the Quarkus example application, review the `/src/main/resources/application.properties` files in the `consumer` and `producer` sub-folders to understand how the environment variables you set in the previous step are used. This example uses the `dev` configuration profile in the `application.properties` files.
+. In the Quarkus example application, review the `/src/main/resources/application.properties` files in the `consumer` and `producer` subfolders to understand how the environment variables you set in the previous step are used. This example uses the `dev` configuration profile in the `application.properties` files.
 
 ifdef::qs[]
 .Verification
