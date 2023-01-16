@@ -285,7 +285,7 @@ $ cd ~/app-services-guides/code-examples/quarkus-service-registry-quickstart/
 +
 [source,shell]
 ----
-$ rhoas service-account create --type env --output-file ./producer/.env
+$ rhoas service-account create --file-format env --output-file ./producer/.env
 ----
 
 . Generate an environment variables file that contains the connection configuration information required by the producer component.
