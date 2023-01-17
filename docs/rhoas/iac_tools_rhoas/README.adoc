@@ -211,7 +211,13 @@ $ ansible localhost -m rhoas.rhoas.create_kafka -a 'name=unique-kafka-name billi
 Ansible runs the `rhoas.rhoas.create_kafka` task in the terminal and creates the instance.
 
 . To open the example playbook used in later steps, use your IDE to navigate to the `rhoas` folder in the `.ansible` directory.
-. Open the `rhoas_test` example playbook. You can also open a web browser and navigate to https://github.com/redhat-developer/app-services-ansible/blob/main/rhoas_test.yml.
+. Open the `rhoas_test` example playbook. 
++
+[NOTE]
+====
+You can also open a web browser to view the https://github.com/redhat-developer/app-services-ansible/blob/main/rhoas_test.yml[`rhoas_test` playbook^].
+====
+
 . Inspect the contents of the example playbook. In particular, observe that the playbook has modules for certain tasks. You will use these modules to create a new playbook that performs the following tasks:
 +
 * Creating and deleting a Kafka instance
@@ -526,8 +532,8 @@ You can create, view, configure, and delete the following {product-kafka} resour
 * https://www.terraform.io/downloads[Terraform^] v1.3.4 or later is installed.
 
 .Procedure
-. In your web browser, open the {product-long-rhoas} (RHOAS) Terraform provider at https://registry.terraform.io/providers/redhat-developer/rhoas/latest.
-. In the upper-right corner of Terraform provider registry, click *Use Provider*.
+. In your web browser, navigate to the https://registry.terraform.io/providers/redhat-developer/rhoas/latest[{product-long-rhoas} (RHOAS) Terraform provider^].
+. In the upper-right corner of the RHOAS Terraform provider registry, click *Use Provider*.
 +
 A pane opens that shows the configuration you need to use the RHOAS Terraform provider.
 . In the pane that opened, copy the configuration shown. The following lines show an example of the configuration.
