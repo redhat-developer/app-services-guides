@@ -210,8 +210,15 @@ $ ansible localhost -m rhoas.rhoas.create_kafka -a 'name=unique-kafka-name billi
 ----
 Ansible runs the `rhoas.rhoas.create_kafka` task in the terminal and creates the instance.
 
-. To open the example playbook used in later steps, use your IDE to navigate to the `rhoas` folder in the `.ansible` directory.
-. Open the `rhoas_test` example playbook. 
+[id="proc-creating-playbook-ansible_{context}"]
+=== Creating a playbook
+
+[role="_abstract"]
+
+This section shows you how to create and run an example playbook that allows you to manage your {product-long-kafka} resources.
+
+. To open the example playbook used in this section, use your IDE to navigate to the `rhoas` folder in the `.ansible` directory.
+. Open the `rhoas_test` example playbook.
 +
 [NOTE]
 ====
@@ -252,7 +259,7 @@ kafka_id: __<kafka_id>__
 ----
 
 [id="proc-creating-kafka-instance-ansible_{context}"]
-=== Creating a Kafka instance
+==== Creating a Kafka instance
 
 [role="_abstract"]
 To manage a Kafka instance using Ansible, you can use the `create_kafka` module and run it as part of a playbook or  as a single module.
@@ -294,10 +301,10 @@ All other information for the instance is provided by the Kafka APIs.
 When you run the `create_kafka_` module as part of the playbook at the end of these steps, Ansible saves the output of that command in a variable in the `register` field. In the preceding example, Ansible saves the created Kafka instance as `kafka_req_resp`.
 
 [id="proc-creating-service-account-ansible_{context}"]
-=== Creating a service account
+==== Creating a service account
 
 [role="_abstract"]
-To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. 
+To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials.
 
 .Prerequisites
 
@@ -324,7 +331,7 @@ To connect your applications or services to a Kafka instance in {product-kafka},
 When you run the `create_service_account` module as part of the playbook at the end of these steps, Ansible populates the generated service account credentials in the `client_id` and `client_secret` fields in the terminal after it creates the service account.
 
 [id="proc-creating-acl-permissions-ansible_{context}"]
-=== Creating Access Control List permissions
+==== Creating Access Control List permissions
 
 [role="_abstract"]
 After you create a service account to connect to a Kafka instance, you must also set the appropriate level of access for that new account in an Access Control List (ACL) for the Kafka instance.
@@ -371,7 +378,7 @@ After you create a service account to connect to a Kafka instance, you must also
 `permission_type`:: Whether permission is given to the user or taken away.
 
 [id="proc-configuring-kafka-topic-ansible_{context}"]
-=== Configuring a Kafka topic
+==== Configuring a Kafka topic
 
 [role="_abstract"]
 After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your applications and services.
@@ -442,10 +449,10 @@ After you create a Kafka instance, you can create Kafka topics to start producin
 . To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
 
 [id="proc-deleting-service-account-ansible_{context}"]
-=== Deleting a service account
+==== Deleting a service account
 
 [role="_abstract"]
-To delete a service account, use the `delete_service_account_by_id` module. 
+To delete a service account, use the `delete_service_account_by_id` module.
 
 .Prerequisites
 
@@ -468,10 +475,10 @@ To delete a service account, use the `delete_service_account_by_id` module.
 ----
 
 [id="proc-deleting-kafka-instance-ansible_{context}"]
-=== Deleting a Kafka instance
+==== Deleting a Kafka instance
 
 [role="_abstract"]
-To delete a Kafka instance, use the `delete_kafka_by_id` module. 
+To delete a Kafka instance, use the `delete_kafka_by_id` module.
 
 .Prerequisites
 
@@ -491,7 +498,7 @@ To delete a Kafka instance, use the `delete_kafka_by_id` module.
 . In the `openshift_offline_token` field, enter your OpenShift offline token.
 
 [id="proc-running-playbook-ansible_{context}"]
-=== Running the playbook
+==== Running the playbook
 
 [role="_abstract"]
 When you have finished creating the resources, run the playbook.
@@ -518,7 +525,7 @@ link:https://www.terraform.io/[HashiCorp Terraform^] is an Infrastructure as Cod
 === Installing the OpenShift Application Services Terraform provider
 
 [role="_abstract"]
-You can fully manage your Kafka environment through your Terraform system using the {product-long-rhoas} (RHOAS) link:https://registry.terraform.io/providers/redhat-developer/rhoas/latest[Terraform^] provider, which is available in the official link:https://www.terraform.io/[Terraform provider registry^]. 
+You can fully manage your Kafka environment through your Terraform system using the {product-long-rhoas} (RHOAS) link:https://registry.terraform.io/providers/redhat-developer/rhoas/latest[Terraform^] provider, which is available in the official link:https://www.terraform.io/[Terraform provider registry^].
 
 You can create, view, configure, and delete the following {product-kafka} resources:
 
@@ -581,7 +588,7 @@ When the Terraform provider has been initialized, you see a confirmation message
 Resources are the most important element in the Terraform language. Each resource block in a Terraform provider describes one or more infrastructure objects. For {product-long-kafka}, such infrastructure objects might include Kafka instances, service accounts, Access Control Lists (ACLs), and topics. The procedures that follow show what resources you can add to your Terraform configuration file to create a Kafka instance and its associated resources such as service accounts and topics.
 
 [id="proc-creating-kafka-instance-terraform_{context}"]
-=== Creating a Kafka instance
+==== Creating a Kafka instance
 
 [role="_abstract"]
 To manage a Kafka instance using Terraform, use the `rhoas_kafka` resource.
@@ -639,10 +646,10 @@ Running `terraform apply` for the first time also creates the Terraform state fi
 . To verify Terraform successfully created your Kafka instance, in your web browser, open the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^].
 
 [id="proc-creating-service-account-terraform_{context}"]
-=== Creating a service account
+==== Creating a service account
 
 [role="_abstract"]
-To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. 
+To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials.
 
 .Prerequisites
 
@@ -684,7 +691,7 @@ In the terminal, Terraform displays a message that `rhoas_service_account.my-ser
 . To verify Terraform successfully created your service account, in your web browser, open the *Service Accounts* page of the {product-kafka} {service-url-kafka}[web console^].
 
 [id="proc-creating-acl-permissions-terraform_{context}"]
-=== Creating Access Control List permissions
+==== Creating Access Control List permissions
 
 [role="_abstract"]
 After you create a service account to connect to a Kafka instance, you must also set the appropriate level of access for that new account in an Access Control List (ACL) for the Kafka instance.
@@ -733,7 +740,7 @@ In the terminal, Terraform displays a message that `rhoas_acl.acl.` will be crea
 . When you're ready to set your permissions, type *yes*.
 
 [id="proc-creating-kafka-topic-terraform_{context}"]
-=== Creating a Kafka topic
+==== Creating a Kafka topic
 
 [role="_abstract"]
 After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your applications and services.
@@ -770,10 +777,10 @@ In the terminal, Terraform displays a message that `rhoas_topic.my-topic` will b
 . To verify Terraform successfully created your topic, in your web browser, open the *Topics* page of the {product-kafka} {service-url-kafka}[web console^].
 
 [id="proc-deleting-resources_{context}"]
-=== Deleting resources
+==== Deleting resources
 
 [role="_abstract"]
-You can delete the resources you have created when you have finished using them. 
+You can delete the resources you have created when you have finished using them.
 
 .Prerequisites
 
