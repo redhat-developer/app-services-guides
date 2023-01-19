@@ -152,8 +152,9 @@ security.protocol=SASL_SSL
 sasl.oauthbearer.token.endpoint.url= {sso-token-url}
 
 sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required \
-clientId="<client-id>" \
-clientSecret="<client-secret>" ;
+  scope="openid" \
+  clientId="<client-id>" \
+  clientSecret="<client-secret>" ;
 
 sasl.login.callback.handler.class=org.apache.kafka.common.security.oauthbearer.secured.OAuthBearerLoginCallbackHandler
 ----
