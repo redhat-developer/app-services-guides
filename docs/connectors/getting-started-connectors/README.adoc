@@ -210,7 +210,7 @@ Click the card to select the connector, and then click *Next*.
 
 . On the *Kafka Instance* page, click the card for the {product-kafka} instance that you configured for {connectors}, and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
+. On the *Deployment* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
 If you're using a trial cluster in your own {osd-name-short} environment, select the card for the namespace that was created when a system administrator added the {connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {osd-name-short} trial cluster^].
 +
@@ -287,7 +287,7 @@ endif::[]
 +
 For example, select *test* and then click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
+. On the *Deployment* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
 +
 If you're using a trial cluster on your own {osd-name-short} environment, select the card for the namespace that was created when you added the {connectors} service to your trial cluster.
 +
