@@ -5,7 +5,7 @@ metadata:
   annotations:
     order: 1
   labels:
-    serviceCategory: Application Services
+    service-category: application-services
     product: rhosak  
 spec:
   version: 0.1
