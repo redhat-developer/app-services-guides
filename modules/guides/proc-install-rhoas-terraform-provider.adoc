@@ -2,13 +2,23 @@
 = Installing the OpenShift Application Services Terraform provider
 :imagesdir: ../_images
 
+[role="_abstract"]
+You can fully manage your Kafka environment through your Terraform system using the {product-long-rhoas} (RHOAS) link:https://registry.terraform.io/providers/redhat-developer/rhoas/latest[Terraform^] provider, which is available in the official link:https://www.terraform.io/[Terraform provider registry^].
+
+You can create, view, configure, and delete the following {product-kafka} resources:
+
+* Kafka instances
+* Service accounts
+* Kafka topics
+* Access Control Lists (ACLs)
+
 .Prerequisites
 * You have a Red Hat account.
 * https://www.terraform.io/downloads[Terraform^] v1.3.4 or later is installed.
 
 .Procedure
-. In your web browser, open the {product-long-rhoas} (RHOAS) Terraform provider at https://registry.terraform.io/providers/redhat-developer/rhoas/latest.
-. In the upper-right corner of Terraform provider registry, click *Use Provider*.
+. In your web browser, navigate to the https://registry.terraform.io/providers/redhat-developer/rhoas/latest[{product-long-rhoas} (RHOAS) Terraform provider^].
+. In the upper-right corner of the RHOAS Terraform provider registry, click *Use Provider*.
 +
 A pane opens that shows the configuration you need to use the RHOAS Terraform provider.
 . In the pane that opened, copy the configuration shown. The following lines show an example of the configuration.

@@ -1,0 +1,6 @@
+[id='con-using-terraform_{context}']
+= Using the OpenShift Application Services Terraform provider
+:imagesdir: ../_images
+
+[role="_abstract"]
+Resources are the most important element in the Terraform language. Each resource block in a Terraform provider describes one or more infrastructure objects. For {product-long-kafka}, such infrastructure objects might include Kafka instances, service accounts, Access Control Lists (ACLs), and topics. The procedures that follow show what resources you can add to your Terraform configuration file to create a Kafka instance and its associated resources such as service accounts and topics.

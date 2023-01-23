@@ -24,11 +24,39 @@ include::modules/guides/proc-install-rhoas-ansible-collection.adoc[leveloffset=+
 
 include::modules/guides/proc-using-rhoas-ansible-collection.adoc[leveloffset=+2]
 
+include::modules/guides/proc-creating-playbook-ansible.adoc[leveloffset=+2]
+
+include::modules/guides/proc-creating-kafka-instance-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-creating-service-account-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-creating-acl-permissions-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-configuring-kafka-topic-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-deleting-topic-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-deleting-service-account-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-deleting-kafka-instance-ansible.adoc[leveloffset=+3]
+
+include::modules/guides/proc-running-playbook-ansible.adoc[leveloffset=+3]
+
 include::modules/guides/con-terraform.adoc[leveloffset=+1]
 
 include::modules/guides/proc-install-rhoas-terraform-provider.adoc[leveloffset=+2]
 
-include::modules/guides/proc-using-terraform.adoc[leveloffset=+2]
+include::modules/guides/con-using-terraform.adoc[leveloffset=+2]
+
+include::modules/guides/proc-creating-kafka-instance-terraform.adoc[leveloffset=+3]
+
+include::modules/guides/proc-creating-service-account-terraform.adoc[leveloffset=+3]
+
+include::modules/guides/proc-creating-acl-permissions-terraform.adoc[leveloffset=+3]
+
+include::modules/guides/proc-creating-kafka-topic-terraform.adoc[leveloffset=+3]
+
+include::modules/guides/proc-deleting-resources.adoc[leveloffset=+3]
 
 include::modules/guides/con-data-sources.adoc[leveloffset=+2]
 

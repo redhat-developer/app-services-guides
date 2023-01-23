@@ -1,0 +1,42 @@
+[id='proc-creating-kafka-instance-ansible_{context}']
+= Creating a Kafka instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+To manage a Kafka instance using Ansible, you can use the `create_kafka` module and run it as part of a playbook or  as a single module.
+
+.Prerequisites
+
+* You have a Red Hat account.
+* You have an offline token that authenticates the Ansible modules with the {product-long-rhoas} API.
+
+.Procedure
+
+. To add a module that creates a new Kafka instance to a playbook, copy the `create_kafka` module shown in the following example and paste it into the `tasks:` section of your `rhoas_kafka.yml` file.
++
+
+.Example `create_kafka` module
+[source,yaml]
+----
+- name: Create kafka
+    rhoas.rhoas.create_kafka:
+      name: "kafka-name"
+      instance_type: "x1"
+      billing_model: "standard"
+      cloud_provider: "aws"
+      region: "us-east-1"
+      plan: "developer.x1"
+      billing_cloud_account_id: "123456789"
+      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
+    register:
+      kafka_req_resp
+----
++
+
+. In the `name` field, enter a name for the Kafka instance.
+. In the `billing_cloud_account_id`, enter the billing cloud account ID.
+. In the `openshift_offline_token` field, enter your OpenShift offline token.
++
+All other information for the instance is provided by the Kafka APIs.
++
+When you run the `create_kafka_` module as part of the playbook at the end of these steps, Ansible saves the output of that command in a variable in the `register` field. In the preceding example, Ansible saves the created Kafka instance as `kafka_req_resp`.

@@ -1,0 +1,58 @@
+[id='proc-creating-kafka-instance-terraform_{context}']
+= Creating a Kafka instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+To manage a Kafka instance using Terraform, use the `rhoas_kafka` resource.
+
+.Prerequisites
+
+* You have a Red Hat account.
+* You have an offline token that authenticates the Terraform resources with the {product-long-rhoas} API.
+
+[NOTE]
+====
+The offline token is a refresh token with no expiry and can be used by non-interactive processes to provide an access token for OpenShift Application Services to authenticate the user. The token is an OpenShift offline token and you can find it at https://cloud.redhat.com/openshift/token. Because the offline token is a sensitive value that varies between environments it is best specified as an `OFFLINE_TOKEN` environment variable when running `terraform apply` in a terminal. To set this environment variable, enter the following command in a terminal window, replacing _<offline_token>_ with the value of the offline token:
+[source, subs="+quotes"]
+----
+export OFFLINE_TOKEN=_<offline_token>_
+----
+====
+
+.Procedure
+
+. Open the `main.tf` file in your IDE for editing.
+. Copy the `rhoas_kafka` resource shown in the following example and paste it into the `main.tf` file after the provider configuration. This example uses the `"my-instance"` identifier and creates a Kafka instance called `my-instance`.
++
+[NOTE]
+In the following examples, the identifier and the name of the infrastructure object are the same for demonstration purposes only. You can choose different values for each field.
++
+
+.Example `rhoas_kafka` resource
+[source]
+----
+resource "rhoas_kafka" "my-instance" {
+  name = "my-instance"
+  plan = "developer.x1"
+  billing_model = "standard"
+}
+  output "bootstrap_server_my-instance" {
+    value = rhoas_kafka.my-instance.bootstrap_server_host
+}
+
+----
+. Save your changes.
+. Open a terminal and apply the changes you made to your Terraform provider configuration.
++
+[source, shell]
+----
+$ terraform apply
+----
++
+In the terminal, Terraform displays a message that `rhoas_kafka.my-instance` will be created. Terraform automatically sets values for `cloud provider` and `region` in the terminal. All other information for the instance is provided by the Kafka APIs.
+. When you're ready to create your instance,  type *yes*. The generated bootstrap server URL appears in the terminal as an output.
++
+[NOTE]
+Running `terraform apply` for the first time also creates the Terraform state file. Terraform logs information about the resources it has created in this state file. This allows Terraform to know which resources are under its control and when to update and delete them. The Terraform state file is named `terraform.tfstate` by default and is kept in the same directory where Terraform is run. Sensitive information such as the offline token, client ID, and client secret can be found in the `terraform.tfstate` file. Running `terraform apply` again updates this file.
+
+. To verify Terraform successfully created your Kafka instance, in your web browser, open the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^].

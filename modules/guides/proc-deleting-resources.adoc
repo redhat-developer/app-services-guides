@@ -1,0 +1,19 @@
+[id='proc-deleting-resources_{context}']
+= Deleting resources
+:imagesdir: ../_images
+
+[role="_abstract"]
+You can delete the resources you have created when you have finished using them.
+
+.Prerequisites
+
+* You have created Terraform resources.
+
+.Procedure
+
+* To delete the created resources, enter the following command:
++
+[source,shell]
+----
+$ terraform destroy
+----

@@ -3,12 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-You can use the {product-long-rhoas} (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection] to fully manage your Kafka environment with Ansible. You can create, view, configure, and delete the following {product-long-kafka} resources:
-
-* Kafka instances
-* Service accounts
-* Kafka topics
-* Access Control Lists (ACLs)
+The following procedure shows how to install the {product-long-rhoas} (RHOAS) https://galaxy.ansible.com/rhoas/rhoas[Ansible collection^] allowing you to fully manage your Kafka environment with Ansible.
 
 .Prerequisites
 

@@ -1,0 +1,18 @@
+[id='proc-running-playbook-ansible_{context}']
+= Running the playbook
+:imagesdir: ../_images
+
+[role="_abstract"]
+When you have finished creating the resources, run the playbook.
+
+.Procedure
+
+. Save any changes you have made to the the example `rhoas_test` playbook.
+. Open a terminal and enter the following command to run the playbook:
++
+[source, shell]
+----
+$ ansible-playbook rhoas_kafka.yml
+----
++
+The playbook runs through the tasks sequentially, generating output in the terminal window. When finished, Ansible displays a `PLAY RECAP` message stating that all 8 tasks have an `ok` status, meaning they have all run successfully.

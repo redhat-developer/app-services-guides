@@ -1,0 +1,23 @@
+[id='proc-deleting-kafka-instance-ansible_{context}']
+= Deleting a Kafka instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+To delete a Kafka instance, use the `delete_kafka_by_id` module.
+
+.Prerequisites
+
+* You have created a Kafka instance.
+
+.Procedure
+. To deprovision and delete the {product-kafka} instance, copy the `delete_kafka_by_id` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
++
+.Example `delete_kafka_by_id` module
+[source,yaml]
+----
+- name: Delete kafka instance by ID
+    rhoas.rhoas.delete_kafka_by_id:
+     kafka_id: "{{ kafka_req_resp_obj['kafka_id'] }}"
+     openshift_offline_token: "offline_token"
+----
+. In the `openshift_offline_token` field, enter your OpenShift offline token.

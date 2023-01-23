@@ -1,0 +1,56 @@
+[id='proc-configuring-kafka-topic-ansible_{context}']
+= Configuring a Kafka topic
+:imagesdir: ../_images
+
+[role="_abstract"]
+After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your applications and services.
+
+.Prerequisites
+
+* You have an offline token that authenticates the Ansible modules with the Kafka Management API.
+* You have created a Kafka instance.
+
+.Procedure
+
+. To create a Kafka topic, copy the contents of the `create_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
++
+.Example `create_kafka_topic` module
+[source,yaml]
+----
+- name: Create Kafka Topic
+    create_kafka_topic:
+      topic_name: "kafka-topic-name"
+      kafka_id: "{{ kafka_req_resp.id }}"
+      # To hard code the kafka_id, uncomment and use the following line:
+      # kafka_id: "KAFKA_ID"
+      partitions: 1
+      retention_period_ms: "86400000"
+      retention_size_bytes: "1073741824"
+      cleanup_policy: "compact"
+      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
+    register:
+      create_topic_res_obj
+----
+. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
+. In the `openshift_offline_token` field, enter your OpenShift offline token.
+. To update the configuration of the topic, copy the `update_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka` file. In the following example, the cleanup policy has been updated from compact to delete by replacing `"compact"` with `"delete"` in the `cleanup_policy` field.
++
+.Example `update_kafka_topic` module
+[source,yaml]
+----
+- name: Update Kafka Topic
+    update_kafka_topic:
+      topic_name: "kafka-topic-name"
+      kafka_id: "{{ kafka_req_resp.id }}"
+      # To hard code the kafka_id, uncomment and use the following line:
+      # kafka_id: "KAFKA_ID"
+      partitions: 1
+      retention_period_ms: "86400000"
+      retention_size_bytes: "1073741824"
+      cleanup_policy: "delete"
+      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
+    register:
+      update_topic_res_obj
+----
+. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
+. (Optional) You can modify the values in the `retention_period_ms` and `retention_size_bytes` fields instead of accepting the default values.

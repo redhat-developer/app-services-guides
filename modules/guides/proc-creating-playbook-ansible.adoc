@@ -1,0 +1,47 @@
+[id='proc-creating-playbook-ansible_{context}']
+= Creating a playbook
+:imagesdir: ../_images
+
+[role="_abstract"]
+The example playbook in this section includes modules for creating a Kafka instance, topic, and service account, and for assigning permissions to the service account. You also configure modules to delete the resources that you previously created.
+
+. To open the example playbook used in this section, use your IDE to navigate to the `rhoas` folder in the `.ansible` directory.
+. Open the `rhoas_test` example playbook.
++
+[NOTE]
+====
+You can also open a web browser to view the https://github.com/redhat-developer/app-services-ansible/blob/main/rhoas_test.yml[`rhoas_test` playbook^].
+====
+
+. Inspect the contents of the example playbook. In particular, observe that the playbook has modules for certain tasks. You will use these modules to create a new playbook that performs the following tasks:
++
+* Creating and deleting a Kafka instance
+* Creating and deleting a service account
+* Creating Access Control List (ACL) permission bindings
+* Creating, updating, and deleting a topic
++
+[NOTE]
+The playbook uses your offline token to authenticate with the Kafka Management API. If you do not specify the token as an argument for a given task, the module attempts to read it from the `OFFLINE_TOKEN` environment variable.
++
+[NOTE]
+====
+The example playbook used in this section includes comments that indicate how to directly specify values rather than fetching them dynamically. For example, to specify a Kafka instance ID, a comment in the playbook states that you can include the following line:
+
+[source, subs="+quotes"]
+----
+kafka_id: __<kafka_id>__
+----
+====
++
+. In your IDE, create a new playbook file and save it as `rhoas_kafka.yml` in the `rhoas` directory.
+. At the start of the new playbook, you define the name of the playbook and the group of hosts on which to run it. Copy the following example and paste it into the `rhoas_kafka.yml` file. In this example, the host is a local host and the connection is local because you are in a virtual environment.
++
+.Example first section for `rhoas_kafka` playbook
+[source,yaml]
+----
+- name: RHOAS kafka
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+----

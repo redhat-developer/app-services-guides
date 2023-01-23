@@ -2,14 +2,5 @@
 = Terraform
 :imagesdir: ../_images
 
+[role="_abstract"]
 link:https://www.terraform.io/[HashiCorp Terraform^] is an Infrastructure as Code (Iac) tool that enables you to build and change infrastructure safely and efficiently through human-readable configuration files that you can create versions of, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle.
-
-The {product-long-rhoas} (RHOAS) link:https://registry.terraform.io/providers/redhat-developer/rhoas/latest[Terraform^] provider is available in the official link:https://www.terraform.io/[Terraform provider registry^] and includes resources to interact with {product-long-rhoas}.
-
-You can fully manage your Kafka environment through your Terraform system using the RHOAS Terraform provider. You can create, view, configure, and delete the following {product-kafka} resources:
-
-* Kafka instances
-* Service accounts
-* Kafka topics
-* Access Control Lists (ACLs)
-

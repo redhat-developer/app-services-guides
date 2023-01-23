@@ -1,0 +1,37 @@
+[id='proc-creating-kafka-topic-terraform_{context}']
+= Creating a Kafka topic
+:imagesdir: ../_images
+
+[role="_abstract"]
+After you create a Kafka instance, you can create Kafka topics to start producing and consuming messages in your applications and services.
+
+.Prerequisites
+
+* You have an offline token that authenticates the Terraform resources with the {product-long-rhoas} API.
+* You have created a Kafka instance.
+
+.Procedure
+
+. To create a Kafka topic with default values, copy and paste the `rhoas_topic` resource shown in the following example into the `main.tf` file. This example uses the `topic` identifier and creates the `my-topic` Kafka topic. Because you have already created the Kafka instance, Terraform can check dependencies for this new topic resource and knows the Kafka ID when you run this example resource.
++
+.Example `rhoas_topic` resource with default values
+[source]
+----
+resource "rhoas_topic" "topic" {
+		name = "my-topic"
+		partitions = 1
+		kafka_id = rhoas_kafka.instance.id
+	}
+
+----
++
+. Save your changes.
+. Apply the changes you made to your Terraform provider configuration.
++
+[source, shell]
+----
+$ terraform apply
+----
+In the terminal, Terraform displays a message that `rhoas_topic.my-topic` will be created.
+. When you're ready to create your topic, type *yes*.
+. To verify Terraform successfully created your topic, in your web browser, open the *Topics* page of the {product-kafka} {service-url-kafka}[web console^].

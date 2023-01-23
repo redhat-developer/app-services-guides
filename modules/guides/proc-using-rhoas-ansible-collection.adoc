@@ -3,7 +3,12 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-The procedure in this section shows how to create and run an example playbook. The example playbook includes modules for creating a Kafka instance, topic, and service account, and assigning permissions to the service account. You also configure modules to delete the resources that you previously created.
+You can create, view, configure, and delete the following {product-long-kafka} resources with the {product-long-rhoas} (RHOAS) collection:
+
+* Kafka instances
+* Service accounts
+* Kafka topics
+* Access Control Lists (ACLs)
 
 .Prerequisites
 * You have a Red Hat account.
@@ -23,216 +28,13 @@ The offline token is a refresh token with no expiry and can be used by non-inter
 +
 NOTE: If you do not explicitly define the environment variables, the collection uses the URLs shown in the preceding step.
 
-. Open a terminal window.
-. Run a module in the terminal to perform a single task. For example, the following command shows how to run a module that creates a Kafka instance. Replace _<OFFLINE_TOKEN>_ with your OpenShift offline token.
+. You can run a module in a terminal window to perform a single task. For example, the following command shows how to run a module that creates a Kafka instance. Replace _<OFFLINE_TOKEN>_ with your OpenShift offline token.
 +
 .Example create_kafka module
 [source,shell]
 ----
 $ ansible localhost -m rhoas.rhoas.create_kafka -a 'name=unique-kafka-name billing_model=standard cloud_provider=aws plan="developer.x1" region="us-east-1" openshift_offline_token=<OFFLINE_TOKEN>'
 ----
-
-+
 Ansible runs the `rhoas.rhoas.create_kafka` task in the terminal and creates the instance.
-. To open the example playbook used in later steps, use your IDE to navigate to the `rhoas` folder in the `.ansible` directory.
-. Open the `rhoas_test` example playbook. You can also open a web browser and navigate to https://github.com/redhat-developer/app-services-ansible/blob/main/rhoas_test.yml.
-. Inspect the contents of the example playbook. In particular, observe that the playbook has modules for certain tasks. You will use these modules to create a new playbook that performs the following tasks:
 +
-* Creating and deleting a Kafka instance
-* Creating and deleting a service account
-* Creating Access Control List (ACL) permission bindings
-* Creating, updating, and deleting a topic
-+
-[NOTE]
-The playbook uses your offline token to authenticate with the Kafka Management API. If you do not specify the token as an argument for a given task, the module attempts to read it from the `OFFLINE_TOKEN` environment variable.
-+
-[NOTE]
-====
-The example playbook used in this section includes comments that indicate how to directly specify values rather than fetching them dynamically. For example, to specify a Kafka instance ID, a comment in the playbook states that you can include the following line:
-
-[source, subs="+quotes"]
-----
-kafka_id: __<kafka_id>__
-----
-====
-+
-. In your IDE, create a new playbook file and save it as `rhoas_kafka.yml` in the `rhoas` directory.
-. At the start of the new playbook, you define the name of the playbook and the group of hosts on which to run it. Copy the following example and paste it into the `rhoas_kafka.yml` file. In this example, the host is a local host and the connection is local because you are in a virtual environment.
-+
-.Example first section for `rhoas_kafka` playbook
-[source,yaml]
-----
-- name: RHOAS kafka
-  hosts: localhost
-  gather_facts: false
-  connection: local
-  tasks:
-----
-
-. To add a module that creates a new Kafka instance, copy the `create_kafka` module shown in the following example and paste it into the `tasks:` section of your `rhoas_kafka.yml` file.
-
-+
-.Example `create_kafka` module
-[source,yaml]
-----
-- name: Create kafka
-    rhoas.rhoas.create_kafka:
-      name: "kafka-name"
-      instance_type: "x1"
-      billing_model: "standard"
-      cloud_provider: "aws"
-      region: "us-east-1"
-      plan: "developer.x1"
-      billing_cloud_account_id: "123456789"
-      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
-    register:
-      kafka_req_resp
-----
-. In the `name` field, enter a name for the Kafka instance.
-. In the `billing_cloud_account_id`, enter the billing cloud account ID.
-. In the `openshift_offline_token` field, enter your OpenShift offline token.
-+
-All other information for the instance is provided by the Kafka APIs.
-+
-When you run the `create_kafka_` module as part of the playbook at the end of this procedure, Ansible saves the output of that command in a variable in the `register` field. In the preceding example, Ansible saves the created Kafka instance as `kafka_req_resp`.
-
-. To connect your applications or services to a Kafka instance in {product-kafka}, you must first create a service account with credentials. To add a module that creates a service account, copy the `create_service_account` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
-+
-.Example `create_service_account` module
-[source,yaml]
-----
-- name: Create Service Account
-    create_service_account:
-      name: "service-account-name"
-      description: "This is a description of the service account"
-      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
-    register:
-      srvce_acc_resp_obj
-----
-. Enter values for the `name`, `short description`, and `openshift_offline_token` fields.
-+
-When you run the `create_service_account` module as part of the playbook at the end of this procedure, Ansible populates the generated service account credentials in the `client_id` and `client_secret` fields in the terminal after it creates the service account.
-. To create Access Control List (ACL) permissions for the service account and bind that ACL to the Kafka instance, copy the `create_kafka_acl_binding` module shown in the following example and paste it in your `rhoas_kafka.yml` file.
-+
-.Example `create_kafka_acl_binding` module
-[source,yaml]
-----
-- name: Create kafka ACL Service Binding
-    rhoas.rhoas.create_kafka_acl_binding:
-      kafka_id: "{{ kafka_req_resp.kafka_id }}"
-      # To hard code the kafka_id, uncomment and use the following line:
-      # kafka_id: "KAFKA_ID"
-      principal: " {{ srvce_acc_resp_obj['client_id'] }}"
-      # To hard code the principal_id, uncomment and use the following line:
-      # principal: "PRINCIPAL_ID"
-      resource_name: "topic-name"
-      resource_type: "Topic"
-      pattern_type: "PREFIXED"
-      operation_type: "all"
-      permission_type: "allow"
-      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
-    register: kafka_acl_resp
-
-----
-. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
-. In the `openshift_offline_token` field, enter your OpenShift offline token.
-. Consider whether you need to specify your own value for any of the fields in the following list. These fields must all have values in an ACL binding module.
-
-`principal`:: The user or service account that this binding applies to. This example uses the service account client ID.
-`resource_name`:: The Kafka resource that you are granting access to. This example specifies the Kafka topic that you create in the playbook.
-`resource_type`:: The type of resource you grant access to. This example uses *Topic*.
-`pattern_type`:: The type of pattern of the ACL. This example uses the `PREFIXED` pattern type meaning that Kafka will try to match the prefix of the resource name with the resource specified in the ACL.
-`operation_type`:: The type of operation (an action performed on a resource) that is allowed for the given user on this module.
-`permission_type`:: Whether permission is given to the user or taken away.
-
-. To create a Kafka topic, copy the contents of the `create_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
-+
-.Example `create_kafka_topic` module
-[source,yaml]
-----
-- name: Create Kafka Topic
-    create_kafka_topic:
-      topic_name: "kafka-topic-name"
-      kafka_id: "{{ kafka_req_resp.id }}"
-      # To hard code the kafka_id, uncomment and use the following line:
-      # kafka_id: "KAFKA_ID"
-      partitions: 1
-      retention_period_ms: "86400000"
-      retention_size_bytes: "1073741824"
-      cleanup_policy: "compact"
-      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
-    register:
-      create_topic_res_obj
-----
-. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
-. In the `openshift_offline_token` field, enter your OpenShift offline token.
-. To update the configuration of the topic, copy the `update_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka` file. In the following example, the cleanup policy has been updated from compact to delete by replacing `"compact"` with `"delete"` in the `cleanup_policy` field.
-+
-.Example `update_kafka_topic` module
-[source,yaml]
-----
-- name: Update Kafka Topic
-    update_kafka_topic:
-      topic_name: "kafka-topic-name"
-      kafka_id: "{{ kafka_req_resp.id }}"
-      # To hard code the kafka_id, uncomment and use the following line:
-      # kafka_id: "KAFKA_ID"
-      partitions: 1
-      retention_period_ms: "86400000"
-      retention_size_bytes: "1073741824"
-      cleanup_policy: "delete"
-      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
-    register:
-      update_topic_res_obj
-----
-. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
-. (Optional) You can modify the values in the `retention_period_ms` and `retention_size_bytes` fields instead of accepting the default values.
-. To delete the topic, copy the `delete_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
-+
-.Example `delete_kafka_topic` module
-[source,yaml]
-----
-- name: Delete Kafka Topic
-   rhoas.rhoas.delete_kafka_topic:
-     topic_name: "KAFKA_TOPIC_NAME"
-      kafka_id: "{{ kafka_req_resp_obj['kafka_id'] }}"
-      # To hard code the kafka_id, uncomment and use the following line:
-      # kafka_id: "KAFKA_ID"
-     openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
-----
-. In the `openshift_offline_token` field, enter your OpenShift offline token.
-. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
-. To delete the service account, copy the `delete_service_account_by_id` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
-. To directly specify a service account ID, enter a value in the `service_account_id` field. Otherwise, Ansible gets the service account ID from the `srvce_acc_resp_obj` variable.
-+
-.Example `delete_service_account_by_id` module
-[source,yaml]
-----
-- name: Delete Service Account
-   rhoas.rhoas.delete_service_account_by_id:
-   # service_account_id: "service_account_id"
-  service_account_id: "{{ srvce_acc_resp_obj['client_id'] }}"
-
-  # openshift_offline_token: "OFFLINE_TOKEN"
-----
-
-. To deprovision and delete the {product-kafka} instance, copy the `delete_kafka_by_id` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
-+
-.Example `delete_kafka_by_id` module
-[source,yaml]
-----
-- name: Delete kafka instance by ID
-    rhoas.rhoas.delete_kafka_by_id:
-     kafka_id: "{{ kafka_req_resp_obj['kafka_id'] }}"
-     openshift_offline_token: "offline_token"
-----
-. In the `openshift_offline_token` field, enter your OpenShift offline token.
-. Save your changes.
-. Open a terminal and enter the following command to run the example `rhoas_test` playbook:
-+
-[source, shell]
-----
-$ ansible-playbook rhoas_kafka.yml
-----
-+
-The playbook runs through the tasks sequentially, generating output in the terminal window. When finished, Ansible displays a `PLAY RECAP` message stating that all 8 tasks have an `ok` status, meaning they have all run successfully.
+You can also create a playbook of sequential tasks and use Ansible to automatically execute those tasks. The steps in the next section show you how to create and run an example playbook.

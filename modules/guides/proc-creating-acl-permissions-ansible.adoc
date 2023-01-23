@@ -1,0 +1,47 @@
+[id='proc-creating-acl-permissions-ansible_{context}']
+= Creating Access Control List permissions
+:imagesdir: ../_images
+
+[role="_abstract"]
+After you create a service account to connect to a Kafka instance, you must also set the appropriate level of access for that new account in an Access Control List (ACL) for the Kafka instance.
+
+.Prerequisites
+
+* You have an offline token that authenticates the Ansible modules with the {product-long-rhoas} API.
+* You have created a Kafka instance.
+* You understand how Access Control Lists (ACLs) enable you to manage how user accounts and service accounts can access the Kafka resources that you create. See {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
+
+.Procedure
+
+. To create Access Control List (ACL) permissions for the service account and bind that ACL to the Kafka instance, copy the `create_kafka_acl_binding` module shown in the following example and paste it in your `rhoas_kafka.yml` file.
++
+.Example `create_kafka_acl_binding` module
+[source,yaml]
+----
+- name: Create kafka ACL Service Binding
+    rhoas.rhoas.create_kafka_acl_binding:
+      kafka_id: "{{ kafka_req_resp.kafka_id }}"
+      # To hard code the kafka_id, uncomment and use the following line:
+      # kafka_id: "KAFKA_ID"
+      principal: " {{ srvce_acc_resp_obj['client_id'] }}"
+      # To hard code the principal_id, uncomment and use the following line:
+      # principal: "PRINCIPAL_ID"
+      resource_name: "topic-name"
+      resource_type: "Topic"
+      pattern_type: "PREFIXED"
+      operation_type: "all"
+      permission_type: "allow"
+      openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
+    register: kafka_acl_resp
+
+----
+. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
+. In the `openshift_offline_token` field, enter your OpenShift offline token.
+. Consider whether you need to specify your own value for any of the fields in the following list. These fields must all have values in an ACL binding module.
+
+`principal`:: The user or service account that this binding applies to. This example uses the service account client ID.
+`resource_name`:: The Kafka resource that you are granting access to. This example specifies the Kafka topic that you create in the playbook.
+`resource_type`:: The type of resource you grant access to. This example uses *Topic*.
+`pattern_type`:: The type of pattern of the ACL. This example uses the `PREFIXED` pattern type meaning that Kafka will try to match the prefix of the resource name with the resource specified in the ACL.
+`operation_type`:: The type of operation (an action performed on a resource) that is allowed for the given user on this module.
+`permission_type`:: Whether permission is given to the user or taken away.

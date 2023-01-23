@@ -1,0 +1,22 @@
+[id='proc-deleting-topic-ansible_{context}']
+= Deleting a Kafka topic
+:imagesdir: ../_images
+
+[role="_abstract"]
+To delete a topic, use the `delete_kafka_topic` module.
+
+. Copy the `delete_kafka_topic` module shown in the following example and paste it into the `rhoas_kafka.yml` file.
++
+.Example `delete_kafka_topic` module
+[source,yaml]
+----
+- name: Delete Kafka Topic
+   rhoas.rhoas.delete_kafka_topic:
+     topic_name: "KAFKA_TOPIC_NAME"
+      kafka_id: "{{ kafka_req_resp_obj['kafka_id'] }}"
+      # To hard code the kafka_id, uncomment and use the following line:
+      # kafka_id: "KAFKA_ID"
+     openshift_offline_token: "OPENSHIFT_OFFLINE_TOKEN"
+----
+. In the `openshift_offline_token` field, enter your OpenShift offline token.
+. To directly specify a Kafka instance ID, enter a value in the `kafka_id` field. Otherwise, Ansible gets the Kafka ID from the `kafka_req_resp.id` variable.
