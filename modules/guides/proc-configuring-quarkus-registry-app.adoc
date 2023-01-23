@@ -5,7 +5,7 @@
 [role="_abstract"]
 To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value.
 
-Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. This example sets environment variables and references them in this file.
+Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. The example in this task sets environment variables and then references them in the  `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For details on configuration options, see the https://quarkus.io/guides/kafka[Apache Kafka Reference Guide^] in the Quarkus documentation.
 
@@ -13,18 +13,18 @@ This Quarkus example application includes producer and consumer processes that s
 
 .Prerequisites
 * You have a service account with write access to Kafka and {registry} instances and have stored your credentials securely (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^] and {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
-* You have the Kafka bootstrap server endpoint for the Kafka instance. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
-* You have the Core Registry API endpoint for the {registry} instance. You copied this information for the {registry} instance by selecting the options menu (three vertical dots) and clicking *Connection*. From the list of endpoints, you copied the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
-* You copied the *Token endpoint URL* value from the same list of endpoints to be used for the OAuth-based athentication method used in this example.
+* You have the bootstrap server endpoint for the Kafka instance. To get this information, select your Kafka instance in the {service-url-kafka}[{product-kafka} web console^], select the options icon (three vertical dots), and click *Connection*.
+* You have the Core Registry API endpoint for the {registry} instance. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
+* You have the SASL/OAUTHBEARER token endpoint used by the {registry} and Kafka instances. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Token endpoint URL* value.
 
 .Procedure
-. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace the values with your own server and credential information:
+. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information.
 +
-* The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance.
-* The `<service_registry_url>` is the URL for your {registry} instance.
-* The `<service_registry_core_path>` is the constant we use to for setting proper API path for service registry
-* The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint.
-* The `<client_id>` and `<client_secret>` are the generated credentials for your service account.
+* The `<bootstrap_server>` value is the bootstrap server endpoint for your Kafka instance.
+* The `<service_registry_url>` value is the URL for your {registry} instance.
+* The `SERVICE_REGISTRY_CORE_PATH` variable is a constant value used to set the API path for {product-registry}.
+* The `<oauth_token_endpoint_uri>` value is the SASL/OAUTHBEARER token endpoint.
+* The `<client_id>` and `<client_secret>` values are the generated credentials for your service account.
 +
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
@@ -37,7 +37,7 @@ $ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 ----
 
-. In the Quarkus example application, review the `/src/main/resources/application.properties` files in the `consumer` and `producer` sub-folders to understand how the environment variables you set in the previous step are used. This example uses the `dev` configuration profile in the `application.properties` files.
+. In the Quarkus example application, review the `/src/main/resources/application.properties` files in the `consumer` and `producer` subfolders to understand how the environment variables you set in the previous step are used. This example uses the `dev` configuration profile in the `application.properties` files.
 
 ifdef::qs[]
 .Verification

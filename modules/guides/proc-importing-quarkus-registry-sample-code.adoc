@@ -8,7 +8,6 @@ For this quick start, you'll use the Quarkus {registry} sample code from the App
 .Procedure
 . On the command line, clone the App Services {samples-git-repo}[Guides and Samples^] repository from GitHub.
 +
-.Cloning the guides and samples repository
 [source,subs="+attributes"]
 ----
 git clone {samples-git-repo} app-services-guides
