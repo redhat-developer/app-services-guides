@@ -53,12 +53,14 @@ include::modules/guides/proc-exporting-schema-api-design.adoc[leveloffset=+1]
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
+Congratulations!
+You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
 ====
 ifdef::qs[]
 [#conclusion]
 ====
-Congratulations! You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
+Congratulations!
+You successfully completed the {product-long-api-designer} Getting Started quick start, and are now ready to use the service.
 ====
 endif::[]
 ifdef::parent-context[:context: {parent-context}]
