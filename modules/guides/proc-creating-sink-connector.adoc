@@ -14,7 +14,7 @@ ifndef::qs[]
 endif::[]
 * You created a Data Generator source {connectors} instance.
 * For the data sink example, open the free https://webhook.site[webhook.site^] in a browser window. The `webhook.site` page provides a unique URL that you copy for use as an HTTP data sink.
-
+* If you want to use a dead letter queue (DLQ) to handle any messaging errors, create a Kafka topic for the DLQ.
 
 .Procedure
 
@@ -24,17 +24,17 @@ endif::[]
 .. For example, type `http` in the search field. The list of {connectors} is filtered to show the *HTTP sink* connector.
 .. Click the *HTTP sink* card and then click *Next*.
 
-. On the *Kafka Instance* page, select the {product-kafka} instance for the connector to work with.
+. On the *Kafka Instance* page, select the {product-kafka} instance for the connector to work with. For example, select *test-connect*.
 +
-For example, select *test* and then click *Next*.
+Click *Next*.
 
-. On the *Namespace* page, the namespace that you select depends on your {osd-name-short} environment. The namespace is the deployment space that hosts your {connectors} instances.
+. On the *Deployment* page, the namespace that you select depends on your {openshift} environment.
 +
-If you're using a trial cluster on your own {osd-name-short} environment, select the card for the namespace that was created when you added the {connectors} service to your trial cluster.
+If you're using your own {openshift} environment, select the card for the namespace that was created when a cluster administrator added the {connectors} service to your cluster.
 +
 If you're using the hosted preview environment, click the *preview namespace* that you provisioned when you created the source connector.
-
-. Click *Next*.
++
+Click *Next*.
 
 . Provide the core configuration for your connector:
 .. Type a unique name for the connector. For example, type `hello world receiver`.
@@ -45,10 +45,12 @@ If you're using the hosted preview environment, click the *preview namespace* th
 .. *Method*: Accept the default, `POST`.
 .. *URL*: Type your unique URL from the link:https://webhook.site[webhook.site^].
 .. *Data Shape Consumes Format*: Accept the default, `application/octet-stream`.
++
+Click *Next*.
 
-. Click *Next*.
-
-. Select an error handling policy for your {connectors} instance. For example, select *Stop* and then click *Next*.
+. Select an error handling policy for your {connectors} instance. For example, select *Stop*.
++
+Click *Next*.
 
 . Review the summary of the configuration properties and then click *Create {connectors} instance*.
 +

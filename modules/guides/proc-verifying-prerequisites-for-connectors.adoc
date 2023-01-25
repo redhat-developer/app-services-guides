@@ -6,26 +6,32 @@
 
 Before you use {product-connectors}, you must complete the following prerequisites:
 
-* Determine which {openshift} environment to use for deploying your {product-connectors} instances.
+* Determine which {openshift} environment to use for your _{connectors} namespace_. The {connectors} namespace is where your {product-connectors} instances are deployed.
 
 * Configure {product-long-kafka} for use with {product-connectors}.
 
-*Determining which {openshift} environment to use for deploying your {connectors} instances*
+*Determining which {openshift} environment to use for your {connectors} namespace*
 
-For Service Preview, you have two choices:
+You have three choices:
 
 * *The hosted preview environment*
 
 ** The {connectors} instances are hosted on a multitenant {osd-name-short} cluster that is owned by Red Hat.
 ** You can create four {connectors} instances at a time.
-** The preview environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Service Preview guidelines^].
+** The preview environment applies 48-hour expiration windows, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8190dc9e-249c-4207-bd69-096e5dd5bc64[Red Hat {openshift} {connectors} Preview guidelines^].
 
-* *Your own trial environment*
+* *Your own {osd-name} Trial environment*
 
-** You have access to your own {osd-name-short} trial environment.
+** You have access to your own {osd-name} Trial environment.
 ** You can create an unlimited number of {connectors} instances.
-** Your {osd-name-short} trial cluster expires after 60 days.
-** A cluster administrator has installed the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {osd-name-short} trial cluster^].
+** Your {osd-name-short} Trial cluster expires after 60 days.
+** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
+
+* *Your own {rosa-name} cluster*
+
+** You have access to your own {rosa-name} (ROSA) environment.
+** You can create {connectors} instances depending on your subscription, as described in https://access.redhat.com/articles/6990631[Red Hat OpenShift Connectors Tiers^].
+** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
 
 *Configuring {product-long-kafka} for use with {product-connectors}*
 
@@ -37,8 +43,8 @@ ifdef::qs[]
 Complete the steps in the link:https://console.redhat.com/application-services/learning-resources?quickstart=getting-started[Getting started with {product-long-kafka}] quick start to set up the following components:
 endif::[]
 
-* A _Kafka instance_ that you can use for {product-connectors}.
-* A _Kafka topic_ to store messages sent by data sources and make the messages available to data sinks.
+* A _Kafka instance_ that you can use for {product-connectors}. For this example, the Kafka instance is `test-connect`.
+* A _Kafka topic_ to store messages sent by data sources and make the messages available to data sinks. For this example, the Kafka topic is `test-topic`.
 * A _service account_ that allows you to connect and authenticate your {connectors} instances with your Kafka instance.
 * _Access rules_ for the service account that define how your {connectors} instances can access and use the topics in your Kafka instance.
 
@@ -52,7 +58,7 @@ Make sure that you have set up the prerequisite components.
 * Did you save your service account credentials to a secure location?
 * Are the permissions for your service account listed on the *Access* page of the Kafka instance?
 * Is the Kafka topic that you created for {connectors} listed on the *Topics* page of the Kafka instance?
-* If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your trial cluster?
+* If you plan to use your own {openshift} cluster ({osd-name-short} Trial or ROSA) to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your Trial cluster?
 
 endif::[]
 
@@ -63,7 +69,7 @@ ifndef::qs[]
 * Verify that you saved your service account credentials to a secure location.
 * Verify that the permissions for your service account are listed on the *Access* page of the Kafka instance.
 * Verify that the Kafka topic that you created for {product-connectors} is listed on the *Topics* page of the Kafka instance.
-* If you plan to use a 60-day {osd-name-short} trial cluster to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your trial cluster.
+* If you plan to use your own {openshift} cluster ({osd-name-short} Trial or ROSA) to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your Trial cluster.
 
 endif::[]
 
