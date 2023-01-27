@@ -9,7 +9,7 @@
 
 The guides toolchain is heavily dependent on AsciiDoc and Node.
 
-. Install your favourite tool for editing AsciiDoc (for example, Atom or VS Code).
+. Install your favourite tool for editing AsciiDoc (for example, VS Code or IntelliJ).
 . Install the latest Active long-term support (LTS) version of link:https://nodejs.org/en/about/releases/[Node] (`node`) .
 . Install link:https://github.com/nvm-sh/nvm[Node Version Manager] (`nvm`).
 . After you install `node` and `nvm`, run the following commands from your local  `app-services-guides` repository's top-level directory (for example, `Users/myname/mylocalGitRepos/app-services-guides/`):
