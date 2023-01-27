@@ -7,7 +7,8 @@ metadata:
     order: 2
   labels:
     service-category: application-services
-    product: rhosak,rhosr
+    product1: rhosak
+    product2: rhosr
     technology: quarkus 
 spec:
   version: 0.1
