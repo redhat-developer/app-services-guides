@@ -162,6 +162,20 @@
             }
           },
           "additionalProperties": true
+        },
+        "labels": {
+          "$id": "#/properties/metadata/properties/labels",
+          "type": "object",
+          "examples": [
+            {
+              "labels": {
+                "service-category/application-services": true,
+                "product/rhosak": true,
+                "product/rhosr": true,
+                "technology": "quarkus"
+              }
+            }
+          ],
         }
       },
       "additionalProperties": false

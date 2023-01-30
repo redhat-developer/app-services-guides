@@ -6,8 +6,8 @@ metadata:
     draft: false
     order: 2
   labels:
-    serviceCategory: application-services
-    product: rhosak
+    service-category/application-services: true
+    product/rhosak: true
     technology: quarkus 
 spec:
   version: 0.1
