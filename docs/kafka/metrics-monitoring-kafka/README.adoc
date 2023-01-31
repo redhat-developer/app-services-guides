@@ -127,6 +127,10 @@ The Kafka instance type determines the maximum connection creation rate.
 `kafka_topic:kafka_topic_partitions:sum`:: Number of partitions across all topics in the cluster. This metric does not include partitions from internal Kafka topics, such as `\__consumer_offsets` and `__transaction_state`.
 +
 The Kafka instance type determines the maximum number of partitions.
+
+`kas_broker_partition_log_size_bytes_top50`:: Sizes, in bytes, of the fifty largest topic partitions on each broker in the cluster. The total amount of storage being used by all topic partitions on a broker is shown by the `kafka_broker_quota_totalstorageusedbytes` topic metric. The total usage for a broker must stay below the `kafka_broker_quota_softlimitbytes` value to avoid throttling of producers. 
+
+`kas_topic_partition_log_size_bytes`:: Size, in bytes, of each topic partition on each broker in the cluster. The total amount of storage being used by all topic partitions on a broker is shown by the `kafka_broker_quota_totalstorageusedbytes` broker metric. The total usage for a broker must stay below the `kafka_broker_quota_softlimitbytes` value to avoid throttling of producers.
 --
 
 Broker metrics::
