@@ -116,7 +116,7 @@ NOTE: The example Node.js application in this quick start uses the https://kafka
 ifdef::qs[]
 [#description]
 ====
-Learn how to manually connect a Node.js application to a Kafka instance in {product-long-kafka} and then produce and consume messages.
+Manually connect a Node.js application to a Kafka instance and then produce and consume messages.
 ====
 
 [#introduction]

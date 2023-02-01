@@ -115,7 +115,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to manually connect a Quarkus application to a Kafka instance in {product-long-kafka} and then produce and consume messages.
+Manually connect a Quarkus application to a Kafka instance and then produce and consume messages.
 ====
 
 [#introduction]

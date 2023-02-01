@@ -107,7 +107,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to configure connections between {product-long-kafka} and third-party systems by using {product-long-connectors}.
+Configure connections between an {product-kafka} instance and third-party systems.
 ====
 
 [#introduction]
@@ -116,7 +116,7 @@ Welcome to the quick start for {product-long-connectors}.
 
 In this quick start, you learn how to create a source connector and sink connector and send data to and from {product-kafka}.
 
-A _source_ connector allows you to send data from an external system to {product-kafka}. 
+A _source_ connector allows you to send data from an external system to {product-kafka}.
 
 A _sink_ connector allows you to send data from {product-kafka} to an external system.
 ====
@@ -128,7 +128,7 @@ endif::[]
 
 [role="_abstract"]
 
-Before you use {product-connectors}, you must complete the following prerequisites: 
+Before you use {product-connectors}, you must complete the following prerequisites:
 
 * Determine which {openshift} environment to use for your _{connectors} namespace_. The {connectors} namespace is where your {product-connectors} instances are deployed.
 
@@ -252,7 +252,7 @@ Click *Next*.
 
 . Select one of the following error handling policies for your {connectors} instance:
 +
-* *Stop*: If a message fails to send, the {connectors} instance stops running and changes its status to the *Failed* state. You can view the error message. 
+* *Stop*: If a message fails to send, the {connectors} instance stops running and changes its status to the *Failed* state. You can view the error message.
 * *Ignore*: If a message fails to send, the {connectors} instance ignores the error and continues to run. No error message is logged.
 * *Dead letter queue*: If a message fails to send, the {connectors} instance sends error details to the Kafka topic that you created for the DLQ.
 +
