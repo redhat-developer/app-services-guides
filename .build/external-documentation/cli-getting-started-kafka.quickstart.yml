@@ -7,7 +7,7 @@ metadata:
   labels:
     service-category/application-services: true
     product/rhosak: true
-  technology: cli
+    technology: cli
 spec:
   version: 0.1
   type:
