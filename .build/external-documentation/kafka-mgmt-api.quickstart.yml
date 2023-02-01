@@ -4,6 +4,8 @@ metadata:
   name: docs-kafka-mgmt-api
   annotations:
     order: 6
+  service-category/application-services: true
+  product/rhosak: true
 spec:
   version: 0.1
   type:
