@@ -4,6 +4,14 @@ metadata:
   name: docs-cli-getting-started
   annotations:
     order: 1
+  labels:
+    service-category/application-services: true
+    product/rhosak: true
+    product/rhosr: true    
+    product/rhoad: true
+    product/rhoam: true
+    product/rhoc: true
+    technology: cli
 spec:
   version: 0.1
   type:
