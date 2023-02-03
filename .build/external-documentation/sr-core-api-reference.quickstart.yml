@@ -5,8 +5,8 @@ metadata:
   annotations:
     order: 9
   labels:
-    service-category/application-services: true
-    product/rhosr: true
+    service-category/application-services: "true"
+    product/rhosr: "true"
 spec:
   version: 0.1
   type:

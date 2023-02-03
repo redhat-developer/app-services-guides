@@ -6,8 +6,8 @@ metadata:
     draft: false
     order: 6
   labels:
-    service-category/application-services: true
-    product/rhoc: true
+    service-category/application-services: "true"
+    product/rhoc: "true"
 spec:
   version: 0.1
   type:

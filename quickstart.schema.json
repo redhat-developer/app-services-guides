@@ -169,9 +169,9 @@
           "examples": [
             {
               "labels": {
-                "service-category/application-services": true,
-                "product/rhosak": true,
-                "product/rhosr": true,
+                "service-category/application-services": "true",
+                "product/rhosak": "true",
+                "product/rhosr": "true",
                 "technology": "quarkus"
               }
             }
