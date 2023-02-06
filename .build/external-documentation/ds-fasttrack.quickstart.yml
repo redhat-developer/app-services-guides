@@ -4,6 +4,9 @@ metadata:
   name: docs-ds-fasttrack
   annotations:
     order: 11
+  labels:
+    service-category/data-services: "true"
+    product/rhods: "true"
 spec:
   version: 0.1
   type:
