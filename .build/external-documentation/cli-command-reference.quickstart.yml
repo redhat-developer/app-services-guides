@@ -8,8 +8,6 @@ metadata:
     service-category/application-services: "true"
     product/rhosak: "true"
     product/rhosr: "true"    
-    product/rhoad: "true"
-    product/rhoam: "true"
     product/rhoc: "true"
     technology: cli
 spec:
