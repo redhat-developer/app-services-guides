@@ -31,17 +31,10 @@ spec:
            After the application pod restarts, your application now has database connectivity.
            This binding visually represents the injection of database connection information and credentials into the application pod.
         4. Use a service binding library based on your application’s framework to consume the service binding information and credentials.
-           See the OpenShift Database Access [Reference Guide](https://access.redhat.com/documentation/en-us/red_hat_openshift_database_access/2022-q4/html-single/reference_guide/index#service-binding-libraries_rhoda-ref) on the Customer Portal for more information regarding service binding libraries.
+           See the OpenShift Database Access [Reference Guide](https://access.redhat.com/documentation/en-us/red_hat_openshift_database_access/2022-q4/html-single/reference_guide/index#service-binding-libraries_rhoda-ref) on the Customer Portal for more information on using service binding libraries, and view some examples.
       summary:
         success: You have database connectivity to the application.
         failed: Make note of any error messages, and try these steps again.
   conclusion: |-
     Congratulations!
-    Now you know how to consume the service binding information and credentials to make a connection to your database instance from your application.
-    Here are some application examples using service bindings:
-    * [MongoDB Quarkus application](https://github.com/RHEcosystemAppEng/mongo-quickstart)
-    * [Crunchy Postgres Quarkus application](https://github.com/RHEcosystemAppEng/postgresql-orm-quickstart)
-    * [CockroachDB Postgres Quarkus application](https://github.com/myeung18/postgresql-orm-demo-app)
-    * [CockroachDB Postgres Go application](https://github.com/myeung18/cockroachdb-go-quickstart)
-    * [Crunchy Postgres Python test application](https://github.com/RHODA-lab/rhoda-qa-python/blob/main/run-test.py)
-    * [CockroachDB Postgres Python test application](https://github.com/RHODA-lab/rhoda-qa-python/blob/main/test-cockroachdb.py)
+    Now you know how to consume service binding information and credentials to make a connection to your database instance from your application.
