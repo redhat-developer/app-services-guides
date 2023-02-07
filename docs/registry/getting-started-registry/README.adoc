@@ -140,6 +140,8 @@ endif::[]
 .{registry} instance options menu
 image::service-registry-instance-options.png[Image of {registry} instance options menu]
 
+NOTE: You can see all {registry} instances created by other users in your organization, but you might not have permission to connect to those instances. Only instance owners or users with permission can connect to the instance, access associated service accounts, or delete the instance.
+
 .Verification
 ifdef::qs[]
 * Is the new {registry} instance listed in the instances table?
