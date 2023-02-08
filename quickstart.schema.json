@@ -300,7 +300,7 @@
           "description": "External documentation link",
           "examples": [
             {
-              "href": "https://github.com/cloudmosaic/quickstarts",
+              "href": "https://github.com/patternfly/patternfly-quickstarts",
               "text": "Quick starts repo"
             },
             {
