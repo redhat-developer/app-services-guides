@@ -52,7 +52,7 @@ Each guide is contained in a separate directory. The directory must contain:
 
 Additionally, the directory may contain:
 
-`quickstart.yml`:: if the guide is also a link:https://github.com/cloudmosaic/quickstarts[quick start], then this file defines the quick start. It normally references snippets of content from the guide that allow for the link:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself[DRY principle] to be applied.
+`quickstart.yml`:: if the guide is also a link:https://github.com/patternfly/patternfly-quickstarts[quick start], then this file defines the quick start. It normally references snippets of content from the guide that allow for the link:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself[DRY principle] to be applied.
 `pantheon.yml`:: this repository supports the link:https://github.com/redhataccess/pantheon[Pantheon 2.x] modular documentation management and publication system built on top of AsciiDoc. This file defines how the quick start snippets can be loaded from Pantheon rather than directly by Asciidoctor.js.
 Sample code:: Many guides have associated code (and other artifacts such as build files, deployment descriptors and scripts). These are also placed in the directory.
 
@@ -99,7 +99,7 @@ The file `./doc/.adocignore` contains a list of globs which will be ignored by t
 
 == Creating a quick start
 
-Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {product-kafka} and are based on the link:https://github.com/cloudmosaic/quickstarts[cloudmosaic] project.
+Many of the guides in this repository are also available as "quick starts". Quick starts are available in the Web UI for the {product-kafka} and are based on the link:https://github.com/patternfly/patternfly-quickstarts[PatternFly] project.
 
 We would always recommend starting with a guide and then adding the quick start metadata. This will allow your content to be accessible both in the Web UI and via GitHub.
 
