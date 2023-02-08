@@ -5,7 +5,7 @@ metadata:
   annotations:
     categories: "Database management"
     order: 3
-    draft: false
+    draft: true
 spec:
   version: 0.4
   type:
