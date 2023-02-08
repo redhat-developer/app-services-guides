@@ -36,7 +36,7 @@ spec:
                 secretKeyRef:
                   name:  {{ .Values.rhoas.secret }}
                   key: RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET
-          image: rkpattnaik/quarkus-kafka-quickstart:1.0-SNAPSHOT
+          image: quay.io/rhosak/quarkus-kafka-quickstart-helm:1.0-SNAPSHOT
           imagePullPolicy: Always
           name: rhoas-quarkus-kafka-quickstart
           ports:
