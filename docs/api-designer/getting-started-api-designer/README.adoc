@@ -111,7 +111,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Create your first API or schema design in {product-long-api-designer}.
+Use the web console to create an API or schema design in {product-long-api-designer}.
 ====
 
 [#introduction]
