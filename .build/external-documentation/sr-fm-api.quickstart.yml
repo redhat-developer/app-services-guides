@@ -4,6 +4,9 @@ metadata:
   name: docs-sr-sfm-api
   annotations:
     order: 8
+  labels:
+    service-category/application-services: "true"
+    product/rhosr: "true"
 spec:
   version: 0.1
   type:
