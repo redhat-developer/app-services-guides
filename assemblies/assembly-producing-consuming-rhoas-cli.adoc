@@ -21,7 +21,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to use the `rhoas` command-line interface (CLI) to produce and consume messages for a Kafka instance.
+Use the `rhoas` command-line interface (CLI) to produce and consume messages for a Kafka instance.
 ====
 
 [#introduction]
