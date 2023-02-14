@@ -88,13 +88,13 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-producing-consuming-rhoas-cli"]
-= Producing and consuming messages using the rhoas CLI
+= Producing and consuming messages by using the {product-rhoas} CLI
 ifdef::context[:parent-context: {context}]
 :context: produce-consume-rhoas-cli
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use the `rhoas` command-line interface (CLI) to produce and consume messages for Kafka instances in {product-long-kafka}. This is a useful way to test and debug your Kafka instances.
+As a developer of applications and services, you can use the {product-long-rhoas} `rhoas` command-line interface (CLI) to produce and consume messages for Kafka instances in {product-long-kafka}. This is a useful way to test and debug your Kafka instances.
 
 .Prerequisites
 ifndef::community[]
@@ -109,7 +109,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Use the `rhoas` command-line interface (CLI) to produce and consume messages for a Kafka instance.
+Use the {product-long-rhoas} (rhoas) CLI to produce and consume messages for a Kafka instance.
 ====
 
 [#introduction]
