@@ -21,7 +21,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to configure connections between {product-long-kafka} and third-party systems by using {product-long-connectors}.
+Configure connections between an {product-kafka} instance and third-party systems.
 ====
 
 [#introduction]
