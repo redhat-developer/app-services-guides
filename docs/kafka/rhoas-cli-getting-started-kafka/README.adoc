@@ -88,7 +88,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-getting-started-rhoas-cli-kafka"]
-= Getting started with the rhoas CLI for {product-long-kafka}
+= Creating Kafka resources by using the {product-rhoas} CLI
 :context: getting-started-rhoas-kafka
 
 [role="_abstract"]
