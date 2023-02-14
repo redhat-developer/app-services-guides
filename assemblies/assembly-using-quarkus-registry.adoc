@@ -32,7 +32,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to manually connect a Quarkus application to a Kafka instance in {product-long-kafka} and a {registry} instance in {product-long-registry}. The application will use the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
+Manually connect a Quarkus application to a Kafka instance and to a {registry} instance.
 ====
 
 [#introduction]

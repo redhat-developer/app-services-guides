@@ -36,7 +36,6 @@ The role is also added to the list of selected roles on the *Roles* tab.
 * {base-url}{getting-started-url-registry}[_Getting started with {product-long-registry}_^]
 * {base-url}{getting-started-rhoas-cli-url-registry}[_Getting started with the rhoas CLI for {product-long-registry}_^]
 * {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
-* https://www.apicur.io/registry/docs/apicurio-registry/2.1.x/assets-attachments/registry-rest-api.htm[_Apicurio Registry REST API documentation_^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]

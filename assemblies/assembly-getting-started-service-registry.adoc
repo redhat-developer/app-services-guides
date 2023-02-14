@@ -22,7 +22,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to create and set up your first {registry} instance in {product-long-registry}.
+Create and set up your first {registry} instance in {product-long-registry}.
 ====
 
 [#introduction]
