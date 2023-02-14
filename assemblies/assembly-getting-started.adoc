@@ -22,7 +22,7 @@ endif::[]
 ifdef::qs[]
 [#description]
 ====
-Learn how to create and set up your first Apache Kafka instance in {product-long-kafka}.
+Create and set up your first Apache Kafka instance in {product-long-kafka}.
 ====
 
 [#introduction]

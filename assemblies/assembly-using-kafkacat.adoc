@@ -40,7 +40,7 @@ Version 1.7.0 (librdkafka 1.3.0 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,
 ifdef::qs[]
 [#description]
 ====
-Learn how to use Kcat to interact with a Kafka instance in {product-long-kafka}.
+Use Kcat to interact with a Kafka instance in {product-long-kafka}.
 ====
 
 [#introduction]

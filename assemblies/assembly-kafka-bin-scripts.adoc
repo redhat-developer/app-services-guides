@@ -32,7 +32,7 @@ $ ./kafka-console-producer.sh --version
 ifdef::qs[]
 [#description]
 ====
-Learn how to use Kafka scripts to interact with a Kafka instance in {product-long-kafka}.
+Use Kafka scripts to interact with a Kafka instance in {product-long-kafka}.
 ====
 
 [#introduction]
