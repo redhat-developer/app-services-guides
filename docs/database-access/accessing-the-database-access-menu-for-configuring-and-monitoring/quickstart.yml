@@ -5,6 +5,9 @@ metadata:
   annotations:
     categories: 'Database management'
     draft: false
+  labels:
+    service-category/data-services: "true"
+    product/rhoda: "true"
 spec:
   version: 0.1
   type:
