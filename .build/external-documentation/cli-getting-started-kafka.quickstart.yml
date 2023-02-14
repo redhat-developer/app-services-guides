@@ -1,7 +1,7 @@
 apiVersion: console.openshift.io/v1
 kind: QuickStarts
 metadata:
-  name: docs-cli-getting-started
+  name: docs-cli-getting-started-kafka
   annotations:
     order: 2
 spec:
