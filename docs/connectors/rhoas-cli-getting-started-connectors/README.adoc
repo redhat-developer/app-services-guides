@@ -88,7 +88,7 @@ END GENERATED ATTRIBUTES
 ////
 
 [id="chap-connectors-rhoas-cli"]
-= Getting started with the rhoas CLI for {product-long-connectors}
+= Managing {product-connectors} by using the {product-rhoas} CLI
 ifdef::context[:parent-context: {context}]
 :context: connectors-rhoas-cli
 
