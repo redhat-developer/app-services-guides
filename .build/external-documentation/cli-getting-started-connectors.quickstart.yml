@@ -1,0 +1,18 @@
+apiVersion: console.openshift.io/v1
+kind: QuickStarts
+metadata:
+  name: docs-cli-getting-started-connectors
+  annotations:
+    order: 2
+spec:
+  version: 0.1
+  type:
+    text: Documentation
+    color: orange
+  displayName: Managing OpenShift Connectors by using the OpenShift Application Services CLI
+  icon: >-
+    data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOCIgaGVpZ2h0PSIzOCIgdmlld0JveD0iMCAwIDM4IDM4Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDojZmZmO30uYntmaWxsOiNlMDA7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik0yOCwxSDEwYTksOSwwLDAsMC05LDlWMjhhOSw5LDAsMCwwLDksOUgyOGE5LDksMCwwLDAsOS05VjEwYTksOSwwLDAsMC05LTlaIi8+PHBhdGggY2xhc3M9ImEiIGQ9Ik0yMiwyNS42MjVIMTNhLjYyNS42MjUsMCwwLDEsMC0xLjI1aDlhMi4zNzUsMi4zNzUsMCwwLDAsMC00Ljc1SDE1YTMuNjI1LDMuNjI1LDAsMCwxLDAtNy4yNUgyNWEuNjI1LjYyNSwwLDAsMSwwLDEuMjVIMTVhMi4zNzUsMi4zNzUsMCwwLDAsMCw0Ljc1aDdhMy42MjUsMy42MjUsMCwwLDEsMCw3LjI1WiIvPjxwYXRoIGNsYXNzPSJiIiBkPSJNMjUsMTYuNjI1QTMuNjI1LDMuNjI1LDAsMSwxLDI4LjYyNSwxMywzLjYyODg2LDMuNjI4ODYsMCwwLDEsMjUsMTYuNjI1Wm0wLTZBMi4zNzUsMi4zNzUsMCwxLDAsMjcuMzc1LDEzLDIuMzc3NywyLjM3NzcsMCwwLDAsMjUsMTAuNjI1WiIvPjxwYXRoIGNsYXNzPSJiIiBkPSJNMTMsMjguNjI1QTMuNjI1LDMuNjI1LDAsMSwxLDE2LjYyNSwyNSwzLjYyODg2LDMuNjI4ODYsMCwwLDEsMTMsMjguNjI1Wm0wLTZBMi4zNzUsMi4zNzUsMCwxLDAsMTUuMzc1LDI1LDIuMzc3NywyLjM3NzcsMCwwLDAsMTMsMjIuNjI1WiIvPjwvc3ZnPg==
+  description: Use the Red Hat OpenShift Application Services (rhoas) CLI to manage OpenShift Connectors instances.
+  link:
+    href: https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/8da19b11-0ae0-469b-adfd-9bbf9973b30a
+    text: View documentation
