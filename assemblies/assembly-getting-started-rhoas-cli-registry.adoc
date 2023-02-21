@@ -1,5 +1,5 @@
 [id='assembly-getting-started-rhoas-cli-registry']
-= Getting started with the rhoas CLI for {product-long-registry}
+= Managing {product-registry} by using the {product-rhoas} CLI
 :context: getting-started-rhoas-service-registry
 :imagesdir: _images
 
