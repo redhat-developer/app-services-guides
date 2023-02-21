@@ -1,5 +1,5 @@
 [id='assembly-installing-rhoas-cli']
-= Installing and configuring the rhoas CLI
+= Installing and configuring the {product-rhoas} CLI
 :context: installing-rhoas-cli
 :imagesdir: _images
 
