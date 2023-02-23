@@ -211,7 +211,7 @@ endif::[]
 .Procedure
 
 . At the top of the {service-url-registry}[{registry} web console], select the gear icon. 
-. Click *Settings*, then *User Access*, and then *Groups*.
+. Click *Settings*, then *Identity and Access Management*, then *User Access*, and then *Groups*.
 . Click the name of the user group.
 . From the *Roles* tab, click *Add role*, and select `User Access principal viewer`.
 . Click *Add to group*.

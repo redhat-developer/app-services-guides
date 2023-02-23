@@ -543,7 +543,7 @@ endif::[]
 
 .Procedure
 
-. In the upper-right corner of the {product-kafka} web console, select the gear icon, and click *Settings* > *User Access* > *Groups*
+. In the upper-right corner of the {product-kafka} web console, select the gear icon, and click *Settings* > *Identity and Access Management* > *User Access* > *Groups*
 . Click the name of the user group.
 . From the *Roles* tab, click *Add role* and select `User Access principal viewer`.
 . Click *Add to group* to add the role to the group.
