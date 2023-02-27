@@ -102,17 +102,21 @@ For the example in this guide, you create a source connector that sends data fro
 
 Use this guide to complete the following tasks:
 
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-namespace_connectors-rhoas-cli[Create a namespace to host your {product-connectors} instances]
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-building-connector-configuration-cli_connectors-rhoas-cli[Build a configuration file for each type of connector that you want to create]
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-instances_connectors-rhoas-cli[Create {connectors} instances]
+* {base-url}{getting-started-rhoas-cli-url-connectors}#_75aa250f-388e-4a3c-86b6-d4dc59741df1[Create a namespace to host your {product-connectors} instances]
+
+* {base-url}{getting-started-rhoas-cli-url-connectors}#_c0160a2f-7620-4e48-8bcd-887923820323[Build a configuration file for each type of connector that you want to create]
+
+* {base-url}{getting-started-rhoas-cli-url-connectors}#_3c861147-85d5-49de-8d5e-3213f7a868b9[Create {connectors} instances]
+
+* {base-url}{getting-started-rhoas-cli-url-connectors}#_ecb48393-1ae9-4eb8-8583-1eaacd46ec0f[Managing {connectors} instances]
 
 .Prerequisites
 
-* You have a {org-name} account.
-* You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
+* You have an {org-name} account.
+* You've installed the latest version of the `rhoas` CLI as described in {base-url}{installation-guide-url-cli}[Installing and configuring the OpenShift Application Services CLI^].
 * You've completed the following tasks:
 +
-*Note:* You can find detailed instructions for these tasks in {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for {product-long-kafka}^].
+*Note:* You can find detailed instructions for these tasks in {base-url}{getting-started-rhoas-cli-url-kafka}[Creating Kafka resources by using the {product-long-rhoas} CLI^].
 
 ** Create a Kafka instance.
 [source,subs="+quotes"]
@@ -157,9 +161,11 @@ A {connectors} namespace hosts your {connectors} instances.
 
 The namespace that you use depends on your OpenShift Dedicated environment.
 
-If you're using a trial cluster in your own OpenShift Dedicated environment:: The namespace is created when you add the {product-connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift Dedicated trial cluster^]. Your OpenShift Dedicated trial cluster namespace is active for 60 days.
+If you're using the hosted preview environment:: You must create a preview namespace before you can create {connectors} instances. A preview namespace is active for 48 hours.
 
-If you're using the OpenShift {connectors} evaluation site:: You must create an evaluation namespace before you can create {connectors} instances. An evaluation namespace is active for 48 hours.
+If you're using a trial cluster in your own OpenShift Dedicated environment:: The namespace is created when you add the {product-connectors} service to your trial cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift cluster^]. Your OpenShift Dedicated trial cluster namespace is active for 60 days.
+
+If you're using your own {rosa-name} cluster:: The namespace is created when you add the {product-connectors} service to your cluster, as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift cluster^]. You can create {connectors} instances depending on your subscription, as described in https://access.redhat.com/articles/6990631[Red Hat OpenShift Connectors Tiers^].
 
 .Prerequisites
 
@@ -324,7 +330,7 @@ The result shows the `test-generator.json` and `test-http.json` files.
 
 . Optionally, you can edit a configuration file in an editor of your choice.
 +
-*Note:* To prevent saving sensitive data to disk, the values for the service account and the namespace are not included in the configuration file. You're prompted to specify those values when you create a {product-connectors} instance.
+*Note:* To prevent saving sensitive data to disk, the values for the service account and the namespace are not included in the configuration file. You're prompted to specify those values when you create an {product-connectors} instance.
 
 [id="proc-create-connector-instances_{context}"]
 == Creating {connectors} instances
@@ -406,10 +412,10 @@ $ rhoas connector list
 . Verify that your sink {connectors} instance is receiving messages by viewing your https://webhook.site[Webhook.site^] page in a web browser.
 
 [id="proc-commands-managing-connectors_{context}"]
-== Commands for managing {connectors} instances
+== Managing {connectors} instances
 
 [role="_abstract"]
-For more information about the `rhoas connector` commands that you can use to manage your {connectors} instances, use the following command help:
+The following 'rhoas connector' help commands describe additional 'rhoas connector' commands that you can use to manage your {connectors} instances:
 
 * `rhoas connector namespace -h` for managing {connectors} namespaces
 * `rhoas connector type -h` for viewing the available types of connectors
