@@ -69,6 +69,8 @@
 :service-url-connectors: https://console.redhat.com/application-services/connectors
 :getting-started-url-connectors: connectors/getting-started-connectors/README.adoc
 :getting-started-rhoas-cli-url-connectors: connectors/rhoas-cli-getting-started-connectors/README.adoc
+:addon-url-connectors: https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01
+
 
 //OpenShift API Designer
 :product-long-api-designer: OpenShift API Designer
