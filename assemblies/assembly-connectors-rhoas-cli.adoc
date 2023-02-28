@@ -23,9 +23,6 @@ Use this guide to complete the following tasks:
 ifndef::community[]
 * You have a {org-name} account.
 endif::[]
-ifdef::community[]
-* You have an {org-name} account.
-endif::[]
 * You've installed the latest version of the `rhoas` CLI as described in {base-url}{installation-guide-url-cli}[Installing and configuring the {product-rhoas}  CLI^].
 * You've completed the following tasks:
 +

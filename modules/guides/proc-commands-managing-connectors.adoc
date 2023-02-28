@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-The following 'rhoas connector' help commands describe additional 'rhoas connector' commands that you can use to manage your {connectors} instances:
+The following `rhoas connector` help commands describe additional `rhoas connector` commands that you can use to manage your {connectors} instances:
 
 * `rhoas connector namespace -h` for managing {connectors} namespaces
 * `rhoas connector type -h` for viewing the available types of connectors
