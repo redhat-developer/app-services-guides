@@ -135,4 +135,4 @@ The result shows the `test-generator.json` and `test-http.json` files.
 
 . Optionally, you can edit a configuration file in an editor of your choice.
 +
-*Note:* To prevent saving sensitive data to disk, the values for the service account and the namespace are not included in the configuration file. You're prompted to specify those values when you create a {product-connectors} instance.
+*Note:* To prevent saving sensitive data to disk, the values for the service account and the namespace are not included in the configuration file. You're prompted to specify those values when you create an {product-connectors} instance.

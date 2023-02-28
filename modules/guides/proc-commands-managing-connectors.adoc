@@ -1,9 +1,9 @@
 [id='proc-commands-managing-connectors_{context}']
-= Commands for managing {connectors} instances
+= Managing {connectors} instances
 :imagesdir: ../_images
 
 [role="_abstract"]
-For more information about the `rhoas connector` commands that you can use to manage your {connectors} instances, use the following command help:
+The following 'rhoas connector' help commands describe additional 'rhoas connector' commands that you can use to manage your {connectors} instances:
 
 * `rhoas connector namespace -h` for managing {connectors} namespaces
 * `rhoas connector type -h` for viewing the available types of connectors

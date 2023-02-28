@@ -17,14 +17,19 @@ Use this guide to complete the following tasks:
 * {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-namespace_connectors-rhoas-cli[Create a namespace to host your {product-connectors} instances]
 * {base-url}{getting-started-rhoas-cli-url-connectors}#proc-building-connector-configuration-cli_connectors-rhoas-cli[Build a configuration file for each type of connector that you want to create]
 * {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-instances_connectors-rhoas-cli[Create {connectors} instances]
+* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-commands-managing-connectors[Managing {connectors} instances]
 
 .Prerequisites
-
+ifndef::community[]
 * You have a {org-name} account.
-* You've installed the latest version of the `rhoas` CLI. See {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^].
+endif::[]
+ifdef::community[]
+* You have an {org-name} account.
+endif::[]
+* You've installed the latest version of the `rhoas` CLI as described in {base-url}{installation-guide-url-cli}[Installing and configuring the {product-rhoas}  CLI^].
 * You've completed the following tasks:
 +
-*Note:* You can find detailed instructions for these tasks in {base-url}{getting-started-rhoas-cli-url-kafka}[Getting started with the rhoas CLI for {product-long-kafka}^].
+*Note:* You can find detailed instructions for these tasks in {base-url}{getting-started-rhoas-cli-url-kafka}[Creating Kafka resources by using the {product-rhoas} CLI^].
 
 ** Create a Kafka instance.
 [source,subs="+quotes"]
