@@ -1,6 +1,8 @@
 :product: App Services
 :product-long-kafka: OpenShift Streams for Apache Kafka
 :product-long-registry: OpenShift Service Registry
+:product-long-connectors: OpenShift Connectors
+:product-long-rhoas}: OpenShift Application Services
 
 = {product} guides and samples
 
@@ -24,6 +26,11 @@
 * link:./docs/registry/access-mgmt-registry[Managing account access in {product-long-registry}]
 * link:./docs/registry/rhoas-cli-getting-started-registry[Getting started with the rhoas CLI for {product-long-registry}]
 * link:./docs/registry/quarkus-registry[Using Quarkus applications with Kafka instances and {product-long-registry} instances]
+
+== {product-long-connectors} guides
+
+* link:./docs/connectors/getting-started-connectors/[Getting started with {product-long-connectors}]
+* link:./docs/connectors/rhoas-cli-getting-started-connectors/[Managing {product-long-connectors} by using the {product-long-rhoas} CLI]
 
 == Core guides
 
