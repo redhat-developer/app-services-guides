@@ -2,7 +2,7 @@
 :product-long-kafka: OpenShift Streams for Apache Kafka
 :product-long-registry: OpenShift Service Registry
 :product-long-connectors: OpenShift Connectors
-:product-long-rhoas}: OpenShift Application Services
+:product-long-rhoas: OpenShift Application Services
 
 = {product} guides and samples
 
