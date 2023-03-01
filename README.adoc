@@ -25,8 +25,9 @@
 
 * link:./docs/registry/getting-started-registry/[Getting started with {product-long-registry}]
 * link:./docs/registry/access-mgmt-registry[Managing account access in {product-long-registry}]
-* link:./docs/registry/rhoas-cli-getting-started-registry[Getting started with the rhoas CLI for {product-long-registry}]
+* link:./docs/registry/rhoas-cli-getting-started-registry[Managing {product-long-registry} by using the {product-long-rhoas} CLI]
 * link:./docs/registry/quarkus-registry[Using Quarkus applications with Kafka instances and {product-long-registry} instances]
+* link:./docs/registry/service-binding-registry[Binding OpenShift applications to {product-long-kafka} and {product-long-registry}]
 
 == {product-long-connectors} guides
 
@@ -38,7 +39,9 @@
 
 == Core guides
 
-* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the rhoas CLI]
+* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the {product-long-rhoas} CLI]
+* link:./docs/rhoas/rhoas-produce-consume[Producing and consuming messages by using the {product-long-rhoas} CLI]
+* link:./docs/rhoas/iac_tools_rhoas[Automating deployment and management of Kafka instances in {product-long-kafka}]
 
 == Application examples used in guides
 
