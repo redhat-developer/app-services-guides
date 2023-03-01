@@ -3,6 +3,7 @@
 :product-long-registry: OpenShift Service Registry
 :product-long-connectors: OpenShift Connectors
 :product-long-rhoas: OpenShift Application Services
+:product-long-api-designer: OpenShift API Designer
 
 = {product} guides and samples
 
@@ -31,6 +32,9 @@
 
 * link:./docs/connectors/getting-started-connectors/[Getting started with {product-long-connectors}]
 * link:./docs/connectors/rhoas-cli-getting-started-connectors/[Managing {product-long-connectors} by using the {product-long-rhoas} CLI]
+
+== {product-long-api-designer} guides
+* link:./docs/api-designer/getting-started-api-designer/[Getting started with {product-long-api-designer}]
 
 == Core guides
 
