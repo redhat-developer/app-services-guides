@@ -96,7 +96,7 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a {registry} instance owner, an instance administrator, or an organization administrator in {product-long-registry}, you can manage the level of access that other user accounts and service accounts have to your {registry} instance. You can grant or remove access to your  {registry} instance for specific user accounts in your organization based on user roles. You can also allow other users or service accounts to manage the level of access to your instance for you.
+As a {registry} instance owner or instance administrator, or as an organization administrator in the {rh-customer-portal}, you can manage the level of access that other user accounts and service accounts have to your {registry} instance. You can grant or remove access to your {registry} instance for specific user accounts in your organization based on user roles. You can also allow other users or service accounts to manage the level of access to your instance for you.
 
 {registry} instance owners or instance administrators can manage access for only the {registry} instances that they create or for instances that the owner has allowed them to access and change. Organization administrators can manage access for all {registry} instances.
 
@@ -121,12 +121,14 @@ Administrator:: Users with the Administrator role can perform the following task
 * Configure {registry} settings
 * Configure global rules for artifact compatibility and validity
 * Import or export {registry} data
-Manager:: Users with the Manager role can view or write schema and API artifacts in this {registry} instance.
+Manager:: Users with the Manager role can perform the following tasks in this {registry} instance:
+* View or write schema and API artifacts
+* Configure content rules at the artifact level
 Viewer:: Users with the Viewer role can view schema and API artifacts in this {registry} instance.
 
 IMPORTANT: The owner of a {registry} instance has the Administrator role for that instance by default, and can assign roles in the same organization. Other user accounts or service accounts in the organization have no access to that instance by default.
 
-In addition to the web console, the `rhoas` CLI provides commands to manage user roles. The core {registry} REST API also provides Admin API endpoints for managing user roles.
+You can use the web console, or the {product-long-rhoas} CLI (`rhoas`) commands, to manage user roles. The core {registry} REST API also provides Admin API endpoints for managing user roles.
 
 [id="proc-viewing-registry-roles_{context}"]
 == Viewing user roles in a {registry} instance
@@ -192,7 +194,7 @@ You can edit or remove the user roles assigned in your {registry} instances to m
 == Allowing users to view other user accounts
 
 [role="_abstract"]
-As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} Hybrid Cloud Console  to allow users to view other users in an organization.
+As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} Hybrid Cloud Console to allow users to view other users in an organization.
 
 You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
 By assigning the role, users in the group can do the following tasks:
@@ -212,7 +214,7 @@ endif::[]
 
 .Procedure
 
-. In the toolbar of the {service-url-registry}[{registry} web console], select the gear icon. 
+. In the toolbar of the {service-url-registry}[{registry} web console], select the gear icon.
 . Click *Identity & Access Management* > *User Access* > *Groups*.
 . Click the name of the user group.
 . From the *Roles* tab, click *Add role*, and select `User Access principal viewer`.
@@ -223,8 +225,8 @@ The role is also added to the list of selected roles on the *Roles* tab.
 [role="_additional-resources"]
 .Additional resources
 * {base-url}{getting-started-url-registry}[_Getting started with {product-long-registry}_^]
-* {base-url}{getting-started-rhoas-cli-url-registry}[_Getting started with the rhoas CLI for {product-long-registry}_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-rhoas-cli-url-registry}[_Managing {product-registry} by using the {product-rhoas} CLI_^]
+* {base-url-cli}{command-ref-url-cli}[_{product-rhoas} CLI command reference_^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
