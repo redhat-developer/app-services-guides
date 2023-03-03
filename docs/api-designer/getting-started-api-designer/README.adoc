@@ -97,7 +97,7 @@ ifdef::context[:parent-context: {context}]
 // Purpose statement for the assembly
 [role="_abstract"]
 As an API owner or developer, you can use {product-long-api-designer} to design event schemas and API definitions that comply with vendor-neutral and portable open specifications.
-{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} infrastructure.
+{product-long-api-designer} is a managed cloud service that enables you to design schemas and API definitions without having to install, configure, run, and maintain your own {product-api-designer} infrastructure. 
 
 For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_api-designer/1[{product-long-api-designer} user documentation^].
 
