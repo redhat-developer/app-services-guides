@@ -16,6 +16,7 @@
 :cloud-console-url: https://console.redhat.com/
 :service-accounts-url: https://console.redhat.com/application-services/service-accounts
 :rh-sso-url: https://sso.redhat.com
+:rh-customer-portal: Red Hat Customer Portal
 
 //OpenShift
 :openshift: OpenShift
