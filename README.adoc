@@ -3,6 +3,7 @@
 :product-long-registry: OpenShift Service Registry
 :product-long-connectors: OpenShift Connectors
 :product-long-rhoas: OpenShift Application Services
+:product-long-api-designer: OpenShift API Designer
 
 = {product} guides and samples
 
@@ -24,17 +25,23 @@
 
 * link:./docs/registry/getting-started-registry/[Getting started with {product-long-registry}]
 * link:./docs/registry/access-mgmt-registry[Managing account access in {product-long-registry}]
-* link:./docs/registry/rhoas-cli-getting-started-registry[Getting started with the rhoas CLI for {product-long-registry}]
+* link:./docs/registry/rhoas-cli-getting-started-registry[Managing {product-long-registry} by using the {product-long-rhoas} CLI]
 * link:./docs/registry/quarkus-registry[Using Quarkus applications with Kafka instances and {product-long-registry} instances]
+* link:./docs/registry/service-binding-registry[Binding OpenShift applications to {product-long-kafka} and {product-long-registry}]
 
 == {product-long-connectors} guides
 
 * link:./docs/connectors/getting-started-connectors/[Getting started with {product-long-connectors}]
 * link:./docs/connectors/rhoas-cli-getting-started-connectors/[Managing {product-long-connectors} by using the {product-long-rhoas} CLI]
 
+== {product-long-api-designer} guides
+* link:./docs/api-designer/getting-started-api-designer/[Getting started with {product-long-api-designer}]
+
 == Core guides
 
-* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the rhoas CLI]
+* link:./docs/rhoas/rhoas-cli-installation[Installing and configuring the {product-long-rhoas} CLI]
+* link:./docs/rhoas/rhoas-produce-consume[Producing and consuming messages by using the {product-long-rhoas} CLI]
+* link:./docs/rhoas/iac_tools_rhoas[Automating deployment and management of Kafka instances in {product-long-kafka}]
 
 == Application examples used in guides
 

@@ -137,7 +137,7 @@ endif::[]
 . In the {service-url-registry}[{registry} web console], click *Create {registry} instance*.
 . Enter a unique *Instance name*, such as `my-service-registry-instance`.
 
-. Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
+. Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed on the *{registry} Instances* page.
 
 . When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to connect to or delete the instance as needed.
 
@@ -149,11 +149,11 @@ NOTE: You can see all {registry} instances created by other users in your organi
 
 .Verification
 ifdef::qs[]
-* Is the new {registry} instance listed in the instances table?
+* Is the new {registry} instance listed on the *{registry} Instances* page?
 * Is the state of the new {registry} instance shown as *Ready*?
 endif::[]
 ifndef::qs[]
-. Verify that the new {registry} instance is listed in the instances table.
+. Verify that the new {registry} instance is listed on the *{registry} Instances* page.
 . Verify that the state of the new {registry} instance is shown as *Ready*.
 endif::[]
 
@@ -168,7 +168,7 @@ After you create a {registry} instance, you can upload schema or API content to 
 * You've created a {registry} instance and the instance is in *Ready* state.
 
 .Procedure
-. In the *{registry}* instances page of the web console, select the {registry} instance that you want to upload a schema to.
+. On the *{registry} Instances* page of the web console, select the {registry} instance that you want to upload a schema to.
 . Click *Upload artifact* and complete the form to define the schema details:
 +
 [.screencapture]
@@ -177,45 +177,56 @@ image::upload-schema.png[Image of form to upload a schema]
 +
 * *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
-NOTE:  Specifying a group is optional when using the web console, and a `default` group is automatically created.
+NOTE: Specifying a group is optional when using the web console, and a `default` group is automatically created.
 +
 * *ID*: Enter an optional unique ID for this artifact such as `my-ID`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID.
-* *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the drop-down, for example, Avro Schema or OpenAPI.
+* *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the list, for example, Avro Schema or OpenAPI.
 * *Artifact*: Drag and drop or click *Browse* to upload a file. For this example, copy and paste the following simple Avro schema:
 +
 [source,json,subs="+quotes,attributes"]
 ----
 {
-"type": "record",
-"namespace": "com.example",
-"name": "FullName",
-"fields": [
-{ "name": "first", "type": "string" },
-{ "name": "last", "type": "string" }
-]}
+  "type": "record",
+  "namespace": "com.example",
+  "name": "FullName",
+  "fields": [
+    {
+      "name": "first",
+      "type": "string"
+    },
+    {
+      "name": "last",
+      "type": "string"
+    }
+  ]
+}
 ----
 
 . Click *Upload* to complete the operation and display the new artifact details:
 
-* *Info*: Displays the artifact name, group, description, lifecycle status, when created, and last modified.
-* *Content*: Displays a read-only view of the full artifact content.
-* *Documentation*: (OpenAPI only): Displays automatically-generated REST API documentation.
-* *Content Rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity Rule* or *Compatibility Rule* by selecting the appropriate rule configuration from the drop-down. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^].
+* *Overview* tab:
+** *Version metadata*: Displays details such as the artifact name, artifact ID, global ID, content ID, labels, properties, and so on.
+** *Content rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity rule* or *Compatibility rule* by enabling the rule and then selecting the appropriate rule configuration from the list. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^].
+* *Documentation* tab: (OpenAPI only): Displays automatically-generated REST API documentation.
+* *Content* tab: Displays a read-only view of the full artifact content.
+
 +
 You can now use this schema to serialize and deserialize messages from Kafka client applications.
 
-. On the right of the screen, you can click *Upload new version* to add a new artifact version.
+. You can click *Upload new version* to add a new artifact version.
 
 . You can click *Delete* to delete an artifact as needed.
 +
 IMPORTANT: Deleting an artifact deletes the artifact and all of its versions, and cannot be undone. Artifact versions are immutable and cannot be deleted individually.
 
+. To show the list of artifacts on the *Artifacts* tab, click the _instance-name_ breadcrumb.
+
 .Verification
 ifdef::qs[]
-* Is the new schema in the *Artifacts* table?
+* Is the new schema listed on the *Artifacts* tab?
 endif::[]
 ifndef::qs[]
-* Verify that the new schema is listed in the *Artifacts* table.
+* Verify that the new schema is listed on the *Artifacts* tab.
 endif::[]
 
 [id="proc-connecting-registry-clients_{context}"]
@@ -228,14 +239,14 @@ To connect your applications or services to a {registry} instance in the web con
 * You've created a {registry} instance and the instance is in *Ready* state.
 
 .Procedure
-. In the *{registry} Instances* page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *Connection*.
+. On the *{registry} Instances* page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *Connection*.
 . Depending on the client libraries that you want to use, chose the API for your needs:
 +
  * *Core Registry API* is the most powerful and works with Apicurio client libraries
  * *Schema Registry compatibility API* provides compatibility with the Confluent Schema Registry API
  * *CNCF Schema Registry API* provides compatibility with the CNCF specification
 
-. In the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
+. On the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
 +
 ifdef::qs[]
 The remainder of this task describes how to create a service account and copy the generated credentials.
@@ -247,10 +258,10 @@ If you want to use the credentials of an _existing_ service account, you can ski
 endif::[]
 
 
-.  Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
+. Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
 
 
-. Copy the generated *Client ID* and *Client Secret* to a secure location.
+. Copy the generated *Client ID* and *Client secret* to a secure location.
 +
 IMPORTANT: The generated credentials are displayed only one time. Ensure that you've successfully and securely saved the copied credentials before closing the credentials window.
 
@@ -263,7 +274,7 @@ NOTE: HTTP Basic authentication is also available for tools and libraries that d
 +
 You’ll use the service account information that you saved to configure your applications to connect to your {registry} instances later when you're ready.
 +
-For example, if you plan to use https://github.com/edenhill/kcat[Kcat^] to interact with your Kafka instance and deserialize Avro messages using {registry}, you'll use this information to set your {registry} URL in the client environment variables.
+For example, if you plan to use https://github.com/edenhill/kcat[kcat^] to interact with your Kafka instance and deserialize Avro messages using {registry}, you'll use this information to set your {registry} URL in the client environment variables.
 +
 To review your service account information, reset your credentials, or delete the service account, use the left navigation menu to go to the *Service Accounts* page.
 
@@ -271,12 +282,12 @@ To review your service account information, reset your credentials, or delete th
 ifdef::qs[]
 * Did you save the {registry} instance URL to a secure location?
 * Did you save the client credentials to a secure location?
-* Did you verify that your service account was successfully created in the *Service Accounts* page?
+* Did you verify that your service account was successfully created on the *Service Accounts* page?
 endif::[]
 ifndef::qs[]
 . Verify that the {registry} instance URL is saved to a secure location.
 . Verify that the client credentials are saved to a secure location.
-. Verify that your service account was successfully created in the *Service Accounts* page.
+. Verify that your service account was successfully created on the *Service Accounts* page.
 endif::[]
 
 
@@ -284,14 +295,14 @@ endif::[]
 == Assigning a role for a service account to access a {registry} instance
 
 [role="_abstract"]
-After you create a service account for applications to connect to a {registry} instance, you must also set the appropriate level of access for the new account in the *Access* tab of the {registry} instance. {registry} uses role-based access to enable you to manage how other user accounts and service accounts can interact with the {registry} instance that you create.
+After you create a service account for applications to connect to a {registry} instance, you must also set the appropriate level of access for the new account on the *Access* tab of the {registry} instance. {registry} uses role-based access to enable you to manage how other user accounts and service accounts can interact with the {registry} instance that you create.
 
 .Prerequisites
 * You've created a {registry} instance and the instance is in *Ready* state.
 * You've created a service account that you want to allow to access the running {registry} instance.
 
 .Procedure
-. In the *{registry} Instances* page of the web console, click the name of the {registry} instance that you want the service account to access.
+. On the *{registry} Instances* page of the web console, click the name of the {registry} instance that you want the service account to access.
 . Click the *Access* tab to view the accounts and roles already assigned for this instance.
 . Click *Grant access* to assign a role to the service account.
 . In the *Account* field, select or enter the service account name that you want to assign the role to.
@@ -300,17 +311,17 @@ After you create a service account for applications to connect to a {registry} i
 
 .Verification
 ifdef::qs[]
-* Is the new role for the service account listed in the *Access* page of the {registry} instance?
+* Is the new role for the service account listed on the *Access* page of the {registry} instance?
 endif::[]
 ifndef::qs[]
-* Verify that the new role for the service account is listed in the *Access* page of the {registry} instance.
+* Verify that the new role for the service account is listed on the *Access* page of the {registry} instance.
 endif::[]
 
 [role="_additional-resources"]
 == Additional resources
-* {base-url}{access-mgmt-url-registry}[Managing account access in Red Hat OpenShift Service Registry^]
+* {base-url}{access-mgmt-url-registry}[Managing account access in {product-long-registry}^]
 * https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
-* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[OpenShift Streams for Apache Kafka user documentation^]
+* https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1[{product-long-kafka} user documentation^]
 
 ifdef::qs[]
 [#conclusion]
