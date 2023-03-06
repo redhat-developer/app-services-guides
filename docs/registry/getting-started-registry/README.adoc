@@ -204,7 +204,7 @@ NOTE: Specifying a group is optional when using the web console, and a `default`
 . Click *Upload* to complete the operation and display the new artifact details:
 
 * *Overview* tab:
-** *Version metadata*: Displays details such as the artifact name, artifact ID, description, lifecycle status, when created, owner, last modified, global ID, content ID, labels, and properties.
+** *Version metadata*: Displays details such as the artifact name, artifact ID, global ID, content ID, labels, properties, and so on.
 ** *Content rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity rule* or *Compatibility rule* by enabling the rule and then selecting the appropriate rule configuration from the list. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^].
 * *Documentation* tab: (OpenAPI only): Displays automatically-generated REST API documentation.
 * *Content* tab: Displays a read-only view of the full artifact content.
