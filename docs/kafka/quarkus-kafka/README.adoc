@@ -97,9 +97,9 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
+As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka}. https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries such as Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
 
-In this quick start, you'll use the {product-kafka} web console to collect connection information for a Kafka instance. Then you'll manually configure a connection from an example Quarkus application to the Kafka instance and start producing and consuming messages.
+In this quick start, you use the {product-kafka} web console to collect connection information for a Kafka instance. Then you manually configure a connection from an example Quarkus application to the Kafka instance and start producing and consuming messages.
 
 NOTE: When you've completed this quick start and understand the required connection configuration for a Kafka instance, you can use the {product-long-rhoas} command-line interface (CLI) to generate this type of configuration in a more automated way. To learn more, see {base-url}{service-contexts-url-cli}[Connecting client applications to {product-long-rhoas} using the rhoas CLI^].
 
@@ -125,7 +125,7 @@ Manually connect a Quarkus application to a Kafka instance and then produce and 
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-kafka} with Quarkus. In this quick start, you'll use the web console to collect connection information for a Kafka instance in {product-kafka}. Then you'll manually configure a connection from an example https://quarkus.io/[Quarkus^] application to the Kafka instance and start producing and consuming messages.
+Welcome to the quick start for {product-long-kafka} with Quarkus. In this quick start, you use the web console to collect connection information for a Kafka instance in {product-kafka}. Then you manually configure a connection from an example https://quarkus.io/[Quarkus^] application to the Kafka instance and start producing and consuming messages.
 ====
 endif::[]
 
@@ -133,7 +133,7 @@ endif::[]
 == Importing the Quarkus sample code
 
 [role="_abstract"]
-For this quick start, you'll use the Quarkus sample code from the {product-long-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
+For this quick start, you use the Quarkus sample code from the {product-long-kafka} {samples-git-repo}[Guides and Samples^] repository in GitHub.
 
 .Procedure
 . On the command line, clone the {product-kafka} {samples-git-repo}[Guides and Samples^] repository from GitHub.
@@ -153,64 +153,60 @@ endif::[]
 == Configuring the Quarkus example application to connect to a Kafka instance
 
 [role="_abstract"]
-To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product-long-kafka} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
+To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product-long-kafka} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To get the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], select the options icon (three vertical dots), and click *Connection*.
-* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
+* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for your Kafka instance. To get this information, find your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Bootstrap server* and *Token endpoint URL* values.
+* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console. Copy the *Client ID* and *Client secret* values.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, click your Kafka instance in the {service-url-kafka}[{product-kafka} web console^] and use the *Access* page to find your service account permission settings.
 
 
 .Procedure
-. On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
+. On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications.
 +
---
-ifdef::qs[]
-The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
-endif::[]
-
+Replace the values in angle brackets (`< >`) with your own server and credential information, as follows:
++
+* The `_<bootstrap_server>_` value is the *Bootstrap server* endpoint for your Kafka instance.
+* The `_<oauth_token_endpoint_url>_` value is the SASL/OAUTHBEARER *Token endpoint URL* for your Kafka instance.
+* The `_<client_id>_` and `_<client_secret>_` values are the generated credentials for your service account.
++
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
-$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_uri>__
+$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_url>__
 ----
---
+
 . In the Quarkus example application, review the `src/main/resources/application.properties` file to understand how the environment variables you set in the previous step are used in your application. This example uses the `dev` configuration profile in the `application.properties` file.
 
 ifdef::qs[]
 .Verification
-* Did you set environment variables for the Kafka instance?
+* Did you set environment variables for your Kafka instance?
 endif::[]
 
 [id="proc-create-prices-topic_{context}"]
 == Creating a Kafka topic in {product-kafka}
 
 [role="_abstract"]
-The Quarkus application in this quick start uses a Kafka topic called `prices` to produce and consume messages. In this task, you'll create the `prices` topic in your Kafka instance.
+The Quarkus application in this quick start uses a Kafka topic called `prices` to produce and consume messages. In this task, you create the `prices` topic in your Kafka instance.
 
 .Prerequisites
 * You have a running Kafka instance in {product-long-kafka}.
 
 .Procedure
-. In the {product-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
-. Select the *Topics* tab.
-. Click *Create topic* and follow the guided steps to define the topic details.
-+
---
-You must specify the following topic properties:
-
-* *Topic name*: For this quick start, enter `prices` as the topic name.
-* *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `1`.
-* *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`.
-* *Replicas*: For this release of {product-kafka}, the replica values are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to `1`.
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
+. Click the *Topics* tab.
+. Click *Create topic* and specify the following topic properties:
+.. *Topic name*: For this quick start, enter `prices` as the topic name. Click *Next*.
+.. *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `1`. Click *Next*.
+.. *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`. Click *Next*.
+.. *Replicas*: For this release of {product-kafka}, the replica values are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to `1`. Click *Finish*.
 
 After you complete the setup, the new topic appears on the *Topics* page. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
---
 
 .Verification
 ifdef::qs[]

@@ -97,11 +97,11 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka} and {registry} instances in {product-long-registry}. This makes it easy for development teams to store and reuse schemas in event-streaming architectures.
+As a developer of applications and services, you can connect Quarkus applications to Kafka instances in {product-long-kafka} and {registry} instances in {product-long-registry}. This feature makes it easy for development teams to store and reuse schemas in event-streaming architectures.
 
-https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries like Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
+https://quarkus.io/[Quarkus^] is a Kubernetes-native Java framework made for Java virtual machines (JVMs) and native compilation, and optimized for serverless, cloud, and Kubernetes environments. Quarkus is designed to work with popular Java standards, frameworks, and libraries such as Eclipse MicroProfile and Spring, as well as Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Infinispan, Camel, and many more.
 
-In this quick start, you'll manually configure connections from an example Quarkus application to Kafka and {registry} instances. The application will use the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
+In this quick start, you manually configure connections from an example Quarkus application to Kafka and {registry} instances. The application uses the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
 
 NOTE: When you've completed this quick start and understand the required connection configurations for Kafka and {registry} instances, you can use the {product-long-rhoas} command-line interface (CLI) to generate these types of configurations in a more automated way. To learn more, see {base-url}{service-contexts-url-cli}[Connecting client applications to {product-long-rhoas} using the rhoas CLI^].
 
@@ -128,7 +128,7 @@ Manually connect a Quarkus application to a Kafka instance and to a {registry} i
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-registry} with Quarkus. In this quick start, you'll learn how to manually connect an example https://quarkus.io/[Quarkus^] application to a Kafka instance in {product-long-kafka} and a {registry} instance in {product-registry}. The application will use the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
+Welcome to the quick start for {product-long-registry} with Quarkus. In this quick start, you learn how to manually connect an example https://quarkus.io/[Quarkus^] application to a Kafka instance in {product-long-kafka} and a {registry} instance in {product-registry}. The application uses the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
 ====
 endif::[]
 
@@ -136,7 +136,7 @@ endif::[]
 == Importing the Quarkus sample code
 
 [role="_abstract"]
-For this quick start, you'll use the Quarkus {registry} sample code from the App Services {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product-kafka} and {registry} in the same way.
+For this quick start, you use the Quarkus {registry} sample code from the App Services {samples-git-repo}[Guides and Samples^] repository in GitHub. After you understand the concepts and tasks in this quick start, you can use your own Quarkus applications with {product-kafka} and {registry} in the same way.
 
 .Procedure
 . On the command line, clone the App Services {samples-git-repo}[Guides and Samples^] repository from GitHub.
@@ -156,36 +156,40 @@ endif::[]
 == Configuring the Quarkus application to connect to Kafka and {registry} instances
 
 [role="_abstract"]
-To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value.
+To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value supported by the Apicurio serializer/deserializer (SerDes).
 
-Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. The example in this task sets environment variables and then references them in the  `application.properties` file.
+Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. The example in this task sets environment variables and then references them in the `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For details on configuration options, see the https://quarkus.io/guides/kafka[Apache Kafka Reference Guide^] in the Quarkus documentation.
 
 This Quarkus example application includes producer and consumer processes that serialize/deserialize Kafka messages using a schema stored in {registry}.
 
 .Prerequisites
-* You have a service account with write access to Kafka and {registry} instances and have stored your credentials securely (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^] and {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
-* You have the bootstrap server endpoint for the Kafka instance. To get this information, select your Kafka instance in the {service-url-kafka}[{product-kafka} web console^], select the options icon (three vertical dots), and click *Connection*.
-* You have the Core Registry API endpoint for the {registry} instance. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
-* You have the SASL/OAUTHBEARER token endpoint used by the {registry} and Kafka instances. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Token endpoint URL* value.
+* You have the bootstrap server endpoint for your Kafka instance. To get this information, find your Kafka instance in the {service-url-kafka}[{product-kafka} web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Bootstrap server* value.
+* You have the SASL/OAUTHBEARER token endpoint for your Kafka and {registry} instances. To get this information, find your {registry} instance in the {service-url-registry}[{product-registry} web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Token endpoint URL* value.
+* You have the Core Registry API endpoint for your {registry} instance. To get this information, find your {registry} instance in the {service-url-registry}[{product-registry} web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Core Registry API* value.
+* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console. Copy the *Client ID* and *Client secret* values.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, click your Kafka instance in the {service-url-kafka}[{product-kafka} web console^] and use the *Access* page to find your service account permission settings.
+* You've set the permissions for your service account to access the {registry} instance resources. To verify the current permissions, click your {registry} instance in the {service-url-registry}[{product-registry} web console^], and use the *Access* page to find your service account role settings.
 
 .Procedure
-. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information.
+. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications.
 +
-* The `<bootstrap_server>` value is the bootstrap server endpoint for your Kafka instance.
-* The `<service_registry_url>` value is the URL for your {registry} instance.
+Replace the values in angle brackets (`< >`) with your own server and credential information, as follows:
++
+* The `_<bootstrap_server>_` value is the *Bootstrap server* endpoint for your Kafka instance.
+* The `_<core_registry_api_url>_` value is *Core Registry API* URL for your {registry} instance.
 * The `SERVICE_REGISTRY_CORE_PATH` variable is a constant value used to set the API path for {product-registry}.
-* The `<oauth_token_endpoint_uri>` value is the SASL/OAUTHBEARER token endpoint.
-* The `<client_id>` and `<client_secret>` values are the generated credentials for your service account.
+* The `_<oauth_token_endpoint_url>_` value is the SASL/OAUTHBEARER *Token endpoint URL* for your Kafka and {registry} instances.
+* The `_<client_id>_` and `_<client_secret>_` values are the generated credentials for your service account.
 +
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
-$ export SERVICE_REGISTRY_URL=__<service_registry_url>__
+$ export SERVICE_REGISTRY_URL=__<core_registry_api_url>__
 $ export SERVICE_REGISTRY_CORE_PATH=/apis/registry/v2
-$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_uri>__
+$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_url>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 ----
@@ -201,26 +205,21 @@ endif::[]
 == Creating the quotes Kafka topic in {product-kafka}
 
 [role="_abstract"]
-The Quarkus application in this quick start uses a Kafka topic called `quotes` to produce and consume messages. In this task, you'll create the `quotes` topic in your Kafka instance.
+The Quarkus application in this quick start uses a Kafka topic called `quotes` to produce and consume messages. In this task, you create the `quotes` topic in your Kafka instance.
 
 .Prerequisites
 * You have a running Kafka instance in {product-long-kafka}.
 
 .Procedure
-. In the {product-kafka} {service-url-kafka}[web console^], select *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
-. Select the *Topics* tab.
-. Click *Create topic* and follow the guided steps to define the topic details.
-+
---
-You must specify the following topic properties:
-
-* *Topic name*: For this quick start, enter `quotes` as the topic name.
-* *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `1`.
-* *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`.
-* *Replicas*: For this release of {product-kafka}, the replica values are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to `1`.
+. In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
+. Click the *Topics* tab.
+. Click *Create topic* and specify the following topic properties:
+.. *Topic name*: For this quick start, enter `quotes` as the topic name. Click *Next*.
+.. *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `1`. Click *Next*.
+.. *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`. Click *Next*.
+.. *Replicas*: For this release of {product-kafka}, the replica values are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to `1`.  Click *Finish*.
 
 After you complete the setup, the new topic appears on the *Topics* page. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
---
 
 .Verification
 ifdef::qs[]
@@ -240,7 +239,7 @@ After you configure your Quarkus application to connect to Kafka and {registry} 
 The Quarkus application in this quick start consists of the following processes:
 
 * A consumer process that is implemented by the `QuotesResource` class. This class exposes the `/quotes` REST endpoint that streams quotes from the `quotes` topic. This process also has a minimal frontend that uses Server-Sent Events to stream the quotes to a web page.
-* A producer process that is implemented by the `QuotesProducer` class. This class produces a new quote periodically (every 5 seconds) with a random  value that is published to the `quotes` topic.
+* A producer process that is implemented by the `QuotesProducer` class. This class produces a new quote periodically (every 5 seconds) with a random value that is published to the `quotes` topic.
 
 .Prerequisites
 * You've configured the Quarkus example application to connect to your Kafka and {registry} instances.
@@ -272,14 +271,14 @@ $ mvn quarkus:dev
 
 . When both the consumer and producer processes are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
 
-. In the web console, go to *{registry}* > *{registry} Instances*,  select your {registry} instance, and view the automatically generated schema for your application.
+. In the web console, go to *{registry}* > *{registry} Instances*, click your {registry} instance, and view the automatically generated schema for your application.
 
 
 .What just happened?
 
 * The Quarkus application is configured to use the `io.apicurio.registry.serde.avro.AvroKafkaSerializer` Java class for serializing and the `io.apicurio.registry.serde.avro.AvroKafkaDeserializer` class for deserializing messages to Avro format. This SerDes is configured to use remote schemas in {product-long-registry} rather than the local schemas in the application.
 
-* Because there are no schemas in the {registry} instance, the SerDes published the schema for the `quotes` topic. The name of the schema is managed by the `TopicRecordIdStrategy` class, which uses the `topic_name-value` convention. You can find this schema in the {registry} instance and configure compatability rules to govern how the schema can evolve for future versions.
+* Because there are no schemas in the {registry} instance, the SerDes published the schema for the `quotes` topic. The name of the schema is managed by the `TopicRecordIdStrategy` class, which uses the `topic_name-value` convention. You can find this schema in the {registry} instance and configure compatibility rules to govern how the schema can evolve for future versions.
 
 * If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
 
