@@ -8,7 +8,7 @@ After you configure your Quarkus application to connect to Kafka and {registry} 
 The Quarkus application in this quick start consists of the following processes:
 
 * A consumer process that is implemented by the `QuotesResource` class. This class exposes the `/quotes` REST endpoint that streams quotes from the `quotes` topic. This process also has a minimal frontend that uses Server-Sent Events to stream the quotes to a web page.
-* A producer process that is implemented by the `QuotesProducer` class. This class produces a new quote periodically (every 5 seconds) with a random  value that is published to the `quotes` topic.
+* A producer process that is implemented by the `QuotesProducer` class. This class produces a new quote periodically (every 5 seconds) with a random value that is published to the `quotes` topic.
 
 .Prerequisites
 * You've configured the Quarkus example application to connect to your Kafka and {registry} instances.
@@ -40,14 +40,14 @@ $ mvn quarkus:dev
 
 . When both the consumer and producer processes are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
 
-. In the web console, go to *{registry}* > *{registry} Instances*,  select your {registry} instance, and view the automatically generated schema for your application.
+. In the web console, go to *{registry}* > *{registry} Instances*, click your {registry} instance, and view the automatically generated schema for your application.
 
 
 .What just happened?
 
 * The Quarkus application is configured to use the `io.apicurio.registry.serde.avro.AvroKafkaSerializer` Java class for serializing and the `io.apicurio.registry.serde.avro.AvroKafkaDeserializer` class for deserializing messages to Avro format. This SerDes is configured to use remote schemas in {product-long-registry} rather than the local schemas in the application.
 
-* Because there are no schemas in the {registry} instance, the SerDes published the schema for the `quotes` topic. The name of the schema is managed by the `TopicRecordIdStrategy` class, which uses the `topic_name-value` convention. You can find this schema in the {registry} instance and configure compatability rules to govern how the schema can evolve for future versions.
+* Because there are no schemas in the {registry} instance, the SerDes published the schema for the `quotes` topic. The name of the schema is managed by the `TopicRecordIdStrategy` class, which uses the `topic_name-value` convention. You can find this schema in the {registry} instance and configure compatibility rules to govern how the schema can evolve for future versions.
 
 * If the Quarkus application fails to run, review the error log in the terminal and address any problems. Also review the steps in this quick start to ensure that the Quarkus application and Kafka topic are configured correctly.
 

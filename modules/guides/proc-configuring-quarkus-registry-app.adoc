@@ -3,36 +3,40 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value.
+To enable your Quarkus applications to access a Kafka instance, configure the connection properties using the Kafka bootstrap server endpoint. To access a {registry} instance, configure the registry endpoint connection property with the Core Registry API value supported by the Apicurio serializer/deserializer (SerDes).
 
-Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. The example in this task sets environment variables and then references them in the  `application.properties` file.
+Access to the {registry} and Kafka instances is managed using the same service account and SASL/OAUTHBEARER token endpoint. For Quarkus, you can configure all connection properties using the `application.properties` file. The example in this task sets environment variables and then references them in the `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For details on configuration options, see the https://quarkus.io/guides/kafka[Apache Kafka Reference Guide^] in the Quarkus documentation.
 
 This Quarkus example application includes producer and consumer processes that serialize/deserialize Kafka messages using a schema stored in {registry}.
 
 .Prerequisites
-* You have a service account with write access to Kafka and {registry} instances and have stored your credentials securely (see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^] and {base-url}{getting-started-url-registry}[Getting started with {product-long-registry}^]).
-* You have the bootstrap server endpoint for the Kafka instance. To get this information, select your Kafka instance in the {service-url-kafka}[{product-kafka} web console^], select the options icon (three vertical dots), and click *Connection*.
-* You have the Core Registry API endpoint for the {registry} instance. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Core Registry API* endpoint supported by the Apicurio serializer/deserializer (SerDes) used in this example.
-* You have the SASL/OAUTHBEARER token endpoint used by the {registry} and Kafka instances. To get this information, select your {registry} instance in the {service-url-registry}[{product-registry} web console^], select the options icon (three vertical dots) and click *Connection*. Copy the *Token endpoint URL* value.
+* You have the bootstrap server endpoint for your Kafka instance. To get this information, find your Kafka instance in the {service-url-kafka}[{product-kafka} web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Bootstrap server* value.
+* You have the SASL/OAUTHBEARER token endpoint for your Kafka and {registry} instances. To get this information, find your {registry} instance in the {service-url-registry}[{product-registry} web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Token endpoint URL* value.
+* You have the Core Registry API endpoint for your {registry} instance. To get this information, find your {registry} instance in the {service-url-registry}[{product-registry} web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Core Registry API* value.
+* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console. Copy the *Client ID* and *Client secret* values.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, click your Kafka instance in the {service-url-kafka}[{product-kafka} web console^] and use the *Access* page to find your service account permission settings.
+* You've set the permissions for your service account to access the {registry} instance resources. To verify the current permissions, click your {registry} instance in the {service-url-registry}[{product-registry} web console^], and use the *Access* page to find your service account role settings.
 
 .Procedure
-. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information.
+. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications.
 +
-* The `<bootstrap_server>` value is the bootstrap server endpoint for your Kafka instance.
-* The `<service_registry_url>` value is the URL for your {registry} instance.
+Replace the values in angle brackets (`< >`) with your own server and credential information, as follows:
++
+* The `_<bootstrap_server>_` value is the *Bootstrap server* endpoint for your Kafka instance.
+* The `_<core_registry_api_url>_` value is *Core Registry API* URL for your {registry} instance.
 * The `SERVICE_REGISTRY_CORE_PATH` variable is a constant value used to set the API path for {product-registry}.
-* The `<oauth_token_endpoint_uri>` value is the SASL/OAUTHBEARER token endpoint.
-* The `<client_id>` and `<client_secret>` values are the generated credentials for your service account.
+* The `_<oauth_token_endpoint_url>_` value is the SASL/OAUTHBEARER *Token endpoint URL* for your Kafka and {registry} instances.
+* The `_<client_id>_` and `_<client_secret>_` values are the generated credentials for your service account.
 +
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
-$ export SERVICE_REGISTRY_URL=__<service_registry_url>__
+$ export SERVICE_REGISTRY_URL=__<core_registry_api_url>__
 $ export SERVICE_REGISTRY_CORE_PATH=/apis/registry/v2
-$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_uri>__
+$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_url>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
 ----

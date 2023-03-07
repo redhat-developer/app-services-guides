@@ -14,7 +14,7 @@ endif::[]
 . In the {service-url-registry}[{registry} web console], click *Create {registry} instance*.
 . Enter a unique *Instance name*, such as `my-service-registry-instance`.
 
-. Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed in the instances table.
+. Click *Create* to start the creation process for your {registry} instance. The new {registry} instance is listed on the *{registry} Instances* page.
 
 . When the *Status* is *Ready*, you can start using this {registry} instance. You can use the options icon (three vertical dots) to connect to or delete the instance as needed.
 
@@ -26,11 +26,11 @@ NOTE: You can see all {registry} instances created by other users in your organi
 
 .Verification
 ifdef::qs[]
-* Is the new {registry} instance listed in the instances table?
+* Is the new {registry} instance listed on the *{registry} Instances* page?
 * Is the state of the new {registry} instance shown as *Ready*?
 endif::[]
 ifndef::qs[]
-. Verify that the new {registry} instance is listed in the instances table.
+. Verify that the new {registry} instance is listed on the *{registry} Instances* page.
 . Verify that the state of the new {registry} instance is shown as *Ready*.
 endif::[]
 

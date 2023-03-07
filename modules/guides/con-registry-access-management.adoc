@@ -18,9 +18,11 @@ Administrator:: Users with the Administrator role can perform the following task
 * Configure {registry} settings
 * Configure global rules for artifact compatibility and validity
 * Import or export {registry} data
-Manager:: Users with the Manager role can view or write schema and API artifacts in this {registry} instance.
+Manager:: Users with the Manager role can perform the following tasks in this {registry} instance:
+* View or write schema and API artifacts
+* Configure content rules at the artifact level
 Viewer:: Users with the Viewer role can view schema and API artifacts in this {registry} instance.
 
 IMPORTANT: The owner of a {registry} instance has the Administrator role for that instance by default, and can assign roles in the same organization. Other user accounts or service accounts in the organization have no access to that instance by default.
 
-In addition to the web console, the `rhoas` CLI provides commands to manage user roles. The core {registry} REST API also provides Admin API endpoints for managing user roles.
+You can use the web console, or the {product-long-rhoas} CLI (`rhoas`) commands, to manage user roles. The core {registry} REST API also provides Admin API endpoints for managing user roles.

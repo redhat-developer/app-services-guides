@@ -3,7 +3,7 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} Hybrid Cloud Console  to allow users to view other users in an organization.
+As an organization administrator, you can use Role-Based Access Control (RBAC) in the {org-name} Hybrid Cloud Console to allow users to view other users in an organization.
 
 You set up access by assigning a predefined role called `User Access principal viewer` to a user group.
 By assigning the role, users in the group can do the following tasks:
@@ -34,8 +34,8 @@ The role is also added to the list of selected roles on the *Roles* tab.
 [role="_additional-resources"]
 .Additional resources
 * {base-url}{getting-started-url-registry}[_Getting started with {product-long-registry}_^]
-* {base-url}{getting-started-rhoas-cli-url-registry}[_Getting started with the rhoas CLI for {product-long-registry}_^]
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url}{getting-started-rhoas-cli-url-registry}[_Managing {product-registry} by using the {product-rhoas} CLI_^]
+* {base-url-cli}{command-ref-url-cli}[_{product-rhoas} CLI command reference_^]
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
