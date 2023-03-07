@@ -128,7 +128,7 @@ Manually connect a Quarkus application to a Kafka instance and to a {registry} i
 
 [#introduction]
 ====
-Welcome to the quick start for {product-long-registry} with Quarkus. In this quick start, you'll learn how to manually connect an example https://quarkus.io/[Quarkus^] application to a Kafka instance in {product-long-kafka} and a {registry} instance in {product-registry}. The application will use the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
+Welcome to the quick start for {product-long-registry} with Quarkus. In this quick start, you learn how to manually connect an example https://quarkus.io/[Quarkus^] application to a Kafka instance in {product-long-kafka} and a {registry} instance in {product-registry}. The application uses the Kafka instance to produce and consume messages and a schema stored in the {registry} instance to serialize/deserialize the messages.
 ====
 endif::[]
 
@@ -172,7 +172,7 @@ This Quarkus example application includes producer and consumer processes that s
 * You've set the permissions for your service account to access the {registry} instance resources. To verify the current permissions, click your {registry} instance in the {service-url-registry}[{product-registry} web console^], and use the *Access* page to find your service account role settings.
 
 .Procedure
-. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information.
+. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information, as identified in the *Prerequisites* section.
 +
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
@@ -196,7 +196,7 @@ endif::[]
 == Creating the quotes Kafka topic in {product-kafka}
 
 [role="_abstract"]
-The Quarkus application in this quick start uses a Kafka topic called `quotes` to produce and consume messages. In this task, you'll create the `quotes` topic in your Kafka instance.
+The Quarkus application in this quick start uses a Kafka topic called `quotes` to produce and consume messages. In this task, you create the `quotes` topic in your Kafka instance.
 
 .Prerequisites
 * You have a running Kafka instance in {product-long-kafka}.
@@ -262,7 +262,7 @@ $ mvn quarkus:dev
 
 . When both the consumer and producer processes are running, view the generated quotes in the web browser at http://localhost:8080/quotes.html[^].
 
-. In the web console, go to *{registry}* > *{registry} Instances*, select your {registry} instance, and view the automatically generated schema for your application.
+. In the web console, go to *{registry}* > *{registry} Instances*, click your {registry} instance, and view the automatically generated schema for your application.
 
 
 .What just happened?
