@@ -209,18 +209,13 @@ The Quarkus application in this quick start uses a Kafka topic called `quotes` t
 .Procedure
 . In the {product-kafka} {service-url-kafka}[web console^], click *Kafka Instances* and then click the name of the Kafka instance that you want to add a topic to.
 . Click the *Topics* tab.
-. Click *Create topic* and follow the guided steps to define the topic details.
-+
---
-You must specify the following topic properties:
-
-* *Topic name*: For this quick start, enter `quotes` as the topic name.
-* *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `1`.
-* *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`.
-* *Replicas*: For this release of {product-kafka}, the replica values are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to `1`.
+. Click *Create topic* and specify the following topic properties:
+.. *Topic name*: For this quick start, enter `quotes` as the topic name. Click *Next*.
+.. *Partitions*: Set the number of partitions for the topic. For this quick start, set the value to `1`. Click *Next*.
+.. *Message retention*: Set the message retention time and size. For this quick start, set the retention time to `A week` and the retention size to `Unlimited`. Click *Next*.
+.. *Replicas*: For this release of {product-kafka}, the replica values are preconfigured. The number of partition replicas for the topic is set to `3` and the minimum number of follower replicas that must be in sync with a partition leader is set to `2`. For a trial Kafka instance, the number of replicas and the minimum in-sync replica factor are both set to `1`.  Click *Finish*.
 
 After you complete the setup, the new topic appears on the *Topics* page. You can now run the Quarkus application to start producing and consuming messages to and from this topic.
---
 
 .Verification
 ifdef::qs[]
