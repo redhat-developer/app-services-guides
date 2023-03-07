@@ -3,36 +3,37 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product-long-kafka} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the  `application.properties` file.
+To enable your Quarkus application to access a Kafka instance, configure the connection using the bootstrap server endpoint, the generated credentials for your {product-long-kafka} service account, and the SASL/OAUTHBEARER token endpoint for the Kafka instance. For Quarkus, you can configure connection information by using the `application.properties` configuration file. The example in this task sets environment variables and then references them in the `application.properties` file.
 
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To get the server endpoint and the SASL/OAUTHBEARER token endpoint, select your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], select the options icon (three vertical dots), and click *Connection*.
-* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, select your Kafka instance in the {product-kafka} web console and use the *Access* page to find your service account permission settings.
+* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for your Kafka instance. To get this information, find your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Bootstrap server* and *Token endpoint URL* values.
+* You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console. Copy the *Client ID* and *Client secret* values.
+* You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, click your Kafka instance in the {service-url-kafka}[{product-kafka} web console^] and use the *Access* page to find your service account permission settings.
 
 
 .Procedure
-. On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications. Replace the values with your own server and credential information.
+. On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications.
 +
---
-ifdef::qs[]
-The `<bootstrap_server>` is the bootstrap server endpoint for your Kafka instance. The `<oauth_token_endpoint_uri>` is the SASL/OAUTHBEARER token endpoint for the Kafka instance. The `<client_id>` and `<client_secret>` are the generated credentials for your service account. You copied this information previously for the Kafka instance in {product-kafka} by selecting the options menu (three vertical dots) and clicking *Connection*.
-endif::[]
-
+Replace the values in angle brackets (`< >`) with your own server and credential information, as follows:
++
+* The `_<bootstrap_server>_` value is the *Bootstrap server* endpoint for your Kafka instance.
+* The `_<oauth_token_endpoint_url>_` value is the SASL/OAUTHBEARER *Token endpoint URL* for your Kafka instance.
+* The `_<client_id>_` and `_<client_secret>_` values are the generated credentials for your service account.
++
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
 $ export KAFKA_HOST=__<bootstrap_server>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_ID=__<client_id>__
 $ export RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET=__<client_secret>__
-$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_uri>__
+$ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_url>__
 ----
---
+
 . In the Quarkus example application, review the `src/main/resources/application.properties` file to understand how the environment variables you set in the previous step are used in your application. This example uses the `dev` configuration profile in the `application.properties` file.
 
 ifdef::qs[]
 .Verification
-* Did you set environment variables for the Kafka instance?
+* Did you set environment variables for your Kafka instance?
 endif::[]
