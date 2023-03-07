@@ -172,7 +172,15 @@ This Quarkus example application includes producer and consumer processes that s
 * You've set the permissions for your service account to access the {registry} instance resources. To verify the current permissions, click your {registry} instance in the {service-url-registry}[{product-registry} web console^], and use the *Access* page to find your service account role settings.
 
 .Procedure
-. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications. Replace values in angle brackets (`< >`) with your own server and credential information, as identified in the *Prerequisites* section.
+. On the command line, set the following environment variables to use your Kafka and {registry} instances with Quarkus or other applications.
++
+Replace the values in angle brackets (`< >`) with your own server and credential information, as follows:
++
+* The `_<bootstrap_server>_` value is the *Bootstrap server* endpoint for your Kafka instance.
+* The `_<core_registry_api_url>_` value is *Core Registry API* URL for your {registry} instance.
+* The `SERVICE_REGISTRY_CORE_PATH` variable is a constant value used to set the API path for {product-registry}.
+* The `_<oauth_token_endpoint_url>_` value is the SASL/OAUTHBEARER *Token endpoint URL* for your Kafka instance.
+* The `_<client_id>_` and `_<client_secret>_` values are the generated credentials for your service account.
 +
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]

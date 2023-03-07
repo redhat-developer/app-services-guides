@@ -164,8 +164,14 @@ Quarkus applications use https://github.com/eclipse/microprofile-reactive-messag
 
 
 .Procedure
-. On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications. Replace the values in angle brackets (`< >`) with your own server and credential information, as identified in the *Prerequisites* section.
-
+. On the command line, set the Kafka instance bootstrap server and client credentials as environment variables to be used by Quarkus or other applications.
++
+Replace the values in angle brackets (`< >`) with your own server and credential information, as follows:
++
+* The `_<bootstrap_server>_` value is the *Bootstrap server* endpoint for your Kafka instance.
+* The `_<oauth_token_endpoint_url>_` value is the SASL/OAUTHBEARER *Token endpoint URL* for your Kafka instance.
+* The `_<client_id>_` and `_<client_secret>_` values are the generated credentials for your service account.
++
 .Setting environment variables for server and credentials
 [source,subs="+quotes"]
 ----
