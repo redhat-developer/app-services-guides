@@ -158,7 +158,7 @@ To enable your Quarkus application to access a Kafka instance, configure the con
 Quarkus applications use https://github.com/eclipse/microprofile-reactive-messaging[MicroProfile Reactive Messaging^] to produce messages to and consume messages from your Kafka instances in {product-kafka}. For more information about Quarkus configuration options for Kafka and Reactive Messaging, see https://quarkus.io/guides/kafka[Using Apache Kafka with Reactive Messaging^] in the Quarkus documentation.
 
 .Prerequisites
-* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To get this information, find your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Bootstrap server* and *Token endpoint URL* values.
+* You have the bootstrap server endpoint and the SASL/OAUTHBEARER token endpoint for your Kafka instance. To get this information, find your Kafka instance in the {product-kafka} {service-url-kafka}[web console^], click the options icon (three vertical dots), and click *Connection*. Copy the *Bootstrap server* and *Token endpoint URL* values.
 * You have the generated credentials for your service account. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console. Copy the *Client ID* and *Client secret* values.
 * You've set the permissions for your service account to access the Kafka instance resources. To verify the current permissions, click your Kafka instance in the {service-url-kafka}[{product-kafka} web console^] and use the *Access* page to find your service account permission settings.
 
@@ -185,7 +185,7 @@ $ export RHOAS_SERVICE_ACCOUNT_OAUTH_TOKEN_URL=__<oauth_token_endpoint_url>__
 
 ifdef::qs[]
 .Verification
-* Did you set environment variables for the Kafka instance?
+* Did you set environment variables for your Kafka instance?
 endif::[]
 
 [id="proc-create-prices-topic_{context}"]
