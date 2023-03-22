@@ -97,7 +97,8 @@ ifdef::context[:parent-context: {context}]
 
 // Purpose statement for the assembly
 [role="_abstract"]
-As a developer of applications and services, you can use {product-long-kafka} to create and set up Kafka instances and connect your applications and services to these instances. {product-kafka} is a managed cloud service that enables you to add Kafka data-streaming functionality in your applications without having to install, configure, run, and maintain your own Kafka clusters.
+As a developer of applications and services, you can use {product-long-kafka} to create and set up Kafka instances and connect your applications and services to these instances. {product-kafka} is a managed cloud service that enables you to add Kafka data-streaming functionality in your applications on your own {rosa-name} (ROSA) clusters.
+
 
 //For more overview information about {product-kafka}, see [variablized link to overview here https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/].
 
@@ -131,6 +132,7 @@ Use the {product-long-kafka} web console to create and configure a Kafka instanc
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the {product-kafka} web console at {service-url-kafka}[^].
+* You have a registered {rosa-name} cluster in a ready state.
 * You're familiar with the different Kafka instance sizes that you can create in {product-kafka}, and the capacities that correspond to those sizes. For more information about the capacities and service limits of your Kafka instance, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 endif::[]
 
@@ -138,10 +140,14 @@ endif::[]
 . On the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^], click *Create Kafka instance*.
 . Complete the *Create a Kafka instance* form to define the following instance details. Some instance details currently have only one option.
 * *Instance name*: Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
-* *Cloud provider*: For a production Kafka instance, accept the default value of *Amazon Web Services*. If you're creating a trial instance, you also have the option to select *Google Cloud Platform*.
-* *Cloud region*: Select a cloud provider region from the list.
-* *Availability zones*: The selection for availability zones is preconfigured as *Multi* for a production instance and *Single* for a trial instance.
-* *Size*: If you've purchased a subscription for {product-kafka}, use the slider to select an instance size. In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. If you're creating a trial instance, the instance size is preconfigured.
+* *OpenShift cluster*: Select an OpenShift cluster with a ready status for deployment of your Kafka instance. The clusters can be viewed in the *OpenShift clusters* tab. 
++
+Each cluster displays a cluster ID, cluster name, and one of the following states:
++
+** *Ready*: The cluster has been successfully registered and can accept Kafka instances.
+** *Failed*: The cluster failed to be registered and cannot accept Kafka instances.
+* *Availability zones*: The selection for availability zones is preconfigured as *Multi*.
+* *Size*: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. 
 +
 
 ////
