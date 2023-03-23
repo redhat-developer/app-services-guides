@@ -106,7 +106,7 @@ In this example, you connect a data source (a data generator) that creates Kafka
 
 ifndef::qs[]
 .Example flow of messages from a data source to a data sink
-image::{imagesdir}/connectors-getting-started-connectors/connectors-example-diagram.png[Image of data flowing from a data source to a data sink]
+image::connectors-getting-started-connectors/connectors-example-diagram.png[Image of data flowing from a data source to a data sink]
 endif::[]
 
 ifdef::qs[]
@@ -159,7 +159,6 @@ You have three choices:
 * *Your own {rosa-name} cluster*
 
 ** You have access to your own {rosa-name} (ROSA) environment.
-** You can create {connectors} instances depending on your subscription, as described in https://access.redhat.com/articles/6990631[Red Hat OpenShift Connectors Tiers^].
 ** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
 
 *Configuring {product-long-kafka} for use with {product-connectors}*
