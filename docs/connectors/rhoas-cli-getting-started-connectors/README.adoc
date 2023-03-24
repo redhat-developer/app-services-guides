@@ -103,13 +103,6 @@ You can use a *source* connector to send data from an external system to {produc
 
 For the example in this guide, you create a source connector that sends data from a simple data generator to a Kafka topic. You also create a sink connector that sends data from the Kafka topic to an HTTP site.
 
-Use this guide to complete the following tasks:
-
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-namespace_connectors-rhoas-cli[Create a namespace to host your {product-connectors} instances]
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-building-connector-configuration-cli_connectors-rhoas-cli[Build a configuration file for each type of connector that you want to create]
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-create-connector-instances_connectors-rhoas-cli[Create {connectors} instances]
-* {base-url}{getting-started-rhoas-cli-url-connectors}#proc-commands-managing-connectors[Managing {connectors} instances]
-
 .Prerequisites
 ifndef::community[]
 * You have a {org-name} account.
