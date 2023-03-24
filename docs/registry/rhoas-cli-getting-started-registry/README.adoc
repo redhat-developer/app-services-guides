@@ -259,7 +259,7 @@ $ rhoas context set-service-registry --name=my-registry
 . Download an example schema.
 +
 --
-This example downloads an Apache Kafka Avro schema in JSON format.
+This example downloads an Apache Avro schema in JSON format.
 
 .Downloading an example schema
 [source,shell]
@@ -427,9 +427,9 @@ For more information about any of the options, view the command help `rhoas serv
 == Configuring {registry} rules
 
 [role="_abstract"]
-To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Artifact rules apply to the specified artifact only. Global rules apply to all artifacts in a particular {registry} instance. Configured artifact rules override any configured global rules. Before a new artifact version can be uploaded to the registry, all configured global rules or artifact rules must pass.
+To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Global rules apply to all artifacts in a particular {registry} instance. Artifact rules apply to the specified artifact only, and cannot be configured until the artifact is created. Configured artifact rules override any configured global rules.
 
-When you create an instance, the global rules are disabled by default. When you create an artifact, the artifact rules are disabled by default. To configure a global rule or artifact rule, you must first enable the rule.
+When you create an instance, the global rules are disabled by default. When you create an artifact, the artifact rules are disabled by default. To configure a global rule or artifact rule, you must first enable the rule. An artifact cannot be updated if the new content violates any of the enabled rules; in such cases, the registration fails.
 
 .Prerequisites
 
