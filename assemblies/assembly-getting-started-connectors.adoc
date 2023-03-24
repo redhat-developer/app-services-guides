@@ -15,7 +15,7 @@ In this example, you connect a data source (a data generator) that creates Kafka
 
 ifndef::qs[]
 .Example flow of messages from a data source to a data sink
-image::{imagesdir}/connectors-getting-started-connectors/connectors-example-diagram.png[Image of data flowing from a data source to a data sink]
+image::connectors-getting-started-connectors/connectors-example-diagram.png[Image of data flowing from a data source to a data sink]
 endif::[]
 
 ifdef::qs[]

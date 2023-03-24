@@ -11,7 +11,7 @@ If you're using the hosted preview environment:: You must create a preview names
 
 If you're using a Trial cluster in your own OpenShift Dedicated environment:: The namespace is created when you add the {product-connectors} service to your Trial cluster, as described in {addon-url-connectors}[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift cluster^]. Your OpenShift Dedicated Trial cluster namespace is active for 60 days.
 
-If you're using your own {rosa-name} cluster:: The namespace is created when you add the {product-connectors} service to your cluster, as described in {addon-url-connectors}[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift cluster^]. You can create {connectors} instances depending on your subscription, as described in https://access.redhat.com/articles/6990631[Red Hat OpenShift Connectors Tiers^].
+If you're using your own {rosa-name} cluster:: The namespace is created when you add the {product-connectors} service to your cluster, as described in {addon-url-connectors}[Adding the Red Hat OpenShift {connectors} add-on to your OpenShift cluster^].
 
 .Prerequisites
 
