@@ -196,6 +196,11 @@ $ rhoas context set-service-registry --name=my-registry
 ----
 $ rhoas service-registry use --name=my-registry
 ----
+
+[NOTE]
+====
+You can run the `rhoas service-registry use` command without specifying the instance name, and then select the instance name from the generated list of instances.
+====
 --
 
 . Verify that the specified {registry} instance is set as the default instance.
@@ -300,7 +305,11 @@ Artifacts might include, for example, schemas that define the structure of Kafka
 
 .Procedure
 
-. Download an example schema.
+. Upload the artifact in one of the following ways:
+
+* Upload the artifact from a file:
+
+.. Download an example schema.
 +
 --
 This example downloads an Apache Avro schema in JSON format.
@@ -312,7 +321,7 @@ $ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/
 ----
 --
 
-. Upload the schema as a {registry} artifact.
+.. Upload the schema as a {registry} artifact.
 +
 --
 This example creates a {registry} artifact called `my-artifact` from the Avro schema that you downloaded in the previous step, and uploads the artifact to the {registry} instance.
@@ -322,17 +331,16 @@ This example creates a {registry} artifact called `my-artifact` from the Avro sc
 ----
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
+--
 
-[NOTE]
-====
-You can upload the artifact directly from the URL as follows:
-
+* Upload the artifact directly from a URL:
++
+--
 .Creating and uploading an artifact from a URL
 [source,shell]
 ----
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
 ----
-====
 --
 
 . Verify that the artifact was registered.
