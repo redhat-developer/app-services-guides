@@ -140,8 +140,7 @@ The current context is automatically updated so that the created {registry} inst
 
 [NOTE]
 ====
-If you do not want to use the default values,
-enter the following command: `rhoas service-registry create`.
+If you do not want to use the default values, enter the following command: `rhoas service-registry create`.
 You are prompted to enter the `Name` and optional `Description` for the {registry} instance.
 ====
 --
@@ -149,7 +148,7 @@ You are prompted to enter the `Name` and optional `Description` for the {registr
 . Verify that the {registry} instance is ready to use.
 +
 --
-.Reviewing details of a {registry} instance
+.Reviewing the details of the {registry} instance
 [source,shell]
 ----
 $ rhoas context status service-registry
@@ -160,8 +159,59 @@ because the `Status` field is `ready`.
 
 [NOTE]
 ====
-If you have multiple {registry} instances,
-you can change the context to a different instance by using the `rhoas context set-service-registry` command.
+By default, many of the `rhoas` commands provide output in JSON format. You can use the `-o` option to specify a different output format. For more information, see the command help as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Commands for managing {registry}].
+====
+--
+
+
+[id="proc-specifying-default-service-registry-instance-cli_{context}"]
+== Specifying the default {registry} instance
+
+[role="_abstract"]
+If you have multiple {registry} instances, you can configure a specific instance as the default {registry} instance.
+
+.Prerequisites
+
+* You've created a {registry} instance, and it has a `ready` status.
+
+.Procedure
+
+. Configure the default {registry} instance in one of the following ways:
+
+** Use the `rhoas context set-service-registry` command:
++
+--
+.Selecting a {registry} instance into the current context
+[source,shell]
+----
+$ rhoas context set-service-registry --name=my-registry
+----
+--
+
+** Use the `rhoas service-registry use` command:
++
+--
+.Selecting a {registry} instance to use
+[source,shell]
+----
+$ rhoas service-registry use --name=my-registry
+----
+--
+
+. Verify that the specified {registry} instance is set as the default instance.
++
+--
+.Reviewing the details of the default {registry} instance
+[source,shell]
+----
+$ rhoas context status service-registry
+----
+
+This command shows the name of the default {registry} instance for all `rhoas service-registry` commands.
+
+[NOTE]
+====
+You can override the default value by specifying a different target instance in the `rhoas service-registry` commands.
 ====
 --
 
@@ -193,7 +243,7 @@ $ rhoas service-account create --short-description="rhoas-service-account" --fil
 [NOTE]
 ====
 When creating a service account, you can choose the file format and location to save the credentials.
-For more information, see the `rhoas service-account create` command help.
+For more information, run the `rhoas service-account create -h` command to view the command help.
 ====
 --
 
@@ -228,31 +278,25 @@ This example creates a role called `manager` for the service account.
 ----
 $ rhoas service-registry role add --role=manager --service-account=_<client-id>_
 ----
+
+[NOTE]
+====
+For more information about the different roles, run the `rhoas service-registry role -h` command to view the command help.
+====
 --
+
 
 [id="proc-uploading-service-registry-artifacts_{context}"]
 == Uploading {registry} artifacts
 
 [role="_abstract"]
 After creating a {registry} instance, you can start uploading {registry} artifacts.
-Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define an API.
+Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define a REST API.
 
 .Prerequisites
 
 * You've created a {registry} instance, and it has a `ready` status.
-* The context is set so that your {registry} instance is the current instance.
-Use the `rhoas context status` command to show the current context.
-
-[NOTE]
-====
-You can use `rhoas context set-service-registry` to switch to a specific {registry} instance.
-
-.Selecting a {registry} instance to use
-[source,shell]
-----
-$ rhoas context set-service-registry --name=my-registry
-----
-====
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 
 .Procedure
 
@@ -273,11 +317,22 @@ $ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/
 --
 This example creates a {registry} artifact called `my-artifact` from the Avro schema that you downloaded in the previous step, and uploads the artifact to the {registry} instance.
 
-.Creating and uploading an artifact
+.Creating and uploading an artifact from a file
 [source,shell]
 ----
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
+
+[NOTE]
+====
+You can upload the artifact directly from the URL as follows:
+
+.Creating and uploading an artifact from a URL
+[source,shell]
+----
+$ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
+----
+====
 --
 
 . Verify that the artifact was registered.
@@ -323,7 +378,7 @@ $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--description`, to modify the metadata of the artifact you're creating.
-For more information about any of the options, view the command help `rhoas service-registry artifact metadata-set -h`.
+For more information about any of the options, run the `rhoas service-registry artifact metadata-set -h` command to view the command help.
 ====
 --
 
@@ -336,7 +391,7 @@ After you register a {registry} artifact, you can download the artifact to updat
 .Prerequisites
 
 * You've created a {registry} instance with at least one artifact.
-* The context is set so that your {registry} instance is the current instance.
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 
 .Procedure
 
@@ -371,7 +426,7 @@ $ rhoas service-registry artifact download --global-id=28
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--instance-id`, to specify the artifact to download.
-For more information about any of the options, view the command help `rhoas service-registry artifact download -h` and `rhoas service-registry artifact get -h`.
+For more information about any of the options, run the `rhoas service-registry artifact download -h` command and the `rhoas service-registry artifact get -h` command to view the command help.
 ====
 
 [id="proc-updating-service-registry-artifacts_{context}"]
@@ -383,7 +438,7 @@ You can update an artifact with content from a file or from standard input.
 .Prerequisites
 
 * You've created a {registry} instance with at least one artifact.
-* The context is set so that your {registry} instance is the current instance.
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 * The type of the updated content is compatible with the current artifact type.
 
 .Procedure
@@ -419,7 +474,7 @@ $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--version`, to specify the artifact to update.
-For more information about any of the options, view the command help `rhoas service-registry artifact update -h`.
+For more information about any of the options, run the `rhoas service-registry artifact update -h` command to view the command help.
 ====
 --
 
@@ -434,7 +489,7 @@ When you create an instance, the global rules are disabled by default. When you 
 .Prerequisites
 
 * You've created a {registry} instance with at least one artifact.
-* The context is set so that your {registry} instance is the current instance.
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 
 .Procedure
 
@@ -479,7 +534,7 @@ $ rhoas service-registry rule enable --rule-type=validity --config=full --artifa
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--instance-id`, to specify the {registry} group or instance to which the updated rules apply.
-For more information about any of the options, view the command help `rhoas service-registry rule enable -h`.
+For more information about any of the options, run the `rhoas service-registry rule enable -h` command to view the command help.
 ====
 --
 * If the rule is already enabled, use the `rhoas service-registry rule update` command.
@@ -546,7 +601,7 @@ $ rhoas service-registry rule disable --rule-type=validity --artifact-id=my-arti
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--instance-id`, to specify the {registry} group or instance to which the updated rules apply.
-For more information about any of the options, view the command help `rhoas service-registry rule disable -h`.
+For more information about any of the options, run the `rhoas service-registry rule disable -h` command to view the command help.
 ====
 --
 
@@ -563,25 +618,8 @@ After creating a {registry} instance, you can generate a configuration file that
 
 .Procedure
 
-. Ensure that the context is set so that your {registry} instance is the current instance.
-+
---
-This example shows the current context.
+. Ensure that your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 
-.Showing the current context
-[source,shell]
-----
-$ rhoas context status
-----
-
-This example sets your {registry} instance as the current instance for all `rhoas service-registry` commands.
-
-.Setting the current instance
-[source,shell]
-----
-$ rhoas context set-service-registry --name my-registry
-----
---
 . Generate a configuration file for the current service context.
 +
 --
@@ -599,8 +637,7 @@ $ rhoas generate-config --type json
 == Commands for managing {registry}
 
 [role="_abstract"]
-For more information about the `rhoas` commands you can use to manage your {registry} instance,
-use the following command help:
+For more information about the `rhoas` commands that you can use to manage your {registry} instance, run the following commands to view the command help:
 
 * `rhoas service-registry -h` for {registry} instances
 * `rhoas service-account -h` for service accounts
