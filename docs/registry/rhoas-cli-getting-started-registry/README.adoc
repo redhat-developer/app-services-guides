@@ -148,7 +148,7 @@ You are prompted to enter the `Name` and optional `Description` for the {registr
 . Verify that the {registry} instance is ready to use.
 +
 --
-.Reviewing the details of the {registry} instance
+.Reviewing the {registry} instance details
 [source,shell]
 ----
 $ rhoas context status service-registry
@@ -159,7 +159,7 @@ because the `Status` field is `ready`.
 
 [NOTE]
 ====
-By default, many of the `rhoas` commands provide output in JSON format. You can use the `-o` option to specify a different output format. For more information, see the command help as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Commands for managing {registry}].
+By default, many of the `rhoas` commands provide output in JSON format. You can use the `-o` option to specify a different output format. For more information, see {base-url}{getting-started-rhoas-cli-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Commands for managing {registry}].
 ====
 --
 
@@ -168,7 +168,7 @@ By default, many of the `rhoas` commands provide output in JSON format. You can 
 == Specifying the default {registry} instance
 
 [role="_abstract"]
-If you have multiple {registry} instances, you can configure a specific instance as the default {registry} instance.
+If you have multiple {registry} instances, you can configure a default {registry} instance.
 
 .Prerequisites
 
@@ -492,7 +492,7 @@ For more information about any of the options, run the `rhoas service-registry a
 [role="_abstract"]
 To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Global rules apply to all artifacts in a particular {registry} instance. Artifact rules apply to the specified artifact only, and cannot be configured until the artifact is created. Configured artifact rules override any configured global rules.
 
-When you create an instance, the global rules are disabled by default. When you create an artifact, the artifact rules are disabled by default. To configure a global rule or artifact rule, you must first enable the rule. An artifact cannot be updated if the new content violates any of the enabled rules; in such cases, the registration fails.
+When you create an instance, the global rules are disabled by default. When you create an artifact, the artifact rules are disabled by default. To configure a global rule or artifact rule, you must ensure that the rule is enabled. An artifact cannot be updated if the new content violates any of the enabled rules; in such cases, the registration fails.
 
 .Prerequisites
 
