@@ -8,6 +8,7 @@ You can update an artifact with content from a file or from standard input.
 .Prerequisites
 
 * You've created a {registry} instance with at least one artifact.
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 * The type of the updated content is compatible with the current artifact type.
 
 .Procedure
@@ -25,7 +26,7 @@ $ rhoas service-registry artifact update --artifact-id=my-artifact my-artifact.j
 
 [NOTE]
 ====
-To update the artifact from standard input, use the `rhoas service-registry artifact update --artifact-id=my_artifact` command.
+To update the artifact from standard input, use the `rhoas service-registry artifact update --artifact-id=my-artifact` command.
 
 Paste the updated artifact content on the command line, and then press Ctrl+D to save.
 ====
@@ -43,6 +44,6 @@ $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--version`, to specify the artifact to update.
-For more information about any of the options, view the command help `rhoas service-registry artifact update -h`.
+For more information about any of the options, run the `rhoas service-registry artifact update -h` command to view the command help.
 ====
 --

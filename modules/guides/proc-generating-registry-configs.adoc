@@ -1,22 +1,23 @@
 [id='proc-generating-registry-configs_{context}']
-= Generating configurations for Service Registry instance
+= Generating configurations for {registry} instance
 :imagesdir: ../_images
 
 [role="_abstract"]
-After creating a Service Registry instance, you can generate a configuration file that your applications can use to connect to your Service Registry instance.
+After creating a {registry} instance, you can generate a configuration file that your applications can use to connect to your {registry} instance.
 
 .Prerequisites
 
-* You've created a Service Registry instance.
-* The Service Registry instance is set in the current context.
+* You've created a {registry} instance.
 * Your user account and org have quota for creating service accounts.
 
 .Procedure
 
-* Generate a configuration file for the current service context.
+. Ensure that your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
+
+. Generate a configuration file for the current service context.
 +
 --
-This example generates a JSON file with configurations for the Service Registry instance.
+This example generates a JSON file with configurations for the {registry} instance.
 
 .Generating a configuration file
 [source,shell]

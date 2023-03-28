@@ -11,22 +11,14 @@ you can use `rhoas` to create {registry} instances and connect your applications
 You can also manage artifacts.
 Artifacts are items stored in {registry}, such as schemas and API specifications.
 
-You can get started with {product-long-registry} by doing the following tasks:
-
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-creating-service-registry-instance-cli_getting-started-rhoas-service-registry[Create a {registry} instance]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-creating-service-registry-account_getting-started-rhoas-service-registry[Create a service account]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-uploading-service-registry-artifacts_getting-started-rhoas-service-registry[Upload {registry} artifacts]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-downloading-service-registry-artifacts_getting-started-rhoas-service-registry[Download {registry} artifacts]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-updating-service-registry-artifacts_getting-started-rhoas-service-registry[Update {registry} artifacts]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-configuring-service-registry-rules_getting-started-rhoas-service-registry[Configure {registry} rules]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-generating-registry-configs_getting-started-rhoas-service-registry[Generating {registry} configurations]
-* {base-url}{getting-started-rhoas-cli-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Use `rhoas` to manage your {registry} instance, service accounts, and artifacts]
 
 //Additional line break to resolve mod docs generation error
 
 include::modules/guides/ref-service-registry-cli-prereqs.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-service-registry-instance-cli.adoc[leveloffset=+1]
+
+include::modules/guides/proc-specifying-default-service-registry-instance-cli.adoc[leveloffset=+1]
 
 include::modules/guides/proc-creating-service-registry-account.adoc[leveloffset=+1]
 

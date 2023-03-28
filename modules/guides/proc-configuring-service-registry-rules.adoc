@@ -3,15 +3,18 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Artifact rules apply to the specified artifact only. Global rules apply to all artifacts in a particular {registry} instance. Configured artifact rules override any configured global rules. Before a new artifact version can be uploaded to the registry, all configured global rules or artifact rules must pass.
+To prevent invalid content from being added to {registry}, you can configure optional rules to check the artifact content. Global rules apply to all artifacts in a particular {registry} instance. Artifact rules apply to the specified artifact only, and cannot be configured until the artifact is created. Configured artifact rules override any configured global rules.
+
+When you create an instance, the global rules are disabled by default. When you create an artifact, the artifact rules are disabled by default. To configure a global rule or artifact rule, you must ensure that the rule is enabled. An artifact cannot be updated if the new content violates any of the enabled rules; in such cases, the registration fails.
 
 .Prerequisites
 
 * You've created a {registry} instance with at least one artifact.
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 
 .Procedure
 
-. Identify the rule that you want to update.
+. Identify the rule that you want to configure.
 +
 --
 To show a list of global rules, run the following command:
@@ -29,21 +32,49 @@ $ rhoas service-registry rule list --artifact-id=my-artifact
 ----
 
 --
-. Update the {registry} rule by specifying the rule type and configuration.
+. Configure or update the rule in one of the following ways:
+* If the rule that you want to configure is disabled, use the `rhoas service-registry rule enable` command.
 +
 --
+When you enable a rule, you must specify the configuration value. If the rule is not currently enabled, you can enable the rule and specify its configuration in the same command.
+
+This example enables and configures the global compatibility rule for all artifacts in the current {registry} instance:
+
+[source,shell]
+----
+$ rhoas service-registry rule enable --rule-type=compatibility --config=full
+----
+
+This example enables and configures the validity rule for a specific artifact:
+
+[source,shell]
+----
+$ rhoas service-registry rule enable --rule-type=validity --config=full --artifact-id=my-artifact
+----
+
+[NOTE]
+====
+You can use additional options, such as `--group` and `--instance-id`, to specify the {registry} group or instance to which the updated rules apply.
+For more information about any of the options, run the `rhoas service-registry rule enable -h` command to view the command help.
+====
+--
+* If the rule is already enabled, use the `rhoas service-registry rule update` command.
++
+--
+You can update a rule by specifying the rule type and the new configuration.
+
 This example updates the global compatibility rule for all artifacts in the current {registry} instance:
 
 [source,shell]
 ----
-$ rhoas service-registry rule update --rule-type=compatibility --config=full
+$ rhoas service-registry rule update --rule-type=compatibility --config=backward
 ----
 
 This example updates the validity rule for a specific artifact:
 
 [source,shell]
 ----
-$ rhoas service-registry rule update --rule-type=validity --config=full --artifact-id=my-artifact
+$ rhoas service-registry rule update --rule-type=validity --config=syntax-only --artifact-id=my-artifact
 ----
 
 [NOTE]
@@ -71,14 +102,14 @@ $ rhoas service-registry rule describe --rule-type=validity --artifact-id=my-art
 ----
 --
 
-. Optional: Enable or disable individual rules. When you enable a rule, you must specify the configuration value.
+. Optional: If you no longer want to apply a rule, you can disable the rule.
 +
 --
-This example enables the global compatibility rule:
+This example disables the global compatibility rule:
 
 [source,shell]
 ----
-$ rhoas service-registry rule enable --rule-type=compatibility --config=full
+$ rhoas service-registry rule disable --rule-type=compatibility
 ----
 
 This example disables the artifact validity rule:
@@ -87,10 +118,10 @@ This example disables the artifact validity rule:
 ----
 $ rhoas service-registry rule disable --rule-type=validity --artifact-id=my-artifact
 ----
---
 
 [NOTE]
 ====
 You can use additional options, such as `--group` and `--instance-id`, to specify the {registry} group or instance to which the updated rules apply.
-For more information about any of the options, view the command help `rhoas service-registry rule -h`.
+For more information about any of the options, run the `rhoas service-registry rule disable -h` command to view the command help.
 ====
+--

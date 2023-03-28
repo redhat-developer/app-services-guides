@@ -3,13 +3,15 @@
 :imagesdir: ../_images
 
 [role="_abstract"]
-For more information about the `rhoas` commands you can use to manage your {registry} instance,
-use the following command help:
+For more information about the `rhoas` commands that you can use to manage your {registry} instance, run the following commands to view the command help:
 
 * `rhoas service-registry -h` for {registry} instances
 * `rhoas service-account -h` for service accounts
 * `rhoas service-registry artifact -h` for {registry} artifacts
+* `rhoas service-registry role -h` for {registry} roles
+* `rhoas service-registry rule -h` for {registry} rules
+* `rhoas service-registry setting -h` for {registry} settings
 
 [role="_additional-resources"]
 .Additional resources
-* {base-url-cli}{command-ref-url-cli}[_CLI command reference (rhoas)_^]
+* {base-url-cli}{command-ref-url-cli}[_{product-rhoas} CLI command reference_^]

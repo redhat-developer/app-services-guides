@@ -23,20 +23,19 @@ $ rhoas service-registry create --name my-registry
 ----
 
 The CLI uses service contexts to group service instances against which commands are executed.
-The created {registry} instance is set automatically in the current context.
+The current context is automatically updated so that the created {registry} instance is set as the current instance.
 
 [NOTE]
 ====
-If you do not want to use the default values,
-enter the following command: `rhoas service-registry create`.
-You are prompted to enter the `Name` for the {registry} instance.
+If you do not want to use the default values, enter the following command: `rhoas service-registry create`.
+You are prompted to enter the `Name` and optional `Description` for the {registry} instance.
 ====
 --
 
 . Verify that the {registry} instance is ready to use.
 +
 --
-.Reviewing details of a {registry} instance
+.Reviewing the {registry} instance details
 [source,shell]
 ----
 $ rhoas context status service-registry
@@ -47,7 +46,7 @@ because the `Status` field is `ready`.
 
 [NOTE]
 ====
-If you have multiple {registry} instances,
-you can change the context to a different instance by using the `rhoas context set-service-registry` command.
+By default, many of the `rhoas` commands provide output in JSON format. You can use the `-o` option to specify a different output format. For more information, see {base-url}{getting-started-rhoas-cli-url-registry}#proc-commands-managing-registry_getting-started-rhoas-service-registry[Commands for managing {registry}].
 ====
 --
+

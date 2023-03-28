@@ -27,7 +27,7 @@ $ rhoas service-account create --short-description="rhoas-service-account" --fil
 [NOTE]
 ====
 When creating a service account, you can choose the file format and location to save the credentials.
-For more information, see the `rhoas service-account create` command help.
+For more information, run the `rhoas service-account create -h` command to view the command help.
 ====
 --
 
@@ -62,4 +62,10 @@ This example creates a role called `manager` for the service account.
 ----
 $ rhoas service-registry role add --role=manager --service-account=_<client-id>_
 ----
+
+[NOTE]
+====
+For more information about the different roles, run the `rhoas service-registry role -h` command to view the command help.
+====
 --
+

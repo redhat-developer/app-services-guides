@@ -4,69 +4,87 @@
 
 [role="_abstract"]
 After creating a {registry} instance, you can start uploading {registry} artifacts.
-Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define an API.
+Artifacts might include, for example, schemas that define the structure of Kafka data or OpenAPI documents to define a REST API.
 
 .Prerequisites
 
 * You've created a {registry} instance, and it has a `ready` status.
-
-[NOTE]
-====
-You can use `rhoas context set-service-registry` to switch to a specific {registry} instance.
-
-.Selecting a {registry} instance to use
-[source,shell]
-----
-$ rhoas context set-service-registry --name=my-registry
-----
-====
+* Your {registry} instance is the default instance, as described in {base-url}{getting-started-rhoas-cli-url-registry}#proc-specifying-default-service-registry-instance-cli_getting-started-rhoas-service-registry[Specifying the default {registry} instance].
 
 .Procedure
 
-. Upload a {registry} artifact.
+. Upload the artifact in one of the following ways:
+
+* Upload the artifact from a file:
+
+.. Download an example schema.
 +
 --
-This example uploads a {registry} artifact called `my-artifact` to the {registry} instance.
-The artifact is an Apache Kafka Avro schema in JSON format.
+This example downloads an Apache Avro schema in JSON format.
 
-.Uploading an artifact
+.Downloading an example schema
 [source,shell]
 ----
 $ wget https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
 ----
 --
 
-. Create the {registry} artifact from the Avro schema that you uploaded.
+.. Upload the schema as a {registry} artifact.
 +
-.Creating an artifact
+--
+This example creates a {registry} artifact called `my-artifact` from the Avro schema that you downloaded in the previous step, and uploads the artifact to the {registry} instance.
+
+.Creating and uploading an artifact from a file
 [source,shell]
 ----
 $ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact avro-userInfo.json
 ----
+--
+
+* Upload the artifact directly from a URL:
++
+--
+.Creating and uploading an artifact from a URL
+[source,shell]
+----
+$ rhoas service-registry artifact create --type=AVRO --artifact-id=my-artifact https://raw.githubusercontent.com/redhat-developer/app-services-cli/main/docs/resources/avro-userInfo.json
+----
+--
 
 . Verify that the artifact was registered.
 +
 --
-This example lists all artifacts belonging to the {registry} instance.
+This example lists all artifacts in the default group for the {registry} instance.
 
 .Listing artifact details for a {registry} instance
 [source,shell]
 ----
 $ rhoas service-registry artifact list
 ----
+
+[NOTE]
+====
+You can use the `-a` option to list all artifacts in _all_ groups for the {registry} instance.
+====
 --
 
 . Check the version information for the artifact.
 +
+--
+This example lists information about each version of the artifact.
+
 .Checking the version information of an artifact
 [source,shell]
 ----
 $ rhoas service-registry artifact versions --artifact-id=my-artifact
 ----
+--
 
 . Check the metadata information for the artifact.
 +
 --
+This example lists additional information about the latest version of the artifact.
+
 .Checking the metadata information of an artifact
 [source,shell]
 ----
@@ -75,7 +93,7 @@ $ rhoas service-registry artifact metadata-get --artifact-id=my-artifact
 
 [NOTE]
 ====
-You can use additional options, such as `--group`, `--version`, and  `--description`, to modify the metadata of the artifact you're creating.
-For more information about any of the options, view the command help `rhoas service-registry artifact metadata-set -h`.
+You can use additional options, such as `--group` and `--description`, to modify the metadata of the artifact you're creating.
+For more information about any of the options, run the `rhoas service-registry artifact metadata-set -h` command to view the command help.
 ====
 --

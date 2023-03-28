@@ -1,0 +1,56 @@
+[id='proc-specifying-default-service-registry-instance-cli_{context}']
+= Specifying the default {registry} instance
+:imagesdir: ../_images
+
+[role="_abstract"]
+If you have multiple {registry} instances, you can configure a default {registry} instance.
+
+.Prerequisites
+
+* You've created a {registry} instance, and it has a `ready` status.
+
+.Procedure
+
+. Configure the default {registry} instance in one of the following ways:
+
+** Use the `rhoas context set-service-registry` command:
++
+--
+.Selecting a {registry} instance into the current context
+[source,shell]
+----
+$ rhoas context set-service-registry --name=my-registry
+----
+--
+
+** Use the `rhoas service-registry use` command:
++
+--
+.Selecting a {registry} instance to use
+[source,shell]
+----
+$ rhoas service-registry use --name=my-registry
+----
+
+[NOTE]
+====
+You can run the `rhoas service-registry use` command without specifying the instance name, and then select the instance name from the generated list of instances.
+====
+--
+
+. Verify that the specified {registry} instance is set as the default instance.
++
+--
+.Reviewing the details of the default {registry} instance
+[source,shell]
+----
+$ rhoas context status service-registry
+----
+
+This command shows the name of the default {registry} instance for all `rhoas service-registry` commands.
+
+[NOTE]
+====
+You can override the default value by specifying a different target instance in the `rhoas service-registry` commands.
+====
+--
