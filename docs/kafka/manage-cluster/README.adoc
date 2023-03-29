@@ -105,14 +105,14 @@ As an organization administrator, you can deploy {product-long-kafka} within you
 [id="proc-installing-on-your-rosa-cluster_{context}"]
 == Installing {product-kafka} on your ROSA cluster
 
-You must install {product-long-kafka} on your {rosa-name} ROSA cluster before users in your organization can create Kafka resources. Use the {product-long-rhoas} `rhoas` command-line interface (CLI) to register your (ROSA) cluster through a call to the Kafka Service Fleet Manager service. This service exposes a Rest API to manage Kafka instances. Registering your ROSA cluster allows the service to install certain necessary add-ons to your cluster so users can provision their Kafka instances.
+You must install {product-long-kafka} on your {rosa-name} ROSA cluster before users in your organization can create Kafka resources. Use the {product-long-rhoas} `rhoas` command-line interface (CLI) to register your (ROSA) cluster.  Registering your ROSA cluster allows {product-kafka} to install certain necessary add-ons to your cluster so users can provision their Kafka instances.
 
 .Prerequisites
 
 * You have a Red Hat account.
 * You are an organization administrator.
 * You've installed the latest version of the `rhoas` CLI (see {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^]).
-* You have created a ROSA cluster. {product-long-kafka} uses the bring-your-own-key (BYOK) encryption that you have configured in your ROSA cluster. As a result, volumes used by the service are automatically encrypted using your key. For more information about creating and configuring a ROSA cluster, see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
+* You have created a ROSA cluster. If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
 
 .Procedure
 
@@ -144,8 +144,8 @@ $ rhoas kafka oc register-cluster
 
 This command installs the following add-ons to the cluster:
 
-* Managed Kafka kas-fleetshard-operator: Required for provisioning and managing instances of Apache Kafka on a cluster.
-* Managed Kafka operator
+* Managed Kafka kas-fleetshard-operator: Required for provisioning and managing instances of Apache Kafka on your OpenShift cluster.
+* Managed Kafka operator: Required to manage Apache Kafka clusters and related components on your OpenShift cluster.
 * Observability operator: Required for metrics collection on the Kafka instance. Unlike the previous two, this add-on appears on the *Projects* page instead of the *Add-ons* page of the https://console.redhat.com/openshift[OpenShift Cluster Manager Hybrid Cloud Console^].
 --
 +
@@ -154,7 +154,7 @@ This command installs the following add-ons to the cluster:
 These add-ons are required by and managed by {product-kafka} only and must not be adapted or changed in any way.
 --
 +
-. The CLI lists the available clusters in your organization  and prompts you to select the ready cluster to register. Use the arrows on your keyboard to select the required cluster.
+. The CLI lists the available OpenShift clusters in your organization  and prompts you to select the ready cluster to register. Use the arrows on your keyboard to select the required cluster.
 . The CLI prompts you to create a machine pool with a specified node count. The required node count is calculated by identifying the number of requested Kafka streaming units and multiplying by three:
 +
 ----
@@ -162,8 +162,6 @@ required_node_count = requested_Kafka_streaming_units × 3
 ----
 +
 For example, a Kafka instance of 2 streaming units requires a machine pool of 6 nodes. A streaming unit determines the default maximum capacity of a Kafka instance. An instance with a larger size can handle higher loads and process more events, has more storage, and can handle more clients and connections.
-+
-If there is an existing machine pool which has the correct node labels and taints required by the Kafka Service Fleet Manager, then this machine pool is automatically selected for use by default. Labels and taints in a machine pool allow you to organize sets of objects and control the scheduling of pods. For more information about machine pools, labels, and taints, see https://access.redhat.com/documentation/en-us/red_hat_openshift_service_on_aws/4/html/cluster_administration/nodes#rosa-nodes-machinepools-about[About machine pools^].
 +
 Enter `6` as the required node count to create a machine pool with 6 nodes called `kafka-standard`.
 +
@@ -194,7 +192,7 @@ $ rhoas kafka oc list
 == Uninstalling {product-kafka} from your ROSA cluster
 
 [role="_abstract"]
-You can uninstall {product-long-kafka} from your ROSA cluster using the `rhoas dedicated deregister-cluster` command. This command removes all Kafka instances from the cluster first and then unregisters the cluster from Kafka Service Fleet Manager.
+You can uninstall {product-long-kafka} from your ROSA cluster using the `rhoas kafka oc deregister-cluster` command. This command removes all Kafka instances from the cluster first and then unregisters the cluster from Kafka Service Fleet Manager.
 
 .Prerequisites
 
