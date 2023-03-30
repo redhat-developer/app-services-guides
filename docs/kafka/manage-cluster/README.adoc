@@ -112,7 +112,7 @@ You must install {product-long-kafka} on your {rosa-name} ROSA cluster before us
 * You have a Red Hat account.
 * You are an organization administrator.
 * You've installed the latest version of the `rhoas` CLI (see {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^]).
-* You have created a ROSA cluster. If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
+* You have a supported version of {openshift} and have created a ROSA cluster. If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
 
 .Procedure
 
@@ -130,7 +130,7 @@ Your web browser opens the {rh-sso-url}[Red Hat Single Sign-On page^].
 . Enter your credentials to log in to your Red Hat account.
 +
 --
-Welcome pages in the browser notify you that you've been logged in to `rhoas` successfully.
+Welcome pages in the browser notify you that you're logged in to `rhoas` successfully.
 
 In your terminal, the `rhoas login` command indicates that you're logged in.
 --
@@ -144,9 +144,9 @@ $ rhoas kafka oc register-cluster
 
 This command installs the following add-ons to the cluster:
 
-* Managed Kafka kas-fleetshard-operator: Required for provisioning and managing instances of Apache Kafka on your OpenShift cluster.
-* Managed Kafka operator: Required to manage Apache Kafka clusters and related components on your OpenShift cluster.
-* Observability operator: Required for metrics collection on the Kafka instance. Unlike the previous two, this add-on appears on the *Projects* page instead of the *Add-ons* page of the https://console.redhat.com/openshift[OpenShift Cluster Manager Hybrid Cloud Console^].
+* Managed Kafka kas-fleetshard Operator: Required for provisioning and managing instances of Apache Kafka on your {openshift} cluster.
+* Managed Kafka Operator: Required to manage Apache Kafka clusters and related components on your {openshift} cluster.
+* Observability Operator: Required for metrics collection on the Kafka instance. Unlike the previous two, this add-on is displayed on the *Projects* page instead of the *Add-ons* page of the https://console.redhat.com/openshift[OpenShift Cluster Manager Hybrid Cloud Console^].
 --
 +
 [NOTE]
@@ -154,7 +154,7 @@ This command installs the following add-ons to the cluster:
 These add-ons are required by and managed by {product-kafka} only and must not be adapted or changed in any way.
 --
 +
-. The CLI lists the available OpenShift clusters in your organization  and prompts you to select the ready cluster to register. Use the arrows on your keyboard to select the required cluster.
+. The CLI lists the available {openshift} clusters in your organization  and prompts you to select a ready cluster to register. Use the arrows on your keyboard to select the required cluster.
 . The CLI prompts you to create a machine pool with a specified node count. The required node count is calculated by identifying the number of requested Kafka streaming units and multiplying by three:
 +
 ----
@@ -162,6 +162,8 @@ required_node_count = requested_Kafka_streaming_units × 3
 ----
 +
 For example, a Kafka instance of 2 streaming units requires a machine pool of 6 nodes. A streaming unit determines the default maximum capacity of a Kafka instance. An instance with a larger size can handle higher loads and process more events, has more storage, and can handle more clients and connections.
++
+For more information on streaming units and for pricing details, see https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-streams-for-apache-kafka/pricing[Pricing for Red Hat OpenShift Streams for Apache Kafka^].
 +
 Enter `6` as the required node count to create a machine pool with 6 nodes called `kafka-standard`.
 +
@@ -173,13 +175,13 @@ This kafka-standard machine pool is for use with {product-kafka} only. Do not as
 
 .Verification
 
-. Verify the registration has been successful by logging in to the https://console.redhat.com/openshift[OpenShift Cluster Manager Hybrid Cloud Console^], clicking *Clusters*, and clicking the name of your cluster.
+. Verify the registration is successful by logging in to the https://console.redhat.com/openshift[OpenShift Cluster Manager Hybrid Cloud Console^], clicking *Clusters*, and clicking the name of your cluster.
 . On your cluster page, click the *Machine pools* tab.
-.. Expand *kafka-standard* to view more details of the newly created machine pool including the labels and taints required by the Kafka Service Fleet Manager that have automatically been included as part of the registration process.
+.. Expand *kafka-standard* to view more details of the newly created machine pool including the labels and taints required by {product-kafka} that have automatically been included as part of the registration process.
 . Click the *Add-ons* tab.
 +
-On the *Add-ons* page, an installing icon appears, indicating that the services have begun installing. A green check mark appears in the service option when the installation is complete. You might have to refresh your browser to see the installation status.
-. (Optional) In the terminal, enter the list command to see your registered clusters with a ready state.
+On the *Add-ons* page, an installing icon is displayed, indicating that the services have begun installing. A green check mark is displayed in the service option when the installation is complete. You might have to refresh your browser to see the installation status.
+. (Optional) In the terminal, enter the list command to see the status of the cluster.
 +
 --
 [source,shell]
@@ -187,12 +189,14 @@ On the *Add-ons* page, an installing icon appears, indicating that the services 
 $ rhoas kafka oc list
 ----
 --
++
+During the add-on installation process, the cluster status displays as `waiting for kas-fleet-shard operator` for example. A `ready` status indicates the cluster is ready for use.
 
 [id="proc-uninstalling-from-your-rosa-cluster_{context}"]
 == Uninstalling {product-kafka} from your ROSA cluster
 
 [role="_abstract"]
-You can uninstall {product-long-kafka} from your ROSA cluster using the `rhoas kafka oc deregister-cluster` command. This command removes all Kafka instances from the cluster first and then unregisters the cluster from Kafka Service Fleet Manager.
+You can uninstall {product-long-kafka} from your ROSA cluster using the `rhoas kafka oc deregister-cluster` command. This command removes all Kafka instances from the cluster first, unregisters the cluster from {product-kafka}, and also deletes the `kafka-standard` machine pool that was created during the registration process.
 
 .Prerequisites
 
@@ -232,7 +236,7 @@ $ rhoas kafka oc deregister-cluster
 +
 . The CLI prompts you to select a cluster to unregister. Use the arrows on your keyboard to select the required cluster.
 +
-. You must remove all Kafka instances from the ROSA cluster in order to unregister it. The CLI asks you to confirm the name of the Kafka instance you want to delete. Confirm you want to delete each Kafka instance by entering the name of each one.
+. You must remove all Kafka instances from the ROSA cluster in order to unregister the cluster. The CLI asks you to confirm the name of the Kafka instance you want to delete. Confirm you want to delete each Kafka instance by entering the name of each one.
 +
 The terminal displays a message confirming that all Kafka instances and add-ons have been deleted.
 
