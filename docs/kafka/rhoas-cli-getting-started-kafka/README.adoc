@@ -115,8 +115,8 @@ This guide describes how to get started quickly by doing the following:
 == Prerequisites
 
 [role="_abstract"]
-* You have a command-line terminal application.
-* You have a registered OpenShift cluster.
+* You've a command-line terminal application.
+* You've a registered OpenShift cluster.
 * You've installed the `rhoas` CLI. For more information, see {base-url}{installation-guide-url-cli}[_Installing the rhoas CLI_^].
 
 //Additional line break to resolve mod docs generation error
@@ -129,7 +129,7 @@ A Kafka instance includes a Kafka cluster, bootstrap server, and other required 
 
 .Prerequisites
 
-* You are logged in to `rhoas`.
+* You're logged in to `rhoas`.
 
 .Procedure
 
