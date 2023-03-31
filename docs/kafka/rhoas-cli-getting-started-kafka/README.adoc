@@ -116,6 +116,7 @@ This guide describes how to get started quickly by doing the following:
 
 [role="_abstract"]
 * You have a command-line terminal application.
+* You have a registered OpenShift cluster.
 * You've installed the `rhoas` CLI. For more information, see {base-url}{installation-guide-url-cli}[_Installing the rhoas CLI_^].
 
 //Additional line break to resolve mod docs generation error
@@ -135,35 +136,43 @@ A Kafka instance includes a Kafka cluster, bootstrap server, and other required 
 . Enter the following command to create a Kafka instance with default values.
 +
 --
-This example creates a Kafka instance called `my-kafka`.
-
 .Creating a Kafka instance
 [source,shell]
 ----
-$ rhoas kafka create --name my-kafka
+$ rhoas kafka create
 ----
+--
+
+. Enter Name: `my-kafka`.
+. Use the arrows on your keyboard to select your OpenShift cluster for your Kafka instance.
+. Select an instance size of 1 (x1) or 2 (x2) streaming units. 
++
+--
+A streaming unit determines the default maximum capacity of a Kafka instance. An instance with a larger size can handle higher loads and process more events, has more storage, and can handle more clients and connections.
+
+The CLI displays information about the created instance including billing model, cloud provider, cluster id of the cluster the instance is provisioned on, and instance type.
 
 CLI uses service contexts to group service instances against which commands are executed.
 The created Kafka instance is set automatically in the current context.
 
 [NOTE]
 ====
-If you do not want to use the default values,
-enter the following command: `rhoas kafka create`.
-You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` for the Kafka instance.
+Alternatively, to provision a Kafka instance by specifying the kafka name and cluster-id, enter the following command: `rhoas kafka create --name my-kafka --cluster-id <CLUSTER_ID>`. This takes on the default value size 1 streaming unit.
 ====
 --
-
-. Verify that the Kafka instance is ready to use.
+. Verify that the Kafka instance has a `ready` status.
 +
 --
+[source,shell]
+----
+$ rhoas kafka list
+----
+
 .Reviewing details of a Kafka instance
 [source,shell]
 ----
 $ rhoas context status kafka
 ----
-
-
 [NOTE]
 ====
 If you have multiple Kafka instances,
