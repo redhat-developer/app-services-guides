@@ -5,7 +5,7 @@ metadata:
   annotations:
     categories: "Database management"
     order: 3
-    draft: false
+    draft: true
   labels:
     service-category/data-services: "true"
     product/rhoda: "true"
