@@ -143,21 +143,21 @@ $ rhoas kafka create
 ----
 --
 
-. Enter Name: `my-kafka`.
-. Use the arrows on your keyboard to select your OpenShift cluster for your Kafka instance.
-. Select an instance size of 1 (x1) or 2 (x2) streaming units. 
+. On the command line, type `my-kafka` for your instance name.
+. When prompted to select a cluster, use the arrows on your keyboard to select your OpenShift cluster to provision your Kafka instance.
+. When prompted to select an instance size, use the arrows on your keyboard to select 1 (x1) or 2 (x2) streaming units. 
 +
 --
 A streaming unit determines the default maximum capacity of a Kafka instance. An instance with a larger size can handle higher loads and process more events, has more storage, and can handle more clients and connections.
 
-The CLI displays information about the created instance including billing model, cloud provider, cluster id of the cluster the instance is provisioned on, and instance type.
+The CLI displays information about the created instance including billing model, cloud provider, cluster ID of the cluster the instance is provisioned on, and instance type.
 
 CLI uses service contexts to group service instances against which commands are executed.
 The created Kafka instance is set automatically in the current context.
 
 [NOTE]
 ====
-Alternatively, to provision a Kafka instance by specifying the kafka name and cluster-id, enter the following command: `rhoas kafka create --name my-kafka --cluster-id <CLUSTER_ID>`. This takes on the default value size 1 streaming unit.
+Alternatively, to provision a Kafka instance by specifying the Kafka name and cluster ID, enter the following command: `rhoas kafka create --name my-kafka --cluster-id <CLUSTER_ID>`. Replace <CLUSTER_ID> with your cluster ID. Using this command creates an instance size with the default value size of 1 streaming unit.
 ====
 --
 . Verify that the Kafka instance has a `ready` status.
