@@ -156,8 +156,8 @@ This command installs the following add-ons to the cluster:
 These add-ons are required by and managed by {product-kafka} only and must not be adapted or changed in any way.
 --
 +
-. The CLI lists the available {openshift} clusters in your organization  and prompts you to select a ready cluster to register. Use the arrows on your keyboard to select the required cluster.
-. The CLI prompts you to create a machine pool with a specified node count. The required node count is calculated by identifying the number of requested Kafka streaming units and multiplying by three:
+. The CLI lists the available {openshift} clusters in your organization. When prompted, select a ready cluster to register. Use the arrows on your keyboard to select the required cluster.
+. When prompted, create a machine pool with a specified node count. The required node count is calculated by identifying the number of requested Kafka streaming units and multiplying by three:
 +
 ----
 required_node_count = requested_Kafka_streaming_units × 3
@@ -238,7 +238,7 @@ $ rhoas kafka oc deregister-cluster
 ----
 --
 +
-. The CLI prompts you to select a cluster to unregister. Use the arrows on your keyboard to select the required cluster.
+. When prompted, select a cluster to unregister. Use the arrows on your keyboard to select the required cluster.
 +
 . You must remove all Kafka instances from the ROSA cluster in order to unregister the cluster. The CLI asks you to confirm the name of the Kafka instance you want to delete. Confirm you want to delete each Kafka instance by entering the name of each one.
 +
