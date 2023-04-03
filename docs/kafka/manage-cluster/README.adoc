@@ -107,12 +107,14 @@ As an organization administrator, you can deploy {product-long-kafka} within you
 
 You must install {product-long-kafka} on your {rosa-name} (ROSA) cluster before users in your organization can create Kafka resources. Use the {product-long-rhoas} `rhoas` command-line interface (CLI) to register your ROSA cluster. Registering your ROSA cluster allows {product-kafka} to install certain necessary add-ons to your cluster so users can provision their Kafka instances.
 
+If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
+
 .Prerequisites
 
 * You have a Red Hat account.
 * You are an organization administrator.
 * You've installed the latest version of the `rhoas` CLI (see {base-url}{installation-guide-url-cli}[Installing and configuring the rhoas CLI^]).
-* You have a supported version of {openshift} and have created a ROSA cluster. If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
+* You have a supported version of {openshift} and have created a ROSA cluster.
 
 .Procedure
 
@@ -169,7 +171,7 @@ Enter `6` as the required node count to create a machine pool with 6 nodes calle
 +
 [NOTE]
 --
-This kafka-standard machine pool is for use with {product-kafka} only. Do not assign your own production workloads to run within it.
+This kafka-standard machine pool is for use by {product-kafka} only. Do not assign your own production workloads to run within it.
 --
 . Enter `y` to confirm you want your Kafka instances to be accessible through a public network.
 
@@ -191,6 +193,8 @@ $ rhoas kafka oc list
 --
 +
 During the add-on installation process, the cluster status displays as `waiting for kas-fleet-shard operator` for example. A `ready` status indicates the cluster is ready for use.
++
+You and other users in your organization can now create Kafka resources. For more information, see {base-url}{getting-started-url-kafka}[Getting started with {product-long-kafka}^].
 
 [id="proc-uninstalling-from-your-rosa-cluster_{context}"]
 == Uninstalling {product-kafka} from your ROSA cluster
