@@ -107,7 +107,7 @@ As an organization administrator, you can deploy {product-long-kafka} within you
 
 You must install {product-long-kafka} on your {rosa-name} (ROSA) cluster before users in your organization can create Kafka resources. Use the {product-long-rhoas} `rhoas` command-line interface (CLI) to register your ROSA cluster. Registering your ROSA cluster allows {product-kafka} to install certain necessary add-ons to your cluster so users can provision their Kafka instances.
 
-If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
+If you have configured bring-your-own-key (BYOK) encryption in your ROSA cluster, {product-long-kafka} automatically encrypts volumes using your key. If you have not configured BYOK, {product-kafka} uses a platform-owned key instead. For more information see https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-with-customizations.html[Creating a ROSA cluster with STS using customizations^].
 
 .Prerequisites
 
