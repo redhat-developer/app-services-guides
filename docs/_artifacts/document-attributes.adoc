@@ -22,8 +22,8 @@
 :openshift: OpenShift
 :osd-name: OpenShift Dedicated
 :osd-name-short: OpenShift Dedicated
-:rosa-name: OpenShift Service for AWS
-:rosa-name-short: OpenShift Service for AWS
+:rosa-name: OpenShift Service on AWS
+:rosa-name-short: OpenShift Service on AWS
 
 //OpenShift Application Services CLI
 :base-url-cli: https://github.com/redhat-developer/app-services-cli/tree/main/docs/
