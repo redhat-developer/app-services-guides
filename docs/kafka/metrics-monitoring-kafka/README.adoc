@@ -202,9 +202,11 @@ This procedure follows the https://prometheus.io/docs/prometheus/latest/configur
 
 .Prerequisites
 * You have access to a running Kafka instance that contains topics in {product-kafka}. For more information about access management in {product-kafka}, see {base-url}{access-mgmt-url-kafka}[Managing account access in {product-long-kafka}^].
-* You have the ID and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To relocate the Kafka instance ID and the token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots), and click *Connection*.
+* You have the ID and the SASL/OAUTHBEARER token endpoint for the Kafka instance. To locate the Kafka instance ID and the token endpoint, select your Kafka instance in the {product-kafka} web console, select the options menu (three vertical dots) and click: 
+** *Details* to locate the ID which is the ID of the Kafka instance.
+** *Connection* tab to locate the SASL/OAUTHBEARER Token endpoint URL.
 * You have the generated credentials for your service account that has access to the Kafka instance. To reset the credentials, use the {service-accounts-url}[Service Accounts^] page in the *Application Services* section of the Red Hat Hybrid Cloud Console.
-* You've installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started^] in the Prometheus documentation.
+* You have installed a Prometheus instance in your monitoring environment. For installation instructions, see https://prometheus.io/docs/prometheus/latest/getting_started/[Getting Started^] in the Prometheus documentation.
 
 .Procedure
 . In your Prometheus configuration file, add the following information. Replace the variable values with your own Kafka instance and service account information.
