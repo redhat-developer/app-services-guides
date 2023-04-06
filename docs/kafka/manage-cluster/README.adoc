@@ -146,7 +146,7 @@ $ rhoas kafka oc register-cluster
 
 This command installs the following add-ons to the cluster:
 
-* Managed Kafka kas-fleetshard Operator: Required for provisioning and managing instances of Apache Kafka on your {openshift} cluster.
+* Managed Kafka `kas-fleetshard` Operator: Required for provisioning and managing instances of Apache Kafka on your {openshift} cluster.
 * Managed Kafka Operator: Required to manage Apache Kafka clusters and related components on your {openshift} cluster.
 * Observability Operator: Required for metrics collection on the Kafka instance. Unlike the previous two, this add-on is displayed on the *Projects* page instead of the *Add-ons* page of the https://console.redhat.com/openshift[OpenShift Cluster Manager Hybrid Cloud Console^].
 --
@@ -156,7 +156,7 @@ This command installs the following add-ons to the cluster:
 These add-ons are required by and managed by {product-kafka} only and must not be adapted or changed in any way.
 --
 +
-. The CLI lists the available {openshift} clusters in your organization. When prompted, select a ready cluster to register. Use the arrows on your keyboard to select the required cluster.
+. The CLI lists the available {openshift} clusters in your organization. When prompted, use the arrows on your keyboard to select the required cluster.
 . When prompted, create a machine pool with a specified node count. The required node count is calculated by identifying the number of requested Kafka streaming units and multiplying by three:
 +
 ----
@@ -171,7 +171,7 @@ Enter `6` as the required node count to create a machine pool with 6 nodes calle
 +
 [NOTE]
 --
-This kafka-standard machine pool is for use by {product-kafka} only. Do not assign your own production workloads to run within it.
+This `kafka-standard` machine pool is for use by {product-kafka} only. Do not assign your own production workloads to run within it. For more information about machine pools, see https://docs.openshift.com/rosa/rosa_cluster_admin/rosa_nodes/rosa-nodes-machinepools-about.html[About machine pools^].
 --
 . Enter `y` to confirm you want your Kafka instances to be accessible through a public network.
 
