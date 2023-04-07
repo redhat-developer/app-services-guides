@@ -1,0 +1,21 @@
+# Note that this topic is a TEMPLATE
+# Name is an internal name. Title shows up in the UI as a side panel title.
+# Tags to be kept empty for now. Tags specify where in the app, 
+# Links - only use external links. TBD whether referencing to other hep topic is supported but referencing customer portal docs is supported. Use this format for links: '[Link text](link url)'
+
+- name: help-topic-name
+  tags:
+    - page-1
+  title: Title of Help Topic
+  content: |-
+    **Bold text heading**
+
+    Paragraph context
+    
+  links:
+    - text: "Text (external)"
+      href: "https://docs.openshift.com/container-platform/4.9/web_console/creating-quick-start-tutorials.html"
+      isExternal: true
+    - text: "Text (opens in new tab)"
+      href: "https://console.redhat.com"
+      newTab: true

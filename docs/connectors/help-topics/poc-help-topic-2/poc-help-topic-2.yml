@@ -1,0 +1,20 @@
+# Note that this topic is for LEARNING - POC TEST
+# Name is an internal name. Title shows up in the UI as a side panel title.
+# Tags to be kept empty for now. Tags specify where in the app, 
+# Links - only use external links. TBD whether referencing to other hep topic is supported but referencing customer portal docs is supported. Use this format for links: '[Link text](link url)'
+- name: poc-help-topic-2
+  tags:
+    - page-1
+  title: Access Control List for Connectors
+  content: |-
+    **POC help topic for Connectors context-sensitive help drawer**
+
+    An Access Control List is a list of rules that specifies which users or systems are granted or denied access to a Connector. Each type of Connector requires specifc ACLs.You define ACLs in the Kafka instance. You can specify the same ACLs for all topics in the Kafka instance or for a specific topic.
+    You associate a Connector to a Kafka instance with a service account (client ID and secret). Use service accounts to connect and authenticate your Connector instances with topics in a Kafka instance.
+  links:
+    - text: "Managing account access in Red Hat OpenShift Streams for Apache Kafka (external)"
+      href: "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/2f4bf7cf-5de2-4254-8274-6bf71673f407#_8c08c9cc-437f-43d9-b3a2-499e67503f0b"
+      isExternal: true
+    - text: "Redhat Console (opens in new tab)"
+      href: "https://console.redhat.com"
+      newTab: true
