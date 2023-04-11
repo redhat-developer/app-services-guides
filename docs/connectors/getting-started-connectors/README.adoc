@@ -141,7 +141,7 @@ Before you use {product-connectors}, you must complete the following prerequisit
 
 *Determining which {openshift} environment to use for your {connectors} namespace*
 
-You have three choices:
+You have the following choices:
 
 * *The hosted preview environment*
 
@@ -154,11 +154,6 @@ You have three choices:
 ** You have access to your own {osd-name} Trial environment.
 ** You can create an unlimited number of {connectors} instances.
 ** Your {osd-name-short} Trial cluster expires after 60 days.
-** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
-
-* *Your own {rosa-name} cluster*
-
-** You have access to your own {rosa-name} (ROSA) environment.
 ** A cluster administrator must install the {product-connectors} add-on as described in https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01[Adding the Red Hat {openshift} {connectors} add-on to your {openshift} cluster^].
 
 *Configuring {product-long-kafka} for use with {product-connectors}*
@@ -186,7 +181,7 @@ Make sure that you have set up the prerequisite components.
 * Did you save your service account credentials to a secure location?
 * Are the permissions for your service account listed on the *Access* page of the Kafka instance?
 * Is the Kafka topic that you created for {connectors} listed on the *Topics* page of the Kafka instance?
-* If you plan to use your own {openshift} cluster ({osd-name-short} Trial or ROSA) to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your Trial cluster?
+* If you plan to use your own {openshift} Trial cluster to deploy your {product-connectors} instances, has a cluster administrator added the {product-connectors} add-on to your Trial cluster?
 
 endif::[]
 
@@ -197,7 +192,7 @@ ifndef::qs[]
 * Verify that you saved your service account credentials to a secure location.
 * Verify that the permissions for your service account are listed on the *Access* page of the Kafka instance.
 * Verify that the Kafka topic that you created for {product-connectors} is listed on the *Topics* page of the Kafka instance.
-* If you plan to use your own {openshift} cluster ({osd-name-short} Trial or ROSA) to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your Trial cluster.
+* If you plan to use your own {openshift} cluster Trial to deploy your {product-connectors} instances, verify that a cluster administrator added the {product-connectors} add-on to your Trial cluster.
 
 endif::[]
 
@@ -266,7 +261,7 @@ Click *Next*.
 +
 Your {connectors} instance is listed on the *{connectors} Instances* page. After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state and it starts producing messages and sending them to its associated Kafka topic.
 +
-From the *{connectors} Instances* page, you can stop, start, duplicate, and delete your {connectors} instance, as well as edit its configuration, by clicking the options icon (three vertical dots).
+From the *{connectors} Instances* page, you can stop, start, duplicate, and delete your {connectors} instance, as well as edit its configuration, by clicking the Options icon (three vertical dots).
 
 .Verification
 ifdef::qs[]
