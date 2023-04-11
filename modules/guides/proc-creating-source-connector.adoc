@@ -63,7 +63,7 @@ Click *Next*.
 +
 Your {connectors} instance is listed on the *{connectors} Instances* page. After a couple of seconds, the status of your {connectors} instance changes to the *Ready* state and it starts producing messages and sending them to its associated Kafka topic.
 +
-From the *{connectors} Instances* page, you can stop, start, duplicate, and delete your {connectors} instance, as well as edit its configuration, by clicking the options icon (three vertical dots).
+From the *{connectors} Instances* page, you can stop, start, duplicate, and delete your {connectors} instance, as well as edit its configuration, by clicking the Options icon (three vertical dots).
 
 .Verification
 ifdef::qs[]
