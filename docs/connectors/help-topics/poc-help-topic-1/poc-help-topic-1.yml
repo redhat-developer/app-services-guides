@@ -1,0 +1,20 @@
+# Note that this topic is for LEARNING - POC TEST
+
+# Name is an internal name. Title shows up in the UI as a side panel title.
+# Tags to be kept empty for now. Tags specify where in the app, 
+# Links - only use external links. TBD whether referencing to other hep topic is supported but referencing customer portal docs is supported. Use this format for links: '[Link text](link url)'
+
+#This 
+- name: poc-help-topic-1
+  tags:
+  title: Create a namespace on an OpenShift cluster
+  content: |-
+    **POC help topic for Connectors context-sensitive help drawer**
+    
+    You need a Connectors namespace for hosting your Connector instances. 
+    To create a Connectors namespace on your OpenShift Dedicated Customer Cloud Subscription (CCS) Trial cluster, follow the steps in "Adding the Red Hat OpenShift Connectors add-on to your OpenShift cluster". The trial has a 60-day lifespan and the number of Connectors instances that you create is not limited. The trial environment is useful when you want to create Proof of Concept solutions.
+  links:
+    - text: "Adding the Red Hat OpenShift Connectors add-on to your OpenShift cluster (external)"
+      href: "https://access.redhat.com/documentation/en-us/openshift_connectors/1/guide/15a79de0-8827-4bf1-b445-8e3b3eef7b01"
+      isExternal: true
+        
