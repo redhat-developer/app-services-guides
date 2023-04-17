@@ -115,7 +115,8 @@ This guide describes how to get started quickly by doing the following:
 == Prerequisites
 
 [role="_abstract"]
-* You have a command-line terminal application.
+* You've a command-line terminal application.
+* You've a registered OpenShift cluster.
 * You've installed the `rhoas` CLI. For more information, see {base-url}{installation-guide-url-cli}[_Installing the rhoas CLI_^].
 
 //Additional line break to resolve mod docs generation error
@@ -128,42 +129,45 @@ A Kafka instance includes a Kafka cluster, bootstrap server, and other required 
 
 .Prerequisites
 
-* You are logged in to `rhoas`.
+* You're logged in to `rhoas`.
 
 .Procedure
 
-. Enter the following command to create a Kafka instance with default values.
+. On the command line, create a Kafka instance.
 +
 --
-This example creates a Kafka instance called `my-kafka`.
-
 .Creating a Kafka instance
 [source,shell]
 ----
-$ rhoas kafka create --name my-kafka
+$ rhoas kafka create
 ----
+--
+
+. Type `my-kafka` for your instance name.
+. When prompted to select a cluster, use the arrows on your keyboard to select your OpenShift cluster and press Enter to provision your Kafka instance.
+. When prompted to select an instance size, use the arrows on your keyboard to select 1 or 2 streaming units, and press Enter. 
++
+--
+A streaming unit determines the default maximum capacity of a Kafka instance. An instance with a larger size can handle higher loads and process more events, has more storage, and can handle more clients and connections.
+
+The CLI displays information about the created instance including billing model, cloud provider, cluster ID of the cluster the instance is provisioned on, and instance type.
 
 CLI uses service contexts to group service instances against which commands are executed.
 The created Kafka instance is set automatically in the current context.
 
 [NOTE]
 ====
-If you do not want to use the default values,
-enter the following command: `rhoas kafka create`.
-You will be prompted to enter the `Name`, `Cloud Provider`, and `Cloud Region` for the Kafka instance.
+Alternatively, to provision a Kafka instance by specifying the Kafka name and cluster ID, enter the following command: `rhoas kafka create --name my-kafka --cluster-id _<CLUSTER_ID>_`. Replace _<CLUSTER_ID>_ with your cluster ID. Using this command creates an instance with the default value size of 1 streaming unit.
 ====
 --
-
-. Verify that the Kafka instance is ready to use.
+. Verify the details and `ready` status of a Kafka instance.
 +
 --
-.Reviewing details of a Kafka instance
+.Verifying the Kafka instance
 [source,shell]
 ----
 $ rhoas context status kafka
 ----
-
-
 [NOTE]
 ====
 If you have multiple Kafka instances,
