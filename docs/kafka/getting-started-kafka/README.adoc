@@ -132,22 +132,22 @@ Use the {product-long-kafka} web console to create and configure a Kafka instanc
 ifndef::qs[]
 .Prerequisites
 * You're logged in to the {product-kafka} web console at {service-url-kafka}[^].
-* You have a registered {rosa-name} cluster in a ready state.
+* You've a registered {rosa-name} cluster in a ready state.
 * You're familiar with the different Kafka instance sizes that you can create in {product-kafka}, and the capacities that correspond to those sizes. For more information about the capacities and service limits of your Kafka instance, see https://access.redhat.com/articles/5979061[Red Hat OpenShift Streams for Apache Kafka Service Limits].
 endif::[]
 
 .Procedure
 . On the *Kafka Instances* page of the {product-kafka} {service-url-kafka}[web console^], click *Create Kafka instance*.
 . Complete the *Create a Kafka instance* form to define the following instance details. Some instance details currently have only one option.
-* *Instance name*: Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
-* *OpenShift cluster*: Select an OpenShift cluster with a ready status for deployment of your Kafka instance. The clusters can be viewed in the *OpenShift clusters* tab. 
+* *Name*: Enter a unique name for the Kafka instance, such as `my-first-kafka-instance`.
+* *OpenShift cluster*: Select an OpenShift cluster with a *Ready* status for the deployment of your Kafka instance. The clusters can be viewed in the *OpenShift clusters* tab.
 +
 Each cluster displays a cluster ID, cluster name, and one of the following states:
 +
 ** *Ready*: The cluster has been successfully registered and can accept Kafka instances.
 ** *Failed*: The cluster failed to be registered and cannot accept Kafka instances.
 * *Availability zones*: The selection for availability zones is preconfigured as *Multi*.
-* *Size*: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required. 
+* *Size*: In {product-kafka}, you can create Kafka instances of 1 or 2 streaming units depending on the capacity required.
 +
 
 ////
