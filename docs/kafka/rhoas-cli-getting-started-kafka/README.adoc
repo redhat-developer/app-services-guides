@@ -157,7 +157,7 @@ The created Kafka instance is set automatically in the current context.
 
 [NOTE]
 ====
-Alternatively, to provision a Kafka instance by specifying the Kafka name and cluster ID, enter the following command: `rhoas kafka create --name my-kafka --cluster-id <CLUSTER_ID>`. Replace <CLUSTER_ID> with your cluster ID. Using this command creates an instance with the default value size of 1 streaming unit.
+Alternatively, to provision a Kafka instance by specifying the Kafka name and cluster ID, enter the following command: `rhoas kafka create --name my-kafka --cluster-id _<CLUSTER_ID>_`. Replace _<CLUSTER_ID>_ with your cluster ID. Using this command creates an instance with the default value size of 1 streaming unit.
 ====
 --
 . Verify the details and `ready` status of a Kafka instance.
