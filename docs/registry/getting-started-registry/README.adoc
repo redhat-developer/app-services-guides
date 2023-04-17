@@ -162,7 +162,7 @@ endif::[]
 == Uploading a schema or API to {registry}
 
 [role="_abstract"]
-After you create a {registry} instance, you can upload schema or API content to the instance. The following examples show uploading a simple Apache Avro schema file for serializing and deserializing Kafka messages in client applications, and uploading a Petstore OpenAPI from an HTTPS URL. 
+After you create a {registry} instance, you can upload schema or API content to the instance. The following examples show uploading a simple Apache Avro schema file for serializing and deserializing Kafka messages in client applications, and uploading the Petstore sample API from an HTTPS URL. 
 
 NOTE: Uploading an artifact from an HTTP URL is not supported for security reasons.
 
