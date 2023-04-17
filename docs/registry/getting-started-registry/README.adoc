@@ -99,7 +99,7 @@ ifdef::context[:parent-context: {context}]
 [role="_abstract"]
 As a developer of applications and services, you can use {product-long-registry} to create and set up {registry} instances and connect your applications and services to these instances. {product-long-registry} is a managed cloud service that enables you to manage schema and API definitions in your applications without having to install, configure, run, and maintain your own {registry} clusters.
 
-For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^]
+For more overview information, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^].
 
 ifndef::community[]
 .Prerequisites
@@ -159,21 +159,23 @@ endif::[]
 
 
 [id="proc-uploading-registry-schema_{context}"]
-== Uploading a schema to {registry}
+== Uploading a schema or API to {registry}
 
 [role="_abstract"]
-After you create a {registry} instance, you can upload schema or API content to the instance. The following example shows uploading an Apache Avro schema for serializing and deserializing Kafka messages in client applications.
+After you create a {registry} instance, you can upload schema or API content to the instance. The following examples show uploading a simple Apache Avro schema file for serializing and deserializing Kafka messages in client applications, and uploading a Petstore OpenAPI from an HTTPS URL. 
+
+NOTE: Uploading an artifact from an HTTP URL is not supported for security reasons.
 
 .Prerequisites
 * You've created a {registry} instance and the instance is in *Ready* state.
 
 .Procedure
-. On the *{registry} Instances* page of the web console, select the {registry} instance that you want to upload a schema to.
-. Click *Upload artifact* and complete the form to define the schema details:
+. On the *{registry} Instances* page of the web console, select the {registry} instance that you want to upload the artifact to.
+. Click *Upload artifact* and complete the form to define the artifact details:
 +
 [.screencapture]
 .Guided steps to define artifact details
-image::upload-schema.png[Image of form to upload a schema]
+image::upload-artifact.png[Image of form to upload an artifact]
 +
 * *Group*: Enter an optional unique group name such as `my-org` to organize the artifact in a named collection. Each group contains a logically related set of schemas or API designs, typically managed by a single entity, belonging to a particular application or organization.
 +
@@ -181,7 +183,9 @@ NOTE: Specifying a group is optional when using the web console, and a `default`
 +
 * *ID*: Enter an optional unique ID for this artifact such as `my-ID`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID.
 * *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the list, for example, Avro Schema or OpenAPI.
-* *Artifact*: Drag and drop or click *Browse* to upload a file. For this example, copy and paste the following simple Avro schema:
+
+* *Artifact*: Specify the artifact location using either of the following options: 
+** *From file*: Click *Browse*, and select a file, or drag and drop a file. For example, copy and paste the following simple Avro schema:
 +
 [source,json,subs="+quotes,attributes"]
 ----
@@ -201,32 +205,34 @@ NOTE: Specifying a group is optional when using the web console, and a `default`
   ]
 }
 ----
+** *From URL*: Enter a valid and accessible HTTPS URL, and click *Fetch*. For example: `\https://petstore3.swagger.io/api/v3/openapi.json`.
 
 . Click *Upload* to complete the operation and display the new artifact details:
 
 * *Overview* tab:
 ** *Version metadata*: Displays details such as the artifact name, artifact ID, global ID, content ID, labels, properties, and so on.
-** *Content rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity rule* or *Compatibility rule* by enabling the rule and then selecting the appropriate rule configuration from the list. For details on supported rules, see the https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1[{product-long-registry} user documentation^].
+** *Content rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity rule* or *Compatibility rule* by enabling the rule and then selecting the appropriate rule configuration from the list. For details on supported rules, see {content-rules-registry}.
+
 * *Documentation* tab: (OpenAPI only): Displays automatically-generated REST API documentation.
 * *Content* tab: Displays a read-only view of the full artifact content.
 
 +
-You can now use this schema to serialize and deserialize messages from Kafka client applications.
+You can now use this schema or API artifact with your client applications.
 
 . You can click *Upload new version* to add a new artifact version.
 
 . You can click *Delete* to delete an artifact as needed.
 +
-IMPORTANT: Deleting an artifact deletes the artifact and all of its versions, and cannot be undone. Artifact versions are immutable and cannot be deleted individually.
+IMPORTANT: Deleting an artifact deletes the artifact and all of its versions, and cannot be undone. 
 
 . To show the list of artifacts on the *Artifacts* tab, click the _instance-name_ breadcrumb.
 
 .Verification
 ifdef::qs[]
-* Is the new schema listed on the *Artifacts* tab?
+* Is the new artifact listed on the *Artifacts* tab?
 endif::[]
 ifndef::qs[]
-* Verify that the new schema is listed on the *Artifacts* tab.
+* Verify that the new artifact is listed on the *Artifacts* tab.
 endif::[]
 
 [id="proc-connecting-registry-clients_{context}"]
@@ -257,9 +263,7 @@ The remainder of this section describes how to create a service account and copy
 If you want to use the credentials of an _existing_ service account, you can skip to the next section.
 endif::[]
 
-
 . Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
-
 
 . Copy the generated *Client ID* and *Client secret* to a secure location.
 +
