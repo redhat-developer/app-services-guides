@@ -10,13 +10,13 @@ To connect your applications or services to a {registry} instance in the web con
 
 .Procedure
 . On the *{registry} Instances* page of the web console, for the instance that you want to connect to, select the options icon (three vertical dots), and click *Connection*.
-. Depending on the client libraries that you want to use, chose the API for your needs:
+. Depending on the client libraries that you want to use, choose the API for your needs:
 +
- * *Core Registry API* is the most powerful and works with Apicurio client libraries
- * *Schema Registry compatibility API* provides compatibility with the Confluent Schema Registry API
- * *CNCF Schema Registry API* provides compatibility with the CNCF specification
+ * *Core Registry API* is the most powerful API and works with Apicurio client libraries.
+ * *Schema Registry compatibility API* provides compatibility with the Confluent Schema Registry API.
+ * *CNCF Schema Registry API* provides compatibility with the CNCF specification.
 
-. On the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. This is the server endpoint that you'll need to connect to this {registry} instance.
+. On the *Connection* page, copy the *Core Registry API* URL, or one of the other API URLs if you are using a different client, to a secure location. You'll use this server endpoint to connect to this {registry} instance.
 +
 ifdef::qs[]
 The remainder of this task describes how to create a service account and copy the generated credentials.
@@ -27,9 +27,7 @@ The remainder of this section describes how to create a service account and copy
 If you want to use the credentials of an _existing_ service account, you can skip to the next section.
 endif::[]
 
-
 . Under *Service Accounts*, click *Create service account* to generate the credentials that you can use to connect applications to {registry} and Kafka instances.
-
 
 . Copy the generated *Client ID* and *Client secret* to a secure location.
 +
@@ -37,7 +35,7 @@ IMPORTANT: The generated credentials are displayed only one time. Ensure that yo
 
 . After you save the generated credentials to a secure location, select the confirmation check box in the credentials window and close the window.
 
-. For the *Authentication method*, copy the OAuth *Token endpoint URL* to a secure location. This is the endpoint that you’ll use with your service account credentials to authenticate the connection to this {registry} instance.
+. For the *Authentication method*, copy the OAuth *Token endpoint URL* to a secure location. You’ll use this endpoint with your service account credentials to authenticate the connection to this {registry} instance.
 +
 NOTE: HTTP Basic authentication is also available for tools and libraries that don't support OAuth, but OAuth is recommended whenever possible. With HTTP Basic, you use only the service account credentials to authenticate the connection to the {registry} instance.
 
