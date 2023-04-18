@@ -162,7 +162,7 @@ endif::[]
 == Uploading a schema or API to {registry}
 
 [role="_abstract"]
-After you create a {registry} instance, you can upload schema or API content to the instance. The following examples show uploading a simple Apache Avro schema file for serializing and deserializing Kafka messages in client applications, and uploading the Petstore sample API from an HTTPS URL. 
+After you create a {registry} instance, you can upload schema or API content to the instance. The following examples show how to upload a simple Apache Avro schema file for serializing and deserializing Kafka messages in client applications, and how to upload the Petstore sample API from an HTTPS URL. 
 
 NOTE: Uploading an artifact from an HTTP URL is not supported for security reasons.
 
@@ -182,7 +182,7 @@ image::upload-artifact.png[Image of form to upload an artifact]
 NOTE: Specifying a group is optional when using the web console, and a `default` group is automatically created.
 +
 * *ID*: Enter an optional unique ID for this artifact such as `my-ID`. If you do not specify a unique artifact ID, {registry} generates one automatically as a UUID.
-* *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the list, for example, Avro Schema or OpenAPI.
+* *Type*: Use the default *Auto-Detect* setting to automatically detect the artifact type, or select the artifact type from the list, for example, **Avro Schema** or **OpenAPI**.
 
 * *Artifact*: Specify the artifact location using either of the following options: 
 ** *From file*: Click *Browse*, and select a file, or drag and drop a file. For example, copy and paste the following simple Avro schema:
@@ -213,7 +213,7 @@ NOTE: Specifying a group is optional when using the web console, and a `default`
 ** *Version metadata*: Displays details such as the artifact name, artifact ID, global ID, content ID, labels, properties, and so on.
 ** *Content rules*: Displays artifact content rules that you can enable and configure. You can configure a *Validity rule* or *Compatibility rule* by enabling the rule and then selecting the appropriate rule configuration from the list. For details on supported rules, see {content-rules-registry}.
 
-* *Documentation* tab: (OpenAPI only): Displays automatically-generated REST API documentation.
+* *Documentation* tab: (AsyncAPI or OpenAPI only): Displays automatically-generated REST API documentation.
 * *Content* tab: Displays a read-only view of the full artifact content.
 
 +
