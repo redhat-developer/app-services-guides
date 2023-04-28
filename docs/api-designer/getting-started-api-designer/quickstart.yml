@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: getting-started-api-designer
   annotations:
-    draft: false
+    draft: true
     order: 1
   labels:
     service-category/application-services: "true"
