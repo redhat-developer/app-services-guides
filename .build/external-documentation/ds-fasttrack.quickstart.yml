@@ -3,7 +3,7 @@ kind: QuickStarts
 metadata:
   name: docs-ds-fasttrack
   annotations:
-    order: 11
+    order: 2
   labels:
     service-category/data-services: "true"
     product/rhods: "true"
