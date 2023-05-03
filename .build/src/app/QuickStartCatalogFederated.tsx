@@ -94,44 +94,6 @@ const MasQuickStartCatalog: React.FC = () => {
     <>
       <QuickStartCatalogSection>
         <TextContent>
-          <Text component="h2">Quick starts</Text>
-          <Text component="p" className="mk-catalog-sub">
-            Step-by-step instructions and tasks
-          </Text>
-        </TextContent>
-        <Gallery className="pfext-quick-start-catalog__gallery" hasGutter>
-          {allQuickStarts
-            .filter(
-              (quickStart) =>
-                !quickStart.spec.type ||
-                quickStart.spec.type.text !== "Documentation"
-            )
-            .sort(sortFnc)
-            .map((quickStart) => {
-              const {
-                metadata: { name: id },
-              } = quickStart;
-
-              return (
-                <GalleryItem
-                  key={id}
-                  className="pfext-quick-start-catalog__gallery-item"
-                >
-                  <QuickStartTile
-                    quickStart={quickStart}
-                    isActive={id === activeQuickStartID}
-                    status={getQuickStartStatus(allQuickStartStates, id)}
-                  />
-                </GalleryItem>
-              );
-            })}
-        </Gallery>
-      </QuickStartCatalogSection>
-      <QuickStartCatalogSection>
-        <Divider />
-      </QuickStartCatalogSection>
-      <QuickStartCatalogSection>
-        <TextContent>
           <Text component="h2">Documentation</Text>
           <Text component="p" className="mk-catalog-sub">
             Technical information for using the service
