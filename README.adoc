@@ -7,6 +7,15 @@
 
 = {product} guides and samples
 
+[IMPORTANT]
+====
+The cloud services described on this page are no longer available. For self-managed alternatives, see the following products:
+
+* OpenShift Streams for Apache Kakfa: see link:https://access.redhat.com/documentation/en-us/red_hat_amq_streams[Red Hat AMQ Streams]
+* OpenShift Service Registry: see link:https://access.redhat.com/documentation/en-us/red_hat_build_of_apicurio_registry[Red Hat build of Apicurio Registry]
+* OpenShift Connectors: see link:https://access.redhat.com/documentation/en-us/red_hat_build_of_apache_camel_k[Red Hat build of Apache Camel K]
+====
+
 == {product-long-kafka} guides
 
 * link:./docs/kafka/getting-started-kafka[Getting started with {product-long-kafka}]
