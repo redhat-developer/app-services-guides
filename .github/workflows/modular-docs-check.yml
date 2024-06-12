@@ -33,7 +33,7 @@ jobs:
         java-version: 15
         distribution: 'adopt' # See 'Supported distributions' for available options
     - name: Use Ruby 2.6
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@d3c9825d67b0d8720afdfdde5af56c79fdb38d16 #v1
       with:
         ruby-version: '2.6'
 
