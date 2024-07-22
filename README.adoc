@@ -11,7 +11,7 @@
 ====
 The cloud services described on this page are no longer available. For self-managed alternatives, see the following products:
 
-* OpenShift Streams for Apache Kakfa: see link:https://docs.redhat.com/en/documentation/red_hat_streams_for_apache_kafka/[Red Hat Streams for Apache Kakfa]
+* OpenShift Streams for Apache Kakfa: see link:https://docs.redhat.com/en/documentation/red_hat_streams_for_apache_kafka/[Streams for Apache Kakfa]
 * OpenShift Service Registry: see link:https://access.redhat.com/documentation/en-us/red_hat_build_of_apicurio_registry[Red Hat build of Apicurio Registry]
 * OpenShift Connectors: see link:https://access.redhat.com/documentation/en-us/red_hat_build_of_apache_camel_k[Red Hat build of Apache Camel K]
 ====
