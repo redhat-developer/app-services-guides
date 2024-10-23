@@ -13,16 +13,16 @@
     <artifactId>quarkus-service-registry-quickstart-consumer</artifactId>
 
     <properties>
-        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-        <quarkus-plugin.version>2.8.0.Final</quarkus-plugin.version>
+        <surefire-plugin.version>3.5.1</surefire-plugin.version>
+        <quarkus-plugin.version>2.16.12.Final</quarkus-plugin.version>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-        <quarkus.platform.version>2.8.0.Final</quarkus.platform.version>
+        <quarkus.platform.version>2.16.12.Final</quarkus.platform.version>
         <maven.compiler.source>11</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>11</maven.compiler.target>
         <testcontainers.version>1.15.2</testcontainers.version>
-        <apicurio-common-rest-client.version>0.1.9.Final</apicurio-common-rest-client.version>
+        <apicurio-common-rest-client.version>0.1.18.Final</apicurio-common-rest-client.version>
     </properties>
     <dependencyManagement>
         <dependencies>
